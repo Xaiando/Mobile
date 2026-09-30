@@ -1,0 +1,65 @@
+# Original cited choices and point-specific recall for three Level 2 scope gaps.
+question_templates:
+  - id: qt_wset_l2_scope_corrections_choice_3
+    relation_type: PRINCIPLE_EXPLANATION
+    direction: forward
+    mode: authored_choice
+    variant: wset_l2_scope_corrections_choice
+    prompt_template: '{subject.name}'
+    parameters:
+      item_choices:
+        ki_wset_l2_kabinett_must_weight:
+          prompt: A German Riesling label says Kabinett but gives no sweetness indication. What can that Prädikat establish?
+          options:
+            - Lowest Prädikat must-weight level.
+            - The estate's classified vineyard tier.
+            - The finished wine's dry sweetness band.
+            - A prescribed period of maturation in oak.
+          correctIndex: 0
+          explanation: Kabinett identifies the lowest must-weight level within Prädikatswein. It does not by itself settle the wine's finished sweetness; consult the separate sweetness indication or product details.
+          sourceCitationId: src_wset_l2_kabinett_scope
+        ki_wset_l2_closure_failure_sensory:
+          prompt: A young white intended to be fresh and fruity has a failed seal, faded fruit and bruised-apple aromas. Which mechanism fits this evidence?
+          options:
+            - Tartrate crystal formation.
+            - Excess oxygen from the failed seal.
+            - Cork taint formed by pieces of broken cork.
+            - Intended oxidative maturation before bottling.
+          correctIndex: 1
+          explanation: A faulty seal can admit oxygen and permit oxidation. This explains the possible fruit loss and oxidised aromas; it does not prove that every similar aroma comes from a faulty seal.
+          sourceCitationId: src_wset_sfault_common_faults
+        ki_wset_l2_heat_damage_sensory:
+          prompt: A fruit-led wine spent weeks in a hot shop window. Which change is consistent with heat damage?
+          options:
+            - New-oak spice and tannin.
+            - Greater fresh-fruit intensity.
+            - Fading fruit with a dull, stale taste.
+            - Honeyed botrytis character from grape selection.
+          correctIndex: 2
+          explanation: Prolonged heat can diminish fresh-fruit character and leave a stale, dull palate. Storage history supports this hypothesis; the flavours alone are not conclusive.
+          sourceCitationId: src_wset_sfault_common_faults
+  - id: qt_wset_l2_scope_corrections_typed_3
+    relation_type: PRINCIPLE_EXPLANATION
+    direction: forward
+    mode: typed
+    variant: wset_l2_scope_corrections_recall
+    prompt_template: '{subject.name}'
+    parameters:
+      item_cues:
+        ki_wset_l2_kabinett_must_weight:
+          prompt: Relative to the other Prädikat levels, what must-weight level does Kabinett occupy?
+          acceptedAnswers:
+            - lowest
+            - lowest must-weight level
+            - lowest must weight
+        ki_wset_l2_closure_failure_sensory:
+          prompt: Which gas entering through a failed seal drives oxidation and possible fruit loss?
+          acceptedAnswers:
+            - oxygen
+            - excess oxygen
+        ki_wset_l2_heat_damage_sensory:
+          prompt: Which fresh flavour character can fade after prolonged hot storage?
+          acceptedAnswers:
+            - fresh fruit
+            - fresh-fruit character
+            - fruit

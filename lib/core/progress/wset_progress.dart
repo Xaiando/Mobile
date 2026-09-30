@@ -608,6 +608,7 @@ class WsetProgressRepository {
             now: now,
             currentItems: items.map((item) => item.id).toSet(),
             mappedItems: mapped.map((item) => item.id).toSet(),
+            requiredGuidedEvidenceIds: level.practice.guidedEvidenceIds.toSet(),
           ),
         ),
       );

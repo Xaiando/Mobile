@@ -200,8 +200,8 @@ void main() {
       final geography = report.domains.singleWhere(
         (row) => row.id == 'geography',
       );
-      expect(geography.counts[CoverageMetric.core], 1060);
-      expect(geography.counts[CoverageMetric.coreUsefulPractice], 1060);
+      expect(geography.counts[CoverageMetric.core], 1071);
+      expect(geography.counts[CoverageMetric.coreUsefulPractice], 1071);
       expect(geography.counts[CoverageMetric.spatial], 1673);
       for (final id in ids) {
         final item = report.items.singleWhere((row) => row.id == id);

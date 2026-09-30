@@ -1,4 +1,42 @@
-# Final Level 1–3 outcome audit
+# Level 1–3 outcome audit
+
+## 30 September 2026 supplement: candidate 0.24.61
+
+The resumed named-specification audit found concrete omissions that the historical 27 September verdict below had not identified. This supplement supersedes that verdict for the current candidate. It records corrected content and required selection; current candidate delivery validation is pending. Internal editorial review, qualified factual review, actual tasting performance and an official qualification remain separate evidence.
+
+| Level | Required topic rows | Distinct required facts |
+|---|---:|---:|
+| 1 | 49 | 132 |
+| 2 | 446 | 767 |
+| 3 | 892 | 1,655 |
+
+These counts were read from the candidate `assets/progress/wset_scope.json`; IDs are counted once per level across all requirement dimensions. They are cumulative app requirements, not official examination-topic counts. Level 1 has no new content or scope change: the named-outcome audit found no concrete missing Level 1 outcome. The Level 2 comparison matched all 30 named grape families and all 149 grape/origin associations, but that result did not prove that its separate label, storage-condition and quality-conclusion outcomes were complete.
+
+### Level 2 omissions and corrections
+
+The pinned [Level 2 2026 Issue 2.1 specification](https://www.wsetglobal.com/media/19132/wset_l2wines_specification_en_april2026_issue21.pdf) explicitly includes the six Prädikat terms in its label scope and storage-related condition effects in its service scope. Existing app legal definitions taught the Prädikate only to Level 3/CMS. The candidate adds direct Level 2 core depth-2 mappings for `ki_kabinett_rule`, `ki_spaetlese_rule`, `ki_auslese_rule`, `ki_beerenauslese_rule`, `ki_trockenbeerenauslese_rule` and `ki_eiswein_rule`. Existing assertions, citations, prerequisite edges and higher-track depth 3 are retained. In particular, the statutory exceptional TBA provision is not replaced by a blanket noble-rot rule. `ki_praedikatswein_protection` already had a Level 2 mapping, so the prerequisite chain remains reachable.
+
+Kabinett's existing assertion teaches unenrichment, a property also shared by higher Prädikate. New `ki_wset_l2_kabinett_must_weight` adds its relative must-weight position without inferring finished sweetness. It uses only the relevant Kabinett and sweetness-label sections of [WSET's German Riesling guide](https://www.wsetglobal.com/knowledge-centre/blog/2025/decoding-german-riesling-a-guide-to-quality-and-styles). Unrelated historical, vintage, production-volume or categorical claims elsewhere in that article are not imported.
+
+Existing heat-damage service lessons covered physical signs and stock handling. New `ki_wset_l2_closure_failure_sensory` teaches the possible failed-seal/excess-oxygen mechanism and loss of fruit with oxidised characteristics; new `ki_wset_l2_heat_damage_sensory` teaches fresh-fruit loss and dull/stale taste after prolonged hot storage. Both cite the relevant sections of [WSET's fault article](https://www.wsetglobal.com/knowledge-centre/blog/2023/august/24/common-wine-faults-and-how-to-spot-them). A sensory resemblance or current bottle temperature does not conclusively diagnose a storage fault. The article's heat section does not explicitly use “cooked,” so that description was not added as though it were the cited claim.
+
+These three original facts are dated 30 September 2026, remain `unverified`, and have three cited authored choices plus three point-specific typed cues in `templates/wset_l2_scope_corrections.yaml`. The choices vary answer position and answer-length rank. Focused tests check literal alternatives, accepted and wrong recall phrases, actual served Level 2 questions, useful practice, prerequisite availability and the absence of Level 1 leakage; their current execution result belongs in the root's validation record.
+
+The candidate also makes six existing quality lessons required at Level 2: `ki_wset_taste_quality_balance`, `ki_wset_taste_quality_length`, `ki_wset_taste_quality_intensity`, `ki_wset_taste_quality_complexity`, `ki_wset_taste_quality_preference` and `ki_wset_taste_quality_fault_context`. They support a reasoned quality conclusion, distinguish personal preference and keep fault interpretation conditional. This changes selection of existing facts, rather than adding six new factual assertions. Together, the six label definitions, three new principles and six existing quality principles increase the required Level 2 set by 15 IDs and four requirement rows.
+
+### Level 3 required geography
+
+Two added geography requirements select 27 existing named location facts that were previously optional in the required catalog: sparkling/fortified origins and Champagne districts, plus still-wine parent-region context. The candidate retains grape, style, production, label and quality/price dimensions separately; a location exercise cannot replace their explanatory evidence. Level 3 inherits the two new Level 2 label/condition requirements and three new facts. Its net increase is four requirement rows and 30 distinct IDs. These totals count required lesson IDs; they do not measure unique geographic origins or canonical locations.
+
+### Validation boundary after the restart
+
+The frozen [PR #44 CI run](https://github.com/Xaiando/Mobile/actions/runs/36633382422) finished successfully at head `a77df27bfb27f5a3cc39337a1a37b996cd68b945`: all five jobs passed, and its final hosted test log reports 1,293 passing tests at `2026-09-29T23:56:38.0496084Z` (01:56:38 on 30 September in Oslo). That final log is observed completion evidence. The prior `in_progress` metadata had not revealed a test name or count.
+
+The newer local 0.24.59/0.24.60 full-suite runs were interrupted by the PC restart. Their earlier focused/analyzer/browser evidence remains scoped to the checks actually completed; neither interrupted run is a final full-suite pass. The current 0.24.61 candidate's integrated tests, analysis, coverage and release checks remain pending and are recorded separately by root. No tests are skipped, assertions weakened or hosted workflow restarted to replace that evidence.
+
+The corrections close these identified authored-scope omissions. They do not establish a blanket claim that every syllabus claim has passed expert verification, that app practice assesses physical tasting skill, or that a learner has earned a WSET qualification. Diploma D1–D6 remains incomplete; history and other beverages remain outside Award in Wines completion.
+
+## Historical audit: 27 September 2026, dataset 0.23.0
 
 27 September 2026. Read-only audit of the registered dataset 0.23.0, its learner requirement catalog, exact teaching ledger, original rehearsal bank, guided tasting and source/reviewer reports. No SDK or Git commands were run; no completion flags, factual assertions or qualification declarations were changed.
 

@@ -360,7 +360,7 @@ void main() {
   );
 
   test(
-    '1717 cited choices are generated and served across WSET and CMS tracks',
+    '1720 cited choices are generated and served across WSET and CMS tracks',
     () async {
       final db = openTestDatabase();
       try {
@@ -387,7 +387,7 @@ void main() {
                   template.id == 'qt_d5f_authored_choice',
             )
             .toList();
-        expect(templates, hasLength(83));
+        expect(templates, hasLength(84));
         final expectedIds = {
           for (final template in templates)
             ...((jsonDecode(template.parameters!)
@@ -669,9 +669,9 @@ void main() {
           isEmpty,
           reason: 'Diploma and Level 3 geography choices remain distinct',
         );
-        expect(expectedIds, hasLength(1717));
+        expect(expectedIds, hasLength(1720));
         expect(levelOneIds, hasLength(132));
-        expect(levelTwoIds, hasLength(309));
+        expect(levelTwoIds, hasLength(312));
         expect(sharedGrapeIds, hasLength(52));
         expect(europeIds, hasLength(67));
         expect(newWorldIds, hasLength(16));
@@ -760,7 +760,7 @@ void main() {
                OR t.id = 'qt_d5f_authored_choice')
         ORDER BY q.knowledge_item_id
       ''').get();
-        expect(rows, hasLength(1717));
+        expect(rows, hasLength(1720));
         final actual = {
           for (final row in rows)
             row.read<String>('knowledge_item_id'): row.read<String>(

@@ -1,0 +1,74 @@
+# Original corrections from the Level 2 named-scope audit.
+# Existing Prädikat legal definitions stay in germany.yaml; these points add
+# the missing Kabinett context and two storage-fault sensory mechanisms.
+knowledge_nodes:
+  - { id: n_wset_l2_kabinett_context, node_type: production_principle, name: 'What does Kabinett tell you about grape must weight, and what does it leave unknown?' }
+  - { id: n_wset_l2_kabinett_context_point, node_type: learning_point, name: 'Lowest must-weight level within Prädikatswein; finished sweetness needs separate evidence' }
+  - { id: n_wset_l2_closure_failure, node_type: production_principle, name: 'How can a failed closure change a wine intended to remain fresh and fruity?' }
+  - { id: n_wset_l2_closure_failure_point, node_type: learning_point, name: 'Excess oxygen can fade fruit and develop oxidised aromas' }
+  - { id: n_wset_l2_heat_damage, node_type: production_principle, name: 'What sensory deterioration can prolonged hot storage cause?' }
+  - { id: n_wset_l2_heat_damage_point, node_type: learning_point, name: 'Fresh fruit can fade, leaving a dull, stale taste' }
+
+knowledge_relations:
+  - { subject_id: n_wset_l2_kabinett_context, relation_type: PRINCIPLE_EXPLANATION, object_id: n_wset_l2_kabinett_context_point, valid_from: '2026-09-30' }
+  - { subject_id: n_wset_l2_closure_failure, relation_type: PRINCIPLE_EXPLANATION, object_id: n_wset_l2_closure_failure_point, valid_from: '2026-09-30' }
+  - { subject_id: n_wset_l2_heat_damage, relation_type: PRINCIPLE_EXPLANATION, object_id: n_wset_l2_heat_damage_point, valid_from: '2026-09-30' }
+
+knowledge_items:
+  - id: ki_wset_l2_kabinett_must_weight
+    subject_id: n_wset_l2_kabinett_context
+    relation_type: PRINCIPLE_EXPLANATION
+    object_id: n_wset_l2_kabinett_context_point
+    domain_id: viticulture
+    assertion_text: >-
+      Kabinett occupies the lowest must-weight level within Prädikatswein.
+      That harvest classification alone does not establish the finished wine's
+      sweetness; check a sweetness indication or product information separately.
+    verification_status: unverified
+    mcq_disabled: true
+    last_verified_at: '2026-09-30T00:20:00.000Z'
+  - id: ki_wset_l2_closure_failure_sensory
+    subject_id: n_wset_l2_closure_failure
+    relation_type: PRINCIPLE_EXPLANATION
+    object_id: n_wset_l2_closure_failure_point
+    domain_id: service
+    assertion_text: >-
+      A failed closure can admit excess oxygen. In a wine intended to remain
+      fresh and fruity, oxidation can fade fruit, darken colour and develop
+      bruised-apple or nut aromas; these observations alone do not prove the cause.
+    verification_status: unverified
+    mcq_disabled: true
+    last_verified_at: '2026-09-30T00:20:00.000Z'
+  - id: ki_wset_l2_heat_damage_sensory
+    subject_id: n_wset_l2_heat_damage
+    relation_type: PRINCIPLE_EXPLANATION
+    object_id: n_wset_l2_heat_damage_point
+    domain_id: service
+    assertion_text: >-
+      Prolonged hot storage or transport can reduce fresh-fruit character and
+      leave a dull, stale taste. This is a possible heat-damage effect, not a
+      diagnosis established by one aroma or by the bottle's current temperature.
+    verification_status: unverified
+    mcq_disabled: true
+    last_verified_at: '2026-09-30T00:20:00.000Z'
+
+knowledge_item_prerequisites:
+  - { knowledge_item_id: ki_wset_l2_kabinett_must_weight, prerequisite_item_id: ki_kabinett_rule }
+
+certification_knowledge_mappings:
+  - { certification_id: WSET_L2, knowledge_item_id: ki_wset_l2_kabinett_must_weight, importance: core, minimum_depth: 2 }
+  - { certification_id: WSET_L2, knowledge_item_id: ki_wset_l2_closure_failure_sensory, importance: core, minimum_depth: 2 }
+  - { certification_id: WSET_L2, knowledge_item_id: ki_wset_l2_heat_damage_sensory, importance: core, minimum_depth: 2 }
+
+source_citations:
+  - id: src_wset_l2_kabinett_scope
+    kind: reference_work
+    title: 'Decoding German Riesling: a guide to quality and styles'
+    publisher: Wine & Spirit Education Trust
+    document_identifier: '12 March 2025; Kabinett paragraph and separate sweetness label indications only'
+    url: https://www.wsetglobal.com/knowledge-centre/blog/2025/decoding-german-riesling-a-guide-to-quality-and-styles
+    accessed_on: '2026-09-30'
+knowledge_item_citations:
+  - { knowledge_item_id: ki_wset_l2_kabinett_must_weight, source_citation_id: src_wset_l2_kabinett_scope, locator: 'Quality levels and styles: Kabinett; How to read a German Riesling label: separate sweetness indication' }
+  - { knowledge_item_id: ki_wset_l2_closure_failure_sensory, source_citation_id: src_wset_sfault_common_faults, locator: 'Oxidation: faulty closure, excess oxygen and changes in fresh-fruit styles; deliberately oxidative styles are a separate context' }
+  - { knowledge_item_id: ki_wset_l2_heat_damage_sensory, source_citation_id: src_wset_sfault_common_faults, locator: 'Heat damage: prolonged hot transport/storage and loss of fruit with dull, stale taste; no exclusive diagnosis claimed' }

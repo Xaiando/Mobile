@@ -15,12 +15,17 @@ class WsetPracticeRequirements {
     this.calibrationCases = 0,
     this.physicalWines = 0,
     this.pairedTasting = false,
+    this.guidedEvidenceIds = const [],
   });
   final bool rehearsal;
   final bool writtenReview;
   final int calibrationCases;
   final int physicalWines;
   final bool pairedTasting;
+
+  /// Written evidence required by the current study scope. Older saved flights
+  /// retain their own contract and history, but cannot supply missing evidence.
+  final List<String> guidedEvidenceIds;
   bool get isEmpty =>
       !rehearsal &&
       !writtenReview &&
@@ -34,9 +39,20 @@ class WsetPracticeRequirements {
         calibrationCases: row['calibrationCases'] as int,
         physicalWines: row['physicalWines'] as int,
         pairedTasting: row['pairedTasting'] as bool,
+        guidedEvidenceIds: List<String>.unmodifiable(
+          (row['guidedEvidenceIds'] as List? ?? const []).cast<String>(),
+        ),
       );
   void validate() {
-    if (calibrationCases < 0 ||
+    if ((guidedEvidenceIds.isNotEmpty &&
+            calibrationCases == 0 &&
+            physicalWines == 0) ||
+        guidedEvidenceIds.toSet().length != guidedEvidenceIds.length ||
+        guidedEvidenceIds.length > 32 ||
+        guidedEvidenceIds.any(
+          (id) => !RegExp(r'^[a-z][a-z0-9_]{0,63}$').hasMatch(id),
+        ) ||
+        calibrationCases < 0 ||
         physicalWines < 0 ||
         calibrationCases > 100 ||
         physicalWines > 100) {
@@ -79,6 +95,7 @@ class WsetPracticeEvidenceReader {
     required DateTime now,
     required Set<String> currentItems,
     required Set<String> mappedItems,
+    Set<String> requiredGuidedEvidenceIds = const {},
   }) async {
     var rehearsals = 0, writtenReviews = 0, paired = 0, unreadable = 0;
     final cases = <String>{}, physical = <String>{};
@@ -160,6 +177,16 @@ class WsetPracticeEvidenceReader {
         if (record.level.level != level ||
             !record.isFinished ||
             record.completedAt!.isAfter(now)) {
+          continue;
+        }
+        final savedPromptIds = record.level.evidencePrompts
+            .map((prompt) => prompt.id)
+            .toSet();
+        if (!savedPromptIds.containsAll(requiredGuidedEvidenceIds) ||
+            requiredGuidedEvidenceIds.any(
+              (id) => (record.evidence[id] ?? '').trim().isEmpty,
+            )) {
+          // Valid legacy history is preserved, not reported as corruption.
           continue;
         }
         final session = await (db.select(

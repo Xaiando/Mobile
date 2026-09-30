@@ -4,15 +4,15 @@ Home → **Your WSET progress** separates required teaching, current fact master
 
 `WsetProgressRepository` derives progress from the installed knowledge items, cumulative study mappings, served question formats, shared review states, append-only review log and saved practice snapshots. It creates no curriculum facts and requires no schema migration. Counts come from the installed curriculum rather than a fixed release total.
 
-The bundled scope's reviewed Level 1–3 study selections are:
+The candidate 0.24.61 catalog's internally reviewed Level 1–3 study selections are:
 
 | Level | Required topic rows | Distinct required facts |
 |---|---:|---:|
 | 1 | 49 | 132 |
-| 2 | 442 | 752 |
-| 3 | 888 | 1,625 |
+| 2 | 446 | 767 |
+| 3 | 892 | 1,655 |
 
-These are cumulative app requirement groups, not official syllabus or examination counts. The [final outcome audit](research/wset-levels-1-3-final-outcome-audit.md) found no remaining mandatory instructional or exact-reference gap in this snapshot. Levels 1–3 app study coverage is internally reviewed and its delivery gates pass. Learner milestones require mastery and recorded practice; official qualification and expert factual verification remain separate. Diploma remains incomplete.
+These are the 30 September 2026 candidate 0.24.61 selections: cumulative app requirement groups, not official syllabus or examination counts. The [outcome audit](research/wset-levels-1-3-final-outcome-audit.md) records the named omissions found after the earlier review and their corrections. Level 1 remains at 49 rows and 132 facts. Level 2 now explicitly requires six Prädikat meanings, Kabinett must-weight context, closure/heat sensory effects and evidence-based quality conclusions. Level 3 adds 27 previously optional named location facts and inherits the three new Level 2 facts. Current candidate delivery validation is pending; earlier passing checks do not establish a full pass for this changed release. Learner milestones require mastery and recorded practice; official qualification and expert factual verification remain separate. Diploma remains incomplete.
 
 ## Required and optional material
 
@@ -22,7 +22,7 @@ Required-material bars show available, studied and currently mastered facts. A r
 
 An unfinished requirement can start focused practice with its exact lesson IDs through the ordinary study planner. Study also searches assertion text, names and aliases without requiring accents, offers a topic filter, and retains each lesson's sources and memory state. Cumulative mappings let the same lesson and review state support each appropriate level without granting lower levels advanced-only content.
 
-Shared-subject principle recall uses original point-specific questions with finite accepted responsive phrases. All 520 required shared points have cues; the 522-cue bank also includes two additional optional points. A sibling point or an unresponsive canonical lesson title cannot receive credit for the selected fact. This is finite phrase recall, not automated grading of an explanation. Written explanation pools separately use only current served points from the selected track and retain explicit self-assessment, including a valid one-point exercise.
+Shared-subject principle recall uses original point-specific questions with finite accepted responsive phrases. The original 522-cue bank retains the 520 required shared points and two optional points documented in the earlier audit. The Level 2 scope-correction pack adds three separate typed cues for its new facts. Current delivery checks assess the exact selected IDs and served formats rather than treating a historical cue-bank size as proof of coverage. A sibling point or an unresponsive canonical lesson title cannot receive credit for the selected fact. This is finite phrase recall, not automated grading of an explanation. Written explanation pools separately use only current served points from the selected track and retain explicit self-assessment, including a valid one-point exercise.
 
 ## Current mastery and app milestones
 
@@ -32,7 +32,7 @@ An **app study milestone** requires a nonempty scope explicitly marked complete,
 
 The learner view now names this the **required study milestone**. It also shows a separate, live **app core question coverage** count for each of Levels 1–4. The denominator is every current fact mapped as core to that cumulative track; the numerator is the subset served an app-graded question plus a second question family. The count uses the same useful-practice rule as the release coverage audit and updates when the installed curriculum changes. It is independent of learner reviews, requirement-catalog membership and the self-reported exam result. A required-study milestone can be achieved while wider mapped core material still needs useful question formats; the screen shows that gap explicitly rather than calling the whole level complete. Even a full mapped-core count would not prove the app covers every official outcome or that its factual claims have been checked by a qualified expert.
 
-Level 1–3 scope and delivery are checked against the public specifications: Level 1 June 2022 Issue 1.2, Level 2 2026 Issue 2.1 and Level 3 May 2022 Issue 2. Completion metadata is published only after the outcome audit and delivery, regression and release gates close. The [completion plan](research/wset-1-3-completion-plan.md) and [delivery validation](research/wset-1-3-delivery-validation.md) record those checks. Internal scope review does not change a factual lesson's expert-review status; new facts remain unverified pending qualified review. Diploma's broader scope remains incomplete.
+Level 1–3 scope and delivery are checked against the public specifications: Level 1 June 2022 Issue 1.2, Level 2 2026 Issue 2.1 and Level 3 May 2022 Issue 2. The [completion plan](research/wset-1-3-completion-plan.md), [historical delivery validation](research/wset-1-3-delivery-validation.md) and current [outcome-audit supplement](research/wset-levels-1-3-final-outcome-audit.md) separate scope review from release execution. The frozen PR #44 head passed all five hosted jobs, including 1,293 tests; that evidence concerns head a77df27 and does not validate the newer 0.24.61 corrections. The local 0.24.59/0.24.60 full runs were interrupted by the PC restart, so they have no final full-suite success. Current release validation remains pending. Internal scope review does not change a factual lesson's expert-review status; all factual assertions, including the new corrections, remain unverified pending qualified review. Diploma's broader scope remains incomplete.
 
 The screen refreshes after database changes and once a minute while visible. Its stable stream retains the previous result during refresh, serializes calculations and coalesces overlapping requests. The timer starts after the first successful result; Home uses a static initial loading message so optional progress calculations do not keep the interface animating.
 

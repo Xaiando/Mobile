@@ -301,10 +301,22 @@ class _CurriculumState extends ConsumerState<_Curriculum> {
   }
 }
 
+// Only the historical portion of the optional enrichment bridge belongs here.
+// Sake and cigar items share its prefix but remain outside the wine timeline.
+const _wineHistoryBridgeItemIds = {
+  'ki_enrich_amarna_labels_content',
+  'ki_enrich_amarna_labels_object',
+  'ki_enrich_case_ancient_evidence_action',
+  'ki_enrich_case_ancient_evidence_reason',
+  'ki_enrich_case_ancient_evidence_tradeoff',
+  'ki_enrich_case_ancient_evidence_limit',
+};
+
 bool _isWineHistoryItem(String id) =>
     id.startsWith('ki_hist_') ||
     id.startsWith('ki_hcourse_') ||
-    id.startsWith('ki_htime_');
+    id.startsWith('ki_htime_') ||
+    _wineHistoryBridgeItemIds.contains(id);
 
 /// Milestones group related source-cited assertions without introducing new
 /// completion requirements. Each lesson still opens its normal source sheet.
@@ -328,6 +340,12 @@ const _wineHistoryMoments = <_WineHistoryMoment>[
       'n_hcourse_evidence',
       'n_hcourse_case_oldest',
     ],
+  ),
+  _WineHistoryMoment(
+    'amarna',
+    'Fourteenth century BCE',
+    'Amarna wine-jar inscriptions',
+    ['n_enrich_amarna_labels', 'n_enrich_case_ancient_evidence'],
   ),
   _WineHistoryMoment(
     'greek-symposium',

@@ -1,6 +1,6 @@
 # Study continuation — 30 September 2026
 
-Antigravity integrated the two pending content batches into release 0.24.58 on draft [PR #44](https://github.com/Xaiando/Mobile/pull/44), head a77df27bfb27f5a3cc39337a1a37b996cd68b945. This continuation starts from that exact head on a separate branch. The original dirty checkout and PR #44 are preserved.
+Antigravity integrated the two pending content batches into release 0.24.58 on draft [PR #44](https://github.com/Xaiando/Mobile/pull/44), head a77df27bfb27f5a3cc39337a1a37b996cd68b945. This continuation starts from that exact head on a separate branch. The original dirty checkout and PR #44 are preserved. This record retains the measured 0.24.59 snapshot; 0.24.60 subsequently closed its CMS gaps, and candidate 0.24.61 supersedes both for final validation. The [current outcome audit](wset-levels-1-3-final-outcome-audit.md) records the resumed scope corrections.
 
 ## Release 0.24.59
 
@@ -32,20 +32,23 @@ Diploma tasting is 194/194 core useful. Its other domain numerators are unchange
 - Five-track coverage baseline regenerated: zero known blocking gaps.
 - Eight affected regression files: 40/40 tests passed in 1:41, including current-publication availability, scaffolded versus full written rubrics, all CMS case-role grades, exact mapping counts and honest Diploma progress.
 - Static analysis: no issues.
-- Full-suite and narrow release-browser smoke results remain pending until their final logs are inspected.
+- Release browser smoke subsequently passed all ten stages with no page/console/request errors. This is desktop/web evidence, not physical mobile camera/OCR validation.
+- The local 0.24.59 full suite exposed the Itata distractor failure repaired in 0.24.60, then was interrupted by the PC restart. The 0.24.60 full run was also interrupted; neither has a final full-suite success. Candidate 0.24.61 validation is pending; its quality-focused regression passed 12/12.
 
 ## CI evidence preserved
 
 The completed parent-run logs were inspected: PR #34 passed 1,160 tests, #38 passed 1,170, #39 passed 1,174, #40 passed 1,179, #41 passed 1,183 and #42 passed 1,195. These counts validate their own heads rather than this release.
 
-PR #43's final log had 1,266 passing tests and one duplicate-question assertion failure; its browser smoke also failed while searching for White at the bottom of a long paired form. PR #44 incorporates the exact-count fixture repair and its browser smoke passed. Android, iOS and Windows jobs also passed. Its full test job was still running at the recorded observation; no passing claim is made for that job before its final log.
+PR #43's final log had 1,266 passing tests and one duplicate-question assertion failure; its browser smoke also failed while searching for White at the bottom of a long paired form. PR #44 incorporates the exact-count fixture repair. All five jobs of its frozen run subsequently passed, including web smoke, Android, iOS, Windows and the full test job. The final hosted log reports 1,293 passing tests at 2026-09-29T23:56:38.0496084Z for head a77df27bfb27f5a3cc39337a1a37b996cd68b945. That result does not validate later local releases.
 
-The PR #44 test step started 2026-09-29T21:29:52Z. The browser displays Sign in to view logs and exposes no test name, count or log timestamp. Actual running-test progress is unknown; API in_progress is only status. Five-minute checks preserve the head and job. At 23:29:52Z, assess observable evidence, corresponding slow local tests and the remaining 360-minute job budget; elapsed time alone neither establishes progress nor triggers cancellation. The bounded next action is to read the next checkpoint and inspect the final log when GitHub makes it available.
+The PR #44 test step began 2026-09-29T21:29:52Z. At the initial unauthenticated observation, the browser exposed no test name, count or log timestamp, so actual progress was unknown; API `in_progress` was only status. Five-minute checks preserved the head and job. The 23:29:52Z two-hour checkpoint was diagnostic, not a cancellation deadline. Later authenticated progress lines and the checkpoint's local-test/budget assessment are preserved in the [CMS continuation record](cms-practice-closure-2026-09-30.md).
+
+The final test step ended at 23:56:38 UTC with 1,293 passes. Its inspected local log is `D:/Apps/Sommelier study companion/build/resume-ci/pr44-final-test.log`; [run 36633382422](https://github.com/Xaiando/Mobile/actions/runs/36633382422) succeeded without changing its head or restarting the workflow. Further polling is unnecessary. The interrupted newer local suites remain distinct from this completed hosted evidence.
 
 ## Remaining acceptance work
 
-1. Close the 68 measured CMS core practice gaps: 28 service case roles, 34 service principles and six geography principles. Obtain exact item IDs from the served per-item report before authoring. Preserve all core mappings and the two-family/objective rule.
-2. Continue a named, source-linked syllabus crosswalk for all required depth across D1–D5. A bounded official Levels 1–3 spot-check found no concrete omitted region or grape; it is not a complete independent crosswalk. Product comparisons, current commercial systems and evidence-led writing remain broader workstreams.
+1. The 68 historical CMS core practice gaps were closed in 0.24.60: 28 service case roles, 34 service principles and six geography principles. Its measured 1,247/1,247 coverage is retained in the CMS continuation record; final resumed integration validation belongs to 0.24.61.
+2. Continue a named, source-linked syllabus crosswalk for all required depth across D1–D5. The resumed named Levels 1–3 crosswalk found concrete label, sensory-condition, quality-conclusion and required-geography corrections recorded in the current outcome audit; delivery validation is still pending. Product comparisons, current commercial systems and evidence-led writing remain broader workstreams.
 3. Complete fine atlas registers only with defensible, licensed geometry or separate reference markers. The existing fine-map research record lists rejected guesses and unavailable sources; preserve all map provenance and existing spatial questions.
 4. Verify the cellar scanner's camera/OCR, file cleanup and persistence on physical Android/iOS devices. Desktop/web manual selection is not this evidence.
 5. Obtain qualified factual and curriculum sufficiency review, plus physical tasting feedback. Keep official qualifications and self-reported examination passes separate from app study progress.
