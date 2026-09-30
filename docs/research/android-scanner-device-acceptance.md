@@ -76,3 +76,7 @@ The original PR45 native job subsequently completed successfully with 1,395 pass
 
 
 The read-only Android inventory at 17:28:27 UTC on 30 September 2026 found zero connected devices. The user subsequently supplied Android 16 / One UI 8 as the phone version. This updates the planned test target only; every physical checklist row remains UNRUN, and no install, phone setting or user-data change was performed. The older PR45 APK provenance remains separate from the unpublished continuation.
+
+## User-directed deferral while finishing Windows
+
+On 30 September 2026 the user said the S22 Ultra cannot connect until tomorrow and asked to postpone mobile work while finishing the PC version. All physical results above remain UNRUN. The reported target is Samsung Galaxy S22 Ultra, Android 16 / One UI 8; its properties and lifecycle claim have not been read from the device. This deferral does not block the separate Windows acceptance work and does not create a scheduled reminder or a mobile pass.

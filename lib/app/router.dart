@@ -132,7 +132,12 @@ final routerProvider = Provider<GoRouter>((ref) {
   // Onboarding comes first, once (backlog R1). Until startup has read the
   // settings, the app stays where it is.
   final settingsChanged = ValueNotifier(0);
-  ref.listen(settingsProvider, (_, _) => settingsChanged.value++);
+  // Draft saves change this table too; only onboarding changes routing.
+  ref.listen(settingsProvider, (previous, next) {
+    if (previous?.value?.isOnboarded != next.value?.isOnboarded) {
+      settingsChanged.value++;
+    }
+  });
   ref.onDispose(settingsChanged.dispose);
 
   final router = GoRouter(
