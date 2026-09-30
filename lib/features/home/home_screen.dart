@@ -149,6 +149,14 @@ class _Dashboard extends StatelessWidget {
                 onTap: () => context.push('/practice/rehearsal'),
               ),
               ListTile(
+                leading: const Icon(Icons.room_service_outlined),
+                title: const Text('CMS Certified rehearsal'),
+                subtitle: const Text(
+                  'Original theory, two-wine evidence and service self-review',
+                ),
+                onTap: () => context.push('/practice/cms-rehearsal'),
+              ),
+              ListTile(
                 leading: const Icon(Icons.wine_bar_outlined),
                 title: const Text('Guided tasting and calibration'),
                 subtitle: const Text(

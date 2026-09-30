@@ -35,6 +35,8 @@ class _DiplomaWrittenScreenState extends ConsumerState<DiplomaWrittenScreen> {
   int _unreadable = 0;
   String? _error;
 
+  bool get _mutationsBlocked => _busy || _leaving;
+
   @override
   void initState() {
     super.initState();
@@ -95,6 +97,7 @@ class _DiplomaWrittenScreenState extends ConsumerState<DiplomaWrittenScreen> {
     if (!mounted ||
         attempt == null ||
         attempt.isFinished ||
+        _leaving ||
         _checkingDeadline) {
       return;
     }
@@ -106,6 +109,7 @@ class _DiplomaWrittenScreenState extends ConsumerState<DiplomaWrittenScreen> {
     _checkingDeadline = true;
     try {
       await _writeTail;
+      if (_leaving) return;
       final expired = await _repository!.read(attempt.id);
       if (mounted && _attempt?.id == expired.id) {
         setState(() => _setAttempt(expired));
@@ -118,7 +122,7 @@ class _DiplomaWrittenScreenState extends ConsumerState<DiplomaWrittenScreen> {
   }
 
   void _saveProse(String questionId, String text) {
-    if (_busy || _leaving || _attempt == null) return;
+    if (_mutationsBlocked || _attempt == null) return;
     final id = _attempt!.id;
     _writeTail = _writeTail.then((_) async {
       if (_writeFailed) return;
@@ -139,10 +143,11 @@ class _DiplomaWrittenScreenState extends ConsumerState<DiplomaWrittenScreen> {
   Future<void> _action(
     Future<DiplomaWrittenAttempt?> Function(DiplomaWrittenRepository) task,
   ) async {
-    if (_busy || _repository == null) return;
+    if (_mutationsBlocked || _repository == null) return;
     setState(() => _busy = true);
     try {
       await _writeTail;
+      if (_leaving) return;
       if (_writeFailed) throw StateError('Reload the saved draft first.');
       final result = await task(_repository!);
       final history = await _repository!.historyWithDiagnostics(widget.unitId);
@@ -161,8 +166,9 @@ class _DiplomaWrittenScreenState extends ConsumerState<DiplomaWrittenScreen> {
   }
 
   Future<void> _reload() async {
+    if (_mutationsBlocked) return;
     await _writeTail;
-    if (!mounted) return;
+    if (!mounted || _leaving) return;
     setState(() {
       _loading = true;
       _writeFailed = false;
@@ -172,7 +178,7 @@ class _DiplomaWrittenScreenState extends ConsumerState<DiplomaWrittenScreen> {
   }
 
   Future<void> _leave(Object? result) async {
-    if (_leaving) return;
+    if (_mutationsBlocked) return;
     setState(() => _leaving = true);
     var popped = false;
     try {
@@ -218,7 +224,7 @@ class _DiplomaWrittenScreenState extends ConsumerState<DiplomaWrittenScreen> {
         TextFormField(
           key: ValueKey('diploma-written-prose-${q.id}'),
           initialValue: attempt.prose[q.id] ?? '',
-          enabled: !attempt.isFinished && !_busy && !_leaving,
+          enabled: !attempt.isFinished && !_mutationsBlocked,
           minLines: 5,
           maxLines: 12,
           maxLength: _maxResponseCharacters,
@@ -245,20 +251,24 @@ class _DiplomaWrittenScreenState extends ConsumerState<DiplomaWrittenScreen> {
                 ),
                 value: choices.contains(criterion.id),
                 title: Text(criterion.text),
-                onChanged: _busy
+                onChanged: _mutationsBlocked
                     ? null
-                    : (selected) => setState(() {
-                        if (selected == true) {
-                          choices.add(criterion.id);
-                        } else {
-                          choices.remove(criterion.id);
-                        }
-                      }),
+                    : (selected) {
+                        if (_mutationsBlocked) return;
+                        setState(() {
+                          if (selected == true) {
+                            choices.add(criterion.id);
+                          } else {
+                            choices.remove(criterion.id);
+                          }
+                        });
+                      },
               ),
             TextFormField(
               key: ValueKey('diploma-written-improvement-${q.id}'),
               initialValue:
                   _reviewNotes[q.id] ?? savedReview?.improvement ?? '',
+              enabled: !_mutationsBlocked,
               minLines: 2,
               maxLines: 5,
               maxLength: _maxImprovementCharacters,
@@ -266,11 +276,14 @@ class _DiplomaWrittenScreenState extends ConsumerState<DiplomaWrittenScreen> {
                 labelText: 'What would improve this answer?',
                 border: OutlineInputBorder(),
               ),
-              onChanged: (value) => _reviewNotes[q.id] = value,
+              onChanged: (value) {
+                if (_mutationsBlocked) return;
+                _reviewNotes[q.id] = value;
+              },
             ),
             TextButton(
               key: ValueKey('diploma-written-review-${q.id}'),
-              onPressed: _busy
+              onPressed: _mutationsBlocked
                   ? null
                   : () => _action(
                       (repository) => repository.review(
@@ -344,7 +357,7 @@ class _DiplomaWrittenScreenState extends ConsumerState<DiplomaWrittenScreen> {
                     Text(_error!, key: const ValueKey('diploma-written-error')),
                     if (_writeFailed)
                       TextButton(
-                        onPressed: _reload,
+                        onPressed: _mutationsBlocked ? null : _reload,
                         child: const Text('Reload saved draft'),
                       ),
                   ],
@@ -352,7 +365,7 @@ class _DiplomaWrittenScreenState extends ConsumerState<DiplomaWrittenScreen> {
                     const SizedBox(height: 12),
                     FilledButton(
                       key: const ValueKey('diploma-written-start'),
-                      onPressed: _busy || _repository == null
+                      onPressed: _mutationsBlocked || _repository == null
                           ? null
                           : () => _action((repository) async {
                               await ref
@@ -392,7 +405,7 @@ class _DiplomaWrittenScreenState extends ConsumerState<DiplomaWrittenScreen> {
                     if (!attempt.isFinished) ...[
                       FilledButton(
                         key: const ValueKey('diploma-written-finish'),
-                        onPressed: _busy
+                        onPressed: _mutationsBlocked
                             ? null
                             : () => _action(
                                 (repository) => repository.finish(attempt.id),
@@ -400,7 +413,7 @@ class _DiplomaWrittenScreenState extends ConsumerState<DiplomaWrittenScreen> {
                         child: const Text('End writing and self-review'),
                       ),
                       TextButton(
-                        onPressed: _busy
+                        onPressed: _mutationsBlocked
                             ? null
                             : () => _action(
                                 (repository) => repository.abandon(attempt.id),
@@ -409,9 +422,12 @@ class _DiplomaWrittenScreenState extends ConsumerState<DiplomaWrittenScreen> {
                       ),
                     ] else
                       TextButton(
-                        onPressed: _busy
+                        onPressed: _mutationsBlocked
                             ? null
-                            : () => setState(() => _setAttempt(null)),
+                            : () {
+                                if (_mutationsBlocked) return;
+                                setState(() => _setAttempt(null));
+                              },
                         child: const Text('Choose another attempt'),
                       ),
                   ],
@@ -437,7 +453,7 @@ class _DiplomaWrittenScreenState extends ConsumerState<DiplomaWrittenScreen> {
                       subtitle: Text(
                         saved.startedAt.toLocal().toString().split('.').first,
                       ),
-                      onTap: _busy
+                      onTap: _mutationsBlocked
                           ? null
                           : () => _action(
                               (repository) => repository.resume(saved.id),

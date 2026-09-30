@@ -13,6 +13,7 @@ import '../features/tasting/tasting_screen.dart';
 import '../features/tasting/tasting_session_screen.dart';
 import '../features/tasting_guidance/guided_tasting_screen.dart';
 import '../features/rehearsal/rehearsal_screen.dart';
+import '../features/cms_rehearsal/cms_rehearsal_screen.dart';
 import '../features/tasting_pair/tasting_pair_screen.dart';
 import '../features/onboarding/onboarding_screen.dart';
 import '../features/settings/about_screen.dart';
@@ -79,6 +80,10 @@ const appDestinations = <AppDestination>[
 /// The pages inside a tab, which keep the tab's navigation bar.
 final _tabPages = <String, List<RouteBase>>{
   '/practice': [
+    GoRoute(
+      path: 'cms-rehearsal',
+      builder: (context, state) => const CmsRehearsalScreen(),
+    ),
     GoRoute(
       path: 'rehearsal',
       builder: (context, state) => const RehearsalScreen(),

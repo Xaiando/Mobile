@@ -1,0 +1,335 @@
+# Six original Diploma-only calculations. All amounts/rates/charges are fictional supplied inputs.
+# Reuse existing worked_example / CALCULATED_VALUE / quantity types and primary citation rows.
+# Scalar exact answers are study facts, not official assessment marks or business advice.
+{
+  "knowledge_nodes": [
+    {
+      "id": "n_d2_calc_unit_contribution",
+      "node_type": "worked_example",
+      "name": "In this fictional bottle sale, tax-exclusive revenue is EUR 24. The entire variable cost per bottle is wine EUR 13, packaging EUR 2 and fulfilment EUR 1. What contribution in EUR does each bottle provide toward period fixed costs and profit?"
+    },
+    {
+      "id": "n_qty_d2_calc_unit_contribution",
+      "node_type": "quantity",
+      "name": "8 EUR"
+    },
+    {
+      "id": "n_d2_calc_breakeven_bottles",
+      "node_type": "worked_example",
+      "name": "A fictional one-product business has period fixed cost EUR 10,001, tax-exclusive bottle revenue EUR 24 and total variable cost EUR 16 per bottle. Price and variable cost stay constant up to its 1,500-bottle capacity. What is the minimum whole number of bottles whose contribution covers the stated fixed cost?"
+    },
+    {
+      "id": "n_qty_d2_calc_breakeven_bottles",
+      "node_type": "quantity",
+      "name": "1251 bottles"
+    },
+    {
+      "id": "n_d2_calc_fx_receipt",
+      "node_type": "worked_example",
+      "name": "A fictional exporter receives full payment of an unhedged USD 10,000 invoice. The supplied settlement quote is 1 USD = 0.75 EUR, with no fees or other charges. How many EUR are received?"
+    },
+    {
+      "id": "n_qty_d2_calc_fx_receipt",
+      "node_type": "quantity",
+      "name": "7500 EUR"
+    },
+    {
+      "id": "n_d2_calc_fx_receipt_reduction",
+      "node_type": "worked_example",
+      "name": "A fictional unhedged USD 10,000 invoice is fully paid. Compare the supplied earlier quote 1 USD = 0.80 EUR with settlement at 1 USD = 0.75 EUR. No fees or other charges apply. What is the positive EUR amount by which the receipt decreases?"
+    },
+    {
+      "id": "n_qty_d2_calc_fx_receipt_reduction",
+      "node_type": "quantity",
+      "name": "500 EUR"
+    },
+    {
+      "id": "n_d2_calc_landed_cost_per_bottle",
+      "node_type": "worked_example",
+      "name": "A fictional importer receives 1,000 saleable bottles. The entire nonrecoverable cost stack is wine EUR 9,000, freight EUR 1,000, insurance EUR 500, handling EUR 500 and a fictional customs charge EUR 2,000. As a scenario premise, VAT is fully recoverable; no other costs or margin apply. What is the stated nonrecoverable cost in EUR per saleable bottle?"
+    },
+    {
+      "id": "n_qty_d2_calc_landed_cost_per_bottle",
+      "node_type": "quantity",
+      "name": "13 EUR"
+    },
+    {
+      "id": "n_d2_calc_cash_gap_days",
+      "node_type": "worked_example",
+      "name": "In a fictional wine transaction, the entire specified outlay is paid on Day 12 and the full customer receipt arrives on Day 47, with no interim flows. Treat the payment time as the zero baseline. How many elapsed days separate payment and receipt, excluding inclusive calendar counting?"
+    },
+    {
+      "id": "n_qty_d2_calc_cash_gap_days",
+      "node_type": "quantity",
+      "name": "35 days"
+    }
+  ],
+  "quantity_values": [
+    {
+      "knowledge_node_id": "n_qty_d2_calc_unit_contribution",
+      "minimum": 8,
+      "maximum": 8,
+      "unit": "EUR"
+    },
+    {
+      "knowledge_node_id": "n_qty_d2_calc_breakeven_bottles",
+      "minimum": 1251,
+      "maximum": 1251,
+      "unit": "bottles"
+    },
+    {
+      "knowledge_node_id": "n_qty_d2_calc_fx_receipt",
+      "minimum": 7500,
+      "maximum": 7500,
+      "unit": "EUR"
+    },
+    {
+      "knowledge_node_id": "n_qty_d2_calc_fx_receipt_reduction",
+      "minimum": 500,
+      "maximum": 500,
+      "unit": "EUR"
+    },
+    {
+      "knowledge_node_id": "n_qty_d2_calc_landed_cost_per_bottle",
+      "minimum": 13,
+      "maximum": 13,
+      "unit": "EUR"
+    },
+    {
+      "knowledge_node_id": "n_qty_d2_calc_cash_gap_days",
+      "minimum": 35,
+      "maximum": 35,
+      "unit": "days"
+    }
+  ],
+  "knowledge_relations": [
+    {
+      "subject_id": "n_d2_calc_unit_contribution",
+      "relation_type": "CALCULATED_VALUE",
+      "object_id": "n_qty_d2_calc_unit_contribution",
+      "valid_from": "2026-09-30"
+    },
+    {
+      "subject_id": "n_d2_calc_breakeven_bottles",
+      "relation_type": "CALCULATED_VALUE",
+      "object_id": "n_qty_d2_calc_breakeven_bottles",
+      "valid_from": "2026-09-30"
+    },
+    {
+      "subject_id": "n_d2_calc_fx_receipt",
+      "relation_type": "CALCULATED_VALUE",
+      "object_id": "n_qty_d2_calc_fx_receipt",
+      "valid_from": "2026-09-30"
+    },
+    {
+      "subject_id": "n_d2_calc_fx_receipt_reduction",
+      "relation_type": "CALCULATED_VALUE",
+      "object_id": "n_qty_d2_calc_fx_receipt_reduction",
+      "valid_from": "2026-09-30"
+    },
+    {
+      "subject_id": "n_d2_calc_landed_cost_per_bottle",
+      "relation_type": "CALCULATED_VALUE",
+      "object_id": "n_qty_d2_calc_landed_cost_per_bottle",
+      "valid_from": "2026-09-30"
+    },
+    {
+      "subject_id": "n_d2_calc_cash_gap_days",
+      "relation_type": "CALCULATED_VALUE",
+      "object_id": "n_qty_d2_calc_cash_gap_days",
+      "valid_from": "2026-09-30"
+    }
+  ],
+  "knowledge_items": [
+    {
+      "id": "ki_d2_calc_unit_contribution",
+      "subject_id": "n_d2_calc_unit_contribution",
+      "relation_type": "CALCULATED_VALUE",
+      "object_id": "n_qty_d2_calc_unit_contribution",
+      "domain_id": "business",
+      "assertion_text": "Variable cost = 13 + 2 + 1 = EUR 16. Unit contribution = 24 - 16 = EUR 8. This is contribution, not net profit or a gross margin percentage; fixed costs, tax and interest are outside the supplied unit inputs.",
+      "verification_status": "unverified",
+      "mcq_disabled": true,
+      "last_verified_at": "2026-09-30T12:18:13.000Z"
+    },
+    {
+      "id": "ki_d2_calc_breakeven_bottles",
+      "subject_id": "n_d2_calc_breakeven_bottles",
+      "relation_type": "CALCULATED_VALUE",
+      "object_id": "n_qty_d2_calc_breakeven_bottles",
+      "domain_id": "business",
+      "assertion_text": "Unit contribution = 24 - 16 = EUR 8. The fractional threshold is 10001 / 8 = 1250.125, so the minimum whole-bottle coverage threshold is 1251 bottles. At 1250 bottles contribution is EUR 10,000 and fails to cover EUR 10,001; at 1251 it is EUR 10,008. These original assumptions use one product, constant price and variable cost, and sufficient stated capacity; the whole-unit threshold is not the fractional algebraic break-even point.",
+      "verification_status": "unverified",
+      "mcq_disabled": true,
+      "last_verified_at": "2026-09-30T12:18:13.000Z"
+    },
+    {
+      "id": "ki_d2_calc_fx_receipt",
+      "subject_id": "n_d2_calc_fx_receipt",
+      "relation_type": "CALCULATED_VALUE",
+      "object_id": "n_qty_d2_calc_fx_receipt",
+      "domain_id": "business",
+      "assertion_text": "Each invoiced USD buys the supplied EUR 0.75: 10000 x 75 / 100 = EUR 7500. The quote direction is explicit and is not inverted. This is a fictional settlement receipt, with full payment and no fees; it is not a current exchange rate or a recommendation about hedging.",
+      "verification_status": "unverified",
+      "mcq_disabled": true,
+      "last_verified_at": "2026-09-30T12:18:13.000Z"
+    },
+    {
+      "id": "ki_d2_calc_fx_receipt_reduction",
+      "subject_id": "n_d2_calc_fx_receipt_reduction",
+      "relation_type": "CALCULATED_VALUE",
+      "object_id": "n_qty_d2_calc_fx_receipt_reduction",
+      "domain_id": "business",
+      "assertion_text": "At the supplied comparison quote, 10000 x 80 / 100 = EUR 8000. At settlement, 10000 x 75 / 100 = EUR 7500. The positive receipt reduction is 8000 - 7500 = EUR 500, not the final receipt or a percentage. The two rates, full payment and absence of fees are original fictional assumptions.",
+      "verification_status": "unverified",
+      "mcq_disabled": true,
+      "last_verified_at": "2026-09-30T12:18:13.000Z"
+    },
+    {
+      "id": "ki_d2_calc_landed_cost_per_bottle",
+      "subject_id": "n_d2_calc_landed_cost_per_bottle",
+      "relation_type": "CALCULATED_VALUE",
+      "object_id": "n_qty_d2_calc_landed_cost_per_bottle",
+      "domain_id": "business",
+      "assertion_text": "The supplied nonrecoverable stack is 9000 + 1000 + 500 + 500 + 2000 = EUR 13,000. Divide by the stated 1,000 saleable bottles: 13000 / 1000 = EUR 13 per bottle. All charges and VAT recoverability are fictional premises, not a jurisdictional tariff or tax ruling. Recoverability does not imply that no tax cash needs funding; this target is nonrecoverable unit cost, not cash required or selling price.",
+      "verification_status": "unverified",
+      "mcq_disabled": true,
+      "last_verified_at": "2026-09-30T12:18:13.000Z"
+    },
+    {
+      "id": "ki_d2_calc_cash_gap_days",
+      "subject_id": "n_d2_calc_cash_gap_days",
+      "relation_type": "CALCULATED_VALUE",
+      "object_id": "n_qty_d2_calc_cash_gap_days",
+      "domain_id": "business",
+      "assertion_text": "Elapsed cash gap = 47 - 12 = 35 days. Day 47 is the receipt time, not the duration; inclusive counting would answer a different question. The original supplied interval compares actual outflow and receipt timing, without specifying an interest rate, funding amount or recommendation.",
+      "verification_status": "unverified",
+      "mcq_disabled": true,
+      "last_verified_at": "2026-09-30T12:18:13.000Z"
+    }
+  ],
+  "certification_knowledge_mappings": [
+    {
+      "certification_id": "WSET_L4",
+      "knowledge_item_id": "ki_d2_calc_unit_contribution",
+      "importance": "core",
+      "minimum_depth": 2
+    },
+    {
+      "certification_id": "WSET_L4",
+      "knowledge_item_id": "ki_d2_calc_breakeven_bottles",
+      "importance": "core",
+      "minimum_depth": 2
+    },
+    {
+      "certification_id": "WSET_L4",
+      "knowledge_item_id": "ki_d2_calc_fx_receipt",
+      "importance": "core",
+      "minimum_depth": 2
+    },
+    {
+      "certification_id": "WSET_L4",
+      "knowledge_item_id": "ki_d2_calc_fx_receipt_reduction",
+      "importance": "core",
+      "minimum_depth": 2
+    },
+    {
+      "certification_id": "WSET_L4",
+      "knowledge_item_id": "ki_d2_calc_landed_cost_per_bottle",
+      "importance": "core",
+      "minimum_depth": 2
+    },
+    {
+      "certification_id": "WSET_L4",
+      "knowledge_item_id": "ki_d2_calc_cash_gap_days",
+      "importance": "core",
+      "minimum_depth": 2
+    }
+  ],
+  "knowledge_item_citations": [
+    {
+      "knowledge_item_id": "ki_d2_calc_unit_contribution",
+      "source_citation_id": "src_biz_sba_planning",
+      "locator": "Break-even point: single-product formula and price less variable cost; original fictional per-bottle inputs, all variable components supplied"
+    },
+    {
+      "knowledge_item_id": "ki_d2_calc_breakeven_bottles",
+      "source_citation_id": "src_biz_sba_planning",
+      "locator": "Break-even point and Tips and tricks: fixed cost divided by positive price less variable cost, one product; original fictional inputs and whole-unit coverage constraint"
+    },
+    {
+      "knowledge_item_id": "ki_d2_calc_fx_receipt",
+      "source_citation_id": "src_biz_ita_fx",
+      "locator": "Foreign Exchange Risk: agreed foreign-currency amount converted at payment; original fictional USD invoice and explicit EUR-per-USD settlement quote, full payment and no fees"
+    },
+    {
+      "knowledge_item_id": "ki_d2_calc_fx_receipt_reduction",
+      "source_citation_id": "src_biz_ita_fx",
+      "locator": "Foreign Exchange Risk: currency movement between agreement and receipt changes home-currency proceeds; original fictional quotes in EUR per USD and positive-reduction target"
+    },
+    {
+      "knowledge_item_id": "ki_d2_calc_landed_cost_per_bottle",
+      "source_citation_id": "src_d2_ita_landed_cost",
+      "locator": "Estimating Landed Cost and tax/fee obligations: include supplied applicable route costs; original fictional charges, saleable-bottle count and VAT-recoverability premise, not statutory rates"
+    },
+    {
+      "knowledge_item_id": "ki_d2_calc_cash_gap_days",
+      "source_citation_id": "src_biz_au_cashflow",
+      "locator": "Choose your payment terms; Manage your inventory; Negotiate with your suppliers: compare outflow and customer receipt timing; original fictional days and elapsed-time convention"
+    }
+  ],
+  "knowledge_item_prerequisites": [
+    {
+      "knowledge_item_id": "ki_d2_calc_unit_contribution",
+      "prerequisite_item_id": "ki_biz_contribution"
+    },
+    {
+      "knowledge_item_id": "ki_d2_calc_unit_contribution",
+      "prerequisite_item_id": "ki_biz_variable_cost"
+    },
+    {
+      "knowledge_item_id": "ki_d2_calc_breakeven_bottles",
+      "prerequisite_item_id": "ki_biz_breakeven"
+    },
+    {
+      "knowledge_item_id": "ki_d2_calc_breakeven_bottles",
+      "prerequisite_item_id": "ki_biz_contribution"
+    },
+    {
+      "knowledge_item_id": "ki_d2_calc_breakeven_bottles",
+      "prerequisite_item_id": "ki_biz_fixed_cost"
+    },
+    {
+      "knowledge_item_id": "ki_d2_calc_breakeven_bottles",
+      "prerequisite_item_id": "ki_biz_variable_cost"
+    },
+    {
+      "knowledge_item_id": "ki_d2_calc_fx_receipt",
+      "prerequisite_item_id": "ki_biz_fx_receivable"
+    },
+    {
+      "knowledge_item_id": "ki_d2_calc_fx_receipt_reduction",
+      "prerequisite_item_id": "ki_biz_fx_receivable"
+    },
+    {
+      "knowledge_item_id": "ki_d2_calc_landed_cost_per_bottle",
+      "prerequisite_item_id": "ki_d2_import_cost_stack"
+    },
+    {
+      "knowledge_item_id": "ki_d2_calc_landed_cost_per_bottle",
+      "prerequisite_item_id": "ki_biz_cost_plus"
+    },
+    {
+      "knowledge_item_id": "ki_d2_calc_cash_gap_days",
+      "prerequisite_item_id": "ki_biz_payment_timing"
+    },
+    {
+      "knowledge_item_id": "ki_d2_calc_cash_gap_days",
+      "prerequisite_item_id": "ki_biz_profit_cash"
+    },
+    {
+      "knowledge_item_id": "ki_d2_calc_cash_gap_days",
+      "prerequisite_item_id": "ki_biz_inventory_cash"
+    }
+  ]
+}

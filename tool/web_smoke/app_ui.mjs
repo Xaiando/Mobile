@@ -1291,6 +1291,536 @@ try {
       physicalTastingAcknowledged: false,
     };
   });
+  await stage('13-cms-rehearsal-service-and-two-wine-durability', async () => {
+    const bankPath = path.join(root, 'assets/assets/study/cms_certified_rehearsal.json');
+    assert(fs.existsSync(bankPath), 'The build has no CMS rehearsal bank.');
+    const bank = JSON.parse(fs.readFileSync(bankPath, 'utf8'));
+    const servicePreset = bank.presets.find(p => p.section === 'service');
+    const tastingPreset = bank.presets.find(p => p.section === 'tasting');
+    const theoryPreset = bank.presets.find(p => p.section === 'theory');
+    const servicePool = bank.written.filter(q => q.section === 'service');
+    const comparison = bank.written.find(q => q.section === 'tasting');
+    const description = bank.wineEvidencePrompts.find(p => p.id === 'description');
+    assert(bank.trackId === 'CMS_CERTIFIED' && servicePreset?.durationSeconds === 900 &&
+      servicePreset.writtenCount === 3 && tastingPreset?.durationSeconds === 1200 &&
+      tastingPreset.wineCount === 2 && theoryPreset?.durationSeconds === 1800 &&
+      description && comparison, 'The build has incomplete app-only CMS presets.');
+    const qualifier = /^Original app-authored practice for CMS Europe Certified study\./;
+    const reviewed = 'Self-reviewed participation saved. This is not a grade or pass.';
+    const ended = 'Practice ended. Review your saved evidence and explain what to improve.';
+    const descriptions = [
+      'Browser durability draft, wine one: an unverified citrus observation; no physical wine was tasted.',
+      'Browser durability draft, wine two: an unverified berry observation; no physical wine was tasted.',
+    ];
+    const comparisonText = 'Browser durability comparison: these two synthetic drafts do not establish wine identity or sensory competence.';
+    const newerDescription = 'Newer CMS draft marker: this distinct unsaved-in-history packet must retain its own wine one evidence.';
+    const newerComparison = 'Newer CMS comparison marker: viewing older packets must keep this current draft.';
+
+    // These helpers are scoped to the new route. Existing stages and global
+    // navigation/text helpers remain unchanged. Respect the actual clipped
+    // ListView body rather than clicking under the persistent navigation bar.
+    async function bodyBounds(locator) {
+      return locator.evaluateAll(elements => {
+        const element = elements[0];
+        if (!element) return null;
+        const rect = element.getBoundingClientRect();
+        let top = 0, bottom = innerHeight, left = 0, right = innerWidth;
+        for (let parent = element.parentElement; parent; parent = parent.parentElement) {
+          const style = getComputedStyle(parent);
+          const box = parent.getBoundingClientRect();
+          if (/^(?:scroll|auto|hidden|clip)$/.test(style.overflowY)) {
+            top = Math.max(top, box.top); bottom = Math.min(bottom, box.bottom);
+          }
+          if (/^(?:scroll|auto|hidden|clip)$/.test(style.overflowX)) {
+            left = Math.max(left, box.left); right = Math.min(right, box.right);
+          }
+        }
+        return { x: rect.x, y: rect.y, width: rect.width, height: rect.height,
+          inside: rect.width > 0 && rect.height > 0 && rect.left >= left + 1 &&
+            rect.right <= right - 1 && rect.top >= top + 1 && rect.bottom <= bottom - 1 };
+      });
+    }
+    async function cmsReveal(locator, { direction = 1, steps = 70, wholeControl = true } = {}) {
+      for (let step = 0; step <= steps; step++) {
+        for (let index = 0, count = await locator.count(); index < count; index++) {
+          const candidate = locator.nth(index);
+          if (!wholeControl && await onScreen(candidate)) return candidate;
+          const before = wholeControl ? await bodyBounds(candidate) : null;
+          if (before?.inside) {
+            await page.waitForTimeout(200);
+            const after = await bodyBounds(candidate);
+            if (after?.inside && ['x', 'y', 'width', 'height']
+              .every(key => Math.abs(before[key] - after[key]) <= 1)) return candidate;
+          }
+        }
+        if (step === steps) break;
+        await page.mouse.move(8, viewport.height / 2);
+        await page.mouse.wheel(0, direction * 160);
+        await page.waitForTimeout(120);
+      }
+      throw new Error('CMS control could not be revealed during ' + stageName + ': ' + locator);
+    }
+    async function cmsTop() {
+      await page.mouse.move(8, viewport.height / 2);
+      await page.mouse.wheel(0, -100_000);
+      await page.waitForTimeout(200);
+      if (page.url().includes('cms-rehearsal')) {
+        await cmsReveal(text(qualifier), { direction: -1 });
+      }
+    }
+    async function cmsTap(label, options = {}) {
+      const locator = label === 'Back'
+        ? page.getByRole('button', { name: 'Back', exact: true })
+        : named(label, options).or(text(label));
+      await (await cmsReveal(locator, options)).click({ timeout: actionTimeout });
+    }
+    async function openCms() {
+      await navigation('Home');
+      await cmsTop();
+      await cmsTap('CMS Certified rehearsal', { prefix: true });
+      await visible('CMS Certified rehearsal');
+      await cmsTop();
+      await visible(qualifier);
+    }
+    let firstBackCaptureTaken = false;
+    async function leaveCms() {
+      const capture = !firstBackCaptureTaken;
+      if (capture) {
+        firstBackCaptureTaken = true;
+        await page.evaluate(() => {
+          const describe = element => {
+            if (!(element instanceof Element)) return null;
+            const rect = element.getBoundingClientRect();
+            return { tag: element.tagName, id: element.id, role: element.getAttribute('role'),
+              label: element.getAttribute('aria-label'), text: (element.textContent ?? '').trim().slice(0, 100),
+              disabled: 'disabled' in element ? element.disabled : null,
+              ariaDisabled: element.getAttribute('aria-disabled'),
+              ariaOwns: element.getAttribute('aria-owns'),
+              rect: { x: rect.x, y: rect.y, width: rect.width, height: rect.height },
+              inputValueLength: 'value' in element ? element.value.length : null };
+          };
+          const snapshot = phase => ({ phase, at: new Date().toISOString(), url: location.href,
+            headings: [...document.querySelectorAll('h1,h2,h3,[role="heading"]')].map(describe),
+            back: [...document.querySelectorAll('[role="button"]')]
+              .filter(element => (element.getAttribute('aria-label') ?? '') === 'Back' ||
+                (element.textContent ?? '').trim() === 'Back').map(describe),
+            activeElement: describe(document.activeElement),
+            inputs: [...document.querySelectorAll('input,textarea')].map(describe) });
+          const diagnostic = { snapshot, events: [], handlers: [] };
+          diagnostic.before = snapshot('before-canonical-back');
+          for (const type of ['pointerdown', 'pointerup', 'click']) {
+            const handler = event => {
+              if (diagnostic.events.length < 100) diagnostic.events.push({
+                at: new Date().toISOString(), type, x: event.clientX, y: event.clientY,
+                target: describe(event.target), path: event.composedPath().slice(0, 5).map(describe),
+                state: snapshot('during-' + type) });
+            };
+            diagnostic.handlers.push({ type, handler });
+            document.addEventListener(type, handler, { capture: true, passive: true });
+          }
+          window.__cmsCanonicalBackDiagnostic = diagnostic;
+        });
+      }
+      try {
+        await cmsTap('Back');
+        // Start the original Home assertion immediately. The passive snapshot
+        // neither scrolls/focuses nor delays or retries the actual Back action.
+        const afterClick = capture ? page.evaluate(() => {
+          const diagnostic = window.__cmsCanonicalBackDiagnostic;
+          if (diagnostic) diagnostic.afterClick = diagnostic.snapshot('after-canonical-click');
+        }).catch(error => ({ captureError: String(error) })) : null;
+        try {
+          await visible('Home');
+        } finally {
+          if (afterClick) await afterClick;
+        }
+      } finally {
+        if (capture) {
+          result.cmsFirstBackActivation = await page.evaluate(() => {
+            const diagnostic = window.__cmsCanonicalBackDiagnostic;
+            if (!diagnostic) return { captureError: 'The passive Back observer was unavailable.' };
+            const captured = { before: diagnostic.before, afterClick: diagnostic.afterClick,
+              afterHomeAssertion: diagnostic.snapshot('after-home-assertion'), events: diagnostic.events,
+              boundary: 'DOM event receipt does not establish Dart leave-queue entry.' };
+            for (const { type, handler } of diagnostic.handlers) {
+              document.removeEventListener(type, handler, true);
+            }
+            delete window.__cmsCanonicalBackDiagnostic;
+            return captured;
+          }).catch(error => ({ captureError: String(error) }));
+          await fs.promises.writeFile(path.join(output, '13-cms-first-back-activation.json'),
+            JSON.stringify(result.cmsFirstBackActivation, null, 2));
+        }
+      }
+      await cmsTop();
+      await until(() => selected(named('WSET Level 3')),
+        'CMS rehearsal changed the selected WSET study track.', actionTimeout);
+    }
+    async function counts({ service = 0 } = {}) {
+      await cmsTop();
+      const expected = ['Theory: 0', 'Two-wine tasting: 0', 'Service decisions: ' + service];
+      // Flutter exposes the three counts as one owned paragraph. Its nowrap
+      // span preserves newlines in textContent, while innerText collapses them.
+      const paragraph = text(/^Theory: \d+\s+Two-wine tasting: \d+\s+Service decisions: \d+$/);
+      const exactLines = lines => lines.length === expected.length &&
+        lines.every((line, index) => line === expected[index]);
+      await until(async () => {
+        const rows = await paragraph.evaluateAll(elements => elements.map(element =>
+          (element.textContent ?? '').split(/\r?\n/).map(line => line.trim()).filter(Boolean)));
+        return rows.length === 1 && exactLines(rows[0]);
+      }, 'CMS did not show its exact saved participation counts: ' + expected.join(' | '), actionTimeout);
+      const rendered = await cmsReveal(paragraph);
+      const lines = await rendered.evaluate(element =>
+        (element.textContent ?? '').split(/\r?\n/).map(line => line.trim()).filter(Boolean));
+      assert(exactLines(lines),
+        'CMS rendered different saved participation counts: ' + expected.join(' | '));
+      assert(await text(/Counts are unknown/).count() === 0,
+        'CMS saved-participation counts could not be read.');
+    }
+    function writtenOwner(question) {
+      return page.getByRole('group', {
+        name: new RegExp('^Written \\d+\\s+' + escapeRegex(question.prompt) + '$'),
+      });
+    }
+    function runningWritten(question) {
+      return writtenOwner(question).getByRole('textbox', { name: 'Your explanation', exact: true });
+    }
+    async function discoverServiceQuestions() {
+      const found = new Map();
+      const ordinals = new Map();
+      await cmsTop();
+      for (let step = 0; step <= 70; step++) {
+        const labels = await page.getByRole('group', { name: /^Written \d+(?:\s|$)/ })
+          .evaluateAll(elements => elements.map(element => element.getAttribute('aria-label') ?? ''));
+        for (const label of labels) {
+          const questions = servicePool.filter(question =>
+            new RegExp('^Written (\\d+)\\s+' + escapeRegex(question.prompt) + '$').test(label));
+          assert(questions.length === 1, 'CMS exposed an unknown or ambiguous saved service prompt.');
+          const question = questions[0];
+          const ordinal = Number(label.match(/^Written (\d+)\s/)[1]);
+          assert(!ordinals.has(question.id) || ordinals.get(question.id) === ordinal,
+            'CMS changed a saved prompt ordinal while revealing its snapshot.');
+          assert(labels.filter(value => value === label).length === 1,
+            'CMS exposed more than one owner for the same saved service prompt.');
+          ordinals.set(question.id, ordinal);
+          found.set(question.id, question);
+        }
+        if (found.size === servicePreset.writtenCount) {
+          assert([...ordinals.values()].sort().join(',') === '1,2,3',
+            'CMS did not expose three distinct saved service prompt ordinals.');
+          return [...found.values()];
+        }
+        assert(found.size < servicePreset.writtenCount,
+          'CMS service snapshot contains more prompts than its saved preset.');
+        if (step === 70) break;
+        await page.mouse.move(8, viewport.height / 2);
+        await page.mouse.wheel(0, 160);
+        await page.waitForTimeout(120);
+      }
+      throw new Error('CMS did not expose all three actual saved service prompt identities.');
+    }
+    async function proseField(question) {
+      await cmsTop();
+      const field = runningWritten(question);
+      const rendered = await cmsReveal(field);
+      assert(await writtenOwner(question).count() === 1 && await field.count() === 1,
+        'CMS did not expose one prose field owned by its exact saved prompt.');
+      return rendered;
+    }
+    async function improvementField(question) {
+      await cmsTop();
+      const field = writtenOwner(question).getByRole('textbox', {
+        name: 'What would improve this answer?', exact: true,
+      });
+      const rendered = await cmsReveal(field);
+      assert(await writtenOwner(question).count() === 1 && await field.count() === 1,
+        'CMS did not expose one improvement field owned by its exact saved prompt.');
+      return rendered;
+    }
+    async function reviewControl(question, label) {
+      const control = writtenOwner(question).getByRole('button', { name: label, exact: true });
+      const rendered = await cmsReveal(control);
+      assert(await writtenOwner(question).count() === 1 && await control.count() === 1,
+        'CMS did not expose one self-review control owned by its exact saved prompt.');
+      return rendered;
+    }
+    function wineOwner(index) {
+      return page.getByRole('group', { name: 'Wine ' + (index + 1) + ' of 2', exact: true });
+    }
+    function wineDescriptionOwner(index) {
+      return wineOwner(index).getByRole('group', { name: description.prompt, exact: true });
+    }
+    async function wineField(index) {
+      await cmsTop();
+      const prompt = wineDescriptionOwner(index);
+      const field = prompt.getByRole('textbox', { name: 'Your wine evidence', exact: true });
+      const rendered = await cmsReveal(field);
+      assert(await wineOwner(index).count() === 1 && await prompt.count() === 1 && await field.count() === 1,
+        'CMS did not expose one evidence field owned by its exact wine and supplied prompt.');
+      return rendered;
+    }
+    function currentPacket(preset) {
+      return page.getByRole('group', { name: new RegExp('^' +
+        escapeRegex(preset.title) + '\\s+Saved app preset: ' +
+        (preset.durationSeconds / 60) + ' minutes\\s+Saved bank ' +
+        escapeRegex(bank.version) + ' · scope ' + escapeRegex(bank.scopeVersion) + '(?:\\s|$)') });
+    }
+    async function packetLines(preset) {
+      const owner = currentPacket(preset);
+      await until(() => owner.count().then(count => count === 1),
+        'CMS did not expose exactly one current ' + preset.section + ' snapshot.', actionTimeout);
+      const lines = (await owner.getAttribute('aria-label'))?.split(/\r?\n/)
+        .map(line => line.trim()).filter(Boolean) ?? [];
+      const expectedHeader = [preset.title,
+        'Saved app preset: ' + (preset.durationSeconds / 60) + ' minutes',
+        'Saved bank ' + bank.version + ' · scope ' + bank.scopeVersion];
+      assert(expectedHeader.every((line, index) => lines[index] === line),
+        'CMS rendered a different current preset, saved duration, bank or scope.');
+      return { owner, lines };
+    }
+    async function deadlineSample(duration, phase) {
+      await cmsTop();
+      const presets = bank.presets.filter(preset => preset.durationSeconds === duration);
+      assert(presets.length === 1, 'CMS has an ambiguous saved timer preset.');
+      const preset = presets[0];
+      await cmsReveal((await packetLines(preset)).owner, { wholeControl: false });
+      const { lines } = await packetLines(preset);
+      const timers = lines.filter(line => /^Time remaining: \d+:\d{2}$/.test(line));
+      assert(timers.length === 1, 'CMS did not render exactly one saved ' + phase + ' timer.');
+      const match = timers[0].match(/^Time remaining: (\d+):(\d{2})$/);
+      const seconds = Number(match[1]) * 60 + Number(match[2]);
+      const at = Date.now();
+      assert(seconds > 0 && seconds <= duration, 'CMS has an invalid saved ' + phase + ' timer.');
+      return { phase, at: new Date(at).toISOString(), seconds, inferredDeadlineMs: at + seconds * 1000 };
+    }
+    async function firstTheoryKnowledge() {
+      await cmsTop();
+      const packet = await packetLines(theoryPreset);
+      const first = packet.lines.filter(line => /^Knowledge 1\. /.test(line));
+      const questions = bank.mcqs.filter(question => first[0] === 'Knowledge 1. ' + question.prompt);
+      assert(first.length === 1 && questions.length === 1,
+        'CMS did not render one exact bundled first knowledge question.');
+      const question = questions[0];
+      const option = packet.owner.getByRole('radio', { name: question.options[0].text, exact: true });
+      await cmsReveal(option);
+      assert(await option.count() === 1 && await option.isEnabled(),
+        'CMS did not render the bundled first question option as an enabled owned control.');
+      const { lines } = await packetLines(theoryPreset);
+      assert(await text(/^Authored answer:/).count() === 0 &&
+        await text(/^Knowledge feedback:/).count() === 0 &&
+        !lines.some(line => /^(?:Authored answer:|Knowledge feedback:)/.test(line)),
+        'CMS revealed authored choice feedback before theory ended.');
+    }
+    function assertSameDeadline(before, after) {
+      assert(after.seconds < before.seconds &&
+        Math.abs(after.inferredDeadlineMs - before.inferredDeadlineMs) <= 3000,
+        'CMS extended or replaced its saved absolute deadline on reload.');
+    }
+    async function chooseAnother() {
+      await cmsTap('Choose another practice section');
+      await cmsTop();
+      await cmsReveal(named('Start tasting practice'));
+      await visible('Start tasting practice');
+    }
+    function historyOwner(preset, status) {
+      return page.getByRole('group', {
+        name: new RegExp('^' + escapeRegex(preset.title) + '\\s+' + escapeRegex(status)),
+      });
+    }
+    async function openHistory(preset, status) {
+      await cmsTop();
+      await cmsTapIn(historyOwner(preset, status), 'View saved practice');
+      await visible('Saved CMS practice');
+      await cmsTop();
+      await cmsReveal(text('Read-only saved snapshot. Viewing this record does not change your current draft.'));
+      assert(await named('End practice and self-review').count() === 0 &&
+        await named('Save reviewed participation').count() === 0,
+        'Read-only CMS history exposed completion or review mutation controls.');
+    }
+    async function cmsTapIn(owner, label) {
+      const button = owner.getByRole('button', { name: label, exact: true });
+      const rendered = await cmsReveal(button);
+      assert(await owner.count() === 1 && await button.count() === 1,
+        'CMS did not expose one exact saved-history row owning its View control.');
+      await rendered.click({ timeout: actionTimeout });
+    }
+    async function exactSavedValue(owner, expected, message) {
+      await cmsTop();
+      const actual = await cmsReveal(owner, { wholeControl: false });
+      assert(await owner.count() === 1, 'CMS saved evidence has more than one semantic owner.');
+      const values = await actual.evaluate(element => {
+        const nodes = [element, ...element.querySelectorAll('*')];
+        return nodes.flatMap(node => [
+          node.getAttribute('aria-valuetext'), node.getAttribute('aria-label'),
+          node.textContent, 'value' in node ? node.value : null,
+        ]).filter(value => typeof value === 'string').flatMap(value => value.split(/\r?\n/));
+      });
+      assert(values.includes(expected), message);
+    }
+
+    await navigation('Home');
+    await chooseTrack('WSET Level 3');
+    await openCms();
+    await counts();
+    await cmsTap('Start theory practice');
+    const theoryStart = await deadlineSample(1800, 'theory-start');
+    assert(theoryStart.seconds > 1700, 'CMS did not start its app 30-minute theory timer.');
+    await firstTheoryKnowledge();
+    await cmsTap('Discard current draft');
+    await visible('Discard this practice draft?');
+    await cmsTap('Discard draft');
+    await cmsTop();
+    await cmsReveal(named('Start service practice'));
+
+    await cmsTap('Start service practice');
+    const serviceBefore = await deadlineSample(900, 'service-before-reload');
+    const serviceQuestions = await discoverServiceQuestions();
+    const prose = new Map(serviceQuestions.map(question => [question.id,
+      'Browser service draft ' + question.id + ': check the supplied guest and stock assumptions before a conditional choice; this short explanation needs fuller evidence.']));
+    const notes = new Map(serviceQuestions.map(question => [question.id,
+      'For ' + question.id + ' I need to add a source-backed reason and explicit service limitation; these unchecked criteria do not claim technique competence.']));
+    for (const question of serviceQuestions) {
+      await replaceText(await proseField(question), prose.get(question.id));
+    }
+    await leaveCms();
+    await reload();
+    await visible('Home', startupTimeout);
+    await openCms();
+    const serviceAfter = await deadlineSample(900, 'service-after-reload');
+    assertSameDeadline(serviceBefore, serviceAfter);
+    const restoredServiceQuestions = await discoverServiceQuestions();
+    assert(restoredServiceQuestions.length === serviceQuestions.length &&
+      restoredServiceQuestions.every(question => prose.has(question.id)),
+      'CMS replaced the saved service prompt snapshot on reload.');
+    for (const question of serviceQuestions) {
+      assert(await readText(await proseField(question)) === prose.get(question.id),
+        'CMS did not restore service ' + question.id + ' exact prose.');
+    }
+    await cmsTap('End practice and self-review');
+    await cmsTop();
+    await until(async () => await text(ended).count() > 0,
+      'CMS service did not render the ended state.', actionTimeout);
+    await cmsReveal(text(ended), { direction: -1 });
+    for (const question of serviceQuestions) {
+      await replaceText(await improvementField(question), notes.get(question.id));
+      for (const criterion of question.criteria) {
+        await cmsTop();
+        const checkbox = await cmsReveal(writtenOwner(question).getByRole('checkbox', {
+          name: criterion.text, exact: true,
+        }));
+        assert(!await selected(checkbox),
+          'CMS service draft selected a criterion without supporting evidence.');
+      }
+      const save = await reviewControl(question, 'Save self-review');
+      await save.click({ timeout: actionTimeout });
+      await writtenOwner(question).getByRole('button', {
+        name: 'Update self-review', exact: true,
+      }).waitFor({ state: 'visible', timeout: actionTimeout });
+    }
+    await cmsTap('Save reviewed participation');
+    await cmsTop();
+    await cmsReveal(text(reviewed), { direction: -1 });
+    await visible(reviewed);
+    await counts({ service: 1 });
+    await chooseAnother();
+    await leaveCms();
+    await reload();
+    await visible('Home', startupTimeout);
+    await openCms();
+    await counts({ service: 1 });
+    await openHistory(servicePreset, reviewed);
+    for (const question of serviceQuestions) {
+      await exactSavedValue(writtenOwner(question), prose.get(question.id),
+        'CMS read-only service history lost exact prose for ' + question.id + '.');
+      await exactSavedValue(writtenOwner(question), notes.get(question.id),
+        'CMS read-only service history lost exact improvement for ' + question.id + '.');
+    }
+    await screenshot('13-cms-service-saved-read-only');
+    await cmsTap('Back');
+    await visible('CMS Certified rehearsal');
+
+    await cmsTap('Start tasting practice');
+    const tastingBefore = await deadlineSample(1200, 'two-wine-before-reload');
+    for (let index = 0; index < 2; index++) {
+      await replaceText(await wineField(index), descriptions[index]);
+    }
+    await replaceText(await proseField(comparison), comparisonText);
+    await leaveCms();
+    await reload();
+    await visible('Home', startupTimeout);
+    await openCms();
+    const tastingAfter = await deadlineSample(1200, 'two-wine-after-reload');
+    assertSameDeadline(tastingBefore, tastingAfter);
+    for (let index = 0; index < 2; index++) {
+      assert(await readText(await wineField(index)) === descriptions[index],
+        'CMS did not restore exact evidence for its owned wine ' + (index + 1) + '.');
+    }
+    assert(await readText(await proseField(comparison)) === comparisonText,
+      'CMS did not restore the exact saved two-wine comparison.');
+    await cmsTop();
+    const physical = await cmsReveal(named('I am recording observations from two actual wines.'));
+    assert(!await selected(physical), 'Synthetic browser drafts claimed physical tasting.');
+    await cmsTap('End practice and self-review');
+    await cmsTop();
+    await cmsReveal(text('This packet is incomplete and cannot count as reviewed participation.'));
+    await visible('This packet is incomplete and cannot count as reviewed participation.');
+    assert(await named('Save reviewed participation').count() === 0,
+      'Incomplete CMS wine drafts exposed reviewed participation.');
+    await counts({ service: 1 });
+    await chooseAnother();
+    await cmsTap('Start tasting practice');
+    for (let index = 0; index < 2; index++) {
+      assert(await readText(await wineField(index)) === '',
+        'A new CMS wine inherited an earlier packet evidence value.');
+    }
+    assert(await readText(await proseField(comparison)) === '',
+      'A new CMS draft inherited an earlier comparison.');
+    await replaceText(await wineField(0), newerDescription);
+    await replaceText(await proseField(comparison), newerComparison);
+    const newerBeforeHistory = await deadlineSample(1200, 'newer-draft-before-history');
+    await openHistory(tastingPreset, ended);
+    for (let index = 0; index < 2; index++) {
+      await exactSavedValue(wineDescriptionOwner(index), descriptions[index],
+        'Read-only CMS history lost owned wine ' + (index + 1) + ' exact evidence.');
+    }
+    await exactSavedValue(writtenOwner(comparison), comparisonText,
+      'Read-only CMS history lost its exact comparison.');
+    await screenshot('13-cms-two-wine-saved-read-only');
+    await cmsTap('Back');
+    await visible('CMS Certified rehearsal');
+    await openHistory(theoryPreset, 'Draft ended without reviewed participation.');
+    await cmsReveal(text('Draft ended without reviewed participation.'), { direction: -1 });
+    await visible('Draft ended without reviewed participation.');
+    await cmsTap('Back');
+    await visible('CMS Certified rehearsal');
+    await leaveCms();
+    await reload();
+    await visible('Home', startupTimeout);
+    await openCms();
+    const newerDraft = await deadlineSample(1200, 'newer-draft-after-history-reload');
+    assertSameDeadline(newerBeforeHistory, newerDraft);
+    assert(await readText(await wineField(0)) === newerDescription,
+      'Viewing CMS history stole or altered the newer draft wine evidence.');
+    assert(await readText(await wineField(1)) === '',
+      'Viewing CMS history changed the newer draft second wine.');
+    assert(await readText(await proseField(comparison)) === newerComparison,
+      'CMS newer draft comparison changed after history and reload.');
+    await counts({ service: 1 });
+    await leaveCms();
+    await checkRuntimeMessages();
+    result.assertions.cmsRehearsal = {
+      appPresetSeconds: { theory: 1800, tasting: 1200, service: 900 },
+      servicePromptsAndProseRestored: serviceQuestions.map(question => question.id),
+      serviceReviewNotesRestored: serviceQuestions.length,
+      serviceReviewedParticipation: 1, tastingReviewedParticipation: 0,
+      theoryReviewedParticipation: 0, physicalAcknowledged: false,
+      wineDescriptionsRestored: 2, comparisonRestored: true,
+      savedHistoryReadOnly: true, abandonedTheoryReadOnly: true,
+      newerDraftPreservedAfterHistoryAndReload: true, selectedTrackRetained: 'WSET_L3',
+      deadlineSamples: [theoryStart, serviceBefore, serviceAfter, tastingBefore, tastingAfter, newerBeforeHistory, newerDraft],
+      boundary: 'Browser UI durability only; synthetic prose does not establish physical tasting or service technique.',
+    };
+  });
   await waitForFontManifest(currentDocumentLoaderId, 'final document');
   await waitForTransientRequests('final browser check');
   assertNoBrowserErrors();

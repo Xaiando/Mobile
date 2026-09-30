@@ -114,10 +114,33 @@ void main() {
     );
     await tester.tap(track);
     await tester.pumpAndSettle();
-    await tester.tap(find.text('Start studying'));
+    final startStudying = find.widgetWithText(FilledButton, 'Start studying');
+    await pumpUntil(
+      tester,
+      () =>
+          startStudying.evaluate().isNotEmpty &&
+          tester.widget<FilledButton>(startStudying).onPressed != null,
+      what: 'the enabled Start studying action after saved track selection',
+    );
+    await tester.tap(startStudying);
     await tester.pumpAndSettle();
 
-    await tester.tap(find.text('Practice'));
+    // Native database completion and the settings watch can arrive after the
+    // frame queue settles. Wait for the saved-onboarding redirect's actual
+    // navigation target; the desktop rail and compact bar are both supported.
+    final mainNavigation = find.byWidgetPredicate(
+      (widget) => widget is NavigationBar || widget is NavigationRail,
+    );
+    final practiceDestination = find
+        .descendant(of: mainNavigation, matching: find.text('Practice'))
+        .hitTestable();
+    await pumpUntil(
+      tester,
+      () => practiceDestination.evaluate().isNotEmpty,
+      what: 'the main Practice navigation after saved onboarding',
+    );
+    expect(practiceDestination, findsOneWidget);
+    await tester.tap(practiceDestination);
     await tester.pumpAndSettle();
     // Home's own button is offstage now, so this finds the Practice one.
     final start = find.text('Start session');
