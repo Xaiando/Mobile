@@ -68,3 +68,8 @@ The bounded next device action depends on the already-pending phone/version resp
 ## Read-only device availability observation, 30 September
 
 At approximately 13:44 UTC, the existing official Platform Tools `adb devices -l` command returned no connected Android device. No device serial was printed, no app was installed, and no operating-system settings or device data were changed. The user-specified model remains Samsung Galaxy S22 Ultra; Android/One UI version is still unconfirmed. Every physical acceptance row remains unrun. A future session must use the fixed accepted APK identity, not treat this availability check or the PR45 build as scanner acceptance.
+
+
+## Subsequent CI conclusion and device reply
+
+The original PR45 native job subsequently completed successfully with1,395 passing tests at14:12:11 UTC; its earlier pending status above is a historical observation. Existing Windows/web job failures and APK provenance remain unchanged. The user again identified the phone as Samsung Galaxy S22 Ultra; no Android/One UI version, installation or physical checklist outcome was supplied. All12 rows remain UNRUN, and the PR45 APK still predates the separate CMS/D2/French continuation. Do not infer camera/OCR acceptance or repeat the pending version question from artifact availability.
