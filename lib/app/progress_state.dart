@@ -10,7 +10,9 @@ final wsetProgressProvider = StreamProvider.autoDispose<WsetProgressSnapshot>((
   ref,
 ) async* {
   await ref.watch(appStartupProvider.future);
+  if (!ref.mounted) return;
   final scope = await ref.watch(wsetScopeProvider.future);
+  if (!ref.mounted) return;
   yield* ref
       .watch(wsetProgressRepositoryProvider(scope))
       .watch(refreshInterval: const Duration(minutes: 1));
