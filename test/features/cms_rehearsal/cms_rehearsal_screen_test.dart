@@ -1574,21 +1574,62 @@ void main() {
                   (node) => node.getSemanticsData().flagsCollection.isTextField,
                 )
                 .toList();
-            expect(
-              fields,
-              hasLength(finished ? 2 : 1),
-              reason: 'only this prompt owns its prose and improvement field',
-            );
-            final prose = fields
-                .where(
-                  (node) => node.getSemanticsData().label == 'Your explanation',
-                )
-                .toList();
-            expect(prose, hasLength(1));
-            expect(
-              prose.single.getSemanticsData().value,
-              'Exact semantic response for ${question.id}; different per prompt.',
-            );
+            if (finished) {
+              expect(
+                fields,
+                hasLength(1),
+                reason: 'one remaining editable improvement field per prompt',
+              );
+              final savedProse = nodes
+                  .where(
+                    (node) =>
+                        node.getSemanticsData().label ==
+                        'Your explanation\nExact semantic response for '
+                            '${question.id}; different per prompt.',
+                  )
+                  .toList();
+              expect(
+                savedProse,
+                hasLength(1),
+                reason: 'one separately owned exact static saved prose leaf',
+              );
+              expect(
+                savedProse.single
+                    .getSemanticsData()
+                    .flagsCollection
+                    .isTextField,
+                isFalse,
+              );
+              expect(tree(savedProse.single), hasLength(1));
+              final proseKey = 'cms-rehearsal-written-${question.id}';
+              expect(
+                textFor(tester, proseKey),
+                'Exact semantic response for ${question.id}; different per prompt.',
+              );
+              expect(
+                tester
+                    .widget<TextFormField>(find.byKey(ValueKey(proseKey)))
+                    .enabled,
+                isFalse,
+              );
+            } else {
+              expect(
+                fields,
+                hasLength(1),
+                reason: 'the original draft prose input is unchanged',
+              );
+              final prose = fields
+                  .where(
+                    (node) =>
+                        node.getSemanticsData().label == 'Your explanation',
+                  )
+                  .toList();
+              expect(prose, hasLength(1));
+              expect(
+                prose.single.getSemanticsData().value,
+                'Exact semantic response for ${question.id}; different per prompt.',
+              );
+            }
             if (finished) {
               expect(
                 fields.where(
@@ -1771,4 +1812,481 @@ void main() {
       semantics.dispose();
     }
   });
+  List<SemanticsNode> savedValueTree(SemanticsNode root) {
+    final nodes = <SemanticsNode>[root];
+    root.visitChildren((child) {
+      nodes.addAll(savedValueTree(child));
+      return true;
+    });
+    return nodes;
+  }
+
+  Set<int> expectOwnedSavedValue(
+    WidgetTester tester, {
+    required String ownerLabel,
+    required String purpose,
+    required String value,
+    required String fieldKey,
+  }) {
+    final boundary = find.bySemanticsLabel(
+      RegExp(
+        '^${RegExp.escape(ownerLabel)}'
+        r'$',
+      ),
+    );
+    expect(boundary, findsOneWidget);
+    final owner = tester.getSemantics(boundary);
+    expect(
+      owner.getSemanticsData().label,
+      ownerLabel,
+      reason: 'saved prose must not be merged into its prompt identity',
+    );
+    final nodes = savedValueTree(owner);
+    final leaves = nodes
+        .where((node) => node.getSemanticsData().label == '$purpose\n$value')
+        .toList();
+    expect(
+      leaves,
+      hasLength(1),
+      reason:
+          'exact evidence must remain accessible without an editing connection',
+    );
+    expect(
+      leaves.single.getSemanticsData().flagsCollection.isTextField,
+      isFalse,
+    );
+    expect(
+      savedValueTree(leaves.single),
+      hasLength(1),
+      reason: 'the original disabled child must not duplicate saved semantics',
+    );
+    final field = find.descendant(
+      of: boundary,
+      matching: find.byKey(ValueKey(fieldKey)),
+    );
+    expect(field, findsOneWidget);
+    expect(tester.widget<TextFormField>(field).enabled, isFalse);
+    expect(
+      textFor(tester, fieldKey),
+      value,
+      reason: 'the visual controller/key remains the exact saved response',
+    );
+    return nodes.map((node) => node.id).toSet();
+  }
+
+  void expectDisjointSavedOwners(List<Set<int>> owners) {
+    for (var i = 0; i < owners.length; i++) {
+      for (var j = i + 1; j < owners.length; j++) {
+        expect(
+          owners[i].intersection(owners[j]),
+          isEmpty,
+          reason: 'saved values cannot belong to another prompt or wine',
+        );
+      }
+    }
+  }
+
+  testApp(
+    'finished service keeps three exact static saved prose leaves and editable review fields',
+    (tester) async {
+      final semantics = tester.ensureSemantics();
+      try {
+        final saved = (await tester.runAsync(
+          () => servicePacket('Finished static'),
+        ))!;
+        expect(saved.isFinished, isTrue);
+        expect(saved.isReviewed, isFalse);
+        await show(tester, savedId: saved.id);
+        tester.view.physicalSize = const Size(320, 6000);
+        await tester.pumpAndSettle();
+        final owners = <Set<int>>[];
+        for (final (index, q) in saved.written.indexed) {
+          final label = 'Written ${index + 1} ${q.prompt}';
+          owners.add(
+            expectOwnedSavedValue(
+              tester,
+              ownerLabel: label,
+              purpose: 'Your explanation',
+              value: saved.prose[q.id]!,
+              fieldKey: 'cms-rehearsal-written-${q.id}',
+            ),
+          );
+          final boundary = find.bySemanticsLabel(
+            RegExp(
+              '^${RegExp.escape(label)}'
+              r'$',
+            ),
+          );
+          final fields = savedValueTree(tester.getSemantics(boundary))
+              .where(
+                (node) => node.getSemanticsData().flagsCollection.isTextField,
+              )
+              .toList();
+          expect(fields, hasLength(1));
+          expect(
+            fields.single.getSemanticsData().label,
+            'What would improve this answer?',
+          );
+          final improvement = find.byKey(
+            ValueKey('cms-rehearsal-improvement-${q.id}'),
+          );
+          expect(tester.widget<TextFormField>(improvement).enabled, isTrue);
+        }
+        expectDisjointSavedOwners(owners);
+        final stored = (await tester.runAsync(
+          () => repository.read(saved.id),
+        ))!;
+        expect(stored.prose, saved.prose);
+        expect(stored.startedAt, saved.startedAt);
+        expect(stored.deadline, saved.deadline);
+        expect(stored.isReviewed, isFalse);
+        await expectNoStudyCredit(tester);
+        expect(tester.takeException(), isNull);
+      } finally {
+        semantics.dispose();
+      }
+    },
+  );
+
+  testApp(
+    'reviewed service history exposes exact owned prose and notes without stealing a newer draft',
+    (tester) async {
+      final semantics = tester.ensureSemantics();
+      try {
+        final saved = (await tester.runAsync(
+          () => servicePacket('Reviewed static', reviewed: true),
+        ))!;
+        final newer = (await tester.runAsync(() async {
+          final draft = await repository.start(CmsRehearsalSection.service);
+          return repository.answerWritten(
+            draft.id,
+            draft.written.first.id,
+            'Distinct newer current response that must survive saved-history viewing.',
+          );
+        }))!;
+        await show(tester, savedId: saved.id, readOnly: true);
+        tester.view.physicalSize = const Size(320, 6000);
+        await tester.pumpAndSettle();
+        final owners = <Set<int>>[];
+        for (final (index, q) in saved.written.indexed) {
+          final label = 'Written ${index + 1} ${q.prompt}';
+          owners.add(
+            expectOwnedSavedValue(
+              tester,
+              ownerLabel: label,
+              purpose: 'Your explanation',
+              value: saved.prose[q.id]!,
+              fieldKey: 'cms-rehearsal-written-${q.id}',
+            ),
+          );
+          expectOwnedSavedValue(
+            tester,
+            ownerLabel: label,
+            purpose: 'What would improve this answer?',
+            value: saved.reviewNotes[q.id]!,
+            fieldKey: 'cms-rehearsal-improvement-${q.id}',
+          );
+          final boundary = find.bySemanticsLabel(
+            RegExp(
+              '^${RegExp.escape(label)}'
+              r'$',
+            ),
+          );
+          expect(
+            savedValueTree(tester.getSemantics(boundary)).where(
+              (node) => node.getSemanticsData().flagsCollection.isTextField,
+            ),
+            isEmpty,
+            reason: 'immutable history exposes no editable semantic input',
+          );
+        }
+        expectDisjointSavedOwners(owners);
+        final current = (await tester.runAsync(repository.current))!;
+        expect(current.id, newer.id);
+        expect(current.startedAt, newer.startedAt);
+        expect(current.deadline, newer.deadline);
+        expect(current.prose, newer.prose);
+        final reread = (await tester.runAsync(
+          () => repository.read(saved.id),
+        ))!;
+        expect(reread.toJson(), saved.toJson());
+        await expectNoStudyCredit(tester);
+        expect(tester.takeException(), isNull);
+      } finally {
+        semantics.dispose();
+      }
+    },
+  );
+
+  testApp(
+    'incomplete finished history retains legitimate empty responses and empty notes',
+    (tester) async {
+      final semantics = tester.ensureSemantics();
+      try {
+        final saved = (await tester.runAsync(() async {
+          final draft = await repository.start(CmsRehearsalSection.service);
+          await repository.answerWritten(
+            draft.id,
+            draft.written.first.id,
+            'Only this original response was saved.',
+          );
+          return repository.finish(draft.id);
+        }))!;
+        expect(saved.prose, hasLength(1));
+        expect(saved.isComplete, isFalse);
+        await show(tester, savedId: saved.id, readOnly: true);
+        tester.view.physicalSize = const Size(320, 6000);
+        await tester.pumpAndSettle();
+        for (final (index, q) in saved.written.indexed) {
+          final label = 'Written ${index + 1} ${q.prompt}';
+          expectOwnedSavedValue(
+            tester,
+            ownerLabel: label,
+            purpose: 'Your explanation',
+            value: saved.prose[q.id] ?? '',
+            fieldKey: 'cms-rehearsal-written-${q.id}',
+          );
+          expectOwnedSavedValue(
+            tester,
+            ownerLabel: label,
+            purpose: 'What would improve this answer?',
+            value: '',
+            fieldKey: 'cms-rehearsal-improvement-${q.id}',
+          );
+        }
+        final stored = (await tester.runAsync(
+          () => repository.read(saved.id),
+        ))!;
+        expect(
+          stored.toJson(),
+          saved.toJson(),
+          reason:
+              'rendering empties must not create/fill missing saved responses',
+        );
+        expect(stored.isReviewed, isFalse);
+        await expectNoStudyCredit(tester);
+        expect(tester.takeException(), isNull);
+      } finally {
+        semantics.dispose();
+      }
+    },
+  );
+
+  testApp(
+    'saved two-wine history exposes all ten separate exact evidence leaves without physical credit',
+    (tester) async {
+      final semantics = tester.ensureSemantics();
+      try {
+        final saved = (await tester.runAsync(() async {
+          final draft = await repository.start(CmsRehearsalSection.tasting);
+          for (final wine in draft.wines) {
+            for (final prompt in draft.wineEvidencePrompts) {
+              await repository.writeWineEvidence(
+                draft.id,
+                wine.ordinal,
+                prompt.id,
+                'Saved synthetic evidence for wine ${wine.ordinal + 1} / ${prompt.id}; no sensory claim.',
+              );
+            }
+          }
+          return repository.finish(draft.id);
+        }))!;
+        final newer = (await tester.runAsync(
+          () => repository.start(CmsRehearsalSection.service),
+        ))!;
+        await show(tester, savedId: saved.id, readOnly: true);
+        tester.view.physicalSize = const Size(320, 10000);
+        await tester.pumpAndSettle();
+        final wineOwners = <Set<int>>[];
+        final promptOwners = <Set<int>>[];
+        for (final wine in saved.wines) {
+          final label = 'Wine ${wine.ordinal + 1} of 2';
+          final boundary = find.bySemanticsLabel(
+            RegExp(
+              '^${RegExp.escape(label)}'
+              r'$',
+            ),
+          );
+          expect(boundary, findsOneWidget);
+          final owner = tester.getSemantics(boundary);
+          expect(owner.getSemanticsData().label, label);
+          wineOwners.add(savedValueTree(owner).map((node) => node.id).toSet());
+          for (final prompt in saved.wineEvidencePrompts) {
+            final nodes = savedValueTree(owner);
+            final promptRoots = nodes
+                .where((node) => node.getSemanticsData().label == prompt.prompt)
+                .toList();
+            expect(promptRoots, hasLength(1));
+            final promptNodes = savedValueTree(promptRoots.single);
+            promptOwners.add(promptNodes.map((node) => node.id).toSet());
+            final expected = wine.evidence[prompt.id]!;
+            final leaves = promptNodes
+                .where(
+                  (node) =>
+                      node.getSemanticsData().label ==
+                      'Your wine evidence\n$expected',
+                )
+                .toList();
+            expect(leaves, hasLength(1));
+            expect(savedValueTree(leaves.single), hasLength(1));
+            expect(
+              promptNodes.where(
+                (node) => node.getSemanticsData().flagsCollection.isTextField,
+              ),
+              isEmpty,
+            );
+            final fieldKey =
+                'cms-rehearsal-wine-evidence-${wine.ordinal}-${prompt.id}';
+            expect(textFor(tester, fieldKey), expected);
+            expect(
+              tester
+                  .widget<TextFormField>(find.byKey(ValueKey(fieldKey)))
+                  .enabled,
+              isFalse,
+            );
+          }
+        }
+        expect(wineOwners, hasLength(2));
+        expect(promptOwners, hasLength(10));
+        expectDisjointSavedOwners(wineOwners);
+        expectDisjointSavedOwners(promptOwners);
+        final current = (await tester.runAsync(repository.current))!;
+        expect(current.id, newer.id);
+        expect(current.deadline, newer.deadline);
+        final stored = (await tester.runAsync(
+          () => repository.read(saved.id),
+        ))!;
+        expect(stored.toJson(), saved.toJson());
+        expect(stored.physicalAcknowledged, isFalse);
+        expect(stored.isReviewed, isFalse);
+        await expectNoStudyCredit(tester);
+        expect(tester.takeException(), isNull);
+      } finally {
+        semantics.dispose();
+      }
+    },
+  );
+
+  testApp(
+    'review becoming immutable exposes durable notes rather than unsaved local text',
+    (tester) async {
+      final semantics = tester.ensureSemantics();
+      const savedProse =
+          'Évidence enregistrée — Château.\nSecond exact line; retain final spaces.  ';
+      const savedNote =
+          'Améliorer avec un exemple précis.\nSaved second line; retain final spaces.  ';
+      const unsavedNote =
+          'Unsaved local edit that must never be presented as the saved reviewed note.';
+      try {
+        final saved = (await tester.runAsync(() async {
+          final draft = await repository.start(CmsRehearsalSection.service);
+          for (final q in draft.written) {
+            await repository.answerWritten(
+              draft.id,
+              q.id,
+              q.id == draft.written.first.id
+                  ? savedProse
+                  : 'Saved response for ${q.id}.',
+            );
+          }
+          var ended = await repository.finish(draft.id);
+          for (final q in draft.written) {
+            ended = await repository.selfAssess(
+              draft.id,
+              q.id,
+              {},
+              improvement: q.id == draft.written.first.id
+                  ? savedNote
+                  : 'Saved improvement for ${q.id}.',
+            );
+          }
+          return ended;
+        }))!;
+        final first = saved.written.first;
+        expect(saved.isReviewed, isFalse);
+        expect(saved.reviewNotes[first.id], savedNote);
+        await show(tester, savedId: saved.id);
+        tester.view.physicalSize = const Size(320, 6000);
+        await tester.pumpAndSettle();
+        await enterKey(
+          tester,
+          'cms-rehearsal-improvement-${first.id}',
+          unsavedNote,
+        );
+        expect(
+          textFor(tester, 'cms-rehearsal-improvement-${first.id}'),
+          unsavedNote,
+        );
+        expect(
+          tester
+              .widget<TextFormField>(
+                find.byKey(ValueKey('cms-rehearsal-improvement-${first.id}')),
+              )
+              .enabled,
+          isTrue,
+        );
+        await tapKey(tester, 'cms-rehearsal-reviewed');
+        final stored = (await tester.runAsync(
+          () => repository.read(saved.id),
+        ))!;
+        expect(stored.isReviewed, isTrue);
+        expect(stored.prose, saved.prose);
+        expect(
+          stored.reviewNotes,
+          saved.reviewNotes,
+          reason: 'review marks existing saved reflection, not the local unsaved edit',
+        );
+        expect(stored.startedAt, saved.startedAt);
+        expect(stored.deadline, saved.deadline);
+        expect(
+          find.byKey(const ValueKey('cms-rehearsal-reviewed')),
+          findsNothing,
+        );
+        final owners = <Set<int>>[];
+        for (final (index, q) in stored.written.indexed) {
+          final label = 'Written ${index + 1} ${q.prompt}';
+          owners.add(
+            expectOwnedSavedValue(
+              tester,
+              ownerLabel: label,
+              purpose: 'Your explanation',
+              value: stored.prose[q.id]!,
+              fieldKey: 'cms-rehearsal-written-${q.id}',
+            ),
+          );
+          expectOwnedSavedValue(
+            tester,
+            ownerLabel: label,
+            purpose: 'What would improve this answer?',
+            value: stored.reviewNotes[q.id]!,
+            fieldKey: 'cms-rehearsal-improvement-${q.id}',
+          );
+          final boundary = find.bySemanticsLabel(
+            RegExp(
+              '^${RegExp.escape(label)}'
+              r'$',
+            ),
+          );
+          final nodes = savedValueTree(tester.getSemantics(boundary));
+          expect(
+            nodes.where(
+              (node) => node.getSemanticsData().flagsCollection.isTextField,
+            ),
+            isEmpty,
+          );
+          expect(
+            nodes.where(
+              (node) => node.getSemanticsData().label.contains(unsavedNote),
+            ),
+            isEmpty,
+          );
+        }
+        expectDisjointSavedOwners(owners);
+        await expectNoStudyCredit(tester);
+        expect(tester.takeException(), isNull);
+      } finally {
+        semantics.dispose();
+      }
+    },
+  );
 }

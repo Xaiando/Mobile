@@ -725,6 +725,8 @@ class _CmsRehearsalScreenState extends ConsumerState<CmsRehearsalScreen> {
       () => {...?attempt.selfAssessment[question.id]},
     );
     final hasProse = (attempt.prose[question.id] ?? '').trim().isNotEmpty;
+    final savedImprovement =
+        widget.readOnly || (attempt.isFinished && !canReview);
     return Semantics(
       container: true,
       explicitChildNodes: true,
@@ -741,19 +743,25 @@ class _CmsRehearsalScreenState extends ConsumerState<CmsRehearsalScreen> {
           ),
           ExcludeSemantics(child: Text(question.prompt)),
           const SizedBox(height: 8),
-          TextFormField(
-            key: ValueKey('cms-rehearsal-written-${question.id}'),
-            initialValue: attempt.prose[question.id] ?? '',
-            enabled: _draftEditable,
-            minLines: 3,
-            maxLines: 8,
-            maxLength: 4000,
-            decoration: const InputDecoration(
-              labelText: 'Your explanation',
-              border: OutlineInputBorder(),
-            ),
-            onChanged: (value) => _enqueue(
-              () => _repository!.answerWritten(attempt.id, question.id, value),
+          _savedFieldSemantics(
+            saved: attempt.isFinished || widget.readOnly,
+            purpose: 'Your explanation',
+            value: attempt.prose[question.id] ?? '',
+            child: TextFormField(
+              key: ValueKey('cms-rehearsal-written-${question.id}'),
+              initialValue: attempt.prose[question.id] ?? '',
+              enabled: _draftEditable,
+              minLines: 3,
+              maxLines: 8,
+              maxLength: 4000,
+              decoration: const InputDecoration(
+                labelText: 'Your explanation',
+                border: OutlineInputBorder(),
+              ),
+              onChanged: (value) => _enqueue(
+                () =>
+                    _repository!.answerWritten(attempt.id, question.id, value),
+              ),
             ),
           ),
           if (attempt.isFinished && !attempt.isAbandoned) ...[
@@ -778,18 +786,25 @@ class _CmsRehearsalScreenState extends ConsumerState<CmsRehearsalScreen> {
                       })
                     : null,
               ),
-            TextFormField(
-              key: ValueKey('cms-rehearsal-improvement-${question.id}'),
-              initialValue: _reviewNotes[question.id] ?? '',
-              enabled: canReview && !_blocked && hasProse,
-              minLines: 2,
-              maxLines: 5,
-              maxLength: 4000,
-              decoration: const InputDecoration(
-                labelText: 'What would improve this answer?',
-                border: OutlineInputBorder(),
+            _savedFieldSemantics(
+              saved: savedImprovement,
+              purpose: 'What would improve this answer?',
+              value: attempt.reviewNotes[question.id] ?? '',
+              child: TextFormField(
+                key: ValueKey('cms-rehearsal-improvement-${question.id}'),
+                initialValue: savedImprovement
+                    ? (attempt.reviewNotes[question.id] ?? '')
+                    : (_reviewNotes[question.id] ?? ''),
+                enabled: canReview && !_blocked && hasProse,
+                minLines: 2,
+                maxLines: 5,
+                maxLength: 4000,
+                decoration: const InputDecoration(
+                  labelText: 'What would improve this answer?',
+                  border: OutlineInputBorder(),
+                ),
+                onChanged: (value) => _reviewNotes[question.id] = value,
               ),
-              onChanged: (value) => _reviewNotes[question.id] = value,
             ),
             if (canReview && hasProse)
               TextButton(
@@ -902,25 +917,30 @@ class _CmsRehearsalScreenState extends ConsumerState<CmsRehearsalScreen> {
               children: [
                 const SizedBox(height: 12),
                 ExcludeSemantics(child: Text(prompt.prompt)),
-                TextFormField(
-                  key: ValueKey(
-                    'cms-rehearsal-wine-evidence-${wine.ordinal}-${prompt.id}',
-                  ),
-                  initialValue: wine.evidence[prompt.id] ?? '',
-                  enabled: _draftEditable,
-                  minLines: 2,
-                  maxLines: 6,
-                  maxLength: 4000,
-                  decoration: const InputDecoration(
-                    labelText: 'Your wine evidence',
-                    border: OutlineInputBorder(),
-                  ),
-                  onChanged: (value) => _enqueue(
-                    () => _repository!.writeWineEvidence(
-                      attempt.id,
-                      wine.ordinal,
-                      prompt.id,
-                      value,
+                _savedFieldSemantics(
+                  saved: attempt.isFinished || widget.readOnly,
+                  purpose: 'Your wine evidence',
+                  value: wine.evidence[prompt.id] ?? '',
+                  child: TextFormField(
+                    key: ValueKey(
+                      'cms-rehearsal-wine-evidence-${wine.ordinal}-${prompt.id}',
+                    ),
+                    initialValue: wine.evidence[prompt.id] ?? '',
+                    enabled: _draftEditable,
+                    minLines: 2,
+                    maxLines: 6,
+                    maxLength: 4000,
+                    decoration: const InputDecoration(
+                      labelText: 'Your wine evidence',
+                      border: OutlineInputBorder(),
+                    ),
+                    onChanged: (value) => _enqueue(
+                      () => _repository!.writeWineEvidence(
+                        attempt.id,
+                        wine.ordinal,
+                        prompt.id,
+                        value,
+                      ),
                     ),
                   ),
                 ),
@@ -930,6 +950,24 @@ class _CmsRehearsalScreenState extends ConsumerState<CmsRehearsalScreen> {
       ],
     ),
   );
+
+  // A disabled input is painted correctly but the pinned web engine may not
+  // synchronize its native DOM value without an editing connection. Expose
+  // immutable saved evidence as its own static semantic leaf, while retaining
+  // the exact field widget and its layout/controller for visual rendering.
+  Widget _savedFieldSemantics({
+    required bool saved,
+    required String purpose,
+    required String value,
+    required Widget child,
+  }) => saved
+      ? Semantics(
+          container: true,
+          explicitChildNodes: true,
+          label: '$purpose\n$value',
+          child: ExcludeSemantics(child: child),
+        )
+      : child;
 
   Widget _sourceButton(Iterable<String> ids) => TextButton(
     onPressed: _busy || _leaving
