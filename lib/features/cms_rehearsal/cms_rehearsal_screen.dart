@@ -1,5 +1,6 @@
 import 'dart:async';
 
+import 'package:flutter/gestures.dart' show PointerScrollEvent;
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
@@ -389,55 +390,65 @@ class _CmsRehearsalScreenState extends ConsumerState<CmsRehearsalScreen> {
         ),
         body: _loading
             ? const Center(child: CircularProgressIndicator())
-            : ListView(
-                padding: const EdgeInsets.all(16),
-                children: [
-                  const Text(
-                    'Original app-authored practice for CMS Europe Certified study. '
-                    'The 30-minute theory, 20-minute two-wine tasting and 15-minute '
-                    'service timers are app study presets, not official exam allocations. '
-                    'Written decisions and self-review cannot assess service technique '
-                    'or sensory accuracy. No official result or qualification is awarded.',
-                  ),
-                  if (!_savedRoute) ..._participationSummary(),
-                  if (widget.readOnly)
+            : Listener(
+                onPointerSignal: (event) {
+                  if (event is PointerScrollEvent &&
+                      event.scrollDelta != Offset.zero) {
+                    FocusScope.of(context).unfocus();
+                  }
+                },
+                child: ListView(
+                  keyboardDismissBehavior:
+                      ScrollViewKeyboardDismissBehavior.onDrag,
+                  padding: const EdgeInsets.all(16),
+                  children: [
                     const Text(
-                      'Read-only saved snapshot. Viewing this record does not change your current draft.',
-                      key: ValueKey('cms-rehearsal-read-only'),
+                      'Original app-authored practice for CMS Europe Certified study. '
+                      'The 30-minute theory, 20-minute two-wine tasting and 15-minute '
+                      'service timers are app study presets, not official exam allocations. '
+                      'Written decisions and self-review cannot assess service technique '
+                      'or sensory accuracy. No official result or qualification is awarded.',
                     ),
-                  if (_unreadable > 0)
-                    Text(
-                      '$_unreadable saved record(s) could not be read.',
-                      key: const ValueKey('cms-rehearsal-history-warning'),
-                    ),
-                  if (_error != null)
-                    Text(_error!, key: const ValueKey('cms-rehearsal-error')),
-                  if (_error != null && !_writeFailed)
-                    TextButton(
-                      key: const ValueKey('cms-rehearsal-retry-load'),
-                      onPressed: _busy || _leaving ? null : _reload,
-                      child: const Text('Retry loading practice'),
-                    ),
-                  if (_unreadableCurrentPointer != null)
-                    TextButton(
-                      key: const ValueKey('cms-rehearsal-release-selection'),
-                      onPressed: _blocked ? null : _releaseUnreadablePointer,
-                      child: const Text('Release unreadable draft selection'),
-                    ),
-                  if (_writeFailed)
-                    TextButton(
-                      key: const ValueKey('cms-rehearsal-reload'),
-                      onPressed: _busy || _leaving ? null : _reload,
-                      child: const Text('Reload saved draft'),
-                    ),
-                  if (!_savedRoute && attempt == null) ..._sectionCards(),
-                  if (attempt != null)
-                    KeyedSubtree(
-                      key: ValueKey('${attempt.id}-$_editorRevision'),
-                      child: _packet(attempt),
-                    ),
-                  if (!_savedRoute) ..._savedHistory(),
-                ],
+                    if (!_savedRoute) ..._participationSummary(),
+                    if (widget.readOnly)
+                      const Text(
+                        'Read-only saved snapshot. Viewing this record does not change your current draft.',
+                        key: ValueKey('cms-rehearsal-read-only'),
+                      ),
+                    if (_unreadable > 0)
+                      Text(
+                        '$_unreadable saved record(s) could not be read.',
+                        key: const ValueKey('cms-rehearsal-history-warning'),
+                      ),
+                    if (_error != null)
+                      Text(_error!, key: const ValueKey('cms-rehearsal-error')),
+                    if (_error != null && !_writeFailed)
+                      TextButton(
+                        key: const ValueKey('cms-rehearsal-retry-load'),
+                        onPressed: _busy || _leaving ? null : _reload,
+                        child: const Text('Retry loading practice'),
+                      ),
+                    if (_unreadableCurrentPointer != null)
+                      TextButton(
+                        key: const ValueKey('cms-rehearsal-release-selection'),
+                        onPressed: _blocked ? null : _releaseUnreadablePointer,
+                        child: const Text('Release unreadable draft selection'),
+                      ),
+                    if (_writeFailed)
+                      TextButton(
+                        key: const ValueKey('cms-rehearsal-reload'),
+                        onPressed: _busy || _leaving ? null : _reload,
+                        child: const Text('Reload saved draft'),
+                      ),
+                    if (!_savedRoute && attempt == null) ..._sectionCards(),
+                    if (attempt != null)
+                      KeyedSubtree(
+                        key: ValueKey('${attempt.id}-$_editorRevision'),
+                        child: _packet(attempt),
+                      ),
+                    if (!_savedRoute) ..._savedHistory(),
+                  ],
+                ),
               ),
       ),
     );

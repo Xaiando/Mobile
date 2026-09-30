@@ -1,13 +1,13 @@
 # Android scanner device acceptance
 
-Prepared 30 September 2026. **All device checks below are UNRUN.** The user has a Samsung Galaxy S22 Ultra; Android/One UI version is pending and an iPhone is unavailable. Native capture/OCR/cleanup need observed device evidence. iPhone and native HEIC checks remain unobserved.
+Prepared 30 September 2026. **All device checks below are UNRUN.** The user reports a Samsung Galaxy S22 Ultra running Android 16 / One UI 8; device properties have not been read and an iPhone is unavailable. Native capture/OCR/cleanup need observed device evidence. iPhone and native HEIC checks remain unobserved.
 
 ## Record before starting
 
 | Evidence | Actual value |
 | --- | --- |
 | Tester; session start/end UTC | _pending_ |
-| Android device model; Android version/API | Samsung Galaxy S22 Ultra (user-reported); OS/API _pending_ |
+| Android device model; Android version/API | Samsung Galaxy S22 Ultra, Android 16 / One UI 8 (user-reported); device-read version/API _pending_ |
 | PR head; actual CI checkout/merge SHA; run ID; APK filename and SHA-256 | Captured for PR 45/run 36708753882; exact provenance and APK hash appear below. Installation/signature evidence remains _pending_. |
 | Installed app version/build; install/update outcome | _pending_ |
 | Input labels/images; orientation/format; network state | _pending_ |
@@ -73,3 +73,6 @@ At approximately 13:44 UTC, the existing official Platform Tools `adb devices -l
 ## Subsequent CI conclusion and device reply
 
 The original PR45 native job subsequently completed successfully with 1,395 passing tests at 14:12:11 UTC; its earlier pending status above is a historical observation. Existing Windows/web job failures and APK provenance remain unchanged. The user again identified the phone as Samsung Galaxy S22 Ultra; no Android/One UI version, installation or physical checklist outcome was supplied. All 12 rows remain UNRUN, and the PR45 APK still predates the separate CMS/D2/French continuation. Do not infer camera/OCR acceptance or repeat the pending version question from artifact availability.
+
+
+The read-only Android inventory at 17:28:27 UTC on 30 September 2026 found zero connected devices. The user subsequently supplied Android 16 / One UI 8 as the phone version. This updates the planned test target only; every physical checklist row remains UNRUN, and no install, phone setting or user-data change was performed. The older PR45 APK provenance remains separate from the unpublished continuation.

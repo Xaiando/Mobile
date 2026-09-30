@@ -115,6 +115,46 @@ question_templates:
   prompt_template: '{subject.name}'
   parameters:
     item_choices:
+      ki_vdp_gutswein_private:
+        prompt: "A wine list shows VDP.GUTSWEIN. Which origin tier does that term identify within the private VDP classification?"
+        options:
+        - "Estate-wine tier within the private VDP classification"
+        - "Village-wine tier in the private VDP classification"
+        - "Classified vineyard tier below VDP.GROSSE LAGE"
+        - "Highest classified vineyard tier in the private VDP hierarchy"
+        correctIndex: 0
+        explanation: "VDP.GUTSWEIN identifies the estate-wine tier of the association's private classification. It is distinct from a village or classified-vineyard tier; the name alone does not establish a bottle's style or sensory quality."
+        sourceCitationId: src_de_vdp_classification
+      ki_vdp_ortswein_private:
+        prompt: "A colleague confuses VDP.ORTSWEIN with an estate entry or a named vineyard tier. Which tier does ORTSWEIN denote in the private VDP system?"
+        options:
+        - "Estate-wine tier within the private VDP classification"
+        - "Village-wine tier in the private VDP classification"
+        - "Classified vineyard tier below VDP.GROSSE LAGE"
+        - "Highest classified vineyard tier in the private VDP hierarchy"
+        correctIndex: 1
+        explanation: "VDP.ORTSWEIN is the village-wine tier under private VDP rules. It does not mean the estate entry tier or either named vineyard tier, and the classification is not itself a statutory quality mark."
+        sourceCitationId: src_de_vdp_classification
+      ki_vdp_erste_lage_private:
+        prompt: "A label uses VDP.ERSTE LAGE. Which tier meaning should a sommelier distinguish from both village wine and VDP.GROSSE LAGE?"
+        options:
+        - "Estate-wine tier within the private VDP classification"
+        - "Village-wine tier in the private VDP classification"
+        - "Classified vineyard tier below VDP.GROSSE LAGE"
+        - "Highest classified vineyard tier in the private VDP hierarchy"
+        correctIndex: 2
+        explanation: "VDP.ERSTE LAGE is a classified-vineyard tier in the private VDP hierarchy, below its highest VDP.GROSSE LAGE tier. This identifies the association's classification meaning; it does not guarantee that an individual bottle will be preferred."
+        sourceCitationId: src_de_vdp_classification
+      ki_vdp_grosse_lage_private:
+        prompt: "A label bears VDP.GROSSE LAGE. Which origin-tier explanation fits the association's private hierarchy?"
+        options:
+        - "Estate-wine tier within the private VDP classification"
+        - "Village-wine tier in the private VDP classification"
+        - "Classified vineyard tier below VDP.GROSSE LAGE"
+        - "Highest classified vineyard tier in the private VDP hierarchy"
+        correctIndex: 3
+        explanation: "VDP.GROSSE LAGE is the highest classified-vineyard tier of the private VDP system. The tier must be distinguished from the dry-wine name VDP.GROSSES GEWÄCHS and from the separately regulated statutory mark; it does not establish every bottle's sweetness or quality."
+        sourceCitationId: src_de_vdp_classification
       ki_vdp_grosses_gewaechs_private:
         prompt: A German wine list says VDP.GROSSES GEWÄCHS from VDP.GROSSE LAGE. How should that wording be explained beside the statutory “Großes Gewächs” mark?
         options:

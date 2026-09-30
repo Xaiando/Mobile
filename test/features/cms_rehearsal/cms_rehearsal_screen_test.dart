@@ -2,7 +2,7 @@ import 'dart:async';
 import 'dart:convert';
 import 'dart:io';
 import 'dart:math';
-import 'dart:ui' show CheckedState;
+import 'dart:ui' show CheckedState, PointerDeviceKind;
 
 import 'package:flutter/semantics.dart';
 
@@ -330,6 +330,93 @@ void main() {
                 .hasMatch(r.name),
       ),
       isEmpty,
+    );
+  }
+
+  for (final wheel in [true, false]) {
+    testApp(
+      'user ${wheel ? 'wheel' : 'drag'} dismisses CMS editing without losing answers',
+      (tester) async {
+        final semantics = tester.ensureSemantics();
+        try {
+          final attempt = (await tester.runAsync(() async {
+            final draft = await repository.start(CmsRehearsalSection.service);
+            for (final question in draft.written) {
+              await repository.answerWritten(
+                draft.id,
+                question.id,
+                'Stored sibling response for ${question.id}.',
+              );
+            }
+            return repository.read(draft.id);
+          }))!;
+          await show(tester);
+          tester.view.physicalSize = const Size(320, 780);
+          await tester.pumpAndSettle();
+          final question = attempt.written.first;
+          final key = 'cms-rehearsal-written-${question.id}';
+          const edited = 'An exact response survives scrolling and re-entry.';
+          await enterKey(tester, key, edited);
+          final field = find.byKey(ValueKey(key));
+          final editable = tester.widget<EditableText>(
+            find.descendant(of: field, matching: find.byType(EditableText)),
+          );
+          expect(editable.focusNode.hasFocus, isTrue);
+          final list = find.byType(ListView).first;
+          final outer = find
+              .descendant(of: list, matching: find.byType(Scrollable))
+              .first;
+          final position = tester.state<ScrollableState>(outer).position;
+          final before = position.pixels;
+          expect(
+            before,
+            greaterThan(0),
+            reason: 'the edited field is below the top',
+          );
+          final body = tester.getRect(list);
+          final gutter = Offset(body.left + 8, body.center.dy);
+          if (wheel) {
+            final pointer = TestPointer(401, PointerDeviceKind.mouse);
+            await tester.sendEventToBinding(pointer.hover(gutter));
+            await tester.sendEventToBinding(
+              pointer.scroll(const Offset(0, -100000)),
+            );
+            await tester.sendEventToBinding(pointer.removePointer());
+          } else {
+            await tester.dragFrom(gutter, const Offset(0, 180));
+          }
+          await settle(tester);
+          expect(
+            editable.focusNode.hasFocus,
+            isFalse,
+            reason: 'user scrolling must close editing before offscreen inputs return',
+          );
+          expect(position.pixels, lessThan(before));
+          final expected = {...attempt.prose, question.id: edited};
+          final stored = (await tester.runAsync(
+            () => repository.read(attempt.id),
+          ))!;
+          expect(stored.prose, expected);
+          expect(stored.startedAt, attempt.startedAt);
+          expect(stored.deadline, attempt.deadline);
+          expect(stored.isFinished, isFalse);
+          expect(stored.isReviewed, isFalse);
+
+          await reveal(tester, field);
+          expect(textFor(tester, key), edited);
+          // Deliberate deletion after refocusing remains a valid saved edit.
+          await enterKey(tester, key, '');
+          final cleared = (await tester.runAsync(
+            () => repository.read(attempt.id),
+          ))!;
+          expect(cleared.prose, {...expected, question.id: ''});
+          expect(cleared.deadline, attempt.deadline);
+          await expectNoStudyCredit(tester);
+          expect(tester.takeException(), isNull);
+        } finally {
+          semantics.dispose();
+        }
+      },
     );
   }
 

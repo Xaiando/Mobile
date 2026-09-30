@@ -29,6 +29,13 @@ const _relationIds = <String, Set<String>>{
   'RESERVED_FOR_REGION': {'ki_wset_geo_valpolicella_ripasso_origin'},
 };
 
+const _newTierIds = <String>{
+  'ki_vdp_gutswein_private',
+  'ki_vdp_ortswein_private',
+  'ki_vdp_erste_lage_private',
+  'ki_vdp_grosse_lage_private',
+};
+
 const _templateIds = <String>{
   'qt_wset_l3_geography_remaining_8_principles',
   'qt_wset_l3_geography_gg_awarder',
@@ -65,8 +72,16 @@ void main() {
             (jsonDecode(template.parameters!)
                     as Map<String, dynamic>)['item_choices']
                 as Map<String, dynamic>;
-        expect(choices.keys.toSet(), _relationIds[template.relationType]);
-        for (final entry in choices.entries) {
+        expect(choices.keys.toSet(), {
+          ..._relationIds[template.relationType]!,
+          if (template.relationType == 'PRIVATE_CLASSIFICATION_OF')
+            ..._newTierIds,
+        });
+        // The four secondary tier meanings have separate exact grading tests.
+        // Preserve every original eleven-item mapping and answer assertion.
+        for (final entry in choices.entries.where(
+          (entry) => expectedIds.contains(entry.key),
+        )) {
           final id = entry.key;
           actualIds.add(id);
           final choice = entry.value as Map<String, dynamic>;
@@ -160,7 +175,9 @@ void main() {
       clock: Clock.fixed(DateTime.utc(2026, 9, 29, 16)),
     ).ingest(dataset);
     final generated = (await db.select(db.questions).get()).where(
-      (question) => _templateIds.contains(question.questionTemplateId),
+      (question) =>
+          _templateIds.contains(question.questionTemplateId) &&
+          expectedIds.contains(question.knowledgeItemId),
     );
     expect(generated, hasLength(11));
     expect(
