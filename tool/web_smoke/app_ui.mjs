@@ -1644,10 +1644,16 @@ try {
         'CMS did not expose one exact saved-history row owning its View control.');
       await rendered.click({ timeout: actionTimeout });
     }
-    async function exactSavedValue(owner, expected, message) {
+    async function exactSavedValue(owner, purpose, expected, message) {
       await cmsTop();
-      const actual = await cmsReveal(owner, { wholeControl: false });
+      const leaf = owner.locator('flt-semantics:not(:has(flt-semantics))').filter({
+        hasText: new RegExp('^' + escapeRegex(purpose) + '\\n'),
+      });
+      const actual = await cmsReveal(leaf, { wholeControl: false });
       assert(await owner.count() === 1, 'CMS saved evidence has more than one semantic owner.');
+      assert(await leaf.count() === 1, 'CMS saved evidence has more than one purpose-owned static leaf.');
+      const raw = await actual.evaluate(element => element.textContent ?? '');
+      assert(raw === purpose + '\n' + expected, message);
       const values = await actual.evaluate(element => {
         const nodes = [element, ...element.querySelectorAll('*')];
         return nodes.flatMap(node => [
@@ -1730,9 +1736,9 @@ try {
     await counts({ service: 1 });
     await openHistory(servicePreset, reviewed);
     for (const question of serviceQuestions) {
-      await exactSavedValue(writtenOwner(question), prose.get(question.id),
+      await exactSavedValue(writtenOwner(question), 'Your explanation', prose.get(question.id),
         'CMS read-only service history lost exact prose for ' + question.id + '.');
-      await exactSavedValue(writtenOwner(question), notes.get(question.id),
+      await exactSavedValue(writtenOwner(question), 'What would improve this answer?', notes.get(question.id),
         'CMS read-only service history lost exact improvement for ' + question.id + '.');
     }
     await screenshot('13-cms-service-saved-read-only');
@@ -1780,10 +1786,10 @@ try {
     const newerBeforeHistory = await deadlineSample(1200, 'newer-draft-before-history');
     await openHistory(tastingPreset, ended);
     for (let index = 0; index < 2; index++) {
-      await exactSavedValue(wineDescriptionOwner(index), descriptions[index],
+      await exactSavedValue(wineDescriptionOwner(index), 'Your wine evidence', descriptions[index],
         'Read-only CMS history lost owned wine ' + (index + 1) + ' exact evidence.');
     }
-    await exactSavedValue(writtenOwner(comparison), comparisonText,
+    await exactSavedValue(writtenOwner(comparison), 'Your explanation', comparisonText,
       'Read-only CMS history lost its exact comparison.');
     await screenshot('13-cms-two-wine-saved-read-only');
     await cmsTap('Back');
