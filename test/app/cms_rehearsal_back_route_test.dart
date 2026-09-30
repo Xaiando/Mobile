@@ -3,6 +3,7 @@ import 'dart:convert';
 import 'dart:io';
 import 'dart:math';
 
+import 'package:flutter/foundation.dart' show debugPrintSynchronously;
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_test/flutter_test.dart';
@@ -124,7 +125,7 @@ void main() {
       matching: find.byType(FilledButton),
     );
     final texts = find.descendant(of: screens, matching: find.byType(Text));
-    print(
+    debugPrintSynchronously(
       'CMS_BACK_ROUTE_DIAGNOSTIC ${jsonEncode({
         'phase': phase,
         'uri': configuration.uri.toString(),
