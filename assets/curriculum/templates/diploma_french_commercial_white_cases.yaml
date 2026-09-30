@@ -1,0 +1,64 @@
+{
+  "question_templates": [
+    {
+      "id": "qt_d3fr2_case_criteria_2",
+      "relation_type": "CASE_ACTION",
+      "direction": "forward",
+      "mode": "case_criteria",
+      "variant": "d3fr2_case_criteria",
+      "prompt_template": "{subject.name}",
+      "parameters": {
+        "scope_node_ids": [
+          "n_d3fr2_case_bordeaux_route",
+          "n_d3fr2_case_rhone_white"
+        ],
+        "scenario_prompts": {
+          "n_d3fr2_case_bordeaux_route": "Fictional Bordeaux ready-stock exercise: an estate has 2,400 saleable bottles and a supplier bill due in 20 days. Whether existing cash can meet that bill is unconfirmed. A merchant requests all 2,400 bottles, with payment 60 days after shipment, and offers warehousing and sales to restaurants; no credit references, account-sales evidence or agreed division of selling and delivery work is supplied. Its sales sheet mentions a classification without naming the system or showing current status, and claims that classification guarantees demand. A restaurant group proposes a 360-bottle trial, payment on confirmed order before shipment and producer tasting/delivery work. Staff capacity, complete prices and costs, actual receipts and buyer reliability are unknown. These offers, quantities and terms are invented exercise inputs, not standard Bordeaux trade practices or payment law. Recommend a conditional sales process, explain the evidence, weigh stock, cash and workload, and identify checks before committing the remaining bottles.",
+          "n_d3fr2_case_rhone_white": "Fictional Rhône white-wine exercise: a producer has sound, same-vintage Marsanne and Roussanne lots. The supplied Roussanne parcel log records extra sorting after a wet spell; this is one invented season, not every Roussanne harvest. The brief is a dry white with fresh floral character, texture and restrained oak for a launch in eight weeks. Two pilot routes use the same fictional 70:30 Marsanne:Roussanne blend. A uses stainless steel, no malolactic fermentation and four weeks of fine-lees contact; a preliminary coded panel finds it closer to the brief, with estimated direct production cost EUR 9 per bottle and release in week six. B uses new oak, completed malolactic fermentation and twelve weeks of fine-lees contact; its preliminary panel finds broader texture but toast dominates and freshness is less suitable for this brief, with direct cost EUR 12 and release in week twelve. Several cellar variables differ. Selling prices, full selling/overhead/finance costs, repeat-panel results, stability and current origin/label-compliance records are missing. All trial findings, durations, proportions, costs and dates are app-authored assumptions, not legal minima, regional price data or guarantees. Recommend a conditional production/release process, explain the sensory mechanisms, assess the cost and timing tradeoff, and identify evidence needed to set quality and price."
+        },
+        "distractors": {
+          "n_d3fr2_case_bordeaux_route": [
+            {
+              "summary": "Allocate the batch to the merchant because its classification claim and 2,400-bottle request establish profitable consumer demand",
+              "explanation": "The claimed classification is unspecified and not evidenced; classifications do not establish the tasted lot's quality or actual customer sales. A request is not account sell-through, and no complete prices, costs or credit evidence proves a profitable whole-batch decision."
+            },
+            {
+              "summary": "Ship to the merchant now and count the promised payment as cash available for the supplier bill due in 20 days",
+              "explanation": "The supplied merchant terms pay 60 days after shipment, later than the 20-day bill. Dispatch or an invoice is not an actual receipt. Existing liquidity or bridging finance could matter, but is not provided; the offer alone does not fund the bill."
+            }
+          ],
+          "n_d3fr2_case_rhone_white": [
+            {
+              "summary": "Commit to B for the launch and charge a premium because new oak, MLF and longer lees contact establish the best Rhône white",
+              "explanation": "B is scheduled for week twelve, later than the eight-week launch, and its supplied preliminary result is less suited to the brief. Technique, higher cost and longer contact do not establish universal quality or willingness to pay; stability, full costs and customer evidence remain missing."
+            },
+            {
+              "summary": "Explain the whole texture difference as the effect of MLF, then infer A has the higher net profit from its lower direct cost",
+              "explanation": "The pilots also change vessel and lees duration, so the comparison does not isolate MLF. A's EUR 9 estimate is direct production cost only; without sale receipts and complete route/overhead/finance costs, the exercise cannot compare net profit."
+            }
+          ]
+        }
+      }
+    },
+    {
+      "id": "qt_d3fr2_case_written_2",
+      "relation_type": "CASE_ACTION",
+      "direction": "forward",
+      "mode": "short_answer",
+      "variant": "d3fr2_case_written",
+      "prompt_template": "{subject.name}",
+      "parameters": {
+        "scope_node_ids": [
+          "n_d3fr2_case_bordeaux_route",
+          "n_d3fr2_case_rhone_white"
+        ],
+        "key_points": {
+          "CASE_ACTION": "Conditional route or production/release action",
+          "CASE_REASON": "Source-bounded commercial or sensory evidence",
+          "CASE_TRADEOFF": "Stock, cost, timing and customer-value tradeoff",
+          "CASE_LIMITATION": "Unresolved compliance, trial and market evidence"
+        }
+      }
+    }
+  ]
+}

@@ -1,0 +1,486 @@
+{
+  "knowledge_nodes": [
+    {
+      "id": "n_d3fr2_case_bordeaux_route",
+      "node_type": "production_case",
+      "name": "Fictional Bordeaux ready-stock exercise: an estate has 2,400 saleable bottles and a supplier bill due in 20 days. Whether existing cash can meet that bill is unconfirmed. A merchant requests all 2,400 bottles, with payment 60 days after shipment, and offers warehousing and sales to restaurants; no credit references, account-sales evidence or agreed division of selling and delivery work is supplied. Its sales sheet mentions a classification without naming the system or showing current status, and claims that classification guarantees demand. A restaurant group proposes a 360-bottle trial, payment on confirmed order before shipment and producer tasting/delivery work. Staff capacity, complete prices and costs, actual receipts and buyer reliability are unknown. These offers, quantities and terms are invented exercise inputs, not standard Bordeaux trade practices or payment law. Recommend a conditional sales process, explain the evidence, weigh stock, cash and workload, and identify checks before committing the remaining bottles."
+    },
+    {
+      "id": "n_d3fr2_point_bordeaux_route_action",
+      "node_type": "learning_point",
+      "name": "Check partner evidence, responsibilities and dated cash needs before making a limited conditional commitment"
+    },
+    {
+      "id": "n_d3fr2_point_bordeaux_route_reason",
+      "node_type": "learning_point",
+      "name": "A classification claim, shipment or invoice does not establish consumer demand or available cash"
+    },
+    {
+      "id": "n_d3fr2_point_bordeaux_route_tradeoff",
+      "node_type": "learning_point",
+      "name": "The merchant reduces some distribution work but delays cash and concentrates stock; the restaurant trial needs estate service"
+    },
+    {
+      "id": "n_d3fr2_point_bordeaux_route_limitation",
+      "node_type": "learning_point",
+      "name": "Current classification status, partner performance, real receipts, full costs and liquidity remain unresolved"
+    },
+    {
+      "id": "n_d3fr2_case_rhone_white",
+      "node_type": "production_case",
+      "name": "Fictional Rhône white-wine exercise: a producer has sound, same-vintage Marsanne and Roussanne lots. The supplied Roussanne parcel log records extra sorting after a wet spell; this is one invented season, not every Roussanne harvest. The brief is a dry white with fresh floral character, texture and restrained oak for a launch in eight weeks. Two pilot routes use the same fictional 70:30 Marsanne:Roussanne blend. A uses stainless steel, no malolactic fermentation and four weeks of fine-lees contact; a preliminary coded panel finds it closer to the brief, with estimated direct production cost EUR 9 per bottle and release in week six. B uses new oak, completed malolactic fermentation and twelve weeks of fine-lees contact; its preliminary panel finds broader texture but toast dominates and freshness is less suitable for this brief, with direct cost EUR 12 and release in week twelve. Several cellar variables differ. Selling prices, full selling/overhead/finance costs, repeat-panel results, stability and current origin/label-compliance records are missing. All trial findings, durations, proportions, costs and dates are app-authored assumptions, not legal minima, regional price data or guarantees. Recommend a conditional production/release process, explain the sensory mechanisms, assess the cost and timing tradeoff, and identify evidence needed to set quality and price."
+    },
+    {
+      "id": "n_d3fr2_point_rhone_white_action",
+      "node_type": "learning_point",
+      "name": "Repeat the brief-aligned pilot and check stability, origin and capacity before a limited six-week release"
+    },
+    {
+      "id": "n_d3fr2_point_rhone_white_reason",
+      "node_type": "learning_point",
+      "name": "Marsanne and Roussanne context, MLF, oak and lees inform the comparison without isolating the cause or guaranteeing quality"
+    },
+    {
+      "id": "n_d3fr2_point_rhone_white_tradeoff",
+      "node_type": "learning_point",
+      "name": "The earlier, lower-direct-cost pilot fits the launch; the later oak route needs a demonstrated premium and extra holding capacity"
+    },
+    {
+      "id": "n_d3fr2_point_rhone_white_limitation",
+      "node_type": "learning_point",
+      "name": "Confounded trials, provisional panels, incomplete stability/compliance records and missing market costs prevent a final quality-price conclusion"
+    }
+  ],
+  "knowledge_relations": [
+    {
+      "subject_id": "n_d3fr2_case_bordeaux_route",
+      "relation_type": "CASE_ACTION",
+      "object_id": "n_d3fr2_point_bordeaux_route_action",
+      "valid_from": "2026-09-30"
+    },
+    {
+      "subject_id": "n_d3fr2_case_bordeaux_route",
+      "relation_type": "CASE_REASON",
+      "object_id": "n_d3fr2_point_bordeaux_route_reason",
+      "valid_from": "2026-09-30"
+    },
+    {
+      "subject_id": "n_d3fr2_case_bordeaux_route",
+      "relation_type": "CASE_TRADEOFF",
+      "object_id": "n_d3fr2_point_bordeaux_route_tradeoff",
+      "valid_from": "2026-09-30"
+    },
+    {
+      "subject_id": "n_d3fr2_case_bordeaux_route",
+      "relation_type": "CASE_LIMITATION",
+      "object_id": "n_d3fr2_point_bordeaux_route_limitation",
+      "valid_from": "2026-09-30"
+    },
+    {
+      "subject_id": "n_d3fr2_case_rhone_white",
+      "relation_type": "CASE_ACTION",
+      "object_id": "n_d3fr2_point_rhone_white_action",
+      "valid_from": "2026-09-30"
+    },
+    {
+      "subject_id": "n_d3fr2_case_rhone_white",
+      "relation_type": "CASE_REASON",
+      "object_id": "n_d3fr2_point_rhone_white_reason",
+      "valid_from": "2026-09-30"
+    },
+    {
+      "subject_id": "n_d3fr2_case_rhone_white",
+      "relation_type": "CASE_TRADEOFF",
+      "object_id": "n_d3fr2_point_rhone_white_tradeoff",
+      "valid_from": "2026-09-30"
+    },
+    {
+      "subject_id": "n_d3fr2_case_rhone_white",
+      "relation_type": "CASE_LIMITATION",
+      "object_id": "n_d3fr2_point_rhone_white_limitation",
+      "valid_from": "2026-09-30"
+    }
+  ],
+  "knowledge_items": [
+    {
+      "id": "ki_d3fr2_case_bordeaux_route_action",
+      "subject_id": "n_d3fr2_case_bordeaux_route",
+      "relation_type": "CASE_ACTION",
+      "object_id": "n_d3fr2_point_bordeaux_route_action",
+      "domain_id": "business",
+      "assertion_text": "Request relevant account-sales and credit evidence, clarify ordering, selling, storage and delivery responsibilities, and make a dated cash plan before allocating the whole batch. Consider the restaurant trial only if the actual order, receipt, stock, service capacity and applicable label evidence are satisfactory. Reconsider the merchant on verified performance and workable terms; neither a large request nor a classification claim is enough to choose a final route.",
+      "verification_status": "unverified",
+      "mcq_disabled": true,
+      "last_verified_at": "2026-09-30T15:02:01.000Z"
+    },
+    {
+      "id": "ki_d3fr2_case_bordeaux_route_reason",
+      "subject_id": "n_d3fr2_case_bordeaux_route",
+      "relation_type": "CASE_REASON",
+      "object_id": "n_d3fr2_point_bordeaux_route_reason",
+      "domain_id": "business",
+      "assertion_text": "Bordeaux has distinct classification systems, and the unnamed claim cannot establish this estate's current status or the lot's tasted quality. Partner account sales and customer evidence are needed to evaluate demand. Under the supplied offer, merchant payment 60 days after shipment would not itself fund the bill due in 20 days; a requested order, dispatched stock or invoice is not a cash receipt or proof of profit.",
+      "verification_status": "unverified",
+      "mcq_disabled": true,
+      "last_verified_at": "2026-09-30T15:02:01.000Z"
+    },
+    {
+      "id": "ki_d3fr2_case_bordeaux_route_tradeoff",
+      "subject_id": "n_d3fr2_case_bordeaux_route",
+      "relation_type": "CASE_TRADEOFF",
+      "object_id": "n_d3fr2_point_bordeaux_route_tradeoff",
+      "domain_id": "business",
+      "assertion_text": "The merchant requests the whole batch and offers warehousing and restaurant selling, but its 60-day receipt timing and one-buyer stock commitment need credit and cash checks. The 360-bottle restaurant trial could bring cash before shipment if payment is actually received, while leaving more stock uncommitted, but requires estate tasting and delivery work. Without complete prices, costs, capacity and receipts, neither route is a proven profit winner or a demonstrated solution to the supplier bill.",
+      "verification_status": "unverified",
+      "mcq_disabled": true,
+      "last_verified_at": "2026-09-30T15:02:01.000Z"
+    },
+    {
+      "id": "ki_d3fr2_case_bordeaux_route_limitation",
+      "subject_id": "n_d3fr2_case_bordeaux_route",
+      "relation_type": "CASE_LIMITATION",
+      "object_id": "n_d3fr2_point_bordeaux_route_limitation",
+      "domain_id": "business",
+      "assertion_text": "The classification system and current entitlement, buyer credit and account performance, final prices, all route costs, service capacity and actual payment evidence remain missing. Existing cash and financing arrangements are not supplied, so the exercise cannot establish insolvency, quantify the bill shortfall or produce a reliable profit or cash forecast. The fictional terms do not establish regional defaults, legal transfer of title, commissions or current en-primeur practice.",
+      "verification_status": "unverified",
+      "mcq_disabled": true,
+      "last_verified_at": "2026-09-30T15:02:01.000Z"
+    },
+    {
+      "id": "ki_d3fr2_case_rhone_white_action",
+      "subject_id": "n_d3fr2_case_rhone_white",
+      "relation_type": "CASE_ACTION",
+      "object_id": "n_d3fr2_point_rhone_white_action",
+      "domain_id": "winemaking",
+      "assertion_text": "Repeat a coded comparison and consider a limited A release for the eight-week launch only if the desired sensory fit, saleable quantity, stability, applicable origin/label requirements and operational capacity are confirmed. Keep B for later evaluation or matched one-variable trials rather than declaring it intrinsically better or unusable. A's no-MLF route needs a deliberate stability plan; sensory preference alone does not clear a wine for sale.",
+      "verification_status": "unverified",
+      "mcq_disabled": true,
+      "last_verified_at": "2026-09-30T15:02:01.000Z"
+    },
+    {
+      "id": "ki_d3fr2_case_rhone_white_reason",
+      "subject_id": "n_d3fr2_case_rhone_white",
+      "relation_type": "CASE_REASON",
+      "object_id": "n_d3fr2_point_rhone_white_reason",
+      "domain_id": "winemaking",
+      "assertion_text": "Marsanne can give broad texture with moderate-to-low acidity; Roussanne supplies useful floral/structural context and has disease sensitivities, but the supplied sorting record is not every harvest. Malolactic fermentation can reduce acidity, while oak and managed lees contact can influence aroma and texture. Because vessel, MLF and lees duration all differ, the preliminary A/B comparison cannot attribute the entire result to one intervention or establish a universal Rhône blend or quality recipe.",
+      "verification_status": "unverified",
+      "mcq_disabled": true,
+      "last_verified_at": "2026-09-30T15:02:01.000Z"
+    },
+    {
+      "id": "ki_d3fr2_case_rhone_white_tradeoff",
+      "subject_id": "n_d3fr2_case_rhone_white",
+      "relation_type": "CASE_TRADEOFF",
+      "object_id": "n_d3fr2_point_rhone_white_tradeoff",
+      "domain_id": "business",
+      "assertion_text": "The supplied A estimate is EUR 9 per bottle and week-six release, versus B at EUR 12 and week twelve; B would miss the eight-week launch if those dates hold. Later release and higher direct cost require more holding capacity and a justified customer value proposition. Neither lower direct cost nor oak and longer lees contact establishes higher net profit or a selling-price premium: complete costs, actual achievable prices and demand are absent.",
+      "verification_status": "unverified",
+      "mcq_disabled": true,
+      "last_verified_at": "2026-09-30T15:02:01.000Z"
+    },
+    {
+      "id": "ki_d3fr2_case_rhone_white_limitation",
+      "subject_id": "n_d3fr2_case_rhone_white",
+      "relation_type": "CASE_LIMITATION",
+      "object_id": "n_d3fr2_point_rhone_white_limitation",
+      "domain_id": "business",
+      "assertion_text": "The same blend does not make the routes a single-variable experiment: vessel, MLF and lees duration differ. Repeat independent sensory work, check the actual malic-acid/stability plan and current origin/label evidence, and obtain full costs, capacity, customer feedback and achievable selling prices before scaling or setting a premium. The fictional 70:30 blend and four/twelve-week contact are not permission or ageing minima, and the preliminary panel is not qualified sensory acceptance or proof of demand.",
+      "verification_status": "unverified",
+      "mcq_disabled": true,
+      "last_verified_at": "2026-09-30T15:02:01.000Z"
+    }
+  ],
+  "certification_knowledge_mappings": [
+    {
+      "certification_id": "WSET_L4",
+      "knowledge_item_id": "ki_d3fr2_case_bordeaux_route_action",
+      "importance": "core",
+      "minimum_depth": 3
+    },
+    {
+      "certification_id": "WSET_L4",
+      "knowledge_item_id": "ki_d3fr2_case_bordeaux_route_reason",
+      "importance": "core",
+      "minimum_depth": 3
+    },
+    {
+      "certification_id": "WSET_L4",
+      "knowledge_item_id": "ki_d3fr2_case_bordeaux_route_tradeoff",
+      "importance": "core",
+      "minimum_depth": 3
+    },
+    {
+      "certification_id": "WSET_L4",
+      "knowledge_item_id": "ki_d3fr2_case_bordeaux_route_limitation",
+      "importance": "core",
+      "minimum_depth": 3
+    },
+    {
+      "certification_id": "WSET_L4",
+      "knowledge_item_id": "ki_d3fr2_case_rhone_white_action",
+      "importance": "core",
+      "minimum_depth": 3
+    },
+    {
+      "certification_id": "WSET_L4",
+      "knowledge_item_id": "ki_d3fr2_case_rhone_white_reason",
+      "importance": "core",
+      "minimum_depth": 3
+    },
+    {
+      "certification_id": "WSET_L4",
+      "knowledge_item_id": "ki_d3fr2_case_rhone_white_tradeoff",
+      "importance": "core",
+      "minimum_depth": 3
+    },
+    {
+      "certification_id": "WSET_L4",
+      "knowledge_item_id": "ki_d3fr2_case_rhone_white_limitation",
+      "importance": "core",
+      "minimum_depth": 3
+    }
+  ],
+  "knowledge_item_citations": [
+    {
+      "knowledge_item_id": "ki_d3fr2_case_bordeaux_route_action",
+      "source_citation_id": "src_biz_routes_wine_australia_partner",
+      "locator": "Evaluating export partners and Due diligence checklist: desired channels, account relationships, sales capability, credit reports and supplier references; mechanisms applied to invented Bordeaux offers, not Australian export or French trade law"
+    },
+    {
+      "knowledge_item_id": "ki_d3fr2_case_bordeaux_route_action",
+      "source_citation_id": "src_biz_routes_wine_australia_terms",
+      "locator": "Agreement duration and Ordering and delivery processes: performance measures, order confirmation and responsibilities; no default duration, commission, exclusivity or title rule is imported"
+    },
+    {
+      "knowledge_item_id": "ki_d3fr2_case_bordeaux_route_action",
+      "source_citation_id": "src_biz_au_cashflow",
+      "locator": "Set payment terms and Set up a cash flow statement: original dated comparison of supplied 20-day bill and 60-day merchant receipt; actual liquidity and trial receipt remain unknown"
+    },
+    {
+      "knowledge_item_id": "ki_d3fr2_case_bordeaux_route_reason",
+      "source_citation_id": "src_wset_eu_bdx_classification",
+      "locator": "Bordeaux classifications: different classification systems and absence of classification not excluding quality; no named estate or current classification entitlement is asserted"
+    },
+    {
+      "knowledge_item_id": "ki_d3fr2_case_bordeaux_route_reason",
+      "source_citation_id": "src_biz_routes_wine_australia_partner",
+      "locator": "Due diligence checklist: producer sales performance, key-account feedback and routes to desired customers; a request or initial stock placement is not downstream demand evidence"
+    },
+    {
+      "knowledge_item_id": "ki_d3fr2_case_bordeaux_route_reason",
+      "source_citation_id": "src_biz_sec_statements",
+      "locator": "Cash Flow Statements and Income Statements: actual receipts/payments distinguished from sales and profit; all quantities and payment dates are invented"
+    },
+    {
+      "knowledge_item_id": "ki_d3fr2_case_bordeaux_route_tradeoff",
+      "source_citation_id": "src_biz_routes_wine_australia_partner",
+      "locator": "Evaluating export partners: channels, scale, sales force and facilities; offered services and one-buyer commitment are fictional conditional inputs"
+    },
+    {
+      "knowledge_item_id": "ki_d3fr2_case_bordeaux_route_tradeoff",
+      "source_citation_id": "src_biz_au_cashflow",
+      "locator": "Manage your inventory and Set payment terms: inventory, payment timing and costs; 2,400/360 bottles and 60/20 days are supplied fiction, not market norms"
+    },
+    {
+      "knowledge_item_id": "ki_d3fr2_case_bordeaux_route_tradeoff",
+      "source_citation_id": "src_biz_sec_statements",
+      "locator": "Cash Flow Statements compared with Income Statements: advance receipt or earlier cash timing alone is not a complete profit conclusion"
+    },
+    {
+      "knowledge_item_id": "ki_d3fr2_case_bordeaux_route_limitation",
+      "source_citation_id": "src_wset_eu_bdx_classification",
+      "locator": "Different Bordeaux classification systems: the unspecified claim does not identify an applicable system or prove the fictional estate's status"
+    },
+    {
+      "knowledge_item_id": "ki_d3fr2_case_bordeaux_route_limitation",
+      "source_citation_id": "src_biz_routes_wine_australia_partner",
+      "locator": "Due diligence checklist: financial credit reports, supplier references, producer feedback and key-account evidence; missing evidence is not proof of default"
+    },
+    {
+      "knowledge_item_id": "ki_d3fr2_case_bordeaux_route_limitation",
+      "source_citation_id": "src_biz_au_cashflow",
+      "locator": "Estimated and actual income/expenses, inventory and payment monitoring; incomplete supplied cash and cost data cannot quantify the shortfall or establish insolvency"
+    },
+    {
+      "knowledge_item_id": "ki_d3fr2_case_rhone_white_action",
+      "source_citation_id": "src_d4nw_awri_sensory",
+      "locator": "Commercial tasting: controlled independent sensory comparison and difference before preference; the trial results and brief are fictional, not actual Rhône measurements"
+    },
+    {
+      "knowledge_item_id": "ki_d3fr2_case_rhone_white_action",
+      "source_citation_id": "src_win_mlf",
+      "locator": "PDF p.1 malic acid as a substrate/spoilage risk and p.3 Monitoring MLF performance: no-MLF route needs a deliberate stability plan, not an automatic completion assertion"
+    },
+    {
+      "knowledge_item_id": "ki_d3fr2_case_rhone_white_action",
+      "source_citation_id": "src_win_lees",
+      "locator": "Printed pp.4-6: managed lees contact has conditional effects and risks; controlled repeat trials and the supplied launch choice do not import a minimum contact duration"
+    },
+    {
+      "knowledge_item_id": "ki_d3fr2_case_rhone_white_reason",
+      "source_citation_id": "src_reg_fs_marsanne",
+      "locator": "En cave: broad palate and moderate-to-low acidity; the particular blend and panel result are fictional and not a general Marsanne quality outcome"
+    },
+    {
+      "knowledge_item_id": "ki_d3fr2_case_rhone_white_reason",
+      "source_citation_id": "src_reg_fs_roussanne",
+      "locator": "Vine aptitudes and En cave: floral/structural context and sensitivity to powdery mildew/grey rot; one invented wet-spell sorting record is not a universal loss or cost rule"
+    },
+    {
+      "knowledge_item_id": "ki_d3fr2_case_rhone_white_reason",
+      "source_citation_id": "src_win_mlf_style",
+      "locator": "PDF pp.1-2 roles of MLF: malic-to-lactic conversion and acid/sensory modulation; no guaranteed buttery style or source-derived optimum is asserted"
+    },
+    {
+      "knowledge_item_id": "ki_d3fr2_case_rhone_white_reason",
+      "source_citation_id": "src_win_oak",
+      "locator": "Sources of Oak and Their Significance: species, toast, barrel age/size and cooperage affect wood impact; new oak is one changed pilot factor, not proof of superior quality"
+    },
+    {
+      "knowledge_item_id": "ki_d3fr2_case_rhone_white_reason",
+      "source_citation_id": "src_win_lees",
+      "locator": "Printed pp.4-5 managed lees effects and pp.7-8 combined lees/MLF treatment: concurrent variable changes limit causal interpretation; durations and panel findings here are invented"
+    },
+    {
+      "knowledge_item_id": "ki_d3fr2_case_rhone_white_tradeoff",
+      "source_citation_id": "src_biz_au_cashflow",
+      "locator": "Manage your inventory and Negotiate with your suppliers: time, stock and cost affect cash planning; EUR 9/12 and week 6/12 estimates are fictional direct costs/dates"
+    },
+    {
+      "knowledge_item_id": "ki_d3fr2_case_rhone_white_tradeoff",
+      "source_citation_id": "src_biz_au_pricing",
+      "locator": "Research your market: Market testing; Cost-plus pricing; Value pricing: full relevant costs and tested willingness to pay are needed, not a premium inferred from a cellar technique"
+    },
+    {
+      "knowledge_item_id": "ki_d3fr2_case_rhone_white_limitation",
+      "source_citation_id": "src_d4nw_awri_sensory",
+      "locator": "Controlled independent comparison and difference before preference: repeated sensory evidence and demand are distinct from one preliminary invented panel"
+    },
+    {
+      "knowledge_item_id": "ki_d3fr2_case_rhone_white_limitation",
+      "source_citation_id": "src_win_mlf",
+      "locator": "PDF p.3 Monitoring MLF performance: actual analytical tracking is needed; sensory texture or missing bubbles cannot certify stability/completion"
+    },
+    {
+      "knowledge_item_id": "ki_d3fr2_case_rhone_white_limitation",
+      "source_citation_id": "src_win_oak",
+      "locator": "Sources of Oak and Their Significance: several wood/cooperage factors contribute to impact; the two routes differ in more than vessel alone"
+    },
+    {
+      "knowledge_item_id": "ki_d3fr2_case_rhone_white_limitation",
+      "source_citation_id": "src_biz_au_pricing",
+      "locator": "Market testing and Cost-plus/Value pricing: customer feedback and complete costs support price evaluation; no actual market price, tax rule or premium is imported"
+    }
+  ],
+  "knowledge_item_prerequisites": [
+    {
+      "knowledge_item_id": "ki_d3fr2_case_bordeaux_route_action",
+      "prerequisite_item_id": "ki_biz_routes_partner_fit"
+    },
+    {
+      "knowledge_item_id": "ki_d3fr2_case_bordeaux_route_action",
+      "prerequisite_item_id": "ki_biz_routes_reviewable_roles"
+    },
+    {
+      "knowledge_item_id": "ki_d3fr2_case_bordeaux_route_action",
+      "prerequisite_item_id": "ki_biz_payment_timing"
+    },
+    {
+      "knowledge_item_id": "ki_d3fr2_case_bordeaux_route_reason",
+      "prerequisite_item_id": "ki_wset_eu_bordeaux_classifications_scope"
+    },
+    {
+      "knowledge_item_id": "ki_d3fr2_case_bordeaux_route_reason",
+      "prerequisite_item_id": "ki_wset_eu_bordeaux_classification_quality"
+    },
+    {
+      "knowledge_item_id": "ki_d3fr2_case_bordeaux_route_reason",
+      "prerequisite_item_id": "ki_biz_routes_downstream_sales"
+    },
+    {
+      "knowledge_item_id": "ki_d3fr2_case_bordeaux_route_reason",
+      "prerequisite_item_id": "ki_biz_profit_cash"
+    },
+    {
+      "knowledge_item_id": "ki_d3fr2_case_bordeaux_route_tradeoff",
+      "prerequisite_item_id": "ki_biz_inventory_cash"
+    },
+    {
+      "knowledge_item_id": "ki_d3fr2_case_bordeaux_route_tradeoff",
+      "prerequisite_item_id": "ki_biz_payment_timing"
+    },
+    {
+      "knowledge_item_id": "ki_d3fr2_case_bordeaux_route_tradeoff",
+      "prerequisite_item_id": "ki_biz_profit_cash"
+    },
+    {
+      "knowledge_item_id": "ki_d3fr2_case_bordeaux_route_limitation",
+      "prerequisite_item_id": "ki_wset_eu_bordeaux_classifications_scope"
+    },
+    {
+      "knowledge_item_id": "ki_d3fr2_case_bordeaux_route_limitation",
+      "prerequisite_item_id": "ki_biz_working_capital"
+    },
+    {
+      "knowledge_item_id": "ki_d3fr2_case_bordeaux_route_limitation",
+      "prerequisite_item_id": "ki_biz_routes_reviewable_roles"
+    },
+    {
+      "knowledge_item_id": "ki_d3fr2_case_rhone_white_action",
+      "prerequisite_item_id": "ki_reg_fs_marsanne_palate"
+    },
+    {
+      "knowledge_item_id": "ki_d3fr2_case_rhone_white_action",
+      "prerequisite_item_id": "ki_reg_fs_roussanne_sensitivity"
+    },
+    {
+      "knowledge_item_id": "ki_d3fr2_case_rhone_white_action",
+      "prerequisite_item_id": "ki_win_mlf_stability"
+    },
+    {
+      "knowledge_item_id": "ki_d3fr2_case_rhone_white_reason",
+      "prerequisite_item_id": "ki_reg_fs_marsanne_palate"
+    },
+    {
+      "knowledge_item_id": "ki_d3fr2_case_rhone_white_reason",
+      "prerequisite_item_id": "ki_reg_fs_roussanne_sensitivity"
+    },
+    {
+      "knowledge_item_id": "ki_d3fr2_case_rhone_white_reason",
+      "prerequisite_item_id": "ki_win_mlf_conversion"
+    },
+    {
+      "knowledge_item_id": "ki_d3fr2_case_rhone_white_reason",
+      "prerequisite_item_id": "ki_win_oak_flavours"
+    },
+    {
+      "knowledge_item_id": "ki_d3fr2_case_rhone_white_reason",
+      "prerequisite_item_id": "ki_win_lees_release"
+    },
+    {
+      "knowledge_item_id": "ki_d3fr2_case_rhone_white_tradeoff",
+      "prerequisite_item_id": "ki_biz_inventory_cash"
+    },
+    {
+      "knowledge_item_id": "ki_d3fr2_case_rhone_white_tradeoff",
+      "prerequisite_item_id": "ki_biz_payment_timing"
+    },
+    {
+      "knowledge_item_id": "ki_d3fr2_case_rhone_white_tradeoff",
+      "prerequisite_item_id": "ki_biz_value_pricing"
+    },
+    {
+      "knowledge_item_id": "ki_d3fr2_case_rhone_white_limitation",
+      "prerequisite_item_id": "ki_win_oak_variables"
+    },
+    {
+      "knowledge_item_id": "ki_d3fr2_case_rhone_white_limitation",
+      "prerequisite_item_id": "ki_win_mlf_monitor"
+    },
+    {
+      "knowledge_item_id": "ki_d3fr2_case_rhone_white_limitation",
+      "prerequisite_item_id": "ki_reg_fs_roussanne_sensitivity"
+    }
+  ]
+}

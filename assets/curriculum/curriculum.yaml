@@ -23,10 +23,14 @@
 #   overlapping climate types.
 # - Any change to any file of the release needs a new dataset_version.
 
-dataset_version: "0.24.64"
-published_at: "2026-09-30T12:37:19.000Z"
+dataset_version: "0.24.65"
+published_at: "2026-09-30T15:17:48.000Z"
 
 includes:
+  - areas/diploma_french_analytical_cases.yaml
+  - templates/diploma_french_analytical_cases.yaml
+  - areas/diploma_french_commercial_white_cases.yaml
+  - templates/diploma_french_commercial_white_cases.yaml
   - areas/diploma_d2_worked_calculations.yaml
   - areas/diploma_new_world_commercial_cases.yaml
   - templates/diploma_new_world_commercial_cases.yaml

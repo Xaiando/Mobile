@@ -177,15 +177,15 @@ void main() {
       final business = report.domains.singleWhere(
         (row) => row.id == 'business',
       );
-      expect(business.counts[CoverageMetric.core], 272);
-      expect(business.counts[CoverageMetric.coreUsefulPractice], 272);
+      expect(business.counts[CoverageMetric.core], 282);
+      expect(business.counts[CoverageMetric.coreUsefulPractice], 282);
       expect(
         report.items
             .where((row) => row.item.domainId == 'business' && row.isCore)
             .every((row) => row.hasUsefulPractice),
         isTrue,
       );
-      expect(report.counts[CoverageMetric.coreUsefulPractice], 2925);
+      expect(report.counts[CoverageMetric.coreUsefulPractice], 2941);
     },
   );
 

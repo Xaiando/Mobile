@@ -1,0 +1,64 @@
+{
+  "question_templates": [
+    {
+      "id": "qt_d3fr_case_criteria_2",
+      "relation_type": "CASE_ACTION",
+      "direction": "forward",
+      "mode": "case_criteria",
+      "variant": "d3fr_case_criteria",
+      "prompt_template": "{subject.name}",
+      "parameters": {
+        "scope_node_ids": [
+          "n_d3fr_case_pinot_climat",
+          "n_d3fr_case_chinon_extract"
+        ],
+        "scenario_prompts": {
+          "n_d3fr_case_pinot_climat": "Fictional Burgundy Pinot Noir exercise: an estate has sound, same-vintage fruit from two individually recorded Côte de Beaune parcels. Parcel A is on a southeast-facing slope; B is on a lower, less exposed site. Their soil and water records differ; these supplied details do not describe every Burgundy parcel. Two spare small vats permit matched, separate trials. In a preliminary coded comparison of A, the gentler cap-contact treatment met a restaurant brief for fresh fruit and moderate drying tannin; the intensive treatment was judged too drying for that brief. B has not been trialled. Proposed labels name a Climat, but no parcel entitlement or approved label evidence is supplied. A direct restaurant route offers a 120-bottle trial, payment 30 days after delivery and producer tasting/delivery work. A trade route requests 600 bottles, offers payment 14 days after delivery and a lower unit receipt. Final eligible quantities, buyer sell-through, full prices and costs are unknown. These fictional records and terms are not regional norms or a profit forecast. Recommend a production and release process, explain the site, extraction and origin evidence, weigh the channel/cash tradeoff, and identify follow-up checks.",
+          "n_d3fr_case_chinon_extract": "Fictional Chinon Cabernet Franc red-wine exercise: a producer has sound, same-vintage lots from a recorded Vienne alluvial terrace A and a limestone slope B. Within each lot, paired small-vat trials keep harvest lot, stem inclusion, yeast, fermentation temperature and maturation constant, varying cap contact only. A's coded preliminary panel preferred the gentler treatment for a restaurant brief of a fresh red with moderate drying tannin; the intensive treatment was more drying without a preferred colour gain. B's comparison is unfinished. One restaurant proposes a 120-bottle trial, delivery in two weeks, payment 30 days after delivery and producer tasting/delivery work. A trade buyer requests 600 bottles on the same delivery schedule, payment 14 days after delivery and a lower unit receipt. Staff can service only one initial route. No complete costs, sell-through forecast or current appellation-compliance records are supplied. The parcel, panel and commercial details are invented, not typical outcomes or enacted production rules. Recommend a conditional production/launch choice, explain the evidence, discuss a tradeoff and identify the checks needed before expansion."
+        },
+        "distractors": {
+          "n_d3fr_case_pinot_climat": [
+            {
+              "summary": "Use the intensive treatment for both parcels and assign the proposed Climat label to standardise the release",
+              "explanation": "A's supplied intensive trial missed the drinking-style brief, while B remains untested. The proposed Climat name does not supply parcel or label entitlement; neither site identity nor extraction intensity supplies an automatic common recipe."
+            },
+            {
+              "summary": "Accept the trade commitment as the more profitable route because its larger order and earlier payment prove demand",
+              "explanation": "The trade request is 600 bottles with earlier payment but lower unit receipts. Full costs, capacity and consumer sell-through are unknown; an order request and cash timing do not establish profit or sustained customer demand."
+            }
+          ],
+          "n_d3fr_case_chinon_extract": [
+            {
+              "summary": "Choose the intensive treatment for the terrace lot and the gentler treatment for the slope because site names determine tannin",
+              "explanation": "The supplied A result favours the gentler treatment for this brief, and B's comparison is unfinished. Chinon's contrasting site types provide context but cannot determine the finished tannin or replace the matched trials."
+            },
+            {
+              "summary": "Take the trade launch as certain higher profit because selling 600 bottles and collecting sooner beats a 120-bottle trial",
+              "explanation": "The trade buyer requests 600 bottles; actual sell-through is not given. It offers a lower unit receipt, while full costs, eligibility and capacity remain missing. Earlier payment and larger requests can affect cash or commitment without proving profit."
+            }
+          ]
+        }
+      }
+    },
+    {
+      "id": "qt_d3fr_case_written_2",
+      "relation_type": "CASE_ACTION",
+      "direction": "forward",
+      "mode": "short_answer",
+      "variant": "d3fr_case_written",
+      "prompt_template": "{subject.name}",
+      "parameters": {
+        "scope_node_ids": [
+          "n_d3fr_case_pinot_climat",
+          "n_d3fr_case_chinon_extract"
+        ],
+        "key_points": {
+          "CASE_ACTION": "Conditional production and release action",
+          "CASE_REASON": "Site, extraction and origin evidence",
+          "CASE_TRADEOFF": "Stock, service capacity and cash tradeoff",
+          "CASE_LIMITATION": "Unresolved trial, label and commercial checks"
+        }
+      }
+    }
+  ]
+}

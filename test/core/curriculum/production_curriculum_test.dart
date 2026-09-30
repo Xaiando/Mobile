@@ -560,7 +560,7 @@ void main() {
       132,
       844,
       3444,
-      4190,
+      4206,
     ]);
     final diploma = snapshot.levels.last;
     final unitIds = {
@@ -720,15 +720,51 @@ void main() {
         .map((i) => i.id)
         .toSet();
     expect(ids, hasLength(720));
+    const frenchIds = <String>{
+      'ki_d3fr_case_pinot_climat_action',
+      'ki_d3fr_case_pinot_climat_reason',
+      'ki_d3fr_case_pinot_climat_tradeoff',
+      'ki_d3fr_case_pinot_climat_limitation',
+      'ki_d3fr_case_chinon_extract_action',
+      'ki_d3fr_case_chinon_extract_reason',
+      'ki_d3fr_case_chinon_extract_tradeoff',
+      'ki_d3fr_case_chinon_extract_limitation',
+      'ki_d3fr2_case_bordeaux_route_action',
+      'ki_d3fr2_case_bordeaux_route_reason',
+      'ki_d3fr2_case_bordeaux_route_tradeoff',
+      'ki_d3fr2_case_bordeaux_route_limitation',
+      'ki_d3fr2_case_rhone_white_action',
+      'ki_d3fr2_case_rhone_white_reason',
+      'ki_d3fr2_case_rhone_white_tradeoff',
+      'ki_d3fr2_case_rhone_white_limitation',
+    };
+    expect(frenchIds, hasLength(16));
+    expect(frenchIds.intersection(ids), isEmpty);
+    expect(
+      dataset.knowledgeItems
+          .where(
+            (item) =>
+                item.id.startsWith('ki_d3fr_case_') ||
+                item.id.startsWith('ki_d3fr2_case_'),
+          )
+          .map((item) => item.id)
+          .toSet(),
+      frenchIds,
+    );
     final scope = WsetScope.fromJson(
       File('assets/progress/wset_scope.json').readAsStringSync(),
     );
     expect(
       scope.levels.last.units.singleWhere((u) => u.id == 'D3').itemIds.toSet(),
-      ids,
+      {...ids, ...frenchIds},
     );
     for (final unit in scope.levels.last.units.where((u) => u.id != 'D3')) {
       expect(unit.itemIds.toSet().intersection(ids), isEmpty, reason: unit.id);
+      expect(
+        unit.itemIds.toSet().intersection(frenchIds),
+        isEmpty,
+        reason: unit.id,
+      );
     }
     final snapshot = await WsetProgressRepository(
       db,
