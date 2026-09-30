@@ -579,7 +579,13 @@ class _CmsRehearsalScreenState extends ConsumerState<CmsRehearsalScreen> {
             child: const Text('Reload saved draft'),
           ),
         ] else ...[
-          Text(_status(attempt), key: const ValueKey('cms-rehearsal-status')),
+          Semantics(
+            container: true,
+            child: Text(
+              _status(attempt),
+              key: const ValueKey('cms-rehearsal-status'),
+            ),
+          ),
           Text('Ended: ${attempt.finishReason}'),
           if (!attempt.isComplete && !attempt.isAbandoned)
             const Text(
