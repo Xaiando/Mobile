@@ -588,9 +588,12 @@ class _CmsRehearsalScreenState extends ConsumerState<CmsRehearsalScreen> {
           ),
           Text('Ended: ${attempt.finishReason}'),
           if (!attempt.isComplete && !attempt.isAbandoned)
-            const Text(
-              'This packet is incomplete and cannot count as reviewed participation.',
-              key: ValueKey('cms-rehearsal-incomplete'),
+            Semantics(
+              container: true,
+              child: const Text(
+                'This packet is incomplete and cannot count as reviewed participation.',
+                key: ValueKey('cms-rehearsal-incomplete'),
+              ),
             ),
         ],
         if (finished && !attempt.isComplete)

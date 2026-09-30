@@ -181,4 +181,184 @@ void main() {
       }
     },
   );
+
+  testApp(
+    'an actually ended incomplete CMS two-wine packet exposes its exact warning separately',
+    (tester) async {
+      const incomplete =
+          'This packet is incomplete and cannot count as reviewed participation.';
+      final semantics = tester.ensureSemantics();
+      try {
+        // The shared fixture's service packet is retained as abandoned
+        // history; use a genuine fresh two-wine draft for this warning case.
+        final tasting = (await tester.runAsync(() async {
+          await repository.discardCurrent(expectedId: attempt.id);
+          final draft = await repository.start(CmsRehearsalSection.tasting);
+          for (final q in draft.written) {
+            await repository.answerWritten(
+              draft.id,
+              q.id,
+              'Original synthetic comparison for ${q.id}; '
+              'typed evidence does not establish physical tasting.',
+            );
+          }
+          for (final wine in draft.wines) {
+            for (final prompt in draft.wineEvidencePrompts) {
+              await repository.writeWineEvidence(
+                draft.id,
+                wine.ordinal,
+                prompt.id,
+                'Saved synthetic wine ${wine.ordinal + 1} evidence for '
+                '${prompt.id}; no physical wine was tasted.',
+              );
+            }
+          }
+          return repository.read(draft.id);
+        }))!;
+        expect(tasting.section, CmsRehearsalSection.tasting);
+        expect(tasting.wines, hasLength(2));
+        expect(tasting.wineEvidencePrompts, hasLength(5));
+        expect(tasting.physicalAcknowledged, isFalse);
+        expect(tasting.isComplete, isFalse);
+        for (final wine in tasting.wines) {
+          expect(wine.evidence, hasLength(5));
+          expect(wine.observations, isEmpty);
+        }
+
+        tester.view.physicalSize = const Size(320, 780);
+        tester.view.devicePixelRatio = 1;
+        addTearDown(tester.view.reset);
+        await tester.pumpWidget(
+          ProviderScope(
+            overrides: [
+              appDatabaseProvider.overrideWithValue(db),
+              clockProvider.overrideWithValue(time.clock),
+              cmsRehearsalRepositoryProvider.overrideWith(
+                (ref) async => repository,
+              ),
+            ],
+            child: const MaterialApp(home: CmsRehearsalScreen()),
+          ),
+        );
+        final finish = find.byKey(const ValueKey('cms-rehearsal-finish'));
+        await _until(
+          tester,
+          () =>
+              finish.evaluate().length == 1 &&
+              tester.widget<FilledButton>(finish).onPressed != null,
+          'the genuine incomplete two-wine draft must load before End',
+        );
+        await tester.ensureVisible(finish);
+        await tester.pump();
+        expect(finish.hitTestable(), findsOneWidget);
+        await tester.tap(finish);
+
+        final warning = find.byKey(const ValueKey('cms-rehearsal-incomplete'));
+        await _until(
+          tester,
+          () =>
+              warning.evaluate().length == 1 &&
+              tester.widget<Text>(warning).data == incomplete,
+          'actual End must paint the unchanged incomplete-packet warning',
+        );
+        final saved = (await tester.runAsync(
+          () => repository.read(tasting.id).timeout(const Duration(seconds: 5)),
+        ))!;
+        expect(saved.id, tasting.id);
+        expect(saved.isFinished, isTrue);
+        expect(saved.finishReason, 'submitted');
+        expect(saved.isComplete, isFalse);
+        expect(saved.physicalAcknowledged, isFalse);
+        expect(saved.isReviewed, isFalse);
+        expect(saved.reviewedAt, isNull);
+        expect(saved.missingReasons, [
+          'Confirm these observations describe two actual wines.',
+          'Complete Wine 1 observations and evidence.',
+          'Complete Wine 2 observations and evidence.',
+        ]);
+        expect(saved.prose, tasting.prose);
+        expect(
+          saved.wines.map((wine) => wine.toJson()).toList(),
+          tasting.wines.map((wine) => wine.toJson()).toList(),
+          reason: 'finish preserves both original wine snapshots and evidence',
+        );
+        expect(saved.startedAt, tasting.startedAt);
+        expect(saved.deadline, tasting.deadline);
+        expect(await tester.runAsync(repository.current), isNull);
+        expect(
+          find.byKey(const ValueKey('cms-rehearsal-reviewed')),
+          findsNothing,
+          reason: 'the incomplete packet cannot expose participation review',
+        );
+        final profile = await tester.runAsync(
+          () => LearnerProfiles(db).current(),
+        );
+        expect(profile!.activeCertificationId, 'WSET_L3');
+        expect(
+          await tester.runAsync(() => db.select(db.reviewEvents).get()),
+          isEmpty,
+        );
+        expect(
+          await tester.runAsync(() => db.select(db.reviewStates).get()),
+          isEmpty,
+        );
+        final rows = (await tester.runAsync(
+          () => db.select(db.userSettings).get(),
+        ))!;
+        expect(
+          rows.where(
+            (row) =>
+                RegExp(r'official|exam_pass|qualification_completed')
+                    .hasMatch(row.name),
+          ),
+          isEmpty,
+        );
+        final tastingCount = find.byKey(
+          const ValueKey('cms-rehearsal-count-tasting'),
+        );
+        final viewport = find.descendant(
+          of: find.byType(ListView),
+          matching: find.byType(Viewport),
+        );
+        expect(viewport, findsOneWidget);
+        final outer = find.ancestor(
+          of: viewport,
+          matching: find.byType(Scrollable),
+        );
+        expect(outer, findsOneWidget);
+        tester.state<ScrollableState>(outer).position.jumpTo(0);
+        await tester.pump();
+        await _until(
+          tester,
+          () =>
+              tastingCount.evaluate().length == 1 &&
+              tester.widget<Text>(tastingCount).data == 'Two-wine tasting: 0',
+          'a submitted incomplete packet earns no tasting participation',
+        );
+        await tester.ensureVisible(warning);
+        await tester.pump();
+        expect(warning.hitTestable(), findsOneWidget);
+        expect(find.text(incomplete), findsOneWidget);
+        expect(tester.takeException(), isNull);
+
+        // Stored/painted incompleteness is established first; an aggregate
+        // header containing this sentence is not its own discoverable leaf.
+        final exactWarning = find.semantics.byPredicate(
+          (node) => node.getSemanticsData().label == incomplete,
+        );
+        expect(
+          exactWarning.evaluate(),
+          hasLength(1),
+          reason: 'the exact incomplete warning needs its own semantics node',
+        );
+        expect(
+          tester.getSemantics(warning).getSemanticsData().label,
+          incomplete,
+          reason: 'the warning Text must belong to its own semantic boundary',
+        );
+      } finally {
+        semantics.dispose();
+      }
+    },
+  );
 }
