@@ -672,6 +672,14 @@ knowledge_item_prerequisites:
 # Editorial study-planning judgements. minimum_depth follows CM-6 and QF-6:
 # 1 recognition, 2 recall, 3 reverse recall.
 certification_knowledge_mappings:
+  # Level 2 LO3 explicitly names these six Prädikate. Retain the existing
+  # Level 3/CMS reverse-recall depth and the original legal assertions.
+  - { certification_id: WSET_L2, knowledge_item_id: ki_kabinett_rule, importance: core, minimum_depth: 2 }
+  - { certification_id: WSET_L2, knowledge_item_id: ki_spaetlese_rule, importance: core, minimum_depth: 2 }
+  - { certification_id: WSET_L2, knowledge_item_id: ki_auslese_rule, importance: core, minimum_depth: 2 }
+  - { certification_id: WSET_L2, knowledge_item_id: ki_beerenauslese_rule, importance: core, minimum_depth: 2 }
+  - { certification_id: WSET_L2, knowledge_item_id: ki_trockenbeerenauslese_rule, importance: core, minimum_depth: 2 }
+  - { certification_id: WSET_L2, knowledge_item_id: ki_eiswein_rule, importance: core, minimum_depth: 2 }
   # WSET Level 3
   - { certification_id: WSET_L3, knowledge_item_id: ki_ahr_location, importance: secondary, minimum_depth: 2 }
   - { certification_id: WSET_L3, knowledge_item_id: ki_baden_location, importance: core, minimum_depth: 2 }

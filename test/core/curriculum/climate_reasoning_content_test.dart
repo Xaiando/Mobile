@@ -315,9 +315,9 @@ void main() {
       final planner = StudyPlanner(db, clock: time.clock);
       for (final entry in {
         'WSET_L1': 132,
-        'WSET_L2': 829,
-        'WSET_L3': 3439,
-        'CMS_CERTIFIED': 2902,
+        'WSET_L2': 844,
+        'WSET_L3': 3444,
+        'CMS_CERTIFIED': 2926,
       }.entries) {
         final mappings = await planner.effectiveMappings(entry.key);
         expect(mappings, hasLength(entry.value), reason: entry.key);
@@ -375,9 +375,9 @@ void main() {
       );
       expect(snapshot.levels.map((level) => level.counts.mapped), [
         132,
-        829,
-        3439,
-        4111,
+        844,
+        3444,
+        4184,
       ]);
       expect(
         snapshot.levels.every(

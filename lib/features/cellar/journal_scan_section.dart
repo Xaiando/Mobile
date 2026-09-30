@@ -18,6 +18,7 @@ class JournalScanSection extends StatefulWidget {
     required this.onVintage,
     required this.onNonVintage,
     required this.onAbv,
+    this.enabled = true,
     this.onRecoveredPicked,
     this.recovery,
     this.recoveryReady,
@@ -25,6 +26,9 @@ class JournalScanSection extends StatefulWidget {
     this.picker,
     this.recognizeText,
   });
+
+  /// The owning editor freezes input while saving its captured draft.
+  final bool enabled;
 
   final void Function(PhotoKind, Uint8List) onPicked;
   final void Function(int) onVintage;
@@ -112,7 +116,7 @@ class _JournalScanSectionState extends State<JournalScanSection>
   }
 
   Future<void> _dismissRecovered(RecoveredScanFile file) async {
-    if (_busy) return;
+    if (_busy || !widget.enabled) return;
     _setBusy(true);
     try {
       await _recovery.discard(file.id);
@@ -135,7 +139,7 @@ class _JournalScanSectionState extends State<JournalScanSection>
   }
 
   Future<void> _pick(PhotoKind kind, ImageSource source) async {
-    if (_busy) return;
+    if (_busy || !widget.enabled) return;
     _setBusy(true);
     setState(() => _message = null);
     try {
@@ -178,6 +182,7 @@ class _JournalScanSectionState extends State<JournalScanSection>
       : _readPickedPhoto(kind, file);
 
   Future<void> _readPickedPhoto(PhotoKind kind, XFile file) async {
+    if (!mounted || !widget.enabled) return;
     // Android picker images are read at source resolution. Reject a large
     // picker copy before allocating its full contents in Dart.
     if (await file.length() > JournalPhotoStore.maxImportBytes) {
@@ -193,13 +198,13 @@ class _JournalScanSectionState extends State<JournalScanSection>
     String ocrPath, {
     String? recoveredId,
   }) async {
-    if (!mounted) return;
+    if (!mounted || !widget.enabled) return;
     if (recoveredId == null || widget.onRecoveredPicked == null) {
       widget.onPicked(kind, sanitized);
     } else {
       widget.onRecoveredPicked!(kind, sanitized, recoveredId);
     }
-    if (!mounted) return;
+    if (!mounted || !widget.enabled) return;
     if (kind != PhotoKind.label) return;
     // The new photo has been accepted. An untouched transcript from the old
     // label must not keep offering its vintage and alcohol clues if OCR fails.
@@ -213,7 +218,7 @@ class _JournalScanSectionState extends State<JournalScanSection>
       final recognized = await (widget.recognizeText ?? recognizeLabelText)(
         ocrPath,
       );
-      if (!mounted) return;
+      if (!mounted || !widget.enabled) return;
       setState(() {
         if (_manualEditRevision != editRevision ||
             _raw.text.trim().isNotEmpty) {
@@ -227,7 +232,7 @@ class _JournalScanSectionState extends State<JournalScanSection>
         }
       });
     } catch (_) {
-      if (mounted) {
+      if (mounted && widget.enabled) {
         setState(
           () => _message = _raw.text.trim().isNotEmpty
               ? 'Photo added. Text recognition was unavailable; your '
@@ -240,7 +245,7 @@ class _JournalScanSectionState extends State<JournalScanSection>
   }
 
   Future<void> _useRecovered(PhotoKind kind, RecoveredScanFile file) async {
-    if (_busy) return;
+    if (_busy || !widget.enabled) return;
     _setBusy(true);
     try {
       final bytes = await _recovery.read(file.id);
@@ -293,7 +298,7 @@ class _JournalScanSectionState extends State<JournalScanSection>
           runSpacing: 4,
           children: [
             OutlinedButton.icon(
-              onPressed: _busy
+              onPressed: _busy || !widget.enabled
                   ? null
                   : () => _pick(PhotoKind.label, ImageSource.gallery),
               icon: const Icon(Icons.photo_library_outlined),
@@ -301,14 +306,14 @@ class _JournalScanSectionState extends State<JournalScanSection>
             ),
             if (_mobileOcr)
               OutlinedButton.icon(
-                onPressed: _busy
+                onPressed: _busy || !widget.enabled
                     ? null
                     : () => _pick(PhotoKind.label, ImageSource.camera),
                 icon: const Icon(Icons.camera_alt_outlined),
                 label: const Text('Scan label'),
               ),
             OutlinedButton.icon(
-              onPressed: _busy
+              onPressed: _busy || !widget.enabled
                   ? null
                   : () => _pick(PhotoKind.glass, ImageSource.gallery),
               icon: const Icon(Icons.photo_library_outlined),
@@ -316,7 +321,7 @@ class _JournalScanSectionState extends State<JournalScanSection>
             ),
             if (_mobileOcr)
               OutlinedButton.icon(
-                onPressed: _busy
+                onPressed: _busy || !widget.enabled
                     ? null
                     : () => _pick(PhotoKind.glass, ImageSource.camera),
                 icon: const Icon(Icons.camera_alt_outlined),
@@ -339,19 +344,21 @@ class _JournalScanSectionState extends State<JournalScanSection>
               spacing: 8,
               children: [
                 TextButton(
-                  onPressed: _busy
+                  onPressed: _busy || !widget.enabled
                       ? null
                       : () => _useRecovered(PhotoKind.label, file),
                   child: const Text('Use as label'),
                 ),
                 TextButton(
-                  onPressed: _busy
+                  onPressed: _busy || !widget.enabled
                       ? null
                       : () => _useRecovered(PhotoKind.glass, file),
                   child: const Text('Use as glass'),
                 ),
                 TextButton(
-                  onPressed: _busy ? null : () => _dismissRecovered(file),
+                  onPressed: _busy || !widget.enabled
+                      ? null
+                      : () => _dismissRecovered(file),
                   child: const Text('Dismiss'),
                 ),
               ],
@@ -366,11 +373,15 @@ class _JournalScanSectionState extends State<JournalScanSection>
         const SizedBox(height: 8),
         TextField(
           controller: _raw,
+          enabled: widget.enabled,
           maxLines: 3,
-          onChanged: (_) => setState(() {
-            _rawFromOcr = false;
-            _manualEditRevision++;
-          }),
+          onChanged: (_) {
+            if (!widget.enabled) return;
+            setState(() {
+              _rawFromOcr = false;
+              _manualEditRevision++;
+            });
+          },
           decoration: const InputDecoration(
             border: OutlineInputBorder(),
             labelText: 'Recognized or manually transcribed label text',
@@ -386,17 +397,29 @@ class _JournalScanSectionState extends State<JournalScanSection>
               if (proposal.vintage case final year?)
                 ActionChip(
                   label: Text('Use vintage $year'),
-                  onPressed: () => widget.onVintage(year),
+                  onPressed: widget.enabled
+                      ? () {
+                          if (widget.enabled) widget.onVintage(year);
+                        }
+                      : null,
                 ),
               if (proposal.isNonVintage)
                 ActionChip(
                   label: const Text('Use non-vintage'),
-                  onPressed: widget.onNonVintage,
+                  onPressed: widget.enabled
+                      ? () {
+                          if (widget.enabled) widget.onNonVintage();
+                        }
+                      : null,
                 ),
               if (proposal.abvPercent case final abv?)
                 ActionChip(
                   label: Text('Use $abv% alcohol'),
-                  onPressed: () => widget.onAbv(abv),
+                  onPressed: widget.enabled
+                      ? () {
+                          if (widget.enabled) widget.onAbv(abv);
+                        }
+                      : null,
                 ),
             ],
           ),

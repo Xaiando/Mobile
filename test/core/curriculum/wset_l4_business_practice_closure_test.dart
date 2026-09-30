@@ -45,20 +45,25 @@ void main() {
   late TestClock time;
 
   setUpAll(() async {
-    time = TestClock(DateTime.utc(2026, 9, 29, 18));
+    time = TestClock(dataset.publishedAt.toUtc());
     db = openTestDatabase();
     final generation = await CurriculumIngester(
       db,
       clock: time.clock,
     ).ingest(dataset);
     const policyPath = 'assets/curriculum/coverage_policy.yaml';
-    report = await CoverageChecker(
-      db,
-      CoveragePolicy.parse(
-        File(policyPath).readAsStringSync(),
-        path: policyPath,
-      ),
-    ).check('WSET_L4', on: '2026-09-29', skipped: generation.skipped);
+    report =
+        await CoverageChecker(
+          db,
+          CoveragePolicy.parse(
+            File(policyPath).readAsStringSync(),
+            path: policyPath,
+          ),
+        ).check(
+          'WSET_L4',
+          on: dataset.publishedAt.toIso8601String().substring(0, 10),
+          skipped: generation.skipped,
+        );
   });
 
   tearDownAll(() async => db.close());
@@ -172,15 +177,15 @@ void main() {
       final business = report.domains.singleWhere(
         (row) => row.id == 'business',
       );
-      expect(business.counts[CoverageMetric.core], 250);
-      expect(business.counts[CoverageMetric.coreUsefulPractice], 250);
+      expect(business.counts[CoverageMetric.core], 266);
+      expect(business.counts[CoverageMetric.coreUsefulPractice], 266);
       expect(
         report.items
             .where((row) => row.item.domainId == 'business' && row.isCore)
             .every((row) => row.hasUsefulPractice),
         isTrue,
       );
-      expect(report.counts[CoverageMetric.coreUsefulPractice], 2837);
+      expect(report.counts[CoverageMetric.coreUsefulPractice], 2919);
     },
   );
 

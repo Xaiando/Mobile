@@ -1123,14 +1123,16 @@ Until these gates pass, describe the app as a developing sommelier study compani
 
 The user confirmed **Level 4 Diploma as the target for the whole study companion**. This supersedes the earlier Level 3 completion boundary. WSET Levels 1–3, Diploma and CMS Certified are selectable. Levels 1–3 app study coverage is internally reviewed and its delivery gates pass. Learner milestones require mastery and recorded practice; official qualification and expert factual verification remain separate. Diploma remains incomplete. Diploma inherits relevant authored practice, but adding a selectable track or location questions does not complete the Diploma curriculum. The [pinned scope](../assets/curriculum/track_scope.yaml) and [gap audit](research/wset-level-4-gap-audit.md) use WSET's August 2025 Issue 1.4 specification. Labels below are editorial descriptions; the app does not reproduce WSET course material or official examination questions.
 
+**30 September implementation checkpoint:** Current Diploma authored core practice is 2,867/2,867; unit acceptance and qualified review remain incomplete. The explicit D4/D5/D6 counts below are editorial selectors, not official syllabus denominators. See [resumed validation](research/resumed-continuation-validation-2026-09-30.md) for pending final checks and preserved CI evidence.
+
 | Task | Status | Required result |
 |---|---|---|
 | DIP-1 | In progress; vineyard/winery foundations, fault/control cases and eight causal-reasoning chains | Explain and evaluate vineyard and winery decisions, including their effect on style, quality and costs |
 | DIP-2 | In progress; 42 commercial principles and seven conditional cases | Wine supply, demand, costs, business structures, distribution, markets and marketing |
 | DIP-3 | In progress; substantial atlas, regional comparisons/cases and diagnostic tasting foundations | Regional wine knowledge with linked geography, grapes, environment, production, law, business and analytical tasting |
-| DIP-4 | In progress; 38 method/style principles and five conditional cases | Sparkling-wine methods, styles, regions, labelling, business and tasting |
-| DIP-5 | In progress; 37 production/style principles and five conditional cases | Fortified-wine production, maturation, styles, regions, law, business and tasting |
-| DIP-6 | Open | Research planning, source evaluation, evidence management and original written argument |
+| DIP-4 | In progress; 133 explicit study facts plus original sensory cases and physical flights | Sparkling-wine methods, styles, regions, labelling, business and tasting |
+| DIP-5 | In progress; 102 explicit study facts plus original sensory cases and physical flights | Fortified-wine production, maturation, styles, regions, law, business and tasting |
+| DIP-6 | In progress; 17 original research points/case roles and persisted learner workspace | Research planning, source evaluation, evidence management and original written argument |
 
 **Historical learner-progress snapshot, release 0.11.0.** Home and the progress detail screen show Levels 1–4, available facts studied/mastered, unavailable mapped facts, next study actions and six Diploma topic groups. Current mastery requires spaced successful reviews and FSRS memory thresholds; failures and decay can reduce it. All level scopes were incomplete in that snapshot. Independently reversible self-reported exam passes use existing backed-up settings. No schema migration or automatic qualification claim is introduced. [Behaviour and checks](wset-learner-progress.md).
 

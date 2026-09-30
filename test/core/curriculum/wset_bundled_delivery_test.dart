@@ -19,8 +19,8 @@ void main() {
   test('bundled study content installs and calibration starts on every lower level', () async {
     final db = openTestDatabase();
     addTearDown(db.close);
-    final clock = Clock.fixed(DateTime.utc(2026, 9, 27, 20));
     final dataset = bundledDataset();
+    final clock = Clock.fixed(dataset.publishedAt.toUtc());
     final ingester = CurriculumIngester(
       db,
       clock: clock,

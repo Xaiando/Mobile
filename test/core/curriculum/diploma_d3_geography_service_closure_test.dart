@@ -82,16 +82,21 @@ void main() {
     db = openTestDatabase();
     final generation = await CurriculumIngester(
       db,
-      clock: Clock.fixed(DateTime.utc(2026, 9, 29, 17, 57)),
+      clock: Clock.fixed(dataset.publishedAt.toUtc()),
     ).ingest(dataset);
     const policyPath = 'assets/curriculum/coverage_policy.yaml';
-    audit = await CoverageChecker(
-      db,
-      CoveragePolicy.parse(
-        File(policyPath).readAsStringSync(),
-        path: policyPath,
-      ),
-    ).check('WSET_L4', on: '2026-09-29', skipped: generation.skipped);
+    audit =
+        await CoverageChecker(
+          db,
+          CoveragePolicy.parse(
+            File(policyPath).readAsStringSync(),
+            path: policyPath,
+          ),
+        ).check(
+          'WSET_L4',
+          on: dataset.publishedAt.toIso8601String().substring(0, 10),
+          skipped: generation.skipped,
+        );
   });
 
   tearDownAll(() async => db.close());
@@ -244,9 +249,33 @@ void main() {
       final service = audit.domains.singleWhere(
         (domain) => domain.id == 'service',
       );
-      expect(geography.counts[CoverageMetric.core], 1110);
-      expect(geography.counts[CoverageMetric.coreUsefulPractice], 1110);
-      expect(geography.counts[CoverageMetric.spatial], 1673);
+      expect(geography.counts[CoverageMetric.core], 1121);
+      expect(geography.counts[CoverageMetric.coreUsefulPractice], 1121);
+      expect(geography.counts[CoverageMetric.spatial], 1675);
+      final bilingualReferences = audit.items
+          .where(
+            (row) => const {
+              'ki_alto_adige_uga_montiggl_location',
+              'ki_alto_adige_uga_missian_location',
+            }.contains(row.item.id),
+          )
+          .toList();
+      expect(bilingualReferences.map((row) => row.item.id).toSet(), {
+        'ki_alto_adige_uga_montiggl_location',
+        'ki_alto_adige_uga_missian_location',
+      });
+      for (final row in bilingualReferences) {
+        expect(
+          row.isCore,
+          isFalse,
+          reason: 'The new settlement references remain optional.',
+        );
+        expect(
+          row.families,
+          contains(FormatFamily.spatial),
+          reason: row.item.id,
+        );
+      }
       final coreLocations = audit.items.where(
         (row) =>
             row.isCore &&
@@ -261,8 +290,8 @@ void main() {
         isEmpty,
         reason: 'every core place-location fact must retain map-click practice',
       );
-      expect(service.counts[CoverageMetric.core], 110);
-      expect(service.counts[CoverageMetric.coreUsefulPractice], 110);
+      expect(service.counts[CoverageMetric.core], 112);
+      expect(service.counts[CoverageMetric.coreUsefulPractice], 112);
       expect(
         audit.items.where(
           (row) =>

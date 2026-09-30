@@ -1,11 +1,13 @@
 import 'dart:io';
 
 import 'package:flutter_test/flutter_test.dart';
+import 'package:fsrs/fsrs.dart' as fsrs;
 import 'package:sommelier/core/coverage/track_scope.dart';
 import 'package:sommelier/core/curriculum/curriculum_ingestion.dart';
 import 'package:sommelier/core/curriculum/curriculum_validator.dart';
 import 'package:sommelier/core/questions/exercise_presenter.dart';
 import 'package:sommelier/core/questions/formats/authored_choice/authored_choice_format.dart';
+import 'package:sommelier/core/questions/formats/case_criteria/case_criteria_format.dart';
 import 'package:sommelier/core/questions/formats/short_answer/short_answer_format.dart';
 import 'package:sommelier/core/study/study_planner.dart';
 
@@ -44,20 +46,26 @@ void main() {
         final mappings = dataset.certificationKnowledgeMappings
             .where((row) => row.knowledgeItemId == item.id)
             .toList();
-        expect(mappings, hasLength(1), reason: item.id);
-        expect(mappings.single.importance, 'core', reason: item.id);
-        expect(
-          mappings.single.certificationId,
-          item.id == 'ki_cms_example_distillation'
-              ? 'CMS_INTRODUCTORY'
-              : 'CMS_CERTIFIED',
-          reason: item.id,
-        );
-        expect(
-          mappings.single.minimumDepth,
-          item.id == 'ki_cms_example_distillation' ? 1 : 2,
-          reason: item.id,
-        );
+        if (item.id == 'ki_cms_example_distillation') {
+          expect(mappings, hasLength(2), reason: item.id);
+          final byTrack = {
+            for (final row in mappings) row.certificationId: row,
+          };
+          expect(byTrack.keys.toSet(), {'CMS_INTRODUCTORY', 'CMS_CERTIFIED'});
+          expect(byTrack['CMS_INTRODUCTORY']!.importance, 'core');
+          expect(byTrack['CMS_INTRODUCTORY']!.minimumDepth, 1);
+          expect(byTrack['CMS_CERTIFIED']!.importance, 'core');
+          expect(byTrack['CMS_CERTIFIED']!.minimumDepth, 2);
+        } else {
+          expect(mappings, hasLength(1), reason: item.id);
+          expect(mappings.single.importance, 'core', reason: item.id);
+          expect(
+            mappings.single.certificationId,
+            'CMS_CERTIFIED',
+            reason: item.id,
+          );
+          expect(mappings.single.minimumDepth, 2, reason: item.id);
+        }
       }
 
       final scope = TrackScopeManifest.parse(
@@ -222,6 +230,116 @@ void main() {
           seed: 7,
         ) as AuthoredChoiceQuestion;
         expect(eggScenario.prompt, contains('Zwarte Kip'));
+      } finally {
+        await db.close();
+      }
+    },
+  );
+  test(
+    'four CMS service cases deliver and grade complete cited rubrics',
+    () async {
+      const cases = {
+        'agave': 'n_cms_example_agave_case',
+        'marc': 'n_cms_example_marc_case',
+        'liqueur': 'n_cms_example_liqueur_case',
+        'egg': 'n_cms_example_egg_case',
+      };
+      const templateId = 'qt_cms_example_case_criteria_4';
+      final template = dataset.questionTemplates.singleWhere(
+        (row) => row.id == templateId,
+      );
+      expect(template.mode, CaseCriteriaFormat.formatId);
+      expect(CaseCriteriaFormat.scopeNodeIdsOf(template), cases.values.toSet());
+      final prompts = CaseCriteriaFormat.scenarioPromptsOf(template);
+      final distractors = CaseCriteriaFormat.distractorsOf(template);
+      expect(prompts.keys.toSet(), cases.values.toSet());
+      expect(distractors.keys.toSet(), cases.values.toSet());
+      for (final subject in cases.values) {
+        expect(prompts[subject]!.length, greaterThan(80), reason: subject);
+        expect(distractors[subject], hasLength(2), reason: subject);
+      }
+
+      final db = openTestDatabase();
+      try {
+        await CurriculumIngester(
+          db,
+          assets: (path) async => File(path).readAsBytesSync(),
+        ).ingest(dataset);
+        final pools = (await db.select(db.exercisePools).get())
+            .where((pool) => pool.questionTemplateId == templateId)
+            .toList();
+        expect(pools, hasLength(4));
+        expect(
+          pools.map((pool) => pool.scopeNodeId).toSet(),
+          cases.values.toSet(),
+        );
+
+        final presenter = ExercisePresenter(db);
+        const format = CaseCriteriaFormat();
+        for (final entry in cases.entries) {
+          final id = 'ki_cms_example_${entry.key}_action';
+          final exercise = await presenter.present(
+            id,
+            templateId,
+            seed: 7,
+          ) as CaseCriteriaExercise;
+          expect(exercise.primaryItemId, id);
+          expect(exercise.prompt, prompts[entry.value]);
+          expect(exercise.itemIds, hasLength(4));
+          expect(exercise.options, hasLength(6));
+          expect(
+            exercise.criteria.map((row) => row.role).toSet(),
+            caseCriterionRoles.toSet(),
+          );
+          expect(
+            exercise.criteria.every(
+              (row) =>
+                  row.assertion.isNotEmpty &&
+                  row.sources.isNotEmpty &&
+                  row.sources.every(
+                    (source) => source.url?.startsWith('https://') == true,
+                  ),
+            ),
+            isTrue,
+            reason: entry.key,
+          );
+          final byRole = {
+            for (final criterion in exercise.criteria)
+              criterion.role: criterion.itemId,
+          };
+          final correct = format.grade(exercise, CaseCriteriaResponse(byRole));
+          expect(correct, hasLength(4), reason: entry.key);
+          expect(
+            correct.every((row) => row.rating == fsrs.Rating.good),
+            isTrue,
+            reason: entry.key,
+          );
+          final falseOption = exercise.options.firstWhere(
+            (option) => option.explanation != null,
+          );
+          for (final role in caseCriterionRoles) {
+            final wrong = format.grade(
+              exercise,
+              CaseCriteriaResponse({...byRole, role: falseOption.id}),
+            );
+            expect(wrong, hasLength(4), reason: '${entry.key} $role');
+            final ratings = {for (final row in wrong) row.itemId: row.rating};
+            expect(
+              ratings[byRole[role]],
+              fsrs.Rating.again,
+              reason: '${entry.key} $role',
+            );
+            for (final otherRole in caseCriterionRoles.where(
+              (candidate) => candidate != role,
+            )) {
+              expect(
+                ratings[byRole[otherRole]],
+                fsrs.Rating.good,
+                reason: '${entry.key} $otherRole',
+              );
+            }
+          }
+        }
       } finally {
         await db.close();
       }

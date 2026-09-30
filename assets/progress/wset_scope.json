@@ -1,7 +1,7 @@
 {
   "schemaVersion": 1,
-  "reviewedOn": "2026-09-27",
-  "notes": "App-owned original study requirements and participation evidence. Levels 1–3 have internally reviewed teaching and validated delivery against their pinned public specifications. Factual expert verification remains separate. Memory and recorded practice do not award an official qualification; Diploma coverage remains incomplete.",
+  "reviewedOn": "2026-09-30",
+  "notes": "App-owned original study requirements and participation evidence. The 30 September named-specification crosswalk corrects Level 2 label, sensory-condition and quality-conclusion omissions and requires named Level 3 geography context. Internally reviewed coverage and validated delivery remain separate from factual expert verification, physical tasting performance and official qualification. Diploma coverage remains incomplete.",
   "levels": [
     {
       "certificationId": "WSET_L1",
@@ -15021,6 +15021,88 @@
               ]
             }
           ]
+        },
+        {
+          "id": "l2_german_pradikat_meanings",
+          "title": "German Prädikat meanings and harvest-ripeness context",
+          "reviewed": true,
+          "dimensions": [
+            {
+              "kind": "labels",
+              "itemIds": [
+                "ki_kabinett_rule",
+                "ki_spaetlese_rule",
+                "ki_auslese_rule",
+                "ki_beerenauslese_rule",
+                "ki_trockenbeerenauslese_rule",
+                "ki_eiswein_rule",
+                "ki_wset_l2_kabinett_must_weight"
+              ],
+              "formats": [
+                "flashcard",
+                "typed"
+              ]
+            }
+          ]
+        },
+        {
+          "id": "l2_closure_heat_sensory_effects",
+          "title": "Closure failure and heat damage: sensory effects",
+          "reviewed": true,
+          "dimensions": [
+            {
+              "kind": "service",
+              "itemIds": [
+                "ki_wset_l2_closure_failure_sensory",
+                "ki_wset_l2_heat_damage_sensory"
+              ],
+              "formats": [
+                "typed",
+                "authored_choice",
+                "flashcard"
+              ]
+            }
+          ]
+        },
+        {
+          "id": "l2_quality_evidence",
+          "title": "Support a quality conclusion using sensory evidence",
+          "reviewed": true,
+          "dimensions": [
+            {
+              "kind": "quality_assessment",
+              "itemIds": [
+                "ki_wset_taste_quality_balance",
+                "ki_wset_taste_quality_length",
+                "ki_wset_taste_quality_intensity",
+                "ki_wset_taste_quality_complexity"
+              ],
+              "formats": [
+                "flashcard",
+                "typed",
+                "short_answer"
+              ]
+            }
+          ]
+        },
+        {
+          "id": "l2_quality_limits",
+          "title": "Quality, personal preference and fault context",
+          "reviewed": true,
+          "dimensions": [
+            {
+              "kind": "quality_assessment",
+              "itemIds": [
+                "ki_wset_taste_quality_preference",
+                "ki_wset_taste_quality_fault_context"
+              ],
+              "formats": [
+                "flashcard",
+                "typed",
+                "short_answer"
+              ]
+            }
+          ]
         }
       ],
       "practice": {
@@ -15028,7 +15110,11 @@
         "writtenReview": false,
         "calibrationCases": 3,
         "physicalWines": 0,
-        "pairedTasting": false
+        "pairedTasting": false,
+        "guidedEvidenceIds": [
+          "description",
+          "quality"
+        ]
       }
     },
     {
@@ -44464,6 +44550,107 @@
               ]
             }
           ]
+        },
+        {
+          "id": "l2_german_pradikat_meanings",
+          "title": "German Prädikat meanings and harvest-ripeness context",
+          "reviewed": true,
+          "dimensions": [
+            {
+              "kind": "labels",
+              "itemIds": [
+                "ki_kabinett_rule",
+                "ki_spaetlese_rule",
+                "ki_auslese_rule",
+                "ki_beerenauslese_rule",
+                "ki_trockenbeerenauslese_rule",
+                "ki_eiswein_rule",
+                "ki_wset_l2_kabinett_must_weight"
+              ],
+              "formats": [
+                "flashcard",
+                "typed"
+              ]
+            }
+          ]
+        },
+        {
+          "id": "l2_closure_heat_sensory_effects",
+          "title": "Closure failure and heat damage: sensory effects",
+          "reviewed": true,
+          "dimensions": [
+            {
+              "kind": "service",
+              "itemIds": [
+                "ki_wset_l2_closure_failure_sensory",
+                "ki_wset_l2_heat_damage_sensory"
+              ],
+              "formats": [
+                "typed",
+                "authored_choice",
+                "flashcard"
+              ]
+            }
+          ]
+        },
+        {
+          "id": "l3_named_sparkling_fortified_geography",
+          "title": "Required sparkling and fortified origins and Champagne districts",
+          "reviewed": true,
+          "dimensions": [
+            {
+              "kind": "location",
+              "itemIds": [
+                "ki_nwc_anderson_valley_location",
+                "ki_nwc_rutherglen_wine_location",
+                "ki_eac_prosecco_location",
+                "ki_champagne_location",
+                "ki_fr_atlas_montagne_de_reims_location",
+                "ki_fr_atlas_cote_des_blancs_location",
+                "ki_fr_atlas_vallee_de_la_marne_location",
+                "ki_fr_atlas_cote_des_bar_location",
+                "ki_fr_atlas_cremant_d_alsace_location",
+                "ki_atlas_cava_location",
+                "ki_atlas_asti_location",
+                "ki_atlas_conegliano_valdobbiadene_location",
+                "ki_atlas_jerez_location"
+              ],
+              "formats": [
+                "map_locate",
+                "map_identify"
+              ]
+            }
+          ]
+        },
+        {
+          "id": "l3_still_parent_geography",
+          "title": "Required still-wine regional context",
+          "reviewed": true,
+          "dimensions": [
+            {
+              "kind": "location",
+              "itemIds": [
+                "ki_loire_valley_location",
+                "ki_rhone_valley_location",
+                "ki_fr_atlas_southwest_france_location",
+                "ki_eac_trentino_alto_adige_location",
+                "ki_atlas_piedmont_location",
+                "ki_atlas_tuscany_location",
+                "ki_atlas_marche_location",
+                "ki_eac_umbria_location",
+                "ki_eac_lazio_location",
+                "ki_eac_abruzzo_location",
+                "ki_atlas_campania_location",
+                "ki_eac_basilicata_location",
+                "ki_atlas_sicily_location",
+                "ki_diploma_castilla_la_mancha_location"
+              ],
+              "formats": [
+                "map_locate",
+                "map_identify"
+              ]
+            }
+          ]
         }
       ],
       "practice": {
@@ -45248,15 +45435,15 @@
             "n_geo_lambrusco_sorbara",
             "n_geo_lambrusco_grasparossa",
             "n_geo_lambrusco_salamino",
-              "n_geo_cremant_d_alsace",
-              "n_geo_cremant_de_bourgogne",
-              "n_geo_cremant_de_loire",
-              "n_geo_saumur",
-              "n_geo_vouvray",
-              "n_geo_cremant_du_jura",
+            "n_geo_cremant_d_alsace",
+            "n_geo_cremant_de_bourgogne",
+            "n_geo_cremant_de_loire",
+            "n_geo_saumur",
+            "n_geo_vouvray",
+            "n_geo_cremant_du_jura",
             "n_geo_cremant_de_limoux"
           ],
-          "gap": "Method, regional labels and selected commercial cases support study; broaden coverage and add assessed tasting and expert review.",
+          "gap": "Method, regional labels, commercial decisions and fictional sensory-evidence cases support study; broaden coverage and obtain physical tasting feedback and expert review.",
           "itemIds": [
             "ki_spark_traditional",
             "ki_spark_tirage",
@@ -45373,16 +45560,50 @@
             "ki_d4depth_case_british_frost_action",
             "ki_d4depth_case_british_frost_reason",
             "ki_d4depth_case_british_frost_tradeoff",
-              "ki_d4depth_case_british_frost_limitation",
-              "ki_d4d5_bourgogne_base",
-              "ki_d4d5_saumur_bottle",
-              "ki_d4d5_trento_riserva",
-              "ki_d4d5_sorbara_dry",
-              "ki_d4d5_grasparossa_body",
-              "ki_d4d5_case_italian_list_action",
-              "ki_d4d5_case_italian_list_reason",
-              "ki_d4d5_case_italian_list_tradeoff",
-              "ki_d4d5_case_italian_list_limitation"
+            "ki_d4depth_case_british_frost_limitation",
+            "ki_d4d5_bourgogne_base",
+            "ki_d4d5_saumur_bottle",
+            "ki_d4d5_trento_riserva",
+            "ki_d4d5_sorbara_dry",
+            "ki_d4d5_grasparossa_body",
+            "ki_d4d5_case_italian_list_action",
+            "ki_d4d5_case_italian_list_reason",
+            "ki_d4d5_case_italian_list_tradeoff",
+            "ki_d4d5_case_italian_list_limitation",
+            "ki_d45taste_sparkling_lees_action",
+            "ki_d45taste_sparkling_lees_reason",
+            "ki_d45taste_sparkling_lees_tradeoff",
+            "ki_d45taste_sparkling_lees_limitation",
+            "ki_d45taste_sparkling_quality_action",
+            "ki_d45taste_sparkling_quality_reason",
+            "ki_d45taste_sparkling_quality_tradeoff",
+            "ki_d45taste_sparkling_quality_limitation",
+            "ki_d4brit_pdo_origin",
+            "ki_d4brit_pdo_grapes",
+            "ki_d4brit_pdo_method",
+            "ki_d4brit_pgi_hybrid",
+            "ki_d4brit_unprotected_origin",
+            "ki_d4brit_pdo_assessment",
+            "ki_d4brit_case_hybrid_offer_action",
+            "ki_d4brit_case_hybrid_offer_reason",
+            "ki_d4brit_case_hybrid_offer_tradeoff",
+            "ki_d4brit_case_hybrid_offer_limitation",
+            "ki_d4brit_case_category_quality_action",
+            "ki_d4brit_case_category_quality_reason",
+            "ki_d4brit_case_category_quality_tradeoff",
+            "ki_d4brit_case_category_quality_limitation",
+            "ki_d4commercial_case_us_offer_action",
+            "ki_d4commercial_case_us_offer_reason",
+            "ki_d4commercial_case_us_offer_tradeoff",
+            "ki_d4commercial_case_us_offer_limitation",
+            "ki_d4commercial_case_andes_offer_action",
+            "ki_d4commercial_case_andes_offer_reason",
+            "ki_d4commercial_case_andes_offer_tradeoff",
+            "ki_d4commercial_case_andes_offer_limitation",
+            "ki_d4commercial_case_oceania_africa_offer_action",
+            "ki_d4commercial_case_oceania_africa_offer_reason",
+            "ki_d4commercial_case_oceania_africa_offer_tradeoff",
+            "ki_d4commercial_case_oceania_africa_offer_limitation"
           ]
         },
         {
@@ -45402,7 +45623,7 @@
           "geographyRoots": [
             "n_geo_rutherglen_wine"
           ],
-          "gap": "New category, regional and business decisions support D5 preparation; broader producer comparisons, independent tasting and assessed written performance remain.",
+          "gap": "Category, regional, business and fictional sensory-evidence cases support D5 preparation; broader producer comparisons, independent tasting and assessed written performance remain.",
           "itemIds": [
             "ki_fort_port_sugar",
             "ki_fort_port_stop",
@@ -45488,16 +45709,50 @@
             "ki_d5f_case_fortified_list_action",
             "ki_d5f_case_fortified_list_reason",
             "ki_d5f_case_fortified_list_tradeoff",
-              "ki_d5f_case_fortified_list_limitation",
-              "ki_d4d5_palo_route",
-              "ki_d4d5_palo_dry",
-              "ki_d4d5_lbv_vintage",
-              "ki_d4d5_colheita_cask",
-              "ki_d4d5_white_port_age",
-              "ki_d4d5_case_port_release_action",
-              "ki_d4d5_case_port_release_reason",
-              "ki_d4d5_case_port_release_tradeoff",
-              "ki_d4d5_case_port_release_limitation"
+            "ki_d5f_case_fortified_list_limitation",
+            "ki_d4d5_palo_route",
+            "ki_d4d5_palo_dry",
+            "ki_d4d5_lbv_vintage",
+            "ki_d4d5_colheita_cask",
+            "ki_d4d5_white_port_age",
+            "ki_d4d5_case_port_release_action",
+            "ki_d4d5_case_port_release_reason",
+            "ki_d4d5_case_port_release_tradeoff",
+            "ki_d4d5_case_port_release_limitation",
+            "ki_d45taste_sherry_sweetness_action",
+            "ki_d45taste_sherry_sweetness_reason",
+            "ki_d45taste_sherry_sweetness_tradeoff",
+            "ki_d45taste_sherry_sweetness_limitation",
+            "ki_d45taste_port_development_action",
+            "ki_d45taste_port_development_reason",
+            "ki_d45taste_port_development_tradeoff",
+            "ki_d45taste_port_development_limitation",
+            "ki_d5madeira_poios",
+            "ki_d5madeira_levadas",
+            "ki_d5madeira_latada",
+            "ki_d5madeira_harvest",
+            "ki_d5madeira_verdelho",
+            "ki_d5madeira_boal",
+            "ki_d5madeira_case_terrace_logistics_action",
+            "ki_d5madeira_case_terrace_logistics_reason",
+            "ki_d5madeira_case_terrace_logistics_tradeoff",
+            "ki_d5madeira_case_terrace_logistics_limitation",
+            "ki_d5madeira_case_style_comparison_action",
+            "ki_d5madeira_case_style_comparison_reason",
+            "ki_d5madeira_case_style_comparison_tradeoff",
+            "ki_d5madeira_case_style_comparison_limitation",
+            "ki_d5sensory_case_madeira_compare_action",
+            "ki_d5sensory_case_madeira_compare_reason",
+            "ki_d5sensory_case_madeira_compare_tradeoff",
+            "ki_d5sensory_case_madeira_compare_limitation",
+            "ki_d5sensory_case_rutherglen_muscat_action",
+            "ki_d5sensory_case_rutherglen_muscat_reason",
+            "ki_d5sensory_case_rutherglen_muscat_tradeoff",
+            "ki_d5sensory_case_rutherglen_muscat_limitation",
+            "ki_d5sensory_case_age_quality_action",
+            "ki_d5sensory_case_age_quality_reason",
+            "ki_d5sensory_case_age_quality_tradeoff",
+            "ki_d5sensory_case_age_quality_limitation"
           ]
         },
         {

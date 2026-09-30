@@ -1,7 +1,11 @@
+import 'dart:async';
 import 'dart:convert';
 import 'dart:io';
 import 'dart:math';
 
+import 'package:drift/drift.dart'
+    show ApplyInterceptor, QueryExecutor, QueryInterceptor;
+import 'package:drift/native.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:fsrs/fsrs.dart' as fsrs;
 import 'package:sommelier/core/backup/user_data_backup.dart';
@@ -297,57 +301,156 @@ void main() {
     );
   });
 
-  test('D1 written review appears as participation, not a pass', () async {
-    await LearnerProfiles(db, clock: time.clock).selectTrack('WSET_L4');
+  test(
+    'D1 and D3 written reviews appear as participation, not a pass',
+    () async {
+      await LearnerProfiles(db, clock: time.clock).selectTrack('WSET_L4');
+      final writing = DiplomaWrittenRepository(
+        db,
+        bank: DiplomaWrittenBank.fromJson(
+          File('assets/study/diploma_written_practice.json').readAsStringSync(),
+        ),
+        clock: time.clock,
+        random: Random(29),
+      );
+      for (final unit in ['D1', 'D3']) {
+        final d1 = await writing.start(unit);
+        for (final question in d1.questions) {
+          await writing.answer(
+            d1.id,
+            question.id,
+            'Reasoned ${question.id} response.',
+          );
+        }
+        await writing.finish(d1.id);
+        for (final question in d1.questions) {
+          await writing.review(
+            d1.id,
+            question.id,
+            {},
+            'I would add more evidence.',
+          );
+        }
+      }
+      progress = WsetProgressRepository(
+        db,
+        scope: testScope(
+          units: [
+            for (var unit = 1; unit <= 6; unit++)
+              WsetUnitScope(
+                id: 'D$unit',
+                title: 'Unit $unit',
+                gap: 'Further study remains.',
+                domains: const [],
+              ),
+          ],
+        ),
+        clock: time.clock,
+      );
+      final diploma = (await progress.snapshot()).levels.last;
+      expect(diploma.units[0].writtenPractices, 1);
+      expect(diploma.units[1].writtenPractices, 0);
+      expect(diploma.units[2].writtenPractices, 1);
+      expect(diploma.units[2].physicalFlights, 0);
+      expect(await db.select(db.reviewEvents).get(), isEmpty);
+      expect(await db.select(db.reviewStates).get(), isEmpty);
+      expect(diploma.examPassed, isFalse);
+      expect(diploma.appLevelComplete, isFalse);
+      expect(await db.select(db.reviewEvents).get(), isEmpty);
+    },
+  );
+
+  test('a review saved during a progress read counts without a stale-time rejection', () async {
+    await db.close();
+    final gate = _ProgressReadGate();
+    final racedDb = AppDatabase(NativeDatabase.memory().interceptWith(gate));
+    db = racedDb;
+    await seedCurriculum(racedDb);
+    await seedSchedulerConfig(racedDb);
+    await racedDb.writeCurriculum(
+      () => runSql(racedDb, [
+        "INSERT INTO certifications VALUES ('WSET_L4','WSET',4,'WSET Level 4 Diploma','WSET_L3',NULL,1,'certification',NULL)",
+      ]),
+    );
+    await LearnerProfiles(racedDb, clock: time.clock).selectTrack('WSET_L4');
     final writing = DiplomaWrittenRepository(
-      db,
+      racedDb,
       bank: DiplomaWrittenBank.fromJson(
         File('assets/study/diploma_written_practice.json').readAsStringSync(),
       ),
       clock: time.clock,
-      random: Random(29),
+      random: Random(73),
     );
-    final d1 = await writing.start('D1');
-    for (final question in d1.questions) {
+    final attempt = await writing.start('D4');
+    for (final question in attempt.questions) {
       await writing.answer(
-        d1.id,
+        attempt.id,
         question.id,
-        'Reasoned ${question.id} response.',
+        'A saved comparison for ${question.id}.',
       );
     }
-    await writing.finish(d1.id);
-    for (final question in d1.questions) {
+    await writing.finish(attempt.id);
+    for (final question in attempt.questions.take(2)) {
       await writing.review(
-        d1.id,
+        attempt.id,
         question.id,
         {},
-        'I would add more evidence.',
+        'I need stronger evidence for ${question.id}.',
       );
     }
-    progress = WsetProgressRepository(
-      db,
+    final racedProgress = WsetProgressRepository(
+      racedDb,
+      clock: time.clock,
       scope: testScope(
         units: [
           for (var unit = 1; unit <= 6; unit++)
-            WsetUnitScope(
-              id: 'D$unit',
-              title: 'Unit $unit',
-              gap: 'Further study remains.',
-              domains: const [],
-            ),
+            WsetUnitScope(id: 'D$unit', title: 'Unit $unit', gap: ''),
         ],
       ),
-      clock: time.clock,
     );
-    final diploma = (await progress.snapshot()).levels.last;
-    expect(diploma.units[0].writtenPractices, 1);
-    expect(diploma.units[1].writtenPractices, 0);
+    expect(
+      (await racedProgress.snapshot()).levels.last.units[3].writtenPractices,
+      0,
+      reason: 'two self-reviews are not a complete writing participation',
+    );
+
+    // Pause the actual snapshot's first curriculum read before the executor
+    // receives it. A real review transaction can then commit while that
+    // awaited read is still pending, without sleeps or a synthetic snapshot.
+    gate.arm();
+    final pending = racedProgress.snapshot();
+    try {
+      await gate.entered.future.timeout(const Duration(seconds: 5));
+      time.advance(const Duration(seconds: 1));
+      final finalQuestion = attempt.questions.last;
+      final completed = await writing.review(
+        attempt.id,
+        finalQuestion.id,
+        {},
+        'I will compare the missing evidence for the final response.',
+      );
+      expect(completed.isReviewed, isTrue);
+      expect(completed.reviews[finalQuestion.id]!.reviewedAt, time.now);
+    } finally {
+      gate.release.complete();
+    }
+    final snapshot = await pending.timeout(const Duration(seconds: 5));
+    final diploma = snapshot.levels.last;
+    expect(
+      diploma.units[3].writtenPractices,
+      1,
+      reason:
+          'The snapshot read the committed final review, so an earlier '
+          'clock capture must not reject it as future-dated.',
+    );
+    expect(snapshot.asOf, time.now);
     expect(diploma.examPassed, isFalse);
     expect(diploma.appLevelComplete, isFalse);
-    expect(await db.select(db.reviewEvents).get(), isEmpty);
+    expect(await racedDb.select(racedDb.reviewEvents).get(), isEmpty);
+    expect(await racedDb.select(racedDb.reviewStates).get(), isEmpty);
   });
 
-  test('D4 physical flights count only as unit participation', () async {
+  test('D3 and D4 physical flights count only as unit participation', () async {
     await db.writeCurriculum(
       () => runSql(db, [
         "INSERT INTO tasting_grids VALUES ('tg_structured', 'WSET_SAT', '1.0', 'Structured tasting')",
@@ -365,27 +468,29 @@ void main() {
       clock: time.clock,
       random: Random(11),
     );
-    final d4 = await flights.start('D4');
     await flights.start('D5');
-    for (var wine = 0; wine < 3; wine++) {
-      await flights.acknowledgePhysical(d4.id, wine, true);
-      await flights.choose(d4.id, wine, 'sweetness', {'dry'});
-      for (final prompt in d4.wines[wine].prompts) {
-        await flights.saveEvidence(
-          d4.id,
-          wine,
-          prompt.id,
-          'Observed physical sparkling wine ${wine + 1}.',
-        );
+    for (final unit in ['D3', 'D4']) {
+      final d4 = await flights.start(unit);
+      for (var wine = 0; wine < 3; wine++) {
+        await flights.acknowledgePhysical(d4.id, wine, true);
+        await flights.choose(d4.id, wine, 'sweetness', {'dry'});
+        for (final prompt in d4.wines[wine].prompts) {
+          await flights.saveEvidence(
+            d4.id,
+            wine,
+            prompt.id,
+            'Observed physical $unit wine ${wine + 1}.',
+          );
+        }
       }
+      await flights.saveReflection(d4.id, 'Compared the three real wines.');
+      await flights.saveSelfReview(
+        d4.id,
+        'Reviewed what each observation supports.',
+      );
+      await flights.markSelfReviewed(d4.id);
+      await flights.finish(d4.id);
     }
-    await flights.saveReflection(d4.id, 'Compared the three real wines.');
-    await flights.saveSelfReview(
-      d4.id,
-      'Reviewed what each observation supports.',
-    );
-    await flights.markSelfReviewed(d4.id);
-    await flights.finish(d4.id);
     progress = WsetProgressRepository(
       db,
       scope: testScope(
@@ -403,7 +508,11 @@ void main() {
     );
     final snapshot = await progress.snapshot();
     final diploma = snapshot.levels.last;
+    expect(diploma.units[2].physicalFlights, 1);
+    expect(diploma.units[2].writtenPractices, 0);
     expect(diploma.units[3].physicalFlights, 1);
+    expect(await db.select(db.reviewEvents).get(), isEmpty);
+    expect(await db.select(db.reviewStates).get(), isEmpty);
     expect(diploma.units[4].physicalFlights, 0, reason: 'D5 is still a draft');
     expect(await flights.current('D5'), isNotNull);
     expect(diploma.appLevelComplete, isFalse);
@@ -639,4 +748,29 @@ void main() {
     units.last['itemIds'] = ['ki_shared'];
     expect(() => WsetScope.fromJson(jsonEncode(value)), throwsFormatException);
   });
+}
+
+/// A one-shot pause outside the SQLite executor, allowing an unrelated save
+/// to commit while an awaited progress curriculum query is pending.
+class _ProgressReadGate extends QueryInterceptor {
+  final entered = Completer<void>();
+  final release = Completer<void>();
+  bool _armed = false;
+  bool _blocked = false;
+
+  void arm() => _armed = true;
+
+  @override
+  Future<List<Map<String, Object?>>> runSelect(
+    QueryExecutor executor,
+    String statement,
+    List<Object?> args,
+  ) async {
+    if (_armed && !_blocked && statement.contains('knowledge_items')) {
+      _blocked = true;
+      entered.complete();
+      await release.future;
+    }
+    return executor.runSelect(statement, args);
+  }
 }

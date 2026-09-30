@@ -53,7 +53,7 @@ void main() {
   test(
     'original D1 and D2 presets have independent 90/60 minute writing',
     () async {
-      expect(bank.presets.map((p) => p.unitId), ['D1', 'D2']);
+      expect(bank.presets.take(2).map((p) => p.unitId), ['D1', 'D2']);
       expect(bank.preset('D1').durationSeconds, 5400);
       expect(bank.preset('D2').durationSeconds, 3600);
       expect(bank.presets.every((p) => p.questions.length == 3), isTrue);
@@ -69,6 +69,122 @@ void main() {
       expect((await repository.current('D1'))!.id, d1.id);
       expect((await repository.current('D2'))!.id, d2.id);
       await expectLater(repository.start('D1'), throwsStateError);
+    },
+  );
+
+  test('concurrent starts create only one saved draft for a unit', () async {
+    Future<Object> startOrError() async {
+      try {
+        return await repository.start('D1');
+      } catch (error) {
+        return error;
+      }
+    }
+
+    final results = await Future.wait([startOrError(), startOrError()]);
+    final attempts = results.whereType<DiplomaWrittenAttempt>().toList();
+    expect(attempts, hasLength(1));
+    expect(results.whereType<StateError>(), hasLength(1));
+    final winner = attempts.single;
+    final settings = await _settings(db);
+    expect(
+      settings.keys.where(
+        (key) => key.startsWith(DiplomaWrittenRepository.attemptPrefix),
+      ),
+      hasLength(1),
+      reason: 'the rejected start must not leave an orphan draft',
+    );
+    expect(
+      settings.keys.where(
+        (key) => key.startsWith(DiplomaWrittenRepository.currentPrefix),
+      ),
+      hasLength(1),
+    );
+    expect(settings[DiplomaWrittenRepository.currentKey('D1')], winner.id);
+    expect(
+      jsonDecode(settings[DiplomaWrittenRepository.keyFor(winner.id)]!),
+      winner.toJson(),
+    );
+    expect((await repository.current('D1'))!.id, winner.id);
+  });
+
+  test(
+    'resuming an unfinished draft preserves prose, deadline and pointer',
+    () async {
+      final started = await repository.start('D1');
+      final saved = await repository.answer(
+        started.id,
+        started.questions.first.id,
+        'A saved explanation of ripening and site conditions.',
+      );
+      final settingsBefore = await _settings(db);
+      time.advance(const Duration(minutes: 15));
+      final reopened = DiplomaWrittenRepository(
+        db,
+        bank: bank,
+        clock: time.clock,
+      );
+
+      final resumed = await reopened.resume(saved.id);
+      expect(resumed.toJson(), saved.toJson());
+      expect(resumed.isFinished, isFalse);
+      expect(resumed.deadline, saved.deadline);
+      expect(resumed.remaining(time.now), const Duration(minutes: 75));
+      expect(await _settings(db), settingsBefore);
+      expect((await reopened.current('D1'))!.toJson(), saved.toJson());
+      expect(
+        (await _settings(db))[DiplomaWrittenRepository.currentKey('D1')],
+        saved.id,
+      );
+    },
+  );
+
+  test(
+    'a detached draft cannot displace another live draft on resume',
+    () async {
+      final first = await repository.start('D1');
+      final detached = await repository.answer(
+        first.id,
+        first.questions.first.id,
+        'The first private response must remain unchanged.',
+      );
+      await repository.resetCurrentPointer('D1');
+      final second = await repository.start('D1');
+      final active = await repository.answer(
+        second.id,
+        second.questions.first.id,
+        'The active private response belongs to the second draft.',
+      );
+      final settingsBefore = await _settings(db);
+      time.advance(const Duration(minutes: 10));
+      final reopened = DiplomaWrittenRepository(
+        db,
+        bank: bank,
+        clock: time.clock,
+      );
+
+      await expectLater(reopened.resume(detached.id), throwsStateError);
+      expect(await _settings(db), settingsBefore);
+      expect((await reopened.read(detached.id)).toJson(), detached.toJson());
+      expect((await reopened.read(active.id)).toJson(), active.toJson());
+      expect((await reopened.current('D1'))!.toJson(), active.toJson());
+      final settingsAfter = await _settings(db);
+      expect(
+        settingsAfter.keys.where(
+          (key) => key.startsWith(DiplomaWrittenRepository.attemptPrefix),
+        ),
+        hasLength(2),
+      );
+      expect(
+        settingsAfter.keys.where(
+          (key) => key.startsWith(DiplomaWrittenRepository.currentPrefix),
+        ),
+        hasLength(1),
+      );
+      expect(
+        settingsAfter[DiplomaWrittenRepository.currentKey('D1')],
+        active.id,
+      );
     },
   );
 

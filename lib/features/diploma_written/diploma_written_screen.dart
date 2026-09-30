@@ -49,18 +49,17 @@ class _DiplomaWrittenScreenState extends ConsumerState<DiplomaWrittenScreen> {
   }
 
   void _setAttempt(DiplomaWrittenAttempt? attempt) {
-    if (_attempt?.id != attempt?.id) {
-      _reviewChoices.clear();
-      _reviewNotes.clear();
-    }
+    final selectionChanged = _attempt?.id != attempt?.id;
     _attempt = attempt;
-    if (attempt == null) {
-      return;
-    } else {
-      for (final entry in attempt.reviews.entries) {
-        _reviewChoices[entry.key] = {...entry.value.selectedCriteria};
-        _reviewNotes[entry.key] = entry.value.improvement;
-      }
+    // Saving one response must not replace another response's unsaved review.
+    // Selection and explicit reload still hydrate from the saved snapshot.
+    if (!selectionChanged) return;
+    _reviewChoices.clear();
+    _reviewNotes.clear();
+    if (attempt == null) return;
+    for (final entry in attempt.reviews.entries) {
+      _reviewChoices[entry.key] = {...entry.value.selectedCriteria};
+      _reviewNotes[entry.key] = entry.value.improvement;
     }
   }
 
@@ -299,7 +298,10 @@ class _DiplomaWrittenScreenState extends ConsumerState<DiplomaWrittenScreen> {
   @override
   Widget build(BuildContext context) {
     final attempt = _attempt;
-    final minutes = widget.unitId == 'D1' ? 90 : 60;
+    final productUnit = widget.unitId == 'D4' || widget.unitId == 'D5';
+    final regionalUnit = widget.unitId == 'D3';
+    final seconds = diplomaWrittenDurations[widget.unitId];
+    final minutes = seconds == null ? null : seconds ~/ 60;
     return PopScope(
       canPop: _allowPop,
       onPopInvokedWithResult: (didPop, result) {
@@ -313,9 +315,25 @@ class _DiplomaWrittenScreenState extends ConsumerState<DiplomaWrittenScreen> {
                 padding: const EdgeInsets.all(16),
                 children: [
                   Text(
-                    'Original $minutes-minute writing practice for ${widget.unitId}. '
-                    'These are not official examination questions or marks. '
-                    'Your prose and later self-review are saved locally.',
+                    regionalUnit
+                        ? 'App-authored $minutes-minute regional writing practice for D3. '
+                              'This timer is an app study choice, not an official examination allocation. '
+                              'Explain the supplied regional cases in your own words, then review the evidence and limitations. '
+                              'Physical wine flights are separate activities. '
+                              'These are not official examination questions or marks. '
+                              'Your prose and later self-review are saved locally.'
+                        : productUnit
+                        ? 'App-authored $minutes-minute writing-only practice for ${widget.unitId}. '
+                              'The official unit assessment combines theory and three-wine tasting in 90 minutes; '
+                              'this writing timer is an app preset, not an official split. '
+                              'Physical wine flights are separate activities. '
+                              'These are not official examination questions or marks. '
+                              'Your prose and later self-review are saved locally.'
+                        : minutes == null
+                        ? 'This unit has no written-practice preset.'
+                        : 'Original $minutes-minute writing practice for ${widget.unitId}. '
+                              'These are not official examination questions or marks. '
+                              'Your prose and later self-review are saved locally.',
                   ),
                   if (_unreadable > 0)
                     Text(

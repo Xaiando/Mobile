@@ -231,22 +231,22 @@ question_templates:
           explanation: The Montalcino body presents Rosso as generally fresher and suited to younger drinking, with producer and vintage variation.
           sourceCitationId: src_reg_inc_montalcino
         ki_reg_oa_adelaide_m3_sources:
-          prompt: A student attributes a 2025 M3 Chardonnay's profile to one Adelaide Hills vineyard. What does the sourcing record show?
+          prompt: Which sourcing set does Shaw + Smith document for its 2025 M3 Chardonnay?
           options:
-            - The 2025 M3 record identifies fruit from a single Lenswood parcel and excludes Piccadilly, Lobethal and selected growers
-            - The source list proves a specific mineral flavour
-            - Lenswood, Piccadilly, Lobethal and selected growers contribute, so one parcel cannot explain the whole blend
-            - Adelaide Hills fruit cannot be combined across sites
+            - Only Lenswood fruit; the producer record excludes Piccadilly, Lobethal and all selected growers
+            - Piccadilly vineyard fruit alone
+            - Lenswood, Piccadilly and Lobethal fruit, supplemented by selected growers
+            - Lobethal and selected growers, with no other vineyard sources
           correctIndex: 2
-          explanation: Shaw + Smith's 2025 M3 record names three estate sites and selected growers. It does not isolate one site's sensory contribution.
+          explanation: Shaw + Smith's 2025 M3 record identifies Lenswood, Piccadilly and Lobethal fruit supplemented by selected growers. The sourcing record therefore describes several contributing sites and growers.
           sourceCitationId: src_reg_oa_m3
         ki_reg_sa_itata_grapes:
-          prompt: A Chilean syllabus card reduces Itata to Cabernet-family reds. Which alternative set is supported?
+          prompt: A regional guide lists País, Moscatel de Alejandría and Cinsault for Itata. What can that list establish?
           options:
-            - Sauvignon Blanc and Merlot as Itata's documented traditional old-vine set
-            - Only Chardonnay and Pinot Noir
-            - Cabernet Sauvignon defines Itata's grapes, with traditional País, Moscatel and Cinsault absent from documented regional plantings
-            - Traditional País and Moscatel de Alejandría, with Cinsault also documented
+            - The current planted share of each named grape across Itata
+            - Evidence that omitted grapes are poorly suited to Itata
+            - A binding three-grape blend recipe for Itata-designated wines, including proportions set by the regional guide
+            - Selected regional grape associations; an exhaustive legal planting list needs other evidence
           correctIndex: 3
-          explanation: The Chilean regional account documents these selected Itata grape associations; it is not an exhaustive legal grape list.
+          explanation: The regional account documents selected traditional associations and Cinsault. It does not supply an exhaustive current list of legally permitted grape varieties.
           sourceCitationId: src_reg_am_chile

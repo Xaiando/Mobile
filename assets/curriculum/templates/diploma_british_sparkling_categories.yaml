@@ -1,0 +1,162 @@
+# Original category choices, bounded point recall and formative self-check cases.
+question_templates:
+  - id: "qt_d4brit_category_choice_6"
+    relation_type: "PRINCIPLE_EXPLANATION"
+    direction: "forward"
+    mode: "authored_choice"
+    variant: "d4brit_category_choice_6"
+    prompt_template: "{subject.name}"
+    parameters:
+      item_choices:
+        ki_d4brit_pdo_origin:
+          prompt: "A sparkling blend uses 90% English-grown grapes and 10% Welsh-grown grapes. Its producer seeks an English PDO claim. Which conclusion follows from the FSA sparkling guidance?"
+          options:
+            - "The origin mix falls short of English PDO's all-English grapes requirement."
+            - "The origin mix meets English PDO because both sources are within the United Kingdom."
+            - "The origin mix meets English PDO if the producer bottles the blend in England."
+            - "The origin mix meets English PDO when the English component exceeds the PGI threshold."
+          correctIndex: 0
+          explanation: "PDO requires all grapes from the stated demarcation. UK-wide origin, a bottling address or the PGI threshold cannot replace the English PDO origin requirement."
+          sourceCitationId: "src_d4brit_fsa_sparkling"
+        ki_d4brit_pdo_grapes:
+          prompt: "A proposed Welsh PDO quality sparkling blend includes Pinot Blanc. What does its category-specific cultivar list support?"
+          options:
+            - "Treat Pinot Blanc as a hybrid and move the blend into the separate PGI category."
+            - "Check the other requirements; Pinot Blanc is permitted for PDO sparkling."
+            - "Replace Pinot Blanc with Bacchus to bring the blend into the PDO category."
+            - "Restrict the blend to Chardonnay, Pinot Noir and Pinot Meunier for PDO."
+          correctIndex: 1
+          explanation: "The Welsh specification includes Pinot Blanc among the six sparkling cultivars. Eligibility also requires the other category conditions; the still-wine cultivar list is separate."
+          sourceCitationId: "src_d4brit_welsh_pdo"
+        ki_d4brit_pdo_method:
+          prompt: "A supplier proposes English PDO quality sparkling made by tank second fermentation, followed by nine months bottled before sale. What should a buyer question?"
+          options:
+            - "Check storage; nine bottled months suffice after tank fermentation."
+            - "Check filtration; bulk lees removal permits a tank-fermented PDO claim."
+            - "Check eligibility; PDO requires second fermentation in bottle, lees ageing and disgorgement."
+            - "Check pressure; a tank wine reaching the PDO pressure and autolytic flavour meets its production rules."
+          correctIndex: 2
+          explanation: "The registered English specification requires second fermentation in bottle, at least nine months on lees and disgorgement. Later bottle storage cannot turn a tank second fermentation into that route."
+          sourceCitationId: "src_d4brit_english_pdo"
+        ki_d4brit_pgi_hybrid:
+          prompt: "A grower offers UK sparkling from Seyval Blanc and requests an English Regional PGI claim. Which first response fits the FSA sparkling guidance?"
+          options:
+            - "Reject it because PGI sparkling uses the PDO cultivar list."
+            - "Accept it as PDO if the estate grows all the Seyval Blanc."
+            - "Use the winery address as proof of PGI grape provenance."
+            - "Investigate PGI eligibility; hybrids are allowed, but origin and other rules still matter."
+          correctIndex: 3
+          explanation: "The guide permits hybrids including Seyval Blanc for PGI. The claim still requires compliant grape origin, testing and other conditions, rather than a winery address or cultivar alone."
+          sourceCitationId: "src_d4brit_fsa_sparkling"
+        ki_d4brit_unprotected_origin:
+          prompt: "An uncertified sparkling bottle is labelled Product of England. A colleague treats that statement as proof of English PDO approval. Which correction is supported?"
+          options:
+            - "A product-origin statement does not establish protected English PDO status."
+            - "Printing Product of England also certifies the wine under the English PDO scheme."
+            - "The words Product of England establish English Regional PGI even when no scheme approval exists."
+            - "A bottle carrying Product of England is certified as PDO if it names only one grape variety."
+          correctIndex: 0
+          explanation: "The guide uses Product of England on a wine-category label without protected-name approval. Product origin and a certified English PDO designation are distinct claims."
+          sourceCitationId: "src_d4brit_fsa_sparkling"
+        ki_d4brit_pdo_assessment:
+          prompt: "An approved Welsh PDO sparkling is offered alongside an approved Welsh Regional PGI wine. Which statement about PDO assessment is defensible?"
+          options:
+            - "PDO approval certifies that this bottle will outperform a compliant PGI wine."
+            - "The published scheme checks analysis and faults; comparison still needs the actual wines."
+            - "PDO approval is a comparison of market prices that sets the bottle quality rank."
+            - "PDO approval is an optional marketing logo with no required wine assessment."
+          correctIndex: 1
+          explanation: "The specification requires analytical and no-fault tests. Those are category checks; a comparison of the offered wines requires separate sensory evidence."
+          sourceCitationId: "src_d4brit_welsh_pdo"
+  - id: "qt_d4brit_point_typed_6"
+    relation_type: "PRINCIPLE_EXPLANATION"
+    direction: "forward"
+    mode: "typed"
+    variant: "d4brit_point_typed_6"
+    prompt_template: "{subject.name}"
+    parameters:
+      item_cues:
+        ki_d4brit_pdo_origin:
+          prompt: "For an English PDO sparkling grape-origin claim, what share of grapes must come from England?"
+          acceptedAnswers:
+            - "100%"
+            - "100 percent"
+            - "all the grapes"
+            - "all grapes"
+        ki_d4brit_pdo_grapes:
+          prompt: "Which permitted white Pinot cultivar appears in both sparkling PDO lists alongside Pinot Gris?"
+          acceptedAnswers:
+            - "Pinot Blanc"
+        ki_d4brit_pdo_method:
+          prompt: "What is the minimum yeast-lees period in the registered English and Welsh PDO quality sparkling traditional-method conditions?"
+          acceptedAnswers:
+            - "nine months"
+            - "9 months"
+            - "at least nine months"
+            - "at least 9 months"
+        ki_d4brit_pgi_hybrid:
+          prompt: "Which named hybrid does the FSA guide give as an example permitted for sparkling PGI?"
+          acceptedAnswers:
+            - "Seyval Blanc"
+        ki_d4brit_unprotected_origin:
+          prompt: "To support an English PDO claim, what scheme evidence is needed in addition to the words Product of England?"
+          acceptedAnswers:
+            - "PDO approval"
+            - "English PDO approval"
+            - "PDO certification"
+            - "English PDO certification"
+            - "scheme approval"
+        ki_d4brit_pdo_assessment:
+          prompt: "Besides analytical testing, which tasting check is required for registered English and Welsh PDO quality sparkling approval?"
+          acceptedAnswers:
+            - "no-fault tasting"
+            - "organoleptic no-fault tasting"
+  - id: "qt_d4brit_written_hybrid_offer"
+    relation_type: "CASE_ACTION"
+    direction: "forward"
+    mode: "short_answer"
+    variant: "d4brit_written_hybrid_offer"
+    prompt_template: "Hypothetical buying decision: an English estate offers sparkling made entirely from its own English-grown Seyval Blanc. Its draft label says English Protected Designation of Origin. No scheme approval or application test records are supplied, and the buyer needs a defensible protected local-origin claim. The print deadline is tomorrow. Explain a buying or label action, the category reason, a deadline or sourcing tradeoff, and what still needs checking. The estate and deadline are invented; the label is not a compliance certificate."
+    parameters:
+      scope_node_ids:
+        - "n_d4brit_case_hybrid_offer"
+      key_points:
+        CASE_ACTION: "Defensible decision"
+        CASE_REASON: "Category and assessment reasoning"
+        CASE_TRADEOFF: "Cost or alternative"
+        CASE_LIMITATION: "Missing decision evidence"
+  - id: "qt_d4brit_written_category_quality"
+    relation_type: "CASE_ACTION"
+    direction: "forward"
+    mode: "short_answer"
+    variant: "d4brit_written_category_quality"
+    prompt_template: "Hypothetical Welsh wine-list decision: one supplier offers approved Welsh PDO traditional-method Chardonnay and Pinot sparkling; another offers approved Welsh Regional PGI Seyval Blanc sparkling. The PDO purchase quote is higher for the same number of bottles. The restaurant wants fresh fruit, a persistent finish and a viable margin, but has no samples, landed costs or guest-demand evidence. The manager says PDO approval already proves the better buy. Explain a decision process, the assessment reason, a stock or trial tradeoff, and a limit on category-based quality claims. Offers and prices are invented."
+    parameters:
+      scope_node_ids:
+        - "n_d4brit_case_category_quality"
+      key_points:
+        CASE_ACTION: "Defensible decision"
+        CASE_REASON: "Category and assessment reasoning"
+        CASE_TRADEOFF: "Cost or alternative"
+        CASE_LIMITATION: "Missing decision evidence"
+  - id: "qt_d4brit_case_criteria_2"
+    relation_type: "CASE_ACTION"
+    direction: "forward"
+    mode: "case_criteria"
+    variant: "d4brit_case_criteria_2"
+    prompt_template: "{subject.name}"
+    parameters:
+      scope_node_ids:
+        - "n_d4brit_case_hybrid_offer"
+        - "n_d4brit_case_category_quality"
+      distractors:
+        n_d4brit_case_hybrid_offer:
+          - summary: "Approve the proposed English PDO label because every Seyval Blanc grape grew in England"
+            explanation: "All-English origin does not satisfy the separate PDO sparkling cultivar restriction. The registered sparkling list excludes Seyval Blanc, and the case supplies no approval."
+          - summary: "Grant Regional PGI immediately because permission to use Seyval Blanc is the entire application"
+            explanation: "PGI permits the hybrid, but origin and application tests still matter. The scenario supplies no approval or test records, so cultivar permission cannot certify the finished bottle."
+        n_d4brit_case_category_quality:
+          - summary: "Choose the approved PDO offer because its no-fault test guarantees the best comparative flavour"
+            explanation: "The no-fault test is a scheme assessment, not a head-to-head sensory score. Both offers are approved, and the premise provides no samples for the requested flavour comparison."
+          - summary: "Choose the cheaper PGI offer because its lower purchase quote alone establishes the strongest margin"
+            explanation: "The case withholds landed costs, selling prices and demand. A lower supplied purchase quote cannot establish the final margin or the sensory fit needed for this restaurant brief."

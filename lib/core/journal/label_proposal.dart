@@ -27,12 +27,20 @@ class LabelProposal {
       caseSensitive: false,
     ).hasMatch(raw);
 
+    // Capture the whole numeric candidate before checking its wine-ABV range.
+    // A two-digit search can turn an unsupported 100.5% into a false 5% clue.
+    final percentMatches = RegExp(
+      r'(?:[+\-\u2212±]\s*)?\d+(?:\s*[.,/+\-\u2212±–—]\s*\d+)*\s*%',
+    ).allMatches(raw).toList();
+
     final years = RegExp(r'\b(?:18\d{2}|19\d{2}|20\d{2}|2100)\b')
         .allMatches(raw)
         .where((match) {
           // A percent is an alcohol candidate, never a vintage.
-          final tail = raw.substring(match.end).trimLeft();
-          return !tail.startsWith('%');
+          return !percentMatches.any(
+            (percent) =>
+                match.start >= percent.start && match.end <= percent.end,
+          );
         })
         .map((match) => int.parse(match.group(0)!))
         .toList();
@@ -40,20 +48,17 @@ class LabelProposal {
     if (nonVintage && years.isNotEmpty) warnings.add('nv_and_year');
     final vintage = nonVintage || years.length != 1 ? null : years.single;
 
-    final percents = RegExp(r'\b\d{1,2}(?:[.,]\d{1,2})?\s*%')
-        .allMatches(raw)
-        .map(
-          (match) => double.parse(
-            match.group(0)!.replaceAll('%', '').trim().replaceAll(',', '.'),
-          ),
-        )
-        .toList();
+    final percents = [
+      for (final match in percentMatches) _percentageValue(raw, match),
+    ];
     if (percents.length > 1) warnings.add('multiple_percent_tokens');
     final percent = percents.length == 1 ? percents.single : null;
     final abv = percent != null && percent > 0 && percent <= 30
         ? percent
         : null;
-    if (percent != null && abv == null) warnings.add('percent_not_offered');
+    if (percents.length == 1 && abv == null) {
+      warnings.add('percent_not_offered');
+    }
 
     return LabelProposal(
       rawText: raw,
@@ -62,5 +67,25 @@ class LabelProposal {
       abvPercent: abv,
       warnings: List.unmodifiable(warnings),
     );
+  }
+
+  static double? _percentageValue(String raw, RegExpMatch match) {
+    final before = raw.substring(0, match.start);
+    // Preserve the previous word boundary. Do not recover a numeric suffix
+    // embedded in a word, malformed decimal, exponent or split numeric range.
+    if ((before.isNotEmpty &&
+            RegExp(r'\w').hasMatch(before.substring(before.length - 1))) ||
+        RegExp(r'\d[\d.,/+\-\u2212±–—\s]*[.,/+\-\u2212±–—]\s*$')
+            .hasMatch(before) ||
+        RegExp(r'\d\s+(?:to|à|a)\s*$', caseSensitive: false).hasMatch(before)) {
+      return null;
+    }
+    final number = match.group(0)!.replaceAll('%', '').trim();
+    // Require one unsigned value with the existing one/two decimal-place
+    // precision. Signed values, ranges and malformed groups are not clues.
+    if (!RegExp(r'^\d{1,2}(?:[.,]\d{1,2})?$').hasMatch(number)) {
+      return null;
+    }
+    return double.parse(number.replaceAll(',', '.'));
   }
 }

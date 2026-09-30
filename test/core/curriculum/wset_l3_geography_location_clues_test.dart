@@ -200,9 +200,25 @@ void main() {
       final geography = report.domains.singleWhere(
         (row) => row.id == 'geography',
       );
-      expect(geography.counts[CoverageMetric.core], 1060);
-      expect(geography.counts[CoverageMetric.coreUsefulPractice], 1060);
-      expect(geography.counts[CoverageMetric.spatial], 1673);
+      expect(geography.counts[CoverageMetric.core], 1071);
+      expect(geography.counts[CoverageMetric.coreUsefulPractice], 1071);
+      expect(geography.counts[CoverageMetric.spatial], 1675);
+      final optionalReferences = report.items
+          .where(
+            (row) => const {
+              'ki_alto_adige_uga_montiggl_location',
+              'ki_alto_adige_uga_missian_location',
+            }.contains(row.id),
+          )
+          .toList();
+      expect(optionalReferences.map((row) => row.id).toSet(), {
+        'ki_alto_adige_uga_montiggl_location',
+        'ki_alto_adige_uga_missian_location',
+      });
+      for (final row in optionalReferences) {
+        expect(row.isCore, isFalse);
+        expect(row.servedFormats, contains('map_locate'), reason: row.id);
+      }
       for (final id in ids) {
         final item = report.items.singleWhere((row) => row.id == id);
         expect(item.isCore, isTrue, reason: id);

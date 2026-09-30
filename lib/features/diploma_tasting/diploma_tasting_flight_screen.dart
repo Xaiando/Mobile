@@ -23,6 +23,7 @@ class _DiplomaTastingFlightScreenState
   List<DiplomaTastingFlight> _history = const [];
   int _unreadable = 0;
   int _step = 0;
+  int _editorRevision = 0;
   bool _loading = true;
   bool _busy = false;
   bool _allowPop = false;
@@ -163,6 +164,9 @@ class _DiplomaTastingFlightScreenState
     setState(() {
       _flight = null;
       _loading = true;
+      // An explicit reload must reseed controllers even when the saved flight
+      // has the same ID and the loading frame resolves before it is painted.
+      _editorRevision++;
       _writeFailed = false;
       _error = null;
     });
@@ -245,9 +249,7 @@ class _DiplomaTastingFlightScreenState
           key: ValueKey('diploma-flight-physical-$index'),
           value: wine.physicallyTasted,
           contentPadding: EdgeInsets.zero,
-          title: Text(
-            'I physically tasted this ${flight.unitId == 'D4' ? 'sparkling' : 'fortified'} wine',
-          ),
+          title: Text('I physically tasted this ${flight.wineKind} wine'),
           subtitle: const Text(
             'A described example or imagined wine does not count.',
           ),
@@ -413,6 +415,37 @@ class _DiplomaTastingFlightScreenState
     ],
   );
 
+  Future<void> _viewSaved(String id) async {
+    if (_busy || _leaving || _repository == null) return;
+    setState(() => _busy = true);
+    try {
+      await _writeTail;
+      if (!mounted) return;
+      if (_writeFailed) {
+        setState(
+          () => _error = 'A change could not be saved. Check your draft.',
+        );
+        return;
+      }
+      // Read the persisted packet afresh without resuming it or selecting it
+      // as the current draft. Its vocabulary and prompts belong to this flight.
+      final saved = await _repository!.read(id);
+      if (!saved.isFinished || saved.unitId != widget.unitId) {
+        throw StateError('This saved flight is not a completed packet.');
+      }
+      if (!mounted) return;
+      await Navigator.of(context).push<void>(
+        MaterialPageRoute(
+          builder: (_) => SavedDiplomaTastingFlightScreen(flight: saved),
+        ),
+      );
+    } catch (error) {
+      if (mounted) setState(() => _error = '$error');
+    } finally {
+      if (mounted) setState(() => _busy = false);
+    }
+  }
+
   Widget _historySection() => Column(
     crossAxisAlignment: CrossAxisAlignment.start,
     children: [
@@ -437,7 +470,15 @@ class _DiplomaTastingFlightScreenState
             '${flight.startedAt.toLocal().toString().split('.').first} · '
             '${flight.completeWineCount} of 3 wines',
           ),
-          trailing: !flight.isFinished && _flight == null
+          trailing: flight.isFinished
+              ? TextButton(
+                  key: ValueKey('diploma-flight-view-${flight.id}'),
+                  onPressed: _busy || _leaving
+                      ? null
+                      : () => _viewSaved(flight.id),
+                  child: const Text('View saved flight'),
+                )
+              : _flight == null
               ? TextButton(
                   onPressed: _busy
                       ? null
@@ -453,8 +494,8 @@ class _DiplomaTastingFlightScreenState
 
   @override
   Widget build(BuildContext context) {
-    final unit = widget.unitId == 'D4' ? 'Sparkling' : 'Fortified';
-    final wineKind = unit.toLowerCase();
+    final wineKind = diplomaTastingWineKinds[widget.unitId]!;
+    final unit = '${wineKind[0].toUpperCase()}${wineKind.substring(1)}';
     final flight = _flight;
     return PopScope(
       canPop: _allowPop,
@@ -532,10 +573,14 @@ class _DiplomaTastingFlightScreenState
                       ],
                     ),
                     const SizedBox(height: 16),
-                    if (_step < 3)
-                      _wineStep(flight, _step)
-                    else
-                      _comparisonStep(flight),
+                    KeyedSubtree(
+                      key: ValueKey(
+                        'diploma-flight-editor-${flight.id}-$_editorRevision',
+                      ),
+                      child: _step < 3
+                          ? _wineStep(flight, _step)
+                          : _comparisonStep(flight),
+                    ),
                     const SizedBox(height: 16),
                     OutlinedButton(
                       onPressed: _busy
@@ -550,6 +595,107 @@ class _DiplomaTastingFlightScreenState
                   _historySection(),
                 ],
               ),
+      ),
+    );
+  }
+}
+
+/// A persisted packet is readable without any controls that can change it.
+class SavedDiplomaTastingFlightScreen extends StatelessWidget {
+  const SavedDiplomaTastingFlightScreen({super.key, required this.flight});
+
+  final DiplomaTastingFlight flight;
+
+  @override
+  Widget build(BuildContext context) {
+    final kind = flight.wineKind;
+    final title = '${kind[0].toUpperCase()}${kind.substring(1)}';
+    return Scaffold(
+      key: ValueKey('diploma-flight-saved-${flight.id}'),
+      appBar: AppBar(title: Text('${flight.unitId} $title saved flight')),
+      body: SelectionArea(
+        child: ListView(
+          padding: const EdgeInsets.all(16),
+          children: [
+            Text(
+              flight.isSubmitted
+                  ? 'Recorded physical practice · read-only'
+                  : 'Abandoned flight · read-only',
+            ),
+            const Text(
+              'These are your saved observations and self-review, not a tasting '
+              'score or an examination result. Viewing them does not change '
+              'your current draft.',
+            ),
+            Text('Saved prompt bank: ${flight.bankVersion}'),
+            Text('Started: ${flight.startedAt.toLocal()}'),
+            Text('Finished: ${flight.completedAt?.toLocal()}'),
+            const SizedBox(height: 12),
+            for (var index = 0; index < flight.wines.length; index++)
+              ExpansionTile(
+                key: ValueKey('diploma-flight-saved-wine-$index'),
+                maintainState: true,
+                tilePadding: EdgeInsets.zero,
+                title: Text('Wine ${index + 1} of 3'),
+                childrenPadding: const EdgeInsets.only(bottom: 16),
+                expandedCrossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  Text(
+                    flight.wines[index].physicallyTasted
+                        ? 'Physical tasting acknowledged'
+                        : 'Physical tasting not acknowledged',
+                  ),
+                  for (final attribute in flight.wines[index].attributes)
+                    Text(
+                      '${attribute.label}: ${[for (final value in attribute.values)
+                        if (flight.wines[index].observations[attribute.key]?.contains(value.key) ?? false) value.label].join(', ')}',
+                    ),
+                  for (final prompt in flight.wines[index].prompts) ...[
+                    const SizedBox(height: 12),
+                    Text(prompt.prompt),
+                    Text(
+                      flight.wines[index].evidence[prompt.id]?.isNotEmpty ==
+                              true
+                          ? flight.wines[index].evidence[prompt.id]!
+                          : 'No evidence recorded.',
+                      key: ValueKey(
+                        'diploma-flight-saved-evidence-$index-${prompt.id}',
+                      ),
+                    ),
+                  ],
+                ],
+              ),
+            const Divider(height: 32),
+            Text(
+              'Three-wine comparison',
+              style: Theme.of(context).textTheme.titleLarge,
+            ),
+            Text(flight.comparisonPrompt),
+            Text(
+              flight.reflection.isNotEmpty
+                  ? flight.reflection
+                  : 'No comparison recorded.',
+              key: const ValueKey('diploma-flight-saved-comparison'),
+            ),
+            const SizedBox(height: 16),
+            Text(
+              'Your self-review',
+              style: Theme.of(context).textTheme.titleLarge,
+            ),
+            Text(flight.selfReviewPrompt),
+            Text(
+              flight.selfReview.isNotEmpty
+                  ? flight.selfReview
+                  : 'No self-review recorded.',
+              key: const ValueKey('diploma-flight-saved-self-review'),
+            ),
+            Text(
+              flight.selfReviewedAt == null
+                  ? 'Evidence was not marked reviewed.'
+                  : 'Evidence reviewed: ${flight.selfReviewedAt!.toLocal()}',
+            ),
+          ],
+        ),
       ),
     );
   }

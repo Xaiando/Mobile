@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "version": "1.0.0",
+  "version": "1.1.0",
   "levels": [
     {
       "level": 1,
@@ -19,6 +19,10 @@
         {
           "id": "description",
           "prompt": "Explain your appearance, aroma, structural and flavour observations using evidence."
+        },
+        {
+          "id": "quality",
+          "prompt": "State a tentative quality judgement. Identify an observed strength and limitation, explain how flavour and structure work together, and keep personal liking separate."
         }
       ]
     },
@@ -437,9 +441,13 @@
         {
           "id": "detail",
           "text": "Separate aroma strength, flavour character and pleasant finish; explain development from the given note."
+        },
+        {
+          "id": "quality",
+          "text": "Support a tentative quality conclusion with a strength and limitation from this note; distinguish evidence from personal liking."
         }
       ],
-      "feedback": "The bright fruit smells do not make the dry palate sweet. Its light weight and lively acidity suit its straightforward fresh character. These observations are discussion references, not marks for a physical unknown wine. Alternative conclusions need evidence."
+      "feedback": "The bright fruit smells do not make the dry palate sweet. Clearly expressed fruit and a sustained pleasant finish support a tentative favourable quality argument. Its narrow citrus and orchard-fruit range limits the evidence for complexity; high acidity alone cannot establish quality. Keep personal liking separate. These observations are discussion references, not marks for a physical unknown wine. Alternative conclusions need evidence."
     },
     {
       "id": "original_l2_sweet_white",
@@ -588,9 +596,13 @@
         {
           "id": "detail",
           "text": "Separate aroma strength, flavour character and pleasant finish; explain development from the given note."
+        },
+        {
+          "id": "quality",
+          "text": "Support a tentative quality conclusion with a strength and limitation from this note; distinguish evidence from personal liking."
         }
       ],
-      "feedback": "The palate is sweet yet mouthwatering. Strong fruit and persistent pleasant flavour support a favourable quality argument; freshness can support development but does not guarantee it. These observations are discussion references, not marks for a physical unknown wine. Alternative conclusions need evidence."
+      "feedback": "Noticeable sweetness and high acidity can work together rather than cancel each other. Powerful stone-fruit and floral flavours with a persistent pleasant finish support a tentative favourable quality argument. The note offers a limited range of character, so intensity and persistence alone do not establish exceptional quality. Keep personal liking separate. These observations are discussion references, not marks for a physical unknown wine. Alternative conclusions need evidence."
     },
     {
       "id": "original_l2_structured_red",
@@ -741,9 +753,13 @@
         {
           "id": "detail",
           "text": "Separate aroma strength, flavour character and pleasant finish; explain development from the given note."
+        },
+        {
+          "id": "quality",
+          "text": "Support a tentative quality conclusion with a strength and limitation from this note; distinguish evidence from personal liking."
         }
       ],
-      "feedback": "Firm drying tannin differs from its moderate mouthwatering acidity. Concentrated fruit carries the warmth and structure; it may benefit from time, while the actual bottle and storage still matter. These observations are discussion references, not marks for a physical unknown wine. Alternative conclusions need evidence."
+      "feedback": "Firm drying tannin differs from its moderate mouthwatering acidity. Powerful fruit, spice and oak character with a persistent pleasant finish support a tentative favourable quality argument. High warmth and firm tannin are points to investigate for balance: the written note alone cannot establish how comfortably they integrate. Weight and intensity alone do not establish quality. Keep personal liking separate. These observations are discussion references, not marks for a physical unknown wine. Alternative conclusions need evidence."
     },
     {
       "id": "original_l3_fresh_white",

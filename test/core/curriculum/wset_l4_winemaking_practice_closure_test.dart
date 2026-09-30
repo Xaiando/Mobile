@@ -143,16 +143,21 @@ void main() {
     db = openTestDatabase();
     final generation = await CurriculumIngester(
       db,
-      clock: Clock.fixed(DateTime.utc(2026, 9, 29, 18, 16)),
+      clock: Clock.fixed(dataset.publishedAt.toUtc()),
     ).ingest(dataset);
     const policyPath = 'assets/curriculum/coverage_policy.yaml';
-    audit = await CoverageChecker(
-      db,
-      CoveragePolicy.parse(
-        File(policyPath).readAsStringSync(),
-        path: policyPath,
-      ),
-    ).check('WSET_L4', on: '2026-09-29', skipped: generation.skipped);
+    audit =
+        await CoverageChecker(
+          db,
+          CoveragePolicy.parse(
+            File(policyPath).readAsStringSync(),
+            path: policyPath,
+          ),
+        ).check(
+          'WSET_L4',
+          on: dataset.publishedAt.toIso8601String().substring(0, 10),
+          skipped: generation.skipped,
+        );
   });
 
   tearDownAll(() async => db.close());
@@ -303,8 +308,8 @@ void main() {
       final winemaking = audit.domains.singleWhere(
         (domain) => domain.id == 'winemaking',
       );
-      expect(winemaking.counts[CoverageMetric.core], 710);
-      expect(winemaking.counts[CoverageMetric.coreUsefulPractice], 710);
+      expect(winemaking.counts[CoverageMetric.core], 726);
+      expect(winemaking.counts[CoverageMetric.coreUsefulPractice], 726);
       final remaining = audit.items.where(
         (row) =>
             row.item.domainId == 'winemaking' &&

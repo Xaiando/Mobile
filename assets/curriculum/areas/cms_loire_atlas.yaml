@@ -29,7 +29,7 @@ knowledge_nodes:
     name: Cheverny dry red and rosé wines, with Gamay and Pinot Noir in reds
   - id: n_cms_loire_point_cheverny_white
     node_type: learning_point
-    name: Cheverny dry white blends Sauvignon and Chardonnay
+    name: Cheverny white uses Sauvignon grapes with permitted complementary partners
   - id: n_cms_loire_principle_orleans_wines
     node_type: production_principle
     name: What wine colours and characteristic grape blends does Orléans AOC produce?
@@ -146,10 +146,10 @@ knowledge_items:
     relation_type: PRINCIPLE_EXPLANATION
     object_id: n_cms_loire_point_cheverny_white
     domain_id: geography
-    assertion_text: Cheverny AOC dry white wines blend Sauvignon and Chardonnay.
+    assertion_text: Under the Cheverny AOC specification approved on 5 December 2025, white wines blend at least one of Sauvignon Blanc or Sauvignon Gris with at least one complementary grape from Chardonnay, Chenin or Orbois. Chardonnay is a permitted partner, not a compulsory component of every white blend.
     verification_status: unverified
     mcq_disabled: true
-    last_verified_at: 2026-09-28T08:00:00.000Z
+    last_verified_at: 2026-09-29T23:34:52.000Z
   - id: ki_cms_loire_orleans_red_rose
     subject_id: n_cms_loire_principle_orleans_wines
     relation_type: PRINCIPLE_EXPLANATION
@@ -234,15 +234,32 @@ source_citations:
     title: Saint-Pourçain AOC wines
     publisher: Institut national de l'origine et de la qualité
     jurisdiction: FR
-    url: https://www.inao.gouv.fr/node/35434/printable/print
-    accessed_on: 2026-09-28
+    url: https://inao.gouv.fr/produit/saint-pourcain-blanc-23307
+    accessed_on: 2026-09-30
   - id: src_cms_loire_inao_orleans_wines
     kind: regulator_register
     title: Orléans AOC wines
     publisher: Institut national de l'origine et de la qualité
     jurisdiction: FR
-    url: https://inao.gouv.fr/node/2212/printable/print
-    accessed_on: 2026-09-28
+    url: https://inao.gouv.fr/en/node/2212
+    accessed_on: 2026-09-30
+
+  - id: src_cms_loire_cheverny_cdc_2025
+    kind: legislation
+    title: Cheverny AOC specification approved on 5 December 2025
+    publisher: Ministère de l'Agriculture, de l'Agro-alimentaire et de la Souveraineté alimentaire
+    jurisdiction: FR
+    document_identifier: Arrêté du 5 décembre 2025 (AGRT2527071A), JORF du 18 décembre 2025, BO Agri du 25 décembre 2025
+    url: https://info.agriculture.gouv.fr/boagri/document_administratif-5a98c628-fbe2-40ec-ab35-62f86a6e5867/telechargement
+    accessed_on: 2026-09-30
+  - id: src_cms_loire_saint_pourcain_cdc_2025
+    kind: legislation
+    title: Saint-Pourçain AOC specification approved on 26 May 2025
+    publisher: Ministère de l'Agriculture et de la Souveraineté alimentaire
+    jurisdiction: FR
+    document_identifier: Arrêté du 26 mai 2025, JORF du 29 mai 2025, BO Agri du 12 juin 2025
+    url: https://info.agriculture.gouv.fr/boagri/document_administratif-d6b47c4c-cb0b-4dc6-bbb3-1b43b652eb30/telechargement
+    accessed_on: 2026-09-30
 
 knowledge_item_citations:
   - knowledge_item_id: ki_cms_loire_saint_pourcain_location
@@ -273,8 +290,14 @@ knowledge_item_citations:
     source_citation_id: src_cms_loire_inao_cheverny
     locator: Le produit and Arômes et saveurs; dry wine colours and red blend
   - knowledge_item_id: ki_cms_loire_cheverny_white
-    source_citation_id: src_cms_loire_inao_cheverny
-    locator: Arômes et saveurs; Sauvignon and Chardonnay white blend
+    source_citation_id: src_cms_loire_cheverny_cdc_2025
+    locator: Chapter I, V.1(a) permitted principal and complementary white grapes; IX.1(a) white assemblage requires at least one from each group
+  - knowledge_item_id: ki_cms_loire_cheverny_red_rose
+    source_citation_id: src_cms_loire_cheverny_cdc_2025
+    locator: Chapter I, III still white, red and rosé categories; V.1(b) red and rosé grapes; IX.1(a) separate red and rosé assemblage provisions
+  - knowledge_item_id: ki_cms_loire_saint_pourcain_red_rose
+    source_citation_id: src_cms_loire_saint_pourcain_cdc_2025
+    locator: Chapter I, III still white, red and rosé categories; V.1(b) Gamay and Pinot Noir for red wine
   - knowledge_item_id: ki_cms_loire_orleans_red_rose
     source_citation_id: src_cms_loire_inao_orleans_wines
     locator: Le produit; dry wine colours and Pinot Meunier–Pinot Noir red blend

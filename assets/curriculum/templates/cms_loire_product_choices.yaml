@@ -1,0 +1,72 @@
+# CMS Certified product decisions for six existing Loire geography facts.
+# Sources identify the cited approved rules and regulator descriptions; these
+# questions do not infer the grape blend of every rosé from a red-wine rule.
+question_templates:
+  - id: qt_cms_loire_product_choices_6
+    relation_type: PRINCIPLE_EXPLANATION
+    direction: forward
+    mode: authored_choice
+    variant: cms_loire_product_choices
+    prompt_template: '{subject.name}'
+    parameters:
+      item_choices:
+        ki_cms_loire_cheverny_red_rose:
+          prompt: A guest asks about the grape base of a still Cheverny red. Which pair matches the cited 2025 specification?
+          options:
+            - Pinot Noir and Gamay
+            - Cabernet Franc and Gamay
+            - Pinot Noir and Cabernet Sauvignon
+            - Cabernet Franc and Cabernet Sauvignon
+          correctIndex: 0
+          explanation: The specification approved on 5 December 2025 requires Pinot Noir and Gamay in the standard red assemblage, with a limited Côt accessory permitted. Red and rosé have separate assemblage provisions; this question concerns red, without declaring a complete rule for older vintages.
+          sourceCitationId: src_cms_loire_cheverny_cdc_2025
+        ki_cms_loire_cheverny_white:
+          prompt: A wine list says Chardonnay is compulsory in every Cheverny white. How should you correct that claim using the December 2025 specification?
+          options:
+            - Chardonnay is the sole white grape.
+            - Chardonnay is a permitted partner, alongside Chenin and Orbois.
+            - Chardonnay is compulsory in every blend; alternative partners are prohibited.
+            - Chardonnay is permitted only when the wine is sold as Cour-Cheverny; that name replaces Cheverny for all white blends.
+          correctIndex: 1
+          explanation: In the cited approved specification, Sauvignon Blanc and Sauvignon Gris are principal grapes, while Chardonnay, Chenin and Orbois are complementary grapes. White wines require at least one principal and at least one complementary grape. Chardonnay is one permitted partner and need not occur in every blend; proportions and other production conditions still apply.
+          sourceCitationId: src_cms_loire_cheverny_cdc_2025
+        ki_cms_loire_orleans_red_rose:
+          prompt: You check a still Orléans AOC red on a supplier list. Which grape profile matches the INAO description?
+          options:
+            - Gamay alone
+            - Cabernet Franc alone
+            - Meunier (Pinot Meunier) with Pinot Noir
+            - Cabernet Sauvignon with Merlot and Malbec
+          correctIndex: 2
+          explanation: The INAO describes Orléans dry still red, rosé and white wines, and identifies Meunier blended with Pinot Noir for red wine. That red profile does not establish the blend of a rosé or the complete production conditions for a particular bottling.
+          sourceCitationId: src_cms_loire_inao_orleans_wines
+        ki_cms_loire_orleans_white:
+          prompt: A restaurant wants another dry white with the leading grape of Orléans AOC white. Which profile should it look for?
+          options:
+            - Chenin-led white
+            - Romorantin-led dry white
+            - Sauvignon-led dry still white
+            - Chardonnay-led dry still white
+          correctIndex: 3
+          explanation: The INAO identifies Chardonnay as the leading grape in Orléans white. This supports a grape-led substitution, without claiming every Orléans white is solely Chardonnay or that a shared grape guarantees the same style or food match.
+          sourceCitationId: src_cms_loire_inao_orleans_wines
+        ki_cms_loire_saint_pourcain_red_rose:
+          prompt: A supplier lists Saint-Pourçain in red, rosé and white. Is that range consistent with the cited appellation specification, and which grapes belong to its red blend?
+          options:
+            - Yes; Gamay and Pinot Noir.
+            - No; only whites from Chardonnay and Tressallier are permitted.
+            - Yes; reds share the Chardonnay and Tressallier blend.
+            - No; only red Cabernet Franc wine is recognised.
+          correctIndex: 0
+          explanation: The specification approved on 26 May 2025 reserves Saint-Pourçain for still white, red and rosé wines, and names Gamay and Pinot Noir for red wine. Naming the rosé category does not assign that red blend to rosé; this answer is a product-range and red-grape check.
+          sourceCitationId: src_cms_loire_saint_pourcain_cdc_2025
+        ki_cms_loire_saint_pourcain_white:
+          prompt: A producer describes a Saint-Pourçain white as Chardonnay–Tressallier. Which grape name identifies Tressallier in the cited appellation record?
+          options:
+            - Côt
+            - Sacy
+            - Chenin
+            - Romorantin
+          correctIndex: 1
+          explanation: The INAO identifies Sacy as the grape locally called Tressallier and describes its association with Chardonnay in Saint-Pourçain white. This synonym identifies the named grape; it does not establish an exhaustive permitted-grape inventory or this bottling's proportions.
+          sourceCitationId: src_cms_loire_inao_saint_pourcain_wines

@@ -1,0 +1,476 @@
+# Original Diploma analytical tasting cases; the sensory packets are hypothetical.
+# Category sources support context, never the identity or quality of the coded samples.
+# Expert review and physical tasting feedback remain required.
+knowledge_nodes:
+  - id: n_d45taste_case_sparkling_lees
+    node_type: production_case
+    name: >-
+      Hypothetical sparkling comparison: two blind-coded wines are freshly poured at the same
+      temperature into matching clean glasses. Sample A shows pear and green apple, brisk acidity, a
+      light texture and a short fruit finish. Sample B shows lemon, toasted bread and hazelnut, a
+      creamier texture, retained freshness and a longer layered finish. No appellation, grape,
+      production record, maturation time or price is supplied. Explain a defensible development or
+      method hypothesis, the sensory reason, a competing interpretation or style trade-off, and a
+      limit on quality or origin claims. These invented notes are a reasoning exercise; more than
+      one qualified conclusion may be justified.
+  - id: n_d45taste_sparkling_lees_action_point
+    node_type: learning_point
+    name: "Describe B as more developed and investigate a lees-ageing explanation"
+  - id: n_d45taste_sparkling_lees_reason_point
+    node_type: learning_point
+    name: "Bread-like aromas and texture are compatible with lees maturation"
+  - id: n_d45taste_sparkling_lees_tradeoff_point
+    node_type: learning_point
+    name: "Development adds a comparison dimension but does not replace style fit"
+  - id: n_d45taste_sparkling_lees_limitation_point
+    node_type: learning_point
+    name: "No sensory resemblance authenticates the method, place or ageing duration"
+  - id: n_d45taste_case_sparkling_quality
+    node_type: production_case
+    name: >-
+      Hypothetical sparkling quality review: the same panel tastes two blind-coded samples twice,
+      using fresh pours, matching clean glasses and one serving temperature. Sample C has vigorous
+      bubbles and bright fruit initially, but acidity dominates the palate and the finish quickly
+      becomes only heat. Sample D has gentler mousse, clear citrus and nutty flavours, acidity
+      integrated with fruit, and a persistent flavour finish. No faults are recorded. A colleague
+      calls C better because it bubbles more and guarantees D will improve for ten years. Explain a
+      justified comparative judgement, its evidence, a preference or readiness trade-off, and what
+      remains unknown. These invented notes do not measure your palate or establish an official
+      quality grade.
+  - id: n_d45taste_sparkling_quality_action_point
+    node_type: learning_point
+    name: "Support D's comparative quality from the stated whole-palate evidence"
+  - id: n_d45taste_sparkling_quality_reason_point
+    node_type: learning_point
+    name: "D combines integrated acidity with a persistent flavour finish"
+  - id: n_d45taste_sparkling_quality_tradeoff_point
+    node_type: learning_point
+    name: "Present enjoyment and possible development are different decisions"
+  - id: n_d45taste_sparkling_quality_limitation_point
+    node_type: learning_point
+    name: "One packet cannot guarantee a ten-year drinking window or official grade"
+  - id: n_d45taste_case_sherry_sweetness
+    node_type: production_case
+    name: >-
+      Hypothetical fortified comparison: two coded Sherry samples are presented at the same
+      temperature. Sample E is chestnut-coloured with walnut and orange-peel aromas, a rounded body,
+      marked alcohol and a dry palate. Sample F is dark brown with raisin and caramel aromas,
+      pronounced sweetness and a viscous texture. Both have persistent flavour; their labels, exact
+      categories and cellar records are withheld. A diner wants nutty complexity without pronounced
+      sweetness, and a colleague says every dark, full-bodied Sherry must be sweet. Explain a
+      provisional selection, the sensory reason, a preference or alternative trade-off, and an
+      identification or ageing limitation. The observations are invented, not a blind tasting
+      result.
+  - id: n_d45taste_sherry_sweetness_action_point
+    node_type: learning_point
+    name: "Provisionally select E for the stated dry and nutty brief"
+  - id: n_d45taste_sherry_sweetness_reason_point
+    node_type: learning_point
+    name: "Observed dryness matters more than dark colour or rounded body"
+  - id: n_d45taste_sherry_sweetness_tradeoff_point
+    node_type: learning_point
+    name: "F's sweetness may suit another brief without making it inferior"
+  - id: n_d45taste_sherry_sweetness_limitation_point
+    node_type: learning_point
+    name: "The packet cannot identify an exact Sherry type or remaining lifespan"
+  - id: n_d45taste_case_port_development
+    node_type: production_case
+    name: >-
+      Hypothetical Port development comparison: sample G is deep ruby with intense blackberry and
+      cherry flavours, firm tannin, sweetness and a long fruit finish. Sample H is tawny-gold with
+      dried-fruit and nut aromas, a smooth texture, sweetness and a long developed-flavour finish.
+      The panel finds the alcohol integrated in both. Labels, harvest years, bottling dates,
+      filtration and storage records are withheld. A learner calls H an exact twenty-year-old Tawny
+      and says both samples should be cellared for another decade. Explain a cautious development
+      and readiness comparison, the sensory reason, an enjoyment or ageing trade-off, and the
+      information still required. These sample notes and claims are invented.
+  - id: n_d45taste_port_development_action_point
+    node_type: learning_point
+    name: "Compare fruit-led G with developed H and qualify the cellar plan"
+  - id: n_d45taste_port_development_reason_point
+    node_type: learning_point
+    name: "IVDP separates fruit-preserving Ruby styles from cask-developed Tawny styles"
+  - id: n_d45taste_port_development_tradeoff_point
+    node_type: learning_point
+    name: "Cellaring possible development competes with enjoying the current profile"
+  - id: n_d45taste_port_development_limitation_point
+    node_type: learning_point
+    name: "A Tawny-like profile cannot prove an age indication or storage suitability"
+knowledge_relations:
+  - {subject_id: n_d45taste_case_sparkling_lees, relation_type: CASE_ACTION, object_id: n_d45taste_sparkling_lees_action_point, valid_from: 2026-09-29}
+  - {subject_id: n_d45taste_case_sparkling_lees, relation_type: CASE_REASON, object_id: n_d45taste_sparkling_lees_reason_point, valid_from: 2026-09-29}
+  - {subject_id: n_d45taste_case_sparkling_lees, relation_type: CASE_TRADEOFF, object_id: n_d45taste_sparkling_lees_tradeoff_point, valid_from: 2026-09-29}
+  - {subject_id: n_d45taste_case_sparkling_lees, relation_type: CASE_LIMITATION, object_id: n_d45taste_sparkling_lees_limitation_point, valid_from: 2026-09-29}
+  - {subject_id: n_d45taste_case_sparkling_quality, relation_type: CASE_ACTION, object_id: n_d45taste_sparkling_quality_action_point, valid_from: 2026-09-29}
+  - {subject_id: n_d45taste_case_sparkling_quality, relation_type: CASE_REASON, object_id: n_d45taste_sparkling_quality_reason_point, valid_from: 2026-09-29}
+  - {subject_id: n_d45taste_case_sparkling_quality, relation_type: CASE_TRADEOFF, object_id: n_d45taste_sparkling_quality_tradeoff_point, valid_from: 2026-09-29}
+  - {subject_id: n_d45taste_case_sparkling_quality, relation_type: CASE_LIMITATION, object_id: n_d45taste_sparkling_quality_limitation_point, valid_from: 2026-09-29}
+  - {subject_id: n_d45taste_case_sherry_sweetness, relation_type: CASE_ACTION, object_id: n_d45taste_sherry_sweetness_action_point, valid_from: 2026-09-29}
+  - {subject_id: n_d45taste_case_sherry_sweetness, relation_type: CASE_REASON, object_id: n_d45taste_sherry_sweetness_reason_point, valid_from: 2026-09-29}
+  - {subject_id: n_d45taste_case_sherry_sweetness, relation_type: CASE_TRADEOFF, object_id: n_d45taste_sherry_sweetness_tradeoff_point, valid_from: 2026-09-29}
+  - {subject_id: n_d45taste_case_sherry_sweetness, relation_type: CASE_LIMITATION, object_id: n_d45taste_sherry_sweetness_limitation_point, valid_from: 2026-09-29}
+  - {subject_id: n_d45taste_case_port_development, relation_type: CASE_ACTION, object_id: n_d45taste_port_development_action_point, valid_from: 2026-09-29}
+  - {subject_id: n_d45taste_case_port_development, relation_type: CASE_REASON, object_id: n_d45taste_port_development_reason_point, valid_from: 2026-09-29}
+  - {subject_id: n_d45taste_case_port_development, relation_type: CASE_TRADEOFF, object_id: n_d45taste_port_development_tradeoff_point, valid_from: 2026-09-29}
+  - {subject_id: n_d45taste_case_port_development, relation_type: CASE_LIMITATION, object_id: n_d45taste_port_development_limitation_point, valid_from: 2026-09-29}
+knowledge_items:
+  - id: ki_d45taste_sparkling_lees_action
+    subject_id: n_d45taste_case_sparkling_lees
+    relation_type: CASE_ACTION
+    object_id: n_d45taste_sparkling_lees_action_point
+    domain_id: tasting
+    assertion_text: >-
+      Describe the observed difference first, then tentatively investigate whether lees maturation
+      contributed to B's bread-like aromas and texture. Keep A's fruit-led character separate from
+      any tank-method claim; neither production route is supplied in this hypothetical packet.
+    verification_status: unverified
+    mcq_disabled: true
+    last_verified_at: '2026-09-29T23:00:00.000Z'
+  - id: ki_d45taste_sparkling_lees_reason
+    subject_id: n_d45taste_case_sparkling_lees
+    relation_type: CASE_REASON
+    object_id: n_d45taste_sparkling_lees_reason_point
+    domain_id: tasting
+    assertion_text: >-
+      The Comité Champagne describes yeast breakdown during lees maturation and the development of
+      mature aromas. That offers a mechanism compatible with B's stated evidence, while its lemon
+      freshness and layered finish are observations in the invented packet, not results reported by
+      the source.
+    verification_status: unverified
+    mcq_disabled: true
+    last_verified_at: '2026-09-29T23:00:00.000Z'
+  - id: ki_d45taste_sparkling_lees_tradeoff
+    subject_id: n_d45taste_case_sparkling_lees
+    relation_type: CASE_TRADEOFF
+    object_id: n_d45taste_sparkling_lees_tradeoff_point
+    domain_id: tasting
+    assertion_text: >-
+      B's developed profile may suit a learner seeking complexity, while A's fresh fruit-led
+      expression can suit another brief. Lees-associated development is one comparison dimension;
+      neither greater maturity nor a personal preference establishes a universally better wine.
+    verification_status: unverified
+    mcq_disabled: true
+    last_verified_at: '2026-09-29T23:00:00.000Z'
+  - id: ki_d45taste_sparkling_lees_limitation
+    subject_id: n_d45taste_case_sparkling_lees
+    relation_type: CASE_LIMITATION
+    object_id: n_d45taste_sparkling_lees_limitation_point
+    domain_id: tasting
+    assertion_text: >-
+      The supplied tasting notes cannot authenticate Champagne origin, prove bottle rather than tank
+      fermentation, or calculate months on lees. Require production or provenance records for those
+      claims and assess sensory quality from fuller comparable tasting evidence rather than a bread
+      descriptor alone.
+    verification_status: unverified
+    mcq_disabled: true
+    last_verified_at: '2026-09-29T23:00:00.000Z'
+  - id: ki_d45taste_sparkling_quality_action
+    subject_id: n_d45taste_case_sparkling_quality
+    relation_type: CASE_ACTION
+    object_id: n_d45taste_sparkling_quality_action_point
+    domain_id: tasting
+    assertion_text: >-
+      Under the supplied repeated observations, justify D's stronger comparative quality using
+      integrated acidity, clear flavours and their persistence. Record both wines' mousse rather
+      than assigning quality from the quantity of bubbles, and state any preference separately.
+    verification_status: unverified
+    mcq_disabled: true
+    last_verified_at: '2026-09-29T23:00:00.000Z'
+  - id: ki_d45taste_sparkling_quality_reason
+    subject_id: n_d45taste_case_sparkling_quality
+    relation_type: CASE_REASON
+    object_id: n_d45taste_sparkling_quality_reason_point
+    domain_id: tasting
+    assertion_text: >-
+      In the invented packet, D's flavours remain after tasting while C's finish becomes only heat
+      and its acidity dominates. These different observations support the comparative reasoning;
+      AWRI's assessment guidance asks tasters to justify quality decisions rather than substitute
+      style preference for evidence.
+    verification_status: unverified
+    mcq_disabled: true
+    last_verified_at: '2026-09-29T23:00:00.000Z'
+  - id: ki_d45taste_sparkling_quality_tradeoff
+    subject_id: n_d45taste_case_sparkling_quality
+    relation_type: CASE_TRADEOFF
+    object_id: n_d45taste_sparkling_quality_tradeoff_point
+    domain_id: tasting
+    assertion_text: >-
+      D may be enjoyable now, and a taster can discuss further development conditionally from its
+      fruit and structure. A learner who prefers vigorous mousse may still personally choose C.
+      Present enjoyment, stylistic preference and future development are different judgements.
+    verification_status: unverified
+    mcq_disabled: true
+    last_verified_at: '2026-09-29T23:00:00.000Z'
+  - id: ki_d45taste_sparkling_quality_limitation
+    subject_id: n_d45taste_case_sparkling_quality
+    relation_type: CASE_LIMITATION
+    object_id: n_d45taste_sparkling_quality_limitation_point
+    domain_id: tasting
+    assertion_text: >-
+      Neither these fictional observations nor greater effervescence establish an official quality
+      grade, market value or a guaranteed ten-year improvement. An ageing judgement also needs
+      bottle condition and storage context; qualified tasting feedback is still needed to assess a
+      learner's actual sensory accuracy.
+    verification_status: unverified
+    mcq_disabled: true
+    last_verified_at: '2026-09-29T23:00:00.000Z'
+  - id: ki_d45taste_sherry_sweetness_action
+    subject_id: n_d45taste_case_sherry_sweetness
+    relation_type: CASE_ACTION
+    object_id: n_d45taste_sherry_sweetness_action_point
+    domain_id: tasting
+    assertion_text: >-
+      From the supplied observations, shortlist E for the diner seeking nutty complexity without
+      pronounced sweetness, then check the bottle and the diner's response before service. Correct
+      the claim that dark colour or rounded body necessarily means sweetness; do not rename the
+      coded wine as an exact category.
+    verification_status: unverified
+    mcq_disabled: true
+    last_verified_at: '2026-09-29T23:00:00.000Z'
+  - id: ki_d45taste_sherry_sweetness_reason
+    subject_id: n_d45taste_case_sherry_sweetness
+    relation_type: CASE_REASON
+    object_id: n_d45taste_sherry_sweetness_reason_point
+    domain_id: tasting
+    assertion_text: >-
+      E is explicitly dry in the packet despite its chestnut colour and rounded body. The Consejo
+      describes Palo Cortado as a dry Sherry with developed colour and a rounded palate, providing a
+      real counterexample to the colleague's universal claim without proving that E is Palo Cortado.
+    verification_status: unverified
+    mcq_disabled: true
+    last_verified_at: '2026-09-29T23:00:00.000Z'
+  - id: ki_d45taste_sherry_sweetness_tradeoff
+    subject_id: n_d45taste_case_sherry_sweetness
+    relation_type: CASE_TRADEOFF
+    object_id: n_d45taste_sherry_sweetness_tradeoff_point
+    domain_id: tasting
+    assertion_text: >-
+      F's pronounced sweetness conflicts with this diner’s stated brief but may suit someone seeking
+      a sweet, raisined style. Both samples have persistent flavour in the packet, so the
+      recommendation expresses sensory fit and preference rather than a universal quality hierarchy.
+    verification_status: unverified
+    mcq_disabled: true
+    last_verified_at: '2026-09-29T23:00:00.000Z'
+  - id: ki_d45taste_sherry_sweetness_limitation
+    subject_id: n_d45taste_case_sherry_sweetness
+    relation_type: CASE_LIMITATION
+    object_id: n_d45taste_sherry_sweetness_limitation_point
+    domain_id: tasting
+    assertion_text: >-
+      A chestnut colour and nutty profile do not distinguish every dry oxidative Sherry category or
+      authenticate a coded bottle. Confirm the label and records for category claims; the packet
+      also lacks storage and bottle-condition evidence for a precise future drinking window.
+    verification_status: unverified
+    mcq_disabled: true
+    last_verified_at: '2026-09-29T23:00:00.000Z'
+  - id: ki_d45taste_port_development_action
+    subject_id: n_d45taste_case_port_development
+    relation_type: CASE_ACTION
+    object_id: n_d45taste_port_development_action_point
+    domain_id: tasting
+    assertion_text: >-
+      Describe G as fruit-led and H as showing a developed, Tawny-like profile from the supplied
+      evidence. Discuss possible bottle development for G only after checking its actual category
+      and condition; H's developed profile can support present enjoyment without assuming another
+      decade will improve it.
+    verification_status: unverified
+    mcq_disabled: true
+    last_verified_at: '2026-09-29T23:00:00.000Z'
+  - id: ki_d45taste_port_development_reason
+    subject_id: n_d45taste_case_port_development
+    relation_type: CASE_REASON
+    object_id: n_d45taste_port_development_reason_point
+    domain_id: tasting
+    assertion_text: >-
+      IVDP describes Ruby-style production as retaining young fruit and colour, while Tawny-style
+      cask maturation develops colour and dried-fruit or wood-related aromas. These published
+      tendencies support the G/H comparison but do not establish the coded samples' legal categories
+      or exact ages.
+    verification_status: unverified
+    mcq_disabled: true
+    last_verified_at: '2026-09-29T23:00:00.000Z'
+  - id: ki_d45taste_port_development_tradeoff
+    subject_id: n_d45taste_case_port_development
+    relation_type: CASE_TRADEOFF
+    object_id: n_d45taste_port_development_tradeoff_point
+    domain_id: tasting
+    assertion_text: >-
+      Holding a suitable bottle for further development postpones enjoyment of its current fruit or
+      developed character and depends on the desired style. IVDP describes marketed Tawny styles as
+      ready to drink and notes differing bottle-development behaviour among Ruby categories, so one
+      cellar plan need not suit both samples.
+    verification_status: unverified
+    mcq_disabled: true
+    last_verified_at: '2026-09-29T23:00:00.000Z'
+  - id: ki_d45taste_port_development_limitation
+    subject_id: n_d45taste_case_port_development
+    relation_type: CASE_LIMITATION
+    object_id: n_d45taste_port_development_limitation_point
+    domain_id: tasting
+    assertion_text: >-
+      Colour, dried-fruit aromas and smoothness cannot assign H an exact twenty-year age indication
+      or identify G as Vintage rather than another Ruby category. Check the actual labels, bottling
+      information and storage condition before a category-specific cellar recommendation; no
+      guaranteed decade of improvement follows from these notes.
+    verification_status: unverified
+    mcq_disabled: true
+    last_verified_at: '2026-09-29T23:00:00.000Z'
+certification_knowledge_mappings:
+  - {certification_id: WSET_L4, knowledge_item_id: ki_d45taste_sparkling_lees_action, importance: core, minimum_depth: 3}
+  - {certification_id: WSET_L4, knowledge_item_id: ki_d45taste_sparkling_lees_reason, importance: core, minimum_depth: 3}
+  - {certification_id: WSET_L4, knowledge_item_id: ki_d45taste_sparkling_lees_tradeoff, importance: core, minimum_depth: 3}
+  - {certification_id: WSET_L4, knowledge_item_id: ki_d45taste_sparkling_lees_limitation, importance: core, minimum_depth: 3}
+  - {certification_id: WSET_L4, knowledge_item_id: ki_d45taste_sparkling_quality_action, importance: core, minimum_depth: 3}
+  - {certification_id: WSET_L4, knowledge_item_id: ki_d45taste_sparkling_quality_reason, importance: core, minimum_depth: 3}
+  - {certification_id: WSET_L4, knowledge_item_id: ki_d45taste_sparkling_quality_tradeoff, importance: core, minimum_depth: 3}
+  - {certification_id: WSET_L4, knowledge_item_id: ki_d45taste_sparkling_quality_limitation, importance: core, minimum_depth: 3}
+  - {certification_id: WSET_L4, knowledge_item_id: ki_d45taste_sherry_sweetness_action, importance: core, minimum_depth: 3}
+  - {certification_id: WSET_L4, knowledge_item_id: ki_d45taste_sherry_sweetness_reason, importance: core, minimum_depth: 3}
+  - {certification_id: WSET_L4, knowledge_item_id: ki_d45taste_sherry_sweetness_tradeoff, importance: core, minimum_depth: 3}
+  - {certification_id: WSET_L4, knowledge_item_id: ki_d45taste_sherry_sweetness_limitation, importance: core, minimum_depth: 3}
+  - {certification_id: WSET_L4, knowledge_item_id: ki_d45taste_port_development_action, importance: core, minimum_depth: 3}
+  - {certification_id: WSET_L4, knowledge_item_id: ki_d45taste_port_development_reason, importance: core, minimum_depth: 3}
+  - {certification_id: WSET_L4, knowledge_item_id: ki_d45taste_port_development_tradeoff, importance: core, minimum_depth: 3}
+  - {certification_id: WSET_L4, knowledge_item_id: ki_d45taste_port_development_limitation, importance: core, minimum_depth: 3}
+source_citations:
+  - id: src_d45taste_champagne_tasting
+    kind: reference_work
+    title: The tasting experience
+    publisher: Comité Champagne
+    jurisdiction: FR
+    document_identifier: 'Appearance, smell and palate observations; no tasting grid or source example reproduced'
+    url: https://www.champagne.fr/en/champagne-tasting/the-tasting-experience
+    accessed_on: 2026-09-30
+knowledge_item_citations:
+  - knowledge_item_id: ki_d45taste_sparkling_lees_action
+    source_citation_id: src_spark_maturation
+    locator: "Maturation on lees: yeast autolysis and mature aromas; hypothetical sample comparison and inference limits authored here"
+  - knowledge_item_id: ki_d45taste_sparkling_lees_action
+    source_citation_id: src_wset_taste_awri
+    locator: "Printed pp. 3–6 and 26–27: communicate reasons, compare styles and distinguish quality from preference; no source tasting packet reproduced"
+  - knowledge_item_id: ki_d45taste_sparkling_lees_reason
+    source_citation_id: src_spark_maturation
+    locator: "Maturation on lees: yeast autolysis and mature aromas; hypothetical sample comparison and inference limits authored here"
+  - knowledge_item_id: ki_d45taste_sparkling_lees_reason
+    source_citation_id: src_wset_taste_awri
+    locator: "Printed pp. 3–6 and 26–27: communicate reasons, compare styles and distinguish quality from preference; no source tasting packet reproduced"
+  - knowledge_item_id: ki_d45taste_sparkling_lees_tradeoff
+    source_citation_id: src_spark_maturation
+    locator: "Maturation on lees: yeast autolysis and mature aromas; hypothetical sample comparison and inference limits authored here"
+  - knowledge_item_id: ki_d45taste_sparkling_lees_tradeoff
+    source_citation_id: src_wset_taste_awri
+    locator: "Printed pp. 3–6 and 26–27: communicate reasons, compare styles and distinguish quality from preference; no source tasting packet reproduced"
+  - knowledge_item_id: ki_d45taste_sparkling_lees_limitation
+    source_citation_id: src_spark_maturation
+    locator: "Maturation on lees: yeast autolysis and mature aromas; hypothetical sample comparison and inference limits authored here"
+  - knowledge_item_id: ki_d45taste_sparkling_lees_limitation
+    source_citation_id: src_wset_taste_awri
+    locator: "Printed pp. 3–6 and 26–27: communicate reasons, compare styles and distinguish quality from preference; no source tasting packet reproduced"
+  - knowledge_item_id: ki_d45taste_sparkling_quality_action
+    source_citation_id: src_wset_taste_awri
+    locator: "Printed pp. 3–6 and 26–27: justified quality judgements, preference and repeat assessment; hypothetical panel evidence supplied by this case"
+  - knowledge_item_id: ki_d45taste_sparkling_quality_action
+    source_citation_id: src_wset_taste_ageing
+    locator: "Why do we age wine?: suitability, structure and storage; no fixed drinking-window guarantee"
+  - knowledge_item_id: ki_d45taste_sparkling_quality_action
+    source_citation_id: src_d45taste_champagne_tasting
+    locator: "Appearance, smell and taste sections: multiple sensory observations rather than a single bubble observation"
+  - knowledge_item_id: ki_d45taste_sparkling_quality_reason
+    source_citation_id: src_wset_taste_awri
+    locator: "Printed pp. 3–6 and 26–27: justified quality judgements, preference and repeat assessment; hypothetical panel evidence supplied by this case"
+  - knowledge_item_id: ki_d45taste_sparkling_quality_reason
+    source_citation_id: src_wset_taste_ageing
+    locator: "Why do we age wine?: suitability, structure and storage; no fixed drinking-window guarantee"
+  - knowledge_item_id: ki_d45taste_sparkling_quality_reason
+    source_citation_id: src_d45taste_champagne_tasting
+    locator: "Appearance, smell and taste sections: multiple sensory observations rather than a single bubble observation"
+  - knowledge_item_id: ki_d45taste_sparkling_quality_tradeoff
+    source_citation_id: src_wset_taste_awri
+    locator: "Printed pp. 3–6 and 26–27: justified quality judgements, preference and repeat assessment; hypothetical panel evidence supplied by this case"
+  - knowledge_item_id: ki_d45taste_sparkling_quality_tradeoff
+    source_citation_id: src_wset_taste_ageing
+    locator: "Why do we age wine?: suitability, structure and storage; no fixed drinking-window guarantee"
+  - knowledge_item_id: ki_d45taste_sparkling_quality_tradeoff
+    source_citation_id: src_d45taste_champagne_tasting
+    locator: "Appearance, smell and taste sections: multiple sensory observations rather than a single bubble observation"
+  - knowledge_item_id: ki_d45taste_sparkling_quality_limitation
+    source_citation_id: src_wset_taste_awri
+    locator: "Printed pp. 3–6 and 26–27: justified quality judgements, preference and repeat assessment; hypothetical panel evidence supplied by this case"
+  - knowledge_item_id: ki_d45taste_sparkling_quality_limitation
+    source_citation_id: src_wset_taste_ageing
+    locator: "Why do we age wine?: suitability, structure and storage; no fixed drinking-window guarantee"
+  - knowledge_item_id: ki_d45taste_sparkling_quality_limitation
+    source_citation_id: src_d45taste_champagne_tasting
+    locator: "Appearance, smell and taste sections: multiple sensory observations rather than a single bubble observation"
+  - knowledge_item_id: ki_d45taste_sherry_sweetness_action
+    source_citation_id: src_wset_sf_palo_cortado
+    locator: "Dry Sherry Wine, Tasting Notes and Sugar: dry, chestnut-to-mahogany colour and rounded palate; coded samples and diner brief hypothetical"
+  - knowledge_item_id: ki_d45taste_sherry_sweetness_action
+    source_citation_id: src_wset_taste_awri
+    locator: "Printed pp. 3–6 and 26–27: assess wine evidence and separate preference from quality; hypothetical selection conditional"
+  - knowledge_item_id: ki_d45taste_sherry_sweetness_action
+    source_citation_id: src_wset_taste_ageing
+    locator: "Why do we age wine?: wine suitability and storage affect development; no coded-bottle lifespan established"
+  - knowledge_item_id: ki_d45taste_sherry_sweetness_reason
+    source_citation_id: src_wset_sf_palo_cortado
+    locator: "Dry Sherry Wine, Tasting Notes and Sugar: dry, chestnut-to-mahogany colour and rounded palate; coded samples and diner brief hypothetical"
+  - knowledge_item_id: ki_d45taste_sherry_sweetness_reason
+    source_citation_id: src_wset_taste_awri
+    locator: "Printed pp. 3–6 and 26–27: assess wine evidence and separate preference from quality; hypothetical selection conditional"
+  - knowledge_item_id: ki_d45taste_sherry_sweetness_reason
+    source_citation_id: src_wset_taste_ageing
+    locator: "Why do we age wine?: wine suitability and storage affect development; no coded-bottle lifespan established"
+  - knowledge_item_id: ki_d45taste_sherry_sweetness_tradeoff
+    source_citation_id: src_wset_sf_palo_cortado
+    locator: "Dry Sherry Wine, Tasting Notes and Sugar: dry, chestnut-to-mahogany colour and rounded palate; coded samples and diner brief hypothetical"
+  - knowledge_item_id: ki_d45taste_sherry_sweetness_tradeoff
+    source_citation_id: src_wset_taste_awri
+    locator: "Printed pp. 3–6 and 26–27: assess wine evidence and separate preference from quality; hypothetical selection conditional"
+  - knowledge_item_id: ki_d45taste_sherry_sweetness_tradeoff
+    source_citation_id: src_wset_taste_ageing
+    locator: "Why do we age wine?: wine suitability and storage affect development; no coded-bottle lifespan established"
+  - knowledge_item_id: ki_d45taste_sherry_sweetness_limitation
+    source_citation_id: src_wset_sf_palo_cortado
+    locator: "Dry Sherry Wine, Tasting Notes and Sugar: dry, chestnut-to-mahogany colour and rounded palate; coded samples and diner brief hypothetical"
+  - knowledge_item_id: ki_d45taste_sherry_sweetness_limitation
+    source_citation_id: src_wset_taste_awri
+    locator: "Printed pp. 3–6 and 26–27: assess wine evidence and separate preference from quality; hypothetical selection conditional"
+  - knowledge_item_id: ki_d45taste_sherry_sweetness_limitation
+    source_citation_id: src_wset_taste_ageing
+    locator: "Why do we age wine?: wine suitability and storage affect development; no coded-bottle lifespan established"
+  - knowledge_item_id: ki_d45taste_port_development_action
+    source_citation_id: src_fort_port_intro
+    locator: "Ruby Style and Tawny Style: broad maturation, colour, aroma and ready-to-drink contrasts; coded samples hypothetical"
+  - knowledge_item_id: ki_d45taste_port_development_action
+    source_citation_id: src_fort_port_categories
+    locator: "Vintage, LBV and Tawny special categories: category-dependent bottle development and age descriptions; no authenticity from tasting inferred"
+  - knowledge_item_id: ki_d45taste_port_development_action
+    source_citation_id: src_wset_taste_ageing
+    locator: "Why do we age wine?: readiness, further development and storage; decade claim not established"
+  - knowledge_item_id: ki_d45taste_port_development_reason
+    source_citation_id: src_fort_port_intro
+    locator: "Ruby Style and Tawny Style: broad maturation, colour, aroma and ready-to-drink contrasts; coded samples hypothetical"
+  - knowledge_item_id: ki_d45taste_port_development_reason
+    source_citation_id: src_fort_port_categories
+    locator: "Vintage, LBV and Tawny special categories: category-dependent bottle development and age descriptions; no authenticity from tasting inferred"
+  - knowledge_item_id: ki_d45taste_port_development_reason
+    source_citation_id: src_wset_taste_ageing
+    locator: "Why do we age wine?: readiness, further development and storage; decade claim not established"
+  - knowledge_item_id: ki_d45taste_port_development_tradeoff
+    source_citation_id: src_fort_port_intro
+    locator: "Ruby Style and Tawny Style: broad maturation, colour, aroma and ready-to-drink contrasts; coded samples hypothetical"
+  - knowledge_item_id: ki_d45taste_port_development_tradeoff
+    source_citation_id: src_fort_port_categories
+    locator: "Vintage, LBV and Tawny special categories: category-dependent bottle development and age descriptions; no authenticity from tasting inferred"
+  - knowledge_item_id: ki_d45taste_port_development_tradeoff
+    source_citation_id: src_wset_taste_ageing
+    locator: "Why do we age wine?: readiness, further development and storage; decade claim not established"
+  - knowledge_item_id: ki_d45taste_port_development_limitation
+    source_citation_id: src_fort_port_intro
+    locator: "Ruby Style and Tawny Style: broad maturation, colour, aroma and ready-to-drink contrasts; coded samples hypothetical"
+  - knowledge_item_id: ki_d45taste_port_development_limitation
+    source_citation_id: src_fort_port_categories
+    locator: "Vintage, LBV and Tawny special categories: category-dependent bottle development and age descriptions; no authenticity from tasting inferred"
+  - knowledge_item_id: ki_d45taste_port_development_limitation
+    source_citation_id: src_wset_taste_ageing
+    locator: "Why do we age wine?: readiness, further development and storage; decade claim not established"

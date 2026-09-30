@@ -1,0 +1,120 @@
+# Written self-review and authored criteria assess reasoning about fictional evidence, not a palate.
+question_templates:
+  -
+    id: "qt_d5sensory_written_madeira_compare"
+    relation_type: "CASE_ACTION"
+    direction: "forward"
+    mode: "short_answer"
+    variant: "d5sensory_written_madeira_compare"
+    prompt_template: "Hypothetical Madeira style selection: a trainer supplies A as Verdelho and B as Boal; these identities are assumptions, not findings from blind tasting. At the same temperature in matching clean glasses, A shows citrus and nut aromas, off-dry sweetness, bright acidity, moderate body and a persistent finish. B shows dried-fruit and nut aromas, greater sweetness, richer texture, balancing acidity and a persistent finish. A guest requests a richer, intermediate-sweet after-dinner wine. Explain a provisional selection, the observation and source reasoning, an alternative preference or trade-off, and what the packet cannot authenticate. These invented observations do not grade your palate or establish an official quality grade."
+    parameters:
+      scope_node_ids:
+        - "n_d5sensory_case_madeira_compare"
+      key_points:
+        CASE_ACTION: "Evidence-based current conclusion"
+        CASE_REASON: "Observations and source context"
+        CASE_TRADEOFF: "Style preference or readiness trade-off"
+        CASE_LIMITATION: "Identity, age or development limits"
+  -
+    id: "qt_d5sensory_written_rutherglen_muscat"
+    relation_type: "CASE_ACTION"
+    direction: "forward"
+    mode: "short_answer"
+    variant: "d5sensory_written_rutherglen_muscat"
+    prompt_template: "Hypothetical Rutherglen Muscat selection: a trainer supplies C as Rutherglen Muscat and D as Grand Rutherglen Muscat. These category identities are assumptions, not blind identifications. Fresh pours at the same temperature show C with grape, raisin and floral notes, full body, pronounced sweetness, a less viscous texture and a moderately persistent finish. D has coffee, nut and dried-fruit notes, a more concentrated texture and a longer layered finish. The panel records warmth integrated with the sweetness and flavour in both. A guest wants the fresher fruit-led and less-concentrated expression. Explain a provisional choice, category and balance reasoning, an alternative preference or trade-off, and an age or authenticity limitation. These invented observations do not establish an official category, quality grade or your sensory accuracy."
+    parameters:
+      scope_node_ids:
+        - "n_d5sensory_case_rutherglen_muscat"
+      key_points:
+        CASE_ACTION: "Evidence-based current conclusion"
+        CASE_REASON: "Observations and source context"
+        CASE_TRADEOFF: "Style preference or readiness trade-off"
+        CASE_LIMITATION: "Identity, age or development limits"
+  -
+    id: "qt_d5sensory_written_age_quality"
+    relation_type: "CASE_ACTION"
+    direction: "forward"
+    mode: "short_answer"
+    variant: "d5sensory_written_age_quality"
+    prompt_template: "Hypothetical fortified age and quality review: a trainer supplies E as V.O.S. Oloroso and F as Oloroso without a certified-age claim. Those identities are assumptions; no seal, certification or bottle history is available. With fresh pours, matching clean glasses and one temperature, repeated notes for E show pronounced wood/nut concentration, but drying texture and warmth dominate a brief flavour finish. F shows clear nut and orange-peel flavours, integrated warmth and texture, and a longer layered finish. A colleague says E must contain only wine exactly twenty years old, must win this comparison and will improve for ten more years. Explain a justified current comparison, sensory and designation reasoning, a preference or readiness trade-off, and a verification or development limit. These invented observations are not a finding about a certified lot, an official quality grade or a test of your palate."
+    parameters:
+      scope_node_ids:
+        - "n_d5sensory_case_age_quality"
+      key_points:
+        CASE_ACTION: "Evidence-based current conclusion"
+        CASE_REASON: "Observations and source context"
+        CASE_TRADEOFF: "Style preference or readiness trade-off"
+        CASE_LIMITATION: "Identity, age or development limits"
+  -
+    id: "qt_d5sensory_case_criteria"
+    relation_type: "CASE_ACTION"
+    direction: "forward"
+    mode: "case_criteria"
+    variant: "d5sensory_case_criteria"
+    prompt_template: "{subject.name}"
+    parameters:
+      scope_node_ids:
+        - "n_d5sensory_case_madeira_compare"
+        - "n_d5sensory_case_rutherglen_muscat"
+        - "n_d5sensory_case_age_quality"
+      distractors:
+        n_d5sensory_case_madeira_compare:
+          -
+            summary: "Choose B because a Boal identity establishes higher quality than Verdelho in every comparison"
+            explanation: "The packet supports a choice for this guest's richer and sweeter brief. Neither the supplied identity nor the body difference establishes a universal quality hierarchy."
+          -
+            summary: "Use B's richer texture to certify its grape, residual sugar and vineyard elevation without records"
+            explanation: "Identity is hypothetically supplied and the observations give no measured sugar or vineyard records. A style-compatible texture cannot authenticate those details."
+        n_d5sensory_case_rutherglen_muscat:
+          -
+            summary: "Override the fresher-fruit brief and select D because Grand is automatically the best match for every guest"
+            explanation: "D's longer developed finish is useful evidence, but it does not satisfy this particular request more directly than C's stated fresher profile. Category and personal preference are different decisions."
+          -
+            summary: "Certify every component of D as at least eleven years old from its supplied Grand category and coffee notes"
+            explanation: "The regional publication gives average category ages. Those are not component minima, and fictional descriptors cannot authenticate a real blend's records."
+        n_d5sensory_case_age_quality:
+          -
+            summary: "Rank E higher automatically because a supplied V.O.S. name determines the current quality of every glass"
+            explanation: "Authentic certification assesses a lot's quality and average age, but this packet has no verification and supplies contrary current balance and finish evidence. It cannot replace observation of the actual bottle."
+          -
+            summary: "Guarantee ten more years of improvement because V.O.S. means each component is exactly twenty years old"
+            explanation: "V.O.S. concerns average age and an individual certified saca, not an exact age for each component. The case supplies no condition or storage evidence supporting a fixed improvement promise."
+  -
+    id: "qt_d5sensory_action_choice"
+    relation_type: "CASE_ACTION"
+    direction: "forward"
+    mode: "authored_choice"
+    variant: "d5sensory_action_choice"
+    prompt_template: "{subject.name}"
+    parameters:
+      item_choices:
+        ki_d5sensory_case_madeira_compare_action:
+          prompt: "In an invented Madeira packet, a trainer supplies A as Verdelho and B as Boal. A is off-dry, bright and moderate-bodied; B is sweeter and richer with balancing acidity. Both finishes persist. A guest wants a richer, intermediate-sweet after-dinner wine. The identities are assumptions. Which provisional decision fits the evidence?"
+          options:
+            - "Offer B for its observed sweetness and richer texture, while keeping identity and quality claims conditional"
+            - "Offer A because bright acidity makes off-dry sweetness the closest match to the request for richer sweetness"
+            - "Offer B because its supplied Boal identity establishes superior quality over Verdelho independently of these observations"
+            - "Offer A because persistent finishes make the sweetness and texture differences irrelevant to the guest's brief"
+          correctIndex: 0
+          explanation: "B fits the stated brief through the invented sweetness and texture observations. IVBAM's Boal description provides style context, not authentication or a quality ranking over Verdelho."
+          sourceCitationId: "src_d5madeira_boal"
+        ki_d5sensory_case_rutherglen_muscat_action:
+          prompt: "In an invented Muscat packet, C is supplied as Rutherglen Muscat and D as Grand Rutherglen Muscat. C is fruit/floral-led and less viscous; D is more concentrated, nut/coffee-led and has a longer finish. Sweetness and warmth are integrated in both. The category names are assumptions. A guest wants fresher fruit and less concentration. Which decision follows?"
+          options:
+            - "Offer D because the Grand name makes its stronger development the best fit for any preference"
+            - "Offer C for its supplied fruit profile and lighter texture, while recording D's longer developed finish"
+            - "Offer D because concentrated coffee-like flavours establish both its certified blend age and the guest's quality preference"
+            - "Offer C because the Grand category requires harsh heat that must make D unbalanced despite the panel's notes"
+          correctIndex: 1
+          explanation: "C fits the guest's requested expression, while D's longer finish remains relevant evidence. Regional categories provide progression context; their published average ages do not authenticate component ages or override the packet."
+          sourceCitationId: "src_wset_sf_muscat_aged"
+        ki_d5sensory_case_age_quality_action:
+          prompt: "An invented packet supplies E as V.O.S. Oloroso and F as Oloroso without an age claim; identities and certification are unverified assumptions. Repeated same-temperature notes show E with concentration but dominant drying texture/heat and a brief flavour finish; F has integrated warmth, clear flavours and a longer layered finish. Which conclusion is justified now?"
+          options:
+            - "Rank E higher from the supplied V.O.S. name because a certified average age overrides the current sensory evidence"
+            - "Rank E higher because stronger wood and heat establish greater complexity than F's integrated and persistent palate"
+            - "Support F on the stated integration and persistent flavour finish, keeping E's designation and improvement conditional"
+            - "Support F because the packet establishes its exact component ages and disproves the authenticity of E's certification"
+          correctIndex: 2
+          explanation: "F has the stronger current integration and finish evidence in this fictional packet. Authentic V.O.S. certification involves quality and average age of a saca, but no seal or records are available here; the comparison neither verifies nor disproves it."
+          sourceCitationId: "src_d5_sherry_age"

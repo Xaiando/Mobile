@@ -27,6 +27,23 @@ class _QueuedPicker extends ImagePicker {
   }) async => _files.removeAt(0);
 }
 
+class _HeldPicker extends ImagePicker {
+  final result = Completer<XFile?>();
+
+  @override
+  bool supportsImageSource(ImageSource source) => true;
+
+  @override
+  Future<XFile?> pickImage({
+    required ImageSource source,
+    double? maxWidth,
+    double? maxHeight,
+    int? imageQuality,
+    CameraDevice preferredCameraDevice = CameraDevice.rear,
+    bool requestFullMetadata = true,
+  }) => result.future;
+}
+
 class _RecordingPicker extends ImagePicker {
   final calls =
       <({ImageSource source, double? width, double? height, int? quality})>[];
@@ -247,6 +264,97 @@ void main() {
       expect(find.text('Use vintage 2022'), findsOneWidget);
       expect(find.text('Use vintage 2019'), findsNothing);
       expect(find.text('Use 13.5% alcohol'), findsNothing);
+    },
+  );
+  _scanTestWidgets(
+    'disabled scanner rejects a pending pick and stale proposal callbacks',
+    (tester) async {
+      final picker = _HeldPicker();
+      final picked = <PhotoKind>[];
+      final vintages = <int>[];
+      final alcohol = <double>[];
+      var enabled = true;
+      late StateSetter update;
+      await tester.pumpWidget(
+        MaterialApp(
+          home: Scaffold(
+            body: SingleChildScrollView(
+              child: StatefulBuilder(
+                builder: (context, setState) {
+                  update = setState;
+                  return JournalScanSection(
+                    enabled: enabled,
+                    picker: picker,
+                    recognizeText: (_) async => 'Estate 2022 12%',
+                    onPicked: (kind, _) => picked.add(kind),
+                    onVintage: vintages.add,
+                    onNonVintage: () {},
+                    onAbv: alcohol.add,
+                  );
+                },
+              ),
+            ),
+          ),
+        ),
+      );
+      await tester.ensureVisible(_rawField);
+      await tester.enterText(_rawField, 'Manual Estate 2019 13.5%');
+      await tester.pump();
+      final vintageCallback = tester
+          .widget<ActionChip>(
+            find.widgetWithText(ActionChip, 'Use vintage 2019'),
+          )
+          .onPressed!;
+      final abvCallback = tester
+          .widget<ActionChip>(
+            find.widgetWithText(ActionChip, 'Use 13.5% alcohol'),
+          )
+          .onPressed!;
+      await tester.ensureVisible(find.text('Choose label'));
+      await tester.tap(find.text('Choose label'));
+      await tester.pump();
+      expect(find.byType(LinearProgressIndicator), findsOneWidget);
+      update(() => enabled = false);
+      await tester.pump();
+      expect(tester.widget<TextField>(_rawField).enabled, isFalse);
+      vintageCallback();
+      abvCallback();
+      picker.result.complete(_label('late-label.png'));
+      await _waitForScan(tester);
+      expect(picked, isEmpty);
+      expect(vintages, isEmpty);
+      expect(alcohol, isEmpty);
+      expect(
+        tester.widget<TextField>(_rawField).controller!.text,
+        'Manual Estate 2019 13.5%',
+      );
+      for (final label in ['Choose label', 'Choose glass']) {
+        expect(
+          tester
+              .widget<OutlinedButton>(
+                find.widgetWithText(OutlinedButton, label),
+              )
+              .onPressed,
+          isNull,
+        );
+      }
+      for (final label in ['Use vintage 2019', 'Use 13.5% alcohol']) {
+        expect(
+          tester
+              .widget<ActionChip>(find.widgetWithText(ActionChip, label))
+              .onPressed,
+          isNull,
+        );
+      }
+      update(() => enabled = true);
+      await tester.pump();
+      await _chooseLabel(tester);
+      expect(picked, [PhotoKind.label]);
+      expect(
+        tester.widget<TextField>(_rawField).controller!.text,
+        'Manual Estate 2019 13.5%',
+      );
+      expect(tester.takeException(), isNull);
     },
   );
 }

@@ -135,7 +135,7 @@ void main() {
       );
       expect(
         inScope.where((item) => item.item.domainId == 'service'),
-        hasLength(102),
+        hasLength(104),
       );
       expect(
         inScope.where((item) => !item.hasUsefulPractice),

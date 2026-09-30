@@ -1,4 +1,5 @@
 import 'dart:convert';
+import 'dart:io';
 
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
@@ -134,6 +135,83 @@ void main() {
     );
     expect(tester.takeException(), isNull);
   });
+
+  testApp(
+    'Level 2 quality evidence is visible and required before saving completion',
+    (tester) async {
+      final record = (await tester.runAsync(() async {
+        await LearnerProfiles(db, clock: time.clock).selectTrack('WSET_L2');
+        repository = GuidedTastingRepository(
+          db,
+          bank: GuidedTastingBank.fromJson(
+            File('assets/study/guided_tasting.json').readAsStringSync(),
+          ),
+          clock: time.clock,
+        );
+        return repository.start(2);
+      }))!;
+      await screen(tester);
+      final dry = find.byKey(
+        const ValueKey('guided-observation-sweetness-dry'),
+      );
+      await visible(tester, dry);
+      await tester.tap(dry);
+      await settle(tester);
+      final description = find.byKey(
+        const ValueKey('guided-evidence-description'),
+      );
+      await visible(tester, description);
+      await tester.enterText(
+        description,
+        'The observed palate is dry with citrus aromas.',
+      );
+      await settle(tester);
+      final finish = find.byKey(const ValueKey('guided-tasting-finish'));
+      await visible(tester, finish);
+      await tester.tap(finish);
+      await settle(tester);
+      expect(
+        (await tester.runAsync(() => repository.read(record.sessionId)))!
+            .isFinished,
+        isFalse,
+      );
+
+      final quality = find.byKey(const ValueKey('guided-evidence-quality'));
+      await tester.scrollUntilVisible(
+        quality,
+        -400,
+        scrollable: find.byType(Scrollable).first,
+        maxScrolls: 40,
+      );
+      await tester.pumpAndSettle();
+      await tester.enterText(
+        quality,
+        'Tentatively sound: clear fruit is a strength; without finish and balance evidence, the conclusion remains uncertain.',
+      );
+      await settle(tester);
+      await visible(tester, finish);
+      await tester.tap(finish);
+      await settle(tester);
+      final saved = (await tester.runAsync(
+        () => repository.read(record.sessionId),
+      ))!;
+      expect(saved.isFinished, isTrue);
+      expect(saved.evidence['quality'], contains('remains uncertain'));
+      await visible(
+        tester,
+        find.byKey(const ValueKey('guided-tasting-complete')),
+      );
+      expect(
+        find.byKey(const ValueKey('guided-tasting-feedback')),
+        findsNothing,
+      );
+      expect(
+        await tester.runAsync(() => db.select(db.reviewEvents).get()),
+        isEmpty,
+      );
+      expect(tester.takeException(), isNull);
+    },
+  );
 
   testApp(
     'unreadable guided history is visible beside resumable valid evidence',

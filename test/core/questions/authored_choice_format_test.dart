@@ -360,7 +360,7 @@ void main() {
   );
 
   test(
-    '1678 cited choices are generated and served across WSET and CMS tracks',
+    '1720 cited choices are generated and served across WSET and CMS tracks',
     () async {
       final db = openTestDatabase();
       try {
@@ -380,12 +380,14 @@ void main() {
               (template) =>
                   template.id.startsWith('qt_wset_') ||
                   template.id.startsWith('qt_cms_example_') ||
+                  template.id == 'qt_cms_service_remaining_principles_33' ||
+                  template.id == 'qt_cms_loire_product_choices_6' ||
                   template.id == 'qt_d3rt_regional_choice' ||
                   template.id == 'qt_d4depth_regional_choices' ||
                   template.id == 'qt_d5f_authored_choice',
             )
             .toList();
-        expect(templates, hasLength(81));
+        expect(templates, hasLength(84));
         final expectedIds = {
           for (final template in templates)
             ...((jsonDecode(template.parameters!)
@@ -594,6 +596,12 @@ void main() {
         final d3RegionalIds = idsForTemplate('qt_d3rt_regional_choice');
         final d4RegionalIds = idsForTemplate('qt_d4depth_regional_choices');
         final d5FortifiedIds = idsForTemplate('qt_d5f_authored_choice');
+        final cmsClosureIds = {
+          ...idsForTemplate('qt_cms_service_remaining_principles_33'),
+          ...idsForTemplate('qt_cms_loire_product_choices_6'),
+        };
+        expect(cmsClosureIds, hasLength(39));
+        expect(cmsClosureIds.intersection(cmsExampleIds), isEmpty);
         final earlierLevelThreeIds = expectedIds.difference({
           ...levelOneIds,
           ...levelTwoIds,
@@ -603,6 +611,7 @@ void main() {
           ...businessIds,
           ...l3BusinessGapIds,
           ...cmsExampleIds,
+          ...cmsClosureIds,
           ...winemakingSharedIds,
           ...winemakingL3Ids,
           ...winemakingDepthIds,
@@ -660,9 +669,9 @@ void main() {
           isEmpty,
           reason: 'Diploma and Level 3 geography choices remain distinct',
         );
-        expect(expectedIds, hasLength(1678));
+        expect(expectedIds, hasLength(1720));
         expect(levelOneIds, hasLength(132));
-        expect(levelTwoIds, hasLength(309));
+        expect(levelTwoIds, hasLength(312));
         expect(sharedGrapeIds, hasLength(52));
         expect(europeIds, hasLength(67));
         expect(newWorldIds, hasLength(16));
@@ -744,12 +753,14 @@ void main() {
         JOIN knowledge_items i ON i.id = q.knowledge_item_id
         WHERE t.mode = 'authored_choice'
           AND (t.id GLOB 'qt_wset_*' OR t.id GLOB 'qt_cms_example_*'
+               OR t.id = 'qt_cms_service_remaining_principles_33'
+               OR t.id = 'qt_cms_loire_product_choices_6'
                OR t.id = 'qt_d3rt_regional_choice'
                OR t.id = 'qt_d4depth_regional_choices'
                OR t.id = 'qt_d5f_authored_choice')
         ORDER BY q.knowledge_item_id
       ''').get();
-        expect(rows, hasLength(1678));
+        expect(rows, hasLength(1720));
         final actual = {
           for (final row in rows)
             row.read<String>('knowledge_item_id'): row.read<String>(
@@ -927,7 +938,7 @@ void main() {
                     ? levelTwoCards[id]
                     : sharedGrapeIds.contains(id)
                     ? levelTwoCards[id]
-                    : cmsExampleIds.contains(id)
+                    : cmsExampleIds.contains(id) || cmsClosureIds.contains(id)
                     ? cmsCards[id]
                     : l4ViticulturePrincipleIds.contains(id) ||
                           l4ViticultureCausalIds.contains(id)

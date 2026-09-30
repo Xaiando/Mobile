@@ -1,0 +1,175 @@
+# Original source-bounded choices, point recall and conditional four-role cases.
+question_templates:
+  -
+    id: "qt_d5madeira_site_style_choice"
+    relation_type: "PRINCIPLE_EXPLANATION"
+    direction: "forward"
+    mode: "authored_choice"
+    variant: "d5madeira_site_style_choice"
+    prompt_template: "{subject.name}"
+    parameters:
+      item_choices:
+        ki_d5madeira_poios:
+          prompt: "A Madeira grower describes a parcel as poios. Which interpretation is supported before work is priced?"
+          options:
+            - "The parcel has terraces on steep ground; inspect access before budgeting vineyard work"
+            - "The parcel has levadas that carry water from the upper island, so irrigation delivery is established"
+            - "The parcel has horizontal vine training that sets the canopy layout"
+            - "The parcel has espalier rows on gentle land, allowing a standard mechanical harvest"
+          correctIndex: 0
+          explanation: "Poios refers to terraces. Water channels and vine-training layouts are different features, and terrace presence alone does not establish access or costs."
+          sourceCitationId: "src_d5madeira_region"
+        ki_d5madeira_levadas:
+          prompt: "A grower includes a levada connection in a Madeira vineyard plan. What function does the regional source establish?"
+          options:
+            - "They are retaining walls that divide steep parcels into workable vineyard terraces"
+            - "They carry irrigation water captured higher on the island through canals"
+            - "They describe a horizontal trellis layout traditionally used for Madeira vines"
+            - "They are production categories defining the finished wine's residual-sugar interval"
+          correctIndex: 1
+          explanation: "Levadas conduct irrigation water. The source description does not supply this parcel's water entitlement, seasonal availability or a finished-wine category."
+          sourceCitationId: "src_d5madeira_region"
+        ki_d5madeira_latada:
+          prompt: "A consultant proposes replacing a Madeira latada. Which description should anchor the site assessment?"
+          options:
+            - "It is the espalier layout introduced for land with gentler slopes"
+            - "It identifies a vine's altitude band rather than the form of its canopy"
+            - "It is traditional horizontal vine training; assess the actual terrain before redesigning it"
+            - "It requires a specified finished-wine sweetness and a fixed number of harvesting staff"
+          correctIndex: 2
+          explanation: "Latada describes horizontal training. The source distinguishes the terrain suitability of espalier; it does not set a sweetness rule or a crew size."
+          sourceCitationId: "src_d5madeira_region"
+        ki_d5madeira_harvest:
+          prompt: "A buyer uses IVBAM's Madeira harvest description to assess a grower's price. Which conclusion is defensible?"
+          options:
+            - "The region description supplies a fixed labour cost per tonne for each Madeira vineyard"
+            - "Fragmented holdings remove the need to check crew time and routes between parcels"
+            - "Manual harvesting proves that a wine will reach a higher quality grade than machine-harvested wine"
+            - "Hand harvest on steep fragmented sites needs a parcel-specific labour and access quote"
+          correctIndex: 3
+          explanation: "The account supports a demanding manual-harvest context. A real quotation needs the parcel and crew details; hand harvesting alone is not a quality grade."
+          sourceCitationId: "src_d5madeira_region"
+        ki_d5madeira_verdelho:
+          prompt: "A sommelier compares the IVBAM descriptions of Verdelho and Sercial. Which starting expectation is supported?"
+          options:
+            - "Verdelho is off-dry and typically fuller and less acidic than Sercial"
+            - "Verdelho and Sercial share the same sweetness and acidity because they grow on one island"
+            - "Verdelho is described as semi-sweet, and body alone authenticates it in a coded sample"
+            - "Verdelho must come from one exact altitude, which fixes every bottle's sweetness and quality"
+          correctIndex: 0
+          explanation: "The source gives a relative body/acidity comparison and an off-dry association. It does not prove every bottle's measured composition, identity or quality."
+          sourceCitationId: "src_d5madeira_verdelho"
+        ki_d5madeira_boal:
+          prompt: "A sommelier adds Boal to a comparison with off-dry Verdelho. Which use of the published styles is sound?"
+          options:
+            - "Boal has the driest profile in the sequence, with lower perceived sweetness than both Sercial and Verdelho"
+            - "Boal is semi-sweet and rich; taste its sweetness and acidity alongside off-dry Verdelho"
+            - "Boal occupies the off-dry step while Verdelho occupies the semi-sweet step"
+            - "Boal's typical sweetness description proves an exact sugar value and vineyard altitude for a coded sample"
+          correctIndex: 1
+          explanation: "The Boal description supplies a semi-sweet, rich style with acidity/sweetness balance. This guides comparison rather than certifying exact sugar, elevation or sample identity."
+          sourceCitationId: "src_d5madeira_boal"
+  -
+    id: "qt_d5madeira_site_style_typed"
+    relation_type: "PRINCIPLE_EXPLANATION"
+    direction: "forward"
+    mode: "typed"
+    variant: "d5madeira_site_style_recall"
+    prompt_template: "{subject.name}"
+    parameters:
+      item_cues:
+        ki_d5madeira_poios:
+          prompt: "What term identifies the terraces made from steep agricultural land in Madeira?"
+          acceptedAnswers:
+            - "poios"
+            - "poio"
+        ki_d5madeira_levadas:
+          prompt: "What are the canals conducting irrigation water from higher parts of Madeira called?"
+          acceptedAnswers:
+            - "levadas"
+            - "levada"
+        ki_d5madeira_latada:
+          prompt: "What traditional Madeira training system lays the vines out horizontally?"
+          acceptedAnswers:
+            - "latada"
+            - "latadas"
+            - "latada training"
+            - "latada trellis"
+        ki_d5madeira_harvest:
+          prompt: "In IVBAM's regional description, how are grapes harvested on Madeira's steep, fragmented holdings?"
+          acceptedAnswers:
+            - "by hand"
+            - "hand harvest"
+            - "hand harvesting"
+            - "hand harvested"
+            - "manual harvest"
+            - "manual harvesting"
+            - "manually"
+        ki_d5madeira_verdelho:
+          prompt: "Which of Sercial and Verdelho does IVBAM associate with off-dry wine that is slightly fuller and less acidic than the other?"
+          acceptedAnswers:
+            - "Verdelho"
+            - "Madeira Verdelho"
+            - "Verdelho Madeira"
+        ki_d5madeira_boal:
+          prompt: "What intermediate sweetness description does IVBAM associate with Boal, compared with off-dry Verdelho?"
+          acceptedAnswers:
+            - "semi-sweet"
+            - "semisweet"
+            - "medium-sweet"
+  -
+    id: "qt_d5madeira_case_terrace_logistics"
+    relation_type: "CASE_ACTION"
+    direction: "forward"
+    mode: "short_answer"
+    variant: "d5madeira_case_terrace_logistics"
+    prompt_template: "Hypothetical Madeira work-planning case. The following parcel and budget details are invented: parcel A has steep, small fragmented poios, narrow access, a latada and a levada connection; the available hand crew has limited working days. Parcel B has gentler, accessible land. A contractor offers one fixed machine-harvest price for both without visiting either. No crew-time measurements, water-delivery records or itemised quotes are available. Recommend a conditional plan for A, explain the regional mechanisms, compare its resource commitments with B and identify the evidence needed before committing funds."
+    parameters:
+      scope_node_ids:
+        - "n_d5madeira_case_terrace_logistics"
+      key_points:
+        CASE_ACTION: "Conditional action"
+        CASE_REASON: "Mechanism and rationale"
+        CASE_TRADEOFF: "Resource or preference tradeoff"
+        CASE_LIMITATION: "Unsupported conclusion and next check"
+  -
+    id: "qt_d5madeira_case_style_comparison"
+    relation_type: "CASE_ACTION"
+    direction: "forward"
+    mode: "short_answer"
+    variant: "d5madeira_case_style_comparison"
+    prompt_template: "Hypothetical Madeira comparison. The observations below are invented rather than results from an authenticated flight. Two coded samples are served in clean matched glasses at the same temperature. A is off-dry, with noticeable acidity and moderate body. B is clearly sweeter, with acidity balancing a rich, medium-bodied impression. A guest asks for an off-dry choice. There are no bottle labels, grape or vineyard records, sugar analyses, prices or repeat tastings. A colleague labels A Verdelho and B Boal, then assigns exact growing altitudes and a higher quality grade to B. Recommend a response to the guest, explain the useful style comparison, give a preference tradeoff and identify unsupported conclusions."
+    parameters:
+      scope_node_ids:
+        - "n_d5madeira_case_style_comparison"
+      key_points:
+        CASE_ACTION: "Conditional action"
+        CASE_REASON: "Mechanism and rationale"
+        CASE_TRADEOFF: "Resource or preference tradeoff"
+        CASE_LIMITATION: "Unsupported conclusion and next check"
+  -
+    id: "qt_d5madeira_case_criteria"
+    relation_type: "CASE_ACTION"
+    direction: "forward"
+    mode: "case_criteria"
+    variant: "d5madeira_site_style_criteria"
+    prompt_template: "{subject.name}"
+    parameters:
+      scope_node_ids:
+        - "n_d5madeira_case_terrace_logistics"
+        - "n_d5madeira_case_style_comparison"
+      distractors:
+        n_d5madeira_case_terrace_logistics:
+          -
+            summary: "Accept the same mechanical-harvest quote for A and B because both parcels are in Madeira"
+            explanation: "The invented parcels have different access and terrain, while the regional account describes difficult manual harvesting. Neither regional membership nor an uninspected quotation establishes machine feasibility at A."
+          -
+            summary: "Remove the water check because the stated levada connection guarantees supply throughout the season"
+            explanation: "The premise gives only a connection. The channel's regional function does not prove the parcel's available water, delivery timing or reliability."
+        n_d5madeira_case_style_comparison:
+          -
+            summary: "Identify A as Verdelho and B as Boal because the observed sweetnesses fit the published styles"
+            explanation: "A compatible style is a working hypothesis. There are no authenticated bottles or production records, and perceived sweetness cannot establish grape identity."
+          -
+            summary: "Assign B a higher quality grade because it is sweeter, then recover its exact vineyard altitude"
+            explanation: "The invented preference and sweetness contrast do not provide a quality assessment. Typical growing elevations describe regional context and cannot be recovered as exact site information from these observations."

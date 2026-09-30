@@ -558,9 +558,9 @@ void main() {
     ).snapshot();
     expect(snapshot.levels.map((level) => level.counts.mapped), [
       132,
-      829,
-      3439,
-      4111,
+      844,
+      3444,
+      4184,
     ]);
     final diploma = snapshot.levels.last;
     final unitIds = {
@@ -570,6 +570,8 @@ void main() {
       'D4': [
         'ki_spark_',
         'ki_d4nw_',
+        'ki_d4brit_',
+        'ki_d4commercial_',
         'ki_d4depth_',
         'ki_d4d5_bourgogne_',
         'ki_d4d5_saumur_',
@@ -577,15 +579,20 @@ void main() {
         'ki_d4d5_sorbara_',
         'ki_d4d5_grasparossa_',
         'ki_d4d5_case_italian_',
+        'ki_d45taste_sparkling_',
       ],
       'D5': [
         'ki_fort_',
         'ki_d5f_',
+        'ki_d5madeira_',
+        'ki_d5sensory_',
         'ki_d4d5_palo_',
         'ki_d4d5_lbv_',
         'ki_d4d5_colheita_',
         'ki_d4d5_white_port_',
         'ki_d4d5_case_port_',
+        'ki_d45taste_sherry_',
+        'ki_d45taste_port_',
       ],
     }.entries) {
       final ids = dataset.knowledgeItems

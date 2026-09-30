@@ -1824,7 +1824,8 @@ tracks:
       - id: wset_l4.sparkling.britain
         label: Study sparkling-wine contexts in England and Wales
         covers: {within: [n_geo_england, n_geo_wales, n_d4depth_principle_britain_variety,
-          n_d4depth_principle_britain_frost, n_d4depth_case_british_frost]}
+          n_d4depth_principle_britain_frost, n_d4depth_case_british_frost,
+          n_d4brit_principle_pdo_origin, n_d4brit_principle_pdo_grapes, n_d4brit_principle_pdo_method, n_d4brit_principle_pgi_hybrid, n_d4brit_principle_unprotected_origin, n_d4brit_principle_pdo_assessment, n_d4brit_case_hybrid_offer, n_d4brit_case_category_quality]}
         tasks: [DIP-4, G13]
       - id: wset_l4.sparkling.americas
         label: Compare sparkling-wine contexts in the Americas
@@ -1949,12 +1950,25 @@ tracks:
             - n_d4depth_case_cava_upgrade
             - n_d4depth_case_rive_offer
             - n_d4depth_case_british_frost
+            - n_d4brit_case_hybrid_offer
+            - n_d4brit_case_category_quality
+            - n_d4commercial_case_us_offer
+            - n_d4commercial_case_andes_offer
+            - n_d4commercial_case_oceania_africa_offer
           relation_types:
             - PRINCIPLE_EXPLANATION
+            - CASE_ACTION
+            - CASE_REASON
             - CASE_TRADEOFF
+            - CASE_LIMITATION
         tasks: [DIP-4, DIP-2]
       - id: wset_l4.sparkling.tasting
         label: Practise evidence-based conclusions from sparkling-wine tasting
+        covers:
+          within:
+            - n_d45taste_case_sparkling_lees
+            - n_d45taste_case_sparkling_quality
+          relation_types: [CASE_ACTION, CASE_REASON, CASE_TRADEOFF, CASE_LIMITATION]
         tasks: [DIP-4, T1, T2, Q8, S3]
 
       # D5: places are separated from fortified-wine styles and business facts.
@@ -2024,6 +2038,14 @@ tracks:
             - n_d5f_principle_madeira_sweetness
             - n_d5f_principle_madeira_categories
             - n_d5f_case_fortified_list
+            - n_d5madeira_principle_poios
+            - n_d5madeira_principle_levadas
+            - n_d5madeira_principle_latada
+            - n_d5madeira_principle_harvest
+            - n_d5madeira_principle_verdelho
+            - n_d5madeira_principle_boal
+            - n_d5madeira_case_terrace_logistics
+            - n_d5madeira_case_style_comparison
         tasks: [DIP-5, C3]
       - id: wset_l4.fortified.france
         label: Compare French fortified sweet-wine contexts
@@ -2137,6 +2159,14 @@ tracks:
         tasks: [DIP-5, DIP-2, C5]
       - id: wset_l4.fortified.tasting
         label: Practise evidence-based conclusions from fortified-wine tasting
+        covers:
+          within:
+            - n_d45taste_case_sherry_sweetness
+            - n_d45taste_case_port_development
+            - n_d5sensory_case_madeira_compare
+            - n_d5sensory_case_rutherglen_muscat
+            - n_d5sensory_case_age_quality
+          relation_types: [CASE_ACTION, CASE_REASON, CASE_TRADEOFF, CASE_LIMITATION]
         tasks: [DIP-5, T1, T2, Q8, S3]
 
       # D6: original research practice; no copied assignment or auto-marking claim.

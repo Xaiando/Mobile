@@ -1,0 +1,41 @@
+# Two bilingual Alto Adige unit-name settlement references. No boundary or official centroid is asserted.
+# Name identity: Comune Appiano/Eppan development plan PDF p.54, independently verified visually.
+# Coordinates: pinned GeoNames IT.zip (CC BY4.0), Appiano admin3 021004. All facts unverified.
+
+knowledge_nodes:
+  - {"id":"n_geo_alto_adige_uga_montiggl","node_type":"subregion","name":"Montiggl"}
+  - {"id":"n_geo_alto_adige_uga_missian","node_type":"subregion","name":"Missian"}
+
+node_alternative_names:
+  - {"knowledge_node_id":"n_geo_alto_adige_uga_montiggl","name":"Monticolo","kind":"synonym"}
+  - {"knowledge_node_id":"n_geo_alto_adige_uga_missian","name":"Missiano","kind":"synonym"}
+
+knowledge_relations:
+  - {"subject_id":"n_geo_alto_adige_uga_montiggl","relation_type":"LOCATED_IN","object_id":"n_geo_alto_adige","valid_from":"2024-10-17"}
+  - {"subject_id":"n_geo_alto_adige_uga_missian","relation_type":"LOCATED_IN","object_id":"n_geo_alto_adige","valid_from":"2024-10-17"}
+
+knowledge_items:
+  - {"id":"ki_alto_adige_uga_montiggl_location","subject_id":"n_geo_alto_adige_uga_montiggl","relation_type":"LOCATED_IN","object_id":"n_geo_alto_adige","domain_id":"geography","assertion_text":"Montiggl is a named additional geographical unit in Appiano under Alto Adige DOC. The municipal plan pairs Montiggl with Monticolo. Its marker is the GeoNames Monticolo settlement reference in Appiano, not a legal unit boundary, official centroid or assertion of parcel eligibility.","verification_status":"unverified","last_verified_at":"2026-09-30T01:50:00.000Z"}
+  - {"id":"ki_alto_adige_uga_missian_location","subject_id":"n_geo_alto_adige_uga_missian","relation_type":"LOCATED_IN","object_id":"n_geo_alto_adige","domain_id":"geography","assertion_text":"Missian is a named additional geographical unit in Appiano under Alto Adige DOC. The municipal plan pairs Missian with Missiano. Its marker is the GeoNames Missiano settlement reference in Appiano, not a legal unit boundary, official centroid or assertion of parcel eligibility.","verification_status":"unverified","last_verified_at":"2026-09-30T01:50:00.000Z"}
+
+knowledge_item_prerequisites:
+  - {"knowledge_item_id":"ki_alto_adige_uga_montiggl_location","prerequisite_item_id":"ki_eac_alto_adige_location"}
+  - {"knowledge_item_id":"ki_alto_adige_uga_missian_location","prerequisite_item_id":"ki_eac_alto_adige_location"}
+
+certification_knowledge_mappings:
+  - {"certification_id":"WSET_L3","knowledge_item_id":"ki_alto_adige_uga_montiggl_location","importance":"secondary","minimum_depth":2}
+  - {"certification_id":"CMS_CERTIFIED","knowledge_item_id":"ki_alto_adige_uga_montiggl_location","importance":"secondary","minimum_depth":2}
+  - {"certification_id":"WSET_L3","knowledge_item_id":"ki_alto_adige_uga_missian_location","importance":"secondary","minimum_depth":2}
+  - {"certification_id":"CMS_CERTIFIED","knowledge_item_id":"ki_alto_adige_uga_missian_location","importance":"secondary","minimum_depth":2}
+
+source_citations:
+  - {"id":"src_alto_adige_eppan_bilingual_plan","kind":"government_publication","title":"Gemeindeentwicklungsprogramm / Programma di sviluppo comunale: Eppan / Appiano","publisher":"Comune di Appiano sulla Strada del Vino / Gemeinde Eppan an der Weinstrasse","document_identifier":"92-page municipal development-plan PDF; exact bilingual locality identities on PDF page54; SHA256 b29822c6d0e83744ad961da7a2be9147344c31f31177b443e6ebc9bbd53c66f9; no geometry extracted","url":"https://www.comune.appiano.bz.it/system/web/GetDocument.ashx?cts=1761816820&fileId=1517923","accessed_on":"2026-09-30"}
+
+knowledge_item_citations:
+  - {"knowledge_item_id":"ki_alto_adige_uga_montiggl_location","source_citation_id":"src_alto_adige_ugas","locator":"Article7.2, Appiano: Montiggl; conditions and delimitations are separate from this settlement reference"}
+  - {"knowledge_item_id":"ki_alto_adige_uga_montiggl_location","source_citation_id":"src_alto_adige_eppan_bilingual_plan","locator":"PDFp.54 municipal indicator map pairs Montiggl / Monticolo; name identity only; no map image, coordinate or boundary copied"}
+  - {"knowledge_item_id":"ki_alto_adige_uga_montiggl_location","source_citation_id":"src_alto_adige_uga_geonames_markers","locator":"Pinned27September2026 IT.zip, record3172679, Monticolo, P.PPL, BZ, Appiano admin3 021004; qualified settlement coordinate, not a wine-area boundary"}
+  - {"knowledge_item_id":"ki_alto_adige_uga_missian_location","source_citation_id":"src_alto_adige_ugas","locator":"Article7.2, Appiano: Missian; conditions and delimitations are separate from this settlement reference"}
+  - {"knowledge_item_id":"ki_alto_adige_uga_missian_location","source_citation_id":"src_alto_adige_eppan_bilingual_plan","locator":"PDFp.54 municipal indicator map pairs Missian / Missiano; name identity only; no map image, coordinate or boundary copied"}
+  - {"knowledge_item_id":"ki_alto_adige_uga_missian_location","source_citation_id":"src_alto_adige_uga_geonames_markers","locator":"Pinned27September2026 IT.zip, record3173347, Missiano, P.PPL, BZ, Appiano admin3 021004; qualified settlement coordinate, not a wine-area boundary"}
+

@@ -177,8 +177,8 @@ void main() {
       final geography = audit.domains.singleWhere(
         (row) => row.id == 'geography',
       );
-      expect(geography.counts[CoverageMetric.core], 1060);
-      expect(geography.counts[CoverageMetric.coreUsefulPractice], 1060);
+      expect(geography.counts[CoverageMetric.core], 1071);
+      expect(geography.counts[CoverageMetric.coreUsefulPractice], 1071);
       for (final id in _expectedIds) {
         final row = audit.items.singleWhere((item) => item.id == id);
         expect(row.hasUsefulPractice, isTrue, reason: id);

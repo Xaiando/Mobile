@@ -672,6 +672,13 @@ knowledge_items:
     mcq_disabled: true
     last_verified_at: 2026-09-27T00:00:00.000Z
 certification_knowledge_mappings:
+  # Level 2 quality conclusions use the existing original evidence principles.
+  - { certification_id: WSET_L2, knowledge_item_id: ki_wset_taste_quality_balance, importance: core, minimum_depth: 2 }
+  - { certification_id: WSET_L2, knowledge_item_id: ki_wset_taste_quality_length, importance: core, minimum_depth: 2 }
+  - { certification_id: WSET_L2, knowledge_item_id: ki_wset_taste_quality_intensity, importance: core, minimum_depth: 2 }
+  - { certification_id: WSET_L2, knowledge_item_id: ki_wset_taste_quality_complexity, importance: core, minimum_depth: 2 }
+  - { certification_id: WSET_L2, knowledge_item_id: ki_wset_taste_quality_preference, importance: core, minimum_depth: 2 }
+  - { certification_id: WSET_L2, knowledge_item_id: ki_wset_taste_quality_fault_context, importance: core, minimum_depth: 2 }
   - certification_id: WSET_L1
     knowledge_item_id: ki_wset_taste_conditions_glass
     importance: core

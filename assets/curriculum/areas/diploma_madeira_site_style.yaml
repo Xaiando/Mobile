@@ -1,0 +1,478 @@
+# Original Diploma-only Madeira site and intermediate-style comparisons. Expert review pending.
+knowledge_nodes:
+  -
+    id: "n_d5madeira_principle_poios"
+    node_type: "production_principle"
+    name: "What do poios explain about planning vineyard work in Madeira?"
+  -
+    id: "n_d5madeira_point_poios"
+    node_type: "learning_point"
+    name: "Poios are terraces on steep agricultural land; access must be assessed separately"
+  -
+    id: "n_d5madeira_principle_levadas"
+    node_type: "production_principle"
+    name: "What role do levadas play in Madeira vineyard water supply?"
+  -
+    id: "n_d5madeira_point_levadas"
+    node_type: "learning_point"
+    name: "Levadas carry irrigation water from higher parts of the island"
+  -
+    id: "n_d5madeira_principle_latada"
+    node_type: "production_principle"
+    name: "How does latada differ from the espalier option in Madeira?"
+  -
+    id: "n_d5madeira_point_latada"
+    node_type: "learning_point"
+    name: "Latada trains vines horizontally; espalier is associated with gentler slopes"
+  -
+    id: "n_d5madeira_principle_harvest"
+    node_type: "production_principle"
+    name: "Why does a Madeira hand-harvest budget need parcel evidence?"
+  -
+    id: "n_d5madeira_point_harvest"
+    node_type: "learning_point"
+    name: "Steep, fragmented holdings can make manual harvest demanding; costs need local evidence"
+  -
+    id: "n_d5madeira_principle_verdelho"
+    node_type: "production_principle"
+    name: "Where does Verdelho sit in a source-bounded Madeira style comparison?"
+  -
+    id: "n_d5madeira_point_verdelho"
+    node_type: "learning_point"
+    name: "Verdelho is associated with off-dry wine, slightly fuller and less acidic than Sercial"
+  -
+    id: "n_d5madeira_principle_boal"
+    node_type: "production_principle"
+    name: "How does the Boal description extend a Verdelho/Boal Madeira comparison?"
+  -
+    id: "n_d5madeira_point_boal"
+    node_type: "learning_point"
+    name: "Boal is associated with a rich semi-sweet style balanced by acidity"
+  -
+    id: "n_d5madeira_case_terrace_logistics"
+    node_type: "production_case"
+    name: "Hypothetical Madeira work-planning case. The following parcel and budget details are invented: parcel A has steep, small fragmented poios, narrow access, a latada and a levada connection; the available hand crew has limited working days. Parcel B has gentler, accessible land. A contractor offers one fixed machine-harvest price for both without visiting either. No crew-time measurements, water-delivery records or itemised quotes are available. Recommend a conditional plan for A, explain the regional mechanisms, compare its resource commitments with B and identify the evidence needed before committing funds."
+  -
+    id: "n_d5madeira_point_case_terrace_logistics_action"
+    node_type: "learning_point"
+    name: "Inspect parcel A and obtain a crew, access and water plan before committing its budget"
+  -
+    id: "n_d5madeira_point_case_terrace_logistics_reason"
+    node_type: "learning_point"
+    name: "Terrain, fragmented holdings, vine training and water access affect the proposed work plan"
+  -
+    id: "n_d5madeira_point_case_terrace_logistics_tradeoff"
+    node_type: "learning_point"
+    name: "Compare crew and handling demands with accessible-land options using actual quotes"
+  -
+    id: "n_d5madeira_point_case_terrace_logistics_limitation"
+    node_type: "learning_point"
+    name: "Missing site, water, crew and contractor evidence prevents a firm cost or quality conclusion"
+  -
+    id: "n_d5madeira_case_style_comparison"
+    node_type: "production_case"
+    name: "Hypothetical Madeira comparison. The observations below are invented rather than results from an authenticated flight. Two coded samples are served in clean matched glasses at the same temperature. A is off-dry, with noticeable acidity and moderate body. B is clearly sweeter, with acidity balancing a rich, medium-bodied impression. A guest asks for an off-dry choice. There are no bottle labels, grape or vineyard records, sugar analyses, prices or repeat tastings. A colleague labels A Verdelho and B Boal, then assigns exact growing altitudes and a higher quality grade to B. Recommend a response to the guest, explain the useful style comparison, give a preference tradeoff and identify unsupported conclusions."
+  -
+    id: "n_d5madeira_point_case_style_comparison_action"
+    node_type: "learning_point"
+    name: "Provisionally offer A for the off-dry brief and verify the bottle before naming its grape"
+  -
+    id: "n_d5madeira_point_case_style_comparison_reason"
+    node_type: "learning_point"
+    name: "Off-dry Verdelho and semi-sweet Boal references guide a provisional sweetness comparison"
+  -
+    id: "n_d5madeira_point_case_style_comparison_tradeoff"
+    node_type: "learning_point"
+    name: "Sweeter B may suit a different preference; guest fit and quality are separate judgements"
+  -
+    id: "n_d5madeira_point_case_style_comparison_limitation"
+    node_type: "learning_point"
+    name: "These observations cannot authenticate grape, exact sugar, altitude or a higher quality grade"
+knowledge_relations:
+  -
+    subject_id: "n_d5madeira_principle_poios"
+    relation_type: "PRINCIPLE_EXPLANATION"
+    object_id: "n_d5madeira_point_poios"
+    valid_from: "2026-09-30"
+  -
+    subject_id: "n_d5madeira_principle_levadas"
+    relation_type: "PRINCIPLE_EXPLANATION"
+    object_id: "n_d5madeira_point_levadas"
+    valid_from: "2026-09-30"
+  -
+    subject_id: "n_d5madeira_principle_latada"
+    relation_type: "PRINCIPLE_EXPLANATION"
+    object_id: "n_d5madeira_point_latada"
+    valid_from: "2026-09-30"
+  -
+    subject_id: "n_d5madeira_principle_harvest"
+    relation_type: "PRINCIPLE_EXPLANATION"
+    object_id: "n_d5madeira_point_harvest"
+    valid_from: "2026-09-30"
+  -
+    subject_id: "n_d5madeira_principle_verdelho"
+    relation_type: "PRINCIPLE_EXPLANATION"
+    object_id: "n_d5madeira_point_verdelho"
+    valid_from: "2026-09-30"
+  -
+    subject_id: "n_d5madeira_principle_boal"
+    relation_type: "PRINCIPLE_EXPLANATION"
+    object_id: "n_d5madeira_point_boal"
+    valid_from: "2026-09-30"
+  -
+    subject_id: "n_d5madeira_case_terrace_logistics"
+    relation_type: "CASE_ACTION"
+    object_id: "n_d5madeira_point_case_terrace_logistics_action"
+    valid_from: "2026-09-30"
+  -
+    subject_id: "n_d5madeira_case_terrace_logistics"
+    relation_type: "CASE_REASON"
+    object_id: "n_d5madeira_point_case_terrace_logistics_reason"
+    valid_from: "2026-09-30"
+  -
+    subject_id: "n_d5madeira_case_terrace_logistics"
+    relation_type: "CASE_TRADEOFF"
+    object_id: "n_d5madeira_point_case_terrace_logistics_tradeoff"
+    valid_from: "2026-09-30"
+  -
+    subject_id: "n_d5madeira_case_terrace_logistics"
+    relation_type: "CASE_LIMITATION"
+    object_id: "n_d5madeira_point_case_terrace_logistics_limitation"
+    valid_from: "2026-09-30"
+  -
+    subject_id: "n_d5madeira_case_style_comparison"
+    relation_type: "CASE_ACTION"
+    object_id: "n_d5madeira_point_case_style_comparison_action"
+    valid_from: "2026-09-30"
+  -
+    subject_id: "n_d5madeira_case_style_comparison"
+    relation_type: "CASE_REASON"
+    object_id: "n_d5madeira_point_case_style_comparison_reason"
+    valid_from: "2026-09-30"
+  -
+    subject_id: "n_d5madeira_case_style_comparison"
+    relation_type: "CASE_TRADEOFF"
+    object_id: "n_d5madeira_point_case_style_comparison_tradeoff"
+    valid_from: "2026-09-30"
+  -
+    subject_id: "n_d5madeira_case_style_comparison"
+    relation_type: "CASE_LIMITATION"
+    object_id: "n_d5madeira_point_case_style_comparison_limitation"
+    valid_from: "2026-09-30"
+knowledge_items:
+  -
+    id: "ki_d5madeira_poios"
+    subject_id: "n_d5madeira_principle_poios"
+    relation_type: "PRINCIPLE_EXPLANATION"
+    object_id: "n_d5madeira_point_poios"
+    domain_id: "viticulture"
+    assertion_text: "IVBAM describes steep agricultural land terraced into poios. For work planning, this identifies terrain and terrace layout, not a guarantee of easy access, machine suitability or wine quality. Inspect the parcel before estimating effort."
+    verification_status: "unverified"
+    mcq_disabled: true
+    last_verified_at: "2026-09-30T01:30:00.000Z"
+  -
+    id: "ki_d5madeira_levadas"
+    subject_id: "n_d5madeira_principle_levadas"
+    relation_type: "PRINCIPLE_EXPLANATION"
+    object_id: "n_d5madeira_point_levadas"
+    domain_id: "viticulture"
+    assertion_text: "The regional account identifies levadas as channels distributing irrigation water captured higher on the island. A grower still needs to check the parcel connection, available supply and timing; a channel name does not establish dependable water delivery in every season."
+    verification_status: "unverified"
+    mcq_disabled: true
+    last_verified_at: "2026-09-30T01:30:00.000Z"
+  -
+    id: "ki_d5madeira_latada"
+    subject_id: "n_d5madeira_principle_latada"
+    relation_type: "PRINCIPLE_EXPLANATION"
+    object_id: "n_d5madeira_point_latada"
+    domain_id: "viticulture"
+    assertion_text: "IVBAM describes traditional latada as horizontal vine training and presents espalier as an option for gentler land. A redesign therefore needs the actual terrain, canopy and access assessed. Neither term establishes a grape variety, a fixed harvest cost or the finished sweetness."
+    verification_status: "unverified"
+    mcq_disabled: true
+    last_verified_at: "2026-09-30T01:30:00.000Z"
+  -
+    id: "ki_d5madeira_harvest"
+    subject_id: "n_d5madeira_principle_harvest"
+    relation_type: "PRINCIPLE_EXPLANATION"
+    object_id: "n_d5madeira_point_harvest"
+    domain_id: "viticulture"
+    assertion_text: "The regional description connects difficult harvesting with steep terrain and small fragmented holdings, and describes harvest by hand. This supports checking crew availability, routes and handling effort in a proposed budget. It supplies neither a universal labour rate nor proof that manual picking produces a superior wine."
+    verification_status: "unverified"
+    mcq_disabled: true
+    last_verified_at: "2026-09-30T01:30:00.000Z"
+  -
+    id: "ki_d5madeira_verdelho"
+    subject_id: "n_d5madeira_principle_verdelho"
+    relation_type: "PRINCIPLE_EXPLANATION"
+    object_id: "n_d5madeira_point_verdelho"
+    domain_id: "winemaking"
+    assertion_text: "IVBAM associates Verdelho with an off-dry style and describes it as slightly fuller and less acidic than Sercial. Use that as comparative context, then assess a bottle's actual sweetness, body and acidity. The page's approximate growing elevation is descriptive, not a legal boundary or a diagnostic proof of identity."
+    verification_status: "unverified"
+    mcq_disabled: true
+    last_verified_at: "2026-09-30T01:30:00.000Z"
+  -
+    id: "ki_d5madeira_boal"
+    subject_id: "n_d5madeira_principle_boal"
+    relation_type: "PRINCIPLE_EXPLANATION"
+    object_id: "n_d5madeira_point_boal"
+    domain_id: "winemaking"
+    assertion_text: "IVBAM describes Boal as semi-sweet, medium-bodied and rich, with balance between acidity and sweetness. Compared with the off-dry Verdelho reference, sweetness is a useful observed distinction, but body, flavour or a growing-elevation description cannot independently authenticate the grape or rank two bottles' quality."
+    verification_status: "unverified"
+    mcq_disabled: true
+    last_verified_at: "2026-09-30T01:30:00.000Z"
+  -
+    id: "ki_d5madeira_case_terrace_logistics_action"
+    subject_id: "n_d5madeira_case_terrace_logistics"
+    relation_type: "CASE_ACTION"
+    object_id: "n_d5madeira_point_case_terrace_logistics_action"
+    domain_id: "business"
+    assertion_text: "Inspect access, terrace layout and the latada; request an itemised hand-crew and grape-handling quote and check delivery through the assumed levada connection. Treat the proposed machine price as unvalidated for A rather than adopting one rate for both parcels. These are actions for the invented constraints, not instructions to replace a real grower's assessment."
+    verification_status: "unverified"
+    mcq_disabled: true
+    last_verified_at: "2026-09-30T01:30:00.000Z"
+  -
+    id: "ki_d5madeira_case_terrace_logistics_reason"
+    subject_id: "n_d5madeira_case_terrace_logistics"
+    relation_type: "CASE_REASON"
+    object_id: "n_d5madeira_point_case_terrace_logistics_reason"
+    domain_id: "business"
+    assertion_text: "The IVBAM regional account describes steep poios, horizontal latada, levada water distribution and demanding hand harvesting across fragmented holdings. Those mechanisms make a site visit and separate handling and water checks relevant to this hypothetical plan. They do not establish the contractor's actual capability."
+    verification_status: "unverified"
+    mcq_disabled: true
+    last_verified_at: "2026-09-30T01:30:00.000Z"
+  -
+    id: "ki_d5madeira_case_terrace_logistics_tradeoff"
+    subject_id: "n_d5madeira_case_terrace_logistics"
+    relation_type: "CASE_TRADEOFF"
+    object_id: "n_d5madeira_point_case_terrace_logistics_tradeoff"
+    domain_id: "business"
+    assertion_text: "A crew and access plan for A may commit more time or handling resources than the assumed accessible B. Compare measured crew hours, routes, training requirements and quotes before choosing a work allocation. The source supplies no fixed cost difference, and easier access does not itself prove superior grapes or wine."
+    verification_status: "unverified"
+    mcq_disabled: true
+    last_verified_at: "2026-09-30T01:30:00.000Z"
+  -
+    id: "ki_d5madeira_case_terrace_logistics_limitation"
+    subject_id: "n_d5madeira_case_terrace_logistics"
+    relation_type: "CASE_LIMITATION"
+    object_id: "n_d5madeira_point_case_terrace_logistics_limitation"
+    domain_id: "business"
+    assertion_text: "The invented connection does not prove seasonal water delivery; the available crew does not establish the time required. Site measurements, water records, crew availability and a contractor feasibility assessment are missing. Neither the regional description nor the fixed offer proves a universal price, machine suitability or finished-wine quality."
+    verification_status: "unverified"
+    mcq_disabled: true
+    last_verified_at: "2026-09-30T01:30:00.000Z"
+  -
+    id: "ki_d5madeira_case_style_comparison_action"
+    subject_id: "n_d5madeira_case_style_comparison"
+    relation_type: "CASE_ACTION"
+    object_id: "n_d5madeira_point_case_style_comparison_action"
+    domain_id: "tasting"
+    assertion_text: "On the invented observations, provisionally shortlist A for the guest's off-dry preference and explain the observed sweetness and acidity. Check the label and producer details before naming a grape or committing to a listed bottle. This is an original service decision under stated assumptions, not evidence that A is Verdelho."
+    verification_status: "unverified"
+    mcq_disabled: true
+    last_verified_at: "2026-09-30T01:30:00.000Z"
+  -
+    id: "ki_d5madeira_case_style_comparison_reason"
+    subject_id: "n_d5madeira_case_style_comparison"
+    relation_type: "CASE_REASON"
+    object_id: "n_d5madeira_point_case_style_comparison_reason"
+    domain_id: "tasting"
+    assertion_text: "The Verdelho page describes an off-dry style, while the Boal page describes semi-sweet wine with acidity/sweetness balance. Those references make the invented A/B contrast compatible with a Verdelho/Boal comparison, without identifying either sample or assigning an exact sugar interval."
+    verification_status: "unverified"
+    mcq_disabled: true
+    last_verified_at: "2026-09-30T01:30:00.000Z"
+  -
+    id: "ki_d5madeira_case_style_comparison_tradeoff"
+    subject_id: "n_d5madeira_case_style_comparison"
+    relation_type: "CASE_TRADEOFF"
+    object_id: "n_d5madeira_point_case_style_comparison_tradeoff"
+    domain_id: "tasting"
+    assertion_text: "A is the closer match to this invented off-dry brief; B's greater sweetness and rich impression may suit a guest seeking a sweeter style. Neither preference is a quality verdict. If the purchasing decision changes, compare actual bottles, prices and sensory evidence rather than assuming the sweeter sample is better."
+    verification_status: "unverified"
+    mcq_disabled: true
+    last_verified_at: "2026-09-30T01:30:00.000Z"
+  -
+    id: "ki_d5madeira_case_style_comparison_limitation"
+    subject_id: "n_d5madeira_case_style_comparison"
+    relation_type: "CASE_LIMITATION"
+    object_id: "n_d5madeira_point_case_style_comparison_limitation"
+    domain_id: "tasting"
+    assertion_text: "The coded observations cannot authenticate Verdelho or Boal, establish measured residual sugar or recover a vineyard's exact elevation. IVBAM's indicative growing elevations are not legal planting limits or tasting diagnostics. The colleague's quality ranking also lacks a full quality assessment and repeat evidence; request labels, records, analyses or further tasting appropriate to the claim."
+    verification_status: "unverified"
+    mcq_disabled: true
+    last_verified_at: "2026-09-30T01:30:00.000Z"
+certification_knowledge_mappings:
+  -
+    certification_id: "WSET_L4"
+    knowledge_item_id: "ki_d5madeira_poios"
+    importance: "core"
+    minimum_depth: 3
+  -
+    certification_id: "WSET_L4"
+    knowledge_item_id: "ki_d5madeira_levadas"
+    importance: "core"
+    minimum_depth: 3
+  -
+    certification_id: "WSET_L4"
+    knowledge_item_id: "ki_d5madeira_latada"
+    importance: "core"
+    minimum_depth: 3
+  -
+    certification_id: "WSET_L4"
+    knowledge_item_id: "ki_d5madeira_harvest"
+    importance: "core"
+    minimum_depth: 3
+  -
+    certification_id: "WSET_L4"
+    knowledge_item_id: "ki_d5madeira_verdelho"
+    importance: "core"
+    minimum_depth: 3
+  -
+    certification_id: "WSET_L4"
+    knowledge_item_id: "ki_d5madeira_boal"
+    importance: "core"
+    minimum_depth: 3
+  -
+    certification_id: "WSET_L4"
+    knowledge_item_id: "ki_d5madeira_case_terrace_logistics_action"
+    importance: "core"
+    minimum_depth: 3
+  -
+    certification_id: "WSET_L4"
+    knowledge_item_id: "ki_d5madeira_case_terrace_logistics_reason"
+    importance: "core"
+    minimum_depth: 3
+  -
+    certification_id: "WSET_L4"
+    knowledge_item_id: "ki_d5madeira_case_terrace_logistics_tradeoff"
+    importance: "core"
+    minimum_depth: 3
+  -
+    certification_id: "WSET_L4"
+    knowledge_item_id: "ki_d5madeira_case_terrace_logistics_limitation"
+    importance: "core"
+    minimum_depth: 3
+  -
+    certification_id: "WSET_L4"
+    knowledge_item_id: "ki_d5madeira_case_style_comparison_action"
+    importance: "core"
+    minimum_depth: 3
+  -
+    certification_id: "WSET_L4"
+    knowledge_item_id: "ki_d5madeira_case_style_comparison_reason"
+    importance: "core"
+    minimum_depth: 3
+  -
+    certification_id: "WSET_L4"
+    knowledge_item_id: "ki_d5madeira_case_style_comparison_tradeoff"
+    importance: "core"
+    minimum_depth: 3
+  -
+    certification_id: "WSET_L4"
+    knowledge_item_id: "ki_d5madeira_case_style_comparison_limitation"
+    importance: "core"
+    minimum_depth: 3
+source_citations:
+  -
+    id: "src_d5madeira_region"
+    kind: "reference_work"
+    title: "IVBAM: Madeira Wine-Growing Region"
+    publisher: "Instituto do Vinho, do Bordado e do Artesanato da Madeira (IVBAM)"
+    jurisdiction: "PT"
+    url: "https://vinhomadeira.com/o-vinho-madeira/regiao"
+    document_identifier: "Primary regulator educational description; indicative regional and style context, not a legal sugar or elevation specification"
+    accessed_on: "2026-09-30"
+  -
+    id: "src_d5madeira_verdelho"
+    kind: "reference_work"
+    title: "IVBAM: Verdelho variety and style"
+    publisher: "Instituto do Vinho, do Bordado e do Artesanato da Madeira (IVBAM)"
+    jurisdiction: "PT"
+    url: "https://vinhomadeira.com/o-vinho-madeira/castas/verdelho"
+    document_identifier: "Primary regulator educational description; indicative regional and style context, not a legal sugar or elevation specification"
+    accessed_on: "2026-09-30"
+  -
+    id: "src_d5madeira_boal"
+    kind: "reference_work"
+    title: "IVBAM: Boal variety and style"
+    publisher: "Instituto do Vinho, do Bordado e do Artesanato da Madeira (IVBAM)"
+    jurisdiction: "PT"
+    url: "https://vinhomadeira.com/o-vinho-madeira/castas/boal"
+    document_identifier: "Primary regulator educational description; indicative regional and style context, not a legal sugar or elevation specification"
+    accessed_on: "2026-09-30"
+knowledge_item_citations:
+  -
+    knowledge_item_id: "ki_d5madeira_poios"
+    source_citation_id: "src_d5madeira_region"
+    locator: "Wine-Growing Region, paragraph on sharp slopes and poios; parcel access and budgeting are conditional teaching inferences."
+  -
+    knowledge_item_id: "ki_d5madeira_levadas"
+    source_citation_id: "src_d5madeira_region"
+    locator: "Wine-Growing Region, irrigation-water paragraph; delivery checks are original conditional planning guidance."
+  -
+    knowledge_item_id: "ki_d5madeira_latada"
+    source_citation_id: "src_d5madeira_region"
+    locator: "Wine-Growing Region, latada and espalier paragraph; redesign conditions are original teaching inferences."
+  -
+    knowledge_item_id: "ki_d5madeira_harvest"
+    source_citation_id: "src_d5madeira_region"
+    locator: "Wine-Growing Region, harvest paragraph; crew, route and cost checks are conditional inferences, not a statutory cost model."
+  -
+    knowledge_item_id: "ki_d5madeira_verdelho"
+    source_citation_id: "src_d5madeira_verdelho"
+    locator: "Verdelho variety description, comparative body/acidity, off-dry style and approximate elevation; bottle-level limits are original teaching qualifications."
+  -
+    knowledge_item_id: "ki_d5madeira_boal"
+    source_citation_id: "src_d5madeira_boal"
+    locator: "Boal variety description, semi-sweet style, body and acidity/sweetness balance; comparison also uses IVBAM Verdelho and remains indicative rather than a sugar/elevation law."
+  -
+    knowledge_item_id: "ki_d5madeira_boal"
+    source_citation_id: "src_d5madeira_verdelho"
+    locator: "Boal variety description, semi-sweet style, body and acidity/sweetness balance; comparison also uses IVBAM Verdelho and remains indicative rather than a sugar/elevation law."
+  -
+    knowledge_item_id: "ki_d5madeira_case_terrace_logistics_action"
+    source_citation_id: "src_d5madeira_region"
+    locator: "Wine-Growing Region, poios, levadas, latada/espalier and hand-harvest paragraphs. The parcel details, contractor offer, constraints and budget decisions are original hypothetical assumptions and conditional inferences."
+  -
+    knowledge_item_id: "ki_d5madeira_case_terrace_logistics_reason"
+    source_citation_id: "src_d5madeira_region"
+    locator: "Wine-Growing Region, poios, levadas, latada/espalier and hand-harvest paragraphs. The parcel details, contractor offer, constraints and budget decisions are original hypothetical assumptions and conditional inferences."
+  -
+    knowledge_item_id: "ki_d5madeira_case_terrace_logistics_tradeoff"
+    source_citation_id: "src_d5madeira_region"
+    locator: "Wine-Growing Region, poios, levadas, latada/espalier and hand-harvest paragraphs. The parcel details, contractor offer, constraints and budget decisions are original hypothetical assumptions and conditional inferences."
+  -
+    knowledge_item_id: "ki_d5madeira_case_terrace_logistics_limitation"
+    source_citation_id: "src_d5madeira_region"
+    locator: "Wine-Growing Region, poios, levadas, latada/espalier and hand-harvest paragraphs. The parcel details, contractor offer, constraints and budget decisions are original hypothetical assumptions and conditional inferences."
+  -
+    knowledge_item_id: "ki_d5madeira_case_style_comparison_action"
+    source_citation_id: "src_d5madeira_verdelho"
+    locator: "Verdelho and Boal variety descriptions, indicative styles and growing elevations. All sample observations and guest/colleague statements are invented; the source supports comparative context, not sample authentication or a quality score."
+  -
+    knowledge_item_id: "ki_d5madeira_case_style_comparison_action"
+    source_citation_id: "src_d5madeira_boal"
+    locator: "Verdelho and Boal variety descriptions, indicative styles and growing elevations. All sample observations and guest/colleague statements are invented; the source supports comparative context, not sample authentication or a quality score."
+  -
+    knowledge_item_id: "ki_d5madeira_case_style_comparison_reason"
+    source_citation_id: "src_d5madeira_verdelho"
+    locator: "Verdelho and Boal variety descriptions, indicative styles and growing elevations. All sample observations and guest/colleague statements are invented; the source supports comparative context, not sample authentication or a quality score."
+  -
+    knowledge_item_id: "ki_d5madeira_case_style_comparison_reason"
+    source_citation_id: "src_d5madeira_boal"
+    locator: "Verdelho and Boal variety descriptions, indicative styles and growing elevations. All sample observations and guest/colleague statements are invented; the source supports comparative context, not sample authentication or a quality score."
+  -
+    knowledge_item_id: "ki_d5madeira_case_style_comparison_tradeoff"
+    source_citation_id: "src_d5madeira_verdelho"
+    locator: "Verdelho and Boal variety descriptions, indicative styles and growing elevations. All sample observations and guest/colleague statements are invented; the source supports comparative context, not sample authentication or a quality score."
+  -
+    knowledge_item_id: "ki_d5madeira_case_style_comparison_tradeoff"
+    source_citation_id: "src_d5madeira_boal"
+    locator: "Verdelho and Boal variety descriptions, indicative styles and growing elevations. All sample observations and guest/colleague statements are invented; the source supports comparative context, not sample authentication or a quality score."
+  -
+    knowledge_item_id: "ki_d5madeira_case_style_comparison_limitation"
+    source_citation_id: "src_d5madeira_verdelho"
+    locator: "Verdelho and Boal variety descriptions, indicative styles and growing elevations. All sample observations and guest/colleague statements are invented; the source supports comparative context, not sample authentication or a quality score."
+  -
+    knowledge_item_id: "ki_d5madeira_case_style_comparison_limitation"
+    source_citation_id: "src_d5madeira_boal"
+    locator: "Verdelho and Boal variety descriptions, indicative styles and growing elevations. All sample observations and guest/colleague statements are invented; the source supports comparative context, not sample authentication or a quality score."
