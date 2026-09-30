@@ -1952,9 +1952,15 @@ tracks:
             - n_d4depth_case_british_frost
             - n_d4brit_case_hybrid_offer
             - n_d4brit_case_category_quality
+            - n_d4commercial_case_us_offer
+            - n_d4commercial_case_andes_offer
+            - n_d4commercial_case_oceania_africa_offer
           relation_types:
             - PRINCIPLE_EXPLANATION
+            - CASE_ACTION
+            - CASE_REASON
             - CASE_TRADEOFF
+            - CASE_LIMITATION
         tasks: [DIP-4, DIP-2]
       - id: wset_l4.sparkling.tasting
         label: Practise evidence-based conclusions from sparkling-wine tasting
@@ -2157,6 +2163,9 @@ tracks:
           within:
             - n_d45taste_case_sherry_sweetness
             - n_d45taste_case_port_development
+            - n_d5sensory_case_madeira_compare
+            - n_d5sensory_case_rutherglen_muscat
+            - n_d5sensory_case_age_quality
           relation_types: [CASE_ACTION, CASE_REASON, CASE_TRADEOFF, CASE_LIMITATION]
         tasks: [DIP-5, T1, T2, Q8, S3]
 

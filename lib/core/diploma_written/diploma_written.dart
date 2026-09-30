@@ -37,11 +37,17 @@ DateTime _savedUtc(Object? value) {
   return parsed;
 }
 
-int _seconds(String unitId) => switch (unitId) {
-  'D1' => 5400,
-  'D2' => 3600,
-  _ => throw ArgumentError.value(unitId, 'unitId'),
+/// App writing presets; D4/D5 are not an official theory/tasting time split.
+const diplomaWrittenDurations = <String, int>{
+  'D1': 5400,
+  'D2': 3600,
+  'D4': 2700,
+  'D5': 2700,
 };
+
+int _seconds(String unitId) =>
+    diplomaWrittenDurations[unitId] ??
+    (throw ArgumentError.value(unitId, 'unitId'));
 
 class DiplomaWrittenCriterion {
   DiplomaWrittenCriterion.fromJson(Map<String, dynamic> row)
@@ -93,7 +99,7 @@ class DiplomaWrittenPreset {
         for (final value in row['questions'] as List)
           DiplomaWrittenQuestion.fromJson(_map(value)),
       ] {
-    if (!const {'D1', 'D2'}.contains(unitId) ||
+    if (!diplomaWrittenDurations.containsKey(unitId) ||
         title.trim().isEmpty ||
         title.length > 100 ||
         durationSeconds != _seconds(unitId) ||
@@ -120,10 +126,14 @@ class DiplomaWrittenBank {
       for (final value in row['units'] as List)
         DiplomaWrittenPreset.fromJson(_map(value)),
     ];
+    final units = presets.map((preset) => preset.unitId).toSet();
+    final legacy = units.length == 2 && units.containsAll({'D1', 'D2'});
+    final extended =
+        units.length == 4 && units.containsAll({'D1', 'D2', 'D4', 'D5'});
     if (version.trim().isEmpty ||
         version.length > 40 ||
-        presets.length != 2 ||
-        presets.map((p) => p.unitId).toSet().length != 2) {
+        presets.length != units.length ||
+        !(legacy || extended)) {
       throw const FormatException('Invalid Diploma written bank.');
     }
   }
@@ -181,7 +191,7 @@ class DiplomaWrittenAttempt {
       } {
     if (row['schemaVersion'] != 1 ||
         !_uuid.hasMatch(id) ||
-        !const {'D1', 'D2'}.contains(unitId) ||
+        !diplomaWrittenDurations.containsKey(unitId) ||
         bankVersion.trim().isEmpty ||
         bankVersion.length > 40 ||
         questions.length != 3 ||
@@ -348,23 +358,27 @@ class DiplomaWrittenRepository {
   Future<DiplomaWrittenAttempt> read(String id) =>
       db.transaction(() async => _expire(await _load(id)));
 
-  Future<DiplomaWrittenAttempt?> current(String unitId) => db.transaction(
-    () async {
-      bank.preset(unitId);
-      final id = await _setting(currentKey(unitId));
-      if (id == null) return null;
-      final attempt = await _expire(await _load(id));
-      if (attempt.unitId != unitId) {
-        throw const FormatException('Written-practice pointer has wrong unit.');
-      }
-      return attempt.isFinished ? null : attempt;
-    },
-  );
+  Future<DiplomaWrittenAttempt?> current(String unitId) =>
+      db.transaction(() => _currentInTransaction(unitId));
+
+  // Public reads and start/resume each own one atomic transaction. A nested
+  // current() savepoint can release the pinned web executor's navigator lock
+  // before the outer operation finishes, leaving its completion pending.
+  Future<DiplomaWrittenAttempt?> _currentInTransaction(String unitId) async {
+    bank.preset(unitId);
+    final id = await _setting(currentKey(unitId));
+    if (id == null) return null;
+    final attempt = await _expire(await _load(id));
+    if (attempt.unitId != unitId) {
+      throw const FormatException('Written-practice pointer has wrong unit.');
+    }
+    return attempt.isFinished ? null : attempt;
+  }
 
   Future<DiplomaWrittenAttempt> start(String unitId) =>
       db.transaction(() async {
         final preset = bank.preset(unitId);
-        if (await current(unitId) != null) {
+        if (await _currentInTransaction(unitId) != null) {
           throw StateError('Resume or end the saved $unitId written practice.');
         }
         final profile = await (db.select(
@@ -507,7 +521,7 @@ class DiplomaWrittenRepository {
   Future<DiplomaWrittenAttempt> resume(String id) => db.transaction(() async {
     final attempt = await _expire(await _load(id));
     if (!attempt.isFinished) {
-      final active = await current(attempt.unitId);
+      final active = await _currentInTransaction(attempt.unitId);
       if (active != null && active.id != id) {
         throw StateError('Resume or end the other saved attempt first.');
       }

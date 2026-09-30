@@ -1,0 +1,436 @@
+# Original hypothetical sensory packets. Supplied identities are assumptions, not blind diagnoses.
+# Source context does not authenticate a sample or establish an official quality grade.
+# Citation IDs from the Madeira site/style pack require that pack to be integrated first.
+knowledge_nodes:
+  -
+    id: "n_d5sensory_case_madeira_compare"
+    node_type: "production_case"
+    name: "Hypothetical Madeira style selection: a trainer supplies A as Verdelho and B as Boal; these identities are assumptions, not findings from blind tasting. At the same temperature in matching clean glasses, A shows citrus and nut aromas, off-dry sweetness, bright acidity, moderate body and a persistent finish. B shows dried-fruit and nut aromas, greater sweetness, richer texture, balancing acidity and a persistent finish. A guest requests a richer, intermediate-sweet after-dinner wine. Explain a provisional selection, the observation and source reasoning, an alternative preference or trade-off, and what the packet cannot authenticate. These invented observations do not grade your palate or establish an official quality grade."
+  -
+    id: "n_d5sensory_point_madeira_compare_action"
+    node_type: "learning_point"
+    name: "Provisionally offer B for the guest's richer and sweeter brief"
+  -
+    id: "n_d5sensory_point_madeira_compare_reason"
+    node_type: "learning_point"
+    name: "Relate the observed contrast to IVBAM's intermediate styles"
+  -
+    id: "n_d5sensory_point_madeira_compare_tradeoff"
+    node_type: "learning_point"
+    name: "Allow A for a less-sweet preference without ranking grapes by quality"
+  -
+    id: "n_d5sensory_point_madeira_compare_limitation"
+    node_type: "learning_point"
+    name: "Do not authenticate grape, composition or origin from the packet"
+  -
+    id: "n_d5sensory_case_rutherglen_muscat"
+    node_type: "production_case"
+    name: "Hypothetical Rutherglen Muscat selection: a trainer supplies C as Rutherglen Muscat and D as Grand Rutherglen Muscat. These category identities are assumptions, not blind identifications. Fresh pours at the same temperature show C with grape, raisin and floral notes, full body, pronounced sweetness, a less viscous texture and a moderately persistent finish. D has coffee, nut and dried-fruit notes, a more concentrated texture and a longer layered finish. The panel records warmth integrated with the sweetness and flavour in both. A guest wants the fresher fruit-led and less-concentrated expression. Explain a provisional choice, category and balance reasoning, an alternative preference or trade-off, and an age or authenticity limitation. These invented observations do not establish an official category, quality grade or your sensory accuracy."
+  -
+    id: "n_d5sensory_point_rutherglen_muscat_action"
+    node_type: "learning_point"
+    name: "Provisionally offer C for the fresher and less-concentrated brief"
+  -
+    id: "n_d5sensory_point_rutherglen_muscat_reason"
+    node_type: "learning_point"
+    name: "Use the category progression as context and assess the stated balance"
+  -
+    id: "n_d5sensory_point_rutherglen_muscat_tradeoff"
+    node_type: "learning_point"
+    name: "Recognise D's longer developed finish without imposing a richer preference"
+  -
+    id: "n_d5sensory_point_rutherglen_muscat_limitation"
+    node_type: "learning_point"
+    name: "Do not derive component ages or certify a regional category from flavour"
+  -
+    id: "n_d5sensory_case_age_quality"
+    node_type: "production_case"
+    name: "Hypothetical fortified age and quality review: a trainer supplies E as V.O.S. Oloroso and F as Oloroso without a certified-age claim. Those identities are assumptions; no seal, certification or bottle history is available. With fresh pours, matching clean glasses and one temperature, repeated notes for E show pronounced wood/nut concentration, but drying texture and warmth dominate a brief flavour finish. F shows clear nut and orange-peel flavours, integrated warmth and texture, and a longer layered finish. A colleague says E must contain only wine exactly twenty years old, must win this comparison and will improve for ten more years. Explain a justified current comparison, sensory and designation reasoning, a preference or readiness trade-off, and a verification or development limit. These invented observations are not a finding about a certified lot, an official quality grade or a test of your palate."
+  -
+    id: "n_d5sensory_point_age_quality_action"
+    node_type: "learning_point"
+    name: "Support F's current comparative quality from the repeated packet evidence"
+  -
+    id: "n_d5sensory_point_age_quality_reason"
+    node_type: "learning_point"
+    name: "Separate current sensory evidence from conditional age certification"
+  -
+    id: "n_d5sensory_point_age_quality_tradeoff"
+    node_type: "learning_point"
+    name: "Separate an intense mature-style preference from the quality and readiness argument"
+  -
+    id: "n_d5sensory_point_age_quality_limitation"
+    node_type: "learning_point"
+    name: "Verify the designation and avoid exact-age or ten-year improvement promises"
+knowledge_relations:
+  -
+    subject_id: "n_d5sensory_case_madeira_compare"
+    relation_type: "CASE_ACTION"
+    object_id: "n_d5sensory_point_madeira_compare_action"
+    valid_from: "2026-09-30"
+  -
+    subject_id: "n_d5sensory_case_madeira_compare"
+    relation_type: "CASE_REASON"
+    object_id: "n_d5sensory_point_madeira_compare_reason"
+    valid_from: "2026-09-30"
+  -
+    subject_id: "n_d5sensory_case_madeira_compare"
+    relation_type: "CASE_TRADEOFF"
+    object_id: "n_d5sensory_point_madeira_compare_tradeoff"
+    valid_from: "2026-09-30"
+  -
+    subject_id: "n_d5sensory_case_madeira_compare"
+    relation_type: "CASE_LIMITATION"
+    object_id: "n_d5sensory_point_madeira_compare_limitation"
+    valid_from: "2026-09-30"
+  -
+    subject_id: "n_d5sensory_case_rutherglen_muscat"
+    relation_type: "CASE_ACTION"
+    object_id: "n_d5sensory_point_rutherglen_muscat_action"
+    valid_from: "2026-09-30"
+  -
+    subject_id: "n_d5sensory_case_rutherglen_muscat"
+    relation_type: "CASE_REASON"
+    object_id: "n_d5sensory_point_rutherglen_muscat_reason"
+    valid_from: "2026-09-30"
+  -
+    subject_id: "n_d5sensory_case_rutherglen_muscat"
+    relation_type: "CASE_TRADEOFF"
+    object_id: "n_d5sensory_point_rutherglen_muscat_tradeoff"
+    valid_from: "2026-09-30"
+  -
+    subject_id: "n_d5sensory_case_rutherglen_muscat"
+    relation_type: "CASE_LIMITATION"
+    object_id: "n_d5sensory_point_rutherglen_muscat_limitation"
+    valid_from: "2026-09-30"
+  -
+    subject_id: "n_d5sensory_case_age_quality"
+    relation_type: "CASE_ACTION"
+    object_id: "n_d5sensory_point_age_quality_action"
+    valid_from: "2026-09-30"
+  -
+    subject_id: "n_d5sensory_case_age_quality"
+    relation_type: "CASE_REASON"
+    object_id: "n_d5sensory_point_age_quality_reason"
+    valid_from: "2026-09-30"
+  -
+    subject_id: "n_d5sensory_case_age_quality"
+    relation_type: "CASE_TRADEOFF"
+    object_id: "n_d5sensory_point_age_quality_tradeoff"
+    valid_from: "2026-09-30"
+  -
+    subject_id: "n_d5sensory_case_age_quality"
+    relation_type: "CASE_LIMITATION"
+    object_id: "n_d5sensory_point_age_quality_limitation"
+    valid_from: "2026-09-30"
+knowledge_items:
+  -
+    id: "ki_d5sensory_case_madeira_compare_action"
+    subject_id: "n_d5sensory_case_madeira_compare"
+    relation_type: "CASE_ACTION"
+    object_id: "n_d5sensory_point_madeira_compare_action"
+    domain_id: "tasting"
+    assertion_text: "Provisionally offer B because its supplied sweetness and richer texture match this guest's brief. Keep the choice conditional on the guest's preference and the fictional observations; the supplied Boal identity is an assumption, not an identification earned through tasting."
+    verification_status: "unverified"
+    mcq_disabled: true
+    last_verified_at: "2026-09-30T00:00:00.000Z"
+  -
+    id: "ki_d5sensory_case_madeira_compare_reason"
+    subject_id: "n_d5sensory_case_madeira_compare"
+    relation_type: "CASE_REASON"
+    object_id: "n_d5sensory_point_madeira_compare_reason"
+    domain_id: "tasting"
+    assertion_text: "IVBAM associates Verdelho with an off-dry style and Boal with a rich, semi-sweet style. That context is compatible with the invented A/B contrast. The selection is supported by B's stated sweetness, texture and balancing acidity, not by treating the grape name as a quality score."
+    verification_status: "unverified"
+    mcq_disabled: true
+    last_verified_at: "2026-09-30T00:00:00.000Z"
+  -
+    id: "ki_d5sensory_case_madeira_compare_tradeoff"
+    subject_id: "n_d5sensory_case_madeira_compare"
+    relation_type: "CASE_TRADEOFF"
+    object_id: "n_d5sensory_point_madeira_compare_tradeoff"
+    domain_id: "tasting"
+    assertion_text: "A offers the brighter, less-sweet expression in this packet and may fit a guest who changes the brief. B's richer style is useful here, but greater sweetness or body does not make Boal universally better than Verdelho; both supplied finishes are persistent."
+    verification_status: "unverified"
+    mcq_disabled: true
+    last_verified_at: "2026-09-30T00:00:00.000Z"
+  -
+    id: "ki_d5sensory_case_madeira_compare_limitation"
+    subject_id: "n_d5sensory_case_madeira_compare"
+    relation_type: "CASE_LIMITATION"
+    object_id: "n_d5sensory_point_madeira_compare_limitation"
+    domain_id: "tasting"
+    assertion_text: "The observations cannot authenticate Verdelho or Boal, recover exact residual sugar or vineyard elevation, or establish a superior official quality grade. Confirm identity and composition through appropriate records when needed; actual sensory accuracy still needs physical tasting and qualified feedback."
+    verification_status: "unverified"
+    mcq_disabled: true
+    last_verified_at: "2026-09-30T00:00:00.000Z"
+  -
+    id: "ki_d5sensory_case_rutherglen_muscat_action"
+    subject_id: "n_d5sensory_case_rutherglen_muscat"
+    relation_type: "CASE_ACTION"
+    object_id: "n_d5sensory_point_rutherglen_muscat_action"
+    domain_id: "tasting"
+    assertion_text: "Provisionally offer C for the stated grape/floral fruit profile and less viscous texture. Compare sweetness, warmth, texture and finish across both samples; the supplied Grand identity of D does not override a guest specifically requesting the fresher and less-concentrated expression."
+    verification_status: "unverified"
+    mcq_disabled: true
+    last_verified_at: "2026-09-30T00:00:00.000Z"
+  -
+    id: "ki_d5sensory_case_rutherglen_muscat_reason"
+    subject_id: "n_d5sensory_case_rutherglen_muscat"
+    relation_type: "CASE_REASON"
+    object_id: "n_d5sensory_point_rutherglen_muscat_reason"
+    domain_id: "tasting"
+    assertion_text: "The regional source describes a progression of development, richness and complexity through the Muscat categories, with age only one factor and variation between producers. D's invented developed profile is compatible with that context; both samples have integrated warmth in the packet, so sweetness alone is not evidence of imbalance."
+    verification_status: "unverified"
+    mcq_disabled: true
+    last_verified_at: "2026-09-30T00:00:00.000Z"
+  -
+    id: "ki_d5sensory_case_rutherglen_muscat_tradeoff"
+    subject_id: "n_d5sensory_case_rutherglen_muscat"
+    relation_type: "CASE_TRADEOFF"
+    object_id: "n_d5sensory_point_rutherglen_muscat_tradeoff"
+    domain_id: "tasting"
+    assertion_text: "A guest seeking developed coffee/nut complexity or a more concentrated sip may prefer D, and its longer layered finish is a positive observation worth recording. C fits the present brief. Style preference and a category name should remain separate from a comparative quality argument based on the whole wine."
+    verification_status: "unverified"
+    mcq_disabled: true
+    last_verified_at: "2026-09-30T00:00:00.000Z"
+  -
+    id: "ki_d5sensory_case_rutherglen_muscat_limitation"
+    subject_id: "n_d5sensory_case_rutherglen_muscat"
+    relation_type: "CASE_LIMITATION"
+    object_id: "n_d5sensory_point_rutherglen_muscat_limitation"
+    domain_id: "tasting"
+    assertion_text: "The source's published category age ranges are averages, not minimum ages for every component. Coffee-like flavour, concentration and a supplied Grand name cannot prove exact blend age, the youngest component, an authenticity mark or the category of a real bottle. Verify product and producer records for those claims."
+    verification_status: "unverified"
+    mcq_disabled: true
+    last_verified_at: "2026-09-30T00:00:00.000Z"
+  -
+    id: "ki_d5sensory_case_age_quality_action"
+    subject_id: "n_d5sensory_case_age_quality"
+    relation_type: "CASE_ACTION"
+    object_id: "n_d5sensory_point_age_quality_action"
+    domain_id: "tasting"
+    assertion_text: "Under these repeated invented observations, support F's stronger current comparative quality from integrated warmth/texture, clear flavours and their longer persistence. Keep that conclusion specific to the packet and current condition; it does not authenticate either supplied identity or overrule an official judgement of a certified lot."
+    verification_status: "unverified"
+    mcq_disabled: true
+    last_verified_at: "2026-09-30T00:00:00.000Z"
+  -
+    id: "ki_d5sensory_case_age_quality_reason"
+    subject_id: "n_d5sensory_case_age_quality"
+    relation_type: "CASE_REASON"
+    object_id: "n_d5sensory_point_age_quality_reason"
+    domain_id: "tasting"
+    assertion_text: "F's integrated structure and longer flavour finish support the comparison; E's concentration alone is insufficient. If authentic, V.O.S. applies to an individual saca with average age over twenty years, evaluated for quality as well as average age. It does not mean every component is exactly twenty years old or replace assessment of this bottle's current condition."
+    verification_status: "unverified"
+    mcq_disabled: true
+    last_verified_at: "2026-09-30T00:00:00.000Z"
+  -
+    id: "ki_d5sensory_case_age_quality_tradeoff"
+    subject_id: "n_d5sensory_case_age_quality"
+    relation_type: "CASE_TRADEOFF"
+    object_id: "n_d5sensory_point_age_quality_tradeoff"
+    domain_id: "tasting"
+    assertion_text: "A taster may prefer E's intense wood/nut style despite supporting F on the given integration and finish evidence. Enjoying either now and predicting improvement are separate decisions. Reassess the actual bottle and intended use before a cellar recommendation; age or personal preference alone cannot supply that recommendation."
+    verification_status: "unverified"
+    mcq_disabled: true
+    last_verified_at: "2026-09-30T00:00:00.000Z"
+  -
+    id: "ki_d5sensory_case_age_quality_limitation"
+    subject_id: "n_d5sensory_case_age_quality"
+    relation_type: "CASE_LIMITATION"
+    object_id: "n_d5sensory_point_age_quality_limitation"
+    domain_id: "tasting"
+    assertion_text: "The invented packet cannot authenticate a V.O.S. seal or the individual saca's certification, calculate constituent ages, establish price or guarantee another ten years of improvement. Obtain certification and bottle/storage information for those claims. The exercise checks reasoning about supplied evidence; physical tasting with qualified feedback is still needed to evaluate sensory accuracy."
+    verification_status: "unverified"
+    mcq_disabled: true
+    last_verified_at: "2026-09-30T00:00:00.000Z"
+certification_knowledge_mappings:
+  -
+    certification_id: "WSET_L4"
+    knowledge_item_id: "ki_d5sensory_case_madeira_compare_action"
+    importance: "core"
+    minimum_depth: 3
+  -
+    certification_id: "WSET_L4"
+    knowledge_item_id: "ki_d5sensory_case_madeira_compare_reason"
+    importance: "core"
+    minimum_depth: 3
+  -
+    certification_id: "WSET_L4"
+    knowledge_item_id: "ki_d5sensory_case_madeira_compare_tradeoff"
+    importance: "core"
+    minimum_depth: 3
+  -
+    certification_id: "WSET_L4"
+    knowledge_item_id: "ki_d5sensory_case_madeira_compare_limitation"
+    importance: "core"
+    minimum_depth: 3
+  -
+    certification_id: "WSET_L4"
+    knowledge_item_id: "ki_d5sensory_case_rutherglen_muscat_action"
+    importance: "core"
+    minimum_depth: 3
+  -
+    certification_id: "WSET_L4"
+    knowledge_item_id: "ki_d5sensory_case_rutherglen_muscat_reason"
+    importance: "core"
+    minimum_depth: 3
+  -
+    certification_id: "WSET_L4"
+    knowledge_item_id: "ki_d5sensory_case_rutherglen_muscat_tradeoff"
+    importance: "core"
+    minimum_depth: 3
+  -
+    certification_id: "WSET_L4"
+    knowledge_item_id: "ki_d5sensory_case_rutherglen_muscat_limitation"
+    importance: "core"
+    minimum_depth: 3
+  -
+    certification_id: "WSET_L4"
+    knowledge_item_id: "ki_d5sensory_case_age_quality_action"
+    importance: "core"
+    minimum_depth: 3
+  -
+    certification_id: "WSET_L4"
+    knowledge_item_id: "ki_d5sensory_case_age_quality_reason"
+    importance: "core"
+    minimum_depth: 3
+  -
+    certification_id: "WSET_L4"
+    knowledge_item_id: "ki_d5sensory_case_age_quality_tradeoff"
+    importance: "core"
+    minimum_depth: 3
+  -
+    certification_id: "WSET_L4"
+    knowledge_item_id: "ki_d5sensory_case_age_quality_limitation"
+    importance: "core"
+    minimum_depth: 3
+knowledge_item_citations:
+  -
+    knowledge_item_id: "ki_d5sensory_case_madeira_compare_action"
+    source_citation_id: "src_d5madeira_verdelho"
+    locator: "Verdelho: descriptive off-dry style; supplied identities and sample observations are fictional, not authenticated by the source"
+  -
+    knowledge_item_id: "ki_d5sensory_case_madeira_compare_action"
+    source_citation_id: "src_d5madeira_boal"
+    locator: "Boal: rich semi-sweet style and acidity/sweetness balance; no exact composition or elevation inferred from the packet"
+  -
+    knowledge_item_id: "ki_d5sensory_case_madeira_compare_action"
+    source_citation_id: "src_wset_taste_awri"
+    locator: "Printed pp. 20 and 26–27: whole-palate evidence, balance, persistence and preference limits; no source sensory packet or grading table reproduced"
+  -
+    knowledge_item_id: "ki_d5sensory_case_madeira_compare_reason"
+    source_citation_id: "src_d5madeira_verdelho"
+    locator: "Verdelho: descriptive off-dry style; supplied identities and sample observations are fictional, not authenticated by the source"
+  -
+    knowledge_item_id: "ki_d5sensory_case_madeira_compare_reason"
+    source_citation_id: "src_d5madeira_boal"
+    locator: "Boal: rich semi-sweet style and acidity/sweetness balance; no exact composition or elevation inferred from the packet"
+  -
+    knowledge_item_id: "ki_d5sensory_case_madeira_compare_reason"
+    source_citation_id: "src_wset_taste_awri"
+    locator: "Printed pp. 20 and 26–27: whole-palate evidence, balance, persistence and preference limits; no source sensory packet or grading table reproduced"
+  -
+    knowledge_item_id: "ki_d5sensory_case_madeira_compare_tradeoff"
+    source_citation_id: "src_d5madeira_verdelho"
+    locator: "Verdelho: descriptive off-dry style; supplied identities and sample observations are fictional, not authenticated by the source"
+  -
+    knowledge_item_id: "ki_d5sensory_case_madeira_compare_tradeoff"
+    source_citation_id: "src_d5madeira_boal"
+    locator: "Boal: rich semi-sweet style and acidity/sweetness balance; no exact composition or elevation inferred from the packet"
+  -
+    knowledge_item_id: "ki_d5sensory_case_madeira_compare_tradeoff"
+    source_citation_id: "src_wset_taste_awri"
+    locator: "Printed pp. 20 and 26–27: whole-palate evidence, balance, persistence and preference limits; no source sensory packet or grading table reproduced"
+  -
+    knowledge_item_id: "ki_d5sensory_case_madeira_compare_limitation"
+    source_citation_id: "src_d5madeira_verdelho"
+    locator: "Verdelho: descriptive off-dry style; supplied identities and sample observations are fictional, not authenticated by the source"
+  -
+    knowledge_item_id: "ki_d5sensory_case_madeira_compare_limitation"
+    source_citation_id: "src_d5madeira_boal"
+    locator: "Boal: rich semi-sweet style and acidity/sweetness balance; no exact composition or elevation inferred from the packet"
+  -
+    knowledge_item_id: "ki_d5sensory_case_madeira_compare_limitation"
+    source_citation_id: "src_wset_taste_awri"
+    locator: "Printed pp. 20 and 26–27: whole-palate evidence, balance, persistence and preference limits; no source sensory packet or grading table reproduced"
+  -
+    knowledge_item_id: "ki_d5sensory_case_rutherglen_muscat_action"
+    source_citation_id: "src_wset_sf_muscat_aged"
+    locator: "Muscat of Rutherglen: classification progression, producer styles and category average ages; supplied C/D identities and tasting packet invented"
+  -
+    knowledge_item_id: "ki_d5sensory_case_rutherglen_muscat_action"
+    source_citation_id: "src_wset_taste_awri"
+    locator: "Printed pp. 20 and 26–27: flavours, texture, balance, persistence and preference limits; no official quality score or tasting packet copied"
+  -
+    knowledge_item_id: "ki_d5sensory_case_rutherglen_muscat_reason"
+    source_citation_id: "src_wset_sf_muscat_aged"
+    locator: "Muscat of Rutherglen: classification progression, producer styles and category average ages; supplied C/D identities and tasting packet invented"
+  -
+    knowledge_item_id: "ki_d5sensory_case_rutherglen_muscat_reason"
+    source_citation_id: "src_wset_taste_awri"
+    locator: "Printed pp. 20 and 26–27: flavours, texture, balance, persistence and preference limits; no official quality score or tasting packet copied"
+  -
+    knowledge_item_id: "ki_d5sensory_case_rutherglen_muscat_tradeoff"
+    source_citation_id: "src_wset_sf_muscat_aged"
+    locator: "Muscat of Rutherglen: classification progression, producer styles and category average ages; supplied C/D identities and tasting packet invented"
+  -
+    knowledge_item_id: "ki_d5sensory_case_rutherglen_muscat_tradeoff"
+    source_citation_id: "src_wset_taste_awri"
+    locator: "Printed pp. 20 and 26–27: flavours, texture, balance, persistence and preference limits; no official quality score or tasting packet copied"
+  -
+    knowledge_item_id: "ki_d5sensory_case_rutherglen_muscat_limitation"
+    source_citation_id: "src_wset_sf_muscat_aged"
+    locator: "Muscat of Rutherglen: classification progression, producer styles and category average ages; supplied C/D identities and tasting packet invented"
+  -
+    knowledge_item_id: "ki_d5sensory_case_rutherglen_muscat_limitation"
+    source_citation_id: "src_wset_taste_awri"
+    locator: "Printed pp. 20 and 26–27: flavours, texture, balance, persistence and preference limits; no official quality score or tasting packet copied"
+  -
+    knowledge_item_id: "ki_d5sensory_case_age_quality_action"
+    source_citation_id: "src_d5_sherry_age"
+    locator: "Very Old Sherries: V.O.S. average age over 20 years, individual sacas and quality plus age evaluation; fictional E/F identities do not verify certification"
+  -
+    knowledge_item_id: "ki_d5sensory_case_age_quality_action"
+    source_citation_id: "src_wset_taste_awri"
+    locator: "Printed pp. 20 and 26–27: assess palate evidence and avoid intensity/preference shortcuts; invented current-bottle comparison is not an official grading decision"
+  -
+    knowledge_item_id: "ki_d5sensory_case_age_quality_action"
+    source_citation_id: "src_wset_taste_ageing"
+    locator: "Which wines should be aged? and How to age wine: suitability and storage condition development; no fixed bottle-improvement period supplied"
+  -
+    knowledge_item_id: "ki_d5sensory_case_age_quality_reason"
+    source_citation_id: "src_d5_sherry_age"
+    locator: "Very Old Sherries: V.O.S. average age over 20 years, individual sacas and quality plus age evaluation; fictional E/F identities do not verify certification"
+  -
+    knowledge_item_id: "ki_d5sensory_case_age_quality_reason"
+    source_citation_id: "src_wset_taste_awri"
+    locator: "Printed pp. 20 and 26–27: assess palate evidence and avoid intensity/preference shortcuts; invented current-bottle comparison is not an official grading decision"
+  -
+    knowledge_item_id: "ki_d5sensory_case_age_quality_reason"
+    source_citation_id: "src_wset_taste_ageing"
+    locator: "Which wines should be aged? and How to age wine: suitability and storage condition development; no fixed bottle-improvement period supplied"
+  -
+    knowledge_item_id: "ki_d5sensory_case_age_quality_tradeoff"
+    source_citation_id: "src_d5_sherry_age"
+    locator: "Very Old Sherries: V.O.S. average age over 20 years, individual sacas and quality plus age evaluation; fictional E/F identities do not verify certification"
+  -
+    knowledge_item_id: "ki_d5sensory_case_age_quality_tradeoff"
+    source_citation_id: "src_wset_taste_awri"
+    locator: "Printed pp. 20 and 26–27: assess palate evidence and avoid intensity/preference shortcuts; invented current-bottle comparison is not an official grading decision"
+  -
+    knowledge_item_id: "ki_d5sensory_case_age_quality_tradeoff"
+    source_citation_id: "src_wset_taste_ageing"
+    locator: "Which wines should be aged? and How to age wine: suitability and storage condition development; no fixed bottle-improvement period supplied"
+  -
+    knowledge_item_id: "ki_d5sensory_case_age_quality_limitation"
+    source_citation_id: "src_d5_sherry_age"
+    locator: "Very Old Sherries: V.O.S. average age over 20 years, individual sacas and quality plus age evaluation; fictional E/F identities do not verify certification"
+  -
+    knowledge_item_id: "ki_d5sensory_case_age_quality_limitation"
+    source_citation_id: "src_wset_taste_awri"
+    locator: "Printed pp. 20 and 26–27: assess palate evidence and avoid intensity/preference shortcuts; invented current-bottle comparison is not an official grading decision"
+  -
+    knowledge_item_id: "ki_d5sensory_case_age_quality_limitation"
+    source_citation_id: "src_wset_taste_ageing"
+    locator: "Which wines should be aged? and How to age wine: suitability and storage condition development; no fixed bottle-improvement period supplied"

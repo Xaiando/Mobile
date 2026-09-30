@@ -1,0 +1,456 @@
+# Original fictional D4 purchasing comparisons; expert review remains outstanding.
+# Published trade sources support bounded mechanisms, not invented offers or national quality rankings.
+# Existing source IDs are reused; no GI permission, legal maturation minimum or public price is asserted.
+knowledge_nodes:
+  -
+    id: "n_d4commercial_case_us_offer"
+    node_type: "production_case"
+    name: "Fictional buying exercise: a venue launches a fresh-fruit and some lees-complexity sparkling slot in eight weeks. Offer A is labelled Oregon; its supplied lot records state traditional bottle fermentation and 24 months on lees, with delivery in six weeks and payment now. Offer B is labelled California, is in stock and payable 14 days after delivery, but supplies no fermentation or lees records. Each quote is EUR 18 per bottle before freight. The panel has tasted neither and can trial both. Recommend the next action, explain the evidence, compare the commercial tradeoff and identify unresolved checks. These invented records and terms describe only these offers."
+  -
+    id: "n_d4commercial_point_us_offer_action"
+    node_type: "learning_point"
+    name: "Trial both lots, obtain B's missing production records and compare full delivered costs before committing"
+  -
+    id: "n_d4commercial_point_us_offer_reason"
+    node_type: "learning_point"
+    name: "A's records describe its method; origin labels and equal bottle quotes leave important differences unresolved"
+  -
+    id: "n_d4commercial_point_us_offer_tradeoff"
+    node_type: "learning_point"
+    name: "A requires earlier cash and a six-week wait; B offers stock and later payment but weaker method evidence"
+  -
+    id: "n_d4commercial_point_us_offer_limitation"
+    node_type: "learning_point"
+    name: "Actual sensory fit, freight, full selling economics, supplier reliability and receipts remain unknown"
+  -
+    id: "n_d4commercial_case_andes_offer"
+    node_type: "production_case"
+    name: "Fictional buying exercise: a fruit-led sparkling slot opens in six weeks. Chilean offer A supplies tank-fermentation records and a two-week delivery commitment. Argentine offer B supplies traditional bottle-fermentation records and an eight-week delivery commitment. Both quotes are within the stated purchasing budget; samples can be tasted now and a small trial order is possible. The B supplier cites INV's 2023 Argentine domestic sparkling dispatch report as proof that this lot will sell faster at this venue. No local demand data or panel results exist. Recommend a launch decision, rationale, tradeoff and missing evidence without turning country or historical volume into a quality or sales guarantee."
+  -
+    id: "n_d4commercial_point_andes_offer_action"
+    node_type: "learning_point"
+    name: "Trial A for a limited launch order if it fits; keep B for a later comparison rather than promise unavailable stock"
+  -
+    id: "n_d4commercial_point_andes_offer_reason"
+    node_type: "learning_point"
+    name: "The supplied method records and delivery dates matter; a 2023 national report does not forecast this lot's sales"
+  -
+    id: "n_d4commercial_point_andes_offer_tradeoff"
+    node_type: "learning_point"
+    name: "A can support the opening with less commitment; B remains a later style option, with opportunity and sampling costs"
+  -
+    id: "n_d4commercial_point_andes_offer_limitation"
+    node_type: "learning_point"
+    name: "Panel fit, local demand, repeat supply, delivered economics and reliable commitments remain to be checked"
+  -
+    id: "n_d4commercial_case_oceania_africa_offer"
+    node_type: "production_case"
+    name: "Fictional buying exercise: offer A is a New Zealand traditional bottle-fermented sparkling lot with 24 months on lees, quoted at EUR 15 plus EUR 1 freight per bottle. Offer B is a South African Cap Classique lot with supplied bottle-fermentation records and 36 months on lees, quoted at EUR 12 plus EUR 5 freight. Both can arrive in three weeks on identical payment terms. The proposed net selling revenue is EUR 34 per bottle. For this illustrative gross-profit comparison only, treat the supplied bottle and freight charges as the entire cost of goods sold, with no other deductions; this is not a real tax or landed-cost schedule. The panel has tasted neither; the brief requires fresh fruit and some lees complexity. Recommend the comparison, explain the cost and method evidence, weigh the tradeoff and state what is still unknown."
+  -
+    id: "n_d4commercial_point_oceania_africa_offer_action"
+    node_type: "learning_point"
+    name: "Compare the EUR 16 and EUR 17 supplied unit costs, taste both and choose only after fit and sales checks"
+  -
+    id: "n_d4commercial_point_oceania_africa_offer_reason"
+    node_type: "learning_point"
+    name: "B's lower bottle quote becomes the higher supplied unit cost; bottle fermentation and lees time do not prove preferred quality"
+  -
+    id: "n_d4commercial_point_oceania_africa_offer_tradeoff"
+    node_type: "learning_point"
+    name: "A has EUR 1 more illustrative gross profit; B offers a longer supplied lees period whose value requires tasting"
+  -
+    id: "n_d4commercial_point_oceania_africa_offer_limitation"
+    node_type: "learning_point"
+    name: "The simplified costs and method descriptions leave real landed costs, net profit, sensory fit and demand unresolved"
+knowledge_relations:
+  -
+    subject_id: "n_d4commercial_case_us_offer"
+    relation_type: "CASE_ACTION"
+    object_id: "n_d4commercial_point_us_offer_action"
+    valid_from: "2026-09-30"
+  -
+    subject_id: "n_d4commercial_case_us_offer"
+    relation_type: "CASE_REASON"
+    object_id: "n_d4commercial_point_us_offer_reason"
+    valid_from: "2026-09-30"
+  -
+    subject_id: "n_d4commercial_case_us_offer"
+    relation_type: "CASE_TRADEOFF"
+    object_id: "n_d4commercial_point_us_offer_tradeoff"
+    valid_from: "2026-09-30"
+  -
+    subject_id: "n_d4commercial_case_us_offer"
+    relation_type: "CASE_LIMITATION"
+    object_id: "n_d4commercial_point_us_offer_limitation"
+    valid_from: "2026-09-30"
+  -
+    subject_id: "n_d4commercial_case_andes_offer"
+    relation_type: "CASE_ACTION"
+    object_id: "n_d4commercial_point_andes_offer_action"
+    valid_from: "2026-09-30"
+  -
+    subject_id: "n_d4commercial_case_andes_offer"
+    relation_type: "CASE_REASON"
+    object_id: "n_d4commercial_point_andes_offer_reason"
+    valid_from: "2026-09-30"
+  -
+    subject_id: "n_d4commercial_case_andes_offer"
+    relation_type: "CASE_TRADEOFF"
+    object_id: "n_d4commercial_point_andes_offer_tradeoff"
+    valid_from: "2026-09-30"
+  -
+    subject_id: "n_d4commercial_case_andes_offer"
+    relation_type: "CASE_LIMITATION"
+    object_id: "n_d4commercial_point_andes_offer_limitation"
+    valid_from: "2026-09-30"
+  -
+    subject_id: "n_d4commercial_case_oceania_africa_offer"
+    relation_type: "CASE_ACTION"
+    object_id: "n_d4commercial_point_oceania_africa_offer_action"
+    valid_from: "2026-09-30"
+  -
+    subject_id: "n_d4commercial_case_oceania_africa_offer"
+    relation_type: "CASE_REASON"
+    object_id: "n_d4commercial_point_oceania_africa_offer_reason"
+    valid_from: "2026-09-30"
+  -
+    subject_id: "n_d4commercial_case_oceania_africa_offer"
+    relation_type: "CASE_TRADEOFF"
+    object_id: "n_d4commercial_point_oceania_africa_offer_tradeoff"
+    valid_from: "2026-09-30"
+  -
+    subject_id: "n_d4commercial_case_oceania_africa_offer"
+    relation_type: "CASE_LIMITATION"
+    object_id: "n_d4commercial_point_oceania_africa_offer_limitation"
+    valid_from: "2026-09-30"
+knowledge_items:
+  -
+    id: "ki_d4commercial_case_us_offer_action"
+    subject_id: "n_d4commercial_case_us_offer"
+    relation_type: "CASE_ACTION"
+    object_id: "n_d4commercial_point_us_offer_action"
+    domain_id: "business"
+    assertion_text: "Request California offer B's fermentation and lees records, arrange a controlled panel trial of both lots against the brief and compare delivered costs and payment dates before committing. Oregon offer A's documentation gives a testable style hypothesis, not an automatic quality advantage; reserve a listing decision until the evidence fits the launch."
+    verification_status: "unverified"
+    mcq_disabled: true
+    last_verified_at: "2026-09-30T00:00:00.000Z"
+  -
+    id: "ki_d4commercial_case_us_offer_reason"
+    subject_id: "n_d4commercial_case_us_offer"
+    relation_type: "CASE_REASON"
+    object_id: "n_d4commercial_point_us_offer_reason"
+    domain_id: "business"
+    assertion_text: "A's supplied bottle-fermentation and lees records describe this fictional lot; B's California label does not fill its record gap. Public US sources show varied California sparkling styles and a specific Oregon traditional-method example, rather than one national or state recipe. Equal EUR 18 bottle quotes also do not settle delivered cost or cash timing."
+    verification_status: "unverified"
+    mcq_disabled: true
+    last_verified_at: "2026-09-30T00:00:00.000Z"
+  -
+    id: "ki_d4commercial_case_us_offer_tradeoff"
+    subject_id: "n_d4commercial_case_us_offer"
+    relation_type: "CASE_TRADEOFF"
+    object_id: "n_d4commercial_point_us_offer_tradeoff"
+    domain_id: "business"
+    assertion_text: "Under the stated terms A ties up purchase cash before a six-week delivery, while B offers current stock and payment 14 days after delivery. Waiting for B's records and testing both uses staff time but can avoid a poor fit. Faster availability or deferred payment is a commercial benefit to assess separately from sensory quality and eventual profit."
+    verification_status: "unverified"
+    mcq_disabled: true
+    last_verified_at: "2026-09-30T00:00:00.000Z"
+  -
+    id: "ki_d4commercial_case_us_offer_limitation"
+    subject_id: "n_d4commercial_case_us_offer"
+    relation_type: "CASE_LIMITATION"
+    object_id: "n_d4commercial_point_us_offer_limitation"
+    domain_id: "business"
+    assertion_text: "Neither sample's fit has been measured, B's method is unknown and freight is omitted from both quotes. Net selling revenue, other costs, sales pace, supplier reliability and customer receipt dates are also missing, so no final margin or cash forecast is established. A's documented route cannot be generalized to every Oregon wine, and B's label cannot establish every California wine's method."
+    verification_status: "unverified"
+    mcq_disabled: true
+    last_verified_at: "2026-09-30T00:00:00.000Z"
+  -
+    id: "ki_d4commercial_case_andes_offer_action"
+    subject_id: "n_d4commercial_case_andes_offer"
+    relation_type: "CASE_ACTION"
+    object_id: "n_d4commercial_point_andes_offer_action"
+    domain_id: "business"
+    assertion_text: "Taste A against the fruit-led brief and consider a limited launch order only if it meets the brief and its two-week delivery is confirmed. Taste B as a later option, but its stated eight-week arrival misses the six-week opening. Do not replace this venue's demand evidence with the supplier's claim about an aggregate 2023 Argentine report."
+    verification_status: "unverified"
+    mcq_disabled: true
+    last_verified_at: "2026-09-30T00:00:00.000Z"
+  -
+    id: "ki_d4commercial_case_andes_offer_reason"
+    subject_id: "n_d4commercial_case_andes_offer"
+    relation_type: "CASE_REASON"
+    object_id: "n_d4commercial_point_andes_offer_reason"
+    domain_id: "business"
+    assertion_text: "A and B differ by their supplied method records and delivery commitments, not simply by Chile or Argentina. Wines of Chile describes both tank and bottle routes, so Chilean origin alone does not identify A's method. INV's October 2024 publication reports 2023 aggregate dispatches; it does not demonstrate this lot's current quality, future local demand or likely sales pace."
+    verification_status: "unverified"
+    mcq_disabled: true
+    last_verified_at: "2026-09-30T00:00:00.000Z"
+  -
+    id: "ki_d4commercial_case_andes_offer_tradeoff"
+    subject_id: "n_d4commercial_case_andes_offer"
+    relation_type: "CASE_TRADEOFF"
+    object_id: "n_d4commercial_point_andes_offer_tradeoff"
+    domain_id: "business"
+    assertion_text: "A's stated earlier availability makes a small opening trial possible, but testing and a limited order consume samples and buying time. Waiting for B forgoes the planned opening slot; retaining it for a later comparison preserves an alternative style without assuming bottle fermentation is automatically better. This scheduling choice does not guarantee either offer's sales."
+    verification_status: "unverified"
+    mcq_disabled: true
+    last_verified_at: "2026-09-30T00:00:00.000Z"
+  -
+    id: "ki_d4commercial_case_andes_offer_limitation"
+    subject_id: "n_d4commercial_case_andes_offer"
+    relation_type: "CASE_LIMITATION"
+    object_id: "n_d4commercial_point_andes_offer_limitation"
+    domain_id: "business"
+    assertion_text: "The scenario gives no tasting result, venue sales history, net selling price, complete delivered cost, payment terms or repeat-supply evidence. Confirm the quoted delivery commitment and run a limited local sales review before expanding. The INV report is dated, aggregated context; it neither certifies this fictional Argentine lot nor establishes current demand at the venue."
+    verification_status: "unverified"
+    mcq_disabled: true
+    last_verified_at: "2026-09-30T00:00:00.000Z"
+  -
+    id: "ki_d4commercial_case_oceania_africa_offer_action"
+    subject_id: "n_d4commercial_case_oceania_africa_offer"
+    relation_type: "CASE_ACTION"
+    object_id: "n_d4commercial_point_oceania_africa_offer_action"
+    domain_id: "business"
+    assertion_text: "Use the stated charges to compare A's EUR 16 unit cost with B's EUR 17, then taste both lots under controlled conditions against the brief. Do not select B solely for its lower EUR 12 bottle quote or longer lees period. A commitment should follow the panel result and realistic selling and supply checks, rather than a country or category ranking."
+    verification_status: "unverified"
+    mcq_disabled: true
+    last_verified_at: "2026-09-30T00:00:00.000Z"
+  -
+    id: "ki_d4commercial_case_oceania_africa_offer_reason"
+    subject_id: "n_d4commercial_case_oceania_africa_offer"
+    relation_type: "CASE_REASON"
+    object_id: "n_d4commercial_point_oceania_africa_offer_reason"
+    domain_id: "business"
+    assertion_text: "Under the deliberately simplified inputs, A costs EUR 16 and produces EUR 18 illustrative gross profit at EUR 34 net revenue; B costs EUR 17 and produces EUR 17. This is gross profit, not net profit. New Zealand Winegrowers describes a prominent traditional-method route and the Cap Classique association describes bottle fermentation; these contexts and the supplied lees records justify comparison, not an automatic preferred-quality result."
+    verification_status: "unverified"
+    mcq_disabled: true
+    last_verified_at: "2026-09-30T00:00:00.000Z"
+  -
+    id: "ki_d4commercial_case_oceania_africa_offer_tradeoff"
+    subject_id: "n_d4commercial_case_oceania_africa_offer"
+    relation_type: "CASE_TRADEOFF"
+    object_id: "n_d4commercial_point_oceania_africa_offer_tradeoff"
+    domain_id: "business"
+    assertion_text: "At the same stated net revenue, A retains EUR 1 more illustrative gross profit per bottle. B's supplied longer lees period offers a different maturation hypothesis: yeast breakdown during lees ageing can change aroma and texture, but duration alone does not prove better balance or list fit. A panel may prefer either, so assess any extra cost against the style benefit actually observed."
+    verification_status: "unverified"
+    mcq_disabled: true
+    last_verified_at: "2026-09-30T00:00:00.000Z"
+  -
+    id: "ki_d4commercial_case_oceania_africa_offer_limitation"
+    subject_id: "n_d4commercial_case_oceania_africa_offer"
+    relation_type: "CASE_LIMITATION"
+    object_id: "n_d4commercial_point_oceania_africa_offer_limitation"
+    domain_id: "business"
+    assertion_text: "The exercise's invented charges are not a complete real-world import or tax quotation. Actual handling, deductions, operating expenses, currency exposure, repeat supply, customer demand and the panel result remain to be established. No net-profit forecast follows from illustrative gross profit, and the given 24/36-month records are not legal category minima or descriptions of every New Zealand or Cap Classique bottle."
+    verification_status: "unverified"
+    mcq_disabled: true
+    last_verified_at: "2026-09-30T00:00:00.000Z"
+certification_knowledge_mappings:
+  -
+    certification_id: "WSET_L4"
+    knowledge_item_id: "ki_d4commercial_case_us_offer_action"
+    importance: "core"
+    minimum_depth: 3
+  -
+    certification_id: "WSET_L4"
+    knowledge_item_id: "ki_d4commercial_case_us_offer_reason"
+    importance: "core"
+    minimum_depth: 3
+  -
+    certification_id: "WSET_L4"
+    knowledge_item_id: "ki_d4commercial_case_us_offer_tradeoff"
+    importance: "core"
+    minimum_depth: 3
+  -
+    certification_id: "WSET_L4"
+    knowledge_item_id: "ki_d4commercial_case_us_offer_limitation"
+    importance: "core"
+    minimum_depth: 3
+  -
+    certification_id: "WSET_L4"
+    knowledge_item_id: "ki_d4commercial_case_andes_offer_action"
+    importance: "core"
+    minimum_depth: 3
+  -
+    certification_id: "WSET_L4"
+    knowledge_item_id: "ki_d4commercial_case_andes_offer_reason"
+    importance: "core"
+    minimum_depth: 3
+  -
+    certification_id: "WSET_L4"
+    knowledge_item_id: "ki_d4commercial_case_andes_offer_tradeoff"
+    importance: "core"
+    minimum_depth: 3
+  -
+    certification_id: "WSET_L4"
+    knowledge_item_id: "ki_d4commercial_case_andes_offer_limitation"
+    importance: "core"
+    minimum_depth: 3
+  -
+    certification_id: "WSET_L4"
+    knowledge_item_id: "ki_d4commercial_case_oceania_africa_offer_action"
+    importance: "core"
+    minimum_depth: 3
+  -
+    certification_id: "WSET_L4"
+    knowledge_item_id: "ki_d4commercial_case_oceania_africa_offer_reason"
+    importance: "core"
+    minimum_depth: 3
+  -
+    certification_id: "WSET_L4"
+    knowledge_item_id: "ki_d4commercial_case_oceania_africa_offer_tradeoff"
+    importance: "core"
+    minimum_depth: 3
+  -
+    certification_id: "WSET_L4"
+    knowledge_item_id: "ki_d4commercial_case_oceania_africa_offer_limitation"
+    importance: "core"
+    minimum_depth: 3
+knowledge_item_citations:
+  -
+    knowledge_item_id: "ki_d4commercial_case_us_offer_action"
+    source_citation_id: "src_d4nw_awri_sensory"
+    locator: "Commercial tasting: establish sensory difference before preference, independent controlled comparison; supplied offer decision is original"
+  -
+    knowledge_item_id: "ki_d4commercial_case_us_offer_action"
+    source_citation_id: "src_d4nw_us_california"
+    locator: "California industry overview: varied sparkling producers, grapes and styles; no lot-specific method claim"
+  -
+    knowledge_item_id: "ki_d4commercial_case_us_offer_action"
+    source_citation_id: "src_d4nw_us_oregon"
+    locator: "Corollary producer profile: one Willamette Valley traditional-method example; fictional offer A is not this producer"
+  -
+    knowledge_item_id: "ki_d4commercial_case_us_offer_reason"
+    source_citation_id: "src_d4nw_us_california"
+    locator: "California industry overview: varied sparkling producers, grapes and styles; no lot-specific method claim"
+  -
+    knowledge_item_id: "ki_d4commercial_case_us_offer_reason"
+    source_citation_id: "src_d4nw_us_oregon"
+    locator: "Corollary producer profile: one Willamette Valley traditional-method example; fictional offer A is not this producer"
+  -
+    knowledge_item_id: "ki_d4commercial_case_us_offer_reason"
+    source_citation_id: "src_biz_sec_statements"
+    locator: "Cash Flow Statements: cash receipts and payments differ from income-statement profit; stated payment terms are hypothetical"
+  -
+    knowledge_item_id: "ki_d4commercial_case_us_offer_tradeoff"
+    source_citation_id: "src_biz_sec_statements"
+    locator: "Cash Flow Statements: cash receipts and payments differ from income-statement profit; stated payment terms are hypothetical"
+  -
+    knowledge_item_id: "ki_d4commercial_case_us_offer_tradeoff"
+    source_citation_id: "src_biz_au_cashflow"
+    locator: "Keep your cash flow healthy: payment terms, inventory and supplier negotiation; invented delivery/payment tradeoff"
+  -
+    knowledge_item_id: "ki_d4commercial_case_us_offer_tradeoff"
+    source_citation_id: "src_d4nw_awri_sensory"
+    locator: "Commercial tasting: establish sensory difference before preference, independent controlled comparison; supplied offer decision is original"
+  -
+    knowledge_item_id: "ki_d4commercial_case_us_offer_limitation"
+    source_citation_id: "src_d4nw_awri_sensory"
+    locator: "Commercial tasting: establish sensory difference before preference, independent controlled comparison; supplied offer decision is original"
+  -
+    knowledge_item_id: "ki_d4commercial_case_us_offer_limitation"
+    source_citation_id: "src_biz_victoria_pricing"
+    locator: "Gross profit and margin use net sales and cost of goods sold; missing inputs are original case limits"
+  -
+    knowledge_item_id: "ki_d4commercial_case_us_offer_limitation"
+    source_citation_id: "src_biz_sec_statements"
+    locator: "Cash Flow Statements: cash receipts and payments differ from income-statement profit; stated payment terms are hypothetical"
+  -
+    knowledge_item_id: "ki_d4commercial_case_andes_offer_action"
+    source_citation_id: "src_d4nw_awri_sensory"
+    locator: "Controlled commercial comparison and sensory difference before preference; conditional small launch trial is original"
+  -
+    knowledge_item_id: "ki_d4commercial_case_andes_offer_action"
+    source_citation_id: "src_d4nw_argentina_report"
+    locator: "Printed pages 2-4: report published October 2024, 2023 aggregate domestic dispatches; no current venue-demand forecast"
+  -
+    knowledge_item_id: "ki_d4commercial_case_andes_offer_reason"
+    source_citation_id: "src_d4nw_chile_spark"
+    locator: "Separate Charmat and bottle-method discussion only; country origin does not identify the supplied fictional lot's method"
+  -
+    knowledge_item_id: "ki_d4commercial_case_andes_offer_reason"
+    source_citation_id: "src_d4nw_argentina_report"
+    locator: "Printed pages 2-4: report published October 2024, 2023 aggregate domestic dispatches; no current venue-demand forecast"
+  -
+    knowledge_item_id: "ki_d4commercial_case_andes_offer_tradeoff"
+    source_citation_id: "src_d4nw_awri_sensory"
+    locator: "Controlled commercial comparison and sensory difference before preference; conditional small launch trial is original"
+  -
+    knowledge_item_id: "ki_d4commercial_case_andes_offer_tradeoff"
+    source_citation_id: "src_biz_au_cashflow"
+    locator: "Inventory and supplier planning; original six-week launch and two/eight-week delivery assumptions"
+  -
+    knowledge_item_id: "ki_d4commercial_case_andes_offer_tradeoff"
+    source_citation_id: "src_d4nw_chile_spark"
+    locator: "Separate Charmat and bottle-method discussion only; country origin does not identify the supplied fictional lot's method"
+  -
+    knowledge_item_id: "ki_d4commercial_case_andes_offer_limitation"
+    source_citation_id: "src_d4nw_awri_sensory"
+    locator: "Controlled commercial comparison and sensory difference before preference; conditional small launch trial is original"
+  -
+    knowledge_item_id: "ki_d4commercial_case_andes_offer_limitation"
+    source_citation_id: "src_d4nw_argentina_report"
+    locator: "Printed pages 2-4: report published October 2024, 2023 aggregate domestic dispatches; no current venue-demand forecast"
+  -
+    knowledge_item_id: "ki_d4commercial_case_andes_offer_limitation"
+    source_citation_id: "src_biz_victoria_pricing"
+    locator: "Net sales and cost-of-goods inputs for gross profit; the case omits full commercial inputs"
+  -
+    knowledge_item_id: "ki_d4commercial_case_oceania_africa_offer_action"
+    source_citation_id: "src_biz_victoria_pricing"
+    locator: "Gross profit = net sales less cost of goods sold; EUR figures and inclusion of freight are explicitly supplied original exercise assumptions"
+  -
+    knowledge_item_id: "ki_d4commercial_case_oceania_africa_offer_action"
+    source_citation_id: "src_d4nw_awri_sensory"
+    locator: "Establish real sensory difference before preference; controlled independent comparison, not a category ranking"
+  -
+    knowledge_item_id: "ki_d4commercial_case_oceania_africa_offer_action"
+    source_citation_id: "src_wset_sf_nz_spark"
+    locator: "Diverse New Zealand sparkling styles and predominant traditional-method route; no legal lees minimum used"
+  -
+    knowledge_item_id: "ki_d4commercial_case_oceania_africa_offer_action"
+    source_citation_id: "src_d4nw_za_cap"
+    locator: "Association's bottle-fermentation and style-dependent maturation description; no legal minimum asserted"
+  -
+    knowledge_item_id: "ki_d4commercial_case_oceania_africa_offer_reason"
+    source_citation_id: "src_biz_victoria_pricing"
+    locator: "Gross profit = net sales less cost of goods sold; EUR figures and inclusion of freight are explicitly supplied original exercise assumptions"
+  -
+    knowledge_item_id: "ki_d4commercial_case_oceania_africa_offer_reason"
+    source_citation_id: "src_wset_sf_nz_spark"
+    locator: "Diverse New Zealand sparkling styles and predominant traditional-method route; no legal lees minimum used"
+  -
+    knowledge_item_id: "ki_d4commercial_case_oceania_africa_offer_reason"
+    source_citation_id: "src_d4nw_za_cap"
+    locator: "Association's bottle-fermentation and style-dependent maturation description; no legal minimum asserted"
+  -
+    knowledge_item_id: "ki_d4commercial_case_oceania_africa_offer_tradeoff"
+    source_citation_id: "src_biz_victoria_pricing"
+    locator: "Gross profit = net sales less cost of goods sold; EUR figures and inclusion of freight are explicitly supplied original exercise assumptions"
+  -
+    knowledge_item_id: "ki_d4commercial_case_oceania_africa_offer_tradeoff"
+    source_citation_id: "src_spark_maturation"
+    locator: "Yeast autolysis and gradual sensory development during lees maturation; physical mechanism only, Champagne legal periods unused"
+  -
+    knowledge_item_id: "ki_d4commercial_case_oceania_africa_offer_tradeoff"
+    source_citation_id: "src_d4nw_awri_sensory"
+    locator: "Establish real sensory difference before preference; controlled independent comparison, not a category ranking"
+  -
+    knowledge_item_id: "ki_d4commercial_case_oceania_africa_offer_limitation"
+    source_citation_id: "src_biz_victoria_pricing"
+    locator: "Gross profit = net sales less cost of goods sold; EUR figures and inclusion of freight are explicitly supplied original exercise assumptions"
+  -
+    knowledge_item_id: "ki_d4commercial_case_oceania_africa_offer_limitation"
+    source_citation_id: "src_biz_sec_statements"
+    locator: "Income Statements: operating expenses follow gross profit before net profit; hypothetical gross profit is not a net-profit forecast"
+  -
+    knowledge_item_id: "ki_d4commercial_case_oceania_africa_offer_limitation"
+    source_citation_id: "src_d4nw_awri_sensory"
+    locator: "Establish real sensory difference before preference; controlled independent comparison, not a category ranking"
+  -
+    knowledge_item_id: "ki_d4commercial_case_oceania_africa_offer_limitation"
+    source_citation_id: "src_wset_sf_nz_spark"
+    locator: "Diverse New Zealand sparkling styles and predominant traditional-method route; no legal lees minimum used"
+  -
+    knowledge_item_id: "ki_d4commercial_case_oceania_africa_offer_limitation"
+    source_citation_id: "src_d4nw_za_cap"
+    locator: "Association's bottle-fermentation and style-dependent maturation description; no legal minimum asserted"

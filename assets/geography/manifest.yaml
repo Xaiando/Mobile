@@ -457,8 +457,8 @@ map_layers:
     display_name: Alto Adige settlement reference markers
     geometry_kind: point
     asset_path: assets/geography/alto_adige_uga_geonames_markers.topo.json
-    asset_sha256: e844dd29f714ff892365a78f2776e072b410c28e4ee22e22b9b9de753b4079b2
-    asset_bytes: 700
+    asset_sha256: 886fa4cecb0407d112f4274a315b9a85d2c4194bf08d08225554d1d1399794ff
+    asset_bytes: 938
     min_zoom: 4
     max_zoom: 18
     parent_layer_id: ml_world_countries
@@ -13930,6 +13930,24 @@ node_geometries:
     max_lat: 46.51667
     label_lon: 11.33333
     label_lat: 46.51667
+  - knowledge_node_id: n_geo_alto_adige_uga_missian
+    map_layer_id: ml_alto_adige_uga_geonames_markers
+    feature_key: n_geo_alto_adige_uga_missian
+    min_lon: 11.25418
+    min_lat: 46.485
+    max_lon: 11.25418
+    max_lat: 46.485
+    label_lon: 11.25418
+    label_lat: 46.485
+  - knowledge_node_id: n_geo_alto_adige_uga_montiggl
+    map_layer_id: ml_alto_adige_uga_geonames_markers
+    feature_key: n_geo_alto_adige_uga_montiggl
+    min_lon: 11.27682
+    min_lat: 46.41792
+    max_lon: 11.27682
+    max_lat: 46.41792
+    label_lon: 11.27682
+    label_lat: 46.41792
   - knowledge_node_id: n_geo_alto_adige_uga_penon
     map_layer_id: ml_alto_adige_uga_geonames_markers
     feature_key: n_geo_alto_adige_uga_penon

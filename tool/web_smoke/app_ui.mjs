@@ -791,6 +791,238 @@ try {
     result.assertions.manualLabelProposalSaved = true;
     result.assertions.webLabelPhotoSaved = true;
   });
+  await stage('11-diploma-product-writing-persistence', async () => {
+    const bankPath = path.join(root, 'assets/assets/study/diploma_written_practice.json');
+    assert(fs.existsSync(bankPath), 'The build has no Diploma writing bank.');
+    const bank = JSON.parse(fs.readFileSync(bankPath, 'utf8'));
+    const diploma = scope.levels.find(level => level.certificationId === 'WSET_L4');
+    assert(diploma && !diploma.curriculumComplete,
+      'Product writing must not turn the Diploma scope into completed curriculum.');
+    const loadedTimeout = 30_000;
+    result.assertions.diplomaProductWriting = [];
+
+    // At 320px, the center can hit a native textarea instead of the Flutter
+    // ListView. Its 16px padding leaves this 8px gutter clear of input surfaces.
+    async function gutterTop() {
+      if (await page.getByRole('heading', { name: /^D[45] written practice$/ }).count()) {
+        // A single large wheel can leave the lazy list mid-question. Observe
+        // the actual writing header with the same bounded reverse reveal.
+        await gutterReveal(text(/^App-authored 45-minute writing-only practice for D[45]\./),
+          { direction: -1 });
+        return;
+      }
+      await page.mouse.move(8, viewport.height / 2);
+      await page.mouse.wheel(0, -100_000);
+      await page.waitForTimeout(200);
+    }
+    async function gutterReveal(locator, { direction = 1, steps = 70 } = {}) {
+      for (let step = 0; step <= steps; step++) {
+        for (let match = 0, count = await locator.count(); match < count; match++) {
+          const candidate = locator.nth(match);
+          if (await onScreen(candidate)) return candidate;
+        }
+        if (step === steps) break;
+        await page.mouse.move(8, viewport.height / 2);
+        await page.mouse.wheel(0, direction * 540);
+        await page.waitForTimeout(120);
+      }
+      throw new Error('Control could not be revealed from the list gutter during ' + stageName + ': ' + locator);
+    }
+    async function gutterTap(name, options = {}) {
+      const target = named(name, options).or(text(name));
+      await (await gutterReveal(target, options)).click({ timeout: actionTimeout });
+    }
+
+    // Flutter merges a running prompt into its response field's name. Once
+    // writing ends, each question becomes a named group containing its review.
+    // Use those observed question identities instead of lazy-field ordinals.
+    function reviewSection(question) {
+      return page.getByRole('group', {
+        name: new RegExp('^Prompt \\d+\\s+' + escapeRegex(question.prompt) + '\\s+Self-review:'),
+      });
+    }
+    async function writingField(question, { review = false } = {}) {
+      await gutterTop();
+      if (!review) {
+        return gutterReveal(page.getByRole('textbox', {
+          name: new RegExp('^Prompt \\d+\\s+' + escapeRegex(question.prompt) + '\\s+Your explanation$'),
+        }));
+      }
+      return gutterReveal(reviewSection(question).getByRole('textbox', {
+        name: 'What would improve this answer?', exact: true,
+      }));
+    }
+    async function reviewControl(question, label) {
+      return gutterReveal(reviewSection(question).getByRole('button', {
+        name: label, exact: true,
+      }));
+    }
+    function entryLabel(unit) { return `Open ${unit.id} app 45-minute writing`; }
+    async function expandUnit(unit) {
+      await openHomeAction('View WSET progress', 'WSET progress');
+      await gutterTop();
+      await gutterTap(`${unit.id} · ${unit.title}`, { prefix: true });
+      await gutterReveal(named(entryLabel(unit)));
+    }
+    async function reviewedParticipation(unit, expected) {
+      // Only the current product unit is expanded; its counter may be a text
+      // leaf or part of the Diploma Card group's accessible paragraph label.
+      await gutterReveal(named(entryLabel(unit)));
+      const expectedText = `Written practices self-reviewed: ${expected}. ` +
+        'These are participation, not examiner marks or unit passes.';
+      const card = page.getByRole('group', {
+        name: new RegExp(`^${escapeRegex(diploma.title)}(?:\\s|$)`),
+      });
+      await until(async () => {
+        if (await text(expectedText).count() > 0) return true;
+        return (await card.first().getAttribute('aria-label'))?.includes(expectedText);
+      }, `${unit.id} did not show exactly ${expected} reviewed writing participation.`,
+      loadedTimeout);
+    }
+    async function openWriting(unit) {
+      await gutterTap(entryLabel(unit));
+      await visible(`${unit.id} written practice`);
+      await gutterTop();
+      const qualifier = text(new RegExp(
+        `^App-authored 45-minute writing-only practice for ${unit.id}\\.`));
+      await qualifier.first().waitFor({ state: 'visible', timeout: loadedTimeout });
+      const label = await qualifier.first().innerText();
+      assert(label.includes('theory and three-wine tasting in 90 minutes') &&
+        label.includes('not an official split') &&
+        label.includes('Physical wine flights are separate activities') &&
+        label.includes('not official examination questions or marks'),
+      `${unit.id} misrepresents its app writing timer or its evidence.`);
+    }
+    async function leaveWriting(unit) {
+      // Navigator's Back runs the screen's PopScope and drains queued prose.
+      await gutterTap('Back');
+      await visible('WSET progress');
+      await gutterReveal(named(entryLabel(unit)));
+    }
+    async function closeUnit(unit) {
+      await gutterTap(`${unit.id} · ${unit.title}`, { prefix: true, direction: -1 });
+      // The selected Home tab retains its nested progress route. Leave the
+      // page through its visible Back control before opening another unit.
+      await gutterTap('Back');
+      await page.getByRole('heading', { name: 'Home', exact: true })
+        .waitFor({ state: 'visible', timeout: actionTimeout });
+    }
+
+    await navigation('Home');
+    await chooseTrack('WSET Level 4 Diploma');
+    for (const unitId of ['D4', 'D5']) {
+      const unit = diploma.units.find(row => row.id === unitId);
+      const preset = bank.units.find(row => row.unitId === unitId);
+      assert(unit && preset?.durationSeconds === 2700 && preset.questions.length === 3 &&
+        preset.questions.every(question => question.criteria.length === 4),
+      `${unitId} has no complete 45-minute app writing preset.`);
+      const prose = new Map(preset.questions.map(question => [question.id,
+        `UI smoke ${unitId} ${question.id}: compare the supplied production, style and ` +
+        'stock evidence before a conditional decision. Actual wines and missing records still need review.']));
+      const improvements = new Map(preset.questions.map(question => [question.id,
+        `I need a fuller sourced comparison for ${question.id}; this short saved draft ` +
+        'does not yet justify the checklist criteria.']));
+
+      await expandUnit(unit);
+      await reviewedParticipation(unit, 0);
+      await openWriting(unit);
+      await gutterTap(`Start ${unitId} writing`);
+      await gutterTop();
+      const before = await secondsRemaining();
+      const deadline = Date.now() + before * 1000;
+      assert(before > 2600 && before <= 2700, `${unitId} did not start its 45-minute timer.`);
+      assert(await named(preset.questions[0].criteria[0].text).count() === 0,
+        `${unitId} exposed self-review criteria before writing ended.`);
+      for (const question of preset.questions) {
+        const field = await writingField(question);
+        await replaceText(field, prose.get(question.id));
+      }
+      await leaveWriting(unit);
+      await reviewedParticipation(unit, 0);
+      await closeUnit(unit);
+      await reload();
+      await visible('Home', startupTimeout);
+      await until(() => selected(named('WSET Level 4 Diploma')),
+        `${unitId} writing did not retain the selected Diploma track.`, loadedTimeout);
+
+      await expandUnit(unit);
+      await reviewedParticipation(unit, 0);
+      await openWriting(unit);
+      const after = await secondsRemaining();
+      assert(after < before && Math.abs(Date.now() + after * 1000 - deadline) <= 3000,
+        `${unitId} extended or replaced its saved absolute deadline on reload.`);
+      for (const question of preset.questions) {
+        const field = await writingField(question);
+        assert(await readText(field) === prose.get(question.id),
+          `${unitId} did not restore ${question.id}'s response exactly.`);
+      }
+      await gutterTap('End writing and self-review');
+      // Finish adds the review controls asynchronously and changes list height.
+      // Wait for that actual render before scrolling to the ended-status text.
+      const renderedReviewCriterion = page.getByRole('group', {
+        name: /^Prompt \d+\s+[\s\S]*Self-review:/,
+      }).getByRole('checkbox').first();
+      await until(async () => await renderedReviewCriterion.isVisible() &&
+        await renderedReviewCriterion.isEnabled(),
+      `${unitId} did not render an enabled self-review after writing ended.`, actionTimeout);
+      await gutterTop();
+      await gutterReveal(text('Writing ended. Compare each saved answer with the criteria and explain what to improve.'), { direction: -1 });
+      await visible('Writing ended. Compare each saved answer with the criteria and explain what to improve.');
+      assert(await timer().count() === 0, `${unitId} kept a running timer after writing ended.`);
+      for (const question of preset.questions) {
+        // An honest review with no criteria selected records participation,
+        // never an automatic mark for these deliberately brief responses.
+        const field = await writingField(question, { review: true });
+        await replaceText(field, improvements.get(question.id));
+        const save = await reviewControl(question, 'Save self-review');
+        await save.click({ timeout: actionTimeout });
+        // Save's action is asynchronous; keep this question in view while its
+        // existing button becomes Update instead of scrolling on a missing match.
+        await reviewSection(question).getByRole('button', {
+          name: 'Update self-review', exact: true,
+        }).waitFor({ state: 'visible', timeout: actionTimeout });
+      }
+      await gutterTop();
+      await gutterReveal(text('All three responses self-reviewed. This is participation, not a grade or pass.'), { direction: -1 });
+      await visible('All three responses self-reviewed. This is participation, not a grade or pass.');
+      await screenshot(`11-writing-${unitId.toLowerCase()}-reviewed`);
+      await leaveWriting(unit);
+      await reviewedParticipation(unit, 1);
+      await closeUnit(unit);
+      await reload();
+      await visible('Home', startupTimeout);
+
+      await expandUnit(unit);
+      await reviewedParticipation(unit, 1);
+      await openWriting(unit);
+      await visible(`Start ${unitId} writing`);
+      await gutterTap('Self-reviewed practice', { prefix: true });
+      // Resuming history also loads its controls asynchronously before the list
+      // settles. Observe the saved review before scrolling to its status text.
+      const resumedReviewCriterion = page.getByRole('group', {
+        name: /^Prompt \d+\s+[\s\S]*Self-review:/,
+      }).getByRole('checkbox').first();
+      await until(async () => await resumedReviewCriterion.isVisible() &&
+        await resumedReviewCriterion.isEnabled(),
+      `${unitId} did not load its saved self-reviewed writing history.`, actionTimeout);
+      await gutterTop();
+      await gutterReveal(text('All three responses self-reviewed. This is participation, not a grade or pass.'), { direction: -1 });
+      await visible('All three responses self-reviewed. This is participation, not a grade or pass.');
+      for (const question of preset.questions) {
+        const field = await writingField(question, { review: true });
+        assert(await readText(field) === improvements.get(question.id),
+          `${unitId} did not restore ${question.id}'s explicit self-review exactly.`);
+      }
+      await leaveWriting(unit);
+      await reviewedParticipation(unit, 1);
+      await closeUnit(unit);
+      await checkRuntimeMessages();
+      result.assertions.diplomaProductWriting.push({ unit: unitId,
+        durationSeconds: preset.durationSeconds, responsesRestored: 3,
+        selfReviewsRestored: 3, absoluteDeadlineRestored: true,
+        reviewedParticipation: 1, appPresetQualified: true });
+    }
+  });
   await waitForFontManifest(currentDocumentLoaderId, 'final document');
   await waitForTransientRequests('final browser check');
   assertNoBrowserErrors();

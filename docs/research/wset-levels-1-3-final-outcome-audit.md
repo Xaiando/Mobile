@@ -2,7 +2,7 @@
 
 ## 30 September 2026 supplement: candidate 0.24.61
 
-The resumed named-specification audit found concrete omissions that the historical 27 September verdict below had not identified. This supplement supersedes that verdict for the current candidate. It records corrected content and required selection; current candidate delivery validation is pending. Internal editorial review, qualified factual review, actual tasting performance and an official qualification remain separate evidence.
+The resumed named-specification audit found concrete omissions that the historical 27 September verdict below had not identified. This supplement supersedes that verdict for the current candidate. It records corrected content and required selection from .61. That candidate's final full suite had 1,318 passing tests and six failures; the six diagnosed failures were repaired and their checks passed in .62. Current .63 acceptance is tracked in the [combined validation](combined-companion-validation-2026-09-30.md). Internal editorial review, qualified factual review, actual tasting performance and an official qualification remain separate evidence.
 
 | Level | Required topic rows | Distinct required facts |
 |---|---:|---:|
@@ -32,7 +32,7 @@ Two added geography requirements select 27 existing named location facts that we
 
 The frozen [PR #44 CI run](https://github.com/Xaiando/Mobile/actions/runs/36633382422) finished successfully at head `a77df27bfb27f5a3cc39337a1a37b996cd68b945`: all five jobs passed, and its final hosted test log reports 1,293 passing tests at `2026-09-29T23:56:38.0496084Z` (01:56:38 on 30 September in Oslo). That final log is observed completion evidence. The prior `in_progress` metadata had not revealed a test name or count.
 
-The newer local 0.24.59/0.24.60 full-suite runs were interrupted by the PC restart. Their earlier focused/analyzer/browser evidence remains scoped to the checks actually completed; neither interrupted run is a final full-suite pass. The current 0.24.61 candidate's integrated tests, analysis, coverage and release checks remain pending and are recorded separately by root. No tests are skipped, assertions weakened or hosted workflow restarted to replace that evidence.
+The newer local 0.24.59/0.24.60 full-suite runs were interrupted by the PC restart. Their earlier focused/analyzer/browser evidence remains scoped to the checks actually completed; neither interrupted run is a final full-suite pass. The .61 analysis, coverage, release build and original ten browser stages passed. Its final full suite ended at 02:20:54 UTC after 65 minutes 48 seconds with 1,318 tests passed and six failed. All six count/date/mapping failures were repaired and passed in .62's focused checks. The [combined .63 validation](combined-companion-validation-2026-09-30.md) records current acceptance; the older failed log remains preserved. No tests are skipped, assertions weakened or hosted workflow restarted to replace that evidence.
 
 The corrections close these identified authored-scope omissions. They do not establish a blanket claim that every syllabus claim has passed expert verification, that app practice assesses physical tasting skill, or that a learner has earned a WSET qualification. Diploma D1–D6 remains incomplete; history and other beverages remain outside Award in Wines completion.
 

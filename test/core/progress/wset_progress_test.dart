@@ -1,7 +1,11 @@
+import 'dart:async';
 import 'dart:convert';
 import 'dart:io';
 import 'dart:math';
 
+import 'package:drift/drift.dart'
+    show ApplyInterceptor, QueryExecutor, QueryInterceptor;
+import 'package:drift/native.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:fsrs/fsrs.dart' as fsrs;
 import 'package:sommelier/core/backup/user_data_backup.dart';
@@ -347,6 +351,96 @@ void main() {
     expect(await db.select(db.reviewEvents).get(), isEmpty);
   });
 
+  test('a review saved during a progress read counts without a stale-time rejection', () async {
+    await db.close();
+    final gate = _ProgressReadGate();
+    final racedDb = AppDatabase(NativeDatabase.memory().interceptWith(gate));
+    db = racedDb;
+    await seedCurriculum(racedDb);
+    await seedSchedulerConfig(racedDb);
+    await racedDb.writeCurriculum(
+      () => runSql(racedDb, [
+        "INSERT INTO certifications VALUES ('WSET_L4','WSET',4,'WSET Level 4 Diploma','WSET_L3',NULL,1,'certification',NULL)",
+      ]),
+    );
+    await LearnerProfiles(racedDb, clock: time.clock).selectTrack('WSET_L4');
+    final writing = DiplomaWrittenRepository(
+      racedDb,
+      bank: DiplomaWrittenBank.fromJson(
+        File('assets/study/diploma_written_practice.json').readAsStringSync(),
+      ),
+      clock: time.clock,
+      random: Random(73),
+    );
+    final attempt = await writing.start('D4');
+    for (final question in attempt.questions) {
+      await writing.answer(
+        attempt.id,
+        question.id,
+        'A saved comparison for ${question.id}.',
+      );
+    }
+    await writing.finish(attempt.id);
+    for (final question in attempt.questions.take(2)) {
+      await writing.review(
+        attempt.id,
+        question.id,
+        {},
+        'I need stronger evidence for ${question.id}.',
+      );
+    }
+    final racedProgress = WsetProgressRepository(
+      racedDb,
+      clock: time.clock,
+      scope: testScope(
+        units: [
+          for (var unit = 1; unit <= 6; unit++)
+            WsetUnitScope(id: 'D$unit', title: 'Unit $unit', gap: ''),
+        ],
+      ),
+    );
+    expect(
+      (await racedProgress.snapshot()).levels.last.units[3].writtenPractices,
+      0,
+      reason: 'two self-reviews are not a complete writing participation',
+    );
+
+    // Pause the actual snapshot's first curriculum read before the executor
+    // receives it. A real review transaction can then commit while that
+    // awaited read is still pending, without sleeps or a synthetic snapshot.
+    gate.arm();
+    final pending = racedProgress.snapshot();
+    try {
+      await gate.entered.future.timeout(const Duration(seconds: 5));
+      time.advance(const Duration(seconds: 1));
+      final finalQuestion = attempt.questions.last;
+      final completed = await writing.review(
+        attempt.id,
+        finalQuestion.id,
+        {},
+        'I will compare the missing evidence for the final response.',
+      );
+      expect(completed.isReviewed, isTrue);
+      expect(completed.reviews[finalQuestion.id]!.reviewedAt, time.now);
+    } finally {
+      gate.release.complete();
+    }
+    final snapshot = await pending.timeout(const Duration(seconds: 5));
+    final diploma = snapshot.levels.last;
+    expect(
+      diploma.units[3].writtenPractices,
+      1,
+      reason:
+          'The snapshot read the committed final review, so an earlier '
+          'clock capture must not reject it as future-dated.',
+    );
+    expect(snapshot.asOf, time.now);
+    expect(diploma.examPassed, isFalse);
+    expect(diploma.appLevelComplete, isFalse);
+    expect(await racedDb.select(racedDb.reviewEvents).get(), isEmpty);
+    expect(await racedDb.select(racedDb.reviewStates).get(), isEmpty);
+  });
+
   test('D4 physical flights count only as unit participation', () async {
     await db.writeCurriculum(
       () => runSql(db, [
@@ -639,4 +733,29 @@ void main() {
     units.last['itemIds'] = ['ki_shared'];
     expect(() => WsetScope.fromJson(jsonEncode(value)), throwsFormatException);
   });
+}
+
+/// A one-shot pause outside the SQLite executor, allowing an unrelated save
+/// to commit while an awaited progress curriculum query is pending.
+class _ProgressReadGate extends QueryInterceptor {
+  final entered = Completer<void>();
+  final release = Completer<void>();
+  bool _armed = false;
+  bool _blocked = false;
+
+  void arm() => _armed = true;
+
+  @override
+  Future<List<Map<String, Object?>>> runSelect(
+    QueryExecutor executor,
+    String statement,
+    List<Object?> args,
+  ) async {
+    if (_armed && !_blocked && statement.contains('knowledge_items')) {
+      _blocked = true;
+      entered.complete();
+      await release.future;
+    }
+    return executor.runSelect(statement, args);
+  }
 }

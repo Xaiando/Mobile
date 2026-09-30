@@ -192,16 +192,40 @@ void main() {
         ),
         isEmpty,
       );
-      for (final id in [
-        'wset_l4.sparkling.tasting',
-        'wset_l4.fortified.tasting',
-      ]) {
-        expect(measured[id]!.status, ObjectiveStatus.represented, reason: id);
-        expect(measured[id]!.items, 8, reason: id);
-        expect(measured[id]!.core, 8, reason: id);
-        expect(measured[id]!.usefulPractice, 8, reason: id);
+      const sensorySubjects = {
+        'wset_l4.sparkling.tasting': {
+          'n_d45taste_case_sparkling_lees',
+          'n_d45taste_case_sparkling_quality',
+        },
+        'wset_l4.fortified.tasting': {
+          'n_d45taste_case_sherry_sweetness',
+          'n_d45taste_case_port_development',
+          'n_d5sensory_case_madeira_compare',
+          'n_d5sensory_case_rutherglen_muscat',
+          'n_d5sensory_case_age_quality',
+        },
+      };
+      const sensoryRoles = {
+        'CASE_ACTION',
+        'CASE_REASON',
+        'CASE_TRADEOFF',
+        'CASE_LIMITATION',
+      };
+      for (final entry in sensorySubjects.entries) {
+        final objective = measured[entry.key]!;
+        final expectedCount = entry.value.length * sensoryRoles.length;
+        expect(objective.objective.covers!.within, entry.value);
+        expect(objective.objective.covers!.relationTypes, sensoryRoles);
         expect(
-          measured[id]!.objective.tasks,
+          objective.status,
+          ObjectiveStatus.represented,
+          reason: entry.key,
+        );
+        expect(objective.items, expectedCount, reason: entry.key);
+        expect(objective.core, expectedCount, reason: entry.key);
+        expect(objective.usefulPractice, expectedCount, reason: entry.key);
+        expect(
+          objective.objective.tasks,
           isNotEmpty,
           reason: 'authored sensory cases do not establish physical accuracy',
         );

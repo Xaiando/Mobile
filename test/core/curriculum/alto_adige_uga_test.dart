@@ -6,7 +6,7 @@ void main() {
   final dataset = bundledDataset();
 
   test(
-    'five Alto Adige units sit in Alto Adige and the lookalikes were not added',
+    'seven qualified Alto Adige references preserve the excluded lookalikes',
     () {
       const accepted = {
         'n_geo_alto_adige_uga_buchholz': 'Buchholz',
@@ -14,6 +14,8 @@ void main() {
         'n_geo_alto_adige_uga_gries': 'Gries',
         'n_geo_alto_adige_uga_penon': 'Penon',
         'n_geo_alto_adige_uga_rain': 'Rain',
+        'n_geo_alto_adige_uga_montiggl': 'Montiggl',
+        'n_geo_alto_adige_uga_missian': 'Missian',
       };
       for (final entry in accepted.entries) {
         final node = dataset.knowledgeNodes.singleWhere(
@@ -26,8 +28,7 @@ void main() {
         expect(relation.objectId, 'n_geo_alto_adige');
       }
       final names = dataset.knowledgeNodes.map((n) => n.name).toSet();
-      expect(names, isNot(contains('Missian')));
-      expect(names, isNot(contains('Montiggl')));
+      expect(names, containsAll(['Missian', 'Montiggl']));
       expect(names, isNot(contains('Mazon')));
       expect(names, isNot(contains('Gries-Moritzing')));
       expect(

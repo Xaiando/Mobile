@@ -32,7 +32,7 @@ Required selections and core mappings are different denominators. Level 3 geogra
 - Final static analysis passed with no issues after the unused test import was removed. Formatting checked all 391 non-generated Dart files with zero changes; git diff whitespace check passed.
 - Parser/current-progress/legacy-participation regressions: 22 / 22 passed in 1 second, including the additional configuration guard.
 - History timeline regression passed in 42 seconds on both CMS and Diploma tracks: all six bridge assertions, 117 history facts, chronological grouping, source details, unverified status and memory display. It scrolls the phone detail sheet with a fixed bound; the initial failure and all assertions remain documented.
-- Web asset hashes/versions match sqlite3 3.6.0 and Drift 2.35.0 in the pinned lockfile. Release web build passed with bundled resources and a successful Wasm dry run. Browser smoke and full suite remain pending. No complete candidate pass is claimed until their final logs are inspected.
+- Web asset hashes/versions match sqlite3 3.6.0 and Drift 2.35.0 in the pinned lockfile. Release web build passed with bundled resources and a successful Wasm dry run. The original ten browser stages passed. The final full suite ended at 02:20:54 UTC after 65 minutes 48 seconds: 1,318 tests passed and six failed. The six diagnosed count/date/mapping failures were repaired in .62, whose corresponding focused checks passed. This .61 result remains a failed full suite; current .63 gates are recorded in the [combined validation](combined-companion-validation-2026-09-30.md).
 
 Logs are local ignored build artifacts in the level2-tasting-quality managed worktree. Dart commands that execute SQLite native hooks are sequential because concurrent hooks encountered a Windows DLL lock in the prior continuation. Dependencies resolved with the pinned lockfile; --no-pub avoids a redundant Windows Developer Mode/symlink check without changing OS settings.
 
@@ -40,7 +40,7 @@ Logs are local ignored build artifacts in the level2-tasting-quality managed wor
 
 Frozen [PR #44](https://github.com/Xaiando/Mobile/pull/44), head a77df27bfb27f5a3cc39337a1a37b996cd68b945, remains unchanged. Its [run 36633382422](https://github.com/Xaiando/Mobile/actions/runs/36633382422) passed all five jobs. The inspected hosted log ends at 2026-09-29T23:56:38.0496084Z with 1,293 tests passed. This validates its own head.
 
-The PC restart interrupted the newer .59 and .60 local full suites. Their focused and browser evidence remains preserved and limited to completed checks; neither interrupted run supplies a full-suite pass. The final .61 suite will supersede those incomplete runs.
+The PC restart interrupted the newer .59 and .60 local full suites. Their focused and browser evidence remains preserved and limited to completed checks; neither interrupted run supplies a full-suite pass. The inspected .61 full-suite result is 1,318 passed and six failed; it supplies a completed result for its own frozen head, not a passing replacement.
 
 ## Remaining acceptance work
 

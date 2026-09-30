@@ -559,8 +559,8 @@ void main() {
     expect(snapshot.levels.map((level) => level.counts.mapped), [
       132,
       844,
-      3442,
-      4158,
+      3444,
+      4184,
     ]);
     final diploma = snapshot.levels.last;
     final unitIds = {
@@ -571,6 +571,7 @@ void main() {
         'ki_spark_',
         'ki_d4nw_',
         'ki_d4brit_',
+        'ki_d4commercial_',
         'ki_d4depth_',
         'ki_d4d5_bourgogne_',
         'ki_d4d5_saumur_',
@@ -584,6 +585,7 @@ void main() {
         'ki_fort_',
         'ki_d5f_',
         'ki_d5madeira_',
+        'ki_d5sensory_',
         'ki_d4d5_palo_',
         'ki_d4d5_lbv_',
         'ki_d4d5_colheita_',

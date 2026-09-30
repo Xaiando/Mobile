@@ -1,60 +1,49 @@
 # Remaining companion acceptance plan — 30 September 2026
 
-This plan follows the current code and pinned scope, superseding historical 'not started' notes without turning an authored numerator into complete certification coverage. Source-linked research and independent criticism precede curriculum changes. Root owns manifests, scope integration, measured baselines and final checks; parallel agents own separate packs and tests.
+The combined local 0.24.63 continuation implements the audited content and feature batches listed below. Its release gates remain pending. A further bounded audit identified two D3 study-feature gaps for a separate next candidate, in addition to qualified review and specific licensed map evidence. Authored counts do not demonstrate complete certification preparation. The [combined validation record](combined-companion-validation-2026-09-30.md) records measured delivery and exact gate outcomes.
 
-## Completed candidate work
+## Implemented batches
 
-| Task | Implementation | Evidence |
+| Task | Current result | Evidence |
 |---|---|---|
-| Level 1 named-outcome crosswalk | No concrete missing named outcome identified; 49 rows/132 required facts unchanged | Official-source comparison and unchanged delivered baseline |
-| Level 2 labels/condition/quality | Six Prädikat mappings, three new principles, six existing quality principles required | Scope/choice regressions passed; 767 required facts, 763 core useful |
-| Level 2 written quality participation | Bank 1.1.0, saved description+quality evidence, compatible old drafts/history | 12 quality/UI tests and 22 parser/progress regressions passed |
-| Level 3 compulsory origins | 27 required location facts; 11 core promotions | Actual click/identify delivery tested; geography core 1,071/1,071 |
-| CMS authored core practice | 68 earlier delivery gaps closed in .60 | Current measured core 1,247/1,247; original prerequisites retained |
-| OCR percentage-tail bug | Whole unsigned numeric tokens, bounded wine ABV, vintage exclusion | 12 parser tests included in the 22-regression pass |
-| Ancient history visibility | Six existing Amarna assertions selected in chronological upper-track timeline | Phone-source regression passed on both upper tracks; no new facts added |
+| WSET Level 1 named scope | 49 internally reviewed rows and 132 required facts | Public specification comparison; actual bundled delivery |
+| WSET Level 2 scope/quality | Six Prädikat meanings, three new condition/must-weight facts, six existing quality mappings; saved description/quality prose | 446 rows, 767 required facts; focused scope/quality and progress regressions |
+| WSET Level 3 compulsory origins | 27 required locations and 11 core promotions | Actual click/identify delivery; 892 rows and 1,655 required facts |
+| History and beverage continuation | Areni, Romans, both Napoleons and modern history; beer, cider, spirits, sake and cigar teaching; Amarna timeline visibility | Existing cited courses and passed phone source-sheet regression; no duplicate historical gap claims |
+| Cellar scanner/parser | Private photos, explicit proposals, manual fallback, Android lost-pick recovery and whole percentage-token checks | Parser/progress checks; physical OCR acceptance remains unobserved |
+| CMS classic cocktails | Sixteen original recipe/service facts, eight named IBA reference recipes | Source/choice review and real runtime grading passed in .62 |
+| CMS applied arithmetic | Six hypothetical quantity/price exercises, exact numeric amount/unit grading | Independent arithmetic and wrong-input regressions passed; fuzzy typed matching excluded |
+| D4 British category comparison | Fourteen Diploma-only facts, six principles and two cases | Current English/Welsh registered specs/FSA sources; runtime checks passed |
+| D5 Madeira site/style | Fourteen Diploma-only facts, six principles and two cases | IVBAM region/variety sources; runtime checks passed |
+| D4 New World commercial cases | Three complete cases/twelve facts; all four roles deliberately selected | Source/criterion review, measured commerce objective 63 facts, focused case delivery passed |
+| D5 fictional sensory cases | Three complete cases/twelve facts; five-subject/twenty-fact tasting objective | Source/criterion review, exact objective and grading regressions passed |
+| D4/D5 sustained writing | Six original prompts/24 criteria, labelled app-only timers and durable responses/review | 55 related progress/writing/core/widget checks passed after transaction, unsaved-review, evidence-cutoff and independent saved-count repairs; final browser persistence stage pending |
+| Optional fine atlas references | Two primary-identity/GeoNames additions; seven qualified Alto Adige settlement points | Real click/identify regression; 41-layer reproducibility and all 21 Node tests passed with zero skips |
 
-## Active candidate gates
+CMS has useful practice for all 1,269 selected core facts; Diploma for all 2,919. All 4,459 assertions remain unverified. D1–D6 remain incomplete study workstreams until content sufficiency and qualified assessment are actually established. The private D6 source/argument/draft workspace and physical D4/D5 flights are already implemented.
 
-The .61 source snapshot is committed as `8b42973bb69e6c8c78c1ff5beec853e99ed816a3`. Its release web build, all ten browser smoke stages, static checks and focused regressions passed. Its unchanged complete suite is still running and has exposed six old test assumptions (release counts, a pre-publication clock and six intentional L2 quality remappings); the diagnostics are preserved and corrected in the next isolated candidate. No passing full-suite claim or publication follows from the focused gates.
+## Release gates
 
-Release .62 has all four first-priority packs authored and integrated: 16 CMS cocktail facts, six original numeric examples, 14 British sparkling facts and 14 Madeira facts. Independent source/arithmetic/choice review is complete, static analysis passed and final lint reports zero errors/three existing warnings. Runtime regressions, measured coverage, release build and final full-suite gates remain pending. D4/D5 explicit authored selectors are147/116; neither unit is marked complete. See [candidate evidence](product-service-depth-validation-2026-09-30.md).
+1. Preserve PR #44 at `a77df27bfb27f5a3cc39337a1a37b996cd68b945` and its all-five-job/1,293-test success. The original dirty checkout is not changed.
+2. Preserve the completed .61 full-suite result: 1,318 passed, six failed. All six diagnosed count/date/mapping failures were repaired and passed in .62's 54-test group; that does not turn the earlier failed run into a pass.
+3. Complete the rebuilt .63 release build and eleven-stage browser run. The first release build and original ten browser stages passed; stage eleven exposed an observed `opfsLocks` nested-transaction completion hang. It is repaired without changing browser timeouts or assertions. A further review-edit regression reproduced and fixed an unsaved-note/choice overwrite; the final browser run also aligns question selectors with observed merged accessibility names. A subsequent capture showed a real zero writing counter despite three saved reviews; a gated concurrent-save regression reproduced stale-time rejection and the evidence cutoff is now taken after settings are read. Genuine future records remain invalid. The original ten stages stay intact; stage eleven observes both D4/D5 saved prose, absolute deadlines, review notes and participation across reloads.
+4. Commit the concrete combined snapshot, run the complete suite unchanged, inspect its final log, and fix any concrete failure in a separate candidate. Poll at five-minute checkpoints; unchanged status is not progress. Two hours is a diagnostic checkpoint, not cancellation permission.
+5. Publish a separate continuation PR only after the concrete gates pass. Do not alter PR #44's head, skip tests, loosen assertions or restart a hosted workflow for speed.
 
-A separate checkout is authoring three New World D4 commercial cases, three fictional D5 sensory cases and saved D4/D5 written rehearsals. The writing-only45-minute timers are app presets, not an official split of WSET's combined90-minute writing/tasting assessment.
+Final static analysis, zero-error curriculum lint, five-track coverage ratchet and reproducible map generation already pass. The integrated focused group passed 68 tests and found one invalid synthetic Diploma-unit fixture; correcting it to include D1–D6 preserved the production validator, and all five tests in that file then passed. Its original failed log remains available. The complete .63 suite is still required.
 
-## Candidate validation before publication
+## Next candidate: D3 linked study practice
 
-1. Complete the history source-sheet phone regression, preserving all six lessons and source/status assertions.
-2. Run final static analysis and format checks; curriculum lint must remain zero errors. Regenerated .61 coverage has zero known blocking gaps.
-3. Build the normal release web app with bundled resources and run all browser smoke stages against that build.
-4. Commit the concrete .61 source snapshot and run its complete test suite. Read its final log; interrupted .59/.60 logs do not count as passes.
-5. Publish a separate continuation PR only after concrete validation. Preserve PR #44 head a77df27bfb27f5a3cc39337a1a37b996cd68b945 and its 1,293-test/all-five-job success.
+The [public Diploma specification, Issue 1.4, pages 12–13](https://www.wsetglobal.com/media/17609/wset_l4wines_specification_en_august-2025.pdf) requires regional causal evaluation and accurate tasting. The existing D3 regional short-answer cases store submitted prose, and the Tasting section saves blind single-wine records. Those activities remain available. The following workflows are still absent:
 
-## Next authored batches
+1. Saved, resumable sustained D3 regional writing with original prompts, a clearly app-authored deadline, response history and explicit improvement-led self-review. The current dedicated writing bank supports D1/D2/D4/D5 only.
+2. A linked D3 still-wine flight with cross-wine comparison, saved evidence, self-review and separate participation. The current grouped-flight bank and progress entry points support D4/D5 only.
 
-| Priority | Bounded task | Required result and validation |
-|---|---|---|
-| 1 | CMS classic cocktails | Original identification/recommendation lessons from named IBA reference recipes; distinguish the supplied reference from universal preparation rules. Cited alternatives, recall and service scenarios; CMS-only mapping and actual runtime delivery. The .61 inventory had zero cocktail lessons; the .62 candidate adds16 and awaits runtime validation. |
-| 2 | CMS applied service/business arithmetic | Bottle volume, event quantities, selling price and GP/markup exercises with explicitly supplied hypothetical pours/costs. Reuse the numeric runtime; test units, rounding, correct/incorrect responses, margin versus markup and source dates. Existing formulas alone do not supply worked numeric practice. |
-| 3 | D4 English/Welsh category comparison | Six principles and two four-role cases on sparkling PDO/PGI/unprotected names, grapes, origin and certification evidence. Use current registered specs/FSA guidance, not consultation proposals; do not apply sparkling permissions to still PDO wine. |
-| 4 | D5 Madeira regional/style comparison | Six principles and two four-role cases on poios, water, training, hand harvest, labour and Verdelho/Boal comparisons. Use IVBAM; do not make indicative sugar bands or approximate elevations legal limits. |
-| 5 | D4 New World commercial packets | Three four-role comparative offers for US, Chile/Argentina and NZ/Cap Classique. Reuse existing cited mechanisms, supplied hypothetical figures and dated evidence; producer examples are not national norms. |
-| 6 | D5 fictional sensory packets | Three four-role Madeira, Muscat/Rutherglen and quality/age-tier cases. Teach what observations support and cannot authenticate; maintain self-assessment boundaries and distinct sources. |
-| 7 | D4/D5 sustained written practice | Three original questions per unit, durable responses and explicit formative self-review. Current runtime supports D1/D2 only; extend without replacing physical flights or inventing automatic official marks. |
-| 8 | Fine atlas references | Resolve each missing named reference from primary identity plus licensed coordinate/geometry evidence. Reject guessed parcel boundaries and keep reference markers distinct from legal wine areas. |
+Implement these after freezing .63, retaining its acceptance evidence and using a separate candidate for code changes. Preserve every existing bank/snapshot and backup contract; retain genuine future/corrupt-record guards and keep participation separate from memory, physical wine verification and official results. Use original teaching activities rather than reproducing examination questions or inferring that practice must imitate the official two six-wine papers. Validate exact draft/deadline/review restoration and linked-record ownership, interruption, deletion and backup behavior. These are app features, not substitutes for qualified tasting or assessment.
 
-Research audit confirmed that current history already includes Areni, the Romans, both Napoleons and dated modern developments. Sake pairing, spirit identities and nonclassified liqueur teaching already exist; do not duplicate those old .22 gaps. Current D4/D5 sensory and physical-flight support and the D6 private source/argument/draft workspace also exist.
+## Bounded evidence still required
 
-## External acceptance evidence
-
-- At a fixed candidate commit, record physical Android and iPhone capture/OCR, permission/cancel flows, native HEIC, offline Latin recognition, interrupted-pick recovery, restart persistence, backup/restore and guarded photo cleanup. Desktop/web/build passes do not observe those outcomes. The scanner research note defines a bounded session.
-- Obtain qualified factual and curriculum sufficiency review through the existing ledger, and qualified feedback on actual tasting. All 4,383 assertions currently remain unverified; models must not invent reviewer verification.
-- Keep app mastery, practice participation and learner-reported official exam outcomes separate. Diploma's six workstreams remain incomplete until their content and review acceptance criteria are genuinely met.
-
-Primary-source candidates and current IDs are recorded in the outcome and scanner audits and the next-batch research. Historical audits remain dated evidence rather than current task inventories.
-
-## Integrated continuation checkpoint
-
-The .61 release browser completed all ten stages, but its unchanged full suite ended with 1,318 passed and six failed. Those six exact count/date/mapping regressions were repaired and passed in the 54-test .62 group. Priorities 1–4 above are implemented in .62 (50 new facts); final analysis and zero-error lint passed, and five-track measured coverage has zero known gaps. The standalone .62 snapshot is an intermediate commit, not a claimed full-suite release.
-
-Priorities 5–7 and two qualified optional Alto Adige reference points are authored in a separate .63 worktree. Root will integrate them, regenerate the map and measured baselines, validate focused writing/case/map behavior, build the release, run the existing ten browser stages plus the new D4/D5 writing-persistence stage, and inspect a complete combined suite before publication. Expert factual and physical-device acceptance remain unobserved.
+- Three Vino Nobile Pievi references and Paardeberg South require accepted licensed coordinates/geometry and primary name identity. A name match or restrictive map cannot justify guessed parcel boundaries. Source research remains read-only until that chain is sound.
+- At a fixed candidate commit, record one physical Android and one iPhone scanner session: capture, permission/cancel behavior, HEIC, offline Latin recognition, corrected proposals, lost-pick recovery, restart persistence, backup/restore and guarded cleanup. Record model/OS, build, inputs, timestamps and actual outcomes. Desktop/browser builds do not observe these results.
+- Obtain qualified factual and curriculum sufficiency review through the existing ledger and qualified feedback on real tasting. Models must not invent expert verification or examination equivalence.
+- Keep current memory mastery, practice participation and learner-reported official exam results separate. A study milestone is not a WSET qualification.

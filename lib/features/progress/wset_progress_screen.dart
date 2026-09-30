@@ -4,6 +4,9 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
 
 import '../../app/progress_state.dart';
+import '../../core/diploma_written/diploma_written.dart';
+import '../../core/diploma_written/diploma_written_evidence.dart';
+import '../../core/diploma_written/diploma_written_providers.dart';
 import '../../core/progress/progress_providers.dart';
 import '../../core/progress/wset_progress.dart';
 import '../../core/study/study_providers.dart';
@@ -156,6 +159,9 @@ class _LevelSectionState extends ConsumerState<_LevelSection> {
   @override
   Widget build(BuildContext context) {
     final level = widget.level;
+    final writtenEvidence = level.scope.certificationId == 'WSET_L4'
+        ? ref.watch(diplomaWrittenEvidenceProvider)
+        : null;
     final counts = level.milestoneCounts;
     final theme = Theme.of(context);
     final target = level.selectable
@@ -435,12 +441,16 @@ class _LevelSectionState extends ConsumerState<_LevelSection> {
                             Text(
                               '${unit.counts.unavailable} mapped facts are not yet available.',
                             ),
-                          if (unit.scope.id == 'D1' ||
-                              unit.scope.id == 'D2') ...[
+                          if (level.scope.certificationId == 'WSET_L4' &&
+                              diplomaWrittenDurations.containsKey(
+                                unit.scope.id,
+                              )) ...[
                             const SizedBox(height: 8),
                             Text(
-                              'Written practices self-reviewed: ${unit.writtenPractices}. '
-                              'These are participation, not examiner marks or unit passes.',
+                              _writtenParticipationLabel(
+                                writtenEvidence!,
+                                unit.scope.id,
+                              ),
                               key: ValueKey(
                                 'wset_unit_written_${unit.scope.id}',
                               ),
@@ -458,7 +468,8 @@ class _LevelSectionState extends ConsumerState<_LevelSection> {
                                     ),
                               child: Text(
                                 'Open ${unit.scope.id} '
-                                '${unit.scope.id == 'D1' ? '90' : '60'}-minute writing',
+                                '${unit.scope.id == 'D4' || unit.scope.id == 'D5' ? 'app ' : ''}'
+                                '${diplomaWrittenDurations[unit.scope.id]! ~/ 60}-minute writing',
                               ),
                             ),
                           ],
@@ -566,3 +577,16 @@ class _LevelSectionState extends ConsumerState<_LevelSection> {
     );
   }
 }
+
+String _writtenParticipationLabel(
+  AsyncValue<DiplomaWrittenEvidence> evidence,
+  String unitId,
+) => switch (evidence) {
+  AsyncData(:final value) =>
+    'Written practices self-reviewed: ${value.forUnit(unitId)}. '
+        'These are participation, not examiner marks or unit passes.'
+        '${value.unreadableCount == 0 ? '' : ' ${value.unreadableCount} saved writing record${value.unreadableCount == 1 ? '' : 's'} could not be read; they receive no participation credit.'}',
+  AsyncError() =>
+    'Saved writing participation could not be read. Reopen progress to retry.',
+  _ => 'Reading saved writing participation…',
+};

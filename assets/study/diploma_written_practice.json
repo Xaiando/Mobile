@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "version": "1.0.0",
+  "version": "1.1.0",
   "units": [
     {
       "unitId": "D1",
@@ -72,6 +72,152 @@
             {"id": "mix", "text": "I connected product, price, placement, promotion and people to that audience rather than listing them."},
             {"id": "constraints", "text": "I addressed a budget, channel or regulatory constraint affecting execution."},
             {"id": "evaluation", "text": "I proposed observable measures and a way to adjust the plan if results differ from expectations."}
+          ]
+        }
+      ]
+    },
+    {
+      "unitId": "D4",
+      "title": "Sparkling wines",
+      "durationSeconds": 2700,
+      "questions": [
+        {
+          "id": "d4_champagne_house",
+          "prompt": "A fictional Champagne house has a warm harvest and several reserve-wine parcels of different ages. It wants a consistent non-vintage cuvee without making every trial taste identical. Explain a blending and bottle-maturation plan, how it could affect style and cost, and what evidence the house needs before promising a release volume and price.",
+          "criteria": [
+            {
+              "id": "blend",
+              "text": "I explained how current and reserve wines could support the intended house style, using trial evidence rather than a fixed reserve percentage."
+            },
+            {
+              "id": "production",
+              "text": "I connected a relevant base-wine or bottle-maturation choice to possible balance and flavour development."
+            },
+            {
+              "id": "stock",
+              "text": "I compared inventory, time and supply implications with the stated release goal, without inventing a current price or margin."
+            },
+            {
+              "id": "limits",
+              "text": "I justified a conditional decision and identified tasting or stock evidence that could change it."
+            }
+          ]
+        },
+        {
+          "id": "d4_italian_products",
+          "prompt": "A fictional restaurant can list two wines from three offers: a white Trentodoc Riserva, a Lambrusco di Sorbara and a Lambrusco Grasparossa di Castelvetro. The offers have producer sheets but no tasting results or final landed prices. Compare their potential list roles using origin, production and category information. Recommend how to choose two for contrasting dishes and a defined budget.",
+          "criteria": [
+            {
+              "id": "categories",
+              "text": "I distinguished the three product identities and relevant production or maturation information instead of treating Italian sparkling wine as one style."
+            },
+            {
+              "id": "styles",
+              "text": "I compared possible colour, structure and sweetness roles, checking the actual Lambrusco versions rather than assuming all are sweet."
+            },
+            {
+              "id": "economics",
+              "text": "I linked maturation, producer information and list fit to commercial trade-offs while keeping any price comparison conditional on quotes."
+            },
+            {
+              "id": "decision",
+              "text": "I proposed a justified selection or tasting plan for the dishes and budget, without deriving a quality ranking from the designation alone."
+            }
+          ]
+        },
+        {
+          "id": "d4_australian_supply",
+          "prompt": "A fictional buyer compares a Tasmania bottle-fermented sparkling with documented lees ageing, a South Eastern Australia tank-fermented sparkling, and a third offer labelled Victoria with no detailed sourcing or method sheet. Explain how growing conditions and production choices could affect style and cost. Recommend a supply plan for a fruit-led list with one more complex option, stating what remains unknown.",
+          "criteria": [
+            {
+              "id": "origin",
+              "text": "I separated the stated origins from narrower site, grape and vintage evidence; broad Victoria or South Eastern Australia names do not establish one climate or method."
+            },
+            {
+              "id": "methods",
+              "text": "I explained how the documented bottle and tank routes could affect fruit expression or lees character without making the regional names determine the methods."
+            },
+            {
+              "id": "tradeoffs",
+              "text": "I compared maturation time, stock commitment, landed cost and list objectives without assuming the dearer or longer-aged offer is necessarily better."
+            },
+            {
+              "id": "checks",
+              "text": "I justified a conditional supply or tasting plan and requested the missing sourcing, production, sensory or delivery evidence."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "unitId": "D5",
+      "title": "Fortified wines",
+      "durationSeconds": 2700,
+      "questions": [
+        {
+          "id": "d5_port_releases",
+          "prompt": "A fictional hotel receives a Vintage Port, an LBV Port and a Colheita Port carrying the same harvest year. It needs one wine for immediate by-the-glass service and may cellar another. Explain how the categories differ in maturation and release, then evaluate style, service and inventory implications. State what the labels and actual bottles must establish before buying.",
+          "criteria": [
+            {
+              "id": "maturation",
+              "text": "I distinguished Vintage and LBV Ruby-style releases from the cask-aged single-harvest Tawny category Colheita."
+            },
+            {
+              "id": "style",
+              "text": "I linked the different maturation histories to possible development and service needs rather than treating a shared harvest year as equivalent maturity."
+            },
+            {
+              "id": "business",
+              "text": "I compared immediate service with cellar commitment, turnover and supply, using conditional cost reasoning rather than an invented margin."
+            },
+            {
+              "id": "limits",
+              "text": "I checked bottle condition and producer or label guidance, avoiding absolute drinking windows or a quality ranking based only on category."
+            }
+          ]
+        },
+        {
+          "id": "d5_sherry_stocks",
+          "prompt": "A fictional Jerez bodega wants to maintain a fresh Fino release and expand a small certified-age VOS Oloroso offer. Explain how biological and oxidative maturation support different styles. Evaluate how age certification and retained ageing stocks constrain the proposed expansion, then recommend a release and marketing plan without assuming that the age statement describes every drop or guarantees a selling price.",
+          "criteria": [
+            {
+              "id": "styles",
+              "text": "I explained the different roles of flor-protected and oxidative maturation in the two stated wines, without treating all Sherry production as one route."
+            },
+            {
+              "id": "certification",
+              "text": "I distinguished certified average age and batch assessment from the age of every drop or a universal quality ranking."
+            },
+            {
+              "id": "stocks",
+              "text": "I connected retained ageing stocks, replenishment, release volume and cash commitment to the proposed expansion instead of equating certification with unlimited supply."
+            },
+            {
+              "id": "decision",
+              "text": "I justified a plan against demand and quality evidence, identifying missing stock, approval or commercial information."
+            }
+          ]
+        },
+        {
+          "id": "d5_madeira_methods",
+          "prompt": "A fictional Madeira producer compares a Sercial-based canteiro wine with a rich Tinta Negra-based estufagem wine for two different price and style targets. The offer sheets describe the cultivars and methods but omit site details, full maturation records and panel tasting. Explain how site, fermentation and heating or ageing choices could affect the wines. Recommend what to investigate before committing to either offer.",
+          "criteria": [
+            {
+              "id": "grapes_site",
+              "text": "I considered cultivar and site conditions without assuming a grape name fixes sweetness or that all Madeira vineyards have identical conditions."
+            },
+            {
+              "id": "process",
+              "text": "I linked fermentation or fortification timing and the contrasting heating or cask-ageing routes to possible sweetness and developed character."
+            },
+            {
+              "id": "commercial",
+              "text": "I evaluated time, stock, yield or cost implications against the two targets without making canteiro automatically superior or Tinta Negra inherently low quality."
+            },
+            {
+              "id": "evidence",
+              "text": "I justified a conditional recommendation and asked for the actual records and tasting evidence rather than treating method or age labels as a complete quality assessment."
+            }
           ]
         }
       ]

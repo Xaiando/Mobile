@@ -1,0 +1,57 @@
+# Original commercial cases; written text is learner self-review, not assessed WSET work.
+question_templates:
+  -
+    id: "qt_d4commercial_case_criteria_3"
+    relation_type: "CASE_ACTION"
+    direction: "forward"
+    mode: "case_criteria"
+    variant: "d4commercial_case_criteria"
+    prompt_template: "{subject.name}"
+    parameters:
+      scope_node_ids:
+        - "n_d4commercial_case_us_offer"
+        - "n_d4commercial_case_andes_offer"
+        - "n_d4commercial_case_oceania_africa_offer"
+      scenario_prompts:
+        n_d4commercial_case_us_offer: "Fictional buying exercise: a venue launches a fresh-fruit and some lees-complexity sparkling slot in eight weeks. Offer A is labelled Oregon; its supplied lot records state traditional bottle fermentation and 24 months on lees, with delivery in six weeks and payment now. Offer B is labelled California, is in stock and payable 14 days after delivery, but supplies no fermentation or lees records. Each quote is EUR 18 per bottle before freight. The panel has tasted neither and can trial both. Recommend the next action, explain the evidence, compare the commercial tradeoff and identify unresolved checks. These invented records and terms describe only these offers."
+        n_d4commercial_case_andes_offer: "Fictional buying exercise: a fruit-led sparkling slot opens in six weeks. Chilean offer A supplies tank-fermentation records and a two-week delivery commitment. Argentine offer B supplies traditional bottle-fermentation records and an eight-week delivery commitment. Both quotes are within the stated purchasing budget; samples can be tasted now and a small trial order is possible. The B supplier cites INV's 2023 Argentine domestic sparkling dispatch report as proof that this lot will sell faster at this venue. No local demand data or panel results exist. Recommend a launch decision, rationale, tradeoff and missing evidence without turning country or historical volume into a quality or sales guarantee."
+        n_d4commercial_case_oceania_africa_offer: "Fictional buying exercise: offer A is a New Zealand traditional bottle-fermented sparkling lot with 24 months on lees, quoted at EUR 15 plus EUR 1 freight per bottle. Offer B is a South African Cap Classique lot with supplied bottle-fermentation records and 36 months on lees, quoted at EUR 12 plus EUR 5 freight. Both can arrive in three weeks on identical payment terms. The proposed net selling revenue is EUR 34 per bottle. For this illustrative gross-profit comparison only, treat the supplied bottle and freight charges as the entire cost of goods sold, with no other deductions; this is not a real tax or landed-cost schedule. The panel has tasted neither; the brief requires fresh fruit and some lees complexity. Recommend the comparison, explain the cost and method evidence, weigh the tradeoff and state what is still unknown."
+      distractors:
+        n_d4commercial_case_us_offer:
+          -
+            summary: "Choose A immediately because an Oregon label proves longer lees ageing and higher quality than California"
+            explanation: "Only A's supplied fictional records identify its method and lees period. The Oregon source profiles one producer and the California source describes varied wines; neither establishes a state-wide quality ranking or the panel's result."
+          -
+            summary: "Treat the equal EUR 18 bottle quotes as equal delivered margins and equal cash commitments"
+            explanation: "Freight and net selling revenue are missing, while the stated payment dates differ. Gross profit depends on net sales and cost of goods sold; cash movements and profit are different measures."
+        n_d4commercial_case_andes_offer:
+          -
+            summary: "Commit B for the six-week opening because its eight-week lead time is cancelled by Argentina's historical dispatch volume"
+            explanation: "The supplied eight-week delivery misses the six-week launch. INV describes dated aggregate trade, which does not alter this supplier's schedule or establish the venue's sales forecast."
+          -
+            summary: "Declare the Chilean offer inferior because all Chilean sparkling wine is tank-fermented and all bottle-fermented wine is better"
+            explanation: "Wines of Chile describes both tank and bottle production. A's method comes from this exercise's records; neither country nor method alone establishes the panel's preferred fit or a universal quality ranking."
+        n_d4commercial_case_oceania_africa_offer:
+          -
+            summary: "Select B as the higher-profit offer because its EUR 12 bottle quote is lower than A's EUR 15"
+            explanation: "The supplied freight reverses the apparent advantage: 15 plus 1 is 16, while 12 plus 5 is 17. At EUR 34 net revenue with the exercise's stipulated costs, illustrative gross profit is EUR 18 for A and EUR 17 for B."
+          -
+            summary: "Rank B above every New Zealand bottle because 36 months is a universal Cap Classique minimum and longer lees time proves better quality"
+            explanation: "The 24- and 36-month periods are fictional lot records, not legal minima. Category context and lees maturation support a conditional style hypothesis; they do not replace the sensory comparison or establish a universal country ranking."
+  -
+    id: "qt_d4commercial_case_written_3"
+    relation_type: "CASE_ACTION"
+    direction: "forward"
+    mode: "short_answer"
+    variant: "d4commercial_case_written"
+    prompt_template: "{subject.name}"
+    parameters:
+      scope_node_ids:
+        - "n_d4commercial_case_us_offer"
+        - "n_d4commercial_case_andes_offer"
+        - "n_d4commercial_case_oceania_africa_offer"
+      key_points:
+        CASE_ACTION: "Conditional purchasing or launch action"
+        CASE_REASON: "Production, evidence and commercial rationale"
+        CASE_TRADEOFF: "Timing, cash or margin opportunity cost"
+        CASE_LIMITATION: "Missing sensory, demand or financial evidence"

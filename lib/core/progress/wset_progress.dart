@@ -84,7 +84,7 @@ class WsetUnitProgress {
   /// Saved three-actual-wine practice, not a tasting grade or unit pass.
   final int physicalFlights;
 
-  /// Reviewed D1/D2 prose participation, never an examiner mark or pass.
+  /// Reviewed prose participation for supported units, never an examiner mark or pass.
   final int writtenPractices;
 
   /// Learner-owned D6 formative draft, not an assessed assignment or pass.
@@ -299,7 +299,6 @@ class WsetProgressRepository {
 
   Future<WsetProgressSnapshot> snapshot() async {
     scope.validate();
-    final now = utcNow(_clock);
     final items = await _graph.currentItems();
     final generatedFormats = await GeneratedCoverageFormats.read(
       db,
@@ -320,6 +319,10 @@ class WsetProgressRepository {
       for (final row in await db.select(db.userSettings).get())
         row.name: row.value,
     };
+    // These awaited reads can overlap a saved practice. Use a cutoff after
+    // reading settings so a newly committed review is not rejected as future
+    // evidence merely because this calculation started before it was saved.
+    final now = utcNow(_clock);
     final diplomaTasting = DiplomaTastingEvidenceReader.read(
       settings,
       now: now,

@@ -40,12 +40,25 @@ void main() {
     'CASE_TRADEOFF',
     'CASE_LIMITATION',
   };
+  const additionalFortifiedKeys = {
+    'madeira_compare',
+    'rutherglen_muscat',
+    'age_quality',
+  };
   final caseTemplate = dataset.questionTemplates.singleWhere(
     (template) => template.id == 'qt_d45taste_case_criteria_4',
   );
   Set<String> idsFor(String key) => {
     for (final role in roles)
       'ki_d45taste_${key}_${role.substring(5).toLowerCase()}',
+  };
+
+  final fortifiedObjectiveIds = {
+    ...idsFor('sherry_sweetness'),
+    ...idsFor('port_development'),
+    for (final key in additionalFortifiedKeys)
+      for (final role in roles)
+        'ki_d5sensory_case_${key}_${role.substring(5).toLowerCase()}',
   };
 
   test('sixteen sensory-reasoning items are cited and Diploma-only', () {
@@ -160,12 +173,21 @@ void main() {
             : 'wset_l4.fortified.tasting';
         expect(objectives[objectiveId]!.covers!.within, {
           for (final key in entry.value) 'n_d45taste_case_$key',
+          if (entry.key == 'D5')
+            for (final key in additionalFortifiedKeys) 'n_d5sensory_case_$key',
         });
         expect(objectives[objectiveId]!.covers!.relationTypes, roles);
         final unit = diploma.units.singleWhere((unit) => unit.id == entry.key);
         expect(unit.itemIds.toSet().intersection(itemIds), {
           for (final key in entry.value) ...idsFor(key),
         });
+        if (entry.key == 'D5') {
+          expect(fortifiedObjectiveIds, hasLength(20));
+          expect(
+            unit.itemIds.toSet().intersection(fortifiedObjectiveIds),
+            fortifiedObjectiveIds,
+          );
+        }
       }
     },
   );
@@ -313,13 +335,27 @@ void main() {
         for (final row in objectiveCoverage(scope.tracks['WSET_L4']!, report))
           row.objective.id: row,
       };
-      for (final id in [
-        'wset_l4.sparkling.tasting',
-        'wset_l4.fortified.tasting',
-      ]) {
-        expect(measuredObjectives[id]!.status, ObjectiveStatus.represented);
-        expect(measuredObjectives[id]!.items, 8);
-        expect(measuredObjectives[id]!.usefulPractice, 8);
+      final fortifiedRows = report.items.where(
+        (row) => fortifiedObjectiveIds.contains(row.id),
+      );
+      expect(fortifiedRows.map((row) => row.id).toSet(), fortifiedObjectiveIds);
+      expect(fortifiedRows, hasLength(20));
+      for (final row in fortifiedRows) {
+        expect(row.isCore, isTrue, reason: row.id);
+        expect(row.hasUsefulPractice, isTrue, reason: row.id);
+        expect(row.servedFormats, contains('case_criteria'), reason: row.id);
+        expect(row.servedFormats, contains('short_answer'), reason: row.id);
+      }
+      const objectiveCounts = {
+        'wset_l4.sparkling.tasting': 8,
+        'wset_l4.fortified.tasting': 20,
+      };
+      for (final entry in objectiveCounts.entries) {
+        final measured = measuredObjectives[entry.key]!;
+        expect(measured.status, ObjectiveStatus.represented, reason: entry.key);
+        expect(measured.items, entry.value, reason: entry.key);
+        expect(measured.core, entry.value, reason: entry.key);
+        expect(measured.usefulPractice, entry.value, reason: entry.key);
       }
     },
   );
