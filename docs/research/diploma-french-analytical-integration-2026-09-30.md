@@ -95,3 +95,12 @@ These are observed local formatting, analysis, lint, coverage-ratchet, focused r
 
 
 Final post-style formatting again checked all 417 source/test/tool files with zero changes (build/french-d3-final-format-clean.log). This isolated local content checkpoint remains unpublished and predates the separately tested progress-provider lifecycle continuation. It still requires its final combined-source browser/native gates; no PR head is changed from these partial results.
+
+
+## Combined unpublished continuation
+
+The independent French checkpoint `03879ab3e8c326025bd70b5afac5c880b5e28247` was merged with the separately tested progress lifecycle and route-regression continuation, without conflict, into local commit `834519b5a56eb7a167333160723c9fe5d1faa22a`, tree `184df9fec10c4fc100b7e06160dd26a33db7bacd`. Both published PR heads and their evidence are untouched. Eleven generated database/schema/Windows plugin files were verified as exact HEAD bytes before refreshing Git's stat metadata; no generated source was included by that refresh.
+
+The combined candidate's formatter checks 419 files with zero changes (`build/combined-french-cms-format.log`); analysis reports no issues in 5.8 seconds (`build/combined-french-cms-analysis.log`). The two progress-disposal tests, two actual cold/warm CMS Back tests, existing CMS/WSET route-independence test and eight French case tests all pass together: 13/13, reporter01:28, exit0 (`build/combined-french-cms-focused.log`). These observations supersede the earlier separate-source boundary for these focused checks, while preserving every earlier failed and passing log.
+
+Normal combined-source browser acceptance and the full native suite have not run. The isolated diagnostic build remains outside this candidate: it demonstrated a successful first Back in one observation followed by a correctly owned field restoring empty, and is collecting only input/save/load fingerprints in one subsequent bounded run. It is not canonical acceptance or a reason to infer a product fix. The candidate remains unpublished; factual/physical/qualification boundaries remain unchanged.
