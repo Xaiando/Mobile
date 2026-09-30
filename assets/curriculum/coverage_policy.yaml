@@ -14,6 +14,19 @@ regional_countries: [ n_geo_france, n_geo_italy ]
 # whose relation type supports a format it has no question of is listed as
 # a gap, with the reason.
 capabilities:
+  CALCULATED_VALUE:
+    supports: [ flashcard, numeric ]
+    excludes:
+      typed: Exact calculation answers require numeric amount and unit grading; fuzzy name matching can credit incorrect numbers or strip a unit.
+      case_criteria: A single calculated result is not a complete four-role decision case.
+      authored_choice: Exact quantities are entered directly; no authored recognition bank exists.
+      mcq: Neighbouring results may be defensible under different assumptions; given inputs use numeric entry.
+      short_answer: These isolated quantity results have no structured explanation rubric.
+      reasoning: A worked quantity does not establish an authored ordered causal path.
+      map_locate: A calculated quantity is not a location.
+      map_identify: A calculated quantity is not a location.
+      map_pair: A calculated quantity is not a named-place set.
+      map_grape: A calculated quantity does not assert a regional grape set.
   CAUSES_STATE:
     supports:
       - flashcard

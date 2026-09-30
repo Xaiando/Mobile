@@ -148,9 +148,9 @@ void main() {
           ),
         ).check('WSET_L2', on: on, skipped: generation.skipped);
         const expectedCore = <String, int>{
-          'viticulture': 115,
+          'viticulture': 122,
           'winemaking': 123,
-          'tasting': 158,
+          'tasting': 164,
         };
         for (final entry in expectedCore.entries) {
           final domain = coverage.domains.singleWhere(

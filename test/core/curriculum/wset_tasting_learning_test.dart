@@ -49,7 +49,33 @@ void main() {
                 .endsWith('wset_tasting_learning.yaml') ??
             false,
       );
-      expect(authoredMappings, hasLength(1), reason: item.id);
+      const reusedL2Quality = {
+        'ki_wset_taste_quality_balance',
+        'ki_wset_taste_quality_length',
+        'ki_wset_taste_quality_intensity',
+        'ki_wset_taste_quality_complexity',
+        'ki_wset_taste_quality_preference',
+        'ki_wset_taste_quality_fault_context',
+      };
+      final isReusedQuality = reusedL2Quality.contains(item.id);
+      expect(
+        authoredMappings,
+        hasLength(isReusedQuality ? 2 : 1),
+        reason: item.id,
+      );
+      if (isReusedQuality) {
+        expect(authoredMappings.map((row) => row.certificationId).toSet(), {
+          'WSET_L2',
+          'WSET_L3',
+        }, reason: item.id);
+        expect(
+          authoredMappings.every(
+            (row) => row.importance == 'core' && row.minimumDepth == 2,
+          ),
+          isTrue,
+          reason: item.id,
+        );
+      }
       final requiredLevels =
           scope.levels
               .where((level) => level.requiredItemIds.contains(item.id))
@@ -58,7 +84,7 @@ void main() {
             ..sort();
       expect(requiredLevels, isNotEmpty, reason: item.id);
       final expectedTracks = {
-        authoredMappings.single.certificationId,
+        ...authoredMappings.map((mapping) => mapping.certificationId),
         requiredLevels.first,
       };
       expect(mappings, hasLength(expectedTracks.length), reason: item.id);
@@ -67,11 +93,13 @@ void main() {
         expectedTracks,
         reason: '${item.id}: only its authored level and required lower reuse',
       );
-      expect(
-        {'WSET_L1', 'WSET_L2', 'WSET_L3'},
-        contains(authoredMappings.single.certificationId),
-        reason: item.id,
-      );
+      for (final mapping in authoredMappings) {
+        expect(
+          {'WSET_L1', 'WSET_L2', 'WSET_L3'},
+          contains(mapping.certificationId),
+          reason: item.id,
+        );
+      }
     }
   });
   test(

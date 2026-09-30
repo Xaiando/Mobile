@@ -548,6 +548,8 @@ The six silos of §D: geography, viticulture, winemaking, service, business and 
 
 Any single concept (§D): a country, region, appellation, grape, soil, climate, hazard, berry colour, structural or aromatic descriptor, or a quantity.
 
+`worked_example` identifies an original hypothetical calculation with every input and rounding assumption in its name. `CALCULATED_VALUE` connects it to one `quantity` result. It is separate from a dated `statistic` and from `PRINCIPLE_EXPLANATION` statements; `QuantityValue` holds the exact unit and numeric endpoints. These are curriculum vocabulary rows, with no database schema change.
+
 - **Key:** `id` (`n_…`); `UNIQUE(node_type, name_norm)`.
   - `name_norm` is the matching key: lower case, with diacritics and appellation suffixes removed. It is computed in Dart during ingestion, because SQLite folds case for ASCII only.
   - The uniqueness constraint rejects near-duplicates such as "Rhône" and "Rhone" within a type.

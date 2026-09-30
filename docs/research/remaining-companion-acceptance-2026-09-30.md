@@ -14,6 +14,14 @@ This plan follows the current code and pinned scope, superseding historical 'not
 | OCR percentage-tail bug | Whole unsigned numeric tokens, bounded wine ABV, vintage exclusion | 12 parser tests included in the 22-regression pass |
 | Ancient history visibility | Six existing Amarna assertions selected in chronological upper-track timeline | Phone-source regression passed on both upper tracks; no new facts added |
 
+## Active candidate gates
+
+The .61 source snapshot is committed as `8b42973bb69e6c8c78c1ff5beec853e99ed816a3`. Its release web build, all ten browser smoke stages, static checks and focused regressions passed. Its unchanged complete suite is still running and has exposed six old test assumptions (release counts, a pre-publication clock and six intentional L2 quality remappings); the diagnostics are preserved and corrected in the next isolated candidate. No passing full-suite claim or publication follows from the focused gates.
+
+Release .62 has all four first-priority packs authored and integrated: 16 CMS cocktail facts, six original numeric examples, 14 British sparkling facts and 14 Madeira facts. Independent source/arithmetic/choice review is complete, static analysis passed and final lint reports zero errors/three existing warnings. Runtime regressions, measured coverage, release build and final full-suite gates remain pending. D4/D5 explicit authored selectors are147/116; neither unit is marked complete. See [candidate evidence](product-service-depth-validation-2026-09-30.md).
+
+A separate checkout is authoring three New World D4 commercial cases, three fictional D5 sensory cases and saved D4/D5 written rehearsals. The writing-only45-minute timers are app presets, not an official split of WSET's combined90-minute writing/tasting assessment.
+
 ## Candidate validation before publication
 
 1. Complete the history source-sheet phone regression, preserving all six lessons and source/status assertions.
@@ -26,7 +34,7 @@ This plan follows the current code and pinned scope, superseding historical 'not
 
 | Priority | Bounded task | Required result and validation |
 |---|---|---|
-| 1 | CMS classic cocktails | Original identification/recommendation lessons from named IBA reference recipes; distinguish the supplied reference from universal preparation rules. Cited alternatives, recall and service scenarios; CMS-only mapping and actual runtime delivery. Current inventory has zero cocktail lessons. |
+| 1 | CMS classic cocktails | Original identification/recommendation lessons from named IBA reference recipes; distinguish the supplied reference from universal preparation rules. Cited alternatives, recall and service scenarios; CMS-only mapping and actual runtime delivery. The .61 inventory had zero cocktail lessons; the .62 candidate adds16 and awaits runtime validation. |
 | 2 | CMS applied service/business arithmetic | Bottle volume, event quantities, selling price and GP/markup exercises with explicitly supplied hypothetical pours/costs. Reuse the numeric runtime; test units, rounding, correct/incorrect responses, margin versus markup and source dates. Existing formulas alone do not supply worked numeric practice. |
 | 3 | D4 English/Welsh category comparison | Six principles and two four-role cases on sparkling PDO/PGI/unprotected names, grapes, origin and certification evidence. Use current registered specs/FSA guidance, not consultation proposals; do not apply sparkling permissions to still PDO wine. |
 | 4 | D5 Madeira regional/style comparison | Six principles and two four-role cases on poios, water, training, hand harvest, labour and Verdelho/Boal comparisons. Use IVBAM; do not make indicative sugar bands or approximate elevations legal limits. |
@@ -44,3 +52,9 @@ Research audit confirmed that current history already includes Areni, the Romans
 - Keep app mastery, practice participation and learner-reported official exam outcomes separate. Diploma's six workstreams remain incomplete until their content and review acceptance criteria are genuinely met.
 
 Primary-source candidates and current IDs are recorded in the outcome and scanner audits and the next-batch research. Historical audits remain dated evidence rather than current task inventories.
+
+## Integrated continuation checkpoint
+
+The .61 release browser completed all ten stages, but its unchanged full suite ended with 1,318 passed and six failed. Those six exact count/date/mapping regressions were repaired and passed in the 54-test .62 group. Priorities 1–4 above are implemented in .62 (50 new facts); final analysis and zero-error lint passed, and five-track measured coverage has zero known gaps. The standalone .62 snapshot is an intermediate commit, not a claimed full-suite release.
+
+Priorities 5–7 and two qualified optional Alto Adige reference points are authored in a separate .63 worktree. Root will integrate them, regenerate the map and measured baselines, validate focused writing/case/map behavior, build the release, run the existing ten browser stages plus the new D4/D5 writing-persistence stage, and inspect a complete combined suite before publication. Expert factual and physical-device acceptance remain unobserved.

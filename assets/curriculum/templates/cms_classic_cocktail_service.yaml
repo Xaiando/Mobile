@@ -1,0 +1,277 @@
+# Original choices, point-specific recall and two complete guest cases.
+# Written answers remain learner self-review; case_criteria grades cited role matching.
+question_templates:
+  -
+    id: "qt_cms_cocktail_recognition_8"
+    relation_type: "PRINCIPLE_EXPLANATION"
+    direction: "forward"
+    mode: "authored_choice"
+    variant: "cms_cocktail_recognition"
+    prompt_template: "{subject.name}"
+    parameters:
+      item_choices:
+        ki_cms_cocktail_dry_martini:
+          prompt: "Which ingredient pair belongs to the IBA Dry Martini reference, stirred with ice?"
+          options:
+            -
+              "Gin with dry vermouth"
+            -
+              "Gin with sweet red vermouth"
+            -
+              "Rum and fresh lime juice"
+            -
+              "Bourbon with lemon and sugar"
+          correctIndex: 0
+          explanation: "IBA specifies gin and dry vermouth for this reference, stirred with ice; a requested variant needs clarification."
+          sourceCitationId: "src_iba_cms_dry_martini"
+        ki_cms_cocktail_manhattan:
+          prompt: "Which combination matches the IBA Manhattan reference?"
+          options:
+            -
+              "Gin, sweet vermouth and lime"
+            -
+              "Rye, sweet red vermouth and bitters"
+            -
+              "Bourbon, lemon and sugar"
+            -
+              "White rum, dry vermouth and bitters"
+          correctIndex: 1
+          explanation: "The IBA recipe uses rye whiskey, sweet red vermouth and Angostura bitters; its published proportions are 50 ml, 20 ml and one dash."
+          sourceCitationId: "src_iba_cms_manhattan"
+        ki_cms_cocktail_negroni:
+          prompt: "For the IBA Negroni, which balance and service method fits the reference?"
+          options:
+            -
+              "More rum than vermouth; shaken with lime"
+            -
+              "More whiskey than vermouth; stirred and strained"
+            -
+              "Equal gin, Campari and vermouth; stirred over ice"
+            -
+              "Equal gin, lemon and syrup; shaken and strained"
+          correctIndex: 2
+          explanation: "The reference specifies 30 ml each of gin, Campari and sweet red vermouth and gentle stirring in an ice-filled Old Fashioned glass."
+          sourceCitationId: "src_iba_cms_negroni"
+        ki_cms_cocktail_daiquiri:
+          prompt: "Which recipe identity matches IBA's Daiquiri rather than a Margarita or Whiskey Sour?"
+          options:
+            -
+              "Tequila, fresh lemon and superfine sugar"
+            -
+              "White rum, fresh lime and orange liqueur"
+            -
+              "Bourbon, lemon and sweet vermouth"
+            -
+              "White Cuban rum, fresh lime and sugar"
+          correctIndex: 3
+          explanation: "White Cuban rum, lime and superfine sugar define this IBA reference. Its method dissolves the sugar before ice is added for shaking."
+          sourceCitationId: "src_iba_cms_daiquiri"
+        ki_cms_cocktail_margarita:
+          prompt: "What fresh citrus measure is listed in IBA's Margarita reference?"
+          options:
+            -
+              "15 ml fresh lime juice"
+            -
+              "20 ml freshly squeezed lemon juice"
+            -
+              "25 ml freshly squeezed lime juice"
+            -
+              "30 ml freshly squeezed orange juice"
+          correctIndex: 0
+          explanation: "IBA lists 15 ml freshly squeezed lime alongside 50 ml 100% agave tequila and 20 ml triple sec; the half salt rim is optional."
+          sourceCitationId: "src_iba_cms_margarita"
+        ki_cms_cocktail_old_fashioned:
+          prompt: "Which recipe structure separates IBA's Old Fashioned from its Manhattan?"
+          options:
+            -
+              "Gin, dry vermouth and an olive garnish"
+            -
+              "Whiskey, sugar, bitters and a little water"
+            -
+              "Rye whiskey, sweet vermouth and bitters"
+            -
+              "Bourbon, fresh lemon and measured sugar syrup"
+          correctIndex: 1
+          explanation: "The Old Fashioned reference uses sugar, bitters and water with bourbon or rye, rather than Manhattan's sweet red vermouth."
+          sourceCitationId: "src_iba_cms_old_fashioned"
+        ki_cms_cocktail_whiskey_sour:
+          prompt: "Which ingredient is optional in IBA's Whiskey Sour reference and needs checking for the actual order?"
+          options:
+            -
+              "Fresh lemon juice"
+            -
+              "Bourbon whiskey"
+            -
+              "A few drops of egg white"
+            -
+              "Sugar syrup"
+          correctIndex: 2
+          explanation: "The source marks egg white optional; bourbon, lemon and syrup remain the reference core. Check the actual preparation before promising ingredient absence."
+          sourceCitationId: "src_iba_cms_whiskey_sour"
+        ki_cms_cocktail_americano:
+          prompt: "Which addition completes IBA's Americano alongside Campari and sweet red vermouth?"
+          options:
+            -
+              "A measure of gin"
+            -
+              "Freshly squeezed lemon juice"
+            -
+              "A measure of white Cuban rum"
+            -
+              "A splash of soda water"
+          correctIndex: 3
+          explanation: "IBA specifies a splash of soda water. The reference contains no added gin, whereas the Negroni reference includes gin."
+          sourceCitationId: "src_iba_cms_americano"
+  -
+    id: "qt_cms_cocktail_point_recall_8"
+    relation_type: "PRINCIPLE_EXPLANATION"
+    direction: "forward"
+    mode: "typed"
+    variant: "cms_cocktail_point_recall"
+    prompt_template: "{subject.name}"
+    parameters:
+      item_cues:
+        ki_cms_cocktail_dry_martini:
+          prompt: "Which type of vermouth accompanies gin in the IBA Dry Martini reference?"
+          acceptedAnswers:
+            -
+              "dry vermouth"
+        ki_cms_cocktail_manhattan:
+          prompt: "Which whiskey does the IBA Manhattan reference specify?"
+          acceptedAnswers:
+            -
+              "rye whiskey"
+            -
+              "rye whisky"
+            -
+              "rye"
+        ki_cms_cocktail_negroni:
+          prompt: "What is the relative proportion of gin, Campari and sweet red vermouth in IBA's Negroni?"
+          acceptedAnswers:
+            -
+              "equal parts"
+            -
+              "1:1:1"
+            -
+              "equal"
+        ki_cms_cocktail_daiquiri:
+          prompt: "What sweetening ingredient is specified for IBA's Daiquiri, alongside rum and lime?"
+          acceptedAnswers:
+            -
+              "superfine sugar"
+            -
+              "sugar"
+        ki_cms_cocktail_margarita:
+          prompt: "Which liqueur accompanies tequila and lime in IBA's Margarita reference?"
+          acceptedAnswers:
+            -
+              "triple sec"
+        ki_cms_cocktail_old_fashioned:
+          prompt: "What solid sweetener does the IBA Old Fashioned reference dissolve with bitters and water?"
+          acceptedAnswers:
+            -
+              "a sugar cube"
+            -
+              "sugar cube"
+            -
+              "one sugar cube"
+        ki_cms_cocktail_whiskey_sour:
+          prompt: "Which ingredient is explicitly optional in the IBA Whiskey Sour reference?"
+          acceptedAnswers:
+            -
+              "egg white"
+            -
+              "a few drops of egg white"
+        ki_cms_cocktail_americano:
+          prompt: "What mixer is added to Campari and sweet red vermouth in IBA's Americano?"
+          acceptedAnswers:
+            -
+              "soda water"
+            -
+              "soda"
+  -
+    id: "qt_cms_cocktail_guest_choice_2"
+    relation_type: "CASE_ACTION"
+    direction: "forward"
+    mode: "authored_choice"
+    variant: "cms_cocktail_guest_choice"
+    prompt_template: "{subject.name}"
+    parameters:
+      item_choices:
+        ki_cms_cocktail_aperitif_action:
+          prompt: "A guest requests Campari, vermouth and soda and declines gin. With both reference recipes available, what is the best initial recommendation?"
+          options:
+            -
+              "Offer Americano and confirm the bar's recipe"
+            -
+              "Offer Negroni and mention its orange garnish"
+            -
+              "Offer Manhattan and confirm the whiskey choice"
+            -
+              "Offer Dry Martini and confirm the gin brand"
+          correctIndex: 0
+          explanation: "The cited Americano uses soda with Campari and sweet red vermouth without added gin. Confirm the venue's actual version before service."
+          sourceCitationId: "src_iba_cms_americano"
+        ki_cms_cocktail_rum_citrus_action:
+          prompt: "A guest requests white rum, lime and sweetness without orange liqueur. Which initial offer follows the cited references?"
+          options:
+            -
+              "Offer Margarita and check its salt rim"
+            -
+              "Offer Daiquiri and check the preferred balance"
+            -
+              "Offer Whiskey Sour and confirm its optional egg white"
+            -
+              "Offer Manhattan and ask about its vermouth"
+          correctIndex: 1
+          explanation: "IBA's Daiquiri uses white Cuban rum, lime and sugar. Margarita instead changes the base to tequila and includes triple sec."
+          sourceCitationId: "src_iba_cms_daiquiri"
+  -
+    id: "qt_cms_cocktail_case_criteria_2"
+    relation_type: "CASE_ACTION"
+    direction: "forward"
+    mode: "case_criteria"
+    variant: "cms_cocktail_case_criteria"
+    prompt_template: "{subject.name}"
+    parameters:
+      scope_node_ids:
+        -
+          "n_cms_cocktail_case_aperitif"
+        -
+          "n_cms_cocktail_case_rum_citrus"
+      scenario_prompts:
+        n_cms_cocktail_case_aperitif: "A guest asks for a pre-dinner drink with Campari, sweet vermouth and soda, and says they do not want gin. The bar can make an Americano or a Negroni using the cited IBA references. Recommend one provisionally, explain the ingredient distinction, discuss when the other would fit, and state what the venue recipe and stock still need to confirm."
+        n_cms_cocktail_case_rum_citrus: "A guest asks for white rum, fresh lime and sweetness without an orange liqueur. The bar can make a Daiquiri or a Margarita using the cited IBA references. Recommend one provisionally, explain the base and sweetening distinction, identify when the alternative might fit, and explain why recipe and guest preference checks still matter."
+      distractors:
+        n_cms_cocktail_case_aperitif:
+          -
+            summary: "Offer a Negroni without mentioning gin because it also uses Campari and vermouth"
+            explanation: "The cited Negroni includes 30 ml gin. Its two shared ingredients do not satisfy a guest who specifically requested no gin."
+          -
+            summary: "Describe the Americano as alcohol-free because it adds soda rather than gin"
+            explanation: "IBA still lists Campari and sweet red vermouth in the Americano; replacing the added gin with soda does not establish an alcohol-free drink."
+        n_cms_cocktail_case_rum_citrus:
+          -
+            summary: "Recommend the Margarita as the same rum cocktail because both recipes contain lime"
+            explanation: "The IBA Margarita uses tequila and triple sec, while the Daiquiri uses white Cuban rum and superfine sugar; shared lime does not make them equivalent."
+          -
+            summary: "Convert two bar spoons of sugar into one universal millilitre measure and guarantee the guest's ideal sweetness"
+            explanation: "IBA supplies a bar-spoon sugar measure without a universal millilitre conversion, and the published recipe cannot establish this guest's preferred balance."
+  -
+    id: "qt_cms_cocktail_case_written_2"
+    relation_type: "CASE_ACTION"
+    direction: "forward"
+    mode: "short_answer"
+    variant: "cms_cocktail_case_written"
+    prompt_template: "{subject.name}: Explain your recommendation, ingredient reasoning, alternative and actual-recipe checks."
+    parameters:
+      scope_node_ids:
+        -
+          "n_cms_cocktail_case_aperitif"
+        -
+          "n_cms_cocktail_case_rum_citrus"
+      key_points:
+        CASE_ACTION: "Recommendation"
+        CASE_REASON: "Ingredient distinction"
+        CASE_TRADEOFF: "Conditional alternative"
+        CASE_LIMITATION: "Actual-recipe checks"

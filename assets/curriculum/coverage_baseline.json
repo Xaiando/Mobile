@@ -1,16 +1,17 @@
 {
   "about": "Question coverage baseline (backlog F1, audit COV-3). The build fails when a metric falls below it or a blocking gap is not in known_gaps. Regenerate the metrics with dart run tool/coverage_report.dart --update-baseline; edit known_gaps by hand.",
-  "release": "0.24.61",
+  "release": "0.24.62",
   "on": "2026-09-30",
   "tracks": {
     "CMS_CERTIFIED": {
-      "total": {"items": 2902, "core": 1247, "testable": 2902, "flashcard_only": 0, "useful_practice": 2573, "recall": 2841, "recognition": 2508, "spatial": 1640, "structured": 72, "reasoning": 0, "core_flashcard_only": 0, "core_useful_practice": 1247, "core_reasoning": 0},
+      "total": {"items": 2924, "core": 1269, "testable": 2924, "flashcard_only": 0, "useful_practice": 2595, "recall": 2863, "recognition": 2518, "spatial": 1640, "structured": 86, "reasoning": 0, "core_flashcard_only": 0, "core_useful_practice": 1269, "core_reasoning": 0},
       "domains": {
         "business": {
-          "total": {"items": 34, "core": 34, "testable": 34, "flashcard_only": 0, "useful_practice": 34, "recall": 34, "recognition": 26, "spatial": 0, "structured": 8, "reasoning": 0, "core_flashcard_only": 0, "core_useful_practice": 34, "core_reasoning": 0},
+          "total": {"items": 40, "core": 40, "testable": 40, "flashcard_only": 0, "useful_practice": 40, "recall": 40, "recognition": 26, "spatial": 0, "structured": 14, "reasoning": 0, "core_flashcard_only": 0, "core_useful_practice": 40, "core_reasoning": 0},
           "areas": {
             "type:production_case": {"items": 8, "core": 8, "testable": 8, "flashcard_only": 0, "useful_practice": 8, "recall": 8, "recognition": 0, "spatial": 0, "structured": 8, "reasoning": 0, "core_flashcard_only": 0, "core_useful_practice": 8, "core_reasoning": 0},
-            "type:production_principle": {"items": 26, "core": 26, "testable": 26, "flashcard_only": 0, "useful_practice": 26, "recall": 26, "recognition": 26, "spatial": 0, "structured": 0, "reasoning": 0, "core_flashcard_only": 0, "core_useful_practice": 26, "core_reasoning": 0}
+            "type:production_principle": {"items": 26, "core": 26, "testable": 26, "flashcard_only": 0, "useful_practice": 26, "recall": 26, "recognition": 26, "spatial": 0, "structured": 0, "reasoning": 0, "core_flashcard_only": 0, "core_useful_practice": 26, "core_reasoning": 0},
+            "type:worked_example": {"items": 6, "core": 6, "testable": 6, "flashcard_only": 0, "useful_practice": 6, "recall": 6, "recognition": 0, "spatial": 0, "structured": 6, "reasoning": 0, "core_flashcard_only": 0, "core_useful_practice": 6, "core_reasoning": 0}
           }
         },
         "geography": {
@@ -81,10 +82,10 @@
           }
         },
         "service": {
-          "total": {"items": 454, "core": 181, "testable": 454, "flashcard_only": 0, "useful_practice": 184, "recall": 454, "recognition": 144, "spatial": 0, "structured": 44, "reasoning": 0, "core_flashcard_only": 0, "core_useful_practice": 181, "core_reasoning": 0},
+          "total": {"items": 470, "core": 197, "testable": 470, "flashcard_only": 0, "useful_practice": 200, "recall": 470, "recognition": 154, "spatial": 0, "structured": 52, "reasoning": 0, "core_flashcard_only": 0, "core_useful_practice": 197, "core_reasoning": 0},
           "areas": {
-            "type:production_case": {"items": 208, "core": 60, "testable": 208, "flashcard_only": 0, "useful_practice": 60, "recall": 208, "recognition": 20, "spatial": 0, "structured": 44, "reasoning": 0, "core_flashcard_only": 0, "core_useful_practice": 60, "core_reasoning": 0},
-            "type:production_principle": {"items": 246, "core": 121, "testable": 246, "flashcard_only": 0, "useful_practice": 124, "recall": 246, "recognition": 124, "spatial": 0, "structured": 0, "reasoning": 0, "core_flashcard_only": 0, "core_useful_practice": 121, "core_reasoning": 0}
+            "type:production_case": {"items": 216, "core": 68, "testable": 216, "flashcard_only": 0, "useful_practice": 68, "recall": 216, "recognition": 22, "spatial": 0, "structured": 52, "reasoning": 0, "core_flashcard_only": 0, "core_useful_practice": 68, "core_reasoning": 0},
+            "type:production_principle": {"items": 254, "core": 129, "testable": 254, "flashcard_only": 0, "useful_practice": 132, "recall": 254, "recognition": 132, "spatial": 0, "structured": 0, "reasoning": 0, "core_flashcard_only": 0, "core_useful_practice": 129, "core_reasoning": 0}
           }
         },
         "tasting": {
@@ -368,12 +369,12 @@
       }
     },
     "WSET_L4": {
-      "total": {"items": 4130, "core": 2867, "testable": 4130, "flashcard_only": 0, "useful_practice": 3902, "recall": 4019, "recognition": 3408, "spatial": 1673, "structured": 505, "reasoning": 10, "core_flashcard_only": 0, "core_useful_practice": 2867, "core_reasoning": 10},
+      "total": {"items": 4158, "core": 2895, "testable": 4158, "flashcard_only": 0, "useful_practice": 3930, "recall": 4047, "recognition": 3420, "spatial": 1673, "structured": 521, "reasoning": 10, "core_flashcard_only": 0, "core_useful_practice": 2895, "core_reasoning": 10},
       "domains": {
         "business": {
-          "total": {"items": 250, "core": 250, "testable": 250, "flashcard_only": 0, "useful_practice": 250, "recall": 250, "recognition": 121, "spatial": 0, "structured": 129, "reasoning": 0, "core_flashcard_only": 0, "core_useful_practice": 250, "core_reasoning": 0},
+          "total": {"items": 254, "core": 254, "testable": 254, "flashcard_only": 0, "useful_practice": 254, "recall": 254, "recognition": 121, "spatial": 0, "structured": 133, "reasoning": 0, "core_flashcard_only": 0, "core_useful_practice": 254, "core_reasoning": 0},
           "areas": {
-            "type:production_case": {"items": 129, "core": 129, "testable": 129, "flashcard_only": 0, "useful_practice": 129, "recall": 129, "recognition": 0, "spatial": 0, "structured": 129, "reasoning": 0, "core_flashcard_only": 0, "core_useful_practice": 129, "core_reasoning": 0},
+            "type:production_case": {"items": 133, "core": 133, "testable": 133, "flashcard_only": 0, "useful_practice": 133, "recall": 133, "recognition": 0, "spatial": 0, "structured": 133, "reasoning": 0, "core_flashcard_only": 0, "core_useful_practice": 133, "core_reasoning": 0},
             "type:production_principle": {"items": 121, "core": 121, "testable": 121, "flashcard_only": 0, "useful_practice": 121, "recall": 121, "recognition": 121, "spatial": 0, "structured": 0, "reasoning": 0, "core_flashcard_only": 0, "core_useful_practice": 121, "core_reasoning": 0}
           }
         },
@@ -459,14 +460,14 @@
           }
         },
         "tasting": {
-          "total": {"items": 194, "core": 194, "testable": 194, "flashcard_only": 0, "useful_practice": 194, "recall": 194, "recognition": 178, "spatial": 0, "structured": 16, "reasoning": 0, "core_flashcard_only": 0, "core_useful_practice": 194, "core_reasoning": 0},
+          "total": {"items": 198, "core": 198, "testable": 198, "flashcard_only": 0, "useful_practice": 198, "recall": 198, "recognition": 178, "spatial": 0, "structured": 20, "reasoning": 0, "core_flashcard_only": 0, "core_useful_practice": 198, "core_reasoning": 0},
           "areas": {
-            "type:production_case": {"items": 16, "core": 16, "testable": 16, "flashcard_only": 0, "useful_practice": 16, "recall": 16, "recognition": 0, "spatial": 0, "structured": 16, "reasoning": 0, "core_flashcard_only": 0, "core_useful_practice": 16, "core_reasoning": 0},
+            "type:production_case": {"items": 20, "core": 20, "testable": 20, "flashcard_only": 0, "useful_practice": 20, "recall": 20, "recognition": 0, "spatial": 0, "structured": 20, "reasoning": 0, "core_flashcard_only": 0, "core_useful_practice": 20, "core_reasoning": 0},
             "type:production_principle": {"items": 178, "core": 178, "testable": 178, "flashcard_only": 0, "useful_practice": 178, "recall": 178, "recognition": 178, "spatial": 0, "structured": 0, "reasoning": 0, "core_flashcard_only": 0, "core_useful_practice": 178, "core_reasoning": 0}
           }
         },
         "viticulture": {
-          "total": {"items": 567, "core": 480, "testable": 567, "flashcard_only": 0, "useful_practice": 495, "recall": 567, "recognition": 431, "spatial": 0, "structured": 80, "reasoning": 7, "core_flashcard_only": 0, "core_useful_practice": 480, "core_reasoning": 7},
+          "total": {"items": 571, "core": 484, "testable": 571, "flashcard_only": 0, "useful_practice": 499, "recall": 571, "recognition": 435, "spatial": 0, "structured": 80, "reasoning": 7, "core_flashcard_only": 0, "core_useful_practice": 484, "core_reasoning": 7},
           "areas": {
             "n_geo_burgundy": {"items": 3, "core": 0, "testable": 3, "flashcard_only": 0, "useful_practice": 1, "recall": 3, "recognition": 1, "spatial": 0, "structured": 0, "reasoning": 0, "core_flashcard_only": 0, "core_useful_practice": 0, "core_reasoning": 0},
             "n_geo_champagne_region": {"items": 1, "core": 0, "testable": 1, "flashcard_only": 0, "useful_practice": 0, "recall": 1, "recognition": 0, "spatial": 0, "structured": 0, "reasoning": 0, "core_flashcard_only": 0, "core_useful_practice": 0, "core_reasoning": 0},
@@ -479,20 +480,20 @@
             "type:grape": {"items": 55, "core": 9, "testable": 55, "flashcard_only": 0, "useful_practice": 9, "recall": 55, "recognition": 9, "spatial": 0, "structured": 0, "reasoning": 0, "core_flashcard_only": 0, "core_useful_practice": 9, "core_reasoning": 0},
             "type:label_term": {"items": 6, "core": 6, "testable": 6, "flashcard_only": 0, "useful_practice": 6, "recall": 6, "recognition": 6, "spatial": 0, "structured": 0, "reasoning": 0, "core_flashcard_only": 0, "core_useful_practice": 6, "core_reasoning": 0},
             "type:production_case": {"items": 97, "core": 97, "testable": 97, "flashcard_only": 0, "useful_practice": 97, "recall": 97, "recognition": 40, "spatial": 0, "structured": 69, "reasoning": 0, "core_flashcard_only": 0, "core_useful_practice": 97, "core_reasoning": 0},
-            "type:production_principle": {"items": 346, "core": 346, "testable": 346, "flashcard_only": 0, "useful_practice": 346, "recall": 346, "recognition": 346, "spatial": 0, "structured": 0, "reasoning": 0, "core_flashcard_only": 0, "core_useful_practice": 346, "core_reasoning": 0},
+            "type:production_principle": {"items": 350, "core": 350, "testable": 350, "flashcard_only": 0, "useful_practice": 350, "recall": 350, "recognition": 350, "spatial": 0, "structured": 0, "reasoning": 0, "core_flashcard_only": 0, "core_useful_practice": 350, "core_reasoning": 0},
             "type:statistic": {"items": 12, "core": 7, "testable": 12, "flashcard_only": 0, "useful_practice": 12, "recall": 12, "recognition": 12, "spatial": 0, "structured": 11, "reasoning": 0, "core_flashcard_only": 0, "core_useful_practice": 7, "core_reasoning": 0}
           }
         },
         "winemaking": {
-          "total": {"items": 728, "core": 710, "testable": 728, "flashcard_only": 0, "useful_practice": 719, "recall": 728, "recognition": 506, "spatial": 0, "structured": 220, "reasoning": 3, "core_flashcard_only": 0, "core_useful_practice": 710, "core_reasoning": 3},
+          "total": {"items": 744, "core": 726, "testable": 744, "flashcard_only": 0, "useful_practice": 735, "recall": 744, "recognition": 514, "spatial": 0, "structured": 228, "reasoning": 3, "core_flashcard_only": 0, "core_useful_practice": 726, "core_reasoning": 3},
           "areas": {
             "n_geo_champagne_region": {"items": 2, "core": 2, "testable": 2, "flashcard_only": 0, "useful_practice": 2, "recall": 2, "recognition": 2, "spatial": 0, "structured": 1, "reasoning": 0, "core_flashcard_only": 0, "core_useful_practice": 2, "core_reasoning": 0},
             "n_geo_piedmont": {"items": 4, "core": 2, "testable": 4, "flashcard_only": 0, "useful_practice": 4, "recall": 4, "recognition": 4, "spatial": 0, "structured": 4, "reasoning": 0, "core_flashcard_only": 0, "core_useful_practice": 2, "core_reasoning": 0},
             "n_geo_tuscany": {"items": 1, "core": 0, "testable": 1, "flashcard_only": 0, "useful_practice": 1, "recall": 1, "recognition": 1, "spatial": 0, "structured": 1, "reasoning": 0, "core_flashcard_only": 0, "core_useful_practice": 0, "core_reasoning": 0},
             "type:causal_premise": {"items": 12, "core": 3, "testable": 12, "flashcard_only": 0, "useful_practice": 3, "recall": 12, "recognition": 3, "spatial": 0, "structured": 0, "reasoning": 0, "core_flashcard_only": 0, "core_useful_practice": 3, "core_reasoning": 0},
             "type:causal_state": {"items": 3, "core": 3, "testable": 3, "flashcard_only": 0, "useful_practice": 3, "recall": 3, "recognition": 0, "spatial": 0, "structured": 0, "reasoning": 3, "core_flashcard_only": 0, "core_useful_practice": 3, "core_reasoning": 3},
-            "type:production_case": {"items": 210, "core": 210, "testable": 210, "flashcard_only": 0, "useful_practice": 210, "recall": 210, "recognition": 0, "spatial": 0, "structured": 210, "reasoning": 0, "core_flashcard_only": 0, "core_useful_practice": 210, "core_reasoning": 0},
-            "type:production_principle": {"items": 483, "core": 483, "testable": 483, "flashcard_only": 0, "useful_practice": 483, "recall": 483, "recognition": 483, "spatial": 0, "structured": 0, "reasoning": 0, "core_flashcard_only": 0, "core_useful_practice": 483, "core_reasoning": 0},
+            "type:production_case": {"items": 218, "core": 218, "testable": 218, "flashcard_only": 0, "useful_practice": 218, "recall": 218, "recognition": 0, "spatial": 0, "structured": 218, "reasoning": 0, "core_flashcard_only": 0, "core_useful_practice": 218, "core_reasoning": 0},
+            "type:production_principle": {"items": 491, "core": 491, "testable": 491, "flashcard_only": 0, "useful_practice": 491, "recall": 491, "recognition": 491, "spatial": 0, "structured": 0, "reasoning": 0, "core_flashcard_only": 0, "core_useful_practice": 491, "core_reasoning": 0},
             "type:wine_type": {"items": 13, "core": 7, "testable": 13, "flashcard_only": 0, "useful_practice": 13, "recall": 13, "recognition": 13, "spatial": 0, "structured": 4, "reasoning": 0, "core_flashcard_only": 0, "core_useful_practice": 7, "core_reasoning": 0}
           }
         }

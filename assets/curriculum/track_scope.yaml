@@ -1824,7 +1824,8 @@ tracks:
       - id: wset_l4.sparkling.britain
         label: Study sparkling-wine contexts in England and Wales
         covers: {within: [n_geo_england, n_geo_wales, n_d4depth_principle_britain_variety,
-          n_d4depth_principle_britain_frost, n_d4depth_case_british_frost]}
+          n_d4depth_principle_britain_frost, n_d4depth_case_british_frost,
+          n_d4brit_principle_pdo_origin, n_d4brit_principle_pdo_grapes, n_d4brit_principle_pdo_method, n_d4brit_principle_pgi_hybrid, n_d4brit_principle_unprotected_origin, n_d4brit_principle_pdo_assessment, n_d4brit_case_hybrid_offer, n_d4brit_case_category_quality]}
         tasks: [DIP-4, G13]
       - id: wset_l4.sparkling.americas
         label: Compare sparkling-wine contexts in the Americas
@@ -1949,6 +1950,8 @@ tracks:
             - n_d4depth_case_cava_upgrade
             - n_d4depth_case_rive_offer
             - n_d4depth_case_british_frost
+            - n_d4brit_case_hybrid_offer
+            - n_d4brit_case_category_quality
           relation_types:
             - PRINCIPLE_EXPLANATION
             - CASE_TRADEOFF
@@ -2029,6 +2032,14 @@ tracks:
             - n_d5f_principle_madeira_sweetness
             - n_d5f_principle_madeira_categories
             - n_d5f_case_fortified_list
+            - n_d5madeira_principle_poios
+            - n_d5madeira_principle_levadas
+            - n_d5madeira_principle_latada
+            - n_d5madeira_principle_harvest
+            - n_d5madeira_principle_verdelho
+            - n_d5madeira_principle_boal
+            - n_d5madeira_case_terrace_logistics
+            - n_d5madeira_case_style_comparison
         tasks: [DIP-5, C3]
       - id: wset_l4.fortified.france
         label: Compare French fortified sweet-wine contexts

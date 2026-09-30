@@ -1,0 +1,569 @@
+# Original CMS Certified cocktail identities and guest-recommendation cases.
+# IBA recipes are named references; venue variants and guest preference remain explicit.
+# All facts are unverified pending qualified review. No WSET or Introductory mappings.
+knowledge_nodes:
+  -
+    id: "n_cms_cocktail_dry_martini"
+    node_type: "production_principle"
+    name: "How does the IBA Dry Martini reference identify its recipe and service?"
+  -
+    id: "n_cms_cocktail_dry_martini_point"
+    node_type: "learning_point"
+    name: "Gin and dry vermouth, stirred rather than shaken"
+  -
+    id: "n_cms_cocktail_manhattan"
+    node_type: "production_principle"
+    name: "How does the IBA Manhattan reference identify its recipe and service?"
+  -
+    id: "n_cms_cocktail_manhattan_point"
+    node_type: "learning_point"
+    name: "Rye whiskey, sweet red vermouth and Angostura bitters"
+  -
+    id: "n_cms_cocktail_negroni"
+    node_type: "production_principle"
+    name: "How does the IBA Negroni reference identify its recipe and service?"
+  -
+    id: "n_cms_cocktail_negroni_point"
+    node_type: "learning_point"
+    name: "Equal gin, Campari and sweet red vermouth, stirred in the serving glass"
+  -
+    id: "n_cms_cocktail_daiquiri"
+    node_type: "production_principle"
+    name: "How does the IBA Daiquiri reference identify its recipe and service?"
+  -
+    id: "n_cms_cocktail_daiquiri_point"
+    node_type: "learning_point"
+    name: "White Cuban rum, lime and sugar, shaken after the sugar dissolves"
+  -
+    id: "n_cms_cocktail_margarita"
+    node_type: "production_principle"
+    name: "How does the IBA Margarita reference identify its recipe and service?"
+  -
+    id: "n_cms_cocktail_margarita_point"
+    node_type: "learning_point"
+    name: "100% agave tequila, triple sec and lime, shaken; half salt rim optional"
+  -
+    id: "n_cms_cocktail_old_fashioned"
+    node_type: "production_principle"
+    name: "How does the IBA Old Fashioned reference identify its recipe and service?"
+  -
+    id: "n_cms_cocktail_old_fashioned_point"
+    node_type: "learning_point"
+    name: "Bourbon or rye with a sugar cube, bitters and a little water"
+  -
+    id: "n_cms_cocktail_whiskey_sour"
+    node_type: "production_principle"
+    name: "How does the IBA Whiskey Sour reference identify its recipe and service?"
+  -
+    id: "n_cms_cocktail_whiskey_sour_point"
+    node_type: "learning_point"
+    name: "Bourbon, lemon and sugar syrup; egg white is optional"
+  -
+    id: "n_cms_cocktail_americano"
+    node_type: "production_principle"
+    name: "How does the IBA Americano reference identify its recipe and service?"
+  -
+    id: "n_cms_cocktail_americano_point"
+    node_type: "learning_point"
+    name: "Campari and sweet red vermouth with soda, without added gin"
+  -
+    id: "n_cms_cocktail_case_aperitif"
+    node_type: "production_case"
+    name: "A guest requests Campari and vermouth with soda but does not want gin"
+  -
+    id: "n_cms_cocktail_aperitif_action"
+    node_type: "learning_point"
+    name: "Offer the Americano provisionally and confirm the venue recipe"
+  -
+    id: "n_cms_cocktail_aperitif_reason"
+    node_type: "learning_point"
+    name: "The Americano adds soda where the Negroni includes gin"
+  -
+    id: "n_cms_cocktail_aperitif_tradeoff"
+    node_type: "learning_point"
+    name: "Discuss a Negroni only if the guest changes the no-gin preference"
+  -
+    id: "n_cms_cocktail_aperitif_limit"
+    node_type: "learning_point"
+    name: "A reference does not establish the stocked recipe or ingredient suitability"
+  -
+    id: "n_cms_cocktail_case_rum_citrus"
+    node_type: "production_case"
+    name: "A guest wants a rum-and-lime cocktail without orange liqueur"
+  -
+    id: "n_cms_cocktail_rum_citrus_action"
+    node_type: "learning_point"
+    name: "Offer the Daiquiri provisionally and confirm the guest's balance preference"
+  -
+    id: "n_cms_cocktail_rum_citrus_reason"
+    node_type: "learning_point"
+    name: "Daiquiri uses rum and sugar while Margarita uses tequila and triple sec"
+  -
+    id: "n_cms_cocktail_rum_citrus_tradeoff"
+    node_type: "learning_point"
+    name: "Discuss Margarita only if the guest accepts tequila and triple sec"
+  -
+    id: "n_cms_cocktail_rum_citrus_limit"
+    node_type: "learning_point"
+    name: "Reference measures do not guarantee this guest's preferred final balance"
+knowledge_relations:
+  -
+    subject_id: "n_cms_cocktail_dry_martini"
+    relation_type: "PRINCIPLE_EXPLANATION"
+    object_id: "n_cms_cocktail_dry_martini_point"
+    valid_from: "2026-09-30"
+  -
+    subject_id: "n_cms_cocktail_manhattan"
+    relation_type: "PRINCIPLE_EXPLANATION"
+    object_id: "n_cms_cocktail_manhattan_point"
+    valid_from: "2026-09-30"
+  -
+    subject_id: "n_cms_cocktail_negroni"
+    relation_type: "PRINCIPLE_EXPLANATION"
+    object_id: "n_cms_cocktail_negroni_point"
+    valid_from: "2026-09-30"
+  -
+    subject_id: "n_cms_cocktail_daiquiri"
+    relation_type: "PRINCIPLE_EXPLANATION"
+    object_id: "n_cms_cocktail_daiquiri_point"
+    valid_from: "2026-09-30"
+  -
+    subject_id: "n_cms_cocktail_margarita"
+    relation_type: "PRINCIPLE_EXPLANATION"
+    object_id: "n_cms_cocktail_margarita_point"
+    valid_from: "2026-09-30"
+  -
+    subject_id: "n_cms_cocktail_old_fashioned"
+    relation_type: "PRINCIPLE_EXPLANATION"
+    object_id: "n_cms_cocktail_old_fashioned_point"
+    valid_from: "2026-09-30"
+  -
+    subject_id: "n_cms_cocktail_whiskey_sour"
+    relation_type: "PRINCIPLE_EXPLANATION"
+    object_id: "n_cms_cocktail_whiskey_sour_point"
+    valid_from: "2026-09-30"
+  -
+    subject_id: "n_cms_cocktail_americano"
+    relation_type: "PRINCIPLE_EXPLANATION"
+    object_id: "n_cms_cocktail_americano_point"
+    valid_from: "2026-09-30"
+  -
+    subject_id: "n_cms_cocktail_case_aperitif"
+    relation_type: "CASE_ACTION"
+    object_id: "n_cms_cocktail_aperitif_action"
+    valid_from: "2026-09-30"
+  -
+    subject_id: "n_cms_cocktail_case_aperitif"
+    relation_type: "CASE_REASON"
+    object_id: "n_cms_cocktail_aperitif_reason"
+    valid_from: "2026-09-30"
+  -
+    subject_id: "n_cms_cocktail_case_aperitif"
+    relation_type: "CASE_TRADEOFF"
+    object_id: "n_cms_cocktail_aperitif_tradeoff"
+    valid_from: "2026-09-30"
+  -
+    subject_id: "n_cms_cocktail_case_aperitif"
+    relation_type: "CASE_LIMITATION"
+    object_id: "n_cms_cocktail_aperitif_limit"
+    valid_from: "2026-09-30"
+  -
+    subject_id: "n_cms_cocktail_case_rum_citrus"
+    relation_type: "CASE_ACTION"
+    object_id: "n_cms_cocktail_rum_citrus_action"
+    valid_from: "2026-09-30"
+  -
+    subject_id: "n_cms_cocktail_case_rum_citrus"
+    relation_type: "CASE_REASON"
+    object_id: "n_cms_cocktail_rum_citrus_reason"
+    valid_from: "2026-09-30"
+  -
+    subject_id: "n_cms_cocktail_case_rum_citrus"
+    relation_type: "CASE_TRADEOFF"
+    object_id: "n_cms_cocktail_rum_citrus_tradeoff"
+    valid_from: "2026-09-30"
+  -
+    subject_id: "n_cms_cocktail_case_rum_citrus"
+    relation_type: "CASE_LIMITATION"
+    object_id: "n_cms_cocktail_rum_citrus_limit"
+    valid_from: "2026-09-30"
+knowledge_items:
+  -
+    id: "ki_cms_cocktail_dry_martini"
+    subject_id: "n_cms_cocktail_dry_martini"
+    relation_type: "PRINCIPLE_EXPLANATION"
+    object_id: "n_cms_cocktail_dry_martini_point"
+    domain_id: "service"
+    assertion_text: "The IBA Dry Martini reference combines 60 ml gin with 10 ml dry vermouth, stirred with ice and strained into a chilled Martini glass. Lemon-peel oil or a requested olive supplies the garnish. This is one named reference; check the guest's preferred gin, vermouth proportion and garnish rather than assuming all Martinis are identical."
+    verification_status: "unverified"
+    mcq_disabled: true
+    last_verified_at: "2026-09-30T01:30:00.000Z"
+  -
+    id: "ki_cms_cocktail_manhattan"
+    subject_id: "n_cms_cocktail_manhattan"
+    relation_type: "PRINCIPLE_EXPLANATION"
+    object_id: "n_cms_cocktail_manhattan_point"
+    domain_id: "service"
+    assertion_text: "In the IBA Manhattan reference, 50 ml rye whiskey is combined with 20 ml sweet red vermouth and one dash of Angostura bitters. It is stirred with ice, strained into a chilled cocktail glass and garnished with a cocktail cherry. This reference distinguishes it from the gin and dry-vermouth Martini without making rye mandatory for every venue's Manhattan variant."
+    verification_status: "unverified"
+    mcq_disabled: true
+    last_verified_at: "2026-09-30T01:30:00.000Z"
+  -
+    id: "ki_cms_cocktail_negroni"
+    subject_id: "n_cms_cocktail_negroni"
+    relation_type: "PRINCIPLE_EXPLANATION"
+    object_id: "n_cms_cocktail_negroni_point"
+    domain_id: "service"
+    assertion_text: "IBA's Negroni uses equal 30 ml portions of gin, Campari and sweet red vermouth. The ingredients go into a chilled Old Fashioned glass with ice and are stirred gently; the garnish is half an orange slice. Equal parts describe this named reference, not a universal rule for every bar's variation."
+    verification_status: "unverified"
+    mcq_disabled: true
+    last_verified_at: "2026-09-30T01:30:00.000Z"
+  -
+    id: "ki_cms_cocktail_daiquiri"
+    subject_id: "n_cms_cocktail_daiquiri"
+    relation_type: "PRINCIPLE_EXPLANATION"
+    object_id: "n_cms_cocktail_daiquiri_point"
+    domain_id: "service"
+    assertion_text: "IBA's Daiquiri reference uses 60 ml white Cuban rum, 20 ml fresh lime juice and two bar spoons of superfine sugar. Dissolve the sugar with the liquids, then add ice, shake and strain into a chilled cocktail glass. The source specifies neither an orange liqueur nor a mandatory garnish; frozen and other venue variants need separate clarification."
+    verification_status: "unverified"
+    mcq_disabled: true
+    last_verified_at: "2026-09-30T01:30:00.000Z"
+  -
+    id: "ki_cms_cocktail_margarita"
+    subject_id: "n_cms_cocktail_margarita"
+    relation_type: "PRINCIPLE_EXPLANATION"
+    object_id: "n_cms_cocktail_margarita_point"
+    domain_id: "service"
+    assertion_text: "The IBA Margarita reference combines 50 ml 100% agave tequila, 20 ml triple sec and 15 ml fresh lime juice, shaken with ice and strained into a chilled cocktail glass. A half salt rim is optional. Confirm the guest's rim preference and the actual venue recipe rather than treating a salted rim or a particular orange-liqueur brand as universal."
+    verification_status: "unverified"
+    mcq_disabled: true
+    last_verified_at: "2026-09-30T01:30:00.000Z"
+  -
+    id: "ki_cms_cocktail_old_fashioned"
+    subject_id: "n_cms_cocktail_old_fashioned"
+    relation_type: "PRINCIPLE_EXPLANATION"
+    object_id: "n_cms_cocktail_old_fashioned_point"
+    domain_id: "service"
+    assertion_text: "IBA's Old Fashioned reference uses 45 ml bourbon or rye whiskey with one sugar cube, a few dashes of Angostura bitters and a few dashes of plain water. Dissolve the bitters-soaked sugar with water in the serving glass, add ice and whiskey, then stir gently. Orange slice or zest and a cocktail cherry are listed garnishes. Vermouth is not part of this reference."
+    verification_status: "unverified"
+    mcq_disabled: true
+    last_verified_at: "2026-09-30T01:30:00.000Z"
+  -
+    id: "ki_cms_cocktail_whiskey_sour"
+    subject_id: "n_cms_cocktail_whiskey_sour"
+    relation_type: "PRINCIPLE_EXPLANATION"
+    object_id: "n_cms_cocktail_whiskey_sour_point"
+    domain_id: "service"
+    assertion_text: "The IBA Whiskey Sour reference uses 45 ml bourbon, 25 ml fresh lemon juice and 20 ml sugar syrup, shaken with ice. A few drops of egg white are optional. It is strained into a cobbler glass or, for service on the rocks, an ice-filled Old Fashioned glass. An optional reference ingredient is not proof that the actual bar's drink is egg-free; confirm the recipe before answering an ingredient request."
+    verification_status: "unverified"
+    mcq_disabled: true
+    last_verified_at: "2026-09-30T01:30:00.000Z"
+  -
+    id: "ki_cms_cocktail_americano"
+    subject_id: "n_cms_cocktail_americano"
+    relation_type: "PRINCIPLE_EXPLANATION"
+    object_id: "n_cms_cocktail_americano_point"
+    domain_id: "service"
+    assertion_text: "IBA's Americano combines 30 ml Campari and 30 ml sweet red vermouth with a splash of soda water, gently stirred over ice in an Old Fashioned glass. Its garnish includes half an orange slice and lemon zest. Unlike the cited Negroni, this reference adds soda rather than gin; it is still an alcoholic drink, and a splash is not a fixed millilitre amount."
+    verification_status: "unverified"
+    mcq_disabled: true
+    last_verified_at: "2026-09-30T01:30:00.000Z"
+  -
+    id: "ki_cms_cocktail_aperitif_action"
+    subject_id: "n_cms_cocktail_case_aperitif"
+    relation_type: "CASE_ACTION"
+    object_id: "n_cms_cocktail_aperitif_action"
+    domain_id: "service"
+    assertion_text: "Offer an Americano provisionally, explain that the cited recipe combines Campari, sweet red vermouth and soda without added gin, and confirm the venue can prepare that version."
+    verification_status: "unverified"
+    mcq_disabled: true
+    last_verified_at: "2026-09-30T01:30:00.000Z"
+  -
+    id: "ki_cms_cocktail_aperitif_reason"
+    subject_id: "n_cms_cocktail_case_aperitif"
+    relation_type: "CASE_REASON"
+    object_id: "n_cms_cocktail_aperitif_reason"
+    domain_id: "service"
+    assertion_text: "Both cited references use Campari and sweet red vermouth. IBA's Americano adds a splash of soda; its Negroni adds gin instead, so a Negroni would conflict with this guest's stated no-gin preference."
+    verification_status: "unverified"
+    mcq_disabled: true
+    last_verified_at: "2026-09-30T01:30:00.000Z"
+  -
+    id: "ki_cms_cocktail_aperitif_tradeoff"
+    subject_id: "n_cms_cocktail_case_aperitif"
+    relation_type: "CASE_TRADEOFF"
+    object_id: "n_cms_cocktail_aperitif_tradeoff"
+    domain_id: "service"
+    assertion_text: "If the guest changes their preference and wants gin, discuss the Negroni as a different option. Keep its gin component explicit rather than substituting it without agreement; do not calculate an exact strength from an unspecified soda splash."
+    verification_status: "unverified"
+    mcq_disabled: true
+    last_verified_at: "2026-09-30T01:30:00.000Z"
+  -
+    id: "ki_cms_cocktail_aperitif_limit"
+    subject_id: "n_cms_cocktail_case_aperitif"
+    relation_type: "CASE_LIMITATION"
+    object_id: "n_cms_cocktail_aperitif_limit"
+    domain_id: "service"
+    assertion_text: "Confirm the actual bar recipe, bottles and availability before serving. The IBA Americano has no added gin but includes alcoholic Campari and vermouth; its reference cannot certify this venue's substitutions or suitability for a dietary request."
+    verification_status: "unverified"
+    mcq_disabled: true
+    last_verified_at: "2026-09-30T01:30:00.000Z"
+  -
+    id: "ki_cms_cocktail_rum_citrus_action"
+    subject_id: "n_cms_cocktail_case_rum_citrus"
+    relation_type: "CASE_ACTION"
+    object_id: "n_cms_cocktail_rum_citrus_action"
+    domain_id: "service"
+    assertion_text: "Offer the Daiquiri provisionally and confirm the guest wants the venue's rum, lime and sugar version. Ask about the desired balance before service instead of treating a cocktail name as a complete specification."
+    verification_status: "unverified"
+    mcq_disabled: true
+    last_verified_at: "2026-09-30T01:30:00.000Z"
+  -
+    id: "ki_cms_cocktail_rum_citrus_reason"
+    subject_id: "n_cms_cocktail_case_rum_citrus"
+    relation_type: "CASE_REASON"
+    object_id: "n_cms_cocktail_rum_citrus_reason"
+    domain_id: "service"
+    assertion_text: "The cited Daiquiri uses white Cuban rum, fresh lime and superfine sugar. The cited Margarita uses 100% agave tequila, triple sec and lime, so it changes both the requested spirit and the reference's sweetening ingredient."
+    verification_status: "unverified"
+    mcq_disabled: true
+    last_verified_at: "2026-09-30T01:30:00.000Z"
+  -
+    id: "ki_cms_cocktail_rum_citrus_tradeoff"
+    subject_id: "n_cms_cocktail_case_rum_citrus"
+    relation_type: "CASE_TRADEOFF"
+    object_id: "n_cms_cocktail_rum_citrus_tradeoff"
+    domain_id: "service"
+    assertion_text: "A Margarita may be discussed if the guest changes their preference to tequila and accepts triple sec. Explain those changes and ask about the optional half salt rim rather than presenting it as an equivalent rum cocktail."
+    verification_status: "unverified"
+    mcq_disabled: true
+    last_verified_at: "2026-09-30T01:30:00.000Z"
+  -
+    id: "ki_cms_cocktail_rum_citrus_limit"
+    subject_id: "n_cms_cocktail_case_rum_citrus"
+    relation_type: "CASE_LIMITATION"
+    object_id: "n_cms_cocktail_rum_citrus_limit"
+    domain_id: "service"
+    assertion_text: "Check the actual recipe and ingredients: the IBA Daiquiri lists two bar spoons of sugar, not an exact millilitre conversion. Its reference does not establish the venue's substitutions, finished sweetness or the guest's preferred balance."
+    verification_status: "unverified"
+    mcq_disabled: true
+    last_verified_at: "2026-09-30T01:30:00.000Z"
+certification_knowledge_mappings:
+  -
+    certification_id: "CMS_CERTIFIED"
+    knowledge_item_id: "ki_cms_cocktail_dry_martini"
+    importance: "core"
+    minimum_depth: 2
+  -
+    certification_id: "CMS_CERTIFIED"
+    knowledge_item_id: "ki_cms_cocktail_manhattan"
+    importance: "core"
+    minimum_depth: 2
+  -
+    certification_id: "CMS_CERTIFIED"
+    knowledge_item_id: "ki_cms_cocktail_negroni"
+    importance: "core"
+    minimum_depth: 2
+  -
+    certification_id: "CMS_CERTIFIED"
+    knowledge_item_id: "ki_cms_cocktail_daiquiri"
+    importance: "core"
+    minimum_depth: 2
+  -
+    certification_id: "CMS_CERTIFIED"
+    knowledge_item_id: "ki_cms_cocktail_margarita"
+    importance: "core"
+    minimum_depth: 2
+  -
+    certification_id: "CMS_CERTIFIED"
+    knowledge_item_id: "ki_cms_cocktail_old_fashioned"
+    importance: "core"
+    minimum_depth: 2
+  -
+    certification_id: "CMS_CERTIFIED"
+    knowledge_item_id: "ki_cms_cocktail_whiskey_sour"
+    importance: "core"
+    minimum_depth: 2
+  -
+    certification_id: "CMS_CERTIFIED"
+    knowledge_item_id: "ki_cms_cocktail_americano"
+    importance: "core"
+    minimum_depth: 2
+  -
+    certification_id: "CMS_CERTIFIED"
+    knowledge_item_id: "ki_cms_cocktail_aperitif_action"
+    importance: "core"
+    minimum_depth: 3
+  -
+    certification_id: "CMS_CERTIFIED"
+    knowledge_item_id: "ki_cms_cocktail_aperitif_reason"
+    importance: "core"
+    minimum_depth: 3
+  -
+    certification_id: "CMS_CERTIFIED"
+    knowledge_item_id: "ki_cms_cocktail_aperitif_tradeoff"
+    importance: "core"
+    minimum_depth: 3
+  -
+    certification_id: "CMS_CERTIFIED"
+    knowledge_item_id: "ki_cms_cocktail_aperitif_limit"
+    importance: "core"
+    minimum_depth: 3
+  -
+    certification_id: "CMS_CERTIFIED"
+    knowledge_item_id: "ki_cms_cocktail_rum_citrus_action"
+    importance: "core"
+    minimum_depth: 3
+  -
+    certification_id: "CMS_CERTIFIED"
+    knowledge_item_id: "ki_cms_cocktail_rum_citrus_reason"
+    importance: "core"
+    minimum_depth: 3
+  -
+    certification_id: "CMS_CERTIFIED"
+    knowledge_item_id: "ki_cms_cocktail_rum_citrus_tradeoff"
+    importance: "core"
+    minimum_depth: 3
+  -
+    certification_id: "CMS_CERTIFIED"
+    knowledge_item_id: "ki_cms_cocktail_rum_citrus_limit"
+    importance: "core"
+    minimum_depth: 3
+source_citations:
+  -
+    id: "src_iba_cms_dry_martini"
+    kind: "reference_work"
+    title: "Dry Martini: IBA official cocktail reference"
+    publisher: "International Bartenders Association"
+    document_identifier: "Named reference ingredients and method; not a universal venue recipe"
+    url: "https://iba-world.com/iba-cocktail/dry-martini/"
+    accessed_on: "2026-09-30"
+  -
+    id: "src_iba_cms_manhattan"
+    kind: "reference_work"
+    title: "Manhattan: IBA official cocktail reference"
+    publisher: "International Bartenders Association"
+    document_identifier: "Named reference ingredients and method; not a universal venue recipe"
+    url: "https://iba-world.com/iba-cocktail/manhattan/"
+    accessed_on: "2026-09-30"
+  -
+    id: "src_iba_cms_negroni"
+    kind: "reference_work"
+    title: "Negroni: IBA official cocktail reference"
+    publisher: "International Bartenders Association"
+    document_identifier: "Named reference ingredients and method; not a universal venue recipe"
+    url: "https://iba-world.com/iba-cocktail/negroni/"
+    accessed_on: "2026-09-30"
+  -
+    id: "src_iba_cms_daiquiri"
+    kind: "reference_work"
+    title: "Daiquiri: IBA official cocktail reference"
+    publisher: "International Bartenders Association"
+    document_identifier: "Named reference ingredients and method; not a universal venue recipe"
+    url: "https://iba-world.com/iba-cocktail/daiquiri/"
+    accessed_on: "2026-09-30"
+  -
+    id: "src_iba_cms_margarita"
+    kind: "reference_work"
+    title: "Margarita: IBA official cocktail reference"
+    publisher: "International Bartenders Association"
+    document_identifier: "Named reference ingredients and method; not a universal venue recipe"
+    url: "https://iba-world.com/iba-cocktail/margarita/"
+    accessed_on: "2026-09-30"
+  -
+    id: "src_iba_cms_old_fashioned"
+    kind: "reference_work"
+    title: "Old Fashioned: IBA official cocktail reference"
+    publisher: "International Bartenders Association"
+    document_identifier: "Named reference ingredients and method; not a universal venue recipe"
+    url: "https://iba-world.com/iba-cocktail/old-fashioned/"
+    accessed_on: "2026-09-30"
+  -
+    id: "src_iba_cms_whiskey_sour"
+    kind: "reference_work"
+    title: "Whiskey Sour: IBA official cocktail reference"
+    publisher: "International Bartenders Association"
+    document_identifier: "Named reference ingredients and method; not a universal venue recipe"
+    url: "https://iba-world.com/iba-cocktail/whiskey-sour/"
+    accessed_on: "2026-09-30"
+  -
+    id: "src_iba_cms_americano"
+    kind: "reference_work"
+    title: "Americano: IBA official cocktail reference"
+    publisher: "International Bartenders Association"
+    document_identifier: "Named reference ingredients and method; not a universal venue recipe"
+    url: "https://iba-world.com/iba-cocktail/americano/"
+    accessed_on: "2026-09-30"
+knowledge_item_citations:
+  -
+    knowledge_item_id: "ki_cms_cocktail_dry_martini"
+    source_citation_id: "src_iba_cms_dry_martini"
+    locator: "Ingredients: 60 ml gin, 10 ml dry vermouth; method and garnish"
+  -
+    knowledge_item_id: "ki_cms_cocktail_manhattan"
+    source_citation_id: "src_iba_cms_manhattan"
+    locator: "Ingredients: 50 ml rye, 20 ml sweet red vermouth, one dash Angostura; stirred method"
+  -
+    knowledge_item_id: "ki_cms_cocktail_negroni"
+    source_citation_id: "src_iba_cms_negroni"
+    locator: "Ingredients: 30 ml each of gin, Campari and sweet red vermouth; direct build and gentle stirring"
+  -
+    knowledge_item_id: "ki_cms_cocktail_daiquiri"
+    source_citation_id: "src_iba_cms_daiquiri"
+    locator: "Ingredients: 60 ml white Cuban rum, 20 ml lime, two bar spoons superfine sugar; dissolving then shaking"
+  -
+    knowledge_item_id: "ki_cms_cocktail_margarita"
+    source_citation_id: "src_iba_cms_margarita"
+    locator: "Ingredients: 50 ml 100% agave tequila, 20 ml triple sec, 15 ml lime; shaken method; optional half salt rim"
+  -
+    knowledge_item_id: "ki_cms_cocktail_old_fashioned"
+    source_citation_id: "src_iba_cms_old_fashioned"
+    locator: "Ingredients: 45 ml bourbon or rye, sugar cube, Angostura and water; dissolve then build with ice"
+  -
+    knowledge_item_id: "ki_cms_cocktail_whiskey_sour"
+    source_citation_id: "src_iba_cms_whiskey_sour"
+    locator: "Ingredients: 45 ml bourbon, 25 ml lemon, 20 ml sugar syrup; optional egg white; shake and glassware"
+  -
+    knowledge_item_id: "ki_cms_cocktail_americano"
+    source_citation_id: "src_iba_cms_americano"
+    locator: "Ingredients: 30 ml Campari, 30 ml sweet red vermouth, splash soda; direct build and gentle stirring"
+  -
+    knowledge_item_id: "ki_cms_cocktail_aperitif_action"
+    source_citation_id: "src_iba_cms_americano"
+    locator: "Ingredients and constructed guest request: Campari, sweet vermouth, soda and no gin"
+  -
+    knowledge_item_id: "ki_cms_cocktail_aperitif_reason"
+    source_citation_id: "src_iba_cms_americano"
+    locator: "Ingredients compared with IBA Negroni; guest no-gin preference"
+  -
+    knowledge_item_id: "ki_cms_cocktail_aperitif_reason"
+    source_citation_id: "src_iba_cms_negroni"
+    locator: "Ingredients of the compared reference; original guest-recommendation inference"
+  -
+    knowledge_item_id: "ki_cms_cocktail_aperitif_tradeoff"
+    source_citation_id: "src_iba_cms_negroni"
+    locator: "Gin in Negroni compared with Americano soda; no exact ABV claim"
+  -
+    knowledge_item_id: "ki_cms_cocktail_aperitif_limit"
+    source_citation_id: "src_iba_cms_americano"
+    locator: "Published ingredients describe a reference; actual preparation requires confirmation"
+  -
+    knowledge_item_id: "ki_cms_cocktail_rum_citrus_action"
+    source_citation_id: "src_iba_cms_daiquiri"
+    locator: "Rum, lime and sugar reference applied to original guest preference"
+  -
+    knowledge_item_id: "ki_cms_cocktail_rum_citrus_reason"
+    source_citation_id: "src_iba_cms_daiquiri"
+    locator: "Ingredients compared with IBA Margarita: rum and sugar versus tequila and triple sec"
+  -
+    knowledge_item_id: "ki_cms_cocktail_rum_citrus_reason"
+    source_citation_id: "src_iba_cms_margarita"
+    locator: "Ingredients of the compared reference; original guest-recommendation inference"
+  -
+    knowledge_item_id: "ki_cms_cocktail_rum_citrus_tradeoff"
+    source_citation_id: "src_iba_cms_margarita"
+    locator: "Tequila, triple sec and optional half salt rim support a clearly identified alternative"
+  -
+    knowledge_item_id: "ki_cms_cocktail_rum_citrus_limit"
+    source_citation_id: "src_iba_cms_daiquiri"
+    locator: "Two bar spoons superfine sugar; constructed preference and venue-check limits"

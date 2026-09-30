@@ -1,0 +1,76 @@
+# Original, hypothetical CMS Certified quantity exercises. Given pours and prices are not standards.
+# Authored examples have exact whole-unit answers; citations support the method, not the invented inputs.
+# All facts remain unverified pending qualified review. No schema migration or lower-track mapping.
+
+node_types:
+  - {"id":"worked_example","label":"worked calculation example"}
+
+relation_types:
+  - {"id":"CALCULATED_VALUE","label":"has the calculated result","reverse_label":"is the calculated result of","cardinality":"one","default_domain_id":"business"}
+
+relation_type_signatures:
+  - {"relation_type":"CALCULATED_VALUE","subject_node_type":"worked_example","object_node_type":"quantity"}
+
+knowledge_nodes:
+  - {"id":"n_cms_calc_full_pours","node_type":"worked_example","name":"In this hypothetical service, one bottle contains 750 mL. How many complete 100 mL pours can it provide if leftovers cannot count as a pour?"}
+  - {"id":"n_qty_cms_calc_full_pours","node_type":"quantity","name":"7 pours"}
+  - {"id":"n_cms_calc_event_bottles","node_type":"worked_example","name":"For a hypothetical event, 40 guests each receive two 125 mL pours. What is the minimum number of 750 mL bottles needed? Pool usable wine across bottles; ignore spillage and any reserve."}
+  - {"id":"n_qty_cms_calc_event_bottles","node_type":"quantity","name":"14 bottles"}
+  - {"id":"n_cms_calc_gross_profit","node_type":"worked_example","name":"A hypothetical bottle has tax-exclusive net sales of EUR 30 and cost of goods sold of EUR 12. What is its gross profit in EUR, before overheads?"}
+  - {"id":"n_qty_cms_calc_gross_profit","node_type":"quantity","name":"18 EUR"}
+  - {"id":"n_cms_calc_gross_margin","node_type":"worked_example","name":"A hypothetical bottle has tax-exclusive net sales of EUR 30 and cost of goods sold of EUR 12. What is its gross margin percentage? Use net sales as the denominator."}
+  - {"id":"n_qty_cms_calc_gross_margin","node_type":"quantity","name":"60 %"}
+  - {"id":"n_cms_calc_markup","node_type":"worked_example","name":"A hypothetical bottle has tax-exclusive net sales of EUR 30 and cost of goods sold of EUR 12. What is its markup percentage? Use cost of goods sold as the denominator."}
+  - {"id":"n_qty_cms_calc_markup","node_type":"quantity","name":"150 %"}
+  - {"id":"n_cms_calc_target_price","node_type":"worked_example","name":"A hypothetical bottle costs EUR 12 in goods sold. What tax-exclusive net selling price in EUR gives a 60% gross margin? Assume no discounts, commissions or rounding of cents."}
+  - {"id":"n_qty_cms_calc_target_price","node_type":"quantity","name":"30 EUR"}
+
+quantity_values:
+  - {"knowledge_node_id":"n_qty_cms_calc_full_pours","minimum":7,"maximum":7,"unit":"pours"}
+  - {"knowledge_node_id":"n_qty_cms_calc_event_bottles","minimum":14,"maximum":14,"unit":"bottles"}
+  - {"knowledge_node_id":"n_qty_cms_calc_gross_profit","minimum":18,"maximum":18,"unit":"EUR"}
+  - {"knowledge_node_id":"n_qty_cms_calc_gross_margin","minimum":60,"maximum":60,"unit":"%"}
+  - {"knowledge_node_id":"n_qty_cms_calc_markup","minimum":150,"maximum":150,"unit":"%"}
+  - {"knowledge_node_id":"n_qty_cms_calc_target_price","minimum":30,"maximum":30,"unit":"EUR"}
+
+knowledge_relations:
+  - {"subject_id":"n_cms_calc_full_pours","relation_type":"CALCULATED_VALUE","object_id":"n_qty_cms_calc_full_pours","valid_from":"2026-09-30"}
+  - {"subject_id":"n_cms_calc_event_bottles","relation_type":"CALCULATED_VALUE","object_id":"n_qty_cms_calc_event_bottles","valid_from":"2026-09-30"}
+  - {"subject_id":"n_cms_calc_gross_profit","relation_type":"CALCULATED_VALUE","object_id":"n_qty_cms_calc_gross_profit","valid_from":"2026-09-30"}
+  - {"subject_id":"n_cms_calc_gross_margin","relation_type":"CALCULATED_VALUE","object_id":"n_qty_cms_calc_gross_margin","valid_from":"2026-09-30"}
+  - {"subject_id":"n_cms_calc_markup","relation_type":"CALCULATED_VALUE","object_id":"n_qty_cms_calc_markup","valid_from":"2026-09-30"}
+  - {"subject_id":"n_cms_calc_target_price","relation_type":"CALCULATED_VALUE","object_id":"n_qty_cms_calc_target_price","valid_from":"2026-09-30"}
+
+knowledge_items:
+  - {"id":"ki_cms_calc_full_pours","subject_id":"n_cms_calc_full_pours","relation_type":"CALCULATED_VALUE","object_id":"n_qty_cms_calc_full_pours","domain_id":"business","assertion_text":"7 complete pours use 700 mL; 50 mL remains. Floor(750 / 100) = 7. This given serving size is an exercise assumption, not a standard or legal measure.","verification_status":"unverified","mcq_disabled":true,"last_verified_at":"2026-09-30T01:25:00.000Z"}
+  - {"id":"ki_cms_calc_event_bottles","subject_id":"n_cms_calc_event_bottles","relation_type":"CALCULATED_VALUE","object_id":"n_qty_cms_calc_event_bottles","domain_id":"business","assertion_text":"40 x 2 x 125 = 10,000 mL. 10,000 / 750 = 13 1/3 bottles, so round up to 14 whole bottles. This is a stated planning scenario, not a consumption recommendation.","verification_status":"unverified","mcq_disabled":true,"last_verified_at":"2026-09-30T01:25:00.000Z"}
+  - {"id":"ki_cms_calc_gross_profit","subject_id":"n_cms_calc_gross_profit","relation_type":"CALCULATED_VALUE","object_id":"n_qty_cms_calc_gross_profit","domain_id":"business","assertion_text":"Gross profit = net sales - cost of goods sold = 30 - 12 = EUR 18. It is not net profit; overheads and tax are excluded from these exercise inputs.","verification_status":"unverified","mcq_disabled":true,"last_verified_at":"2026-09-30T01:25:00.000Z"}
+  - {"id":"ki_cms_calc_gross_margin","subject_id":"n_cms_calc_gross_margin","relation_type":"CALCULATED_VALUE","object_id":"n_qty_cms_calc_gross_margin","domain_id":"business","assertion_text":"Gross profit is EUR 18. Gross margin = 18 / 30 x 100 = 60%. The denominator is net sales, not cost; markup would instead be 150%.","verification_status":"unverified","mcq_disabled":true,"last_verified_at":"2026-09-30T01:25:00.000Z"}
+  - {"id":"ki_cms_calc_markup","subject_id":"n_cms_calc_markup","relation_type":"CALCULATED_VALUE","object_id":"n_qty_cms_calc_markup","domain_id":"business","assertion_text":"Markup = (30 - 12) / 12 x 100 = 150%. This differs from the 60% gross margin because the denominator is cost rather than net sales.","verification_status":"unverified","mcq_disabled":true,"last_verified_at":"2026-09-30T01:25:00.000Z"}
+  - {"id":"ki_cms_calc_target_price","subject_id":"n_cms_calc_target_price","relation_type":"CALCULATED_VALUE","object_id":"n_qty_cms_calc_target_price","domain_id":"business","assertion_text":"Price = cost / (1 - target gross margin) = 12 / (1 - 0.60) = EUR 30. Adding 60% to cost would give EUR 19.20 and would not achieve a 60% gross margin.","verification_status":"unverified","mcq_disabled":true,"last_verified_at":"2026-09-30T01:25:00.000Z"}
+
+certification_knowledge_mappings:
+  - {"certification_id":"CMS_CERTIFIED","knowledge_item_id":"ki_cms_calc_full_pours","importance":"core","minimum_depth":2}
+  - {"certification_id":"CMS_CERTIFIED","knowledge_item_id":"ki_cms_calc_event_bottles","importance":"core","minimum_depth":2}
+  - {"certification_id":"CMS_CERTIFIED","knowledge_item_id":"ki_cms_calc_gross_profit","importance":"core","minimum_depth":2}
+  - {"certification_id":"CMS_CERTIFIED","knowledge_item_id":"ki_cms_calc_gross_margin","importance":"core","minimum_depth":2}
+  - {"certification_id":"CMS_CERTIFIED","knowledge_item_id":"ki_cms_calc_markup","importance":"core","minimum_depth":2}
+  - {"certification_id":"CMS_CERTIFIED","knowledge_item_id":"ki_cms_calc_target_price","importance":"core","minimum_depth":2}
+
+source_citations:
+  - {"id":"src_cms_calc_proportions","kind":"reference_work","title":"Prealgebra 2e: Solve Proportions and their Applications","publisher":"OpenStax, Rice University","document_identifier":"Section 6.5; arithmetic method only; all service inputs original and hypothetical","url":"https://openstax.org/books/prealgebra-2e/pages/6-5-solve-proportions-and-their-applications","accessed_on":"2026-09-30"}
+
+knowledge_item_citations:
+  - {"knowledge_item_id":"ki_cms_calc_full_pours","source_citation_id":"src_cms_calc_proportions","locator":"Solve applications using proportions; original bottle/pour inputs and complete-unit constraint"}
+  - {"knowledge_item_id":"ki_cms_calc_event_bottles","source_citation_id":"src_cms_calc_proportions","locator":"Solve applications using proportions; original event inputs and whole-bottle rounding constraint"}
+  - {"knowledge_item_id":"ki_cms_calc_gross_profit","source_citation_id":"src_biz_victoria_pricing","locator":"How to calculate gross profit and margin: gross profit formula; original EUR 30 / EUR 12 inputs"}
+  - {"knowledge_item_id":"ki_cms_calc_gross_margin","source_citation_id":"src_biz_victoria_pricing","locator":"How to calculate gross profit and margin: gross margin formula; original EUR 30 / EUR 12 inputs"}
+  - {"knowledge_item_id":"ki_cms_calc_markup","source_citation_id":"src_biz_victoria_pricing","locator":"How to calculate markup: markup formula; original EUR 30 / EUR 12 inputs"}
+  - {"knowledge_item_id":"ki_cms_calc_target_price","source_citation_id":"src_biz_victoria_pricing","locator":"Gross margin formula rearranged for price; original EUR 12 / 60% inputs"}
+
+knowledge_item_prerequisites:
+  - {"knowledge_item_id":"ki_cms_calc_gross_profit","prerequisite_item_id":"ki_biz_gross_profit"}
+  - {"knowledge_item_id":"ki_cms_calc_gross_margin","prerequisite_item_id":"ki_biz_gross_margin"}
+  - {"knowledge_item_id":"ki_cms_calc_markup","prerequisite_item_id":"ki_biz_markup"}
+  - {"knowledge_item_id":"ki_cms_calc_target_price","prerequisite_item_id":"ki_biz_gross_margin"}
+

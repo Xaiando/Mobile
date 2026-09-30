@@ -1,0 +1,5 @@
+# Given quantities are explicit; no unstated venue pour, tax or currency conversion.
+question_templates:
+  - {"id":"qt_cms_calculated_value_fwd_flashcard","relation_type":"CALCULATED_VALUE","direction":"forward","mode":"flashcard","prompt_template":"{subject.name}"}
+  - {"id":"qt_cms_calculated_value_fwd_numeric","relation_type":"CALCULATED_VALUE","direction":"forward","mode":"numeric","prompt_template":"{subject.name}","parameters":{"scope_node_ids":["n_cms_calc_full_pours","n_cms_calc_event_bottles","n_cms_calc_gross_profit","n_cms_calc_gross_margin","n_cms_calc_markup","n_cms_calc_target_price"],"exact_tolerance":0,"tolerance":0}}
+

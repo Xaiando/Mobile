@@ -560,7 +560,7 @@ void main() {
       132,
       844,
       3442,
-      4130,
+      4158,
     ]);
     final diploma = snapshot.levels.last;
     final unitIds = {
@@ -570,6 +570,7 @@ void main() {
       'D4': [
         'ki_spark_',
         'ki_d4nw_',
+        'ki_d4brit_',
         'ki_d4depth_',
         'ki_d4d5_bourgogne_',
         'ki_d4d5_saumur_',
@@ -582,6 +583,7 @@ void main() {
       'D5': [
         'ki_fort_',
         'ki_d5f_',
+        'ki_d5madeira_',
         'ki_d4d5_palo_',
         'ki_d4d5_lbv_',
         'ki_d4d5_colheita_',

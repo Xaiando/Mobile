@@ -82,16 +82,21 @@ void main() {
     db = openTestDatabase();
     final generation = await CurriculumIngester(
       db,
-      clock: Clock.fixed(DateTime.utc(2026, 9, 29, 17, 57)),
+      clock: Clock.fixed(dataset.publishedAt.toUtc()),
     ).ingest(dataset);
     const policyPath = 'assets/curriculum/coverage_policy.yaml';
-    audit = await CoverageChecker(
-      db,
-      CoveragePolicy.parse(
-        File(policyPath).readAsStringSync(),
-        path: policyPath,
-      ),
-    ).check('WSET_L4', on: '2026-09-29', skipped: generation.skipped);
+    audit =
+        await CoverageChecker(
+          db,
+          CoveragePolicy.parse(
+            File(policyPath).readAsStringSync(),
+            path: policyPath,
+          ),
+        ).check(
+          'WSET_L4',
+          on: dataset.publishedAt.toIso8601String().substring(0, 10),
+          skipped: generation.skipped,
+        );
   });
 
   tearDownAll(() async => db.close());
@@ -244,8 +249,8 @@ void main() {
       final service = audit.domains.singleWhere(
         (domain) => domain.id == 'service',
       );
-      expect(geography.counts[CoverageMetric.core], 1110);
-      expect(geography.counts[CoverageMetric.coreUsefulPractice], 1110);
+      expect(geography.counts[CoverageMetric.core], 1121);
+      expect(geography.counts[CoverageMetric.coreUsefulPractice], 1121);
       expect(geography.counts[CoverageMetric.spatial], 1673);
       final coreLocations = audit.items.where(
         (row) =>
@@ -261,8 +266,8 @@ void main() {
         isEmpty,
         reason: 'every core place-location fact must retain map-click practice',
       );
-      expect(service.counts[CoverageMetric.core], 110);
-      expect(service.counts[CoverageMetric.coreUsefulPractice], 110);
+      expect(service.counts[CoverageMetric.core], 112);
+      expect(service.counts[CoverageMetric.coreUsefulPractice], 112);
       expect(
         audit.items.where(
           (row) =>
