@@ -185,7 +185,7 @@ void main() {
             .every((row) => row.hasUsefulPractice),
         isTrue,
       );
-      expect(report.counts[CoverageMetric.coreUsefulPractice], 2955);
+      expect(report.counts[CoverageMetric.coreUsefulPractice], 2969);
     },
   );
 
