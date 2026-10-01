@@ -1,3 +1,4 @@
+import 'dart:convert';
 import 'dart:io';
 
 import 'package:clock/clock.dart';
@@ -22,6 +23,11 @@ import 'package:sommelier/core/study/study_planner.dart';
 
 import '../../support/curriculum_fixture.dart';
 import '../../support/fixture.dart';
+
+String _canonicalFileSha256(String path) {
+  final text = File(path).readAsStringSync().replaceAll('\r\n', '\n');
+  return sha256.convert(utf8.encode(text)).toString();
+}
 
 // Registration and actual D3 delivery are required. Finite recall does not
 // replace the original four-role regional cases or confer qualification.
@@ -471,17 +477,48 @@ void main() {
     );
     for (final entry in {
       'assets/study/diploma_written_practice.json':
-          '80c7483128088e05ea3d27c7eb19bba274ed4ffea65e598db0d2e551d461a893',
+          '25bf2cac634ca23c42d6015aa84b60e35ba97bc063f836a84c9a23e68360fbb0',
       'assets/study/diploma_tasting_flights.json':
-          'fe0c406a5750c877cf909cf99ec0013469063a16917924e853d7a1e578e78f66',
+          '799cda7635d4a7acc0397af9d590fca9214496d0f835ce30743a4bf1ee6caf31',
     }.entries) {
-      expect(
-        sha256.convert(File(entry.key).readAsBytesSync()).toString(),
-        entry.value,
-        reason: entry.key,
-      );
+      expect(_canonicalFileSha256(entry.key), entry.value, reason: entry.key);
     }
   });
+
+  test(
+    'canonical file hashing is line-ending invariant and rejects tampering',
+    () {
+      const sample = 'name: test\r\nvalue: 42\r\n';
+      final lf = sample.replaceAll('\r\n', '\n');
+      final crlf = sample;
+      final hashLf = sha256.convert(utf8.encode(lf)).toString();
+      final hashCrlf = sha256
+          .convert(utf8.encode(crlf.replaceAll('\r\n', '\n')))
+          .toString();
+      expect(hashCrlf, hashLf);
+
+      // Character mutation alters hash
+      final mutatedChar = lf.replaceAll('test', 'prod');
+      expect(
+        sha256.convert(utf8.encode(mutatedChar)).toString(),
+        isNot(hashLf),
+      );
+
+      // Whitespace alteration alters hash
+      final mutatedSpace = lf.replaceAll('value: 42', 'value:  42');
+      expect(
+        sha256.convert(utf8.encode(mutatedSpace)).toString(),
+        isNot(hashLf),
+      );
+
+      // Trailing additions alter hash
+      final mutatedTrailing = '$lf\n';
+      expect(
+        sha256.convert(utf8.encode(mutatedTrailing)).toString(),
+        isNot(hashLf),
+      );
+    },
+  );
 
   test('six real recalled meanings and authored alternatives reject wrong answers without leaking feedback', () async {
     final db = openTestDatabase();

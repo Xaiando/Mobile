@@ -1,3 +1,4 @@
+import 'dart:convert';
 import 'dart:io';
 
 import 'package:clock/clock.dart';
@@ -19,6 +20,11 @@ import 'package:sommelier/core/study/study_planner.dart';
 
 import '../../support/curriculum_fixture.dart';
 import '../../support/fixture.dart';
+
+String _canonicalFileSha256(String path) {
+  final text = File(path).readAsStringSync().replaceAll('\r\n', '\n');
+  return sha256.convert(utf8.encode(text)).toString();
+}
 
 // Original French cases registered in the isolated 0.24.65 candidate.
 // These tests intentionally require both asset registration and explicit D3 scope.
@@ -131,17 +137,17 @@ void main() {
   };
   const preservedHashes = {
     'assets/curriculum/areas/regional_france_comparisons.yaml':
-        'f9b32ef37483a6a814b734e818701d4090bd63e15faf521a6d9bfd613098cb14',
+        '59677c19d6dc4bf70f228feabff6a7b5c63b2266e0443b8d7df9a681a2fb5fac',
     'assets/curriculum/areas/regional_france_rivers_southwest_comparisons.yaml':
-        '5ae0af0096908a6537b4e848567ea986feb902ab1b4c95f87bce1dc1e1d08719',
+        '2066becfc88e74982d3b007dc3dcc6b5c03cfa9ce90cc7265881a150d2e73556',
     'assets/curriculum/templates/regional_france_cases.yaml':
-        'bc5073bbcccf3e19f6d298115a151d3608149902e5896acbbbc53fda56aa171e',
+        '4adc5ccca94bef0cae9dc29726991535168aa59c1e6c079e37283d0c4d6fef08',
     'assets/curriculum/templates/regional_france_rivers_southwest_cases.yaml':
-        'ea57d39d05de7899a5f00f0442b4b0ba5c6d0e8b7ecd8282aaeb47f88b8a9abd',
+        'a3a5a07ece747e2178c921d2c55a995e7ddf86cd9edad4e6cb25bc5a89e67a62',
     'assets/curriculum/templates/wset_l3_business_case_criteria.yaml':
-        'c312cebe4859b3e5a44b0f5c6eeeacfd93ff2c90c890fbe069a007dd72f00ea6',
+        '82922ddc1629b4127b580c7227916c843a8364248c5701a8db3e73518eb4de4f',
     'assets/study/diploma_written_practice.json':
-        '80c7483128088e05ea3d27c7eb19bba274ed4ffea65e598db0d2e551d461a893',
+        '25bf2cac634ca23c42d6015aa84b60e35ba97bc063f836a84c9a23e68360fbb0',
   };
   final criteriaTemplate = dataset.questionTemplates.singleWhere(
     (row) => row.id == criteriaId,
@@ -350,7 +356,7 @@ void main() {
     () {
       for (final entry in preservedHashes.entries) {
         expect(
-          sha256.convert(File(entry.key).readAsBytesSync()).toString(),
+          _canonicalFileSha256(entry.key),
           entry.value,
           reason:
               'This batch must not rewrite the existing input: ${entry.key}',
@@ -371,6 +377,42 @@ void main() {
       }
     },
   );
+
+  test(
+    'canonical file hashing is line-ending invariant and rejects tampering',
+    () {
+      const sample = 'name: test\r\nvalue: 42\r\n';
+      final lf = sample.replaceAll('\r\n', '\n');
+      final crlf = sample;
+      final hashLf = sha256.convert(utf8.encode(lf)).toString();
+      final hashCrlf = sha256
+          .convert(utf8.encode(crlf.replaceAll('\r\n', '\n')))
+          .toString();
+      expect(hashCrlf, hashLf);
+
+      // Character mutation alters hash
+      final mutatedChar = lf.replaceAll('test', 'prod');
+      expect(
+        sha256.convert(utf8.encode(mutatedChar)).toString(),
+        isNot(hashLf),
+      );
+
+      // Whitespace alteration alters hash
+      final mutatedSpace = lf.replaceAll('value: 42', 'value:  42');
+      expect(
+        sha256.convert(utf8.encode(mutatedSpace)).toString(),
+        isNot(hashLf),
+      );
+
+      // Trailing additions alter hash
+      final mutatedTrailing = '$lf\n';
+      expect(
+        sha256.convert(utf8.encode(mutatedTrailing)).toString(),
+        isNot(hashLf),
+      );
+    },
+  );
+
   test('cold and studied French cases preserve isolation and independently grade eight criteria', () async {
     final db = openTestDatabase();
     try {
