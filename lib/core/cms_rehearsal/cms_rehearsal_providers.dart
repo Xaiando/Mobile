@@ -19,6 +19,16 @@ final cmsRehearsalBankProvider = FutureProvider<CmsRehearsalBank>(
   ),
 );
 
+/// Read a linked fact by exact ID, including saved historical links.
+final cmsLinkedAssertionProvider = FutureProvider.autoDispose
+    .family<String?, String>((ref, id) async {
+      final db = ref.watch(appDatabaseProvider);
+      final item = await (db.select(
+        db.knowledgeItems,
+      )..where((row) => row.id.equals(id))).getSingleOrNull();
+      return item?.assertionText;
+    });
+
 final cmsRehearsalRepositoryProvider = FutureProvider<CmsRehearsalRepository>((
   ref,
 ) async {

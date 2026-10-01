@@ -7,7 +7,6 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import '../../app/learner_state.dart';
 import '../../core/cms_rehearsal/cms_rehearsal.dart';
 import '../../core/cms_rehearsal/cms_rehearsal_providers.dart';
-import '../../core/database/database_providers.dart';
 import '../../core/time/time_providers.dart';
 
 /// Original study rehearsals. Saved history never acquires the draft pointer.
@@ -1037,15 +1036,6 @@ class _CmsRehearsalScreenState extends ConsumerState<CmsRehearsalScreen> {
   ];
 }
 
-final _cmsLinkedAssertionProvider = FutureProvider.autoDispose
-    .family<String?, String>((ref, id) async {
-      final db = ref.watch(appDatabaseProvider);
-      final item = await (db.select(
-        db.knowledgeItems,
-      )..where((row) => row.id.equals(id))).getSingleOrNull();
-      return item?.assertionText;
-    });
-
 class _CmsLinkedEvidence extends ConsumerWidget {
   const _CmsLinkedEvidence(this.ids);
   final List<String> ids;
@@ -1066,7 +1056,7 @@ class _CmsLinkedEvidence extends ConsumerWidget {
         for (final id in ids) ...[
           const SizedBox(height: 16),
           ref
-              .watch(_cmsLinkedAssertionProvider(id))
+              .watch(cmsLinkedAssertionProvider(id))
               .when(
                 data: (text) => Text(
                   text ??

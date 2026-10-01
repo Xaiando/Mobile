@@ -2,6 +2,7 @@ import 'dart:convert';
 import 'dart:io';
 
 import 'package:flutter_test/flutter_test.dart';
+import 'package:sommelier/core/coverage/coverage_model.dart';
 import 'package:yaml/yaml.dart';
 
 import '../../tool/curriculum/coverage_tool.dart';
@@ -118,18 +119,110 @@ void main() {
     expect(out, contains('there is no baseline at'));
   });
 
-  test('--update-baseline records the coverage', () async {
-    final baseline = File(pathOf('coverage_baseline.json'));
-    final committed = baseline.readAsStringSync().replaceAll('\r\n', '\n');
-    baseline.writeAsStringSync(
-      committed.replaceFirst(RegExp(r'"testable": \d+'), '"testable": 999'),
-    );
-    final (code, out) = await run(['--update-baseline']);
-    expect(code, exitOk, reason: out);
-    expect(out, contains('0 known gaps'));
-    expect(baseline.readAsStringSync(), committed);
-    expect((await run([])).$1, exitOk);
-  });
+  test(
+    '--update-baseline records current coverage and is repeatable',
+    () async {
+      final dataset = bundledDataset();
+      final baseline = File(pathOf('coverage_baseline.json'));
+      final committed = baseline.readAsStringSync().replaceAll('\r\n', '\n');
+      final committedDocument = jsonDecode(committed) as Map<String, dynamic>;
+      expect(committedDocument['known_gaps'], isEmpty);
+
+      // Measure through the public read-only report before corrupting the copy.
+      // Do not ask the updater under test to manufacture its own expectations.
+      final (reportCode, reportOut) = await run(['--format', 'json']);
+      expect(reportCode, exitOk, reason: reportOut);
+      final measured = jsonDecode(reportOut) as Map<String, dynamic>;
+      expect(measured['release'], dataset.version);
+      expect(measured['on'], releaseDate(dataset));
+      expect((measured['baseline'] as Map)['passes'], isTrue);
+
+      Map<String, int> measuredCounts(Object? raw) {
+        final counts = Map<String, int>.from(raw as Map);
+        expect(
+          counts.keys,
+          unorderedEquals(CoverageMetric.values.map((metric) => metric.key)),
+          reason: 'Every numeric metric must be present, not a subset.',
+        );
+        return counts;
+      }
+
+      final expectedTracks = <String, Map<String, Object?>>{};
+      for (final rawTrack in measured['tracks'] as List<dynamic>) {
+        final track = rawTrack as Map<String, dynamic>;
+        final domains = <String, Map<String, Object?>>{};
+        for (final rawDomain in track['domains'] as List<dynamic>) {
+          final domain = rawDomain as Map<String, dynamic>;
+          final areas = <String, Map<String, int>>{};
+          for (final rawArea in domain['areas'] as List<dynamic>) {
+            final area = rawArea as Map<String, dynamic>;
+            final areaId = area['id'] as String;
+            expect(areas.containsKey(areaId), isFalse);
+            areas[areaId] = measuredCounts(area['counts']);
+          }
+          final domainId = domain['id'] as String;
+          expect(domains.containsKey(domainId), isFalse);
+          domains[domainId] = {
+            'total': measuredCounts(domain['total']),
+            'areas': areas,
+          };
+        }
+        final trackId = track['id'] as String;
+        expect(expectedTracks.containsKey(trackId), isFalse);
+        expectedTracks[trackId] = {
+          'total': measuredCounts(track['total']),
+          'domains': domains,
+        };
+      }
+      expect(
+        expectedTracks.keys,
+        unorderedEquals([
+          'CMS_CERTIFIED',
+          'WSET_L1',
+          'WSET_L2',
+          'WSET_L3',
+          'WSET_L4',
+        ]),
+      );
+      final expectedDocument = <String, Object?>{
+        'about': committedDocument['about'],
+        'release': dataset.version,
+        'on': releaseDate(dataset),
+        'tracks': expectedTracks,
+        'known_gaps': <Object?>[],
+      };
+
+      baseline.writeAsStringSync(
+        committed.replaceFirst(RegExp(r'"testable": \d+'), '"testable": 999'),
+      );
+      final corrupted = jsonDecode(baseline.readAsStringSync()) as Map;
+      final firstTrackId = (committedDocument['tracks'] as Map).keys.first;
+      expect(
+        ((corrupted['tracks'] as Map)[firstTrackId]['total']
+            as Map)['testable'],
+        999,
+        reason: 'Prove the real temporary baseline corruption was applied.',
+      );
+      final (code, out) = await run(['--update-baseline']);
+      expect(code, exitOk, reason: out);
+      expect(out, contains('0 known gaps'));
+      final written = baseline.readAsStringSync();
+      expect(jsonDecode(written), expectedDocument);
+      expect(
+        (((jsonDecode(written) as Map)['tracks'] as Map)[firstTrackId]['total']
+            as Map)['testable'],
+        (expectedTracks[firstTrackId]!['total'] as Map)['testable'],
+        reason: 'Restore the measured value, rather than keeping 999.',
+      );
+
+      // A second explicit update must preserve every output byte.
+      final (repeatCode, repeatOut) = await run(['--update-baseline']);
+      expect(repeatCode, exitOk, reason: repeatOut);
+      expect(repeatOut, contains('0 known gaps'));
+      expect(baseline.readAsStringSync(), written);
+      expect((await run([])).$1, exitOk);
+    },
+  );
 
   test('--update-baseline keeps the known gaps still open', () async {
     // Without typed recall of climates, three items are flashcard-only.
