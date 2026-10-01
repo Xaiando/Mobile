@@ -560,7 +560,7 @@ void main() {
       132,
       844,
       3444,
-      4220,
+      4234,
     ]);
     final diploma = snapshot.levels.last;
     final unitIds = {
@@ -580,6 +580,7 @@ void main() {
         'ki_d4d5_grasparossa_',
         'ki_d4d5_case_italian_',
         'ki_d45taste_sparkling_',
+        'ki_d4sekt_',
       ],
       'D5': [
         'ki_fort_',

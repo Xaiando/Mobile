@@ -1823,7 +1823,19 @@ tracks:
         tasks: [DIP-4, C2, G10]
       - id: wset_l4.sparkling.germany
         label: Study German sparkling-wine choices
-        covers: {within: [n_wine_winzersekt, n_d4depth_principle_sekt_winemaker, n_d4depth_principle_sekt_vdp]}
+        covers:
+          within:
+            - n_wine_winzersekt
+            - n_d4depth_principle_sekt_winemaker
+            - n_d4depth_principle_sekt_vdp
+            - n_d4sekt_principle_origin_hierarchy
+            - n_d4sekt_principle_winzersekt_standards
+            - n_d4sekt_principle_vdp_classification
+            - n_d4sekt_principle_base_wine_selection
+            - n_d4sekt_principle_autolysis_vs_fruit
+            - n_d4sekt_principle_dosage_style
+            - n_d4sekt_case_winzersekt_allocation
+            - n_d4sekt_case_extended_lees_positioning
         tasks: [DIP-4, C6]
       - id: wset_l4.sparkling.italy
         label: Compare Italian sparkling-wine contexts
@@ -1946,6 +1958,12 @@ tracks:
             - n_d4depth_principle_sekt_winemaker
             - n_d4depth_principle_au_shiraz
             - n_d4depth_principle_nz_aromatic
+            - n_d4sekt_principle_origin_hierarchy
+            - n_d4sekt_principle_winzersekt_standards
+            - n_d4sekt_principle_base_wine_selection
+            - n_d4sekt_principle_autolysis_vs_fruit
+            - n_d4sekt_principle_dosage_style
+            - n_d4sekt_case_winzersekt_allocation
           relation_types:
             - REQUIRES_METHOD
             - PRINCIPLE_EXPLANATION
@@ -1979,6 +1997,8 @@ tracks:
             - n_d4commercial_case_us_offer
             - n_d4commercial_case_andes_offer
             - n_d4commercial_case_oceania_africa_offer
+            - n_d4sekt_case_winzersekt_allocation
+            - n_d4sekt_case_extended_lees_positioning
           relation_types:
             - PRINCIPLE_EXPLANATION
             - CASE_ACTION
