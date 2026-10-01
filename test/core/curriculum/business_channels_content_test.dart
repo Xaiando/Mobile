@@ -503,7 +503,7 @@ void main() {
         'WSET_L2': 844,
         'WSET_L3': 3444,
         'CMS_CERTIFIED': 2926,
-        'WSET_L4': 4206,
+        'WSET_L4': 4220,
       }.entries) {
         final mappings = await planner.effectiveMappings(entry.key);
         expect(mappings, hasLength(entry.value), reason: entry.key);
@@ -544,13 +544,13 @@ void main() {
             .singleWhere((unit) => unit.scope.id == 'D3')
             .scope
             .itemIds,
-        hasLength(736),
+        hasLength(750),
       );
       expect(snapshot.levels.map((level) => level.counts.mapped).toList(), [
         132,
         844,
         3444,
-        4206,
+        4220,
       ]);
       expect(
         snapshot.levels.take(3).map((level) => level.counts.studied),

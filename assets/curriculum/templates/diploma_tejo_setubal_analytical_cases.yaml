@@ -1,0 +1,202 @@
+{
+  "question_templates": [
+    {
+      "id": "qt_d3pt_principle_typed_6",
+      "relation_type": "PRINCIPLE_EXPLANATION",
+      "direction": "forward",
+      "mode": "typed",
+      "variant": "d3pt_principle_typed_6",
+      "prompt_template": "{subject.name}",
+      "parameters": {
+        "item_cues": {
+          "ki_d3pt_tejo_site_context": {
+            "prompt": "Which current commission terroir adds the higher, schistose context to Campo, Bairro and Charneca?",
+            "acceptedAnswers": [
+              "Serras"
+            ]
+          },
+          "ki_d3pt_tejo_white_blend": {
+            "prompt": "In the Tejo white-blend comparison, which named grape provides the cited acidity contribution?",
+            "acceptedAnswers": [
+              "Arinto"
+            ]
+          },
+          "ki_d3pt_tejo_label_scope": {
+            "prompt": "Which protected category does IG Tejo represent, in distinction to DO DoTejo?",
+            "acceptedAnswers": [
+              "IGP",
+              "protected geographical indication",
+              "indicação geográfica protegida"
+            ]
+          },
+          "ki_d3pt_setubal_site_context": {
+            "prompt": "Which named mountain range contributes the cited relief context alongside maritime and river influences?",
+            "acceptedAnswers": [
+              "Arrábida",
+              "Serra da Arrábida"
+            ]
+          },
+          "ki_d3pt_setubal_castelao_red": {
+            "prompt": "Which important regional red cultivar, also listed for the IGP, anchors the still-red case?",
+            "acceptedAnswers": [
+              "Castelão"
+            ]
+          },
+          "ki_d3pt_setubal_product_boundary": {
+            "prompt": "Which product category is identified for DOP Setúbal, distinct from the dry still-red exercise?",
+            "acceptedAnswers": [
+              "licoroso",
+              "vinho licoroso",
+              "liqueur wine",
+              "fortified wine"
+            ]
+          }
+        }
+      }
+    },
+    {
+      "id": "qt_d3pt_case_criteria_2",
+      "relation_type": "CASE_ACTION",
+      "direction": "forward",
+      "mode": "case_criteria",
+      "variant": "d3pt_case_criteria",
+      "prompt_template": "{subject.name}",
+      "parameters": {
+        "scope_node_ids": [
+          "n_d3pt_case_tejo_white",
+          "n_d3pt_case_setubal_still_red"
+        ],
+        "scenario_prompts": {
+          "n_d3pt_case_tejo_white": "An invented producer has sound same-vintage Fernão Pires from a Campo parcel with a supplied high-vigour log, and Arinto from a sandy Charneca parcel with a supplied dry-season water log. The buyer brief is a fresh, aromatic dry white for launch in seven weeks. Trial A is 60:40 Fernão Pires:Arinto, earlier Fernão Pires harvest and steel; trial B is 80:20, later Fernão Pires harvest and a wood vessel. A preliminary coded panel finds A closer to the brief; estimated readiness is week five for A and week ten for B. Those are supplied observations, not effects assigned to one variable. A distributor requests 1,800 bottles with payment 45 days after shipment; a bottling bill is due in 21 days. Another buyer offers a 300-bottle prepaid pilot with producer delivery and follow-up. Cash on hand, full costs, selling prices, repeat panel/stability results, staff capacity and protected-origin approval are missing. All parcels, proportions, findings, volumes, timings and offers are fictional and are not law, standard Tejo trade terms or market data. Recommend a conditional action, explain its evidence, weigh the production and commercial tradeoff, and identify what must still be checked.",
+          "n_d3pt_case_setubal_still_red": "An invented producer has sound same-vintage Castelão lots with different parcel ripeness records. Its brief is a dry red with fresh fruit and moderate tannin for a restaurant launch in nine weeks. Pilot C combines one lot, shorter skin contact and an older wood vessel; pilot D combines another lot, longer contact and new wood. A preliminary coded panel finds C closer to the brief; C is estimated ready in week six and D in week twelve. The lots, contact and vessel differ, so this is not a controlled single-variable extraction trial. A partner offers a 1,200-bottle placement, payment after 60 days and delivery work, but supplies no credit references or account-sales evidence. A direct restaurant trial is 240 bottles paid before delivery with winery tastings and follow-up. The supplier bill falls due after 28 days; liquidity, complete prices/costs and staff availability are unknown. Draft labels alternately claim Palmela DOP, Península de Setúbal IGP and Setúbal DOP, without category/provenance/certification records. All production and business inputs are fictional; no actual Palmela composition or other legal numerical minimum is supplied. Recommend a conditional action, explain its evidence, weigh the production and commercial tradeoff, and identify what must still be checked."
+        },
+        "distractors": {
+          "n_d3pt_case_tejo_white": [
+            {
+              "summary": "Reserve B for the seven-week launch because its later harvest and wood vessel establish a premium Tejo style.",
+              "explanation": "The supplied readiness is week ten, and preliminary brief fit is poorer. Those methods cannot guarantee quality, demand or premium price."
+            },
+            {
+              "summary": "Ship the entire distributor request and treat its promised receipt as cash available for the earlier bottling bill.",
+              "explanation": "The assumed 45-day receipt follows the 21-day bill. Existing cash or finance could alter feasibility but is not supplied."
+            }
+          ],
+          "n_d3pt_case_setubal_still_red": [
+            {
+              "summary": "Release D at a higher price because longer contact and new wood establish superior Castelão quality and a nine-week launch.",
+              "explanation": "D readiness is week twelve. The supplied lot and methods are confounded, and neither a quality hierarchy nor willingness to pay is established."
+            },
+            {
+              "summary": "Approve Setúbal DOP for the dry red and treat the partner placement as proved downstream sales.",
+              "explanation": "The identified Setúbal DOP product category is licoroso, and the dry-red origin claim lacks records. Initial placement is not account or consumer sell-through."
+            }
+          ]
+        }
+      }
+    },
+    {
+      "id": "qt_d3pt_case_written_2",
+      "relation_type": "CASE_ACTION",
+      "direction": "forward",
+      "mode": "short_answer",
+      "variant": "d3pt_case_written",
+      "prompt_template": "{subject.name}",
+      "parameters": {
+        "scope_node_ids": [
+          "n_d3pt_case_tejo_white",
+          "n_d3pt_case_setubal_still_red"
+        ],
+        "key_points": {
+          "CASE_ACTION": "Conditional production, origin and sales action",
+          "CASE_REASON": "Regional and supplied comparative evidence",
+          "CASE_TRADEOFF": "Production readiness, stock, payment and workload tradeoff",
+          "CASE_LIMITATION": "Unresolved sensory, category, capacity and market evidence"
+        }
+      }
+    },
+    {
+      "id": "qt_d3pt_principle_choice_6",
+      "relation_type": "PRINCIPLE_EXPLANATION",
+      "direction": "forward",
+      "mode": "authored_choice",
+      "variant": "d3pt_principle_choice_6",
+      "prompt_template": "{subject.name}",
+      "parameters": {
+        "item_choices": {
+          "ki_d3pt_tejo_site_context": {
+            "prompt": "Two Tejo lots share a vintage and cultivar but come from recorded Campo and Serras sites. What is a defensible next comparison?",
+            "options": [
+              "Apply one harvest target to both lots because a shared regional name supplies the same site conditions",
+              "Use the Serras schist description to rank the finished wines before reading parcel or sensory records",
+              "Compare parcel soils, river exposure and management records with the measured fruit and wine evidence",
+              "Classify Campo and Serras as approved protected subdenominations and use those names to confirm both lots"
+            ],
+            "correctIndex": 2,
+            "explanation": "The commission describes Campo alluvial floodplain settings and higher, predominantly schistose Serras terrain. These are contexts for comparing actual parcels. A common regional name does not fix harvest conditions; schist does not establish sensory quality; commission terroirs are not evidence that either lot qualifies for a protected-origin claim.",
+            "sourceCitationId": "src_d3pt_cvrtejo_terroir"
+          },
+          "ki_d3pt_tejo_white_blend": {
+            "prompt": "For a Tejo white-blend study, harvest timing, proportions and vessel all differ between trials. What would better test the contribution of blend proportions to the observed acidity and aroma?",
+            "options": [
+              "Compare different-parcel blends and assign the observed acidity difference exclusively to their Arinto proportions",
+              "Run matched comparisons with harvest lot and vessel held constant while changing blend proportions",
+              "Compare an earlier steel trial with a later wood trial to isolate the blend proportion effect",
+              "Compare buyer price offers for the blends to identify each grape's contribution to acidity and aroma"
+            ],
+            "correctIndex": 1,
+            "explanation": "Matched trials provide a stronger basis for comparing proportions while controlling the other supplied differences. Fernão Pires expression and Arinto acidity are regional starting roles, not fixed outcomes. Different parcels or changed harvest and vessel confound the proportion comparison; buyer price offers do not measure a grape sensory contribution. Controlled presentation and repeat assessment are still needed.",
+            "sourceCitationId": "src_d4nw_awri_sensory"
+          },
+          "ki_d3pt_tejo_label_scope": {
+            "prompt": "A Tejo winery supplies its address and a Campo description but no lot certification. How should a proposed protected-origin label be checked?",
+            "options": [
+              "Approve IG Tejo from the winery address and reserve DO DoTejo for lots described as Serras",
+              "Treat DO DoTejo and IG Tejo as interchangeable labels when the same variety appears in the lot",
+              "Use the commission terroir description in place of certification when a sample shows the expected style",
+              "Check lot provenance and certification against the proposed DO DoTejo or IG Tejo category"
+            ],
+            "correctIndex": 3,
+            "explanation": "IG Tejo is an IGP and DO DoTejo a distinct PDO claim. The proposed category needs its own lot provenance and certification evidence. An address does not supply that evidence; the categories are not interchangeable; neither a commission terroir name nor a sensory impression replaces category-specific checks. No current numerical eligibility threshold is supplied by this question.",
+            "sourceCitationId": "src_d3pt_ivv_ig_tejo_2026"
+          },
+          "ki_d3pt_setubal_site_context": {
+            "prompt": "A buyer compares Península de Setúbal lots from a Sado plain and an Arrábida-area slope. Which comparison uses the regional account appropriately?",
+            "options": [
+              "Compare parcel soil, water and maturity records within the differing relief, river and maritime contexts",
+              "Apply the regional maritime description to both lots and schedule an identical harvest without consulting parcel maturity",
+              "Use the mountain name to assign the slope lot a later harvest before reviewing its fruit",
+              "Use the plain soil description alone to rank the finished quality of both lots"
+            ],
+            "correctIndex": 0,
+            "explanation": "The regional overview distinguishes mountain and plain settings with maritime, river and soil influences. Actual parcel soil, water and maturity records are needed. The maritime description cannot establish identical maturity, a mountain name cannot supply the harvest date, and a soil label alone does not rank finished quality.",
+            "sourceCitationId": "src_d3pt_ivv_setubal_profile"
+          },
+          "ki_d3pt_setubal_castelao_red": {
+            "prompt": "A buyer is offered a dry Península de Setúbal Castelão red without extraction, wood or sensory records. What does that information establish?",
+            "options": [
+              "It establishes longer skin contact because a listed red cultivar determines the required extraction method",
+              "It establishes new-wood ageing because a regional Castelão label specifies vessel and drinking window",
+              "It supplies a regional cultivar context; request lot and sensory evidence before deciding style or price",
+              "It establishes a justified premium price because varietal identity confirms market demand and ageing suitability"
+            ],
+            "correctIndex": 2,
+            "explanation": "Castelão has an important regional role and is listed for the IGP. That information gives cultivar context, not the lot extraction method, wood treatment, drinking window or justified price. Those decisions need actual production and sensory evidence; market demand is not established by the cultivar name.",
+            "sourceCitationId": "src_d3pt_ivv_ig_setubal"
+          },
+          "ki_d3pt_setubal_product_boundary": {
+            "prompt": "A dry Castelão red is described only as from Península de Setúbal. Which protected-origin conclusion stays within the supplied evidence?",
+            "options": [
+              "Approve Setúbal DOP because Setúbal, Palmela and the regional IGP denote the same product category",
+              "Setúbal DOP licoroso identity does not approve this dry red; check any other category claim separately",
+              "Approve Palmela DOP because Castelão appears in the regional overview, without requesting lot provenance or certification",
+              "Reject an IGP route because the regional name belongs only to licoroso wines and cannot describe a dry red"
+            ],
+            "correctIndex": 1,
+            "explanation": "The regional overview identifies Setúbal DOP with licoroso wines, separately from Palmela DOP and the broader regional IGP. The regional name does not approve a dry-red Setúbal DOP claim. Palmela eligibility still needs category-specific evidence, while the IGP is not limited to licoroso wines. This exercise establishes no current composition minimum or individual lot certification.",
+            "sourceCitationId": "src_d3pt_ivv_setubal_profile"
+          }
+        }
+      }
+    }
+  ]
+}
