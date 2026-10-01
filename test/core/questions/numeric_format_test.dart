@@ -901,9 +901,9 @@ void main() {
     );
   });
 
-  test('all 27 bundled quantities get one scoped numeric question without an answer leak', () async {
+  test('all 33 bundled quantities get one scoped numeric question without an answer leak', () async {
     // Preserve the existing legal and dated-survey families while explicitly
-    // covering the six original CMS worked calculations added to the bundle.
+    // covering the six original CMS and six Diploma worked calculations.
     const expected = <String, (double, String, String)>{
       'ki_barolo_min_ageing': (38.0, 'month', 'MIN_AGEING'),
       'ki_barolo_min_wood_ageing': (18.0, 'month', 'MIN_WOOD_AGEING'),
@@ -944,6 +944,12 @@ void main() {
       'ki_cms_calc_gross_margin': (60.0, '%', 'CALCULATED_VALUE'),
       'ki_cms_calc_markup': (150.0, '%', 'CALCULATED_VALUE'),
       'ki_cms_calc_target_price': (30.0, 'EUR', 'CALCULATED_VALUE'),
+      'ki_d2_calc_unit_contribution': (8.0, 'EUR', 'CALCULATED_VALUE'),
+      'ki_d2_calc_breakeven_bottles': (1251.0, 'bottles', 'CALCULATED_VALUE'),
+      'ki_d2_calc_fx_receipt': (7500.0, 'EUR', 'CALCULATED_VALUE'),
+      'ki_d2_calc_fx_receipt_reduction': (500.0, 'EUR', 'CALCULATED_VALUE'),
+      'ki_d2_calc_landed_cost_per_bottle': (13.0, 'EUR', 'CALCULATED_VALUE'),
+      'ki_d2_calc_cash_gap_days': (35.0, 'days', 'CALCULATED_VALUE'),
     };
     final db = openTestDatabase();
     final time = TestClock(DateTime.utc(2026, 10, 1, 9));
@@ -958,7 +964,7 @@ void main() {
             "SELECT q.knowledge_item_id,q.question_template_id FROM questions q JOIN question_templates t ON t.id=q.question_template_id WHERE t.mode='numeric' ORDER BY q.knowledge_item_id",
           )
           .get();
-      expect(questions, hasLength(27));
+      expect(questions, hasLength(33));
       expect(
         questions.map((row) => row.read<String>('knowledge_item_id')).toSet(),
         expected.keys.toSet(),
@@ -984,6 +990,8 @@ void main() {
       var legalCount = 0;
       var statisticCount = 0;
       var calculatedCount = 0;
+      var cmsCalculatedCount = 0;
+      var diplomaCalculatedCount = 0;
       for (final row in questions) {
         final question = await presenter.present(
           row.read<String>('knowledge_item_id'),
@@ -1058,6 +1066,13 @@ void main() {
         } else {
           calculatedCount++;
           expect(question.relationType, 'CALCULATED_VALUE');
+          final diploma = question.knowledgeItemId.startsWith('ki_d2_calc_');
+          if (diploma) {
+            diplomaCalculatedCount++;
+          } else {
+            cmsCalculatedCount++;
+            expect(question.knowledgeItemId, startsWith('ki_cms_calc_'));
+          }
           expect(
             question.questionTemplateId,
             'qt_cms_calculated_value_fwd_numeric',
@@ -1069,10 +1084,14 @@ void main() {
             (node) => node.id == item.subjectId,
           );
           expect(question.prompt, subject.name);
-          expect(question.prompt, contains('hypothetical'));
+          expect(
+            question.prompt,
+            contains(diploma ? 'fictional' : 'hypothetical'),
+          );
         }
       }
-      expect((legalCount, statisticCount, calculatedCount), (10, 11, 6));
+      expect((legalCount, statisticCount, calculatedCount), (10, 11, 12));
+      expect((cmsCalculatedCount, diplomaCalculatedCount), (6, 6));
     } finally {
       await db.close();
     }

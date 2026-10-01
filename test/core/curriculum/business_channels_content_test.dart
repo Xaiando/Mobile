@@ -503,7 +503,7 @@ void main() {
         'WSET_L2': 844,
         'WSET_L3': 3444,
         'CMS_CERTIFIED': 2926,
-        'WSET_L4': 4184,
+        'WSET_L4': 4206,
       }.entries) {
         final mappings = await planner.effectiveMappings(entry.key);
         expect(mappings, hasLength(entry.value), reason: entry.key);
@@ -532,7 +532,7 @@ void main() {
       expect(diploma.scope.curriculumComplete, isFalse);
       final d2 = diploma.units.singleWhere((unit) => unit.scope.id == 'D2');
       expect(d2.counts.studied, 32);
-      expect(d2.counts.available, 133);
+      expect(d2.counts.available, 139);
       expect(d2.scope.gap, isNotEmpty);
       for (final unit in diploma.units.where((unit) => unit.scope.id != 'D2')) {
         expect(unit.counts.studied, 0, reason: unit.scope.id);
@@ -544,13 +544,13 @@ void main() {
             .singleWhere((unit) => unit.scope.id == 'D3')
             .scope
             .itemIds,
-        hasLength(720),
+        hasLength(736),
       );
       expect(snapshot.levels.map((level) => level.counts.mapped).toList(), [
         132,
         844,
         3444,
-        4184,
+        4206,
       ]);
       expect(
         snapshot.levels.take(3).map((level) => level.counts.studied),

@@ -1017,6 +1017,7 @@ tracks:
             - n_reg_fr_principle_bordeaux_blends
             - n_reg_fr_principle_bordeaux_2024
             - n_reg_fr_case_bordeaux_blend
+            - n_d3fr2_case_bordeaux_route
         tasks: [DIP-3, C2, G10]
       - id: wset_l4.world.burgundy
         label: Analyse Burgundy through its places and wines
@@ -1030,6 +1031,7 @@ tracks:
             - n_reg_fr_principle_climat_comparison
             - n_reg_fr_principle_hautes_cotes
             - n_reg_fr_case_chardonnay_buy
+            - n_d3fr_case_pinot_climat
         tasks: [DIP-3, C2, G10]
       - id: wset_l4.world.beaujolais
         label: Analyse Beaujolais through its places and wines
@@ -1068,6 +1070,7 @@ tracks:
             - n_reg_fs_principle_loire_chinon
             - n_reg_fs_principle_loire_chenin_harvest
             - n_reg_fs_case_loire_muscadet_inventory
+            - n_d3fr_case_chinon_extract
         tasks: [DIP-3, C2, G10]
       - id: wset_l4.world.rhone
         label: Analyse the Rhône through its places and wines
@@ -1082,6 +1085,7 @@ tracks:
             - n_reg_fs_principle_rhone_chateauneuf_lirac
             - n_reg_fs_principle_rhone_gigondas
             - n_reg_fs_case_rhone_harvest_water
+            - n_d3fr2_case_rhone_white
         tasks: [DIP-3, C2, G10]
       - id: wset_l4.world.southern_france
         label: Compare wines from the French Mediterranean regions
@@ -1773,6 +1777,10 @@ tracks:
             - n_d3rt_case_ribeira_offer
             - n_d3rt_case_margaret_blend
             - n_d3rt_case_otago_frost
+            - n_d3fr_case_pinot_climat
+            - n_d3fr_case_chinon_extract
+            - n_d3fr2_case_bordeaux_route
+            - n_d3fr2_case_rhone_white
           relation_types:
             - PRINCIPLE_EXPLANATION
             - CASE_ACTION

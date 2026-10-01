@@ -360,7 +360,7 @@ void main() {
   );
 
   test(
-    '1720 cited choices are generated and served across WSET and CMS tracks',
+    '1724 cited choices are generated and served across WSET and CMS tracks',
     () async {
       final db = openTestDatabase();
       try {
@@ -669,7 +669,15 @@ void main() {
           isEmpty,
           reason: 'Diploma and Level 3 geography choices remain distinct',
         );
-        expect(expectedIds, hasLength(1720));
+        const vdpTierIds = <String>{
+          'ki_vdp_gutswein_private',
+          'ki_vdp_ortswein_private',
+          'ki_vdp_erste_lage_private',
+          'ki_vdp_grosse_lage_private',
+        };
+        expect(expectedIds.difference(vdpTierIds), hasLength(1720));
+        expect(expectedIds.intersection(vdpTierIds), vdpTierIds);
+        expect(expectedIds, hasLength(1724));
         expect(levelOneIds, hasLength(132));
         expect(levelTwoIds, hasLength(312));
         expect(sharedGrapeIds, hasLength(52));
@@ -722,7 +730,9 @@ void main() {
         expect(l3GeographyIds, hasLength(36));
         expect(l3GeographyIds2, hasLength(40));
         expect(l3RemainingPrincipleIds, hasLength(40));
-        expect(l3FinalGeographyIds, hasLength(11));
+        expect(l3FinalGeographyIds.intersection(vdpTierIds), vdpTierIds);
+        expect(l3FinalGeographyIds.difference(vdpTierIds), hasLength(11));
+        expect(l3FinalGeographyIds, hasLength(15));
         expect(l3LocationClueIds, hasLength(35));
         expect(l3WinemakingPrincipleIds, hasLength(40));
         expect(diplomaBusinessIds, hasLength(29));
@@ -760,7 +770,7 @@ void main() {
                OR t.id = 'qt_d5f_authored_choice')
         ORDER BY q.knowledge_item_id
       ''').get();
-        expect(rows, hasLength(1720));
+        expect(rows, hasLength(1724));
         final actual = {
           for (final row in rows)
             row.read<String>('knowledge_item_id'): row.read<String>(

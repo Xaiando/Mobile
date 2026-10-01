@@ -1,5 +1,6 @@
 # Given quantities are explicit; no unstated venue pour, tax or currency conversion.
+# One relation/direction/format/language template explicitly serves CMS six + Diploma D2 six.
 question_templates:
   - {"id":"qt_cms_calculated_value_fwd_flashcard","relation_type":"CALCULATED_VALUE","direction":"forward","mode":"flashcard","prompt_template":"{subject.name}"}
-  - {"id":"qt_cms_calculated_value_fwd_numeric","relation_type":"CALCULATED_VALUE","direction":"forward","mode":"numeric","prompt_template":"{subject.name}","parameters":{"scope_node_ids":["n_cms_calc_full_pours","n_cms_calc_event_bottles","n_cms_calc_gross_profit","n_cms_calc_gross_margin","n_cms_calc_markup","n_cms_calc_target_price"],"exact_tolerance":0,"tolerance":0}}
+  - {"id":"qt_cms_calculated_value_fwd_numeric","relation_type":"CALCULATED_VALUE","direction":"forward","mode":"numeric","prompt_template":"{subject.name}","parameters":{"scope_node_ids":["n_cms_calc_full_pours","n_cms_calc_event_bottles","n_cms_calc_gross_profit","n_cms_calc_gross_margin","n_cms_calc_markup","n_cms_calc_target_price","n_d2_calc_unit_contribution","n_d2_calc_breakeven_bottles","n_d2_calc_fx_receipt","n_d2_calc_fx_receipt_reduction","n_d2_calc_landed_cost_per_bottle","n_d2_calc_cash_gap_days"],"exact_tolerance":0,"tolerance":0}}
 

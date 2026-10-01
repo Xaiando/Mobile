@@ -13,6 +13,7 @@ import '../features/tasting/tasting_screen.dart';
 import '../features/tasting/tasting_session_screen.dart';
 import '../features/tasting_guidance/guided_tasting_screen.dart';
 import '../features/rehearsal/rehearsal_screen.dart';
+import '../features/cms_rehearsal/cms_rehearsal_screen.dart';
 import '../features/tasting_pair/tasting_pair_screen.dart';
 import '../features/onboarding/onboarding_screen.dart';
 import '../features/settings/about_screen.dart';
@@ -80,6 +81,10 @@ const appDestinations = <AppDestination>[
 final _tabPages = <String, List<RouteBase>>{
   '/practice': [
     GoRoute(
+      path: 'cms-rehearsal',
+      builder: (context, state) => const CmsRehearsalScreen(),
+    ),
+    GoRoute(
       path: 'rehearsal',
       builder: (context, state) => const RehearsalScreen(),
     ),
@@ -127,7 +132,12 @@ final routerProvider = Provider<GoRouter>((ref) {
   // Onboarding comes first, once (backlog R1). Until startup has read the
   // settings, the app stays where it is.
   final settingsChanged = ValueNotifier(0);
-  ref.listen(settingsProvider, (_, _) => settingsChanged.value++);
+  // Draft saves change this table too; only onboarding changes routing.
+  ref.listen(settingsProvider, (previous, next) {
+    if (previous?.value?.isOnboarded != next.value?.isOnboarded) {
+      settingsChanged.value++;
+    }
+  });
   ref.onDispose(settingsChanged.dispose);
 
   final router = GoRouter(

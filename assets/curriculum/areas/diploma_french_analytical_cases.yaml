@@ -1,0 +1,455 @@
+{
+  "knowledge_nodes": [
+    {
+      "id": "n_d3fr_case_pinot_climat",
+      "node_type": "production_case",
+      "name": "Fictional Burgundy Pinot Noir exercise: an estate has sound, same-vintage fruit from two individually recorded Côte de Beaune parcels. Parcel A is on a southeast-facing slope; B is on a lower, less exposed site. Their soil and water records differ; these supplied details do not describe every Burgundy parcel. Two spare small vats permit matched, separate trials. In a preliminary coded comparison of A, the gentler cap-contact treatment met a restaurant brief for fresh fruit and moderate drying tannin; the intensive treatment was judged too drying for that brief. B has not been trialled. Proposed labels name a Climat, but no parcel entitlement or approved label evidence is supplied. A direct restaurant route offers a 120-bottle trial, payment 30 days after delivery and producer tasting/delivery work. A trade route requests 600 bottles, offers payment 14 days after delivery and a lower unit receipt. Final eligible quantities, buyer sell-through, full prices and costs are unknown. These fictional records and terms are not regional norms or a profit forecast. Recommend a production and release process, explain the site, extraction and origin evidence, weigh the channel/cash tradeoff, and identify follow-up checks."
+    },
+    {
+      "id": "n_d3fr_point_pinot_climat_action",
+      "node_type": "learning_point",
+      "name": "Keep parcel trials separate, compare matched treatments and verify eligibility before a limited release"
+    },
+    {
+      "id": "n_d3fr_point_pinot_climat_reason",
+      "node_type": "learning_point",
+      "name": "Site and extraction evidence support a conditional trial, while origin and volume do not prove quality or sales"
+    },
+    {
+      "id": "n_d3fr_point_pinot_climat_tradeoff",
+      "node_type": "learning_point",
+      "name": "The restaurant trial reduces initial commitment but needs delivery work and later payment; trade requests more stock"
+    },
+    {
+      "id": "n_d3fr_point_pinot_climat_limitation",
+      "node_type": "learning_point",
+      "name": "B remains untested, site causation is unresolved, and label entitlement, costs and customer demand are missing"
+    },
+    {
+      "id": "n_d3fr_case_chinon_extract",
+      "node_type": "production_case",
+      "name": "Fictional Chinon Cabernet Franc red-wine exercise: a producer has sound, same-vintage lots from a recorded Vienne alluvial terrace A and a limestone slope B. Within each lot, paired small-vat trials keep harvest lot, stem inclusion, yeast, fermentation temperature and maturation constant, varying cap contact only. A's coded preliminary panel preferred the gentler treatment for a restaurant brief of a fresh red with moderate drying tannin; the intensive treatment was more drying without a preferred colour gain. B's comparison is unfinished. One restaurant proposes a 120-bottle trial, delivery in two weeks, payment 30 days after delivery and producer tasting/delivery work. A trade buyer requests 600 bottles on the same delivery schedule, payment 14 days after delivery and a lower unit receipt. Staff can service only one initial route. No complete costs, sell-through forecast or current appellation-compliance records are supplied. The parcel, panel and commercial details are invented, not typical outcomes or enacted production rules. Recommend a conditional production/launch choice, explain the evidence, discuss a tradeoff and identify the checks needed before expansion."
+    },
+    {
+      "id": "n_d3fr_point_chinon_extract_action",
+      "node_type": "learning_point",
+      "name": "Repeat the matched gentler trial, complete the slope comparison and verify stock and compliance before a small launch"
+    },
+    {
+      "id": "n_d3fr_point_chinon_extract_reason",
+      "node_type": "learning_point",
+      "name": "Cap contact affects extraction; the terrace trial supports this brief without predicting every Chinon parcel"
+    },
+    {
+      "id": "n_d3fr_point_chinon_extract_tradeoff",
+      "node_type": "learning_point",
+      "name": "A small restaurant launch uses less stock but more producer service; the larger trade request offers earlier payment"
+    },
+    {
+      "id": "n_d3fr_point_chinon_extract_limitation",
+      "node_type": "learning_point",
+      "name": "Unfinished slope trials, legal records, staff capacity, full costs and sell-through limit any expansion decision"
+    }
+  ],
+  "knowledge_relations": [
+    {
+      "subject_id": "n_d3fr_case_pinot_climat",
+      "relation_type": "CASE_ACTION",
+      "object_id": "n_d3fr_point_pinot_climat_action",
+      "valid_from": "2026-09-30"
+    },
+    {
+      "subject_id": "n_d3fr_case_pinot_climat",
+      "relation_type": "CASE_REASON",
+      "object_id": "n_d3fr_point_pinot_climat_reason",
+      "valid_from": "2026-09-30"
+    },
+    {
+      "subject_id": "n_d3fr_case_pinot_climat",
+      "relation_type": "CASE_TRADEOFF",
+      "object_id": "n_d3fr_point_pinot_climat_tradeoff",
+      "valid_from": "2026-09-30"
+    },
+    {
+      "subject_id": "n_d3fr_case_pinot_climat",
+      "relation_type": "CASE_LIMITATION",
+      "object_id": "n_d3fr_point_pinot_climat_limitation",
+      "valid_from": "2026-09-30"
+    },
+    {
+      "subject_id": "n_d3fr_case_chinon_extract",
+      "relation_type": "CASE_ACTION",
+      "object_id": "n_d3fr_point_chinon_extract_action",
+      "valid_from": "2026-09-30"
+    },
+    {
+      "subject_id": "n_d3fr_case_chinon_extract",
+      "relation_type": "CASE_REASON",
+      "object_id": "n_d3fr_point_chinon_extract_reason",
+      "valid_from": "2026-09-30"
+    },
+    {
+      "subject_id": "n_d3fr_case_chinon_extract",
+      "relation_type": "CASE_TRADEOFF",
+      "object_id": "n_d3fr_point_chinon_extract_tradeoff",
+      "valid_from": "2026-09-30"
+    },
+    {
+      "subject_id": "n_d3fr_case_chinon_extract",
+      "relation_type": "CASE_LIMITATION",
+      "object_id": "n_d3fr_point_chinon_extract_limitation",
+      "valid_from": "2026-09-30"
+    }
+  ],
+  "knowledge_items": [
+    {
+      "id": "ki_d3fr_case_pinot_climat_action",
+      "subject_id": "n_d3fr_case_pinot_climat",
+      "relation_type": "CASE_ACTION",
+      "object_id": "n_d3fr_point_pinot_climat_action",
+      "domain_id": "winemaking",
+      "assertion_text": "Keep A and B identifiable through matched, separate small-vat trials, repeat A's promising gentler treatment and obtain B's trial results before setting a cellar policy. Check the claimed Climat's parcel entitlement, traceability and applicable label requirements before approving release. Consider the limited restaurant trial only after sensory fit, eligible stock and delivery capacity are confirmed; neither route is a final profit decision.",
+      "verification_status": "unverified",
+      "mcq_disabled": true,
+      "last_verified_at": "2026-09-30T13:54:26.000Z"
+    },
+    {
+      "id": "ki_d3fr_case_pinot_climat_reason",
+      "subject_id": "n_d3fr_case_pinot_climat",
+      "relation_type": "CASE_REASON",
+      "object_id": "n_d3fr_point_pinot_climat_reason",
+      "domain_id": "winemaking",
+      "assertion_text": "Burgundy Climats identify plots with particular geological, water and exposure characteristics; Pinot Noir alone does not erase their differences. Cap contact affects extraction, and the supplied A panel result supports the gentler treatment for this brief, not a universal Pinot recipe or proof of site causation. The proposed origin label cannot establish legal entitlement or the tasted lot's quality, and a larger trade request does not establish consumer sell-through.",
+      "verification_status": "unverified",
+      "mcq_disabled": true,
+      "last_verified_at": "2026-09-30T13:54:26.000Z"
+    },
+    {
+      "id": "ki_d3fr_case_pinot_climat_tradeoff",
+      "subject_id": "n_d3fr_case_pinot_climat",
+      "relation_type": "CASE_TRADEOFF",
+      "object_id": "n_d3fr_point_pinot_climat_tradeoff",
+      "domain_id": "business",
+      "assertion_text": "Under the supplied terms, the 120-bottle restaurant trial limits initial stock commitment but requires producer tasting/delivery work and payment 30 days after delivery. Trade requests 600 bottles and pays 14 days after delivery at a lower unit receipt. Its earlier payment could help cash timing, but allocating more stock and accepting lower receipts must be weighed against actual capacity, costs and demand; neither order size nor payment timing guarantees profit.",
+      "verification_status": "unverified",
+      "mcq_disabled": true,
+      "last_verified_at": "2026-09-30T13:54:26.000Z"
+    },
+    {
+      "id": "ki_d3fr_case_pinot_climat_limitation",
+      "subject_id": "n_d3fr_case_pinot_climat",
+      "relation_type": "CASE_LIMITATION",
+      "object_id": "n_d3fr_point_pinot_climat_limitation",
+      "domain_id": "business",
+      "assertion_text": "Only A's preliminary trial observations are supplied; B has not been tested and matching the cellar treatments does not control every vineyard difference. The exercise cannot isolate geology as a cause of flavour or predict another vintage. Parcel entitlement, traceability, current applicable label requirements, saleable quantities, full costs, actual selling outcomes and buyer reliability remain unresolved. A Climat name or appellation tier is not a sensory-quality or price guarantee.",
+      "verification_status": "unverified",
+      "mcq_disabled": true,
+      "last_verified_at": "2026-09-30T13:54:26.000Z"
+    },
+    {
+      "id": "ki_d3fr_case_chinon_extract_action",
+      "subject_id": "n_d3fr_case_chinon_extract",
+      "relation_type": "CASE_ACTION",
+      "object_id": "n_d3fr_point_chinon_extract_action",
+      "domain_id": "winemaking",
+      "assertion_text": "Repeat the matched gentler treatment for A, complete B's paired comparison and retain the parcel identities while evaluating the restaurant brief. Consider a limited restaurant launch only if final sensory fit, saleable stock, the two-week service commitment and current appellation-compliance evidence are satisfactory. Review the larger trade option against staff capacity and its actual economics rather than escalating extraction or committing untested B automatically.",
+      "verification_status": "unverified",
+      "mcq_disabled": true,
+      "last_verified_at": "2026-09-30T13:54:26.000Z"
+    },
+    {
+      "id": "ki_d3fr_case_chinon_extract_reason",
+      "subject_id": "n_d3fr_case_chinon_extract",
+      "relation_type": "CASE_REASON",
+      "object_id": "n_d3fr_point_chinon_extract_reason",
+      "domain_id": "winemaking",
+      "assertion_text": "Chinon includes contrasting alluvial terraces, limestone slopes and clay-flint plateaus, while Cabernet Franc is its established red and rosé association. The supplied matched A trial makes extraction a testable cellar variable for this red-wine brief. Cap contact influences colour and tannin, but extending it does not necessarily keep increasing colour; these observations do not establish that terrace geology caused the taste or that every Chinon Cabernet Franc should receive the same treatment.",
+      "verification_status": "unverified",
+      "mcq_disabled": true,
+      "last_verified_at": "2026-09-30T13:54:26.000Z"
+    },
+    {
+      "id": "ki_d3fr_case_chinon_extract_tradeoff",
+      "subject_id": "n_d3fr_case_chinon_extract",
+      "relation_type": "CASE_TRADEOFF",
+      "object_id": "n_d3fr_point_chinon_extract_tradeoff",
+      "domain_id": "business",
+      "assertion_text": "The supplied restaurant route initially allocates 120 bottles but needs producer tasting/delivery work and collects payment 30 days after delivery. Trade asks for 600 bottles, pays 14 days after delivery and offers a lower unit receipt; the scenario allows staff to service only one initial route. Earlier payment may help cash timing, whereas a larger allocation increases commitment. Choosing the smaller trial can preserve capacity and test demand but may forgo the larger order; neither route is proven more profitable.",
+      "verification_status": "unverified",
+      "mcq_disabled": true,
+      "last_verified_at": "2026-09-30T13:54:26.000Z"
+    },
+    {
+      "id": "ki_d3fr_case_chinon_extract_limitation",
+      "subject_id": "n_d3fr_case_chinon_extract",
+      "relation_type": "CASE_LIMITATION",
+      "object_id": "n_d3fr_point_chinon_extract_limitation",
+      "domain_id": "business",
+      "assertion_text": "B's unfinished comparison and the preliminary nature of A's panel evidence prevent a universal site or treatment conclusion. The exercise specifies Cabernet Franc red wine but does not provide current legal-compliance records or prove that any proposed amended rule is enacted. Staff capacity, eligible quantities, full prices and costs, buyer reliability and consumer sell-through must be established before scaling; the invented delivery and payment terms are not Chinon market norms.",
+      "verification_status": "unverified",
+      "mcq_disabled": true,
+      "last_verified_at": "2026-09-30T13:54:26.000Z"
+    }
+  ],
+  "certification_knowledge_mappings": [
+    {
+      "certification_id": "WSET_L4",
+      "knowledge_item_id": "ki_d3fr_case_pinot_climat_action",
+      "importance": "core",
+      "minimum_depth": 3
+    },
+    {
+      "certification_id": "WSET_L4",
+      "knowledge_item_id": "ki_d3fr_case_pinot_climat_reason",
+      "importance": "core",
+      "minimum_depth": 3
+    },
+    {
+      "certification_id": "WSET_L4",
+      "knowledge_item_id": "ki_d3fr_case_pinot_climat_tradeoff",
+      "importance": "core",
+      "minimum_depth": 3
+    },
+    {
+      "certification_id": "WSET_L4",
+      "knowledge_item_id": "ki_d3fr_case_pinot_climat_limitation",
+      "importance": "core",
+      "minimum_depth": 3
+    },
+    {
+      "certification_id": "WSET_L4",
+      "knowledge_item_id": "ki_d3fr_case_chinon_extract_action",
+      "importance": "core",
+      "minimum_depth": 3
+    },
+    {
+      "certification_id": "WSET_L4",
+      "knowledge_item_id": "ki_d3fr_case_chinon_extract_reason",
+      "importance": "core",
+      "minimum_depth": 3
+    },
+    {
+      "certification_id": "WSET_L4",
+      "knowledge_item_id": "ki_d3fr_case_chinon_extract_tradeoff",
+      "importance": "core",
+      "minimum_depth": 3
+    },
+    {
+      "certification_id": "WSET_L4",
+      "knowledge_item_id": "ki_d3fr_case_chinon_extract_limitation",
+      "importance": "core",
+      "minimum_depth": 3
+    }
+  ],
+  "knowledge_item_citations": [
+    {
+      "knowledge_item_id": "ki_d3fr_case_pinot_climat_action",
+      "source_citation_id": "src_reg_fr_climats",
+      "locator": "The Climats: separate vinification and winegrower know-how; matched pilot and release checks are original case decisions, not a legal separate-vinification rule"
+    },
+    {
+      "knowledge_item_id": "ki_d3fr_case_pinot_climat_action",
+      "source_citation_id": "src_d4nw_awri_sensory",
+      "locator": "Commercial tasting: controlled independent comparison and difference before preference; all panel observations are fictional"
+    },
+    {
+      "knowledge_item_id": "ki_d3fr_case_pinot_climat_action",
+      "source_citation_id": "src_wset_eu_burgundy_hierarchy",
+      "locator": "Regional, village and Premier Cru origin distinctions; no permission for these unnamed fictional parcels or proposed labels is asserted"
+    },
+    {
+      "knowledge_item_id": "ki_d3fr_case_pinot_climat_reason",
+      "source_citation_id": "src_reg_fr_climats",
+      "locator": "The Climats: geological, water and exposure characteristics; no deterministic soil-to-flavour or quality claim"
+    },
+    {
+      "knowledge_item_id": "ki_d3fr_case_pinot_climat_reason",
+      "source_citation_id": "src_reg_fr_beaune",
+      "locator": "Côte de Beaune variety context including Pinot Noir; the fictional estate and parcels are not named real producers"
+    },
+    {
+      "knowledge_item_id": "ki_d3fr_case_pinot_climat_reason",
+      "source_citation_id": "src_win_temperature",
+      "locator": "Background: temperature and cap management affect phenolic extraction; the supplied preference is not a general optimum"
+    },
+    {
+      "knowledge_item_id": "ki_d3fr_case_pinot_climat_reason",
+      "source_citation_id": "src_wset_eu_burgundy_hierarchy",
+      "locator": "Origin levels and named sites; origin is distinct from the lot-specific evidence needed in this original comparison"
+    },
+    {
+      "knowledge_item_id": "ki_d3fr_case_pinot_climat_tradeoff",
+      "source_citation_id": "src_biz_au_cashflow",
+      "locator": "Set payment terms; Manage your inventory; all 120/600-bottle requests and 30/14-day payment terms are fictional"
+    },
+    {
+      "knowledge_item_id": "ki_d3fr_case_pinot_climat_tradeoff",
+      "source_citation_id": "src_biz_sec_statements",
+      "locator": "Cash Flow Statements compared with Income Statements; earlier receipts are not proof of profit"
+    },
+    {
+      "knowledge_item_id": "ki_d3fr_case_pinot_climat_limitation",
+      "source_citation_id": "src_reg_fr_climats",
+      "locator": "Climat site characteristics and producer/vintage expression; unmeasured parcel effects remain original case limitations"
+    },
+    {
+      "knowledge_item_id": "ki_d3fr_case_pinot_climat_limitation",
+      "source_citation_id": "src_d4nw_awri_sensory",
+      "locator": "Controlled commercial sensory comparison; one supplied preliminary panel result is not repeatability or demand evidence"
+    },
+    {
+      "knowledge_item_id": "ki_d3fr_case_pinot_climat_limitation",
+      "source_citation_id": "src_wset_eu_burgundy_hierarchy",
+      "locator": "Origin hierarchy only; specific label eligibility requires the applicable current specification and actual records"
+    },
+    {
+      "knowledge_item_id": "ki_d3fr_case_pinot_climat_limitation",
+      "source_citation_id": "src_biz_au_cashflow",
+      "locator": "Payment and inventory planning; the fictional scenario omits a complete cash forecast"
+    },
+    {
+      "knowledge_item_id": "ki_d3fr_case_chinon_extract_action",
+      "source_citation_id": "src_d4nw_awri_sensory",
+      "locator": "Controlled commercial tasting and difference before preference; fictional matched pilot, conditional route and capacity checks"
+    },
+    {
+      "knowledge_item_id": "ki_d3fr_case_chinon_extract_action",
+      "source_citation_id": "src_win_temperature",
+      "locator": "Background: cap management, temperature and extraction; no universal Pinot/Cabernet Franc treatment is imported"
+    },
+    {
+      "knowledge_item_id": "ki_d3fr_case_chinon_extract_action",
+      "source_citation_id": "src_biz_au_cashflow",
+      "locator": "Payment terms and inventory planning; hypothetical small-launch versus larger-stock commitment"
+    },
+    {
+      "knowledge_item_id": "ki_d3fr_case_chinon_extract_reason",
+      "source_citation_id": "src_reg_fs_chinon",
+      "locator": "Three Vienne-valley site types; Cabernet Franc red/rosé and Chenin white association; not complete legal permissions or soil-caused flavour"
+    },
+    {
+      "knowledge_item_id": "ki_d3fr_case_chinon_extract_reason",
+      "source_citation_id": "src_win_temperature",
+      "locator": "Background: maximum colour precedes maximum tannin extraction in studied fermentations; no statutory treatment or general optimum"
+    },
+    {
+      "knowledge_item_id": "ki_d3fr_case_chinon_extract_tradeoff",
+      "source_citation_id": "src_biz_au_cashflow",
+      "locator": "Set payment terms; Manage your inventory; 120/600 bottles, two-week delivery and 30/14-day collection are fictional"
+    },
+    {
+      "knowledge_item_id": "ki_d3fr_case_chinon_extract_tradeoff",
+      "source_citation_id": "src_biz_sec_statements",
+      "locator": "Cash Flow Statements and Income Statements: payment timing and profit are separate measures"
+    },
+    {
+      "knowledge_item_id": "ki_d3fr_case_chinon_extract_limitation",
+      "source_citation_id": "src_reg_fs_chinon",
+      "locator": "Sites and variety/colour association only; no complete legal-compliance statement, enacted amendment or site-to-flavour rule"
+    },
+    {
+      "knowledge_item_id": "ki_d3fr_case_chinon_extract_limitation",
+      "source_citation_id": "src_d4nw_awri_sensory",
+      "locator": "Controlled independent comparison; preliminary preference does not establish repeatability or commercial success"
+    },
+    {
+      "knowledge_item_id": "ki_d3fr_case_chinon_extract_limitation",
+      "source_citation_id": "src_biz_au_cashflow",
+      "locator": "Payment and inventory planning; the exercise omits actual costs, capacity evidence and customer receipts"
+    }
+  ],
+  "knowledge_item_prerequisites": [
+    {
+      "knowledge_item_id": "ki_d3fr_case_pinot_climat_action",
+      "prerequisite_item_id": "ki_reg_fr_climat_separate"
+    },
+    {
+      "knowledge_item_id": "ki_d3fr_case_pinot_climat_action",
+      "prerequisite_item_id": "ki_win_cap_contact"
+    },
+    {
+      "knowledge_item_id": "ki_d3fr_case_pinot_climat_action",
+      "prerequisite_item_id": "ki_wset_eu_burgundy_premier_cru"
+    },
+    {
+      "knowledge_item_id": "ki_d3fr_case_pinot_climat_reason",
+      "prerequisite_item_id": "ki_reg_fr_beaune_mix"
+    },
+    {
+      "knowledge_item_id": "ki_d3fr_case_pinot_climat_reason",
+      "prerequisite_item_id": "ki_reg_fr_climat_site"
+    },
+    {
+      "knowledge_item_id": "ki_d3fr_case_pinot_climat_reason",
+      "prerequisite_item_id": "ki_reg_fr_cote_aspect"
+    },
+    {
+      "knowledge_item_id": "ki_d3fr_case_pinot_climat_reason",
+      "prerequisite_item_id": "ki_win_colour_tannin"
+    },
+    {
+      "knowledge_item_id": "ki_d3fr_case_pinot_climat_reason",
+      "prerequisite_item_id": "ki_wset_eu_burgundy_regional_village"
+    },
+    {
+      "knowledge_item_id": "ki_d3fr_case_pinot_climat_tradeoff",
+      "prerequisite_item_id": "ki_biz_inventory_cash"
+    },
+    {
+      "knowledge_item_id": "ki_d3fr_case_pinot_climat_tradeoff",
+      "prerequisite_item_id": "ki_biz_payment_timing"
+    },
+    {
+      "knowledge_item_id": "ki_d3fr_case_pinot_climat_tradeoff",
+      "prerequisite_item_id": "ki_biz_profit_cash"
+    },
+    {
+      "knowledge_item_id": "ki_d3fr_case_pinot_climat_limitation",
+      "prerequisite_item_id": "ki_reg_fr_climat_site"
+    },
+    {
+      "knowledge_item_id": "ki_d3fr_case_pinot_climat_limitation",
+      "prerequisite_item_id": "ki_wset_eu_burgundy_origin_price"
+    },
+    {
+      "knowledge_item_id": "ki_d3fr_case_chinon_extract_action",
+      "prerequisite_item_id": "ki_reg_fs_chinon_sites"
+    },
+    {
+      "knowledge_item_id": "ki_d3fr_case_chinon_extract_action",
+      "prerequisite_item_id": "ki_win_cap_contact"
+    },
+    {
+      "knowledge_item_id": "ki_d3fr_case_chinon_extract_reason",
+      "prerequisite_item_id": "ki_reg_fs_chinon_sites"
+    },
+    {
+      "knowledge_item_id": "ki_d3fr_case_chinon_extract_reason",
+      "prerequisite_item_id": "ki_reg_fs_chinon_grapes"
+    },
+    {
+      "knowledge_item_id": "ki_d3fr_case_chinon_extract_reason",
+      "prerequisite_item_id": "ki_win_colour_tannin"
+    },
+    {
+      "knowledge_item_id": "ki_d3fr_case_chinon_extract_tradeoff",
+      "prerequisite_item_id": "ki_biz_inventory_cash"
+    },
+    {
+      "knowledge_item_id": "ki_d3fr_case_chinon_extract_tradeoff",
+      "prerequisite_item_id": "ki_biz_payment_timing"
+    },
+    {
+      "knowledge_item_id": "ki_d3fr_case_chinon_extract_tradeoff",
+      "prerequisite_item_id": "ki_biz_profit_cash"
+    },
+    {
+      "knowledge_item_id": "ki_d3fr_case_chinon_extract_limitation",
+      "prerequisite_item_id": "ki_reg_fs_chinon_grapes"
+    },
+    {
+      "knowledge_item_id": "ki_d3fr_case_chinon_extract_limitation",
+      "prerequisite_item_id": "ki_biz_inventory_cash"
+    }
+  ]
+}

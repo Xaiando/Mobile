@@ -1,0 +1,1101 @@
+{
+  "schemaVersion": 1,
+  "version": "1.0.0",
+  "trackId": "CMS_CERTIFIED",
+  "scopeVersion": "2026/2027",
+  "scopeUrl": "https://courtofmastersommeliers.org/wp-content/uploads/2026/02/Syllabus-202627-1.pdf",
+  "gridId": "tg_deductive",
+  "notice": "Original app practice. Section lengths and 30/20/15 minute timers are app choices, not official exam allocations or a complete syllabus assessment. Physical observations and written criteria are learner-led; no official marks or qualification are granted.",
+  "presets": [
+    {
+      "section": "theory",
+      "title": "Original theory practice",
+      "durationSeconds": 1800,
+      "mcqCount": 10,
+      "writtenCount": 10,
+      "wineCount": 0
+    },
+    {
+      "section": "tasting",
+      "title": "Two actual wines: deduction practice",
+      "durationSeconds": 1200,
+      "mcqCount": 0,
+      "writtenCount": 1,
+      "wineCount": 2
+    },
+    {
+      "section": "service",
+      "title": "Original guest-service decisions",
+      "durationSeconds": 900,
+      "mcqCount": 0,
+      "writtenCount": 3,
+      "wineCount": 0
+    }
+  ],
+  "mcqs": [
+    {
+      "id": "cmsr_chablis_choice",
+      "topic": "regions",
+      "prompt": "A list has Chablis beside a Sauvignon Blanc from the Loire. Which grape distinguishes the Chablis entry?",
+      "itemIds": [
+        "ki_chablis_grape"
+      ],
+      "options": [
+        {
+          "id": "o_4b66f9731ae57729",
+          "text": "Chardonnay"
+        },
+        {
+          "id": "o_82c053131110ff79",
+          "text": "Sauvignon Blanc"
+        },
+        {
+          "id": "o_a7bbe2567bc26c08",
+          "text": "Aligote"
+        },
+        {
+          "id": "o_0ba2f21eac80deb1",
+          "text": "Chenin Blanc"
+        }
+      ],
+      "correctOptionId": "o_4b66f9731ae57729",
+      "explanation": "Chablis uses Chardonnay; a Loire Sauvignon entry does not change that identity."
+    },
+    {
+      "id": "cmsr_barolo_choice",
+      "topic": "regions",
+      "prompt": "A guest asks which grape connects Barolo with its Piedmont identity. Which answer is supported?",
+      "itemIds": [
+        "ki_barolo_grape"
+      ],
+      "options": [
+        {
+          "id": "o_502851b37c84e617",
+          "text": "Sangiovese"
+        },
+        {
+          "id": "o_f06944ea2767a58b",
+          "text": "Nebbiolo"
+        },
+        {
+          "id": "o_5a1e998be51fc9f7",
+          "text": "Barbera"
+        },
+        {
+          "id": "o_9f0a8514d173404e",
+          "text": "Corvina"
+        }
+      ],
+      "correctOptionId": "o_f06944ea2767a58b",
+      "explanation": "The Barolo grape is Nebbiolo, not another Italian red variety."
+    },
+    {
+      "id": "cmsr_mosel_choice",
+      "topic": "regions",
+      "prompt": "Which country contains the Mosel wine-growing region?",
+      "itemIds": [
+        "ki_mosel_location"
+      ],
+      "options": [
+        {
+          "id": "o_6a57884f55e4dd7b",
+          "text": "Austria"
+        },
+        {
+          "id": "o_c5bad25efa73a0d8",
+          "text": "Switzerland"
+        },
+        {
+          "id": "o_1d50324a4051358b",
+          "text": "Germany"
+        },
+        {
+          "id": "o_51a20a436cdddd77",
+          "text": "Luxembourg"
+        }
+      ],
+      "correctOptionId": "o_1d50324a4051358b",
+      "explanation": "Mosel is a German wine-growing region."
+    },
+    {
+      "id": "cmsr_eiswein_choice",
+      "topic": "regions",
+      "prompt": "What distinguishes the grape condition used for German Eiswein?",
+      "itemIds": [
+        "ki_eiswein_rule"
+      ],
+      "options": [
+        {
+          "id": "o_883697633a53245f",
+          "text": "Fully dried after indoor storage"
+        },
+        {
+          "id": "o_0bc22573d1c8eebc",
+          "text": "Fresh grapes heated before pressing"
+        },
+        {
+          "id": "o_fcd49bfa2a9e4ce2",
+          "text": "Nobly rotten berries selected after fermentation"
+        },
+        {
+          "id": "o_190fecad16044d33",
+          "text": "Naturally frozen at picking and pressing"
+        }
+      ],
+      "correctOptionId": "o_190fecad16044d33",
+      "explanation": "The defining condition is naturally frozen grapes at harvest and pressing, not artificial freezing or drying."
+    },
+    {
+      "id": "cmsr_mendoza_choice",
+      "topic": "regions",
+      "prompt": "What does high elevation explain in the cited Gualtallary vineyard comparison?",
+      "itemIds": [
+        "ki_reg_am_mendoza_temperature"
+      ],
+      "options": [
+        {
+          "id": "o_35ddb6df58b1aa65",
+          "text": "Moderated temperature compared with warmer lower sites"
+        },
+        {
+          "id": "o_69a0e37da3d8f25c",
+          "text": "A legal guarantee of superior wine quality"
+        },
+        {
+          "id": "o_eaee4cf6b11529b8",
+          "text": "A compulsory residual-sugar category"
+        },
+        {
+          "id": "o_55d690ca90c9d7e3",
+          "text": "The absence of vineyard and cellar decisions"
+        }
+      ],
+      "correctOptionId": "o_35ddb6df58b1aa65",
+      "explanation": "The cited Adrianna comparison treats altitude as a temperature influence, not a quality ranking."
+    },
+    {
+      "id": "cmsr_barossa_choice",
+      "topic": "regions",
+      "prompt": "Which account respects the Barossa valley-floor and hill-site comparison?",
+      "itemIds": [
+        "ki_reg_sh_barossa_floor"
+      ],
+      "options": [
+        {
+          "id": "o_bf895f5659a664d6",
+          "text": "Every site has identical temperatures and style"
+        },
+        {
+          "id": "o_b75d4360fa51ee3c",
+          "text": "Warmer valley floors and cooler surrounding hill sites"
+        },
+        {
+          "id": "o_9bb6222db553d398",
+          "text": "All Shiraz must be sweet because the valley is warm"
+        },
+        {
+          "id": "o_d3638d9efee2f364",
+          "text": "Altitude determines the legal grape recipe"
+        }
+      ],
+      "correctOptionId": "o_b75d4360fa51ee3c",
+      "explanation": "The warm floor supports ripe Shiraz, but cooler sites and production choices prevent a single universal profile."
+    },
+    {
+      "id": "cmsr_wairau_choice",
+      "topic": "regions",
+      "prompt": "What limits a single aroma prediction for Wairau Sauvignon Blanc?",
+      "itemIds": [
+        "ki_reg_sh_marlborough_wairau"
+      ],
+      "options": [
+        {
+          "id": "o_8c52d364a4433c1c",
+          "text": "The regional name requires identical picking dates"
+        },
+        {
+          "id": "o_4f31edf071b480f3",
+          "text": "Every vineyard must use the same oak regime"
+        },
+        {
+          "id": "o_04551e12bf834702",
+          "text": "Contrasting inland and coastal growing sites"
+        },
+        {
+          "id": "o_2170e0f5f424fb16",
+          "text": "Sauvignon Blanc is excluded from the valley"
+        }
+      ],
+      "correctOptionId": "o_04551e12bf834702",
+      "explanation": "Stony inland and sea-breeze-moderated coastal sites vary; the regional association does not fix one aroma."
+    },
+    {
+      "id": "cmsr_awatere_choice",
+      "topic": "regions",
+      "prompt": "Compared with the Wairau reference, how is Awatere generally framed?",
+      "itemIds": [
+        "ki_reg_sh_marlborough_awatere"
+      ],
+      "options": [
+        {
+          "id": "o_6a47edadc88e02e4",
+          "text": "Always warmer with no elevated vineyards"
+        },
+        {
+          "id": "o_4c5c6b9451d26a0c",
+          "text": "Identical in every climatic influence"
+        },
+        {
+          "id": "o_bf662329f53693cc",
+          "text": "A fortified-wine production district"
+        },
+        {
+          "id": "o_19db627afbdba4c1",
+          "text": "Cooler, drier and windier"
+        }
+      ],
+      "correctOptionId": "o_19db627afbdba4c1",
+      "explanation": "The reference generally describes cooler, drier, windier conditions, while individual sites and harvest choices still matter."
+    },
+    {
+      "id": "cmsr_fermentation_choice",
+      "topic": "production",
+      "prompt": "Which principal products come from wine yeast metabolising grape sugar?",
+      "itemIds": [
+        "ki_win_alcoholic_products"
+      ],
+      "options": [
+        {
+          "id": "o_3d7a4830a969d2b0",
+          "text": "Ethanol and carbon dioxide"
+        },
+        {
+          "id": "o_16ead23ecf90a40f",
+          "text": "Lactic acid and calcium carbonate"
+        },
+        {
+          "id": "o_15560f512e84e211",
+          "text": "Tannin and grape pigment"
+        },
+        {
+          "id": "o_a85ed2956c7ce199",
+          "text": "Added spirit and wood extract"
+        }
+      ],
+      "correctOptionId": "o_3d7a4830a969d2b0",
+      "explanation": "Alcoholic fermentation principally forms ethanol and carbon dioxide; MLF is different."
+    },
+    {
+      "id": "cmsr_mlf_choice",
+      "topic": "production",
+      "prompt": "Which conversion identifies malolactic fermentation rather than alcoholic fermentation?",
+      "itemIds": [
+        "ki_win_mlf_conversion"
+      ],
+      "options": [
+        {
+          "id": "o_e078886a5133af8f",
+          "text": "Glucose directly to added spirit"
+        },
+        {
+          "id": "o_bffb8667a18919fe",
+          "text": "Malic acid to lactic acid"
+        },
+        {
+          "id": "o_18d7838492e72221",
+          "text": "Grape pigments to wood tannin"
+        },
+        {
+          "id": "o_d6574c888a1c5250",
+          "text": "Lactic acid to harvested grape sugar"
+        }
+      ],
+      "correctOptionId": "o_bffb8667a18919fe",
+      "explanation": "Lactic acid bacteria convert malic acid into lactic acid, commonly reducing acidity."
+    },
+    {
+      "id": "cmsr_butter_choice",
+      "topic": "production",
+      "prompt": "Why is a buttery aroma insufficient to predict all wines that undergo MLF?",
+      "itemIds": [
+        "ki_win_mlf_butter"
+      ],
+      "options": [
+        {
+          "id": "o_89c22b4bf51442de",
+          "text": "MLF requires identical buttery intensity in every wine"
+        },
+        {
+          "id": "o_fa02e144b4647f47",
+          "text": "Butter aroma measures the legal vineyard boundary"
+        },
+        {
+          "id": "o_bbcff75dfe3228b0",
+          "text": "Diacetyl impact varies with strain, timing and wine conditions"
+        },
+        {
+          "id": "o_c2aaf7b9560f1875",
+          "text": "MLF always removes every aroma compound"
+        }
+      ],
+      "correctOptionId": "o_bbcff75dfe3228b0",
+      "explanation": "Diacetyl can contribute butter aroma, but its sensory impact varies and is not inevitable."
+    },
+    {
+      "id": "cmsr_oak_choice",
+      "topic": "production",
+      "prompt": "Which information best refines a guess about oak influence?",
+      "itemIds": [
+        "ki_win_oak_variables"
+      ],
+      "options": [
+        {
+          "id": "o_07c52cc76041af74",
+          "text": "Only the nationality of the cooper"
+        },
+        {
+          "id": "o_f90e504483bae8b1",
+          "text": "Only the colour of the bottle closure"
+        },
+        {
+          "id": "o_482ddf4b6b5043e9",
+          "text": "Only the grape region printed on the label"
+        },
+        {
+          "id": "o_1a551b5ab2fcb3b9",
+          "text": "Wood species, toast, vessel size and barrel age"
+        }
+      ],
+      "correctOptionId": "o_1a551b5ab2fcb3b9",
+      "explanation": "Species, toast, size, barrel age and cooperage all matter; origin alone cannot determine flavour."
+    },
+    {
+      "id": "cmsr_martini_choice",
+      "topic": "beverages",
+      "prompt": "Which base-and-vermouth pair identifies the IBA Dry Martini reference?",
+      "itemIds": [
+        "ki_cms_cocktail_dry_martini"
+      ],
+      "options": [
+        {
+          "id": "o_0adde49ca14e1d8b",
+          "text": "Gin and dry vermouth"
+        },
+        {
+          "id": "o_ab7a26092dd2cee0",
+          "text": "Rye and sweet red vermouth"
+        },
+        {
+          "id": "o_08ddecd79d8d45ce",
+          "text": "Rum and fresh lime juice"
+        },
+        {
+          "id": "o_faf5d040c79dc277",
+          "text": "Tequila and orange liqueur"
+        }
+      ],
+      "correctOptionId": "o_0adde49ca14e1d8b",
+      "explanation": "The named IBA reference uses gin and dry vermouth, stirred; venue and guest variants require checking."
+    },
+    {
+      "id": "cmsr_americano_choice",
+      "topic": "beverages",
+      "prompt": "A guest wants the IBA Campari-vermouth reference extended with soda, without gin. Which name fits?",
+      "itemIds": [
+        "ki_cms_cocktail_americano"
+      ],
+      "options": [
+        {
+          "id": "o_8a89f0a599360d21",
+          "text": "Negroni"
+        },
+        {
+          "id": "o_8ccb4ae16adadc9f",
+          "text": "Americano"
+        },
+        {
+          "id": "o_765d4a205519e4c4",
+          "text": "Manhattan"
+        },
+        {
+          "id": "o_146db56372baf11a",
+          "text": "Daiquiri"
+        }
+      ],
+      "correctOptionId": "o_8ccb4ae16adadc9f",
+      "explanation": "Americano combines Campari, sweet red vermouth and soda without added gin."
+    },
+    {
+      "id": "cmsr_mash_choice",
+      "topic": "beverages",
+      "prompt": "What is the useful starch-related purpose of mashing malt for beer?",
+      "itemIds": [
+        "ki_cms_beer_mash"
+      ],
+      "options": [
+        {
+          "id": "o_754bbd2be5a1b6f2",
+          "text": "Yeast directly distils the dry grain"
+        },
+        {
+          "id": "o_3930cf52952b629e",
+          "text": "Hops convert sugar into barrel tannin"
+        },
+        {
+          "id": "o_80cee8d68e68af16",
+          "text": "Enzymes convert starch into fermentable sugars"
+        },
+        {
+          "id": "o_4c735e301bc95095",
+          "text": "Cold packaging replaces alcoholic fermentation"
+        }
+      ],
+      "correctOptionId": "o_80cee8d68e68af16",
+      "explanation": "Malt enzymes make fermentable sugars available through starch conversion during mashing."
+    },
+    {
+      "id": "cmsr_cider_choice",
+      "topic": "beverages",
+      "prompt": "Which fruit is central to the cider-production reference here?",
+      "itemIds": [
+        "ki_cms_cider_apples"
+      ],
+      "options": [
+        {
+          "id": "o_6008c763be4ca127",
+          "text": "Malted barley"
+        },
+        {
+          "id": "o_525cd9ffb9ed2e41",
+          "text": "Agave hearts"
+        },
+        {
+          "id": "o_0056149420a86de1",
+          "text": "Grape skins"
+        },
+        {
+          "id": "o_c32783a9fff3fc99",
+          "text": "Apples"
+        }
+      ],
+      "correctOptionId": "o_c32783a9fff3fc99",
+      "explanation": "Cider reference production begins with apples; this is not a universal duty-law definition."
+    },
+    {
+      "id": "cmsr_pours_choice",
+      "topic": "business",
+      "prompt": "In the supplied hypothetical example, 750 mL is divided into complete 100 mL pours. How many full pours fit?",
+      "itemIds": [
+        "ki_cms_calc_full_pours"
+      ],
+      "options": [
+        {
+          "id": "o_0e7c1123baaad752",
+          "text": "7 pours"
+        },
+        {
+          "id": "o_a6c388971cad15e2",
+          "text": "8 pours"
+        },
+        {
+          "id": "o_29bb58188bba498c",
+          "text": "6 pours"
+        },
+        {
+          "id": "o_1bd0eb3a096f0723",
+          "text": "10 pours"
+        }
+      ],
+      "correctOptionId": "o_0e7c1123baaad752",
+      "explanation": "Floor(750/100)=7, leaving 50 mL; the pour size is supplied, not a legal standard."
+    },
+    {
+      "id": "cmsr_bottles_choice",
+      "topic": "business",
+      "prompt": "A hypothetical event requires 40 guests x 2 pours x 125 mL. Pool wine from 750 mL bottles, no loss/reserve. What is the minimum whole-bottle count?",
+      "itemIds": [
+        "ki_cms_calc_event_bottles"
+      ],
+      "options": [
+        {
+          "id": "o_90a812e1f681e532",
+          "text": "13 bottles"
+        },
+        {
+          "id": "o_a5d281f272fab342",
+          "text": "14 bottles"
+        },
+        {
+          "id": "o_d98688bc292e56cf",
+          "text": "12 bottles"
+        },
+        {
+          "id": "o_5b90b6f368e21d34",
+          "text": "16 bottles"
+        }
+      ],
+      "correctOptionId": "o_a5d281f272fab342",
+      "explanation": "The required 10,000 mL is 13 and 1/3 bottles, rounded up to 14 whole bottles."
+    },
+    {
+      "id": "cmsr_margin_choice",
+      "topic": "business",
+      "prompt": "A hypothetical bottle sells net of tax for EUR 30 and has EUR 12 cost of goods. What gross margin results?",
+      "itemIds": [
+        "ki_cms_calc_gross_margin"
+      ],
+      "options": [
+        {
+          "id": "o_c8cff6910a05b2e4",
+          "text": "150% of net sales"
+        },
+        {
+          "id": "o_098a0b88264c0485",
+          "text": "40% of net sales"
+        },
+        {
+          "id": "o_288c0e83dc930ff1",
+          "text": "60% of net sales"
+        },
+        {
+          "id": "o_9bc1b4cbb8c63e88",
+          "text": "250% of net sales"
+        }
+      ],
+      "correctOptionId": "o_288c0e83dc930ff1",
+      "explanation": "Gross profit 18 divided by sales 30 gives 60%; 150% instead uses cost as markup denominator."
+    },
+    {
+      "id": "cmsr_price_choice",
+      "topic": "business",
+      "prompt": "A hypothetical bottle costs EUR 12; no discounts/tax/fees apply. Which net price produces 60% gross margin?",
+      "itemIds": [
+        "ki_cms_calc_target_price"
+      ],
+      "options": [
+        {
+          "id": "o_ab0b11e476c96c01",
+          "text": "EUR 19.20"
+        },
+        {
+          "id": "o_1f3583de799ef14c",
+          "text": "EUR 20"
+        },
+        {
+          "id": "o_5fcb54f0dd818166",
+          "text": "EUR 24"
+        },
+        {
+          "id": "o_696966d1c2ea13f1",
+          "text": "EUR 30"
+        }
+      ],
+      "correctOptionId": "o_696966d1c2ea13f1",
+      "explanation": "Price=12/(1-0.60)=30; adding 60% to cost would not achieve 60% margin."
+    }
+  ],
+  "written": [
+    {
+      "id": "cmsr_chablis_short",
+      "section": "theory",
+      "topic": "regions",
+      "prompt": "Name the grape of Chablis and distinguish it from a Sauvignon Blanc Loire wine.",
+      "criteria": [
+        {
+          "id": "cmsr_chablis_check",
+          "text": "Identify Chardonnay; do not call Chablis Sauvignon Blanc.",
+          "itemIds": [
+            "ki_chablis_grape"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "cmsr_barolo_short",
+      "section": "theory",
+      "topic": "regions",
+      "prompt": "Name the grape used for Barolo, rather than a nearby Italian variety.",
+      "criteria": [
+        {
+          "id": "cmsr_barolo_check",
+          "text": "Identify Nebbiolo for Barolo.",
+          "itemIds": [
+            "ki_barolo_grape"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "cmsr_mosel_short",
+      "section": "theory",
+      "topic": "regions",
+      "prompt": "Locate Mosel by country without substituting a different German district.",
+      "criteria": [
+        {
+          "id": "cmsr_mosel_check",
+          "text": "Name Germany for the Mosel region.",
+          "itemIds": [
+            "ki_mosel_location"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "cmsr_eiswein_short",
+      "section": "theory",
+      "topic": "regions",
+      "prompt": "Describe the required grape condition for German Eiswein, without treating indoor freezing as equivalent.",
+      "criteria": [
+        {
+          "id": "cmsr_eiswein_check",
+          "text": "State grapes must be naturally frozen when picked and pressed.",
+          "itemIds": [
+            "ki_eiswein_rule"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "cmsr_mendoza_short",
+      "section": "theory",
+      "topic": "regions",
+      "prompt": "Explain why a high-elevation Gualtallary site can differ from warmer lower sites and state one inference limit.",
+      "criteria": [
+        {
+          "id": "cmsr_mendoza_check",
+          "text": "Link elevation to moderated temperature, while withholding a guaranteed quality ranking.",
+          "itemIds": [
+            "ki_reg_am_mendoza_temperature"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "cmsr_barossa_short",
+      "section": "theory",
+      "topic": "regions",
+      "prompt": "Explain why Barossa Shiraz cannot be assigned one style solely from the regional name.",
+      "criteria": [
+        {
+          "id": "cmsr_barossa_check",
+          "text": "Distinguish warmer valley-floor and cooler hill settings, with vineyard and winery choices affecting balance.",
+          "itemIds": [
+            "ki_reg_sh_barossa_floor"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "cmsr_wairau_short",
+      "section": "theory",
+      "topic": "regions",
+      "prompt": "Name two contrasting Wairau site influences and explain why the label alone cannot fix aroma.",
+      "criteria": [
+        {
+          "id": "cmsr_wairau_check",
+          "text": "Contrast inland early-ripening stony sites with coastal sea-breeze influence; avoid one compulsory aroma profile.",
+          "itemIds": [
+            "ki_reg_sh_marlborough_wairau"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "cmsr_awatere_short",
+      "section": "theory",
+      "topic": "regions",
+      "prompt": "Compare the Awatere and Wairau climate references, retaining a site-specific limit.",
+      "criteria": [
+        {
+          "id": "cmsr_awatere_check",
+          "text": "Describe Awatere as generally cooler, drier and windier; do not turn the comparison into one guaranteed flavour.",
+          "itemIds": [
+            "ki_reg_sh_marlborough_awatere"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "cmsr_fermentation_short",
+      "section": "theory",
+      "topic": "production",
+      "prompt": "Name the principal fermentation products from grape sugars.",
+      "criteria": [
+        {
+          "id": "cmsr_fermentation_check",
+          "text": "Identify ethanol and carbon dioxide.",
+          "itemIds": [
+            "ki_win_alcoholic_products"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "cmsr_mlf_short",
+      "section": "theory",
+      "topic": "production",
+      "prompt": "Describe MLF and distinguish it from yeast fermentation of sugars.",
+      "criteria": [
+        {
+          "id": "cmsr_mlf_check",
+          "text": "Identify bacterial malic-to-lactic conversion, distinct from sugar-to-alcohol fermentation.",
+          "itemIds": [
+            "ki_win_mlf_conversion"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "cmsr_butter_short",
+      "section": "theory",
+      "topic": "production",
+      "prompt": "State why MLF does not guarantee a buttery finished wine.",
+      "criteria": [
+        {
+          "id": "cmsr_butter_check",
+          "text": "Mention variable diacetyl production/sensory impact and reject inevitable butter aroma.",
+          "itemIds": [
+            "ki_win_mlf_butter"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "cmsr_oak_short",
+      "section": "theory",
+      "topic": "production",
+      "prompt": "Give three variables affecting oak influence, and explain why origin alone is insufficient.",
+      "criteria": [
+        {
+          "id": "cmsr_oak_check",
+          "text": "Name at least three of species, toast, vessel size, barrel age or cooperage; retain the inference limit.",
+          "itemIds": [
+            "ki_win_oak_variables"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "cmsr_martini_short",
+      "section": "theory",
+      "topic": "beverages",
+      "prompt": "State the IBA Dry Martini ingredient pair and its reference mixing method.",
+      "criteria": [
+        {
+          "id": "cmsr_martini_check",
+          "text": "Name gin and dry vermouth, stirred rather than a universal venue recipe.",
+          "itemIds": [
+            "ki_cms_cocktail_dry_martini"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "cmsr_americano_short",
+      "section": "theory",
+      "topic": "beverages",
+      "prompt": "Distinguish the IBA Americano reference from Negroni for a guest avoiding gin.",
+      "criteria": [
+        {
+          "id": "cmsr_americano_check",
+          "text": "Americano adds soda and omits gin; Negroni includes gin.",
+          "itemIds": [
+            "ki_cms_cocktail_americano"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "cmsr_mash_short",
+      "section": "theory",
+      "topic": "beverages",
+      "prompt": "Explain the starch-to-sugar role of malt enzymes during mashing.",
+      "criteria": [
+        {
+          "id": "cmsr_mash_check",
+          "text": "Describe enzymatic conversion of starch into fermentable sugars, rather than distillation.",
+          "itemIds": [
+            "ki_cms_beer_mash"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "cmsr_cider_short",
+      "section": "theory",
+      "topic": "beverages",
+      "prompt": "Name cider fruit and distinguish its fermentation from distilled spirit production.",
+      "criteria": [
+        {
+          "id": "cmsr_cider_check",
+          "text": "Identify apples and fermentation, without turning the example into a worldwide legal definition.",
+          "itemIds": [
+            "ki_cms_cider_apples"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "cmsr_pours_short",
+      "section": "theory",
+      "topic": "business",
+      "prompt": "For the hypothetical 750 mL bottle and 100 mL pour, calculate full pours and leftover volume.",
+      "criteria": [
+        {
+          "id": "cmsr_pours_check",
+          "text": "Give 7 complete pours and 50 mL leftover; no partial pour counts.",
+          "itemIds": [
+            "ki_cms_calc_full_pours"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "cmsr_bottles_short",
+      "section": "theory",
+      "topic": "business",
+      "prompt": "Calculate minimum 750 mL bottles for 40 guests receiving two 125 mL pours, ignoring losses/reserve and pooling usable wine.",
+      "criteria": [
+        {
+          "id": "cmsr_bottles_check",
+          "text": "Compute 10,000 mL and round 13 and 1/3 up to 14 whole bottles.",
+          "itemIds": [
+            "ki_cms_calc_event_bottles"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "cmsr_margin_short",
+      "section": "theory",
+      "topic": "business",
+      "prompt": "Calculate gross margin for hypothetical EUR 30 net sales and EUR 12 cost, stating the denominator.",
+      "criteria": [
+        {
+          "id": "cmsr_margin_check",
+          "text": "Gross profit 18 divided by net sales 30 equals 60%; do not use cost as denominator.",
+          "itemIds": [
+            "ki_cms_calc_gross_margin"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "cmsr_price_short",
+      "section": "theory",
+      "topic": "business",
+      "prompt": "Find tax-exclusive price for EUR 12 cost and 60% target gross margin in the stated hypothetical example.",
+      "criteria": [
+        {
+          "id": "cmsr_price_check",
+          "text": "Use 12/(1-0.60)=EUR 30; distinguish margin from adding 60% markup.",
+          "itemIds": [
+            "ki_cms_calc_target_price"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "cmsr_service_aperitif",
+      "section": "service",
+      "topic": "service",
+      "prompt": "A fictional guest requests a Campari-and-vermouth aperitif with soda, says no gin, and has not specified the preferred balance or ingredient restrictions. Recommend a reference drink, explain its fit, discuss an alternative only if the preference changes, and identify checks before service.",
+      "criteria": [
+        {
+          "id": "cmsr_aperitif_action",
+          "text": "Offer Americano provisionally and confirm the actual venue recipe.",
+          "itemIds": [
+            "ki_cms_cocktail_aperitif_action"
+          ]
+        },
+        {
+          "id": "cmsr_aperitif_reason",
+          "text": "Explain soda without gin distinguishes Americano from the Negroni reference.",
+          "itemIds": [
+            "ki_cms_cocktail_aperitif_reason"
+          ]
+        },
+        {
+          "id": "cmsr_aperitif_tradeoff",
+          "text": "Discuss Negroni only if the no-gin preference changes.",
+          "itemIds": [
+            "ki_cms_cocktail_aperitif_tradeoff"
+          ]
+        },
+        {
+          "id": "cmsr_aperitif_limit",
+          "text": "Check stocked recipe and guest ingredient suitability; a reference cannot establish them.",
+          "itemIds": [
+            "ki_cms_cocktail_aperitif_limit"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "cmsr_service_rum_citrus",
+      "section": "service",
+      "topic": "service",
+      "prompt": "A fictional guest wants rum and lime without orange liqueur. The bar has the named IBA Daiquiri and Margarita reference ingredients. Recommend provisionally, explain the recipe distinction, discuss a conditional alternative and identify information needed about the actual guest and drink.",
+      "criteria": [
+        {
+          "id": "cmsr_rum_citrus_action",
+          "text": "Offer Daiquiri and clarify the desired balance.",
+          "itemIds": [
+            "ki_cms_cocktail_rum_citrus_action"
+          ]
+        },
+        {
+          "id": "cmsr_rum_citrus_reason",
+          "text": "Distinguish rum-lime-sugar from tequila-triple-sec-lime.",
+          "itemIds": [
+            "ki_cms_cocktail_rum_citrus_reason"
+          ]
+        },
+        {
+          "id": "cmsr_rum_citrus_tradeoff",
+          "text": "Margarita becomes relevant only if tequila and triple sec are acceptable.",
+          "itemIds": [
+            "ki_cms_cocktail_rum_citrus_tradeoff"
+          ]
+        },
+        {
+          "id": "cmsr_rum_citrus_limit",
+          "text": "Check the actual recipe and guest taste rather than promising the reference measures suit everyone.",
+          "itemIds": [
+            "ki_cms_cocktail_rum_citrus_limit"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "cmsr_service_oysters",
+      "section": "service",
+      "topic": "service",
+      "prompt": "A fictional guest prefers crisp dry still white with oysters dressed in lemon and vinegar. Consider a Muscadet trial, explain the dressing interaction, discuss a conditional alternative and state why the exact bottle and plate still need checking.",
+      "criteria": [
+        {
+          "id": "cmsr_oysters_action",
+          "text": "Suggest Muscadet as a tentative tasting trial, respecting the still-white preference.",
+          "itemIds": [
+            "ki_cms_pairing_oysters_action"
+          ]
+        },
+        {
+          "id": "cmsr_oysters_reason",
+          "text": "Consider the acidity of lemon/vinegar when judging wine balance.",
+          "itemIds": [
+            "ki_cms_pairing_oysters_reason"
+          ]
+        },
+        {
+          "id": "cmsr_oysters_tradeoff",
+          "text": "Offer Champagne only if the guest wants that alternative.",
+          "itemIds": [
+            "ki_cms_pairing_oysters_tradeoff"
+          ]
+        },
+        {
+          "id": "cmsr_oysters_limitation",
+          "text": "Do not guarantee every condiment-and-bottle combination from a general reference.",
+          "itemIds": [
+            "ki_cms_pairing_oysters_limitation"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "cmsr_service_chocolate",
+      "section": "service",
+      "topic": "service",
+      "prompt": "A fictional guest likes fortified wine and orders high-cocoa chocolate tart with salted caramel. Consider a Tawny Port trial, explain sweetness, discuss the salt/topping tradeoff and state the evidence still missing.",
+      "criteria": [
+        {
+          "id": "cmsr_chocolate_action",
+          "text": "Offer Tawny Port as a provisional trial.",
+          "itemIds": [
+            "ki_cms_pairing_chocolate_action"
+          ]
+        },
+        {
+          "id": "cmsr_chocolate_reason",
+          "text": "Sweet food can make a dry wine seem less fruity, drier and more bitter.",
+          "itemIds": [
+            "ki_cms_pairing_chocolate_reason"
+          ]
+        },
+        {
+          "id": "cmsr_chocolate_tradeoff",
+          "text": "Account for salt and caramel as well as cocoa in the actual dish.",
+          "itemIds": [
+            "ki_cms_pairing_chocolate_tradeoff"
+          ]
+        },
+        {
+          "id": "cmsr_chocolate_limitation",
+          "text": "The cited example does not test this exact tart or stocked bottle.",
+          "itemIds": [
+            "ki_cms_pairing_chocolate_limitation"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "cmsr_two_wine_comparison",
+      "section": "tasting",
+      "topic": "tasting",
+      "prompt": "Compare the two actual wines you tasted. Separate direct observations from grape/origin hypotheses, show which structure or aroma evidence supports each, note any possible fault in its style context, and record what remains uncertain. No app answer establishes the bottle identity.",
+      "criteria": [
+        {
+          "id": "cmsr_taste_observations",
+          "text": "Use recorded observations from both wines; do not infer one uniform regional aroma from a name.",
+          "itemIds": [
+            "ki_reg_sh_marlborough_wairau"
+          ]
+        },
+        {
+          "id": "cmsr_taste_structure",
+          "text": "Support a production hypothesis with observations while recognising that MLF and alcoholic fermentation are different mechanisms.",
+          "itemIds": [
+            "ki_win_mlf_conversion"
+          ]
+        },
+        {
+          "id": "cmsr_taste_fault_context",
+          "text": "Discuss possible oxidation in its intended-style context rather than declaring every developed aroma a fault.",
+          "itemIds": [
+            "ki_fault_oxidative_style"
+          ]
+        },
+        {
+          "id": "cmsr_taste_limits",
+          "text": "State uncertainty and a useful next check; oak provenance alone cannot fix final flavour or bottle identity.",
+          "itemIds": [
+            "ki_win_oak_variables"
+          ]
+        }
+      ]
+    }
+  ],
+  "wineEvidencePrompts": [
+    {
+      "id": "description",
+      "prompt": "Describe this actual wine using your own sensory observations, separating fruit and other aromas."
+    },
+    {
+      "id": "structure",
+      "prompt": "Explain the observed acidity, tannin, alcohol, body and finish; support your interpretation with sensations."
+    },
+    {
+      "id": "identity",
+      "prompt": "Propose grape and origin hypotheses and explain which observations support them; record a plausible alternative."
+    },
+    {
+      "id": "quality_faults",
+      "prompt": "Explain your quality judgement and any suspected fault with observations and intended-style context."
+    },
+    {
+      "id": "uncertainty",
+      "prompt": "State which identity, age or production inference remains uncertain and what could help check it."
+    }
+  ]
+}

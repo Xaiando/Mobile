@@ -22,6 +22,14 @@ const _answers = {
   'ki_cms_calc_markup': (150.0, '%'),
   'ki_cms_calc_target_price': (30.0, 'EUR'),
 };
+const _diplomaIds = {
+  'ki_d2_calc_unit_contribution',
+  'ki_d2_calc_breakeven_bottles',
+  'ki_d2_calc_fx_receipt',
+  'ki_d2_calc_fx_receipt_reduction',
+  'ki_d2_calc_landed_cost_per_bottle',
+  'ki_d2_calc_cash_gap_days',
+};
 const _template = 'qt_cms_calculated_value_fwd_numeric';
 
 void main() {
@@ -40,10 +48,31 @@ void main() {
       final calculationItems = dataset.knowledgeItems.where(
         (row) => row.relationType == 'CALCULATED_VALUE',
       );
+      expect(calculationItems.map((row) => row.id).toSet(), {
+        ..._answers.keys,
+        ..._diplomaIds,
+      });
       expect(
-        calculationItems.map((row) => row.id).toSet(),
+        calculationItems
+            .where((row) => row.id.startsWith('ki_cms_calc_'))
+            .map((row) => row.id)
+            .toSet(),
         _answers.keys.toSet(),
       );
+      for (final id in _diplomaIds) {
+        final mappings = dataset.certificationKnowledgeMappings.where(
+          (row) => row.knowledgeItemId == id,
+        );
+        expect(mappings, hasLength(1));
+        expect(
+          (
+            mappings.single.certificationId,
+            mappings.single.importance,
+            mappings.single.minimumDepth,
+          ),
+          ('WSET_L4', 'core', 2),
+        );
+      }
       final quantityById = {
         for (final row in dataset.quantityValues) row.knowledgeNodeId: row,
       };

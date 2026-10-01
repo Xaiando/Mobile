@@ -12,6 +12,11 @@ import 'package:integration_test/integration_test.dart';
 import 'package:sommelier/app/app.dart';
 import 'package:sommelier/app/learner_state.dart';
 import 'package:sommelier/app/startup.dart';
+import 'package:sommelier/core/cms_rehearsal/cms_rehearsal.dart';
+import 'package:sommelier/core/cms_rehearsal/cms_rehearsal_providers.dart';
+import 'package:sommelier/core/database/database_providers.dart';
+import 'package:sommelier/features/cms_rehearsal/cms_rehearsal_screen.dart';
+import 'package:sommelier/features/home/home_screen.dart';
 import 'package:sommelier/main.dart' as app;
 
 void main() {
@@ -80,6 +85,55 @@ void main() {
     }
   }
 
+  // Read the same on-device database used by the real mounted app. Each
+  // read is bounded; no second launch, reset, provider override or clock change.
+  Future<T> readOnDevice<T>(
+    WidgetTester tester,
+    Future<T> Function() read, {
+    required String what,
+  }) async {
+    final value = await tester.runAsync(
+      () => read().timeout(const Duration(seconds: 10)),
+    );
+    expect(value, isNotNull, reason: what);
+    await tester.pump(Duration.zero);
+    return value as T;
+  }
+
+  Future<void> revealListTarget(
+    WidgetTester tester,
+    Finder screen,
+    Finder target,
+  ) async {
+    expect(screen, findsOneWidget);
+    final list = find.descendant(of: screen, matching: find.byType(ListView));
+    await pumpUntil(
+      tester,
+      () => list.evaluate().length == 1,
+      what: 'the real screen list',
+    );
+    // EditableText owns another Scrollable. Use the outer list viewport,
+    // rather than whichever inner field happens to have keyboard focus.
+    final viewport = find.descendant(of: list, matching: find.byType(Viewport));
+    expect(viewport, findsOneWidget);
+    final scrollable = find.ancestor(
+      of: viewport,
+      matching: find.byType(Scrollable),
+    );
+    expect(scrollable, findsOneWidget);
+    tester.state<ScrollableState>(scrollable).position.jumpTo(0);
+    await tester.pump(Duration.zero);
+    await tester.scrollUntilVisible(
+      target,
+      180,
+      scrollable: scrollable,
+      maxScrolls: 100,
+    );
+    await tester.ensureVisible(target);
+    await tester.pump(Duration.zero);
+    expect(target.hitTestable(), findsOneWidget);
+  }
+
   testWidgets('starts, installs the curriculum, studies and tastes', (
     tester,
   ) async {
@@ -114,10 +168,33 @@ void main() {
     );
     await tester.tap(track);
     await tester.pumpAndSettle();
-    await tester.tap(find.text('Start studying'));
+    final startStudying = find.widgetWithText(FilledButton, 'Start studying');
+    await pumpUntil(
+      tester,
+      () =>
+          startStudying.evaluate().isNotEmpty &&
+          tester.widget<FilledButton>(startStudying).onPressed != null,
+      what: 'the enabled Start studying action after saved track selection',
+    );
+    await tester.tap(startStudying);
     await tester.pumpAndSettle();
 
-    await tester.tap(find.text('Practice'));
+    // Native database completion and the settings watch can arrive after the
+    // frame queue settles. Wait for the saved-onboarding redirect's actual
+    // navigation target; the desktop rail and compact bar are both supported.
+    final mainNavigation = find.byWidgetPredicate(
+      (widget) => widget is NavigationBar || widget is NavigationRail,
+    );
+    final practiceDestination = find
+        .descendant(of: mainNavigation, matching: find.text('Practice'))
+        .hitTestable();
+    await pumpUntil(
+      tester,
+      () => practiceDestination.evaluate().isNotEmpty,
+      what: 'the main Practice navigation after saved onboarding',
+    );
+    expect(practiceDestination, findsOneWidget);
+    await tester.tap(practiceDestination);
     await tester.pumpAndSettle();
     // Home's own button is offstage now, so this finds the Practice one.
     final start = find.text('Start session');
@@ -168,6 +245,224 @@ void main() {
       () => tester.widget<ChoiceChip>(bright).selected,
       what: 'the saved answer',
     );
+    expect(tester.takeException(), isNull);
+    // Continue in this same app/database after all original study and tasting
+    // checks. These are service prose edits, not simulated wine observations.
+    final homeDestination = find
+        .descendant(of: mainNavigation, matching: find.text('Home'))
+        .hitTestable();
+    expect(homeDestination, findsOneWidget);
+    await tester.tap(homeDestination);
+    final homeScreen = find.byType(HomeScreen);
+    await pumpUntil(
+      tester,
+      () => homeScreen.evaluate().length == 1,
+      what: 'Home before the actual CMS service route',
+    );
+    final container = ProviderScope.containerOf(
+      tester.element(find.byType(SommelierApp)),
+      listen: false,
+    );
+    final database = container.read(appDatabaseProvider);
+    final originalProfile = await readOnDevice(
+      tester,
+      () => database.select(database.userProfiles).getSingle(),
+      what: 'the saved WSET profile before CMS practice',
+    );
+    expect(originalProfile.activeCertificationId, 'WSET_L3');
+    // The original study card may already have created learning rows.
+    // Snapshot complete row values, rather than assuming an empty scheduler.
+    final reviewEventsBeforeCms = await readOnDevice(
+      tester,
+      () => database.select(database.reviewEvents).get(),
+      what: 'the original study review-event rows before CMS',
+    );
+    final reviewStatesBeforeCms = await readOnDevice(
+      tester,
+      () => database.select(database.reviewStates).get(),
+      what: 'the original study FSRS-state rows before CMS',
+    );
+    final reviewOptionsBeforeCms = await readOnDevice(
+      tester,
+      () => database.select(database.reviewEventOptions).get(),
+      what: 'the original study option-evidence rows before CMS',
+    );
+    final repository = await readOnDevice(
+      tester,
+      () => container.read(cmsRehearsalRepositoryProvider.future),
+      what: 'the real CMS repository after bundled ingestion',
+    );
+    final cmsTile = find.descendant(
+      of: homeScreen,
+      matching: find.widgetWithText(ListTile, 'CMS Certified rehearsal'),
+    );
+    await revealListTarget(tester, homeScreen, cmsTile);
+    await tester.tap(cmsTile);
+    final cmsScreen = find.byType(CmsRehearsalScreen);
+    await pumpUntil(
+      tester,
+      () => cmsScreen.evaluate().length == 1,
+      what: 'the actual CMS page',
+    );
+    final startService = find.byKey(
+      const ValueKey('cms-rehearsal-start-service'),
+    );
+    await revealListTarget(tester, cmsScreen, startService);
+    await pumpUntil(
+      tester,
+      () =>
+          startService.evaluate().length == 1 &&
+          tester.widget<FilledButton>(startService).onPressed != null,
+      what: 'the enabled actual CMS service start',
+    );
+    await tester.tap(startService);
+    await pumpUntil(
+      tester,
+      () =>
+          find
+              .byKey(const ValueKey('cms-rehearsal-saved-duration'))
+              .evaluate()
+              .length ==
+          1,
+      what: 'the saved actual CMS service preset',
+    );
+    final original = await readOnDevice(
+      tester,
+      () async => (await repository.current())!,
+      what: 'the original saved CMS service attempt',
+    );
+    expect(original.section, CmsRehearsalSection.service);
+    expect(original.written, hasLength(3));
+    expect(original.prose, isEmpty);
+    expect(original.isFinished, isFalse);
+    expect(original.isReviewed, isFalse);
+    expect(
+      original.deadline,
+      original.startedAt.add(
+        Duration(seconds: original.preset.durationSeconds),
+      ),
+    );
+    final prose = <String, String>{
+      for (final (index, question) in original.written.indexed)
+        question.id:
+            'Windows service response ${index + 1}: '
+            'check the supplied guest constraint; explain a conditional '
+            'decision and the remaining uncertainty for ${question.id}.',
+    };
+    expect(prose.values.toSet(), hasLength(3));
+    for (final question in original.written) {
+      final field = find.byKey(
+        ValueKey('cms-rehearsal-written-${question.id}'),
+      );
+      await revealListTarget(tester, cmsScreen, field);
+      await tester.enterText(field, prose[question.id]!);
+      await tester.pump(Duration.zero);
+    }
+    final deepest = find.byKey(
+      ValueKey('cms-rehearsal-written-${original.written.last.id}'),
+    );
+    final editing = tester.widget<EditableText>(
+      find.descendant(of: deepest, matching: find.byType(EditableText)),
+    );
+    expect(editing.controller.text, prose[original.written.last.id]);
+    expect(editing.focusNode.hasFocus, isTrue);
+    // Exactly one real Back with the last field still focused. Do not read
+    // persistence, blur, scroll to the top or perform a second pop first.
+    final back = find.descendant(
+      of: cmsScreen,
+      matching: find.byType(BackButton),
+    );
+    expect(back.hitTestable(), findsOneWidget);
+    await tester.tap(back);
+    await pumpUntil(
+      tester,
+      () => homeScreen.evaluate().length == 1 && cmsScreen.evaluate().isEmpty,
+      what: 'Home after one CMS Back',
+    );
+    for (var frame = 0; frame < 3; frame++) {
+      await tester.pump(const Duration(milliseconds: 200));
+      expect(homeScreen, findsOneWidget);
+      expect(cmsScreen, findsNothing);
+    }
+    final afterBack = await readOnDevice(
+      tester,
+      () async => (await repository.current())!,
+      what: 'the saved CMS record after one Back',
+    );
+    expect(afterBack.id, original.id);
+    expect(afterBack.startedAt, original.startedAt);
+    expect(afterBack.deadline, original.deadline);
+    expect(afterBack.preset.toJson(), original.preset.toJson());
+    expect(afterBack.prose, prose);
+    expect(afterBack.isFinished, isFalse);
+    expect(afterBack.isReviewed, isFalse);
+
+    await revealListTarget(tester, homeScreen, cmsTile);
+    await tester.tap(cmsTile);
+    await pumpUntil(
+      tester,
+      () =>
+          cmsScreen.evaluate().length == 1 &&
+          find
+                  .byKey(const ValueKey('cms-rehearsal-saved-duration'))
+                  .evaluate()
+                  .length ==
+              1,
+      what: 'the reopened saved CMS draft',
+    );
+    for (final question in original.written) {
+      final field = find.byKey(
+        ValueKey('cms-rehearsal-written-${question.id}'),
+      );
+      await revealListTarget(tester, cmsScreen, field);
+      expect(tester.widget<TextFormField>(field).enabled, isTrue);
+      final restored = tester.widget<EditableText>(
+        find.descendant(of: field, matching: find.byType(EditableText)),
+      );
+      expect(restored.controller.text, prose[question.id]);
+    }
+    final reopened = await readOnDevice(
+      tester,
+      () async => (await repository.current())!,
+      what: 'the exact reopened CMS draft identity and deadline',
+    );
+    expect(reopened.id, original.id);
+    expect(reopened.startedAt, original.startedAt);
+    expect(reopened.deadline, original.deadline);
+    expect(reopened.prose, prose);
+    expect(reopened.isFinished, isFalse);
+    expect(reopened.isReviewed, isFalse);
+    final finalProfile = await readOnDevice(
+      tester,
+      () => database.select(database.userProfiles).getSingle(),
+      what: 'the original WSET profile after CMS service edits',
+    );
+    expect(finalProfile.id, originalProfile.id);
+    expect(
+      finalProfile.activeCertificationId,
+      originalProfile.activeCertificationId,
+    );
+    // Equality covers every generated Drift data-class field and duplicate
+    // count. Row ordering is immaterial; no CMS edit may add/remove/rewrite
+    // the existing study event, answer evidence or scheduler rows.
+    final reviewEventsAfterCms = await readOnDevice(
+      tester,
+      () => database.select(database.reviewEvents).get(),
+      what: 'the saved review-event rows after CMS reopen',
+    );
+    expect(reviewEventsAfterCms, unorderedEquals(reviewEventsBeforeCms));
+    final reviewStatesAfterCms = await readOnDevice(
+      tester,
+      () => database.select(database.reviewStates).get(),
+      what: 'the saved FSRS-state rows after CMS reopen',
+    );
+    expect(reviewStatesAfterCms, unorderedEquals(reviewStatesBeforeCms));
+    final reviewOptionsAfterCms = await readOnDevice(
+      tester,
+      () => database.select(database.reviewEventOptions).get(),
+      what: 'the saved option-evidence rows after CMS reopen',
+    );
+    expect(reviewOptionsAfterCms, unorderedEquals(reviewOptionsBeforeCms));
     expect(tester.takeException(), isNull);
   });
 }
