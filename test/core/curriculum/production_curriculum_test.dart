@@ -560,7 +560,7 @@ void main() {
       132,
       844,
       3444,
-      4206,
+      4220,
     ]);
     final diploma = snapshot.levels.last;
     final unitIds = {
@@ -738,6 +738,32 @@ void main() {
       'ki_d3fr2_case_rhone_white_tradeoff',
       'ki_d3fr2_case_rhone_white_limitation',
     };
+    const tejoSetubalIds = <String>{
+      'ki_d3pt_tejo_site_context',
+      'ki_d3pt_tejo_white_blend',
+      'ki_d3pt_tejo_label_scope',
+      'ki_d3pt_setubal_site_context',
+      'ki_d3pt_setubal_castelao_red',
+      'ki_d3pt_setubal_product_boundary',
+      'ki_d3pt_case_tejo_white_action',
+      'ki_d3pt_case_tejo_white_reason',
+      'ki_d3pt_case_tejo_white_tradeoff',
+      'ki_d3pt_case_tejo_white_limitation',
+      'ki_d3pt_case_setubal_still_red_action',
+      'ki_d3pt_case_setubal_still_red_reason',
+      'ki_d3pt_case_setubal_still_red_tradeoff',
+      'ki_d3pt_case_setubal_still_red_limitation',
+    };
+    expect(tejoSetubalIds, hasLength(14));
+    expect(tejoSetubalIds.intersection(ids), isEmpty);
+    expect(tejoSetubalIds.intersection(frenchIds), isEmpty);
+    expect(
+      dataset.knowledgeItems
+          .where((item) => item.id.startsWith('ki_d3pt_'))
+          .map((item) => item.id)
+          .toSet(),
+      tejoSetubalIds,
+    );
     expect(frenchIds, hasLength(16));
     expect(frenchIds.intersection(ids), isEmpty);
     expect(
@@ -756,12 +782,17 @@ void main() {
     );
     expect(
       scope.levels.last.units.singleWhere((u) => u.id == 'D3').itemIds.toSet(),
-      {...ids, ...frenchIds},
+      {...ids, ...frenchIds, ...tejoSetubalIds},
     );
     for (final unit in scope.levels.last.units.where((u) => u.id != 'D3')) {
       expect(unit.itemIds.toSet().intersection(ids), isEmpty, reason: unit.id);
       expect(
         unit.itemIds.toSet().intersection(frenchIds),
+        isEmpty,
+        reason: unit.id,
+      );
+      expect(
+        unit.itemIds.toSet().intersection(tejoSetubalIds),
         isEmpty,
         reason: unit.id,
       );

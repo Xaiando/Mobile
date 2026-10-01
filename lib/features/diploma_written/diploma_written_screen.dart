@@ -25,6 +25,7 @@ class _DiplomaWrittenScreenState extends ConsumerState<DiplomaWrittenScreen> {
   final _reviewChoices = <String, Set<String>>{};
   final _reviewNotes = <String, String>{};
   Future<void> _writeTail = Future<void>.value();
+  final _pendingProse = <(String, String), String>{};
   Timer? _timer;
   bool _loading = true;
   bool _busy = false;
@@ -122,15 +123,22 @@ class _DiplomaWrittenScreenState extends ConsumerState<DiplomaWrittenScreen> {
   }
 
   void _saveProse(String questionId, String text) {
-    if (_mutationsBlocked || _attempt == null) return;
+    if (_mutationsBlocked || _attempt == null || _writeFailed) return;
     final id = _attempt!.id;
+    final key = (id, questionId);
+    _pendingProse[key] = text;
     _writeTail = _writeTail.then((_) async {
-      if (_writeFailed) return;
+      // A running answer keeps its captured text. Pending callbacks for the
+      // same attempt/question consume only the latest admitted replacement.
+      // Every callback remains on the tail awaited by Back, End and Reload.
+      final latest = _pendingProse.remove(key);
+      if (_writeFailed || latest == null) return;
       try {
-        final changed = await _repository!.answer(id, questionId, text);
+        final changed = await _repository!.answer(id, questionId, latest);
         if (mounted && _attempt?.id == id) _attempt = changed;
       } catch (_) {
         _writeFailed = true;
+        _pendingProse.clear();
         if (mounted) {
           setState(
             () => _error = 'Your latest response could not be saved. Reload the saved draft before continuing.',
@@ -171,6 +179,7 @@ class _DiplomaWrittenScreenState extends ConsumerState<DiplomaWrittenScreen> {
     if (!mounted || _leaving) return;
     setState(() {
       _loading = true;
+      _pendingProse.clear();
       _writeFailed = false;
       _setAttempt(null);
     });

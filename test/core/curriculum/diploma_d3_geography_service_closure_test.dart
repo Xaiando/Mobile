@@ -249,8 +249,8 @@ void main() {
       final service = audit.domains.singleWhere(
         (domain) => domain.id == 'service',
       );
-      expect(geography.counts[CoverageMetric.core], 1121);
-      expect(geography.counts[CoverageMetric.coreUsefulPractice], 1121);
+      expect(geography.counts[CoverageMetric.core], 1127);
+      expect(geography.counts[CoverageMetric.coreUsefulPractice], 1127);
       expect(geography.counts[CoverageMetric.spatial], 1675);
       final bilingualReferences = audit.items
           .where(

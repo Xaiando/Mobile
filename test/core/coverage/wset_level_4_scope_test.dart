@@ -254,7 +254,7 @@ void main() {
       final burgundy = measured['wset_l4.world.burgundy']!;
       expect(measured['wset_l4.world.china']!.items, 52);
       expect(measured['wset_l4.world.china']!.core, 44);
-      expect(measured['wset_l4.world.comparison']!.items, 736);
+      expect(measured['wset_l4.world.comparison']!.items, 750);
       for (final region in [
         'italy_north',
         'italy_centre',
