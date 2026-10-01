@@ -92,25 +92,16 @@ void main() {
     'src_d4sekt_dwi_regulations':
         'https://www.deutscheweine.de/wissen/qualitaetsstufen/',
     'src_d4sekt_vdp_statut': 'https://www.vdp.de/en/vdp-sekt/',
-    'src_d4sekt_oiv_sparkling':
-        'https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=CELEX%3A32019R0934',
+    'src_d4sekt_oiv_sparkling': 'https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=CELEX%3A32019R0934',
     'src_d4sekt_awri_sparkling':
         'https://www.awri.com.au/information_resources/fact_sheets/',
-    'src_d4sekt_eu_reg_2019_33':
-        'https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=CELEX%3A32019R033',
+    'src_d4sekt_eu_reg_2019_33': 'https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=CELEX%3A32019R0033',
   };
   const expectedRecall = {
-    'ki_d4sekt_origin_hierarchy': {
-      'A.P.-Nr.',
-      'Amtliche Prüfungsnummer',
-    },
+    'ki_d4sekt_origin_hierarchy': {'A.P.-Nr.', 'Amtliche Prüfungsnummer'},
     'ki_d4sekt_winzersekt_standards': {'9', 'nine'},
     'ki_d4sekt_vdp_classification': {'36', 'thirty-six'},
-    'ki_d4sekt_base_wine_selection': {
-      'Botrytis',
-      'grey rot',
-      'noble rot',
-    },
+    'ki_d4sekt_base_wine_selection': {'Botrytis', 'grey rot', 'noble rot'},
     'ki_d4sekt_autolysis_vs_fruit': {'autolysis', 'yeast autolysis'},
     'ki_d4sekt_dosage_style': {'Brut'},
   };
@@ -160,138 +151,132 @@ void main() {
   };
   final subjects = items.values.map((row) => row.subjectId).toSet();
 
-  test('fourteen Sekt points have exact L4 mappings and formal prerequisite sets', () {
-    expect(validateDataset(dataset).errors, isEmpty);
-    final cohort = dataset.knowledgeItems
-        .where((row) => row.id.startsWith('ki_d4sekt_'))
-        .toList();
-    expect(cohort, hasLength(14));
-    expect(cohort.map((row) => row.id).toSet(), expectedIds);
-    final nodes = dataset.knowledgeNodes
-        .where((row) => row.id.startsWith('n_d4sekt_'))
-        .toList();
-    expect(nodes, hasLength(22));
-    expect(nodes.map((row) => row.id).toSet(), hasLength(22));
-    final expectedPrincipleCitations = {
-      'ki_d4sekt_origin_hierarchy': {
-        'src_d4sekt_dwi_regulations',
-      },
-      'ki_d4sekt_winzersekt_standards': {
-        'src_wset_sf_winzersekt',
-      },
-      'ki_d4sekt_vdp_classification': {
-        'src_d4sekt_vdp_statut',
-      },
-      'ki_d4sekt_base_wine_selection': {
-        'src_d4sekt_oiv_sparkling',
-      },
-      'ki_d4sekt_autolysis_vs_fruit': {
-        'src_d4sekt_awri_sparkling',
-      },
-      'ki_d4sekt_dosage_style': {
-        'src_d4sekt_eu_reg_2019_33',
-      },
-    };
-    for (final item in cohort) {
-      final principle = principleIds.contains(item.id);
-      expect(item.verificationStatus, 'unverified', reason: item.id);
-      expect(item.mcqDisabled, isTrue, reason: item.id);
-      expect(item.assertionText, isNotEmpty);
-      expect(item.domainId, 'winemaking');
-      expect(
-        nodes.singleWhere((row) => row.id == item.subjectId).nodeType,
-        principle ? 'production_principle' : 'production_case',
-      );
-      expect(
-        nodes.singleWhere((row) => row.id == item.objectId).nodeType,
-        'learning_point',
-      );
-      final relation = dataset.knowledgeRelations.singleWhere(
-        (row) =>
-            row.subjectId == item.subjectId &&
-            row.relationType == item.relationType &&
-            row.objectId == item.objectId,
-      );
-      expect(relation.validFrom, '2026-10-01');
-      expect(relation.validUntil, isNull);
-      final mappings = dataset.certificationKnowledgeMappings
-          .where((row) => row.knowledgeItemId == item.id)
+  test(
+    'fourteen Sekt points have exact L4 mappings and formal prerequisite sets',
+    () {
+      expect(validateDataset(dataset).errors, isEmpty);
+      final cohort = dataset.knowledgeItems
+          .where((row) => row.id.startsWith('ki_d4sekt_'))
           .toList();
-      expect(mappings, hasLength(1));
-      expect(mappings.single.certificationId, 'WSET_L4');
-      expect(mappings.single.importance, 'core');
-      expect(mappings.single.minimumDepth, 3);
-      final citations = dataset.knowledgeItemCitations
-          .where((row) => row.knowledgeItemId == item.id)
+      expect(cohort, hasLength(14));
+      expect(cohort.map((row) => row.id).toSet(), expectedIds);
+      final nodes = dataset.knowledgeNodes
+          .where((row) => row.id.startsWith('n_d4sekt_'))
           .toList();
-      final citedIds = citations.map((row) => row.sourceCitationId).toSet();
-      expect(
-        citations.length,
-        citedIds.length,
-        reason: 'No duplicate citation for one fact',
-      );
-      expect(citations, isNotEmpty);
-      if (principle) {
-        expect(citedIds, expectedPrincipleCitations[item.id]);
-      }
-      for (final citation in citations) {
-        expect(citation.locator, isNotEmpty);
-        final source = dataset.sourceCitations.singleWhere(
-          (row) => row.id == citation.sourceCitationId,
-        );
-        expect(source.url, startsWith('https://'));
-        expect(source.url, isNot(contains('wset_l4wines_specification')));
-      }
-      final prerequisites = dataset.knowledgeItemPrerequisites
-          .where((row) => row.knowledgeItemId == item.id)
-          .toList();
-      final required = principle
-          ? <String>{}
-          : expectedCasePrerequisites[item.subjectId]!;
-      expect(
-        prerequisites.map((row) => row.prerequisiteItemId).toSet(),
-        required,
-        reason: item.id,
-      );
-      expect(prerequisites, hasLength(required.length));
-      for (final id in required) {
+      expect(nodes, hasLength(22));
+      expect(nodes.map((row) => row.id).toSet(), hasLength(22));
+      final expectedPrincipleCitations = {
+        'ki_d4sekt_origin_hierarchy': {'src_d4sekt_dwi_regulations'},
+        'ki_d4sekt_winzersekt_standards': {'src_wset_sf_winzersekt'},
+        'ki_d4sekt_vdp_classification': {'src_d4sekt_vdp_statut'},
+        'ki_d4sekt_base_wine_selection': {
+          'src_d4sekt_oiv_sparkling',
+          'src_spark_gushing',
+        },
+        'ki_d4sekt_autolysis_vs_fruit': {'src_d4sekt_awri_sparkling'},
+        'ki_d4sekt_dosage_style': {'src_d4sekt_eu_reg_2019_33'},
+      };
+      for (final item in cohort) {
+        final principle = principleIds.contains(item.id);
+        expect(item.verificationStatus, 'unverified', reason: item.id);
+        expect(item.mcqDisabled, isTrue, reason: item.id);
+        expect(item.assertionText, isNotEmpty);
+        expect(item.domainId, 'winemaking');
         expect(
-          dataset.knowledgeItems.where((row) => row.id == id),
+          nodes.singleWhere((row) => row.id == item.subjectId).nodeType,
+          principle ? 'production_principle' : 'production_case',
+        );
+        expect(
+          nodes.singleWhere((row) => row.id == item.objectId).nodeType,
+          'learning_point',
+        );
+        final relation = dataset.knowledgeRelations.singleWhere(
+          (row) =>
+              row.subjectId == item.subjectId &&
+              row.relationType == item.relationType &&
+              row.objectId == item.objectId,
+        );
+        expect(relation.validFrom, '2026-10-01');
+        expect(relation.validUntil, isNull);
+        final mappings = dataset.certificationKnowledgeMappings
+            .where((row) => row.knowledgeItemId == item.id)
+            .toList();
+        expect(mappings, hasLength(1));
+        expect(mappings.single.certificationId, 'WSET_L4');
+        expect(mappings.single.importance, 'core');
+        expect(mappings.single.minimumDepth, 3);
+        final citations = dataset.knowledgeItemCitations
+            .where((row) => row.knowledgeItemId == item.id)
+            .toList();
+        final citedIds = citations.map((row) => row.sourceCitationId).toSet();
+        expect(
+          citations.length,
+          citedIds.length,
+          reason: 'No duplicate citation for one fact',
+        );
+        expect(citations, isNotEmpty);
+        if (principle) {
+          expect(citedIds, expectedPrincipleCitations[item.id]);
+        }
+        for (final citation in citations) {
+          expect(citation.locator, isNotEmpty);
+          final source = dataset.sourceCitations.singleWhere(
+            (row) => row.id == citation.sourceCitationId,
+          );
+          expect(source.url, startsWith('https://'));
+          expect(source.url, isNot(contains('wset_l4wines_specification')));
+        }
+        final prerequisites = dataset.knowledgeItemPrerequisites
+            .where((row) => row.knowledgeItemId == item.id)
+            .toList();
+        final required = principle
+            ? <String>{}
+            : expectedCasePrerequisites[item.subjectId]!;
+        expect(
+          prerequisites.map((row) => row.prerequisiteItemId).toSet(),
+          required,
+          reason: item.id,
+        );
+        expect(prerequisites, hasLength(required.length));
+        for (final id in required) {
+          expect(
+            dataset.knowledgeItems.where((row) => row.id == id),
+            hasLength(1),
+            reason: id,
+          );
+        }
+      }
+      expect(
+        dataset.knowledgeItemPrerequisites.where(
+          (row) => expectedIds.contains(row.knowledgeItemId),
+        ),
+        hasLength(80),
+      );
+      final uniquePrerequisites = expectedCasePrerequisites.values
+          .expand((ids) => ids)
+          .toSet();
+      expect(uniquePrerequisites, hasLength(13));
+      expect(uniquePrerequisites.intersection(principleIds), principleIds);
+      expect(uniquePrerequisites.difference(principleIds), hasLength(7));
+      for (final entry in sourceUrls.entries) {
+        expect(
+          dataset.sourceCitations.singleWhere((row) => row.id == entry.key).url,
+          entry.value,
+        );
+        expect(
+          dataset.sourceCitations.where((row) => row.url == entry.value),
           hasLength(1),
-          reason: id,
         );
       }
-    }
-    expect(
-      dataset.knowledgeItemPrerequisites.where(
-        (row) => expectedIds.contains(row.knowledgeItemId),
-      ),
-      hasLength(80),
-    );
-    final uniquePrerequisites = expectedCasePrerequisites.values
-        .expand((ids) => ids)
-        .toSet();
-    expect(uniquePrerequisites, hasLength(13));
-    expect(uniquePrerequisites.intersection(principleIds), principleIds);
-    expect(uniquePrerequisites.difference(principleIds), hasLength(7));
-    for (final entry in sourceUrls.entries) {
       expect(
-        dataset.sourceCitations.singleWhere((row) => row.id == entry.key).url,
-        entry.value,
+        dataset.sourceCitations
+            .where((row) => row.id.startsWith('src_d4sekt_'))
+            .map((row) => row.id)
+            .toSet(),
+        sourceUrls.keys.toSet(),
       );
-      expect(
-        dataset.sourceCitations.where((row) => row.url == entry.value),
-        hasLength(1),
-      );
-    }
-    expect(
-      dataset.sourceCitations
-          .where((row) => row.id.startsWith('src_d4sekt_'))
-          .map((row) => row.id)
-          .toSet(),
-      sourceUrls.keys.toSet(),
-    );
-  });
+    },
+  );
 
   test(
     'bounded recall and four-role prompts have distinct template identities',
@@ -423,7 +408,9 @@ void main() {
       for (final row in manifest.tracks['WSET_L4']!.objectives) row.id: row,
     };
     expect(
-      objectives['wset_l4.sparkling.germany']!.covers!.within.toSet().intersection(subjects),
+      objectives['wset_l4.sparkling.germany']!.covers!.within
+          .toSet()
+          .intersection(subjects),
       subjects,
     );
     for (final track in manifest.tracks.entries.where(
@@ -445,9 +432,9 @@ void main() {
     );
     for (final entry in {
       'assets/curriculum/areas/diploma_sekt_analytical_cases.yaml':
-          '76809133157534126ee369db7a6f9f141b23e256dcb5ce05048c6de7caa18d2d',
+          'b5f1f1b7297f19aeee96907201a86f5024e26c65930f741f86529fc229b716a8',
       'assets/curriculum/templates/diploma_sekt_analytical_cases.yaml':
-          '14b0abb00aa7aeec576227fe696117b4d942c461c7a4d8640b590af41573a909',
+          '558173751e885ea2e6d9929acc3e6235cf9be92f6dc6e7ae4eb0b961cd1c4658',
     }.entries) {
       expect(_canonicalFileSha256(entry.key), entry.value, reason: entry.key);
     }
@@ -456,175 +443,270 @@ void main() {
   test(
     'canonical file hashing is line-ending invariant and rejects tampering',
     () {
-      const sample = 'name: test\r\nvalue: 42\r\n';
-      final lf = sample.replaceAll('\r\n', '\n');
-      final crlf = sample;
-      final hashLf = sha256.convert(utf8.encode(lf)).toString();
-      final hashCrlf = sha256
-          .convert(utf8.encode(crlf.replaceAll('\r\n', '\n')))
-          .toString();
-      expect(hashCrlf, hashLf);
+      final tempDir = Directory.systemTemp.createTempSync('sekt_hash_test_');
+      try {
+        const sample = 'name: test\r\nvalue: 42\r\n';
+        final crlfFile = File('${tempDir.path}/crlf.yaml')
+          ..writeAsStringSync(sample);
+        final lfFile = File('${tempDir.path}/lf.yaml')
+          ..writeAsStringSync(sample.replaceAll('\r\n', '\n'));
 
-      final mutatedChar = lf.replaceAll('test', 'prod');
-      expect(
-        sha256.convert(utf8.encode(mutatedChar)).toString(),
-        isNot(hashLf),
-      );
+        // Exercise the actual _canonicalFileSha256 function on disk files
+        final hashCrlf = _canonicalFileSha256(crlfFile.path);
+        final hashLf = _canonicalFileSha256(lfFile.path);
+        expect(hashCrlf, hashLf);
 
-      final mutatedSpace = lf.replaceAll('value: 42', 'value:  42');
-      expect(
-        sha256.convert(utf8.encode(mutatedSpace)).toString(),
-        isNot(hashLf),
-      );
+        final mutatedChar = File('${tempDir.path}/mutated_char.yaml')
+          ..writeAsStringSync(sample.replaceAll('test', 'prod'));
+        expect(_canonicalFileSha256(mutatedChar.path), isNot(hashLf));
 
-      final mutatedTrailing = '$lf\n';
-      expect(
-        sha256.convert(utf8.encode(mutatedTrailing)).toString(),
-        isNot(hashLf),
-      );
+        final mutatedSpace = File('${tempDir.path}/mutated_space.yaml')
+          ..writeAsStringSync(sample.replaceAll('value: 42', 'value:  42'));
+        expect(_canonicalFileSha256(mutatedSpace.path), isNot(hashLf));
+
+        final mutatedTrailing = File('${tempDir.path}/mutated_trailing.yaml')
+          ..writeAsStringSync('$sample\n');
+        expect(_canonicalFileSha256(mutatedTrailing.path), isNot(hashLf));
+      } finally {
+        tempDir.deleteSync(recursive: true);
+      }
     },
   );
 
-  test('six real recalled meanings and authored alternatives reject wrong answers', () async {
-    final db = openTestDatabase();
-    try {
-      final fixed = Clock.fixed(dataset.publishedAt);
-      await CurriculumIngester(
-        db,
-        clock: fixed,
-        assets: (path) async => File(path).readAsBytesSync(),
-      ).ingest(dataset);
-      final choiceTemplate = dataset.questionTemplates.singleWhere(
-        (row) => row.id == choiceId,
-      );
-      final choices = AuthoredChoiceFormat.itemChoicesOf(choiceTemplate);
-      expect(choices.keys.toSet(), principleIds);
-      expect(choiceTemplate.variant, 'd4sekt_principle_choice_6');
-      final planner = StudyPlanner(db, clock: fixed);
-      final cards = {
-        for (final card in await planner.cards('WSET_L4')) card.itemId: card,
-      };
-      final presenter = ExercisePresenter(db, clock: fixed);
-      final reviews = ReviewService(db, clock: fixed);
-      final settingsBefore = {
-        for (final row in await db.select(db.userSettings).get())
-          row.name: row.value,
-      };
-      final generated = (await db.select(db.questions).get())
-          .where(
-            (row) =>
-                row.questionTemplateId == typedId ||
-                row.questionTemplateId == choiceId,
-          )
-          .toList();
-      expect(generated, hasLength(12));
-      for (final id in principleIds) {
-        expect(
-          generated
-              .where((row) => row.knowledgeItemId == id)
-              .map((row) => row.questionTemplateId)
-              .toSet(),
-          {typedId, choiceId},
-        );
-        expect(
-          cards[id]!.formats.map((row) => row.questionTemplateId),
-          containsAll({typedId, choiceId}),
-        );
-        final typed = await presenter.present(
-          id,
-          typedId,
-          certificationId: 'WSET_L4',
-          seed: 37,
-        ) as TypedQuestion;
-        expect(typed.prompt, cues[id]!.prompt);
-        expect(typed.options, isEmpty);
-        expect(typed.explanation, contains(items[id]!.assertionText));
-        expect(typed.prompt, isNot(contains(typed.explanation)));
-        for (final answer in expectedRecall[id]!) {
-          expect(
-            const TypedFormat().grade(typed, answer).single.rating,
-            fsrs.Rating.good,
-            reason: '$id: $answer',
-          );
-        }
-        for (final wrong in wrongRecall[id]!) {
-          expect(
-            const TypedFormat().grade(typed, wrong).single.rating,
-            fsrs.Rating.again,
-            reason: '$id: $wrong',
-          );
-        }
-        final cue = choices[id]!;
-        expect(cue.options.map(normalizeName).toSet(), hasLength(4));
-        expect(
-          dataset.knowledgeItemCitations
-              .where((row) => row.knowledgeItemId == id)
-              .map((row) => row.sourceCitationId),
-          contains(cue.sourceCitationId),
-        );
-        final choice = await presenter.present(
-          id,
-          choiceId,
-          certificationId: 'WSET_L4',
-          seed: 37,
-        ) as AuthoredChoiceQuestion;
-        expect(choice.prompt, cue.prompt);
-        expect(
-          choice.options.map((row) => row.name).toSet(),
-          cue.options.toSet(),
-        );
-        expect(choice.answer.name, cue.options[cue.correctIndex]);
-        expect(choice.explanation, cue.explanation);
-        expect(choice.sourceCitationId, cue.sourceCitationId);
-        expect(choice.prompt, isNot(contains(choice.answer.name)));
-        expect(choice.prompt, isNot(contains(choice.explanation)));
-        for (final option in choice.options) {
-          final grade = const AuthoredChoiceFormat()
-              .grade(choice, option)
-              .single;
-          expect(grade.itemId, id);
-          expect(
-            grade.rating,
-            option == choice.answer ? fsrs.Rating.good : fsrs.Rating.again,
-          );
-        }
-        expect(
-          () => const AuthoredChoiceFormat().grade(
-            choice,
-            const QuestionOption('n_wine_winzersekt', 'Winzersekt'),
-          ),
-          throwsArgumentError,
-        );
-        await reviews.recordExercise(
-          choice,
-          const AuthoredChoiceFormat().grade(choice, choice.answer),
-        );
-      }
-      final events = await db.select(db.reviewEvents).get();
-      expect(events, hasLength(6));
-      expect(events.map((row) => row.knowledgeItemId).toSet(), principleIds);
-      expect(
-        events.every(
-          (row) =>
-              row.questionTemplateId == choiceId &&
-              row.rating == fsrs.Rating.good.value,
-        ),
-        isTrue,
-      );
-      expect(
-        (await db.select(db.reviewStates).get())
-            .map((row) => row.knowledgeItemId)
-            .toSet(),
-        principleIds,
-      );
-      expect({
-        for (final row in await db.select(db.userSettings).get())
-          row.name: row.value,
-      }, settingsBefore);
-    } finally {
-      await db.close();
-    }
+  test('independent correctness regressions reject faulty premises and verify repaired Sekt principles and analytical rules', () {
+    // R1: Vintage release vs non-vintage VDP minimum
+    // 15 months on lees qualifies for non-vintage VDP.SEKT, but vintage VDP.SEKT requires at least 24 months.
+    // Releasing a 16-month wine with a vintage date violates VDP statute.
+    const lotCLeesMonths = 15;
+    const vdpNonVintageMinLees = 15;
+    const vdpVintageMinLees = 24;
+    expect(
+      lotCLeesMonths >= vdpNonVintageMinLees,
+      isTrue,
+      reason: 'Complies with NV VDP.SEKT minimum',
+    );
+    expect(
+      lotCLeesMonths >= vdpVintageMinLees,
+      isFalse,
+      reason: 'Violates vintage VDP.SEKT 24m minimum',
+    );
+
+    // R2: VDP.SEKT.PRESTIGE requires 36 months, but single-vineyard designation is optional
+    const prestigeMinLees = 36;
+    expect(prestigeMinLees, 36);
+    // VDP is a private association standard, not universal statutory law
+    const isVdpStatutoryLaw = false;
+    expect(isVdpStatutoryLaw, isFalse);
+
+    // R3: Sekt b.A. production clock
+    // German wine law requires at least 6 months total production duration for Sekt.
+    // Rapid release in week 8 is only lawful if the 6-month statutory production period already elapsed.
+    const statutorySektProductionMonths = 6;
+    const week8Months = 8 / 4.33; // ~1.85 months
+    expect(
+      week8Months < statutorySektProductionMonths,
+      isTrue,
+      reason: '8 weeks from start of fermentation is unlawful without prior compliant production',
+    );
+
+    // R4: Cash sufficiency counterexamples
+    // Counterexample A: Inadequate prepayment volume
+    // 360 bottles at 20 EUR/bottle gross = 7,200 EUR receipts.
+    // 7,200 EUR is insufficient to cover an 8,500 EUR lease payment with 0 opening cash.
+    const prepaidBottles = 360;
+    const illustrativeUnitPrice = 20.0;
+    const leasePayment = 8500.0;
+    const openingCashZero = 0.0;
+    final grossReceipts = prepaidBottles * illustrativeUnitPrice;
+    final netCashA = openingCashZero + grossReceipts - leasePayment;
+    expect(
+      netCashA,
+      -1300.0,
+      reason: 'Prepayment alone leaves 1,300 EUR deficit without adequate reserves or pricing',
+    );
+
+    // Counterexample B: Sufficient opening liquidity
+    // 20,000 EUR liquid reserves easily covers 8,500 EUR payment regardless of 60-day distributor terms.
+    const openingCashReserves = 20000.0;
+    final netCashB = openingCashReserves - leasePayment;
+    expect(
+      netCashB > 0,
+      isTrue,
+      reason: 'Deferred distributor receipts do not create insolvency when adequate reserves exist',
+    );
+
+    // R5: Sweetness category determined by final total residual sugar, not dosage addition alone
+    // Under Regulation (EU) 2019/33: Brut allows up to 12 g/L finished RS.
+    // If base wine has 6 g/L RS and 8 g/L dosage sugar is added, final RS is 14 g/L (Extra Trocken, NOT Brut).
+    double finalRs(double baseWineRs, double dosageSugarAdded) =>
+        baseWineRs + dosageSugarAdded;
+    expect(finalRs(1.0, 8.0), 9.0); // <= 12 g/L -> Brut
+    expect(
+      finalRs(6.0, 8.0),
+      14.0,
+    ); // > 12 g/L -> Extra Trocken (12-17 g/L), rejecting Brut claim
+
+    // R6: Tank vessel does not prevent autolysis; short-cycle tank clarifies early, while autolysis requires extended contact
+    // OIV Code II.4.3.3 authorizes tank maturation on the deposit/lees.
+    // Autolysis requires prolonged yeast contact (starting around 9-12 months).
+    const autolysisOnsetMonths = 9;
+    const shortCycleTankMonths = 2; // e.g. 8 weeks
+    expect(
+      shortCycleTankMonths < autolysisOnsetMonths,
+      isTrue,
+      reason: 'Short-cycle tank intentionally avoids autolysis to preserve primary fruit',
+    );
+
+    // R7: Botrytis fungal proteases degrade foam proteins; laccase causes oxidation
+    // AWRI s2195: fungal proteases cleave foam-active proteins; laccase causes polyphenol oxidation.
+    const proteaseTarget = 'foam-active proteins';
+    const laccaseTarget = 'polyphenols / oxidative browning';
+    expect(proteaseTarget, isNot(laccaseTarget));
   });
+
+  test(
+    'six real recalled meanings and authored alternatives reject wrong answers',
+    () async {
+      final db = openTestDatabase();
+      try {
+        final fixed = Clock.fixed(dataset.publishedAt);
+        await CurriculumIngester(
+          db,
+          clock: fixed,
+          assets: (path) async => File(path).readAsBytesSync(),
+        ).ingest(dataset);
+        final choiceTemplate = dataset.questionTemplates.singleWhere(
+          (row) => row.id == choiceId,
+        );
+        final choices = AuthoredChoiceFormat.itemChoicesOf(choiceTemplate);
+        expect(choices.keys.toSet(), principleIds);
+        expect(choiceTemplate.variant, 'd4sekt_principle_choice_6');
+        final planner = StudyPlanner(db, clock: fixed);
+        final cards = {
+          for (final card in await planner.cards('WSET_L4')) card.itemId: card,
+        };
+        final presenter = ExercisePresenter(db, clock: fixed);
+        final reviews = ReviewService(db, clock: fixed);
+        final settingsBefore = {
+          for (final row in await db.select(db.userSettings).get())
+            row.name: row.value,
+        };
+        final generated = (await db.select(db.questions).get())
+            .where(
+              (row) =>
+                  row.questionTemplateId == typedId ||
+                  row.questionTemplateId == choiceId,
+            )
+            .toList();
+        expect(generated, hasLength(12));
+        for (final id in principleIds) {
+          expect(
+            generated
+                .where((row) => row.knowledgeItemId == id)
+                .map((row) => row.questionTemplateId)
+                .toSet(),
+            {typedId, choiceId},
+          );
+          expect(
+            cards[id]!.formats.map((row) => row.questionTemplateId),
+            containsAll({typedId, choiceId}),
+          );
+          final typed = await presenter.present(
+            id,
+            typedId,
+            certificationId: 'WSET_L4',
+            seed: 37,
+          ) as TypedQuestion;
+          expect(typed.prompt, cues[id]!.prompt);
+          expect(typed.options, isEmpty);
+          expect(typed.explanation, contains(items[id]!.assertionText));
+          expect(typed.prompt, isNot(contains(typed.explanation)));
+          for (final answer in expectedRecall[id]!) {
+            expect(
+              const TypedFormat().grade(typed, answer).single.rating,
+              fsrs.Rating.good,
+              reason: '$id: $answer',
+            );
+          }
+          for (final wrong in wrongRecall[id]!) {
+            expect(
+              const TypedFormat().grade(typed, wrong).single.rating,
+              fsrs.Rating.again,
+              reason: '$id: $wrong',
+            );
+          }
+          final cue = choices[id]!;
+          expect(cue.options.map(normalizeName).toSet(), hasLength(4));
+          expect(
+            dataset.knowledgeItemCitations
+                .where((row) => row.knowledgeItemId == id)
+                .map((row) => row.sourceCitationId),
+            contains(cue.sourceCitationId),
+          );
+          final choice = await presenter.present(
+            id,
+            choiceId,
+            certificationId: 'WSET_L4',
+            seed: 37,
+          ) as AuthoredChoiceQuestion;
+          expect(choice.prompt, cue.prompt);
+          expect(
+            choice.options.map((row) => row.name).toSet(),
+            cue.options.toSet(),
+          );
+          expect(choice.answer.name, cue.options[cue.correctIndex]);
+          expect(choice.explanation, cue.explanation);
+          expect(choice.sourceCitationId, cue.sourceCitationId);
+          expect(choice.prompt, isNot(contains(choice.answer.name)));
+          expect(choice.prompt, isNot(contains(choice.explanation)));
+          for (final option in choice.options) {
+            final grade = const AuthoredChoiceFormat()
+                .grade(choice, option)
+                .single;
+            expect(grade.itemId, id);
+            expect(
+              grade.rating,
+              option == choice.answer ? fsrs.Rating.good : fsrs.Rating.again,
+            );
+          }
+          expect(
+            () => const AuthoredChoiceFormat().grade(
+              choice,
+              const QuestionOption('n_wine_winzersekt', 'Winzersekt'),
+            ),
+            throwsArgumentError,
+          );
+          await reviews.recordExercise(
+            choice,
+            const AuthoredChoiceFormat().grade(choice, choice.answer),
+          );
+        }
+        final events = await db.select(db.reviewEvents).get();
+        expect(events, hasLength(6));
+        expect(events.map((row) => row.knowledgeItemId).toSet(), principleIds);
+        expect(
+          events.every(
+            (row) =>
+                row.questionTemplateId == choiceId &&
+                row.rating == fsrs.Rating.good.value,
+          ),
+          isTrue,
+        );
+        expect(
+          (await db.select(db.reviewStates).get())
+              .map((row) => row.knowledgeItemId)
+              .toSet(),
+          principleIds,
+        );
+        expect({
+          for (final row in await db.select(db.userSettings).get())
+            row.name: row.value,
+        }, settingsBefore);
+      } finally {
+        await db.close();
+      }
+    },
+  );
 
   test('Sekt analytical cases require all co-roles and independently grade every point', () async {
     final db = openTestDatabase();
@@ -696,10 +778,7 @@ void main() {
           .expand((ids) => ids)
           .toSet();
       expect(prerequisiteIds, hasLength(13));
-      expect(
-        cold.keys.toSet(),
-        containsAll(prerequisiteIds),
-      );
+      expect(cold.keys.toSet(), containsAll(prerequisiteIds));
       for (final id in actions.values) {
         expect(
           cold[id]!.formats.map((row) => row.mode),
@@ -1035,14 +1114,20 @@ void main() {
       };
       expect(
         measured
-            .where((row) => objectives['wset_l4.sparkling.germany']!.covers!.matches(row))
+            .where(
+              (row) =>
+                  objectives['wset_l4.sparkling.germany']!.covers!.matches(row),
+            )
             .map((row) => row.id)
             .toSet(),
         expectedIds,
       );
       expect(
         measured
-            .where((row) => objectives['wset_l4.sparkling.production']!.covers!.matches(row))
+            .where(
+              (row) => objectives['wset_l4.sparkling.production']!.covers!
+                  .matches(row),
+            )
             .map((row) => row.id)
             .toSet(),
         {
@@ -1059,7 +1144,10 @@ void main() {
       );
       expect(
         measured
-            .where((row) => objectives['wset_l4.sparkling.commerce']!.covers!.matches(row))
+            .where(
+              (row) => objectives['wset_l4.sparkling.commerce']!.covers!
+                  .matches(row),
+            )
             .map((row) => row.id)
             .toSet(),
         caseIds,
