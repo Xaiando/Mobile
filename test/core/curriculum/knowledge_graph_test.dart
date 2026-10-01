@@ -229,7 +229,7 @@ void main() {
       final items = await db.select(db.knowledgeItems).get();
       final twoYearsLater = KnowledgeGraph(
         db,
-        clock: Clock.fixed(DateTime.utc(2028, 10, 1)),
+        clock: Clock.fixed(DateTime.utc(2028, 10, 2)),
       );
       expect(await twoYearsLater.staleItems(), hasLength(items.length));
     });

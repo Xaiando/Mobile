@@ -34,6 +34,8 @@ class _CmsRehearsalScreenState extends ConsumerState<CmsRehearsalScreen> {
   final _answers = <String, String>{};
   bool _physical = false;
   Future<void> _writeTail = Future<void>.value();
+  final _pendingWritten = <(String, String), String>{};
+  final _pendingWineEvidence = <(String, int, String), String>{};
   Timer? _ticker;
   int _unreadable = 0;
   int _editorRevision = 0;
@@ -70,6 +72,8 @@ class _CmsRehearsalScreenState extends ConsumerState<CmsRehearsalScreen> {
     final identityChanged = _attempt?.id != attempt?.id;
     _attempt = attempt;
     if (identityChanged || reseed) {
+      _pendingWritten.clear();
+      _pendingWineEvidence.clear();
       _reviewChoices.clear();
       _reviewNotes.clear();
       _observations.clear();
@@ -186,6 +190,73 @@ class _CmsRehearsalScreenState extends ConsumerState<CmsRehearsalScreen> {
         if (mounted) {
           setState(() {
             _writeFailed = true;
+            _pendingWritten.clear();
+            _pendingWineEvidence.clear();
+            _error =
+                'A response was not saved. Reload the saved draft before '
+                'finishing or leaving. Reload replaces unsaved edits. $error';
+          });
+        }
+      }
+    });
+  }
+
+  void _saveWritten(String questionId, String text) {
+    if (!_draftEditable || _attempt == null || _writeFailed) return;
+    final id = _attempt!.id;
+    final key = (id, questionId);
+    _pendingWritten[key] = text;
+    _writeTail = _writeTail.then((_) async {
+      // Coalesce rapid intermediate keystrokes. Pending callbacks for the same
+      // attempt and question consume only the latest admitted replacement.
+      // Every callback remains on the tail awaited by Back, Finish and Reload.
+      final latest = _pendingWritten.remove(key);
+      if (_writeFailed || latest == null) return;
+      try {
+        final saved = await _repository!.answerWritten(id, questionId, latest);
+        if (mounted && _attempt?.id == id) {
+          setState(() => _setAttempt(saved));
+        }
+      } catch (error) {
+        if (mounted) {
+          setState(() {
+            _writeFailed = true;
+            _pendingWritten.clear();
+            _pendingWineEvidence.clear();
+            _error =
+                'A response was not saved. Reload the saved draft before '
+                'finishing or leaving. Reload replaces unsaved edits. $error';
+          });
+        }
+      }
+    });
+  }
+
+  void _saveWineEvidence(int ordinal, String promptId, String text) {
+    if (!_draftEditable || _attempt == null || _writeFailed) return;
+    final id = _attempt!.id;
+    final key = (id, ordinal, promptId);
+    _pendingWineEvidence[key] = text;
+    _writeTail = _writeTail.then((_) async {
+      // Coalesce rapid intermediate keystrokes for wine evidence.
+      final latest = _pendingWineEvidence.remove(key);
+      if (_writeFailed || latest == null) return;
+      try {
+        final saved = await _repository!.writeWineEvidence(
+          id,
+          ordinal,
+          promptId,
+          latest,
+        );
+        if (mounted && _attempt?.id == id) {
+          setState(() => _setAttempt(saved));
+        }
+      } catch (error) {
+        if (mounted) {
+          setState(() {
+            _writeFailed = true;
+            _pendingWritten.clear();
+            _pendingWineEvidence.clear();
             _error =
                 'A response was not saved. Reload the saved draft before '
                 'finishing or leaving. Reload replaces unsaved edits. $error';
@@ -230,6 +301,8 @@ class _CmsRehearsalScreenState extends ConsumerState<CmsRehearsalScreen> {
     if (!mounted) return;
     setState(() {
       _editorRevision++;
+      _pendingWritten.clear();
+      _pendingWineEvidence.clear();
       _setAttempt(null, reseed: true);
       _writeFailed = false;
       _unreadableCurrentPointer = null;
@@ -760,10 +833,7 @@ class _CmsRehearsalScreenState extends ConsumerState<CmsRehearsalScreen> {
                 labelText: 'Your explanation',
                 border: OutlineInputBorder(),
               ),
-              onChanged: (value) => _enqueue(
-                () =>
-                    _repository!.answerWritten(attempt.id, question.id, value),
-              ),
+              onChanged: (value) => _saveWritten(question.id, value),
             ),
           ),
           if (attempt.isFinished && !attempt.isAbandoned) ...[
@@ -936,14 +1006,8 @@ class _CmsRehearsalScreenState extends ConsumerState<CmsRehearsalScreen> {
                       labelText: 'Your wine evidence',
                       border: OutlineInputBorder(),
                     ),
-                    onChanged: (value) => _enqueue(
-                      () => _repository!.writeWineEvidence(
-                        attempt.id,
-                        wine.ordinal,
-                        prompt.id,
-                        value,
-                      ),
-                    ),
+                    onChanged: (value) =>
+                        _saveWineEvidence(wine.ordinal, prompt.id, value),
                   ),
                 ),
               ],
