@@ -1,3 +1,5 @@
+import 'dart:async';
+
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
@@ -11,6 +13,9 @@ const wideLayoutWidth = 840.0;
 
 /// The widest a module grows in a wide window, so lines stay readable.
 const readableWidth = 960.0;
+
+/// How long startup may take before the shell says what it is doing.
+const startupNoticeDelay = Duration(seconds: 4);
 
 /// The Material 3 scaffold around every module: the navigation bar, plus a
 /// notice when the database failed to open or cannot keep data safely.
@@ -35,6 +40,7 @@ class AppShell extends ConsumerWidget {
         icon: Icons.warning_amber_outlined,
         message: 'Use the app in one browser tab only. Several open tabs can corrupt saved progress.',
       ),
+      AsyncLoading() => const _StartupNotice(),
       _ => null,
     };
 
@@ -125,6 +131,46 @@ class AppShell extends ConsumerWidget {
       ),
     );
   }
+}
+
+/// Startup opens the database and, after an install or an update, writes the
+/// whole curriculum into it, which can take minutes on a phone. Every screen
+/// shows only a spinner meanwhile, so after a few seconds this says why.
+class _StartupNotice extends StatefulWidget {
+  const _StartupNotice();
+
+  @override
+  State<_StartupNotice> createState() => _StartupNoticeState();
+}
+
+class _StartupNoticeState extends State<_StartupNotice> {
+  late final Timer _timer;
+  bool _slow = false;
+
+  @override
+  void initState() {
+    super.initState();
+    _timer = Timer(startupNoticeDelay, () {
+      if (mounted) setState(() => _slow = true);
+    });
+  }
+
+  @override
+  void dispose() {
+    _timer.cancel();
+    super.dispose();
+  }
+
+  @override
+  Widget build(BuildContext context) => _slow
+      ? const _Notice(
+          icon: Icons.hourglass_top,
+          message:
+              'Setting up your study library. This happens once after '
+              'installing or updating, and can take a few minutes. '
+              'Keep the app open.',
+        )
+      : const SizedBox.shrink();
 }
 
 class _Notice extends StatelessWidget {
