@@ -46,7 +46,7 @@
             ]
           },
           "ki_d4sekt_dosage_style": {
-            "prompt": "Which statutory sparkling sweetness category permits up to 12 grams per litre of residual sugar?",
+            "prompt": "Which statutory sparkling sweetness category applies to wines with less than 12 grams per litre of residual sugar?",
             "acceptedAnswers": [
               "Brut"
             ]
@@ -151,12 +151,12 @@
             "prompt": "A member estate of the VDP is releasing two sparkling wines under the VDP.SEKT classification framework. What defines the difference between standard VDP.SEKT and VDP.SEKT.PRESTIGE?",
             "options": [
               "VDP.SEKT allows Charmat tank fermentation, whereas VDP.SEKT.PRESTIGE requires bottle fermentation",
-              "VDP.SEKT requires at least 15 months on lees (24 months for vintage), while VDP.SEKT.PRESTIGE requires a minimum of 36 months on lees (with optional single-vineyard designation from classified sites)",
+              "VDP.SEKT requires at least 15 months on lees (24 months for vintage), while VDP.SEKT.PRESTIGE requires a minimum of 36 months on lees from estate fruit (with single-vineyard designation being optional)",
               "VDP.SEKT.PRESTIGE requires the addition of sweet reserve (Süssreserve) from Beerenauslese grapes, whereas VDP.SEKT does not",
               "VDP.SEKT is restricted to white varieties, while VDP.SEKT.PRESTIGE must be produced exclusively from Spätburgunder"
             ],
             "correctIndex": 1,
-            "explanation": "Under the private VDP.SEKT statute, all tiers mandate traditional bottle fermentation, estate fruit, and hand harvesting. Standard VDP.SEKT requires at least 15 months on lees (24 months for vintage releases). VDP.SEKT.PRESTIGE requires a minimum of 36 months on lees; single-vineyard designation is optional (restricted to Erste Lage or Grosse Lage when used). These rules are private association standards rather than universal statutory wine law.",
+            "explanation": "Under the private VDP.SEKT statute, all tiers mandate traditional bottle fermentation, estate fruit, and hand harvesting. Standard VDP.SEKT requires at least 15 months on lees (24 months for vintage releases). VDP.SEKT.PRESTIGE requires a minimum of 36 months on lees from estate fruit; single-vineyard designation is optional. These rules are private association standards rather than universal statutory wine law.",
             "sourceCitationId": "src_d4sekt_vdp_statut"
           },
           "ki_d4sekt_base_wine_selection": {
@@ -181,18 +181,18 @@
             ],
             "correctIndex": 1,
             "explanation": "Short-cycle pressurised tank fermentation intentionally clarifies wine quickly after second fermentation to preserve primary fruit and floral aromatics. In contrast, extended bottle maturation allows long-term yeast contact where autolysis (enzymatic breakdown of dead yeast cells starting around 9-12 months) releases mannoproteins and amino acids, enriching mouthfeel, softening perceived acidity, and imparting biscuity, brioche aromas.",
-            "sourceCitationId": "src_d4sekt_awri_sparkling"
+            "sourceCitationId": "src_d4sekt_autolysis_oenology"
           },
           "ki_d4sekt_dosage_style": {
             "prompt": "A German winemaker finishes a traditional-method Sekt with high natural acidity (9 g/L). After liqueur d'expédition dosage, the finished sparkling wine has a final total residual sugar content of 8 g/L. How is this wine classified under EU/German sparkling regulations, and what is the sensory role of dosage?",
             "options": [
               "The wine must be labelled 'Trocken' because any sugar above 6 g/L is prohibited from being labelled as Brut",
-              "The finished wine qualifies as 'Brut' (up to 12 g/L residual sugar), where the sugar harmonises high natural acidity without masking oxidation or phenolic flaws",
+              "The finished wine qualifies as 'Brut' (nominal threshold <12 g/L residual sugar), where the sugar harmonises high natural acidity without masking oxidation or phenolic flaws",
               "Dosage legally eliminates all acidity in the wine, and adding dosage is prohibited in Sekt b.A. bottlings",
               "The wine qualifies as 'Brut Nature' because any dosage added under 10 g/L is legally ignored on the label"
             ],
             "correctIndex": 1,
-            "explanation": "Under Commission Delegated Regulation (EU) 2019/33, sparkling sweetness categories depend on total finished residual sugar, with Brut permitting up to 12 g/L. In high-acid German sparkling wines, judicious dosage balances high natural acidity, but it cannot disguise oxidation, premature autolytic decay, or coarse phenolic extraction. (Brut Nature is restricted to <3 g/L with no sugar added after secondary fermentation).",
+            "explanation": "Under Commission Delegated Regulation (EU) 2019/33 (Annex III, Part A), sparkling sweetness categories depend on total finished residual sugar, with the nominal threshold for Brut being less than 12 g/L (Article 47(3) allows a 3 g/L analytical tolerance). In high-acid German sparkling wines, judicious dosage balances high natural acidity, but it cannot disguise oxidation, premature autolytic decay, or coarse phenolic extraction. (Brut Nature is restricted to <3 g/L with no sugar added after secondary fermentation; Extra Brut is 0–6 g/L).",
             "sourceCitationId": "src_d4sekt_eu_reg_2019_33"
           }
         }
