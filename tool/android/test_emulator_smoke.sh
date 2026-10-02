@@ -35,7 +35,7 @@ run_case() { # NAME EXPECTED_STATUS EXPECTED_TEXT... -- ENV... -- SCRIPT_ARGS...
 
 run_case success 0 \
   "Pixel Fake" "android:  16 (API 36)" "page:     4096 bytes" \
-  "first launch: window drawn after 1234 ms" "the app used 14.7 s of CPU" "second launch:" \
+  "first launch: window drawn after 1234 ms" "the app used 14.7 s of CPU and held at most 340 MB in memory" "second launch:" \
   "no crash, ANR or native-library failure in logcat" \
   "network attempts the system refused (expected without INTERNET): 1" \
   "TOTAL PSS" "**Result: passed**" -- FAKE_READY_AFTER_MS=1500 --

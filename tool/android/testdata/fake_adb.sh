@@ -57,7 +57,11 @@ case "$1" in
           ro.build.fingerprint) echo "google/fake/fake:16/BP1A:user/release-keys" ;;
         esac ;;
       getconf) echo "${FAKE_PAGE_SIZE:-4096}" ;;
-      cat) echo "1234 (com.xaiando.sommelier) S 1 1 1 0 0 0 0 0 0 0 1234 234 0 0 20 0 30 0 100 0 0" ;;
+      cat)
+        case "$3" in
+          */status) echo "Name: sommelier"; echo "VmPeak:  2000000 kB"; echo "VmHWM:    348160 kB"; echo "VmRSS:    300000 kB" ;;
+          *) echo "1234 (com.xaiando.sommelier) S 1 1 1 0 0 0 0 0 0 0 1234 234 0 0 20 0 30 0 100 0 0" ;;
+        esac ;;
       dumpsys)
         case "$3" in
           package) echo "    versionName=0.4.0"; echo "    targetSdk=36" ;;
