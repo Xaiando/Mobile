@@ -109,6 +109,7 @@ Ingestion regenerates `questions`, `question_distractors` and the exercise pools
 - Templates use only `{subject.name}`, `{object.name}` and `{object.type_label}`. A relation type that carries items needs a forward template.
 - An MCQ exists only with at least 3 valid distractors (architecture audit QG-12). Reverse questions need a reverse-safe relation type or `is_distinctive: true`.
 - The test suite fails if an item has neither an MCQ nor `mcq_disabled: true` (§S.3), so after adding items, run the tests and read the generation report (`tool/curriculum/report.dart`).
+- Generation runs on every first launch and after every update, and the learner waits for it (about 8 s for the bundled release on a desktop). A format's `isEligible` and `generatePools` must not ask the database again for what another item or format already asked: read through `context.reads` (a `ReadCache`, QG-15) and key each read by everything it depends on. After changing generation, run `dart run tool/curriculum/ingest_timing.dart`: the digests of the generated rows must not change unless the questions should, and the time must not grow.
 - Present exercises through `ExercisePresenter.present(seed:)` and grade them with their format. `ReviewService.recordExercise` logs the seed, the options shown and the answer (QG-7, QF-3).
 
 **Adding a format** (backlog F3, audit QF-11) takes one file per layer and one registry line per layer:

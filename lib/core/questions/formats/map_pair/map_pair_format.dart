@@ -5,6 +5,7 @@ import 'package:fsrs/fsrs.dart' as fsrs;
 
 import '../../../curriculum/knowledge_graph.dart';
 import '../../../database/app_database.dart';
+import '../../../database/read_cache.dart';
 import '../../../geography/geometry_repository.dart';
 import '../../../study/learner_profile.dart';
 import '../../../study/study_planner.dart';
@@ -158,8 +159,9 @@ class MapPairFormat extends MapFormat {
     KnowledgeItem primary,
     List<KnowledgeItem> locations,
     String on,
-    int minimum,
-  ) => GeometryRepository(db).frameOf(
+    int minimum, {
+    ReadCache? cache,
+  }) => GeometryRepository(db, cache: cache).frameOf(
     primary.subjectId,
     minimum: minimum,
     eligibleNodeIds: {for (final item in locations) item.subjectId},
@@ -242,6 +244,7 @@ class MapPairFormat extends MapFormat {
         locations,
         context.today,
         minimum,
+        cache: context.reads,
       );
       if (frame == null || _peers(locations, item, frame).length < needed) {
         return false;
@@ -257,6 +260,7 @@ class MapPairFormat extends MapFormat {
       locations,
       context.today,
       minimum,
+      cache: context.reads,
     );
     return frame != null && _peers(locations, item, frame).length >= needed;
   }
