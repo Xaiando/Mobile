@@ -1,5 +1,5 @@
 # Sommelier curriculum dataset: the manifest of one release, in the
-# canonical format of docs/domain-model.md §7.
+# canonical format of docs/domain-model.md Â§7.
 #
 # A release is split into files (architecture audit DL-4): one per area under
 # areas/, and one per question format under templates/. Each section is named
@@ -9,7 +9,7 @@
 # distractors). User data never appears here. Expert reviews are recorded in
 # reviews/, which the app does not bundle (tool/curriculum/verify.dart).
 #
-# Content rules (docs/architecture-audit.md §11: D3 and D10):
+# Content rules (docs/architecture-audit.md Â§11: D3 and D10):
 # - Every fact cites a public primary source; legal assertions cite legal
 #   texts/registers. Items stay `unverified` until a qualified reviewer checks them.
 # - Where INAO's homologated text could not be downloaded, the facts were
@@ -23,8 +23,8 @@
 #   overlapping climate types.
 # - Any change to any file of the release needs a new dataset_version.
 
-dataset_version: "0.24.70"
-published_at: "2026-10-02T22:00:00.000Z"
+dataset_version: "0.24.68"
+published_at: "2026-10-01T18:00:00.000Z"
 
 includes:
   - areas/diploma_sekt_analytical_cases.yaml
