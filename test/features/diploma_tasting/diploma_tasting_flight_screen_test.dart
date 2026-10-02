@@ -102,6 +102,31 @@ class _FailOnceEvidenceRepository extends DiplomaTastingFlightRepository {
   }
 }
 
+class _CountingDraftsRepository extends DiplomaTastingFlightRepository {
+  _CountingDraftsRepository(super.db, TestClock time)
+    : super(
+        bank: DiplomaTastingBank.fromJson(
+          File('assets/study/diploma_tasting_flights.json').readAsStringSync(),
+        ),
+        clock: time.clock,
+        random: Random(9),
+      );
+
+  final reflectionWrites = <String>[];
+  final firstReflectionEntered = Completer<void>();
+  final releaseReflection = Completer<void>();
+
+  @override
+  Future<DiplomaTastingFlight> saveReflection(String id, String text) async {
+    reflectionWrites.add(text);
+    if (!firstReflectionEntered.isCompleted) {
+      firstReflectionEntered.complete();
+      await releaseReflection.future;
+    }
+    return super.saveReflection(id, text);
+  }
+}
+
 Future<DiplomaTastingFlight> _savePacket(
   DiplomaTastingFlightRepository repository,
   String unitId,
@@ -518,6 +543,49 @@ void main() {
       (await tester.runAsync(() => repository.read(started.id)))!.reflection,
       'Saved before one pop.',
     );
+    expect(tester.takeException(), isNull);
+  });
+
+  testApp('rapid keystrokes in flight comparison coalesce on write tail', (
+    tester,
+  ) async {
+    final counting = _CountingDraftsRepository(db, time);
+    repository = counting;
+    final started = (await tester.runAsync(() => repository.start('D4')))!;
+    await showScreen(tester, 'D4');
+    await tester.tap(find.byKey(const ValueKey('diploma-flight-step-3')));
+    await settle(tester);
+
+    final comparison = find.byKey(const ValueKey('diploma-flight-comparison'));
+    final onChanged = tester.widget<TextFormField>(comparison).onChanged!;
+
+    // First keystroke starts the write tail and pauses in saveReflection
+    onChanged('T');
+    await tester.pump();
+    await tester.runAsync(
+      () => counting.firstReflectionEntered.future.timeout(
+        const Duration(seconds: 5),
+      ),
+    );
+
+    // Rapidly type more characters while the first save is in flight
+    onChanged('Th');
+    onChanged('Thr');
+    onChanged('Three');
+    onChanged('Three-wine comparison final note.');
+
+    // Release first write
+    counting.releaseReflection.complete();
+    await settle(tester);
+
+    // Intermediate keystrokes are coalesced: only the first and latest save run
+    expect(counting.reflectionWrites, [
+      'T',
+      'Three-wine comparison final note.',
+    ]);
+
+    final saved = (await tester.runAsync(() => repository.read(started.id)))!;
+    expect(saved.reflection, 'Three-wine comparison final note.');
     expect(tester.takeException(), isNull);
   });
   testApp('D3 setup explicitly requests three real still wines', (
