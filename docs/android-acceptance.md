@@ -43,10 +43,12 @@ An independent read of the `sommelier-android-apk` artifact of run 36965339511:
 
 ## Before you start
 
-1. **Get an APK.** Download `sommelier-android-apk` from the *CI* run of the
-   branch you want (Actions > the run > Artifacts), or build it yourself with
-   `flutter build apk --release` (needs the Android SDK; adding
-   `--target-platform android-arm64` makes a smaller, phone-only file).
+1. **Get an APK.** From the *Android runtime* run of the branch you want
+   (Actions > the run > Artifacts), download `sommelier-android-arm64-apk`: the
+   phone build, about half the size of the universal `sommelier-android-apk`
+   that the *CI* run keeps. Or build it yourself with
+   `flutter build apk --release --target-platform android-arm64` (needs the
+   Android SDK).
 2. **Prepare the phone.**
    * Settings > About phone > Software information: tap *Build number* seven
      times. Then Settings > Developer options > *USB debugging* (or *Wireless

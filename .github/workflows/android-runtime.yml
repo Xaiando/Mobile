@@ -51,6 +51,18 @@ jobs:
       - run: flutter build apk --release
       - name: The release APK is offline, signed, 16 KB aligned and targets API 35 or later
         run: python3 tool/android/verify_apk.py build/app/outputs/flutter-apk/app-release.apk
+      # For a phone: arm64 only, about half the size of the universal APK.
+      # Signed with the debug key this run made, so it cannot update an app
+      # installed from another run (docs/android-acceptance.md).
+      - name: Build the phone APK
+        run: flutter build apk --release --target-platform android-arm64
+      - name: The phone APK meets the same contract
+        run: python3 tool/android/verify_apk.py build/app/outputs/flutter-apk/app-release.apk
+      - name: Keep the phone APK to install
+        uses: actions/upload-artifact@v5
+        with:
+          name: sommelier-android-arm64-apk
+          path: build/app/outputs/flutter-apk/app-release.apk
       - run: flutter build apk --debug
       - name: The debug APK keeps INTERNET for the Flutter tool
         run: >
