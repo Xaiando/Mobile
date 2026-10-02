@@ -47,6 +47,7 @@ jobs:
         run: |
           python3 -m unittest discover -s tool/android -p "test_*.py"
           bash tool/android/test_emulator_smoke.sh
+          bash tool/android/test_ocr_smoke.sh
       - run: flutter build apk --release
       - name: The release APK is offline, signed, 16 KB aligned and targets API 35 or later
         run: python3 tool/android/verify_apk.py build/app/outputs/flutter-apk/app-release.apk
@@ -89,10 +90,19 @@ jobs:
           sudo udevadm control --reload-rules
           sudo udevadm trigger --name-match=kvm
       - run: flutter build apk --release
-      # One emulator session for both checks. The smoke test installs the
+      - run: cp build/app/outputs/flutter-apk/app-release.apk build/sommelier-release.apk
+      # A tiny app that reads a drawn label with the cellar's own OCR function,
+      # for the emulator only (x86_64), to show recognition still works in a
+      # release build that has lost the INTERNET permission.
+      - name: Build the text recognition check
+        run: flutter build apk --release -t tool/android_smoke/main.dart --target-platform android-x64
+      - run: cp build/app/outputs/flutter-apk/app-release.apk build/ocr-check.apk
+      - name: The text recognition check holds no network permission either
+        run: python3 tool/android/verify_apk.py build/ocr-check.apk
+      # One emulator session for the checks. The smoke test installs the
       # release APK, launches it twice and scans logcat; a failure is recorded
       # so that the integration test still runs, then fails the job below.
-      - name: Smoke test the release app, then run the integration test
+      - name: Smoke test the release app, read a label, then run the integration test
         uses: reactivecircus/android-emulator-runner@v2
         with:
           api-level: 36
@@ -106,7 +116,8 @@ jobs:
           emulator-boot-timeout: 900
           emulator-options: -no-window -gpu swiftshader_indirect -noaudio -no-boot-anim -camera-back none -camera-front none
           script: |
-            bash tool/android/emulator_smoke.sh --uninstall-after --control --timeout 600 build/app/outputs/flutter-apk/app-release.apk build/android-smoke || touch build/android-smoke/FAILED
+            bash tool/android/emulator_smoke.sh --uninstall-after --control --timeout 600 build/sommelier-release.apk build/android-smoke || touch build/android-smoke/FAILED
+            bash tool/android/ocr_smoke.sh --uninstall-after build/ocr-check.apk build/android-smoke || touch build/android-smoke/FAILED
             flutter test integration_test --dart-define=SOMMELIER_DATABASE=integration
       - name: Keep the smoke test report, screenshot and logcat
         if: always()
