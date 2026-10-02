@@ -63,9 +63,11 @@ case "$1" in
           ro.build.fingerprint) echo "google/fake/fake:16/BP1A:user/release-keys" ;;
         esac ;;
       getconf) echo "${FAKE_PAGE_SIZE:-4096}" ;;
+      cat) echo "1234 (com.xaiando.sommelier) S 1 1 1 0 0 0 0 0 0 0 1234 234 0 0 20 0 30 0 100 0 0" ;;
       dumpsys)
         case "$3" in
           package) echo "    versionName=0.4.0"; echo "    targetSdk=36" ;;
+          cpuinfo) echo "Load: 2.5 / 2.0 / 1.0"; echo "  120% 1234/com.xaiando.sommelier: 100% user + 20% kernel" ;;
           meminfo) echo "  Native Heap    20000"; echo "  TOTAL PSS:   250000"; echo "  TOTAL RSS:   400000" ;;
         esac ;;
       am)
@@ -78,6 +80,7 @@ case "$1" in
             echo "Status: ok"; echo "TotalTime: 1234"; echo "WaitTime: 1250" ;;
         esac ;;
       pidof) [[ -f $dir/running ]] && echo 1234 ;;
+      pm) rm -f "$dir/running" ;;
     esac ;;
 esac
 exit 0
@@ -106,7 +109,7 @@ run_case() { # NAME EXPECTED_STATUS EXPECTED_TEXT... -- ENV... -- SCRIPT_ARGS...
 
 run_case success 0 \
   "Pixel Fake" "android:  16 (API 36)" "page:     4096 bytes" \
-  "first launch: window drawn after 1234 ms" "second launch:" \
+  "first launch: window drawn after 1234 ms" "the app used 14.7 s of CPU" "second launch:" \
   "no crash, ANR or native-library failure in logcat" \
   "network attempts the system refused (expected without INTERNET): 1" \
   "TOTAL PSS" "**Result: passed**" -- FAKE_READY_AFTER_MS=1500 --
@@ -129,7 +132,18 @@ run_case no_device 1 "no device is attached" -- FAKE_NO_DEVICE=1 --
 
 run_case no_install_option 0 "**Result: passed**" -- FAKE_INSTALL_FAIL=1 FAKE_READY_AFTER_MS=0 -- --no-install
 
+run_case control 0 "control (data wiped, checked only at 2 4 s): first screen seen by 2 s"   "**Result: passed**" -- FAKE_READY_AFTER_MS=0 -- --uninstall-after --control --checkpoints "2 4"
+
+run_case control_not_ready 0 "first screen **not** seen by the last checkpoint"   -- FAKE_READY_AFTER_MS=1500 -- --uninstall-after --control --checkpoints "0"
+
 run_case custom_ready_text 0 "**Result: passed**" -- FAKE_READY_AFTER_MS=0 -- --ready "legal drinking age"
+
+env PATH="$work/bin:$PATH" FAKE_ADB_DIR="$work/state" bash "$here/emulator_smoke.sh" --control fake.apk "$work/out-refuse" > "$work/log-refuse" 2>&1
+if [[ $? == 2 ]] && grep -q "wipes the app's data" "$work/log-refuse"; then
+  echo "ok   control_refused_without_uninstall_after"
+else
+  echo "FAIL control_refused_without_uninstall_after"; failures=$((failures + 1))
+fi
 
 if (( failures )); then echo "$failures case(s) failed."; exit 1; fi
 echo "All cases passed."

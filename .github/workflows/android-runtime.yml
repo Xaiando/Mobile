@@ -106,7 +106,7 @@ jobs:
           emulator-boot-timeout: 900
           emulator-options: -no-window -gpu swiftshader_indirect -noaudio -no-boot-anim -camera-back none -camera-front none
           script: |
-            bash tool/android/emulator_smoke.sh --uninstall-after --timeout 600 build/app/outputs/flutter-apk/app-release.apk build/android-smoke || touch build/android-smoke/FAILED
+            bash tool/android/emulator_smoke.sh --uninstall-after --control --timeout 600 build/app/outputs/flutter-apk/app-release.apk build/android-smoke || touch build/android-smoke/FAILED
             flutter test integration_test --dart-define=SOMMELIER_DATABASE=integration
       - name: Keep the smoke test report, screenshot and logcat
         if: always()
