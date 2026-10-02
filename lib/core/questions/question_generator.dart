@@ -2,6 +2,7 @@ import 'package:drift/drift.dart';
 
 import '../curriculum/knowledge_graph.dart';
 import '../database/app_database.dart';
+import '../database/read_cache.dart';
 import 'exercise_format.dart';
 import 'format_registry.dart';
 import 'template_renderer.dart';
@@ -73,8 +74,14 @@ class Distractor {
 /// exist (QG-4, QG-5). A composite format generates its own exercise pools
 /// (QF-10).
 class QuestionGenerator {
-  QuestionGenerator(this.db, {required this.today, FormatRegistry? formats})
-    : formats = formats ?? appFormats;
+  /// With [cacheReads] off, every lookup asks the database again. The result
+  /// is the same, only slower, which a test relies on.
+  QuestionGenerator(
+    this.db, {
+    required this.today,
+    FormatRegistry? formats,
+    this.cacheReads = true,
+  }) : formats = formats ?? appFormats;
 
   final AppDatabase db;
 
@@ -83,10 +90,32 @@ class QuestionGenerator {
 
   final FormatRegistry formats;
 
+  final bool cacheReads;
+
+  /// What the running pass has read; null outside [generate]. The
+  /// curriculum is not written while the questions are generated, so each
+  /// lookup is made once. A cache never outlives one pass: a later one starts
+  /// from the database as it is then.
+  ReadCache? _reads;
+
+  Future<T> _read<T>(Object key, Future<T> Function() read) {
+    final reads = _reads;
+    return reads == null ? read() : reads.of(key, read);
+  }
+
   /// Rebuilds `questions`, `question_distractors` and the exercise pools.
   /// Runs inside the ingestion transaction, which holds the curriculum
   /// write lock.
   Future<GenerationReport> generate() async {
+    _reads = cacheReads ? ReadCache() : ReadCache.passThrough();
+    try {
+      return await _generate();
+    } finally {
+      _reads = null;
+    }
+  }
+
+  Future<GenerationReport> _generate() async {
     final report = GenerationReport();
     // Deleting a question cascades to its distractors, a pool to its items.
     await db.delete(db.questions).go();
@@ -113,7 +142,12 @@ class QuestionGenerator {
     final questions = <Question>[];
     final pools = <QuestionDistractor>[];
     final items = await _currentItems();
-    final context = GeneratorContext(db, today: today, items: items);
+    final context = GeneratorContext(
+      db,
+      today: today,
+      items: items,
+      reads: _reads,
+    );
     for (final item in items) {
       final relationType = relationTypes[item.relationType]!;
       for (final template
@@ -230,15 +264,25 @@ class QuestionGenerator {
     KnowledgeItem item, {
     required bool reverse,
   }) async {
-    final relationType = await (db.select(
-      db.relationTypes,
-    )..where((t) => t.id.equals(item.relationType))).getSingle();
+    final relationType = await _read(
+      ('relationType', item.relationType),
+      () => (db.select(
+        db.relationTypes,
+      )..where((t) => t.id.equals(item.relationType))).getSingle(),
+    );
     final answerId = reverse ? item.subjectId : item.objectId;
-    final answerType = await (db.select(
-      db.knowledgeNodes,
-    )..where((n) => n.id.equals(answerId))).map((n) => n.nodeType).getSingle();
+    final answerType = await _read(
+      ('nodeType', answerId),
+      () => (db.select(db.knowledgeNodes)..where((n) => n.id.equals(answerId)))
+          .map((n) => n.nodeType)
+          .getSingle(),
+    );
     final match = reverse ? null : relationType.distractorMatchRelationType;
-    final universe = await _candidates(answerType, match);
+    final universe = await _read((
+      'candidates',
+      answerType,
+      match,
+    ), () => _candidates(answerType, match));
     final answer = universe[answerId];
     if (answer == null) return const [];
     // A required discriminator must be known on the answer. Missing
@@ -264,8 +308,10 @@ class QuestionGenerator {
       return answer.unit == null || candidate.unit == answer.unit;
     }
 
-    final scopes = await KnowledgeGraph(db)
-        .ancestors(item.subjectId, on: today);
+    final scopes = await KnowledgeGraph(
+      db,
+      cache: _reads,
+    ).ancestors(item.subjectId, on: today);
     final levels = <Future<List<String>> Function()>[
       for (final scope in scopes)
         () => reverse

@@ -217,8 +217,10 @@ abstract class MapFormat extends ExerciseFormat {
     QuestionTemplate template,
   ) async =>
       template.direction == 'forward' &&
-      await GeometryRepository(context.db)
-              .frameOf(item.subjectId, on: context.today) !=
+      await GeometryRepository(
+            context.db,
+            cache: context.reads,
+          ).frameOf(item.subjectId, on: context.today) !=
           null;
 
   /// The mode of this format for [mode], the one the item's memory calls
