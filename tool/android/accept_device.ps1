@@ -18,12 +18,28 @@ by hand, and run this again.
     powershell -ExecutionPolicy Bypass -File tool\android\accept_device.ps1 `
         -Apk build\app\outputs\flutter-apk\app-release.apk
 
+    # Or let it fetch the phone APK of the newest successful Android runtime
+    # run of the current branch (needs the GitHub CLI, signed in):
+    powershell -ExecutionPolicy Bypass -File tool\android\accept_device.ps1 -Download
+
     # Later, with the app already installed and set up:
     powershell -ExecutionPolicy Bypass -File tool\android\accept_device.ps1 `
         -NoInstall -Ready 'Practice'
 
 .PARAMETER Apk
 The APK to install. Needed unless -NoInstall.
+
+.PARAMETER Download
+Fetch the phone APK (the sommelier-android-arm64-apk artifact) with the
+GitHub CLI instead of giving -Apk. It takes the newest successful Android
+runtime run of -Branch (default: the branch checked out here), or the run
+given with -Run, and keeps the APK under build\android-apk\<run>.
+
+.PARAMETER Branch
+With -Download: the branch whose newest successful run to take.
+
+.PARAMETER Run
+With -Download: the id of a run on GitHub, to take that one.
 
 .PARAMETER NoInstall
 Launch and measure the app that is already installed.
@@ -37,6 +53,9 @@ Where to write the results. Defaults to build\android-acceptance\<time>.
 #>
 param(
     [string]$Apk,
+    [switch]$Download,
+    [string]$Branch,
+    [string]$Run,
     [switch]$NoInstall,
     [string]$Ready = 'I am of legal drinking age',
     [string]$Out
@@ -47,7 +66,8 @@ $root = Resolve-Path (Join-Path $PSScriptRoot '..\..')
 if (-not $Out) {
     $Out = Join-Path $root ('build\android-acceptance\' + (Get-Date -Format 'yyyyMMdd-HHmmss'))
 }
-if (-not $NoInstall -and -not $Apk) { throw 'Give -Apk <path>, or -NoInstall.' }
+if ($Apk -and $Download) { throw 'Give -Apk or -Download, not both.' }
+if (-not $NoInstall -and -not $Apk -and -not $Download) { throw 'Give -Apk <path>, -Download, or -NoInstall.' }
 if ($Apk -and -not (Test-Path $Apk)) { throw "No such APK: $Apk" }
 
 function Find-Adb {
@@ -96,6 +116,31 @@ $model = (& $adb shell getprop ro.product.model).Trim()
 $release = (& $adb shell getprop ro.build.version.release).Trim()
 $oneUi = (& $adb shell getprop ro.build.version.oneui).Trim()
 Write-Host "phone: $model, Android $release$(if ($oneUi) { ", One UI code $oneUi" })"
+
+if ($Download) {
+    if (-not (Get-Command gh -ErrorAction SilentlyContinue)) {
+        throw 'The GitHub CLI (gh) is not installed. Download the artifact sommelier-android-arm64-apk from the run on GitHub, unzip it, and give -Apk.'
+    }
+    Push-Location $root
+    try {
+        if (-not $Run) {
+            if (-not $Branch) { $Branch = (& git rev-parse --abbrev-ref HEAD).Trim() }
+            $Run = "$(& gh run list --workflow android-runtime.yml --branch $Branch --status success --limit 1 --json databaseId --jq '.[0].databaseId')".Trim()
+            if ($LASTEXITCODE -ne 0) { throw 'gh could not list the runs. Is it signed in? Run: gh auth login' }
+            if (-not $Run -or $Run -eq 'null') { throw "No successful Android runtime run was found for branch '$Branch'. Give -Run <id> or -Apk." }
+        }
+        $folder = Join-Path $root "build\android-apk\$Run"
+        New-Item -ItemType Directory -Force $folder | Out-Null
+        Write-Host "`nDownloading the phone APK of run $Run..."
+        & gh run download $Run --name sommelier-android-arm64-apk --dir $folder
+        if ($LASTEXITCODE -ne 0) { throw "gh could not download the APK of run $Run." }
+    } finally {
+        Pop-Location
+    }
+    $Apk = Join-Path $folder 'app-release.apk'
+    if (-not (Test-Path $Apk)) { throw "The download held no app-release.apk in $folder." }
+    Write-Host "APK:   $Apk"
+}
 
 if ($Apk) {
     $python = Get-Command python -ErrorAction SilentlyContinue
