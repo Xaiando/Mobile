@@ -32,6 +32,7 @@ class _DiplomaTastingFlightScreenState
   bool _pointerError = false;
   String? _error;
   Future<void> _writeTail = Future<void>.value();
+  final _pendingDrafts = <(String, String), String>{};
 
   @override
   void initState() {
@@ -67,6 +68,7 @@ class _DiplomaTastingFlightScreenState
         _history = history.entries;
         _unreadable = history.unreadableCount;
         _flight = current;
+        _pendingDrafts.clear();
         _loading = false;
         _pointerError = false;
         _error = null;
@@ -107,23 +109,48 @@ class _DiplomaTastingFlightScreenState
     // A callback already dispatched by an editable field can arrive before
     // the disabled state has rebuilt. Do not extend the autosave tail after a
     // transition has captured it.
-    if (_busy || _leaving) return;
+    if (_busy || _leaving || _flight == null) return;
     final id = _flight!.id;
-    if (key == 'comparison') {
-      _queue(() => _repository!.saveReflection(id, text));
-    } else if (key == 'self_review') {
-      _queue(() => _repository!.saveSelfReview(id, text));
-    } else {
-      final parts = key.split(':');
-      _queue(
-        () => _repository!.saveEvidence(
-          id,
-          int.parse(parts.first),
-          parts.last,
-          text,
-        ),
-      );
-    }
+    final pendingKey = (id, key);
+    _pendingDrafts[pendingKey] = text;
+    _writeTail = _writeTail.then((_) async {
+      // Coalesce rapid intermediate keystrokes for tasting flight text fields.
+      // Pending callbacks for the same flight and key consume only the
+      // latest admitted replacement, keeping the write tail bounded.
+      final latest = _pendingDrafts.remove(pendingKey);
+      if (latest == null) return;
+      try {
+        DiplomaTastingFlight changed;
+        if (key == 'comparison') {
+          changed = await _repository!.saveReflection(id, latest);
+        } else if (key == 'self_review') {
+          changed = await _repository!.saveSelfReview(id, latest);
+        } else {
+          final parts = key.split(':');
+          changed = await _repository!.saveEvidence(
+            id,
+            int.parse(parts.first),
+            parts.last,
+            latest,
+          );
+        }
+        if (mounted && _flight?.id == id) {
+          setState(() {
+            _flight = changed;
+            if (!_writeFailed) _error = null;
+          });
+        }
+      } catch (error) {
+        _writeFailed = true;
+        if (mounted) {
+          setState(() {
+            _error =
+                'Your latest change could not be saved. Check this flight '
+                'before recording it.';
+          });
+        }
+      }
+    });
   }
 
   Future<void> _leave(Object? result) async {
@@ -161,6 +188,7 @@ class _DiplomaTastingFlightScreenState
   Future<void> _reloadSavedDraft() async {
     await _writeTail;
     if (!mounted) return;
+    _pendingDrafts.clear();
     setState(() {
       _flight = null;
       _loading = true;

@@ -28,7 +28,7 @@
     {
       "id": "n_d4sekt_point_vdp_classification",
       "node_type": "learning_point",
-      "name": "VDP.SEKT mandates estate fruit and 15 months on lees, while VDP.SEKT.PRESTIGE requires single-vineyard origin and 36 months"
+      "name": "VDP.SEKT mandates estate fruit and 15 months on lees (24 for vintage), while VDP.SEKT.PRESTIGE requires estate fruit and at least 36 months with optional single-vineyard designation"
     },
     {
       "id": "n_d4sekt_principle_base_wine_selection",
@@ -68,7 +68,7 @@
     {
       "id": "n_d4sekt_case_winzersekt_allocation_action",
       "node_type": "learning_point",
-      "name": "Progress Lot A as a conditional pilot for the autolytic brief, complete required A.P.-Nr. testing and stability checks, accept the prepaid merchant order to cover immediate operational needs, and verify distributor creditworthiness before committing inventory to extended payment terms"
+      "name": "Progress Lot A as a conditional pilot for the autolytic brief, complete required A.P.-Nr. testing and stability checks, accept the prepaid merchant order to assist near-term liquidity while verifying net cash receipts against dated lease liabilities in a cash-flow forecast, and verify distributor creditworthiness before committing inventory to extended payment terms"
     },
     {
       "id": "n_d4sekt_case_winzersekt_allocation_reason",
@@ -226,7 +226,7 @@
       "relation_type": "PRINCIPLE_EXPLANATION",
       "object_id": "n_d4sekt_point_vdp_classification",
       "domain_id": "winemaking",
-      "assertion_text": "The private VDP.SEKT classification framework establishes stricter production rules for member estates: traditional bottle fermentation, estate-grown fruit, hand picking, and whole-bunch pressing. VDP.SEKT requires at least 15 months on lees for non-vintage cuvées (24 months for vintage releases), while VDP.SEKT.PRESTIGE requires a minimum of 36 months on lees (with optional single-vineyard designation from Erste Lage or Grosse Lage). These rules are private association standards, not statutory wine law across all German producers.",
+      "assertion_text": "The private VDP.SEKT classification framework establishes stricter production rules for member estates: traditional bottle fermentation, estate-grown fruit, hand picking, and whole-bunch pressing. VDP.SEKT requires at least 15 months on lees for non-vintage cuvées (24 months for vintage releases), while VDP.SEKT.PRESTIGE requires a minimum of 36 months on lees from estate fruit (with single-vineyard designation being optional). These rules are private association standards, not statutory wine law across all German producers.",
       "verification_status": "unverified",
       "mcq_disabled": true,
       "last_verified_at": "2026-10-01T02:34:06.539Z"
@@ -248,7 +248,7 @@
       "relation_type": "PRINCIPLE_EXPLANATION",
       "object_id": "n_d4sekt_point_autolysis_vs_fruit",
       "domain_id": "winemaking",
-      "assertion_text": "Short-cycle tank (autoclave/Charmat) fermentation clarifies wine quickly to preserve primary varietal aromatics (such as green apple, peach and floral notes in aromatic Riesling) with fast cellar turnaround and lower working capital. In contrast, extended bottle maturation provides prolonged yeast contact where autolysis (enzymatic breakdown of yeast cells starting around 9–12 months) releases mannoproteins and amino acids that enrich texture, soften the perception of cool-climate acidity, and introduce brioche and biscuit notes while muting primary fruit.",
+      "assertion_text": "Short-cycle tank (autoclave/Charmat) fermentation clarifies wine quickly to preserve primary varietal aromatics (such as green apple, peach and floral notes in aromatic Riesling) with fast cellar turnaround and lower working capital. In contrast, extended bottle maturation provides prolonged yeast contact where autolysis (the enological consensus on yeast cellular degradation, typically observable after 9–12 months of lees contact) releases mannoproteins and amino acids that enrich texture, soften the perception of cool-climate acidity, and introduce brioche and biscuit notes while muting primary fruit.",
       "verification_status": "unverified",
       "mcq_disabled": true,
       "last_verified_at": "2026-10-01T02:34:06.539Z"
@@ -259,7 +259,7 @@
       "relation_type": "PRINCIPLE_EXPLANATION",
       "object_id": "n_d4sekt_point_dosage_style",
       "domain_id": "winemaking",
-      "assertion_text": "Under EU and German sparkling wine regulations, sweetness categories range from Brut Nature (<3 g/L without added sugar) and Extra Brut (0–6 g/L) to Brut (<12 g/L), Extra Trocken (12–17 g/L) and Trocken (17–32 g/L). High natural cool-climate German acidity often requires judicious liqueur d'expédition dosage to achieve harmonious sensory balance; however, dosage cannot conceal oxidation, premature autolytic decay, or harsh phenolic press fractions.",
+      "assertion_text": "Under EU and German sparkling wine regulations (Regulation (EU) 2019/33 Annex III Part A), nominal sweetness categories based on finished residual sugar range from Brut Nature (<3 g/L without added sugar) and Extra Brut (0–6 g/L) to Brut (<12 g/L, with Article 47(3) providing a 3 g/L analytical tolerance), Extra Trocken (12–17 g/L) and Trocken (17–32 g/L). High natural cool-climate German acidity often requires judicious liqueur d'expédition dosage to achieve harmonious sensory balance; however, dosage cannot conceal oxidation, premature autolytic decay, or harsh phenolic press fractions.",
       "verification_status": "unverified",
       "mcq_disabled": true,
       "last_verified_at": "2026-10-01T02:34:06.539Z"
@@ -270,7 +270,7 @@
       "relation_type": "CASE_ACTION",
       "object_id": "n_d4sekt_case_winzersekt_allocation_action",
       "domain_id": "winemaking",
-      "assertion_text": "Progress Lot A as a conditional pilot for the autolytic brief, complete required A.P.-Nr. testing and stability checks, accept the prepaid merchant order to cover immediate operational needs, and verify distributor creditworthiness before committing inventory to extended payment terms.",
+      "assertion_text": "Progress Lot A as a conditional pilot for the autolytic brief, complete required A.P.-Nr. testing and stability checks, accept the prepaid merchant order to assist near-term liquidity while verifying net cash receipts against dated lease liabilities in a cash-flow forecast, and verify distributor creditworthiness before committing inventory to extended payment terms.",
       "verification_status": "unverified",
       "mcq_disabled": true,
       "last_verified_at": "2026-10-01T02:34:06.539Z"
@@ -385,14 +385,24 @@
       "accessed_on": "2026-10-01"
     },
     {
-      "id": "src_d4sekt_awri_sparkling",
+      "id": "src_d4sekt_autolysis_oenology",
       "kind": "reference_work",
-      "title": "AWRI Fact Sheet: Yeast Autolysis and Sparkling Wine Maturation",
+      "title": "OIV International Code of Oenological Practices: Sparkling Wine Yeast Autolysis",
+      "publisher": "International Organisation of Vine and Wine",
+      "jurisdiction": "INT",
+      "url": "https://www.oiv.int/",
+      "document_identifier": "OIV Code Section II.4.3.3: Autolysis onset and enological maturation on lees",
+      "accessed_on": "2026-10-02"
+    },
+    {
+      "id": "src_d4sekt_awri_laccase",
+      "kind": "reference_work",
+      "title": "AWRI eBulletin: Botrytis and Laccase – Winemaking Strategies",
       "publisher": "The Australian Wine Research Institute",
       "jurisdiction": "AU",
-      "url": "https://www.awri.com.au/information_resources/fact_sheets/",
-      "document_identifier": "AWRI sparkling oenology: physiological autolysis timeline (9–12+ months) and mannoprotein release",
-      "accessed_on": "2026-10-01"
+      "url": "https://www.awri.com.au/information_services/ebulletin/2011/04/07/botrytis-and-laccase-winemaking-strategies/",
+      "document_identifier": "AWRI eBulletin 2011-04-07: Botrytis infection, laccase oxidative enzyme activity and browning risk",
+      "accessed_on": "2026-10-02"
     },
     {
       "id": "src_d4sekt_eu_reg_2019_33",
@@ -423,18 +433,28 @@
     },
     {
       "knowledge_item_id": "ki_d4sekt_base_wine_selection",
+      "source_citation_id": "src_d4sekt_dwi_regulations",
+      "locator": "German sparkling base wine standards: healthy, botrytis-free fruit with brisk acidity and moderate alcohol"
+    },
+    {
+      "knowledge_item_id": "ki_d4sekt_base_wine_selection",
       "source_citation_id": "src_d4sekt_oiv_sparkling",
-      "locator": "Sparkling base wine ripeness, healthy botrytis-free fruit and fractionated pressing"
+      "locator": "Commission Delegated Regulation (EU) 2019/934 Annex I Part A: authorised sparkling enological practices and pressing separation"
     },
     {
       "knowledge_item_id": "ki_d4sekt_base_wine_selection",
       "source_citation_id": "src_spark_gushing",
-      "locator": "AWRI s2195: Botrytis fungal proteases degrade foam-active proteins; laccase causes oxidation"
+      "locator": "AWRI s2195: Botrytis fungal proteases degrade foam-active proteins and impair foam stability"
+    },
+    {
+      "knowledge_item_id": "ki_d4sekt_base_wine_selection",
+      "source_citation_id": "src_d4sekt_awri_laccase",
+      "locator": "AWRI eBulletin 2011: Laccase enzyme from Botrytis catalyzes polyphenol oxidation and browning"
     },
     {
       "knowledge_item_id": "ki_d4sekt_autolysis_vs_fruit",
-      "source_citation_id": "src_d4sekt_awri_sparkling",
-      "locator": "Tank primary fruit retention vs bottle lees autolysis and mouthfeel"
+      "source_citation_id": "src_d4sekt_autolysis_oenology",
+      "locator": "OIV II.4.3.3: Tank primary fruit retention vs bottle lees autolysis and mouthfeel"
     },
     {
       "knowledge_item_id": "ki_d4sekt_dosage_style",
@@ -448,7 +468,7 @@
     },
     {
       "knowledge_item_id": "ki_d4sekt_case_winzersekt_allocation_reason",
-      "source_citation_id": "src_d4sekt_awri_sparkling",
+      "source_citation_id": "src_d4sekt_autolysis_oenology",
       "locator": "Autolytic timeline vs short-cycle tank turnaround; parcel and vessel variation represent confounded factors in fictional trial"
     },
     {

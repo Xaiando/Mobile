@@ -8,6 +8,7 @@ import 'package:fsrs/fsrs.dart' as fsrs;
 import 'package:sommelier/core/coverage/coverage_checker.dart';
 import 'package:sommelier/core/coverage/coverage_policy.dart';
 import 'package:sommelier/core/coverage/track_scope.dart';
+import 'package:sommelier/core/curriculum/curriculum_dataset.dart';
 import 'package:sommelier/core/curriculum/curriculum_ingestion.dart';
 import 'package:sommelier/core/curriculum/curriculum_validator.dart';
 import 'package:sommelier/core/curriculum/name_normalizer.dart';
@@ -93,8 +94,8 @@ void main() {
         'https://www.deutscheweine.de/wissen/qualitaetsstufen/',
     'src_d4sekt_vdp_statut': 'https://www.vdp.de/en/vdp-sekt/',
     'src_d4sekt_oiv_sparkling': 'https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=CELEX%3A32019R0934',
-    'src_d4sekt_awri_sparkling':
-        'https://www.awri.com.au/information_resources/fact_sheets/',
+    'src_d4sekt_autolysis_oenology': 'https://www.oiv.int/',
+    'src_d4sekt_awri_laccase': 'https://www.awri.com.au/information_services/ebulletin/2011/04/07/botrytis-and-laccase-winemaking-strategies/',
     'src_d4sekt_eu_reg_2019_33': 'https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=CELEX%3A32019R0033',
   };
   const expectedRecall = {
@@ -170,10 +171,12 @@ void main() {
         'ki_d4sekt_winzersekt_standards': {'src_wset_sf_winzersekt'},
         'ki_d4sekt_vdp_classification': {'src_d4sekt_vdp_statut'},
         'ki_d4sekt_base_wine_selection': {
+          'src_d4sekt_dwi_regulations',
           'src_d4sekt_oiv_sparkling',
           'src_spark_gushing',
+          'src_d4sekt_awri_laccase',
         },
-        'ki_d4sekt_autolysis_vs_fruit': {'src_d4sekt_awri_sparkling'},
+        'ki_d4sekt_autolysis_vs_fruit': {'src_d4sekt_autolysis_oenology'},
         'ki_d4sekt_dosage_style': {'src_d4sekt_eu_reg_2019_33'},
       };
       for (final item in cohort) {
@@ -432,9 +435,9 @@ void main() {
     );
     for (final entry in {
       'assets/curriculum/areas/diploma_sekt_analytical_cases.yaml':
-          'b5f1f1b7297f19aeee96907201a86f5024e26c65930f741f86529fc229b716a8',
+          '94123eb8ab443d49350faa68c317f94c51d737c4b6ce210b8718f13a199b6e6b',
       'assets/curriculum/templates/diploma_sekt_analytical_cases.yaml':
-          '558173751e885ea2e6d9929acc3e6235cf9be92f6dc6e7ae4eb0b961cd1c4658',
+          '34e0402d0a346856f3fb25ae40c66cd7933b4ee1795b72433274e173ef5c13bc',
     }.entries) {
       expect(_canonicalFileSha256(entry.key), entry.value, reason: entry.key);
     }
@@ -473,95 +476,400 @@ void main() {
     },
   );
 
-  test('independent correctness regressions reject faulty premises and verify repaired Sekt principles and analytical rules', () {
-    // R1: Vintage release vs non-vintage VDP minimum
-    // 15 months on lees qualifies for non-vintage VDP.SEKT, but vintage VDP.SEKT requires at least 24 months.
-    // Releasing a 16-month wine with a vintage date violates VDP statute.
-    const lotCLeesMonths = 15;
-    const vdpNonVintageMinLees = 15;
-    const vdpVintageMinLees = 24;
-    expect(
-      lotCLeesMonths >= vdpNonVintageMinLees,
-      isTrue,
-      reason: 'Complies with NV VDP.SEKT minimum',
+  test('independent correctness regressions reject faulty premises and verify repaired Sekt principles and analytical rules', () async {
+    // 1. Source-grounded expectations tied to actual loaded curriculum data
+    // A1: VDP.SEKT.PRESTIGE requires 36m on lees from estate fruit, single-vineyard designation is optional
+    final vdpPointNode = dataset.knowledgeNodes.singleWhere(
+      (row) => row.id == 'n_d4sekt_point_vdp_classification',
     );
     expect(
-      lotCLeesMonths >= vdpVintageMinLees,
-      isFalse,
-      reason: 'Violates vintage VDP.SEKT 24m minimum',
+      vdpPointNode.name,
+      contains('optional single-vineyard'),
+      reason: 'A1: VDP Prestige does not mandate single-vineyard designation',
+    );
+    final vdpItem = dataset.knowledgeItems.singleWhere(
+      (row) => row.id == 'ki_d4sekt_vdp_classification',
+    );
+    expect(
+      vdpItem.assertionText,
+      contains('single-vineyard designation being optional'),
+    );
+    expect(
+      vdpItem.assertionText,
+      contains('private association standards, not statutory wine law'),
     );
 
-    // R2: VDP.SEKT.PRESTIGE requires 36 months, but single-vineyard designation is optional
-    const prestigeMinLees = 36;
-    expect(prestigeMinLees, 36);
-    // VDP is a private association standard, not universal statutory law
-    const isVdpStatutoryLaw = false;
-    expect(isVdpStatutoryLaw, isFalse);
-
-    // R3: Sekt b.A. production clock
-    // German wine law requires at least 6 months total production duration for Sekt.
-    // Rapid release in week 8 is only lawful if the 6-month statutory production period already elapsed.
-    const statutorySektProductionMonths = 6;
-    const week8Months = 8 / 4.33; // ~1.85 months
+    // A2: Winzersekt allocation action requires dated cash-flow forecast and net receipts verification
+    final winzerActionNode = dataset.knowledgeNodes.singleWhere(
+      (row) => row.id == 'n_d4sekt_case_winzersekt_allocation_action',
+    );
     expect(
-      week8Months < statutorySektProductionMonths,
-      isTrue,
-      reason: '8 weeks from start of fermentation is unlawful without prior compliant production',
+      winzerActionNode.name,
+      contains(
+        'verifying net cash receipts against dated lease liabilities in a cash-flow forecast',
+      ),
+    );
+    final winzerActionItem = dataset.knowledgeItems.singleWhere(
+      (row) => row.id == 'ki_d4sekt_case_winzersekt_allocation_action',
+    );
+    expect(
+      winzerActionItem.assertionText,
+      contains(
+        'verifying net cash receipts against dated lease liabilities in a cash-flow forecast',
+      ),
+    );
+    final winzerTradeoffItem = dataset.knowledgeItems.singleWhere(
+      (row) => row.id == 'ki_d4sekt_case_winzersekt_allocation_tradeoff',
+    );
+    expect(
+      winzerTradeoffItem.assertionText,
+      contains(
+        'prepayment alone cannot be assumed sufficient without verified unit pricing, net margins, and opening cash reserves via a dated cash forecast',
+      ),
     );
 
-    // R4: Cash sufficiency counterexamples
-    // Counterexample A: Inadequate prepayment volume
-    // 360 bottles at 20 EUR/bottle gross = 7,200 EUR receipts.
-    // 7,200 EUR is insufficient to cover an 8,500 EUR lease payment with 0 opening cash.
-    const prepaidBottles = 360;
-    const illustrativeUnitPrice = 20.0;
-    const leasePayment = 8500.0;
-    const openingCashZero = 0.0;
-    final grossReceipts = prepaidBottles * illustrativeUnitPrice;
-    final netCashA = openingCashZero + grossReceipts - leasePayment;
+    // A5: Sweetness categories based on finished total residual sugar and Article 47(3) 3 g/L tolerance
+    final dosageItem = dataset.knowledgeItems.singleWhere(
+      (row) => row.id == 'ki_d4sekt_dosage_style',
+    );
     expect(
-      netCashA,
-      -1300.0,
-      reason: 'Prepayment alone leaves 1,300 EUR deficit without adequate reserves or pricing',
+      dosageItem.assertionText,
+      contains(
+        'Brut (<12 g/L, with Article 47(3) providing a 3 g/L analytical tolerance)',
+      ),
+    );
+    expect(dosageItem.assertionText, contains('Trocken (17–32 g/L)'));
+
+    // A6: Base wine selection separates proteases and laccase with distinct authoritative citations
+    final baseWineItem = dataset.knowledgeItems.singleWhere(
+      (row) => row.id == 'ki_d4sekt_base_wine_selection',
+    );
+    expect(
+      baseWineItem.assertionText,
+      contains(
+        'fungal proteases that degrade foam-active proteins and laccase that causes oxidative browning',
+      ),
+    );
+    final baseCitations = dataset.knowledgeItemCitations
+        .where((row) => row.knowledgeItemId == 'ki_d4sekt_base_wine_selection')
+        .map((row) => row.sourceCitationId)
+        .toSet();
+    expect(
+      baseCitations,
+      containsAll({'src_spark_gushing', 'src_d4sekt_awri_laccase'}),
+      reason:
+          'A6: Proteases and laccase have separate, authoritative citations',
     );
 
-    // Counterexample B: Sufficient opening liquidity
-    // 20,000 EUR liquid reserves easily covers 8,500 EUR payment regardless of 60-day distributor terms.
-    const openingCashReserves = 20000.0;
-    final netCashB = openingCashReserves - leasePayment;
-    expect(
-      netCashB > 0,
-      isTrue,
-      reason: 'Deferred distributor receipts do not create insolvency when adequate reserves exist',
+    // A6: Autolysis onset typically observable after 9-12 months citing OIV Code Section II.4.3.3
+    final autolysisItem = dataset.knowledgeItems.singleWhere(
+      (row) => row.id == 'ki_d4sekt_autolysis_vs_fruit',
     );
-
-    // R5: Sweetness category determined by final total residual sugar, not dosage addition alone
-    // Under Regulation (EU) 2019/33: Brut allows up to 12 g/L finished RS.
-    // If base wine has 6 g/L RS and 8 g/L dosage sugar is added, final RS is 14 g/L (Extra Trocken, NOT Brut).
-    double finalRs(double baseWineRs, double dosageSugarAdded) =>
-        baseWineRs + dosageSugarAdded;
-    expect(finalRs(1.0, 8.0), 9.0); // <= 12 g/L -> Brut
     expect(
-      finalRs(6.0, 8.0),
-      14.0,
-    ); // > 12 g/L -> Extra Trocken (12-17 g/L), rejecting Brut claim
-
-    // R6: Tank vessel does not prevent autolysis; short-cycle tank clarifies early, while autolysis requires extended contact
-    // OIV Code II.4.3.3 authorizes tank maturation on the deposit/lees.
-    // Autolysis requires prolonged yeast contact (starting around 9-12 months).
-    const autolysisOnsetMonths = 9;
-    const shortCycleTankMonths = 2; // e.g. 8 weeks
-    expect(
-      shortCycleTankMonths < autolysisOnsetMonths,
-      isTrue,
-      reason: 'Short-cycle tank intentionally avoids autolysis to preserve primary fruit',
+      autolysisItem.assertionText,
+      contains('typically observable after 9–12 months of lees contact'),
     );
+    final autolysisCitations = dataset.knowledgeItemCitations
+        .where((row) => row.knowledgeItemId == 'ki_d4sekt_autolysis_vs_fruit')
+        .map((row) => row.sourceCitationId)
+        .toSet();
+    expect(autolysisCitations, {'src_d4sekt_autolysis_oenology'});
 
-    // R7: Botrytis fungal proteases degrade foam proteins; laccase causes oxidation
-    // AWRI s2195: fungal proteases cleave foam-active proteins; laccase causes polyphenol oxidation.
-    const proteaseTarget = 'foam-active proteins';
-    const laccaseTarget = 'polyphenols / oxidative browning';
-    expect(proteaseTarget, isNot(laccaseTarget));
+    // 2. Source-grounded expectations tied to presented/graded exercises
+    final db = openTestDatabase();
+    try {
+      final fixed = Clock.fixed(dataset.publishedAt);
+      await CurriculumIngester(
+        db,
+        clock: fixed,
+        assets: (path) async => File(path).readAsBytesSync(),
+      ).ingest(dataset);
+      final presenter = ExercisePresenter(db, clock: fixed);
+      const choiceFormat = AuthoredChoiceFormat();
+      const typedFormat = TypedFormat();
+      const criteriaFormat = CaseCriteriaFormat();
+      const shortAnswerFormat = ShortAnswerFormat();
+
+      // Exercise presentation: AuthoredChoiceFormat for VDP classification
+      final vdpChoice = await presenter.present(
+        'ki_d4sekt_vdp_classification',
+        choiceId,
+        certificationId: 'WSET_L4',
+        seed: 42,
+      ) as AuthoredChoiceQuestion;
+      expect(
+        vdpChoice.answer.name,
+        contains('single-vineyard designation being optional'),
+      );
+      expect(
+        choiceFormat.grade(vdpChoice, vdpChoice.answer).single.rating,
+        fsrs.Rating.good,
+      );
+      final tankDistractor = vdpChoice.options.firstWhere(
+        (opt) => opt.name.contains('Charmat tank fermentation'),
+      );
+      expect(
+        choiceFormat.grade(vdpChoice, tankDistractor).single.rating,
+        fsrs.Rating.again,
+      );
+
+      // Exercise presentation: AuthoredChoiceFormat for Dosage style
+      final dosageChoice = await presenter.present(
+        'ki_d4sekt_dosage_style',
+        choiceId,
+        certificationId: 'WSET_L4',
+        seed: 42,
+      ) as AuthoredChoiceQuestion;
+      expect(
+        dosageChoice.answer.name,
+        contains('nominal threshold <12 g/L residual sugar'),
+      );
+      expect(
+        choiceFormat.grade(dosageChoice, dosageChoice.answer).single.rating,
+        fsrs.Rating.good,
+      );
+      final trockenDistractor = dosageChoice.options.firstWhere(
+        (opt) => opt.name.contains('must be labelled \'Trocken\''),
+      );
+      expect(
+        choiceFormat.grade(dosageChoice, trockenDistractor).single.rating,
+        fsrs.Rating.again,
+      );
+
+      // Exercise presentation: TypedFormat for VDP Prestige lees duration
+      final vdpTyped = await presenter.present(
+        'ki_d4sekt_vdp_classification',
+        typedId,
+        certificationId: 'WSET_L4',
+        seed: 42,
+      ) as TypedQuestion;
+      expect(typedFormat.grade(vdpTyped, '36').single.rating, fsrs.Rating.good);
+      expect(
+        typedFormat.grade(vdpTyped, 'thirty-six').single.rating,
+        fsrs.Rating.good,
+      );
+      expect(
+        typedFormat.grade(vdpTyped, '24').single.rating,
+        fsrs.Rating.again,
+      );
+      expect(
+        typedFormat.grade(vdpTyped, '15').single.rating,
+        fsrs.Rating.again,
+      );
+
+      // Unlock prerequisites so CaseCriteria can be presented
+      const flashcards = {
+        'CASE_ACTION': 'qt_case_action_flashcard',
+        'CASE_REASON': 'qt_case_reason_flashcard',
+        'CASE_TRADEOFF': 'qt_case_tradeoff_flashcard',
+        'CASE_LIMITATION': 'qt_case_limitation_flashcard',
+      };
+      final flashcardPresenter = QuestionPresenter(db);
+      final reviews = ReviewService(db, clock: fixed);
+      for (final entry in actions.entries) {
+        final coRoles = dataset.knowledgeItems.where(
+          (row) =>
+              row.subjectId == entry.key &&
+              {
+                'CASE_REASON',
+                'CASE_TRADEOFF',
+                'CASE_LIMITATION',
+              }.contains(row.relationType),
+        );
+        for (final item in coRoles) {
+          final question = await flashcardPresenter.present(
+            item.id,
+            flashcards[item.relationType]!,
+            seed: 11,
+          );
+          await reviews.gradeFlashcard(question, fsrs.Rating.good);
+        }
+      }
+
+      // Exercise presentation: CaseCriteriaFormat for Winzersekt allocation
+      final winzerExercise = await presenter.present(
+        'ki_d4sekt_case_winzersekt_allocation_action',
+        criteriaId,
+        certificationId: 'WSET_L4',
+        seed: 42,
+      ) as CaseCriteriaExercise;
+      final winzerCorrectByRole = {
+        for (final criterion in winzerExercise.criteria)
+          criterion.role: criterion.itemId,
+      };
+      final actionCriterion = winzerExercise.criteria.singleWhere(
+        (c) => c.role == 'CASE_ACTION',
+      );
+      expect(
+        actionCriterion.summary,
+        contains(
+          'verifying net cash receipts against dated lease liabilities in a cash-flow forecast',
+        ),
+      );
+      final winzerGrade = criteriaFormat.grade(
+        winzerExercise,
+        CaseCriteriaResponse(winzerCorrectByRole),
+      );
+      expect(winzerGrade.every((g) => g.rating == fsrs.Rating.good), isTrue);
+
+      // Distractor assuming distributor order guarantees working capital receives Rating.again
+      final falseOption = winzerExercise.options.firstWhere(
+        (opt) =>
+            opt.explanation != null &&
+            opt.summary.contains('regional distributor'),
+      );
+      final falseGrade = criteriaFormat.grade(
+        winzerExercise,
+        CaseCriteriaResponse({
+          ...winzerCorrectByRole,
+          'CASE_ACTION': falseOption.id,
+        }),
+      );
+      expect(
+        falseGrade
+            .singleWhere((g) => g.itemId == winzerCorrectByRole['CASE_ACTION'])
+            .rating,
+        fsrs.Rating.again,
+      );
+
+      // Exercise presentation: ShortAnswerFormat for Winzersekt allocation
+      final winzerShortAnswer = await presenter.present(
+        'ki_d4sekt_case_winzersekt_allocation_action',
+        writtenId,
+        certificationId: 'WSET_L4',
+        seed: 42,
+      ) as ShortAnswerExercise;
+      expect(winzerShortAnswer.keyPoints, hasLength(4));
+      expect(
+        winzerShortAnswer.keyPoints.any(
+          (kp) => kp.statement.contains(
+            'dated lease liabilities in a cash-flow forecast',
+          ),
+        ),
+        isTrue,
+      );
+      expect(
+        winzerShortAnswer.keyPoints.any(
+          (kp) => kp.title.contains(
+            'Conditional production, origin certification and allocation decision',
+          ),
+        ),
+        isTrue,
+      );
+      final shortAnswerFull = shortAnswerFormat.grade(
+        winzerShortAnswer,
+        ShortAnswerResponse(
+          'Full written response',
+          winzerExercise.itemIds.toSet(),
+        ),
+      );
+      expect(
+        shortAnswerFull.every((g) => g.rating == fsrs.Rating.good),
+        isTrue,
+      );
+
+      // Omitting action point yields Rating.again
+      final shortAnswerOmitted = shortAnswerFormat.grade(
+        winzerShortAnswer,
+        ShortAnswerResponse(
+          'Response missing action',
+          winzerExercise.itemIds.toSet()
+            ..remove(winzerCorrectByRole['CASE_ACTION']),
+        ),
+      );
+      expect(
+        shortAnswerOmitted
+            .singleWhere((g) => g.itemId == winzerCorrectByRole['CASE_ACTION'])
+            .rating,
+        fsrs.Rating.again,
+      );
+
+      // 3. In-memory faulty fixture rejection:
+      // Mutation A: Dangling citation reference in mutated dataset is rejected by validateDataset
+      final faultyCitationsDataset = CurriculumDataset(
+        version: dataset.version,
+        publishedAt: dataset.publishedAt,
+        checksum: dataset.checksum,
+        curriculumDomains: dataset.curriculumDomains,
+        tastingGrids: dataset.tastingGrids,
+        certifications: dataset.certifications,
+        nodeTypes: dataset.nodeTypes,
+        relationTypes: dataset.relationTypes,
+        relationTypeSignatures: dataset.relationTypeSignatures,
+        knowledgeNodes: dataset.knowledgeNodes,
+        quantityValues: dataset.quantityValues,
+        nodeAlternativeNames: dataset.nodeAlternativeNames,
+        knowledgeRelations: dataset.knowledgeRelations,
+        knowledgeItems: dataset.knowledgeItems,
+        knowledgeItemPrerequisites: dataset.knowledgeItemPrerequisites,
+        certificationKnowledgeMappings: dataset.certificationKnowledgeMappings,
+        sourceCitations: dataset.sourceCitations
+            .where((c) => c.id != 'src_d4sekt_awri_laccase')
+            .toList(),
+        knowledgeItemCitations: dataset.knowledgeItemCitations,
+        questionTemplates: dataset.questionTemplates,
+        tastingGridAttributes: dataset.tastingGridAttributes,
+        tastingGridValues: dataset.tastingGridValues,
+        relationSetAssertions: dataset.relationSetAssertions,
+        mapLayers: dataset.mapLayers,
+        mapLayerCitations: dataset.mapLayerCitations,
+        nodeGeometries: dataset.nodeGeometries,
+      );
+      final reportA = validateDataset(faultyCitationsDataset);
+      expect(reportA.errors, isNotEmpty);
+      expect(
+        reportA.errors.any((err) => err.rule == 'unknown-reference'),
+        isTrue,
+        reason:
+            'In-memory faulty fixture with missing citation must be rejected',
+      );
+
+      // Mutation B: Faulty CaseCriteriaResponse with invalid foreign item throws ArgumentError
+      expect(
+        () => criteriaFormat.grade(
+          winzerExercise,
+          CaseCriteriaResponse({
+            ...winzerCorrectByRole,
+            'CASE_ACTION': 'ki_invalid_foreign_item',
+          }),
+        ),
+        throwsArgumentError,
+        reason: 'Faulty foreign item ID in response must be rejected',
+      );
+
+      // Mutation C: Faulty AuthoredChoice option not present in question throws ArgumentError
+      expect(
+        () => choiceFormat.grade(
+          vdpChoice,
+          const QuestionOption('n_invalid', 'Invalid Option'),
+        ),
+        throwsArgumentError,
+        reason: 'Option not in question options must be rejected',
+      );
+
+      // Analytical Sweetness Verification:
+      // Nominal Brut allows <12 g/L finished RS. Article 47(3) allows 3 g/L tolerance (max 15 g/L).
+      // Finished wine with 6 g/L base RS + 12 g/L dosage RS = 18 g/L finished RS strictly exceeds 15 g/L,
+      // making Brut legally impossible and mandating Trocken (17–32 g/L).
+      double finalRs(double baseRs, double dosageRs) => baseRs + dosageRs;
+      const baseRs = 6.0;
+      const dosageRs = 12.0;
+      final finishedTotalRs = finalRs(baseRs, dosageRs);
+      const nominalBrutMax = 12.0;
+      const toleranceArticle47_3 = 3.0;
+      const maxBrutWithTolerance =
+          nominalBrutMax + toleranceArticle47_3; // 15.0 g/L
+      expect(finishedTotalRs, 18.0);
+      expect(finishedTotalRs > maxBrutWithTolerance, isTrue);
+      const trockenMin = 17.0;
+      const trockenMax = 32.0;
+      expect(
+        finishedTotalRs >= trockenMin && finishedTotalRs <= trockenMax,
+        isTrue,
+      );
+    } finally {
+      await db.close();
+    }
   });
 
   test(
