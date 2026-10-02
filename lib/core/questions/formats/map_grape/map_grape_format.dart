@@ -5,6 +5,7 @@ import 'package:fsrs/fsrs.dart' as fsrs;
 
 import '../../../curriculum/knowledge_graph.dart';
 import '../../../database/app_database.dart';
+import '../../../database/read_cache.dart';
 import '../../../geography/geometry_repository.dart';
 import '../../../study/learner_profile.dart';
 import '../../../study/study_planner.dart';
@@ -121,6 +122,7 @@ class MapGrapeFormat extends MapLocateFormat {
             item.subjectId,
             context.today,
             item.relationType,
+            cache: context.reads,
           ) !=
           null;
 
@@ -131,14 +133,17 @@ class MapGrapeFormat extends MapLocateFormat {
     AppDatabase db,
     String subjectId,
     String on,
-    String relationType,
-  ) async {
+    String relationType, {
+    ReadCache? cache,
+  }) async {
     if (relationType == plantingRelation) {
       final areas = await _plantingAreas(db, subjectId, on);
       final area = areas[subjectId];
       if (area == null) return null;
-      return GeometryRepository(db)
-          .frameOf(area, eligibleNodeIds: areas.values.toSet(), on: on);
+      return GeometryRepository(
+        db,
+        cache: cache,
+      ).frameOf(area, eligibleNodeIds: areas.values.toSet(), on: on);
     }
     final assertions =
         await (db.select(db.relationSetAssertions)..where(
@@ -152,7 +157,7 @@ class MapGrapeFormat extends MapLocateFormat {
             .get();
     final complete = {for (final assertion in assertions) assertion.nodeId};
     if (!complete.contains(subjectId)) return null;
-    final maps = GeometryRepository(db);
+    final maps = GeometryRepository(db, cache: cache);
     // Prefer enough alternatives to avoid a tiny frame consisting only of
     // closely related appellations that permit the same grape.
     return await maps.frameOf(subjectId, eligibleNodeIds: complete, on: on) ??
