@@ -22,7 +22,11 @@ import 'package:sommelier/core/questions/question_presenter.dart';
 import 'package:sommelier/core/study/review_service.dart';
 import 'package:sommelier/core/study/study_planner.dart';
 
+import 'package:drift/drift.dart' hide isNull;
+import 'package:sommelier/core/database/app_database.dart';
+
 import '../../support/curriculum_fixture.dart';
+import '../../support/curriculum_predecessors.dart';
 import '../../support/fixture.dart';
 
 String _canonicalFileSha256(String path) {
@@ -94,7 +98,9 @@ void main() {
         'https://www.deutscheweine.de/wissen/qualitaetsstufen/',
     'src_d4sekt_vdp_statut': 'https://www.vdp.de/en/vdp-sekt/',
     'src_d4sekt_oiv_sparkling': 'https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=CELEX%3A32019R0934',
-    'src_d4sekt_autolysis_oenology': 'https://www.oiv.int/',
+    'src_d4sekt_autolysis_oenology': 'https://doi.org/10.1002/9780470010396',
+    'src_d4sekt_awri_sparkling':
+        'https://www.awri.com.au/information_resources/fact_sheets/',
     'src_d4sekt_awri_laccase': 'https://www.awri.com.au/information_services/ebulletin/2011/04/07/botrytis-and-laccase-winemaking-strategies/',
     'src_d4sekt_eu_reg_2019_33': 'https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=CELEX%3A32019R0033',
   };
@@ -176,7 +182,10 @@ void main() {
           'src_spark_gushing',
           'src_d4sekt_awri_laccase',
         },
-        'ki_d4sekt_autolysis_vs_fruit': {'src_d4sekt_autolysis_oenology'},
+        'ki_d4sekt_autolysis_vs_fruit': {
+          'src_d4sekt_autolysis_oenology',
+          'src_d4sekt_awri_sparkling',
+        },
         'ki_d4sekt_dosage_style': {'src_d4sekt_eu_reg_2019_33'},
       };
       for (final item in cohort) {
@@ -435,9 +444,9 @@ void main() {
     );
     for (final entry in {
       'assets/curriculum/areas/diploma_sekt_analytical_cases.yaml':
-          '94123eb8ab443d49350faa68c317f94c51d737c4b6ce210b8718f13a199b6e6b',
+          'e4ffc50e1384d90f924d0b38bca6be7b4ce4980d8f473086b90ea1b1674d0e5d',
       'assets/curriculum/templates/diploma_sekt_analytical_cases.yaml':
-          '34e0402d0a346856f3fb25ae40c66cd7933b4ee1795b72433274e173ef5c13bc',
+          '05fa480113ebf0ee7266b08b1debb97755fd065e35232b6ac0e0fdf9ce9891c4',
     }.entries) {
       expect(_canonicalFileSha256(entry.key), entry.value, reason: entry.key);
     }
@@ -561,19 +570,50 @@ void main() {
           'A6: Proteases and laccase have separate, authoritative citations',
     );
 
-    // A6: Autolysis onset typically observable after 9-12 months citing OIV Code Section II.4.3.3
+    // A6/B1/B3: Autolysis onset typically developing after 9-12 months citing Ribéreau-Gayon & AWRI
     final autolysisItem = dataset.knowledgeItems.singleWhere(
       (row) => row.id == 'ki_d4sekt_autolysis_vs_fruit',
     );
     expect(
       autolysisItem.assertionText,
-      contains('typically observable after 9–12 months of lees contact'),
+      contains('typically developing after 9–12 months of lees contact'),
     );
     final autolysisCitations = dataset.knowledgeItemCitations
         .where((row) => row.knowledgeItemId == 'ki_d4sekt_autolysis_vs_fruit')
         .map((row) => row.sourceCitationId)
         .toSet();
-    expect(autolysisCitations, {'src_d4sekt_autolysis_oenology'});
+    expect(autolysisCitations, {
+      'src_d4sekt_autolysis_oenology',
+      'src_d4sekt_awri_sparkling',
+    });
+    final winzerReasonCitations = dataset.knowledgeItemCitations
+        .where(
+          (row) =>
+              row.knowledgeItemId ==
+              'ki_d4sekt_case_winzersekt_allocation_reason',
+        )
+        .map((row) => row.sourceCitationId)
+        .toSet();
+    expect(winzerReasonCitations, {
+      'src_d4sekt_autolysis_oenology',
+      'src_d4sekt_awri_sparkling',
+    });
+    final autolysisSource = dataset.sourceCitations.singleWhere(
+      (row) => row.id == 'src_d4sekt_autolysis_oenology',
+    );
+    expect(
+      autolysisSource.title,
+      'Handbook of Enology, Vol. 2: The Chemistry of Wine Stabilization and Treatments',
+    );
+    expect(autolysisSource.publisher, 'John Wiley & Sons');
+    final awriSource = dataset.sourceCitations.singleWhere(
+      (row) => row.id == 'src_d4sekt_awri_sparkling',
+    );
+    expect(
+      awriSource.title,
+      'AWRI Fact Sheet: Yeast Autolysis and Sparkling Wine Maturation',
+    );
+    expect(awriSource.publisher, 'The Australian Wine Research Institute');
 
     // 2. Source-grounded expectations tied to presented/graded exercises
     final db = openTestDatabase();
@@ -847,10 +887,124 @@ void main() {
         reason: 'Option not in question options must be rejected',
       );
 
+      // Mutation D: Independent wrong-premise check on NV vs vintage lees requirements
+      // Attempting to release a 15-month lees NV lot as a single-vintage VDP.SEKT at month 16
+      // violates the 24-month vintage lees mandate and must receive Rating.again.
+      final extendedLeesExercise = await presenter.present(
+        'ki_d4sekt_case_extended_lees_positioning_action',
+        criteriaId,
+        certificationId: 'WSET_L4',
+        seed: 42,
+      ) as CaseCriteriaExercise;
+      final extendedCorrectByRole = {
+        for (final criterion in extendedLeesExercise.criteria)
+          criterion.role: criterion.itemId,
+      };
+      final prematureVintageDistractor = extendedLeesExercise.options
+          .firstWhere(
+            (opt) =>
+                opt.summary.contains('single-vintage VDP.SEKT at month 16'),
+          );
+      final prematureVintageGrade = criteriaFormat.grade(
+        extendedLeesExercise,
+        CaseCriteriaResponse({
+          ...extendedCorrectByRole,
+          'CASE_ACTION': prematureVintageDistractor.id,
+        }),
+      );
+      expect(
+        prematureVintageGrade
+            .singleWhere(
+              (g) => g.itemId == extendedCorrectByRole['CASE_ACTION'],
+            )
+            .rating,
+        fsrs.Rating.again,
+        reason: 'False premise: 15-month lees wine cannot be labelled as vintage VDP.SEKT',
+      );
+
+      // Mutation E: Independent wrong-premise check on production method & clock
+      // Attempting to misrepresent contract tank Sekt (Lot B) as Winzersekt must receive Rating.again.
+      final tankAsWinzerDistractor = winzerExercise.options.firstWhere(
+        (opt) => opt.summary.contains('label it as Winzersekt'),
+      );
+      final tankAsWinzerGrade = criteriaFormat.grade(
+        winzerExercise,
+        CaseCriteriaResponse({
+          ...winzerCorrectByRole,
+          'CASE_ACTION': tankAsWinzerDistractor.id,
+        }),
+      );
+      expect(
+        tankAsWinzerGrade
+            .singleWhere((g) => g.itemId == winzerCorrectByRole['CASE_ACTION'])
+            .rating,
+        fsrs.Rating.again,
+        reason:
+            'False premise: tank-fermented Sekt cannot be labelled Winzersekt',
+      );
+
+      // Mutation F: Independent wrong-premise check on finished sugar classification
+      // Claiming an 8 g/L finished wine must be Trocken or qualifies as Brut Nature is rejected.
+      final trockenClaimDistractor = dosageChoice.options.firstWhere(
+        (opt) => opt.name.contains("must be labelled 'Trocken'"),
+      );
+      expect(
+        choiceFormat.grade(dosageChoice, trockenClaimDistractor).single.rating,
+        fsrs.Rating.again,
+        reason: 'False premise: 8 g/L is not required to be labelled Trocken',
+      );
+      final brutNatureClaimDistractor = dosageChoice.options.firstWhere(
+        (opt) => opt.name.contains("qualifies as 'Brut Nature'"),
+      );
+      expect(
+        choiceFormat
+            .grade(dosageChoice, brutNatureClaimDistractor)
+            .single
+            .rating,
+        fsrs.Rating.again,
+        reason: 'False premise: 8 g/L cannot be labelled Brut Nature',
+      );
+
+      // Mutation G: Independent wrong-premise check on yeast autolysis mechanisms
+      final autolysisChoice = await presenter.present(
+        'ki_d4sekt_autolysis_vs_fruit',
+        choiceId,
+        certificationId: 'WSET_L4',
+        seed: 42,
+      ) as AuthoredChoiceQuestion;
+      final tankAutolysisDistractor = autolysisChoice.options.firstWhere(
+        (opt) => opt.name.contains(
+          'Tank fermentation induces rapid yeast autolysis',
+        ),
+      );
+      expect(
+        choiceFormat
+            .grade(autolysisChoice, tankAutolysisDistractor)
+            .single
+            .rating,
+        fsrs.Rating.again,
+        reason: 'False premise: short-cycle tank fermentation does not induce rapid autolysis',
+      );
+      final acidEliminationDistractor = autolysisChoice.options.firstWhere(
+        (opt) => opt.name.contains('completely eliminates acidity'),
+      );
+      expect(
+        choiceFormat
+            .grade(autolysisChoice, acidEliminationDistractor)
+            .single
+            .rating,
+        fsrs.Rating.again,
+        reason: 'False premise: bottle fermentation does not eliminate acidity',
+      );
+
       // Analytical Sweetness Verification:
-      // Nominal Brut allows <12 g/L finished RS. Article 47(3) allows 3 g/L tolerance (max 15 g/L).
-      // Finished wine with 6 g/L base RS + 12 g/L dosage RS = 18 g/L finished RS strictly exceeds 15 g/L,
-      // making Brut legally impossible and mandating Trocken (17–32 g/L).
+      // Nominal Brut requires <12 g/L finished RS. Article 47(3) of Regulation (EU) 2019/33 provides a 3 g/L
+      // analytical tolerance (max 15 g/L). A finished sparkling wine with 6 g/L base RS + 12 g/L dosage RS = 18 g/L
+      // finished RS strictly exceeds 15 g/L, legally precluding 'Brut'.
+      // Under EU Regulation 2019/33 Annex III Part A, 18 g/L falls within the nominal Trocken band (17–32 g/L);
+      // Extra Trocken (nominal 12–17 g/L) could also encompass up to 20 g/L under Article 47(3) tolerance.
+      // Therefore Trocken is a valid classification within its nominal band, but not the uniquely mandated label
+      // across all overlapping and tolerance provisions.
       double finalRs(double baseRs, double dosageRs) => baseRs + dosageRs;
       const baseRs = 6.0;
       const dosageRs = 12.0;
@@ -1459,6 +1613,286 @@ void main() {
             .map((row) => row.id)
             .toSet(),
         caseIds,
+      );
+    } finally {
+      await db.close();
+    }
+  });
+
+  test('predecessor installation: frozen exact .68 upgrades cleanly to 0.24.70 preserving FSRS, reviews, and settings', () async {
+    final db = openTestDatabase();
+    try {
+      final dataset68 = loadFrozenRelease68();
+      expect(dataset68.version, '0.24.68');
+      final fixed68 = Clock.fixed(dataset68.publishedAt);
+
+      // 1. Install predecessor .68
+      await CurriculumIngester(
+        db,
+        clock: fixed68,
+        assets: (path) async => File(path).readAsBytesSync(),
+      ).ingest(dataset68);
+
+      final releaseBefore = await (db.select(
+        db.curriculumReleases,
+      )..orderBy([(r) => OrderingTerm.desc(r.ingestedAt)])).get();
+      expect(releaseBefore.first.version, '0.24.68');
+
+      // Verify .68 state: src_d4sekt_awri_sparkling exists, src_d4sekt_autolysis_oenology does not
+      final sources68 = (await db.select(db.sourceCitations).get())
+          .map((s) => s.id)
+          .toSet();
+      expect(sources68, contains('src_d4sekt_awri_sparkling'));
+      expect(sources68, isNot(contains('src_d4sekt_autolysis_oenology')));
+
+      // 2. Seed learner data: user settings, review events, and FSRS states
+      await db
+          .into(db.userSettings)
+          .insertOnConflictUpdate(
+            UserSetting(
+              name: 'active_certification_id',
+              value: 'WSET_L4',
+              updatedAt: fixed68.now().toUtc(),
+            ),
+          );
+      await db
+          .into(db.userSettings)
+          .insertOnConflictUpdate(
+            UserSetting(
+              name: 'daily_goal',
+              value: '25',
+              updatedAt: fixed68.now().toUtc(),
+            ),
+          );
+
+      final presenter68 = QuestionPresenter(db);
+      final reviews68 = ReviewService(db, clock: fixed68);
+      final flashcardQ = await presenter68.present(
+        'ki_d4sekt_origin_hierarchy',
+        'qt_d4sekt_principle_typed_6',
+        seed: 42,
+      );
+      await reviews68.gradeFlashcard(flashcardQ, fsrs.Rating.good);
+
+      final settingsSnapshot = {
+        for (final row in await db.select(db.userSettings).get())
+          row.name: row.value,
+      };
+      final reviewStatesSnapshot = await db.select(db.reviewStates).get();
+      final reviewEventsSnapshot = await db.select(db.reviewEvents).get();
+      expect(reviewEventsSnapshot, isNotEmpty);
+      expect(reviewStatesSnapshot, isNotEmpty);
+
+      // 3. Upgrade to 0.24.70
+      final dataset70 = bundledDataset();
+      expect(dataset70.version, '0.24.70');
+      final fixed70 = Clock.fixed(dataset70.publishedAt);
+      await CurriculumIngester(
+        db,
+        clock: fixed70,
+        assets: (path) async => File(path).readAsBytesSync(),
+      ).ingest(dataset70);
+
+      // 4. Verify successful upgrade without removals
+      final releaseAfter = await (db.select(
+        db.curriculumReleases,
+      )..orderBy([(r) => OrderingTerm.desc(r.ingestedAt)])).get();
+      expect(releaseAfter.first.version, '0.24.70');
+
+      final sources70 = (await db.select(db.sourceCitations).get())
+          .map((s) => s.id)
+          .toSet();
+      expect(sources70, contains('src_d4sekt_awri_sparkling'));
+      expect(sources70, contains('src_d4sekt_autolysis_oenology'));
+      expect(sources70, contains('src_d4sekt_awri_laccase'));
+
+      final citations70 = (await db.select(db.knowledgeItemCitations).get())
+          .map((c) => '${c.knowledgeItemId} ${c.sourceCitationId}')
+          .toSet();
+      expect(
+        citations70,
+        containsAll({
+          'ki_d4sekt_autolysis_vs_fruit src_d4sekt_awri_sparkling',
+          'ki_d4sekt_autolysis_vs_fruit src_d4sekt_autolysis_oenology',
+          'ki_d4sekt_case_winzersekt_allocation_reason src_d4sekt_awri_sparkling',
+          'ki_d4sekt_case_winzersekt_allocation_reason src_d4sekt_autolysis_oenology',
+        }),
+      );
+
+      // 5. Verify learner data preserved
+      final settingsAfter = {
+        for (final row in await db.select(db.userSettings).get())
+          row.name: row.value,
+      };
+      expect(settingsAfter, settingsSnapshot);
+
+      final reviewStatesAfter = await db.select(db.reviewStates).get();
+      expect(reviewStatesAfter.length, reviewStatesSnapshot.length);
+      expect(
+        reviewStatesAfter.first.stability,
+        reviewStatesSnapshot.first.stability,
+      );
+      expect(
+        reviewStatesAfter.first.difficulty,
+        reviewStatesSnapshot.first.difficulty,
+      );
+
+      final reviewEventsAfter = await db.select(db.reviewEvents).get();
+      expect(reviewEventsAfter.length, reviewEventsSnapshot.length);
+      expect(reviewEventsAfter.first.id, reviewEventsSnapshot.first.id);
+
+      // 6. Verify questions regenerated with corrected 0.24.70 content
+      final presenter70 = ExercisePresenter(db, clock: fixed70);
+      final typed70 = await presenter70.present(
+        'ki_d4sekt_dosage_style',
+        typedId,
+        certificationId: 'WSET_L4',
+        seed: 42,
+      ) as TypedQuestion;
+      expect(
+        typed70.prompt,
+        'Under EU regulations, which sparkling sweetness category has a nominal upper limit of less than 12 grams per litre of residual sugar?',
+      );
+      const typedFormat = TypedFormat();
+      expect(
+        typedFormat.grade(typed70, 'Brut').single.rating,
+        fsrs.Rating.good,
+      );
+      expect(
+        typedFormat.grade(typed70, 'Extra Brut').single.rating,
+        fsrs.Rating.again,
+      );
+      expect(
+        typedFormat.grade(typed70, 'Brut Nature').single.rating,
+        fsrs.Rating.again,
+      );
+    } finally {
+      await db.close();
+    }
+  });
+
+  test('predecessor installation: frozen exact .69 upgrades cleanly to 0.24.70 preserving FSRS, reviews, and settings', () async {
+    final db = openTestDatabase();
+    try {
+      final dataset69 = loadFrozenRelease69();
+      expect(dataset69.version, '0.24.69');
+      final fixed69 = Clock.fixed(dataset69.publishedAt);
+
+      // 1. Install predecessor .69
+      await CurriculumIngester(
+        db,
+        clock: fixed69,
+        assets: (path) async => File(path).readAsBytesSync(),
+      ).ingest(dataset69);
+
+      final releaseBefore = await (db.select(
+        db.curriculumReleases,
+      )..orderBy([(r) => OrderingTerm.desc(r.ingestedAt)])).get();
+      expect(releaseBefore.first.version, '0.24.69');
+
+      // Verify .69 state: src_d4sekt_autolysis_oenology exists, src_d4sekt_awri_sparkling does not
+      final sources69 = (await db.select(db.sourceCitations).get())
+          .map((s) => s.id)
+          .toSet();
+      expect(sources69, contains('src_d4sekt_autolysis_oenology'));
+      expect(sources69, contains('src_d4sekt_awri_laccase'));
+      expect(sources69, isNot(contains('src_d4sekt_awri_sparkling')));
+
+      // 2. Seed learner data
+      await db
+          .into(db.userSettings)
+          .insertOnConflictUpdate(
+            UserSetting(
+              name: 'active_certification_id',
+              value: 'WSET_L4',
+              updatedAt: fixed69.now().toUtc(),
+            ),
+          );
+      await db
+          .into(db.userSettings)
+          .insertOnConflictUpdate(
+            UserSetting(
+              name: 'theme_mode',
+              value: 'dark',
+              updatedAt: fixed69.now().toUtc(),
+            ),
+          );
+
+      final presenter69 = QuestionPresenter(db);
+      final reviews69 = ReviewService(db, clock: fixed69);
+      final flashcardQ = await presenter69.present(
+        'ki_d4sekt_vdp_classification',
+        'qt_d4sekt_principle_typed_6',
+        seed: 42,
+      );
+      await reviews69.gradeFlashcard(flashcardQ, fsrs.Rating.good);
+
+      final settingsSnapshot = {
+        for (final row in await db.select(db.userSettings).get())
+          row.name: row.value,
+      };
+      final reviewStatesSnapshot = await db.select(db.reviewStates).get();
+      final reviewEventsSnapshot = await db.select(db.reviewEvents).get();
+
+      // 3. Upgrade to 0.24.70
+      final dataset70 = bundledDataset();
+      expect(dataset70.version, '0.24.70');
+      final fixed70 = Clock.fixed(dataset70.publishedAt);
+      await CurriculumIngester(
+        db,
+        clock: fixed70,
+        assets: (path) async => File(path).readAsBytesSync(),
+      ).ingest(dataset70);
+
+      // 4. Verify successful upgrade without removals
+      final releaseAfter = await (db.select(
+        db.curriculumReleases,
+      )..orderBy([(r) => OrderingTerm.desc(r.ingestedAt)])).get();
+      expect(releaseAfter.first.version, '0.24.70');
+
+      final sources70 = (await db.select(db.sourceCitations).get())
+          .map((s) => s.id)
+          .toSet();
+      expect(sources70, contains('src_d4sekt_awri_sparkling'));
+      expect(sources70, contains('src_d4sekt_autolysis_oenology'));
+
+      // 5. Verify learner data preserved
+      final settingsAfter = {
+        for (final row in await db.select(db.userSettings).get())
+          row.name: row.value,
+      };
+      expect(settingsAfter, settingsSnapshot);
+
+      final reviewStatesAfter = await db.select(db.reviewStates).get();
+      expect(reviewStatesAfter.length, reviewStatesSnapshot.length);
+      expect(
+        reviewStatesAfter.first.stability,
+        reviewStatesSnapshot.first.stability,
+      );
+
+      final reviewEventsAfter = await db.select(db.reviewEvents).get();
+      expect(reviewEventsAfter.length, reviewEventsSnapshot.length);
+
+      // 6. Verify questions regenerated with corrected 0.24.70 content
+      final presenter70 = ExercisePresenter(db, clock: fixed70);
+      final typed70 = await presenter70.present(
+        'ki_d4sekt_dosage_style',
+        typedId,
+        certificationId: 'WSET_L4',
+        seed: 42,
+      ) as TypedQuestion;
+      expect(
+        typed70.prompt,
+        'Under EU regulations, which sparkling sweetness category has a nominal upper limit of less than 12 grams per litre of residual sugar?',
+      );
+      const typedFormat = TypedFormat();
+      expect(
+        typedFormat.grade(typed70, 'Brut').single.rating,
+        fsrs.Rating.good,
+      );
+      expect(
+        typedFormat.grade(typed70, 'Extra Brut').single.rating,
+        fsrs.Rating.again,
       );
     } finally {
       await db.close();
