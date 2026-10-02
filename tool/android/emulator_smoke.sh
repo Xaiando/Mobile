@@ -189,6 +189,18 @@ if grep -E -q "$crash" "$out/logcat.txt"; then
 else
   note "- no crash, ANR or native-library failure in logcat"
 fi
+# A release build's code shrinker (R8) can remove a constructor that ML Kit
+# creates by reflection. Nothing crashes at startup: ML Kit logs one warning,
+# and text recognition then fails when it is first used.
+registrar='ComponentDiscovery.*Could not instantiate'
+if grep -E -q "$registrar" "$out/logcat.txt"; then
+  fail "ML Kit could not start its components; a release build's code shrinker removed a constructor it creates by reflection (android/app/proguard-rules.pro):"
+  note '```'
+  grep -E "$registrar" "$out/logcat.txt" | head -3 | tee -a "$summary"
+  note '```'
+else
+  note "- ML Kit started its components"
+fi
 denied=$(grep -c -E 'EACCES|missing INTERNET permission|Permission denied.*(socket|INTERNET)' "$out/logcat.txt")
 note "- network attempts the system refused (expected without INTERNET): $denied"
 note ""

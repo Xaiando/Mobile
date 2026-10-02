@@ -31,6 +31,9 @@ case "$1" in
         echo "10-02 12:00:03.000  1234  1234 E AndroidRuntime: Process: com.xaiando.sommelier, PID: 1234"
         echo "10-02 12:00:03.000  1234  1234 E AndroidRuntime: java.lang.UnsatisfiedLinkError: libsqlite3.so"
       fi
+      if [[ ${FAKE_REGISTRAR:-0} == 1 ]]; then
+        echo "10-02 12:00:01.000  1234  1234 W ComponentDiscovery: mi: Could not instantiate com.google.mlkit.common.internal.CommonComponentRegistrar"
+      fi
       echo "10-02 12:00:04.000  1234  1300 W CctTransportBackend: java.net.SocketException: socket failed: EACCES (Permission denied)"
     fi ;;
   exec-out)
