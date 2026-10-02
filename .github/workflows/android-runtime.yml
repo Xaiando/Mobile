@@ -5,7 +5,9 @@ name: Android runtime
 # app's Android contract (tool/android/verify_apk.py): no network permission,
 # API 35+, 16 KB-aligned native libraries, signed.
 #
-# It runs only when Android files change, and can be run by hand.
+# It runs on pull requests that change Android files, the dependencies (a new
+# plugin version is the likeliest way to break Android) or this tooling, and
+# can be run by hand.
 on:
   # Temporary: lets this branch iterate without running the whole of ci.yml.
   push:
@@ -14,7 +16,10 @@ on:
     paths:
       - 'android/**'
       - 'tool/android/**'
+      - 'tool/android_smoke/**'
       - 'integration_test/**'
+      - 'pubspec.yaml'
+      - 'pubspec.lock'
       - '.github/workflows/android-runtime.yml'
   workflow_dispatch:
 
