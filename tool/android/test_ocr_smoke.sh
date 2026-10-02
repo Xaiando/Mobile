@@ -32,6 +32,7 @@ run_case reads_the_label 0 "GRAND VIN 2019" "**Result: passed**" -- FAKE_OCR=ok
 run_case wrong_text 1 "the vintage 2019 was not found" "the alcohol level 14.5 % was not found" \
   "**Result: FAILED**" -- FAKE_OCR=wrong
 run_case recognition_error 1 "text recognition raised an error" -- FAKE_OCR=error
+run_case plugin_error 1 "the image_picker plugin did not answer" "**Result: FAILED**" -- FAKE_OCR=plugin_error
 run_case no_line 1 "the app logged no OCR_CHECK line" -- FAKE_OCR=none FAKE_APP_DIES=1
 run_case crash 1 "logcat shows a crash or a native-library failure" -- FAKE_OCR=ok FAKE_CRASH=1
 run_case no_device 1 "no device is attached" -- FAKE_NO_DEVICE=1

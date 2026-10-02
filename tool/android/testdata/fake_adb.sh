@@ -19,7 +19,8 @@ case "$1" in
   logcat)
     if [[ ${3:-} == -s ]]; then
       case ${FAKE_OCR:-none} in
-        ok) echo '10-02 12:00:05.000  1234  1234 I flutter : OCR_CHECK {"text":"CHATEAU EXEMPLE | GRAND VIN 2019 | ALC. 14.5% VOL.","vintage":2019,"abv":14.5,"warnings":[],"ms":812}' ;;
+        ok) echo '10-02 12:00:05.000  1234  1234 I flutter : OCR_CHECK {"text":"CHATEAU EXEMPLE | GRAND VIN 2019 | ALC. 14.5% VOL.","vintage":2019,"abv":14.5,"warnings":[],"plugins":{"image_picker":"ok","file_picker":"ok"},"ms":812}' ;;
+        plugin_error) echo '10-02 12:00:05.000  1234  1234 I flutter : OCR_CHECK {"text":"CHATEAU EXEMPLE | GRAND VIN 2019 | ALC. 14.5% VOL.","vintage":2019,"abv":14.5,"warnings":[],"plugins":{"image_picker":"error: MissingPluginException(No implementation found)","file_picker":"ok"},"ms":812}' ;;
         wrong) echo '10-02 12:00:05.000  1234  1234 I flutter : OCR_CHECK {"text":"CHATEAU","vintage":null,"abv":null,"warnings":["no_text"],"ms":900}' ;;
         error) echo '10-02 12:00:05.000  1234  1234 I flutter : OCR_CHECK {"error":"PlatformException(MlKitException)","ms":50}' ;;
       esac

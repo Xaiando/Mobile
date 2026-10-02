@@ -103,18 +103,10 @@ jobs:
           sudo udevadm trigger --name-match=kvm
       - run: flutter build apk --release
       - run: cp build/app/outputs/flutter-apk/app-release.apk build/sommelier-release.apk
-      # A tiny app that reads a drawn label with the cellar's own OCR function,
-      # for the emulator only (x86_64), to show recognition still works in a
-      # release build that has lost the INTERNET permission.
-      - name: Build the text recognition check
-        run: flutter build apk --release -t tool/android_smoke/main.dart --target-platform android-x64
-      - run: cp build/app/outputs/flutter-apk/app-release.apk build/ocr-check.apk
-      - name: The text recognition check holds no network permission either
-        run: python3 tool/android/verify_apk.py build/ocr-check.apk
       # One emulator session for the checks. The smoke test installs the
       # release APK, launches it twice and scans logcat; a failure is recorded
       # so that the integration test still runs, then fails the job below.
-      - name: Smoke test the release app, read a label, then run the integration test
+      - name: Smoke test the release app, then run the integration test
         uses: reactivecircus/android-emulator-runner@v2
         with:
           api-level: 36
@@ -129,7 +121,6 @@ jobs:
           emulator-options: -no-window -gpu swiftshader_indirect -noaudio -no-boot-anim -camera-back none -camera-front none
           script: |
             bash tool/android/emulator_smoke.sh --uninstall-after --control --timeout 600 build/sommelier-release.apk build/android-smoke || touch build/android-smoke/FAILED
-            bash tool/android/ocr_smoke.sh --uninstall-after build/ocr-check.apk build/android-smoke || touch build/android-smoke/FAILED
             flutter test integration_test --dart-define=SOMMELIER_DATABASE=integration
       - name: Keep the smoke test report, screenshot and logcat
         if: always()
@@ -140,3 +131,60 @@ jobs:
           if-no-files-found: ignore
       - name: The smoke test passed
         run: test ! -e build/android-smoke/FAILED
+
+  # The integration test builds the debug app, which R8 does not shrink, so it
+  # cannot see what R8 strips from a release build. This job builds a tiny app
+  # in release mode (tool/android_smoke) that reads a drawn label with the
+  # cellar's own OCR function and calls the other plugins that have Android
+  # code, with requests that need no screen. It runs on an emulator, in an APK
+  # that holds no INTERNET permission, and answers in minutes rather than after
+  # the long first-launch test.
+  release-plugins:
+    name: Text recognition and plugins in a release build
+    runs-on: ubuntu-latest
+    timeout-minutes: 40
+    steps:
+      - uses: actions/checkout@v5
+      - uses: actions/setup-java@v5
+        with:
+          distribution: temurin
+          java-version: '21'
+      - name: Read the pinned Flutter version
+        id: flutter
+        run: echo "version=$(jq -r .flutter .fvmrc)" >> "$GITHUB_OUTPUT"
+      - uses: subosito/flutter-action@v2
+        with:
+          flutter-version: ${{ steps.flutter.outputs.version }}
+          channel: stable
+          cache: true
+      - name: Let the emulator use hardware acceleration
+        run: |
+          echo 'KERNEL=="kvm", GROUP="kvm", MODE="0666", OPTIONS+="static_node=kvm"' | sudo tee /etc/udev/rules.d/99-kvm4all.rules
+          sudo udevadm control --reload-rules
+          sudo udevadm trigger --name-match=kvm
+      - name: Build the check app
+        run: flutter build apk --release -t tool/android_smoke/main.dart --target-platform android-x64
+      - run: cp build/app/outputs/flutter-apk/app-release.apk build/ocr-check.apk
+      - name: The check app holds no network permission either
+        run: python3 tool/android/verify_apk.py build/ocr-check.apk
+      - name: Read a label and call the plugins on an emulator
+        uses: reactivecircus/android-emulator-runner@v2
+        with:
+          api-level: 36
+          target: google_apis
+          arch: x86_64
+          profile: pixel_6
+          cores: 3
+          ram-size: 4096M
+          heap-size: 576M
+          disable-animations: true
+          emulator-boot-timeout: 900
+          emulator-options: -no-window -gpu swiftshader_indirect -noaudio -no-boot-anim -camera-back none -camera-front none
+          script: bash tool/android/ocr_smoke.sh --uninstall-after build/ocr-check.apk build/android-release-plugins
+      - name: Keep the report and logcat
+        if: always()
+        uses: actions/upload-artifact@v5
+        with:
+          name: android-release-plugins
+          path: build/android-release-plugins
+          if-no-files-found: ignore
