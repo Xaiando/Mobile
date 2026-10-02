@@ -1,8 +1,10 @@
 #!/usr/bin/env bash
 # Runs tool/android_smoke on the connected emulator or phone: it draws a wine
-# label, recognizes it with ML Kit through the cellar's own function, and logs
-# one OCR_CHECK line. This script reads that line and passes only if the
-# vintage 2019 and the alcohol level 14.5 % came back.
+# label, recognizes it with ML Kit through the cellar's own function, calls
+# the image_picker and file_picker plugins with requests that need no screen,
+# and logs one OCR_CHECK line. This script reads that line and passes only if
+# the vintage 2019 and the alcohol level 14.5 % came back and both plugins
+# answered.
 #
 #   flutter build apk --release -t tool/android_smoke/main.dart \
 #       --target-platform android-x64          # android-arm64 for a phone
@@ -61,6 +63,9 @@ else
   fi
   [[ $json == *'"vintage":2019'* ]] || { note "- **FAIL** the vintage 2019 was not found"; status=1; }
   [[ $json == *'"abv":14.5'* ]] || { note "- **FAIL** the alcohol level 14.5 % was not found"; status=1; }
+  for plugin in image_picker file_picker; do
+    [[ $json == *"\"$plugin\":\"ok\""* ]] || { note "- **FAIL** the $plugin plugin did not answer"; status=1; }
+  done
 fi
 if grep -E -q 'FATAL EXCEPTION|Fatal signal|UnsatisfiedLinkError' "$out/ocr-logcat.txt"; then
   note "- **FAIL** logcat shows a crash or a native-library failure"

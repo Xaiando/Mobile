@@ -13,6 +13,7 @@ it checks that the software behaves.
 | The app starts on Android 16, installs the curriculum, shows onboarding, survives a second launch and does not crash or ANR | `tool/android/emulator_smoke.sh` on an emulator, in the same workflow | automatic |
 | The same on a kernel with 16 KB memory pages (the Play Store's next requirement) | the workflow's second emulator image | automatic |
 | A learner can pick a track, study a card, taste and rehearse (the whole `integration_test/app_test.dart` flow) | the same emulator session | automatic |
+| ML Kit text recognition, `image_picker` and `file_picker` still work in a *release* build, where R8 shrinks the code (the integration test builds the debug app, which R8 leaves alone) | a tiny release-built app on an emulator (`tool/android_smoke`, `tool/android/ocr_smoke.sh`), in the *Text recognition and plugins in a release build* job | automatic |
 | Camera capture, gallery picking, OCR on a real label, the system file dialogs, gestures, speed on real hardware, heat, battery | **only the phone** | you, with the list below |
 | Anything about the wine facts | a qualified reviewer | never automatic (D3) |
 
@@ -41,12 +42,86 @@ An independent read of the `sommelier-android-apk` artifact of run 36965339511:
 * It was signed with a throwaway **debug** key that CI makes afresh on every
   run (see "Updating" below).
 
+## What the emulators have shown (2 and 3 October 2026)
+
+Release builds on Android 16 emulators with 4 KB and 16 KB memory pages, run
+by the *Android runtime* workflow. These are software-rendered emulators on
+three shared CPU cores: far slower than a phone. Use the numbers to compare
+builds with each other, not to predict your phone.
+
+**It starts and runs.** The release app installs, shows onboarding, survives a
+second launch and then the whole `integration_test` flow (choose a track,
+study, taste, rehearse) on both page sizes, with no crash, ANR or
+native-library failure in logcat.
+
+**Text recognition was broken in release builds, and CI found it.** The
+first release-mode run of the text-recognition check failed on both emulators:
+ML Kit could not start (`ComponentDiscovery ... NoSuchMethodException:
+CommonComponentRegistrar.<init>`) and recognition threw a `NullPointerException`.
+R8, the code shrinker that release builds use and debug builds do not, no
+longer keeps the default constructor of a class that a rule keeps without
+naming one, and ML Kit creates its component registrars by reflection. A
+phone would have lost label reading with nothing in the app to say why.
+`android/app/proguard-rules.pro` now keeps those constructors, and the
+*Text recognition and plugins in a release build* job guards it: it draws a
+label, reads it with the cellar's own function, and calls `image_picker` and
+`file_picker` with requests that need no screen, all in a release build with
+no network permission. On an emulator it now reads the drawn label
+(`CHATEAU EXEMPLE | GRAND VIN 2019 | ALC. 14.5% VOL.`) as vintage 2019 and
+alcohol 14.5 %, the first call taking 13.5 s because it loads the model, and
+both plugins answer. The smoke test of the real app also fails now when ML Kit
+logs that it could not start its components, which the real app did on every
+launch before the fix.
+
+**The first launch is slow, and was slower.** The first launch installs the
+curriculum: it parses hundreds of files and generates about 17,000 questions
+(at 154a2a5). Two runs of the build before the speed-up, measured the same
+way, and one with it (the faster ingestion in the pull request on
+`claude/faster-ingestion`):
+
+| First launch on a fresh install | 4 KB emulator | 16 KB emulator |
+|---|---|---|
+| first screen after, before | 393 to 445 s | 257 to 277 s |
+| the app's CPU time, before | 227 to 267 s | 149 to 155 s |
+| first screen after, with the speed-up | 146 s | 146 s |
+| the app's CPU time, with the speed-up | 50 s | 51 s |
+| a launch nobody polled (checked at 60, 120, 180 ... s), before | seen by 300 s | seen by 180 s |
+| the same, with the speed-up | seen by 120 s | seen by 60 s |
+| second launch | 2.5 to 7 s | 3 to 7 s |
+
+Polling for the first screen (a screen dump every few seconds) slows a small
+emulator down, which is why the table also holds launches that nobody polled.
+The CPU time is the fairest figure. A phone is several times faster than these
+emulators; your first launch on the Galaxy S22 Ultra is the number we do not
+have. After four seconds the app says it is setting up the study library and
+that this happens once.
+
+**The database is 22 MB when the first launch ends**, before any study
+history, and it also holds your journal photos (they are stored in it). After
+the first launch the app holds about 146 MB of memory (proportional set size)
+on the emulator; `summary.md` now also reports the most it held during a
+launch.
+
+## Decisions that are yours
+
+* **Android's cloud backup.** `AndroidManifest.xml` leaves `allowBackup` at its
+  default (on), and the backup rules exclude only the interrupted-scan folder.
+  So Android may copy the database, with its journal photos, to the Google
+  account of whoever uses the phone, which does not fit "all data stays on
+  the device" (legal review L-11). Android caps a backup at 25 MB per app; the
+  database is already 22 MB, so the backup would stop working once photos
+  or study history add a few MB, and a restore would find nothing. Nothing was
+  changed here. Options: set `android:allowBackup="false"` (and rely on
+  *Settings > Your data > Export* to move to a new phone), or leave it.
+* **The release key.** See "Updating".
+
 ## Before you start
 
-1. **Get an APK.** From the *Android runtime* run of the branch you want
-   (Actions > the run > Artifacts), download `sommelier-android-arm64-apk`: the
-   phone build, about half the size of the universal `sommelier-android-apk`
-   that the *CI* run keeps. Or build it yourself with
+1. **Get an APK.** Either let the helper in step 3 fetch it (`-Download`), or
+   take it from the *Android runtime* run of the branch you want (Actions >
+   the run > Artifacts): `sommelier-android-arm64-apk` is the phone build,
+   about half the size of the universal `sommelier-android-apk` that the *CI*
+   run keeps. Or build it yourself with
    `flutter build apk --release --target-platform android-arm64` (needs the
    Android SDK).
 2. **Prepare the phone.**
@@ -61,6 +136,14 @@ An independent read of the `sommelier-android-apk` artifact of run 36965339511:
    ```powershell
    powershell -ExecutionPolicy Bypass -File tool\android\accept_device.ps1 `
        -Apk path\to\app-release.apk
+   ```
+
+   or, to fetch the phone build of the branch you have checked out (its
+   newest successful *Android runtime* run; needs the GitHub CLI, signed in
+   once with `gh auth login`):
+
+   ```powershell
+   powershell -ExecutionPolicy Bypass -File tool\android\accept_device.ps1 -Download
    ```
 
    It checks the APK, installs it, launches it twice and writes a folder

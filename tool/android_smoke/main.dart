@@ -1,12 +1,14 @@
-// Checks on-device text recognition on Android without the rest of the app.
+// Checks what a release build of the app can do on Android without the rest
+// of the app.
 //
 // It draws a wine label, reads it back with the function the cellar uses
 // (recognizeLabelText: ML Kit's bundled Latin model), parses the text as a
-// label proposal, and prints one OCR_CHECK line, as JSON, to logcat.
-// tool/android/ocr_smoke.sh builds on that line. CI builds this app in
-// release mode next to the real one, to show that recognition works on
-// Android 16, on 4 KB and 16 KB pages, in an APK that holds no INTERNET
-// permission.
+// label proposal, and calls the other plugins that have Android code with a
+// request that needs no screen. It prints one OCR_CHECK line, as JSON, to
+// logcat. tool/android/ocr_smoke.sh builds on that line. CI builds this app
+// in release mode, where R8 shrinks the code and debug builds do not, to show
+// that recognition and the plugins still work on Android 16 in an APK that
+// holds no INTERNET permission.
 //
 //   flutter build apk --release -t tool/android_smoke/main.dart \
 //       --target-platform android-x64
@@ -14,7 +16,9 @@ import 'dart:convert';
 import 'dart:io';
 import 'dart:ui' as ui;
 
+import 'package:file_picker/file_picker.dart';
 import 'package:flutter/widgets.dart';
+import 'package:image_picker/image_picker.dart';
 import 'package:path_provider/path_provider.dart';
 import 'package:sommelier/core/journal/label_proposal.dart';
 import 'package:sommelier/features/cellar/label_ocr.dart';
@@ -54,6 +58,18 @@ Future<String> _drawLabel() async {
   return file.path;
 }
 
+/// "ok" when a plugin answers a request that needs no screen, or the error
+/// it raised: a plugin whose Android classes the release build stripped fails
+/// here.
+Future<String> _answers(Future<Object?> Function() request) async {
+  try {
+    await request();
+    return 'ok';
+  } on Object catch (error) {
+    return 'error: $error';
+  }
+}
+
 Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
   runApp(
@@ -76,6 +92,10 @@ Future<void> main() async {
   } on Object catch (error) {
     result = {'error': '$error'};
   }
+  result['plugins'] = {
+    'image_picker': await _answers(() => ImagePicker().retrieveLostData()),
+    'file_picker': await _answers(FilePicker.clearTemporaryFiles),
+  };
   result['ms'] = timer.elapsedMilliseconds;
   debugPrint('OCR_CHECK ${jsonEncode(result)}');
 }

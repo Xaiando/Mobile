@@ -115,6 +115,9 @@ wait_for_text() { # TEXT SECONDS LABEL -> prints the milliseconds waited
       elapsed=$(( $(now_ms) - begin ))
       # utime + stime, in clock ticks (100 a second), of the app so far.
       adbq shell cat "/proc/$pid/stat" | awk '{ print $14 + $15 }' > "$out/ticks-$label.txt"
+      # The most memory the app has ever held resident, in kB (the kernel keeps
+      # the high-water mark, so no sampling is needed).
+      adbq shell cat "/proc/$pid/status" | awk '/^VmHWM:/ { print $2 }' > "$out/peak-$label.txt"
       echo "$elapsed"
       return 0
     fi
@@ -124,7 +127,7 @@ wait_for_text() { # TEXT SECONDS LABEL -> prints the milliseconds waited
 }
 
 launch() { # LABEL -> measures one launch
-  local label=$1 total waited code seconds cpu
+  local label=$1 total waited code seconds cpu peak
   adbq shell am force-stop "$package" > /dev/null
   sleep 2
   adbq shell am start -W -n "$activity" > "$out/am-start-$label.txt"
@@ -135,7 +138,8 @@ launch() { # LABEL -> measures one launch
     0)
       seconds=$(awk -v ms="$waited" 'BEGIN { printf "%.1f", ms / 1000 }')
       cpu=$(awk '{ printf "%.1f", $1 / 100 }' "$out/ticks-$label.txt" 2>/dev/null)
-      note "- $label launch: window drawn after ${total:-?} ms, first screen after $seconds s; the app used ${cpu:-?} s of CPU"
+      peak=$(awk '{ printf "%.0f", $1 / 1024 }' "$out/peak-$label.txt" 2>/dev/null)
+      note "- $label launch: window drawn after ${total:-?} ms, first screen after $seconds s; the app used ${cpu:-?} s of CPU and held at most ${peak:-?} MB in memory"
       ;;
     1) fail "$label launch: no \"$ready\" within $limit s" ;;
     2) fail "$label launch: the app stopped running" ;;
@@ -184,6 +188,18 @@ if grep -E -q "$crash" "$out/logcat.txt"; then
   note '```'
 else
   note "- no crash, ANR or native-library failure in logcat"
+fi
+# A release build's code shrinker (R8) can remove a constructor that ML Kit
+# creates by reflection. Nothing crashes at startup: ML Kit logs one warning,
+# and text recognition then fails when it is first used.
+registrar='ComponentDiscovery.*Could not instantiate'
+if grep -E -q "$registrar" "$out/logcat.txt"; then
+  fail "ML Kit could not start its components; a release build's code shrinker removed a constructor it creates by reflection (android/app/proguard-rules.pro):"
+  note '```'
+  grep -E "$registrar" "$out/logcat.txt" | head -3 | tee -a "$summary"
+  note '```'
+else
+  note "- ML Kit started its components"
 fi
 denied=$(grep -c -E 'EACCES|missing INTERNET permission|Permission denied.*(socket|INTERNET)' "$out/logcat.txt")
 note "- network attempts the system refused (expected without INTERNET): $denied"

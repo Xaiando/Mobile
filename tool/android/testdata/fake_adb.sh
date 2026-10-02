@@ -19,7 +19,8 @@ case "$1" in
   logcat)
     if [[ ${3:-} == -s ]]; then
       case ${FAKE_OCR:-none} in
-        ok) echo '10-02 12:00:05.000  1234  1234 I flutter : OCR_CHECK {"text":"CHATEAU EXEMPLE | GRAND VIN 2019 | ALC. 14.5% VOL.","vintage":2019,"abv":14.5,"warnings":[],"ms":812}' ;;
+        ok) echo '10-02 12:00:05.000  1234  1234 I flutter : OCR_CHECK {"text":"CHATEAU EXEMPLE | GRAND VIN 2019 | ALC. 14.5% VOL.","vintage":2019,"abv":14.5,"warnings":[],"plugins":{"image_picker":"ok","file_picker":"ok"},"ms":812}' ;;
+        plugin_error) echo '10-02 12:00:05.000  1234  1234 I flutter : OCR_CHECK {"text":"CHATEAU EXEMPLE | GRAND VIN 2019 | ALC. 14.5% VOL.","vintage":2019,"abv":14.5,"warnings":[],"plugins":{"image_picker":"error: MissingPluginException(No implementation found)","file_picker":"ok"},"ms":812}' ;;
         wrong) echo '10-02 12:00:05.000  1234  1234 I flutter : OCR_CHECK {"text":"CHATEAU","vintage":null,"abv":null,"warnings":["no_text"],"ms":900}' ;;
         error) echo '10-02 12:00:05.000  1234  1234 I flutter : OCR_CHECK {"error":"PlatformException(MlKitException)","ms":50}' ;;
       esac
@@ -29,6 +30,9 @@ case "$1" in
         echo "10-02 12:00:03.000  1234  1234 E AndroidRuntime: FATAL EXCEPTION: main"
         echo "10-02 12:00:03.000  1234  1234 E AndroidRuntime: Process: com.xaiando.sommelier, PID: 1234"
         echo "10-02 12:00:03.000  1234  1234 E AndroidRuntime: java.lang.UnsatisfiedLinkError: libsqlite3.so"
+      fi
+      if [[ ${FAKE_REGISTRAR:-0} == 1 ]]; then
+        echo "10-02 12:00:01.000  1234  1234 W ComponentDiscovery: mi: Could not instantiate com.google.mlkit.common.internal.CommonComponentRegistrar"
       fi
       echo "10-02 12:00:04.000  1234  1300 W CctTransportBackend: java.net.SocketException: socket failed: EACCES (Permission denied)"
     fi ;;
@@ -57,7 +61,11 @@ case "$1" in
           ro.build.fingerprint) echo "google/fake/fake:16/BP1A:user/release-keys" ;;
         esac ;;
       getconf) echo "${FAKE_PAGE_SIZE:-4096}" ;;
-      cat) echo "1234 (com.xaiando.sommelier) S 1 1 1 0 0 0 0 0 0 0 1234 234 0 0 20 0 30 0 100 0 0" ;;
+      cat)
+        case "$3" in
+          */status) echo "Name: sommelier"; echo "VmPeak:  2000000 kB"; echo "VmHWM:    348160 kB"; echo "VmRSS:    300000 kB" ;;
+          *) echo "1234 (com.xaiando.sommelier) S 1 1 1 0 0 0 0 0 0 0 1234 234 0 0 20 0 30 0 100 0 0" ;;
+        esac ;;
       dumpsys)
         case "$3" in
           package) echo "    versionName=0.4.0"; echo "    targetSdk=36" ;;
