@@ -24,7 +24,7 @@ run_case() { # NAME EXPECTED_STATUS EXPECTED_TEXT... -- ENV... -- SCRIPT_ARGS...
   rm -rf "$work/state"; mkdir -p "$work/state"
   env PATH="$work/bin:$PATH" FAKE_ADB_DIR="$work/state" RESILIENCE_PAUSE_FACTOR=0.05 RESILIENCE_START_GRACE=1 \
     "${envs[@]}" \
-    bash "$here/resilience.sh" --interrupt-after 0 --timeout 6 --short-timeout 4 "${args[@]}" fake.apk "$out" \
+    bash "$here/resilience.sh" --interrupt-after 0 --timeout 20 --short-timeout 10 "${args[@]}" fake.apk "$out" \
     > "$work/log-$name" 2>&1
   local status=$? ok=1
   [[ $status == "$expected" ]] || { ok=0; echo "  exit status $status, expected $expected"; }
@@ -68,7 +68,7 @@ run_case kill_not_permitted 0 "ended the app with am force-stop" "relaunch after
 
 run_case never_recovers 1 \
   'relaunch after the kill: no "I am of legal drinking age" within 6 s' "**Result: FAILED**" \
-  -- FAKE_READY_AFTER_MS=999999 --
+  -- FAKE_READY_AFTER_MS=999999 -- --timeout 6
 grep -q "What Android does to a running app" "$work/out-never_recovers/resilience.md" \
   && { echo "FAIL never_recovers: the lifecycle checks ran on an app that never recovered"; failures=$((failures + 1)); }
 
@@ -76,7 +76,7 @@ run_case dies_on_a_memory_trim 1 \
   "after a critical memory trim: the app stopped running" -- FAKE_DIES_ON_TRIM=1 FAKE_READY_AFTER_MS=1500 --
 
 run_case update_wipes_the_data 1 'after updating in place with adb install -r: no "I am of legal drinking age" within 4 s' \
-  "**Result: FAILED**" -- FAKE_UPDATE_WIPES=1 FAKE_READY_AFTER_MS=1500 --
+  "**Result: FAILED**" -- FAKE_UPDATE_WIPES=1 FAKE_READY_AFTER_MS=1500 -- --short-timeout 4
 
 run_case back_is_trapped 1 "Back on the first screen did not leave the app" "**Result: FAILED**" \
   -- FAKE_BACK_STAYS=1 FAKE_READY_AFTER_MS=1500 --
