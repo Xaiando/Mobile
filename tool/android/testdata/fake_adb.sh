@@ -18,6 +18,9 @@ case "$1" in
   uninstall) echo Success ;;
   logcat)
     if [[ ${3:-} == -s ]]; then
+      started=$(cat "$dir/started" 2>/dev/null || echo 0)
+      # FAKE_OCR_AFTER_MS: the check app prints its line some time after it starts.
+      if (( $(now) - started < ${FAKE_OCR_AFTER_MS:-0} )); then exit 0; fi
       case ${FAKE_OCR:-none} in
         ok) echo '10-02 12:00:05.000  1234  1234 I flutter : OCR_CHECK {"text":"CHATEAU EXEMPLE | GRAND VIN 2019 | ALC. 14.5% VOL.","vintage":2019,"abv":14.5,"warnings":[],"plugins":{"image_picker":"ok","file_picker":"ok"},"ms":812}' ;;
         plugin_error) echo '10-02 12:00:05.000  1234  1234 I flutter : OCR_CHECK {"text":"CHATEAU EXEMPLE | GRAND VIN 2019 | ALC. 14.5% VOL.","vintage":2019,"abv":14.5,"warnings":[],"plugins":{"image_picker":"error: MissingPluginException(No implementation found)","file_picker":"ok"},"ms":812}' ;;
@@ -91,7 +94,12 @@ case "$1" in
             echo "Starting: Intent { cmp=com.xaiando.sommelier/.MainActivity }"
             echo "Status: ok"; echo "TotalTime: 1234"; echo "WaitTime: 1250" ;;
         esac ;;
-      pidof) [[ -f $dir/running ]] && echo 1234 ;;
+      pidof)
+        # FAKE_PID_DELAY_MS: a slow emulator takes a while to start the process.
+        if [[ -f $dir/running ]]; then
+          started=$(cat "$dir/started" 2>/dev/null || echo 0)
+          if (( $(now) - started >= ${FAKE_PID_DELAY_MS:-0} )); then echo 1234; fi
+        fi ;;
       pm) rm -f "$dir/running" ;;
     esac ;;
 esac

@@ -107,13 +107,19 @@ runtime_permissions=$(awk '
 # a small emulator is heavy enough to slow the very start being timed. So the
 # checks back off: 2 s, 4 s, 8 s, 16 s, then every 20 s.
 wait_for_text() { # TEXT SECONDS LABEL -> prints the milliseconds waited
-  local text=$1 seconds=$2 label=$3 begin elapsed pid xml delay=2 snapshot=0
+  local text=$1 seconds=$2 label=$3 begin elapsed pid xml delay=2 snapshot=0 seen=0
   begin=$(now_ms)
   while :; do
     elapsed=$(( $(now_ms) - begin ))
     if (( elapsed > seconds * 1000 )); then return 1; fi
     pid=$(adbq shell pidof "$package")
-    if [[ -z $pid ]]; then return 2; fi
+    if [[ -z $pid ]]; then
+      # A process still being started is not a stopped one: give it a grace.
+      if (( seen || elapsed > ${SMOKE_START_GRACE:-15} * 1000 )); then return 2; fi
+      sleep 2
+      continue
+    fi
+    seen=1
     if (( ! snapshot && elapsed > 60000 )); then
       # Who is using the CPU while the app is still starting?
       snapshot=1

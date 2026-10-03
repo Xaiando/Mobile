@@ -33,7 +33,9 @@ run_case wrong_text 1 "the vintage 2019 was not found" "the alcohol level 14.5 %
   "**Result: FAILED**" -- FAKE_OCR=wrong
 run_case recognition_error 1 "text recognition raised an error" -- FAKE_OCR=error
 run_case plugin_error 1 "the image_picker plugin did not answer" "**Result: FAILED**" -- FAKE_OCR=plugin_error
-run_case no_line 1 "the app logged no OCR_CHECK line" -- FAKE_OCR=none FAKE_APP_DIES=1
+run_case no_line 1 "the app logged no OCR_CHECK line" -- FAKE_OCR=none FAKE_APP_DIES=1 OCR_START_GRACE=1
+# A slow emulator takes seconds to start the process after an install; that is not a stopped app.
+run_case slow_start 0 "GRAND VIN 2019" "**Result: passed**" -- FAKE_OCR=ok FAKE_PID_DELAY_MS=3000 FAKE_OCR_AFTER_MS=5000
 run_case crash 1 "logcat shows a crash or a native-library failure" -- FAKE_OCR=ok FAKE_CRASH=1
 run_case no_device 1 "no device is attached" -- FAKE_NO_DEVICE=1
 run_case install_fails 1 "install failed" -- FAKE_INSTALL_FAIL=1
