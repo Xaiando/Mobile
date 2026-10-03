@@ -175,8 +175,9 @@ launch.
    * Settings > About phone > Software information: tap *Build number* seven
      times. Then Settings > Developer options > *USB debugging* (or *Wireless
      debugging*, which needs no cable).
-   * Samsung: Settings > Security and privacy > **Auto Blocker** off. It blocks
-     both USB commands and installs from outside the stores.
+   * Samsung: Settings > Security and privacy > **Auto Blocker** off. It is on
+     by default on recent One UI, and it blocks both USB commands and installs
+     from outside the stores.
    * If Play Protect offers to scan the app, choose *Install anyway*.
    * Galaxy Z Fold 6: the same menus, on either screen. Unfold the phone for
      the setup and the install, and use a USB cable that carries data (a
@@ -301,7 +302,7 @@ a foldable" above). These rows are what only the phone can show.
 | I5 | On the inner screen, held upright and then sideways, open the same screens | Nothing overflows or is cut off; lines stay readable. A bottom bar rather than a side rail is expected up to 840 dp wide; note whether the space looks well used |
 | I6 | Half-fold the phone to about 90 degrees on Practice and on the wine editor | The app keeps running; nothing you need sits on the crease |
 | I7 | Open Sommelier in split screen next to another app (Recents > tap the app's icon > *Open in split screen view*), then in a pop-up window | It resizes and stays usable; the keyboard never hides the field you type in; moving and resizing the window loses nothing |
-| I8 | With the app open on the inner screen, close the phone, then open it again. Try it with Settings > Display > *Continue apps on cover screen* on and off | The app is where you left it, on the same screen with the same typed text, on whichever screen that setting sends it to |
+| I8 | With the app open on the inner screen, close the phone, then open it again. Try each setting of Settings > Display > *Continue apps on cover screen*: *Always*, *Swipe up to continue app* and *Never* | The app is where you left it, on the same screen with the same typed text, on whichever screen that setting sends it to |
 | I9 | On the inner screen, bring up the taskbar (Settings > Display > Taskbar), and look at the top right where the camera sits under the display | The bottom navigation and buttons are not hidden behind the taskbar or the gesture bar; nothing is unreadable or out of reach at the top right |
 | I10 | *Scan label* once with the phone unfolded, and once folded | Samsung's camera opens on the screen you are using, and the photo comes back to the same wine editor |
 
