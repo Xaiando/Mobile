@@ -5,7 +5,10 @@
 // screen in each look, takes a shot of it, and reports any exception the
 // framework raised on the way, a layout overflow above all.
 //
-// Two hosts run it:
+// A second walk, walkWindowShapes, changes the size of the window under a
+// half-filled form, as folding and unfolding a foldable phone does.
+//
+// Two hosts run both:
 //
 // * tool/android_tour/tour_test.dart, on an Android emulator through
 //   `flutter drive` (tool/android/screen_tour.sh). A shot there is a line in
@@ -55,6 +58,9 @@ class TourReport {
 
   /// The shots taken, in order.
   final shots = <String>[];
+
+  /// The window the app saw after each resize of the resize walk.
+  final windows = <String>[];
 }
 
 /// Pumps frames until [found] holds, or [timeout] passes.
@@ -279,4 +285,109 @@ class _Walk {
     }
     await step('home again', () => go('/home', 'home-again'));
   }
+}
+
+/// The Galaxy Z Fold 6's screens in physical pixels, at its default 420 dpi
+/// (2.625 device pixels per logical pixel). tool/android/window_shape.sh holds
+/// the same sizes for the emulator; change them together.
+const foldDevicePixelRatio = 2.625;
+const foldWindowSizes = <String, Size>{
+  'fold-cover': Size(968, 2376),
+  'fold-open': Size(1856, 2160),
+  'fold-open-wide': Size(2160, 1856),
+  'fold-split': Size(928, 2160),
+};
+
+/// The shapes the resize walk asks for, one after another. `phone` is the
+/// window the walk began in, so the walk ends where it started.
+const resizeWalkShapes = [
+  'fold-open',
+  'fold-cover',
+  'fold-open-wide',
+  'fold-split',
+  'phone',
+];
+
+/// Changes the window to [shape] and returns once the app has seen the new
+/// size. It throws when the window does not change.
+typedef ResizeWindow = Future<void> Function(WidgetTester tester, String shape);
+
+/// The window as the app sees it: its size in logical pixels and which
+/// navigation it chose for that width.
+String windowDescription(WidgetTester tester) {
+  final view = tester.view;
+  final size = view.physicalSize / view.devicePixelRatio;
+  final navigation = find.byType(NavigationRail).evaluate().isNotEmpty
+      ? 'rail'
+      : find.byType(NavigationBar).evaluate().isNotEmpty
+      ? 'bar'
+      : 'none';
+  return '${size.width.round()}x${size.height.round()} dp, '
+      'navigation $navigation';
+}
+
+/// Opens the wine editor, types a producer, and has [resize] change the window
+/// to each of [shapes] in turn. A foldable does this when it is folded or
+/// unfolded with the app open: the window changes size and the activity
+/// handles that itself (the manifest's configChanges), so the editor must
+/// still be there with the typed text, and nothing may overflow at the new
+/// size. With [layoutProblems] false a layout overflow is not a problem: the
+/// desktop test font is wider than any real one.
+Future<TourReport> walkWindowShapes(
+  WidgetTester tester, {
+  required ResizeWindow resize,
+  required TourShot shoot,
+  List<String> shapes = resizeWalkShapes,
+  bool layoutProblems = true,
+}) async {
+  final report = TourReport();
+  void problem(String where, String what) =>
+      report.problems.add('resize $where: $what');
+  void collect(String where) {
+    final exception = tester.takeException();
+    if (exception == null) return;
+    final text = '$exception'.trim();
+    if (!layoutProblems && text.contains('overflowed')) return;
+    problem(where, text.split('\n').take(3).join(' '));
+  }
+
+  final router = ProviderScope.containerOf(
+    tester.element(find.byType(SommelierApp)),
+    listen: false,
+  ).read(routerProvider);
+  router.go('/cellar/new');
+  await settle(tester);
+  final missing = routeProblem(router, '/cellar/new');
+  if (missing != null) {
+    problem('start', missing);
+    return report;
+  }
+  final producer = find.widgetWithText(TextField, 'Producer');
+  if (producer.evaluate().isEmpty) {
+    problem('start', 'the wine editor has no Producer field');
+    return report;
+  }
+  await tester.enterText(producer, 'Fold test');
+  await settle(tester);
+  collect('start');
+
+  for (final shape in shapes) {
+    try {
+      await resize(tester, shape);
+    } on Object catch (error) {
+      problem(shape, '$error'.split('\n').first);
+      continue;
+    }
+    await settle(tester);
+    collect(shape);
+    final away = routeProblem(router, '/cellar/new');
+    if (away != null) problem(shape, away);
+    if (find.text('Fold test').evaluate().isEmpty) {
+      problem(shape, 'the producer typed before the resize is gone');
+    }
+    report.windows.add('$shape ${windowDescription(tester)}');
+    report.shots.add('resize-$shape');
+    await shoot(tester, 'resize-$shape-editor');
+  }
+  return report;
 }
