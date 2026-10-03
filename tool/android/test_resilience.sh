@@ -43,6 +43,7 @@ run_case success 0 \
   "after a critical memory trim: the first screen was back after" \
   "the system killed the backgrounded app" \
   "back after being killed in the background: the first screen was back after" \
+  "Back on the first screen left the app" "back after leaving with Back: the first screen was back after" \
   "no crash, ANR or native-library failure in logcat" "**Result: passed**" \
   -- FAKE_READY_AFTER_MS=1500 --
 [[ -s $work/out-success/recovered.png && -s $work/out-success/landscape.png ]] \
@@ -66,6 +67,9 @@ grep -q "What Android does to a running app" "$work/out-never_recovers/resilienc
 
 run_case dies_on_a_memory_trim 1 \
   "after a critical memory trim: the app stopped running" -- FAKE_DIES_ON_TRIM=1 FAKE_READY_AFTER_MS=1500 --
+
+run_case back_is_trapped 1 "Back on the first screen did not leave the app" "**Result: FAILED**" \
+  -- FAKE_BACK_STAYS=1 FAKE_READY_AFTER_MS=1500 --
 
 run_case trim_refused 0 "the system refused the memory trim, so none was applied" "**Result: passed**" \
   -- FAKE_TRIM_REFUSED=1 FAKE_READY_AFTER_MS=1500 --

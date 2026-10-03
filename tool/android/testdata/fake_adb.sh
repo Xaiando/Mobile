@@ -49,7 +49,7 @@ case "$1" in
       uiautomator)
         started=$(cat "$dir/started" 2>/dev/null || echo 0)
         echo '<?xml version="1.0"?><hierarchy rotation="0">'
-        if (( $(now) - started >= ${FAKE_READY_AFTER_MS:-0} )); then
+        if [[ -f $dir/running ]] && (( $(now) - started >= ${FAKE_READY_AFTER_MS:-0} )); then
           echo '<node text="" content-desc="I am of legal drinking age where I live." />'
         else
           echo '<node text="" content-desc="" />'
@@ -100,7 +100,10 @@ case "$1" in
           if (( $(now) - started >= ${FAKE_PID_DELAY_MS:-0} )); then echo 1234; fi
         fi ;;
       kill) [[ ${FAKE_IGNORE_KILL:-0} == 1 ]] || rm -f "$dir/running" ;;
-      input|settings) ;;
+      input)
+        # Back on the first screen leaves the app, unless FAKE_BACK_STAYS=1.
+        if [[ ${4:-} == KEYCODE_BACK && ${FAKE_BACK_STAYS:-0} != 1 ]]; then rm -f "$dir/running"; fi ;;
+      settings) ;;
       pm)
         case "$3" in
           path) [[ ${FAKE_NOT_INSTALLED:-0} == 1 ]] || echo "package:/data/app/fake/base.apk" ;;

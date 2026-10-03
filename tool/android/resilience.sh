@@ -1,7 +1,8 @@
 #!/usr/bin/env bash
 # Checks that the app survives what Android does to apps: a first launch
 # killed part-way through, being sent Home and brought back, a rotation, a
-# memory trim, and being killed while in the background. CI only: it wipes the
+# memory trim, being killed while in the background, and Back on the first
+# screen. CI only: it wipes the
 # app's data, so use an emulator, never a phone with data on it.
 #
 #   tool/android/resilience.sh [options] APK OUTPUT_DIR
@@ -195,6 +196,18 @@ if (( recovered )); then
   fi
   adbq shell am start -W -n "$activity" > /dev/null
   expect_ready "back after being killed in the background" $(( short * 2 ))
+
+  # Android 16 sends Back to the app by default. On the first screen there is
+  # nothing to go back to, so the app must leave, not trap the gesture.
+  adbq shell input keyevent KEYCODE_BACK > /dev/null
+  pause 3
+  if screen_has "$ready"; then
+    fail "Back on the first screen did not leave the app"
+  else
+    note "- Back on the first screen left the app"
+  fi
+  adbq shell am start -W -n "$activity" > /dev/null
+  expect_ready "back after leaving with Back" "$short"
   note ""
 fi
 
