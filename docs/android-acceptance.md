@@ -15,6 +15,8 @@ it checks that the software behaves.
 | A learner can pick a track, study a card, taste and rehearse (the whole `integration_test/app_test.dart` flow) | the same emulator session | automatic |
 | ML Kit text recognition, `image_picker` and `file_picker` still work in a *release* build, where R8 shrinks the code (the integration test builds the debug app, which R8 leaves alone) | a tiny release-built app on an emulator (`tool/android_smoke`, `tool/android/ocr_smoke.sh`), in the *Text recognition and plugins in a release build* job | automatic |
 | Every main screen fits at the largest text size and in dark mode, with no layout overflow (and what the app looks like on Android 16) | `tool/android_tour` on an emulator, in the *Android screen tour* workflow (by hand, or when the tour changes) | automatic |
+| The app comes back from what Android does to it: a first launch killed part-way through, Home and back, a rotation, a critical memory trim, a kill while in the background, and Back on the first screen, which must leave the app | `tool/android/resilience.sh` on an emulator, in the *Android emulator acceptance* workflow (by hand, or when the script changes) | automatic |
+| A backup restores the journal: a wine and its photo are exported through Settings, Your data, lost, and imported back, and a file that is not a backup changes nothing. The file dialog itself is replaced by memory here | `tool/android_tour/roundtrip.dart` on an emulator, in the same workflow | automatic |
 | Camera capture, gallery picking, OCR on a real label, the system file dialogs, gestures, speed on real hardware, heat, battery | **only the phone** | you, with the list below |
 | Anything about the wine facts | a qualified reviewer | never automatic (D3) |
 

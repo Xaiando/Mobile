@@ -9,6 +9,11 @@ for i in $(seq 1 "${FAKE_SHOTS:-3}"); do
   sleep 1
 done
 echo "TOUR_TIME light-home 120" >> "$dir/flutter.log"
+# FAKE_LOG_LINES: extra lines for the log, separated by |
+if [[ -n ${FAKE_LOG_LINES:-} ]]; then
+  IFS="|" read -ra extra <<< "$FAKE_LOG_LINES"
+  for line in "${extra[@]}"; do echo "$line" >> "$dir/flutter.log"; done
+fi
 if [[ ${FAKE_TOUR_PROBLEM:-0} == 1 ]]; then
   echo "TOUR_PROBLEM huge study: A RenderFlex overflowed by 24 pixels on the right." >> "$dir/flutter.log"
 fi

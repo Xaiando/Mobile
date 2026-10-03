@@ -14,6 +14,11 @@ case "$1" in
     if [[ ${FAKE_INSTALL_FAIL:-0} == 1 ]]; then
       echo "adb: failed to install: Failure [INSTALL_FAILED_UPDATE_INCOMPATIBLE]"
     else
+      # Replacing the package ends the running process, as on a device. The
+      # second install wipes the data when FAKE_UPDATE_WIPES=1.
+      rm -f "$dir/running"
+      if [[ ${FAKE_UPDATE_WIPES:-0} == 1 && -f $dir/installed ]]; then touch "$dir/wiped"; fi
+      touch "$dir/installed"
       echo "Performing Streamed Install"; echo "Success"
     fi ;;
   uninstall) echo Success ;;
@@ -49,7 +54,9 @@ case "$1" in
       uiautomator)
         started=$(cat "$dir/started" 2>/dev/null || echo 0)
         echo '<?xml version="1.0"?><hierarchy rotation="0">'
-        if (( $(now) - started >= ${FAKE_READY_AFTER_MS:-0} )); then
+        ready_after=${FAKE_READY_AFTER_MS:-0}
+        [[ -f $dir/wiped ]] && ready_after=999999
+        if [[ -f $dir/running ]] && (( $(now) - started >= ready_after )); then
           echo '<node text="" content-desc="I am of legal drinking age where I live." />'
         else
           echo '<node text="" content-desc="" />'
@@ -92,7 +99,11 @@ case "$1" in
         esac ;;
       am)
         case "$3" in
-          force-stop) rm -f "$dir/running" ;;
+          force-stop) [[ ${FAKE_IGNORE_FORCE_STOP:-0} == 1 ]] || rm -f "$dir/running" ;;
+          kill) [[ ${FAKE_KEEP_ALIVE:-0} == 1 ]] || rm -f "$dir/running" ;;
+          send-trim-memory)
+            [[ ${FAKE_DIES_ON_TRIM:-0} == 1 ]] && rm -f "$dir/running"
+            [[ ${FAKE_TRIM_REFUSED:-0} == 1 ]] && echo "java.lang.SecurityException: Process not debuggable" ;;
           start)
             now > "$dir/started"
             [[ ${FAKE_APP_DIES:-0} == 1 ]] || touch "$dir/running"
@@ -100,14 +111,24 @@ case "$1" in
             echo "Status: ok"; echo "TotalTime: 1234"; echo "WaitTime: 1250" ;;
         esac ;;
       cmd) ;;
-      settings) [[ "${3:-} ${4:-} ${5:-}" == "get global airplane_mode_on" ]] && echo "${FAKE_AIRPLANE:-1}" ;;
+      settings)
+        # Only the airplane-mode read answers; every other settings call succeeds quietly.
+        if [[ "${3:-} ${4:-} ${5:-}" == "get global airplane_mode_on" ]]; then echo "${FAKE_AIRPLANE:-1}"; fi ;;
       pidof)
         # FAKE_PID_DELAY_MS: a slow emulator takes a while to start the process.
         if [[ -f $dir/running ]]; then
           started=$(cat "$dir/started" 2>/dev/null || echo 0)
           if (( $(now) - started >= ${FAKE_PID_DELAY_MS:-0} )); then echo 1234; fi
         fi ;;
-      pm) rm -f "$dir/running" ;;
+      kill) [[ ${FAKE_IGNORE_KILL:-0} == 1 ]] || rm -f "$dir/running" ;;
+      input)
+        # Back on the first screen leaves the app, unless FAKE_BACK_STAYS=1.
+        if [[ ${4:-} == KEYCODE_BACK && ${FAKE_BACK_STAYS:-0} != 1 ]]; then rm -f "$dir/running"; fi ;;
+      pm)
+        case "$3" in
+          path) [[ ${FAKE_NOT_INSTALLED:-0} == 1 ]] || echo "package:/data/app/fake/base.apk" ;;
+          *) rm -f "$dir/running" ;;
+        esac ;;
     esac ;;
 esac
 exit 0
