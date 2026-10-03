@@ -28,7 +28,8 @@ run_case() { # NAME EXPECTED_STATUS EXPECTED_TEXT... -- ENV...
   if (( ok )); then echo "ok   $name"; else echo "FAIL $name"; failures=$((failures + 1)); sed 's/^/     | /' "$work/log-$name" | head -20; fi
 }
 
-run_case reads_the_label 0 "GRAND VIN 2019" "**Result: passed**" -- FAKE_OCR=ok
+run_case reads_the_label 0 "GRAND VIN 2019" "airplane mode was on while the app read the label" "**Result: passed**" -- FAKE_OCR=ok
+run_case airplane_mode_refused 0 "airplane mode could not be switched on" "**Result: passed**" -- FAKE_OCR=ok FAKE_AIRPLANE=0
 run_case wrong_text 1 "the vintage 2019 was not found" "the alcohol level 14.5 % was not found" \
   "**Result: FAILED**" -- FAKE_OCR=wrong
 run_case recognition_error 1 "text recognition raised an error" -- FAKE_OCR=error

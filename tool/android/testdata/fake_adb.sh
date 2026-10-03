@@ -94,6 +94,8 @@ case "$1" in
             echo "Starting: Intent { cmp=com.xaiando.sommelier/.MainActivity }"
             echo "Status: ok"; echo "TotalTime: 1234"; echo "WaitTime: 1250" ;;
         esac ;;
+      cmd) ;;
+      settings) [[ "${3:-} ${4:-} ${5:-}" == "get global airplane_mode_on" ]] && echo "${FAKE_AIRPLANE:-1}" ;;
       pidof)
         # FAKE_PID_DELAY_MS: a slow emulator takes a while to start the process.
         if [[ -f $dir/running ]]; then

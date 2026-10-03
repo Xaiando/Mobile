@@ -40,6 +40,10 @@ if [[ $result != *Success* ]]; then
   exit 1
 fi
 
+# Recognition must work with no network at all, not only without the
+# permission: switch the radios off while the app reads the label.
+adbq shell cmd connectivity airplane-mode enable > /dev/null
+airplane=$(adbq shell settings get global airplane_mode_on)
 adbq logcat -c > /dev/null
 adbq shell am start -W -n "$package/.MainActivity" > /dev/null
 # Right after an install a slow emulator can take a while to start the process,
@@ -59,6 +63,12 @@ for i in $(seq 1 60); do
   sleep 2
 done
 adbq logcat -d > "$out/ocr-logcat.txt"
+adbq shell cmd connectivity airplane-mode disable > /dev/null
+if [[ $airplane == 1 ]]; then
+  note "- airplane mode was on while the app read the label"
+else
+  note "- airplane mode could not be switched on: the label was read without the network permission only"
+fi
 
 if [[ -z $line ]]; then
   note "- **FAIL** the app logged no OCR_CHECK line (it stopped, or never finished)"
