@@ -80,6 +80,8 @@ case "$1" in
       am)
         case "$3" in
           force-stop) rm -f "$dir/running" ;;
+          kill) [[ ${FAKE_KEEP_ALIVE:-0} == 1 ]] || rm -f "$dir/running" ;;
+          send-trim-memory) [[ ${FAKE_DIES_ON_TRIM:-0} == 1 ]] && rm -f "$dir/running" ;;
           start)
             now > "$dir/started"
             [[ ${FAKE_APP_DIES:-0} == 1 ]] || touch "$dir/running"
@@ -87,7 +89,13 @@ case "$1" in
             echo "Status: ok"; echo "TotalTime: 1234"; echo "WaitTime: 1250" ;;
         esac ;;
       pidof) [[ -f $dir/running ]] && echo 1234 ;;
-      pm) rm -f "$dir/running" ;;
+      kill) [[ ${FAKE_IGNORE_KILL:-0} == 1 ]] || rm -f "$dir/running" ;;
+      input|settings) ;;
+      pm)
+        case "$3" in
+          path) [[ ${FAKE_NOT_INSTALLED:-0} == 1 ]] || echo "package:/data/app/fake/base.apk" ;;
+          *) rm -f "$dir/running" ;;
+        esac ;;
     esac ;;
 esac
 exit 0
