@@ -5,6 +5,7 @@
 # and FAKE_INSTALL_FAIL=1.
 dir=$FAKE_ADB_DIR
 now() { date +%s%3N; }
+echo "$*" >> "$dir/adb-calls.log"
 case "$1" in
   get-state)
     if [[ ${FAKE_NO_DEVICE:-0} == 1 ]]; then echo "error: no devices/emulators found"; exit 1; fi

@@ -71,6 +71,20 @@ Future<bool> pumpUntilFound(
   return true;
 }
 
+/// Why [router] is not showing [path], or null when it is. A route that was
+/// renamed or removed makes go_router show its error page, and one that now
+/// redirects shows its destination; neither raises an error.
+String? routeProblem(GoRouter router, String path) {
+  final shown = router.routerDelegate.currentConfiguration;
+  if (shown.isError) {
+    return 'there is no route $path: the app shows its error page';
+  }
+  if (shown.uri.path != path) {
+    return 'asked for $path but the app is at ${shown.uri.path}';
+  }
+  return null;
+}
+
 /// Lets the screen settle, without hanging on an animation that never ends.
 Future<void> settle(WidgetTester tester) async {
   try {
@@ -145,11 +159,16 @@ class _Walk {
     report.problems.add('${look.name} $where: $firstLines');
   }
 
+  /// Goes to [path] and checks that the app is really there: a route that was
+  /// renamed, removed or redirected shows an error page or another screen
+  /// without throwing, and its shot would still carry the old name.
   Future<void> go(String path, String name) async {
     final timer = Stopwatch()..start();
     router.go(path);
     await settle(tester);
     report.timings['${look.name}-$name'] = timer.elapsedMilliseconds;
+    final problem = routeProblem(router, path);
+    if (problem != null) throw StateError(problem);
   }
 
   Future<void> capture(String name) async {

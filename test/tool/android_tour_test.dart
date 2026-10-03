@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
+import 'package:go_router/go_router.dart';
 import 'package:sommelier/core/database/app_database.dart';
 
 import '../../tool/android_tour/tour.dart';
@@ -58,5 +59,29 @@ void main() {
         'light-tasting-guided',
       ]),
     );
+  });
+
+  testWidgets('the tour notices a missing route and a redirect', (
+    tester,
+  ) async {
+    final router = GoRouter(
+      initialLocation: '/here',
+      routes: [
+        GoRoute(path: '/here', builder: (context, state) => const Text('here')),
+        GoRoute(path: '/old', redirect: (context, state) => '/here'),
+      ],
+    );
+    addTearDown(router.dispose);
+    await tester.pumpWidget(MaterialApp.router(routerConfig: router));
+    await tester.pumpAndSettle();
+    expect(routeProblem(router, '/here'), isNull);
+
+    router.go('/old');
+    await tester.pumpAndSettle();
+    expect(routeProblem(router, '/old'), contains('the app is at /here'));
+
+    router.go('/gone');
+    await tester.pumpAndSettle();
+    expect(routeProblem(router, '/gone'), contains('error page'));
   });
 }

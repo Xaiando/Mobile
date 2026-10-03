@@ -8,7 +8,8 @@
 # shot it prints a TOUR_SHOT line and waits a moment; this script takes a real
 # screenshot (the system bars included) as soon as it sees the line. Run it
 # from the repository root, with adb and flutter on PATH and one device
-# attached. It starts the app on a fresh database, so use an emulator.
+# attached. It wipes the app's data on the device before the tour, so that
+# every run starts on a fresh database: use an emulator.
 #
 # Writes to OUTPUT_DIR: summary.md, shots/<name>.png, drive.log (the tour's
 # own report), flutter-log.txt (what the app printed) and logcat.txt.
@@ -16,6 +17,10 @@
 set -u
 
 out=${1:?usage: $0 OUTPUT_DIR}
+# A reused output directory must not carry the last run's pictures into this
+# one, or a run that took none would report the old ones as its own.
+rm -rf "$out/shots"
+rm -f "$out/drive.log" "$out/flutter-log.txt" "$out/logcat.txt"
 mkdir -p "$out/shots"
 summary=$out/summary.md
 log=$out/flutter-log.txt
@@ -56,6 +61,11 @@ logcat_pid=$!
   done
 ) &
 watcher=$!
+
+# The tour waits for onboarding, which a database left by an earlier run has
+# already finished, and Flutter installs over a build with `adb install -r`,
+# which keeps its data. Start from nothing.
+adb shell pm clear com.xaiando.sommelier > /dev/null 2>&1
 
 flutter drive \
   --driver=tool/android_tour/driver.dart \

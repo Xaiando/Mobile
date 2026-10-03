@@ -52,5 +52,28 @@ if [[ ! -s $work/out-passes/shots/shot2.png ]]; then
   echo "FAIL passes: shot2.png is missing"; failures=$((failures + 1))
 fi
 
+# A reused output directory does not carry the last run's pictures into this
+# one: a run that took none must fail, not report the old ones as its own.
+mkdir -p "$work/out-stale/shots"
+printf 'old' > "$work/out-stale/shots/old.png"
+rm -rf "$work/state"; mkdir -p "$work/state"
+env PATH="$work/bin:$PATH" FAKE_ADB_DIR="$work/state" FAKE_SHOTS=0   bash "$here/screen_tour.sh" "$work/out-stale" > "$work/log-stale" 2>&1
+stale_status=$?
+if [[ $stale_status == 1 && ! -e $work/out-stale/shots/old.png ]]   && grep -q "no screenshot was taken" "$work/out-stale/summary.md"; then
+  echo "ok   stale_shots_are_not_counted"
+else
+  echo "FAIL stale_shots_are_not_counted (exit $stale_status)"; failures=$((failures + 1))
+fi
+
+# Every run starts on a fresh database: the app's data is wiped before the
+# tour is driven, never after, and never by uninstalling.
+rm -rf "$work/state"; mkdir -p "$work/state"
+env PATH="$work/bin:$PATH" FAKE_ADB_DIR="$work/state" FAKE_SHOTS=1   bash "$here/screen_tour.sh" "$work/out-fresh" > "$work/log-fresh" 2>&1
+if grep -q "^shell pm clear com.xaiando.sommelier$" "$work/state/adb-calls.log"; then
+  echo "ok   the_apps_data_is_wiped_first"
+else
+  echo "FAIL the_apps_data_is_wiped_first"; failures=$((failures + 1))
+fi
+
 if (( failures )); then echo "$failures case(s) failed."; exit 1; fi
 echo "All cases passed."
