@@ -22,7 +22,8 @@ run_case() { # NAME EXPECTED_STATUS EXPECTED_TEXT... -- ENV... -- SCRIPT_ARGS...
   args=("$@")
   local out="$work/out-$name"
   rm -rf "$work/state"; mkdir -p "$work/state"
-  env PATH="$work/bin:$PATH" FAKE_ADB_DIR="$work/state" RESILIENCE_PAUSE_FACTOR=0.05 "${envs[@]}" \
+  env PATH="$work/bin:$PATH" FAKE_ADB_DIR="$work/state" RESILIENCE_PAUSE_FACTOR=0.05 RESILIENCE_START_GRACE=1 \
+    "${envs[@]}" \
     bash "$here/resilience.sh" --interrupt-after 0 --timeout 6 --short-timeout 4 "${args[@]}" fake.apk "$out" \
     > "$work/log-$name" 2>&1
   local status=$? ok=1
@@ -71,6 +72,10 @@ run_case kept_alive_in_the_background 0 \
 
 run_case crash_in_logcat 1 "logcat shows a crash, ANR or native-library failure" "UnsatisfiedLinkError" \
   -- FAKE_CRASH=1 FAKE_READY_AFTER_MS=1500 --
+
+# A slow emulator takes seconds to start the process; that is not a stopped app.
+run_case slow_start 0 "relaunch after the kill: the first screen was back after" "**Result: passed**" \
+  -- RESILIENCE_START_GRACE=10 FAKE_PID_DELAY_MS=2500 FAKE_READY_AFTER_MS=0 -- --interrupt-after 3
 
 run_case no_device 1 "no device is attached" -- FAKE_NO_DEVICE=1 --
 

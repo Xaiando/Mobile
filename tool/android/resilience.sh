@@ -69,12 +69,18 @@ screen_has() {
 # Waits for TEXT on screen, backing off 2, 4, 8, 16 then 20 seconds between
 # looks. Prints the seconds waited; returns 1 on a timeout, 2 if the app died.
 wait_for_text() { # TEXT SECONDS
-  local text=$1 seconds=$2 begin elapsed delay=2
+  local text=$1 seconds=$2 begin elapsed delay=2 seen=0
   begin=$(now_ms)
   while :; do
     elapsed=$(( $(now_ms) - begin ))
     if (( elapsed > seconds * 1000 )); then return 1; fi
-    if ! running; then return 2; fi
+    if ! running; then
+      # A process still being started is not a stopped one: give it a grace.
+      if (( seen || elapsed > ${RESILIENCE_START_GRACE:-15} * 1000 )); then return 2; fi
+      sleep 2
+      continue
+    fi
+    seen=1
     if screen_has "$text"; then
       awk -v ms=$(( $(now_ms) - begin )) 'BEGIN { printf "%.1f", ms / 1000 }'
       return 0

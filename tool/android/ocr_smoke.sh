@@ -42,11 +42,20 @@ fi
 
 adbq logcat -c > /dev/null
 adbq shell am start -W -n "$package/.MainActivity" > /dev/null
+# Right after an install a slow emulator can take a while to start the process,
+# and "not running yet" is not "stopped". Only a process that was seen running
+# and is gone, or none at all after a grace, ends the wait early.
+grace=${OCR_START_GRACE:-10}
+seen=0
 line=
-for _ in $(seq 1 60); do
+for i in $(seq 1 60); do
   line=$(adbq logcat -d -s flutter:I | grep -m1 'OCR_CHECK')
   [[ -n $line ]] && break
-  if [[ -z $(adbq shell pidof "$package") ]]; then break; fi
+  if [[ -n $(adbq shell pidof "$package") ]]; then
+    seen=1
+  elif (( seen || i > grace )); then
+    break
+  fi
   sleep 2
 done
 adbq logcat -d > "$out/ocr-logcat.txt"

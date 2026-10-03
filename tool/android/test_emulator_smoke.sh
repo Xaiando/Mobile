@@ -49,7 +49,10 @@ run_case never_ready 1 'FAIL** first launch: no "I am of legal drinking age" wit
 run_case crash 1 "logcat shows a crash, ANR or native-library failure" \
   "UnsatisfiedLinkError" "**Result: FAILED**" -- FAKE_CRASH=1 FAKE_READY_AFTER_MS=0 --
 
-run_case app_dies 1 "first launch: the app stopped running" -- FAKE_APP_DIES=1 --
+run_case app_dies 1 "first launch: the app stopped running" -- FAKE_APP_DIES=1 SMOKE_START_GRACE=1 --
+
+# A slow emulator takes seconds to start the process; that is not a stopped app.
+run_case slow_start 0 "first launch: window drawn after 1234 ms" "**Result: passed**" -- FAKE_PID_DELAY_MS=3000 FAKE_READY_AFTER_MS=0 --
 
 run_case ml_kit_registrar 1 "ML Kit could not start its components"   "CommonComponentRegistrar" "**Result: FAILED**" -- FAKE_REGISTRAR=1 FAKE_READY_AFTER_MS=0 --
 
