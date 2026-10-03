@@ -7,10 +7,14 @@ name: Android runtime
 #
 # It runs on pull requests that change Android files, the dependencies (a new
 # plugin version is the likeliest way to break Android) or this tooling, and
-# can be run by hand.
+# can be run by hand. Main is also checked after merge so the phone artifact
+# can be downloaded from the normal main checkout.
 on:
+  push:
+    branches: [main]
   pull_request:
     paths:
+      - 'lib/**'
       - 'android/**'
       - 'tool/android/**'
       - 'tool/android_smoke/**'
@@ -50,12 +54,32 @@ jobs:
           python3 -m unittest discover -s tool/android -p "test_*.py"
           bash tool/android/test_emulator_smoke.sh
           bash tool/android/test_ocr_smoke.sh
+      # Pull requests keep the throwaway debug signing key. Trusted main runs
+      # use the repository release key when it has been configured, matching
+      # ci.yml so successive phone artifacts can update one another.
+      - name: Sign main phone artifacts with the release key
+        if: github.event_name != 'pull_request' && github.ref == 'refs/heads/main'
+        env:
+          KEYSTORE_BASE64: ${{ secrets.ANDROID_KEYSTORE_BASE64 }}
+          KEYSTORE_PASSWORD: ${{ secrets.ANDROID_KEYSTORE_PASSWORD }}
+        run: |
+          if [ -z "$KEYSTORE_BASE64" ]; then
+            echo "No release key yet: this APK is signed with a debug key."
+            exit 0
+          fi
+          echo "$KEYSTORE_BASE64" | base64 --decode > android/app/release.keystore
+          {
+            echo "storeFile=release.keystore"
+            echo "storePassword=$KEYSTORE_PASSWORD"
+            echo "keyAlias=release"
+            echo "keyPassword=$KEYSTORE_PASSWORD"
+          } > android/key.properties
       - run: flutter build apk --release
       - name: The release APK is offline, signed, 16 KB aligned and targets API 35 or later
         run: python3 tool/android/verify_apk.py build/app/outputs/flutter-apk/app-release.apk
       # For a phone: arm64 only, about half the size of the universal APK.
-      # Signed with the debug key this run made, so it cannot update an app
-      # installed from another run (docs/android-acceptance.md).
+      # Pull requests use a throwaway debug key. Trusted main runs use the
+      # configured release key, so each main artifact can update the last.
       - name: Build the phone APK
         run: flutter build apk --release --target-platform android-arm64
       - name: The phone APK meets the same contract
