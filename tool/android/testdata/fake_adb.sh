@@ -14,6 +14,11 @@ case "$1" in
     if [[ ${FAKE_INSTALL_FAIL:-0} == 1 ]]; then
       echo "adb: failed to install: Failure [INSTALL_FAILED_UPDATE_INCOMPATIBLE]"
     else
+      # Replacing the package ends the running process, as on a device. The
+      # second install wipes the data when FAKE_UPDATE_WIPES=1.
+      rm -f "$dir/running"
+      if [[ ${FAKE_UPDATE_WIPES:-0} == 1 && -f $dir/installed ]]; then touch "$dir/wiped"; fi
+      touch "$dir/installed"
       echo "Performing Streamed Install"; echo "Success"
     fi ;;
   uninstall) echo Success ;;
@@ -49,7 +54,9 @@ case "$1" in
       uiautomator)
         started=$(cat "$dir/started" 2>/dev/null || echo 0)
         echo '<?xml version="1.0"?><hierarchy rotation="0">'
-        if [[ -f $dir/running ]] && (( $(now) - started >= ${FAKE_READY_AFTER_MS:-0} )); then
+        ready_after=${FAKE_READY_AFTER_MS:-0}
+        [[ -f $dir/wiped ]] && ready_after=999999
+        if [[ -f $dir/running ]] && (( $(now) - started >= ready_after )); then
           echo '<node text="" content-desc="I am of legal drinking age where I live." />'
         else
           echo '<node text="" content-desc="" />'

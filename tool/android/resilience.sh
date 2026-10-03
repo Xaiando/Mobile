@@ -1,8 +1,8 @@
 #!/usr/bin/env bash
 # Checks that the app survives what Android does to apps: a first launch
 # killed part-way through, being sent Home and brought back, a rotation, a
-# memory trim, being killed while in the background, and Back on the first
-# screen. CI only: it wipes the
+# memory trim, being killed while in the background, Back on the first screen,
+# and an update installed over it. CI only: it wipes the
 # app's data, so use an emulator, never a phone with data on it.
 #
 #   tool/android/resilience.sh [options] APK OUTPUT_DIR
@@ -219,6 +219,19 @@ if (( recovered )); then
   fi
   adbq shell am start -W -n "$activity" > /dev/null
   expect_ready "back after leaving with Back" "$short"
+
+  # Every update arrives as `adb install -r` over the installed app, and must
+  # keep the learner's data. If it did not, the curriculum would be installed
+  # again, which takes minutes, not seconds.
+  if (( install )); then
+    result=$(adbq install -r -t "$apk")
+    if [[ $result != *Success* ]]; then
+      fail "updating in place failed: $result"
+    else
+      adbq shell am start -W -n "$activity" > /dev/null
+      expect_ready "after updating in place with adb install -r" "$short"
+    fi
+  fi
   note ""
 fi
 
