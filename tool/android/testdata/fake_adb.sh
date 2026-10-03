@@ -68,7 +68,17 @@ case "$1" in
         esac ;;
       dumpsys)
         case "$3" in
-          package) echo "    versionName=0.4.0"; echo "    targetSdk=36" ;;
+          package)
+            echo "    versionName=0.4.0"; echo "    targetSdk=36"
+            echo "    requested permissions:"
+            echo "      android.permission.ACCESS_NETWORK_STATE"
+            echo "    install permissions:"
+            echo "      android.permission.ACCESS_NETWORK_STATE: granted=true"
+            echo "    User 0: installed=true"
+            echo "      runtime permissions:"
+            if [[ ${FAKE_RUNTIME_PERMISSION:-0} == 1 ]]; then
+              echo "        android.permission.CAMERA: granted=true, flags=[ USER_SET]"
+            fi ;;
           cpuinfo) echo "Load: 2.5 / 2.0 / 1.0"; echo "  120% 1234/com.xaiando.sommelier: 100% user + 20% kernel" ;;
           meminfo) echo "  Native Heap    20000"; echo "  TOTAL PSS:   250000"; echo "  TOTAL RSS:   400000" ;;
         esac ;;

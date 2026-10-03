@@ -37,6 +37,7 @@ run_case success 0 \
   "Pixel Fake" "android:  16 (API 36)" "page:     4096 bytes" \
   "first launch: window drawn after 1234 ms" "the app used 14.7 s of CPU and held at most 340 MB in memory" "second launch:" \
   "no crash, ANR or native-library failure in logcat" "ML Kit started its components" \
+  "the system lists no runtime permission for the app" \
   "network attempts the system refused (expected without INTERNET): 1" \
   "TOTAL PSS" "**Result: passed**" -- FAKE_READY_AFTER_MS=1500 --
 [[ -s $work/out-success/first-launch.png ]] || { echo "FAIL success: no screenshot"; failures=$((failures + 1)); }
@@ -50,6 +51,9 @@ run_case crash 1 "logcat shows a crash, ANR or native-library failure" \
   "UnsatisfiedLinkError" "**Result: FAILED**" -- FAKE_CRASH=1 FAKE_READY_AFTER_MS=0 --
 
 run_case app_dies 1 "first launch: the app stopped running" -- FAKE_APP_DIES=1 --
+
+run_case runtime_permission 1 "the system lists runtime permissions for the app" \
+  "android.permission.CAMERA: granted=true" "**Result: FAILED**" -- FAKE_RUNTIME_PERMISSION=1 FAKE_READY_AFTER_MS=0 --
 
 run_case ml_kit_registrar 1 "ML Kit could not start its components"   "CommonComponentRegistrar" "**Result: FAILED**" -- FAKE_REGISTRAR=1 FAKE_READY_AFTER_MS=0 --
 
