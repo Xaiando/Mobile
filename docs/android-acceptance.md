@@ -121,6 +121,51 @@ every change to the app, so that a renamed button does not fail every other
 pull request; `test/tool/android_tour_test.dart` keeps the tour in step with
 the screens in the normal suite.
 
+**Window shapes of a foldable.** The Galaxy Z Fold 6 has two screens, and
+its owner folds and unfolds it with the app open. A phone-sized emulator can
+stand in for both: `adb shell wm size` gives the running app another window
+size and a configuration change, which is what folding is to an app, and
+`AndroidManifest.xml` tells the activity to handle those changes itself
+(`configChanges` lists `screenSize`, `smallestScreenSize`, `screenLayout` and
+`density`), so nothing restarts. `tool/android/window_shape.sh` holds the four
+shapes, at the Fold's 420 dpi:
+
+| Shape | Pixels | dp | Stands for |
+|---|---|---|---|
+| `fold-cover` | 968 x 2376 | 369 x 905 | the cover screen |
+| `fold-open` | 1856 x 2160 | 707 x 823 | the inner screen, held upright |
+| `fold-open-wide` | 2160 x 1856 | 823 x 707 | the inner screen, turned sideways |
+| `fold-split` | 928 x 2160 | 354 x 823 | half of the inner screen, as in split screen |
+
+What the workflow showed on 3 October 2026 (run 37142723328):
+
+* The screen tour walked every screen in light, dark, 1.3 times and twice the
+  text, in the phone's own window (411 x 914 dp) and in each Fold shape: 81
+  screenshots in each Fold shape and no layout overflow in any of them. The
+  summary of each run says which window the app saw.
+* The app showed the bottom bar in every shape, the inner screen included: the
+  side rail starts at 840 dp (`wideLayoutWidth` in `lib/app/app_shell.dart`),
+  and the inner screen is 707 dp wide upright and 823 dp sideways.
+* The tour's resize walk opened the wine editor, typed a producer, and had the
+  display changed to each Fold shape in turn, ending in the phone's own size.
+  After every change the editor was still at its route with the text in the
+  field, and nothing overflowed (`resize-<shape>-editor.png` in the phone
+  run's screenshots).
+* The resilience check gave the release app the same four sizes after the
+  rotation. The process was the same each time and the first screen was drawn
+  again within 2.0 to 2.1 seconds, and again at the emulator's own size.
+
+At twice the text on the narrowest window (half of the inner screen, 354 dp)
+a few labels truncate or wrap awkwardly: the "System" segment of the theme
+switch, and the wine editor's "Tasted" row, whose date breaks letter by letter.
+Nothing overflows, Samsung's own slider stops near 1.3 times, and the date row
+has a patch in the description of pull request #56.
+
+The emulator gives the app a window of another size. It does not give the
+hinge, the half-folded (Flex) posture, Samsung's cover-screen continuity, split
+screen or pop-up view, the taskbar or the camera under the inner display: that
+is section I of the list.
+
 **It comes back from what Android does to it.** The *Resilience on Android 16*
 job installs the release app, kills it 30 seconds into its first launch and
 checks that the next launch does the first launch again and reaches the first
