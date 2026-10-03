@@ -9,6 +9,10 @@ name: Android emulator acceptance
 # it Home, rotates it, trims its memory and kills it in the background, and
 # checks that it comes back each time (tool/android/resilience.sh).
 #
+# A third job exports a wine and its photo through the real Your data screen,
+# loses them, imports the file and checks they are back, and that a file that
+# is not a backup changes nothing (tool/android/data_roundtrip.sh).
+#
 # It runs by hand and on pull requests that change the tour itself. It is
 # deliberately not run on every change to lib/: a renamed button would then
 # fail every other pull request. test/tool/android_tour_test.dart keeps the
@@ -20,6 +24,8 @@ on:
       - 'tool/android/screen_tour.sh'
       - 'tool/android/resilience.sh'
       - 'tool/android/test_resilience.sh'
+      - 'tool/android/data_roundtrip.sh'
+      - 'tool/android/test_data_roundtrip.sh'
       - '.github/workflows/android-tour.yml'
   workflow_dispatch:
 
@@ -128,4 +134,54 @@ jobs:
         with:
           name: android-resilience
           path: build/android-resilience
+          if-no-files-found: ignore
+
+  # The one way to keep the journal across a move to a new phone, or to a build
+  # signed with another key: Settings, Your data, export, then import. Only the
+  # platform's file dialog is replaced; the phone checks Samsung's own.
+  roundtrip:
+    name: Backup round trip on Android 16
+    runs-on: ubuntu-latest
+    timeout-minutes: 60
+    steps:
+      - uses: actions/checkout@v5
+      - uses: actions/setup-java@v5
+        with:
+          distribution: temurin
+          java-version: '21'
+      - name: Read the pinned Flutter version
+        id: flutter
+        run: echo "version=$(jq -r .flutter .fvmrc)" >> "$GITHUB_OUTPUT"
+      - uses: subosito/flutter-action@v2
+        with:
+          flutter-version: ${{ steps.flutter.outputs.version }}
+          channel: stable
+          cache: true
+      - name: The round trip script behaves
+        run: bash tool/android/test_data_roundtrip.sh
+      - name: Let the emulator use hardware acceleration
+        run: |
+          echo 'KERNEL=="kvm", GROUP="kvm", MODE="0666", OPTIONS+="static_node=kvm"' | sudo tee /etc/udev/rules.d/99-kvm4all.rules
+          sudo udevadm control --reload-rules
+          sudo udevadm trigger --name-match=kvm
+      - name: Export, lose, import and check on an emulator
+        uses: reactivecircus/android-emulator-runner@v2
+        with:
+          api-level: 36
+          target: google_apis
+          arch: x86_64
+          profile: pixel_6
+          cores: 3
+          ram-size: 4096M
+          heap-size: 576M
+          disable-animations: true
+          emulator-boot-timeout: 900
+          emulator-options: -no-window -gpu swiftshader_indirect -noaudio -no-boot-anim -camera-back none -camera-front none
+          script: bash tool/android/data_roundtrip.sh build/android-roundtrip
+      - name: Keep the report and logs
+        if: always()
+        uses: actions/upload-artifact@v5
+        with:
+          name: android-roundtrip
+          path: build/android-roundtrip
           if-no-files-found: ignore
