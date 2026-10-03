@@ -16,6 +16,28 @@ import 'package:sommelier/main.dart' as app;
 
 import 'tour.dart';
 
+/// Set by `screen_tour.sh --resize-walk`: after the walk, the app also asks the
+/// script to change the display through the Galaxy Z Fold 6's window shapes.
+const resizeWalk = bool.fromEnvironment('TOUR_RESIZE_WALK');
+
+/// Asks tool/android/screen_tour.sh, with a `TOUR_RESIZE` line that names the
+/// shape, to change the display, and waits for the app to see the new size.
+Future<void> resizeWindow(WidgetTester tester, String shape) async {
+  final before = tester.view.physicalSize;
+  debugPrint('TOUR_RESIZE $shape');
+  final deadline = DateTime.now().add(const Duration(seconds: 40));
+  while (tester.view.physicalSize == before) {
+    if (DateTime.now().isAfter(deadline)) {
+      throw StateError('the window did not change for $shape within 40 s');
+    }
+    await tester.runAsync(
+      () => Future<void>.delayed(const Duration(milliseconds: 300)),
+    );
+    await tester.pump();
+  }
+  await tester.pump(const Duration(milliseconds: 500));
+}
+
 void main() {
   IntegrationTestWidgetsFlutterBinding.ensureInitialized();
 
@@ -99,12 +121,25 @@ void main() {
       (widget) => widget is NavigationBar || widget is NavigationRail,
     );
     await waitFor(tester, navigation, 'the main navigation');
+    debugPrint('TOUR_WINDOW start ${windowDescription(tester)}');
 
     final report = await walkMainScreens(
       tester,
       looks: tourLooks,
       shoot: shoot,
     );
+    if (resizeWalk) {
+      final resized = await walkWindowShapes(
+        tester,
+        resize: resizeWindow,
+        shoot: shoot,
+      );
+      report.problems.addAll(resized.problems);
+      report.shots.addAll(resized.shots);
+      for (final window in resized.windows) {
+        debugPrint('TOUR_WINDOW $window');
+      }
+    }
     for (final MapEntry(:key, :value) in report.timings.entries) {
       debugPrint('TOUR_TIME $key $value');
     }

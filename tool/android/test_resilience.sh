@@ -45,9 +45,12 @@ run_case success 0 \
   "back after being killed in the background: the first screen was back after" \
   "Back on the first screen left the app" "back after leaving with Back: the first screen was back after" \
   "after updating in place with adb install -r: the first screen was back after" \
+  "resized to the fold-open window (Z Fold 6 inner screen unfolded" "resized to the fold-cover window" \
+  "resized to the fold-open-wide window" "resized to the fold-split window" \
+  "back at the emulator's own window size: the first screen was back after" \
   "no crash, ANR or native-library failure in logcat" "**Result: passed**" \
   -- FAKE_READY_AFTER_MS=1500 --
-[[ -s $work/out-success/recovered.png && -s $work/out-success/landscape.png ]] \
+[[ -s $work/out-success/recovered.png && -s $work/out-success/landscape.png && -s $work/out-success/fold-open.png ]] \
   || { echo "FAIL success: no screenshots"; failures=$((failures + 1)); }
 
 run_case finished_before_the_kill 0 \
@@ -93,6 +96,15 @@ run_case crash_in_logcat 1 "logcat shows a crash, ANR or native-library failure"
 # A slow emulator takes seconds to start the process; that is not a stopped app.
 run_case slow_start 0 "relaunch after the kill: the first screen was back after" "**Result: passed**" \
   -- RESILIENCE_START_GRACE=10 FAKE_PID_DELAY_MS=2500 FAKE_READY_AFTER_MS=0 -- --interrupt-after 3 --short-timeout 9
+
+# The window changes size as folding does; the app must live through it.
+run_case dies_on_a_fold 1 \
+  "resized to the fold-open window: the app stopped running or was restarted" "**Result: FAILED**" \
+  -- FAKE_DIES_ON_RESIZE=1 FAKE_READY_AFTER_MS=1500 --
+
+run_case display_refuses_a_fold 1 \
+  "the fold-open window: the display did not take 1856x2160" "**Result: FAILED**" \
+  -- FAKE_WM_REFUSE=1 FAKE_READY_AFTER_MS=1500 --
 
 run_case no_device 1 "no device is attached" -- FAKE_NO_DEVICE=1 --
 

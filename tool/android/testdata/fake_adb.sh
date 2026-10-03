@@ -94,6 +94,11 @@ case "$1" in
             if [[ ${FAKE_RUNTIME_PERMISSION:-0} == 1 ]]; then
               echo "        android.permission.CAMERA: granted=true, flags=[ USER_SET]"
             fi ;;
+          SurfaceFlinger)
+            # One display, or FAKE_DISPLAYS of them, as on a foldable.
+            for i in $(seq 1 "${FAKE_DISPLAYS:-1}"); do
+              echo "Display 46198272598356446$((70 + i)) (HWC display $((i - 1))): port=$((i - 1)) pnpId=SAM"
+            done ;;
           cpuinfo) echo "Load: 2.5 / 2.0 / 1.0"; echo "  120% 1234/com.xaiando.sommelier: 100% user + 20% kernel" ;;
           meminfo) echo "  Native Heap    20000"; echo "  TOTAL PSS:   250000"; echo "  TOTAL RSS:   400000" ;;
         esac ;;
@@ -114,6 +119,28 @@ case "$1" in
       settings)
         # Only the airplane-mode read answers; every other settings call succeeds quietly.
         if [[ "${3:-} ${4:-} ${5:-}" == "get global airplane_mode_on" ]]; then echo "${FAKE_AIRPLANE:-1}"; fi ;;
+      wm)
+        # The display: FAKE_DISPLAY (default 1080x2400) at FAKE_DENSITY dpi. `wm size WxH`
+        # overrides it unless FAKE_WM_REFUSE=1; FAKE_DIES_ON_RESIZE=1 ends the app when
+        # its window changes size, as a crash on a fold would.
+        case "${3:-}" in
+          size)
+            case "${4:-}" in
+              "") echo "Physical size: ${FAKE_DISPLAY:-1080x2400}"
+                  [[ -f $dir/wm-size ]] && echo "Override size: $(cat "$dir/wm-size")" ;;
+              reset) rm -f "$dir/wm-size" ;;
+              *)
+                [[ ${FAKE_WM_REFUSE:-0} == 1 ]] || echo "$4" > "$dir/wm-size"
+                [[ ${FAKE_DIES_ON_RESIZE:-0} == 1 ]] && rm -f "$dir/running" ;;
+            esac ;;
+          density)
+            case "${4:-}" in
+              "") echo "Physical density: ${FAKE_DENSITY:-420}"
+                  [[ -f $dir/wm-density ]] && echo "Override density: $(cat "$dir/wm-density")" ;;
+              reset) rm -f "$dir/wm-density" ;;
+              *) echo "$4" > "$dir/wm-density" ;;
+            esac ;;
+        esac ;;
       pidof)
         # FAKE_PID_DELAY_MS: a slow emulator takes a while to start the process.
         if [[ -f $dir/running ]]; then

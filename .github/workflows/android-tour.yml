@@ -5,6 +5,12 @@ name: Android emulator acceptance
 # and fails on any layout overflow. It is how the app's look on a phone is
 # seen without a phone: download the artifact and open the pictures.
 #
+# The walk runs in five window shapes: the emulator's own phone screen, and
+# the Galaxy Z Fold 6's cover screen, inner screen, inner screen sideways and
+# half of the inner screen (tool/android/window_shape.sh). In the phone run the
+# app is also resized under a half-filled form, as folding and unfolding does,
+# and must keep what was typed.
+#
 # A second job kills the release app part-way through its first launch, sends
 # it Home, rotates it, trims its memory and kills it in the background, and
 # checks that it comes back each time (tool/android/resilience.sh).
@@ -22,6 +28,10 @@ on:
     paths:
       - 'tool/android_tour/**'
       - 'tool/android/screen_tour.sh'
+      - 'tool/android/test_screen_tour.sh'
+      - 'tool/android/window_shape.sh'
+      - 'tool/android/test_window_shape.sh'
+      - 'tool/android/testdata/**'
       - 'tool/android/resilience.sh'
       - 'tool/android/test_resilience.sh'
       - 'tool/android/data_roundtrip.sh'
@@ -38,9 +48,23 @@ concurrency:
 
 jobs:
   tour:
-    name: Screen tour on Android 16
+    name: Screen tour on Android 16 (${{ matrix.shape }})
     runs-on: ubuntu-latest
     timeout-minutes: 70
+    strategy:
+      fail-fast: false
+      matrix:
+        include:
+          - shape: phone
+            options: --resize-walk
+          - shape: fold-cover
+            options: ''
+          - shape: fold-open
+            options: ''
+          - shape: fold-open-wide
+            options: ''
+          - shape: fold-split
+            options: ''
     steps:
       - uses: actions/checkout@v5
       - uses: actions/setup-java@v5
@@ -55,8 +79,10 @@ jobs:
           flutter-version: ${{ steps.flutter.outputs.version }}
           channel: stable
           cache: true
-      - name: The tour script behaves
-        run: bash tool/android/test_screen_tour.sh
+      - name: The tour script and the window shapes behave
+        run: |
+          bash tool/android/test_window_shape.sh
+          bash tool/android/test_screen_tour.sh
       - name: Let the emulator use hardware acceleration
         run: |
           echo 'KERNEL=="kvm", GROUP="kvm", MODE="0666", OPTIONS+="static_node=kvm"' | sudo tee /etc/udev/rules.d/99-kvm4all.rules
@@ -75,12 +101,12 @@ jobs:
           disable-animations: true
           emulator-boot-timeout: 900
           emulator-options: -no-window -gpu swiftshader_indirect -noaudio -no-boot-anim -camera-back none -camera-front none
-          script: bash tool/android/screen_tour.sh build/android-tour
+          script: bash tool/android/screen_tour.sh --shape ${{ matrix.shape }} ${{ matrix.options }} build/android-tour
       - name: Keep the screenshots and logs
         if: always()
         uses: actions/upload-artifact@v5
         with:
-          name: android-screen-tour
+          name: android-screen-tour-${{ matrix.shape }}
           path: build/android-tour
           if-no-files-found: ignore
 

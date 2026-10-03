@@ -1,9 +1,10 @@
 #!/usr/bin/env bash
 # Checks that the app survives what Android does to apps: a first launch
-# killed part-way through, being sent Home and brought back, a rotation, a
-# memory trim, being killed while in the background, Back on the first screen,
-# and an update installed over it. CI only: it wipes the
-# app's data, so use an emulator, never a phone with data on it.
+# killed part-way through, being sent Home and brought back, a rotation, the
+# window changing size as a foldable's does, a memory trim, being killed while
+# in the background, Back on the first screen, and an update installed over it.
+# CI only: it wipes the app's data and changes the display size, so use an
+# emulator, never a phone with data on it.
 #
 #   tool/android/resilience.sh [options] APK OUTPUT_DIR
 #
@@ -44,6 +45,9 @@ while [[ ${1:-} == --* ]]; do
 done
 apk=${1:?usage: $0 [options] APK OUTPUT_DIR}
 out=${2:?usage: $0 [options] APK OUTPUT_DIR}
+here=$(cd "$(dirname "$0")" && pwd)
+# shellcheck source=window_shape.sh
+. "$here/window_shape.sh"
 package=com.xaiando.sommelier
 activity=$package/.MainActivity
 mkdir -p "$out"
@@ -185,6 +189,30 @@ if (( recovered )); then
   pause 4
   expect_ready "rotated back to portrait" "$short"
   adbq shell settings put system accelerometer_rotation 1 > /dev/null
+
+  # A foldable changes the window under a running app: the cover screen is a
+  # narrow phone, the inner screen is nearly square, and the change happens with
+  # the app open. The emulator cannot fold, but overriding the display size
+  # gives the app the same event, a window of another size and a configuration
+  # change that the manifest says the activity handles itself (window_shape.sh).
+  # So the process must live on, and the same screen must be drawn again.
+  for shape in fold-open fold-cover fold-open-wide fold-split; do
+    pid_before=$(adbq shell pidof "$package")
+    if ! set_shape "$shape"; then
+      fail "the $shape window: $SHAPE_ERROR"
+      continue
+    fi
+    pause 4
+    if running && [[ $(adbq shell pidof "$package") == "$pid_before" ]]; then
+      expect_ready "resized to the $shape window ($(shape_label "$shape"))" "$short" \
+        && timeout 60 adb exec-out screencap -p > "$out/$shape.png" 2>/dev/null
+    else
+      fail "resized to the $shape window: the app stopped running or was restarted"
+    fi
+  done
+  reset_shape
+  pause 4
+  expect_ready "back at the emulator's own window size" "$short"
 
   # The system may refuse this on a build that is not debuggable (a phone):
   # say so, and do not count a trim that never happened.
