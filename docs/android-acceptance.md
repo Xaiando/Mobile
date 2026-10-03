@@ -60,8 +60,9 @@ ML Kit could not start (`ComponentDiscovery ... NoSuchMethodException:
 CommonComponentRegistrar.<init>`) and recognition threw a `NullPointerException`.
 R8, the code shrinker that release builds use and debug builds do not, no
 longer keeps the default constructor of a class that a rule keeps without
-naming one, and ML Kit creates its component registrars by reflection. A
-phone would have lost label reading with nothing in the app to say why.
+naming one, and ML Kit creates its component registrars by reflection. On a
+phone every label photo would have ended with "Text recognition was
+unavailable", and nothing in the app says why.
 `android/app/proguard-rules.pro` now keeps those constructors, and the
 *Text recognition and plugins in a release build* job guards it: it draws a
 label, reads it with the cellar's own function, and calls `image_picker` and
@@ -111,8 +112,9 @@ launch.
   the device" (legal review L-11). Android caps a backup at 25 MB per app; the
   database is already 22 MB, so the backup would stop working once photos
   or study history add a few MB, and a restore would find nothing. Nothing was
-  changed here. Options: set `android:allowBackup="false"` (and rely on
-  *Settings > Your data > Export* to move to a new phone), or leave it.
+  changed here. Options: set `android:allowBackup="false"` (which also stops
+  Android's phone-to-phone transfer from carrying the app's data, so you would
+  rely on *Settings > Your data > Export* to move to a new phone), or leave it.
 * **The release key.** See "Updating".
 
 ## Before you start

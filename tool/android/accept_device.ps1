@@ -133,7 +133,9 @@ if ($Download) {
         New-Item -ItemType Directory -Force $folder | Out-Null
         Write-Host "`nDownloading the phone APK of run $Run..."
         & gh run download $Run --name sommelier-android-arm64-apk --dir $folder
-        if ($LASTEXITCODE -ne 0) { throw "gh could not download the APK of run $Run." }
+        if ($LASTEXITCODE -ne 0) {
+            throw "gh could not download the artifact sommelier-android-arm64-apk of run $Run. A run from before the workflow kept it has none: give -Run <id> of a newer run, or -Apk."
+        }
     } finally {
         Pop-Location
     }
