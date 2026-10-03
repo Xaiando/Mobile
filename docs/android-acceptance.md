@@ -14,6 +14,7 @@ it checks that the software behaves.
 | The same on a kernel with 16 KB memory pages (the Play Store's next requirement) | the workflow's second emulator image | automatic |
 | A learner can pick a track, study a card, taste and rehearse (the whole `integration_test/app_test.dart` flow) | the same emulator session | automatic |
 | ML Kit text recognition, `image_picker` and `file_picker` still work in a *release* build, where R8 shrinks the code (the integration test builds the debug app, which R8 leaves alone) | a tiny release-built app on an emulator (`tool/android_smoke`, `tool/android/ocr_smoke.sh`), in the *Text recognition and plugins in a release build* job | automatic |
+| Every main screen fits at the largest text size and in dark mode, with no layout overflow (and what the app looks like on Android 16) | `tool/android_tour` on an emulator, in the *Android screen tour* workflow (by hand, or when the tour changes) | automatic |
 | Camera capture, gallery picking, OCR on a real label, the system file dialogs, gestures, speed on real hardware, heat, battery | **only the phone** | you, with the list below |
 | Anything about the wine facts | a qualified reviewer | never automatic (D3) |
 
@@ -96,6 +97,23 @@ The CPU time is the fairest figure. A phone is several times faster than these
 emulators; your first launch on the Galaxy S22 Ultra is the number we do not
 have. After four seconds the app says it is setting up the study library and
 that this happens once.
+
+**Every main screen fits, at every text size.** The *Android screen tour*
+workflow walks the debug app through the Home, Study, Practice, Tasting,
+Cellar and Settings screens and their sub-pages in four looks: the default,
+dark mode, 1.3 times text (about the top of Samsung's own slider) and twice
+the text (Android's accessibility maximum). It took 81 screenshots on an
+Android 16 emulator, and the framework reported no layout overflow in any of
+them. The screenshots are the workflow's artifact, `android-screen-tour`: open
+`shots/` to see the app on Android 16 without a phone (the corner banner says
+DEBUG because the tour runs the debug build, which is the one that reports
+overflows). Study opened in about half a second after its first visit in
+every look, so the long lesson list is not slow. One cosmetic point at twice
+the text: the date in the wine editor wraps as "2026-10" and "-03".
+To run it: Actions, *Android screen tour*, *Run workflow*. It is not run on
+every change to the app, so that a renamed button does not fail every other
+pull request; `test/tool/android_tour_test.dart` keeps the tour in step with
+the screens in the normal suite.
 
 **The database is 22 MB when the first launch ends**, before any study
 history, and it also holds your journal photos (they are stored in it). After

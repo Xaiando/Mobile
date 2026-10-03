@@ -5,6 +5,7 @@
 # and FAKE_INSTALL_FAIL=1.
 dir=$FAKE_ADB_DIR
 now() { date +%s%3N; }
+echo "$*" >> "$dir/adb-calls.log"
 case "$1" in
   get-state)
     if [[ ${FAKE_NO_DEVICE:-0} == 1 ]]; then echo "error: no devices/emulators found"; exit 1; fi
@@ -27,6 +28,10 @@ case "$1" in
         wrong) echo '10-02 12:00:05.000  1234  1234 I flutter : OCR_CHECK {"text":"CHATEAU","vintage":null,"abv":null,"warnings":["no_text"],"ms":900}' ;;
         error) echo '10-02 12:00:05.000  1234  1234 I flutter : OCR_CHECK {"error":"PlatformException(MlKitException)","ms":50}' ;;
       esac
+    elif [[ $2 == -v ]]; then
+      # The live stream: what the fake flutter wrote, until the script stops it.
+      touch "$dir/flutter.log"
+      exec tail -n +1 -f "$dir/flutter.log"
     elif [[ $2 == -d ]]; then
       echo "10-02 12:00:00.000  1000  1000 I flutter : engine started"
       if [[ ${FAKE_CRASH:-0} == 1 ]]; then
@@ -51,7 +56,7 @@ case "$1" in
         fi
         echo '</hierarchy>'
         echo 'UI hierchary dumped to: /dev/tty' ;;
-      screencap) printf '\211PNG fake' ;;
+      screencap) [[ ${FAKE_SCREENCAP_EMPTY:-0} == 1 ]] || printf '\211PNG fake' ;;
     esac ;;
   shell)
     case "$2" in
