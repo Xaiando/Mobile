@@ -10,9 +10,6 @@ name: Android screen tour
 # fail every other pull request. test/tool/android_tour_test.dart keeps the
 # tour in step with the screens in the normal suite.
 on:
-  # Temporary: lets this branch iterate.
-  push:
-    branches: ['claude/android-tour']
   pull_request:
     paths:
       - 'tool/android_tour/**'
