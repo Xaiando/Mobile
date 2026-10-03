@@ -1,9 +1,10 @@
 # Android acceptance
 
 How to show that the app works on an Android phone, and what has and has not
-been shown so far. The reference phone is a Samsung Galaxy S22 Ultra on
-Android 16 / One UI 8. Nothing here is a qualification or an expert review;
-it checks that the software behaves.
+been shown so far. The reference phones are a Samsung Galaxy Z Fold 6, the
+first one to be tested, and a Galaxy S22 Ultra, on Android 15 or 16 (One UI 7
+or 8); the CI emulators run Android 16. Nothing here is a qualification or an
+expert review; it checks that the software behaves.
 
 ## What is checked, and by whom
 
@@ -14,10 +15,12 @@ it checks that the software behaves.
 | The same on a kernel with 16 KB memory pages (the Play Store's next requirement) | the workflow's second emulator image | automatic |
 | A learner can pick a track, study a card, taste and rehearse (the whole `integration_test/app_test.dart` flow) | the same emulator session | automatic |
 | ML Kit text recognition, `image_picker` and `file_picker` still work in a *release* build, where R8 shrinks the code (the integration test builds the debug app, which R8 leaves alone) | a tiny release-built app on an emulator (`tool/android_smoke`, `tool/android/ocr_smoke.sh`), in the *Text recognition and plugins in a release build* job | automatic |
-| Every main screen fits at the largest text size and in dark mode, with no layout overflow (and what the app looks like on Android 16) | `tool/android_tour` on an emulator, in the *Android screen tour* workflow (by hand, or when the tour changes) | automatic |
-| The app comes back from what Android does to it: a first launch killed part-way through, Home and back, a rotation, a critical memory trim, a kill while in the background, and Back on the first screen, which must leave the app | `tool/android/resilience.sh` on an emulator, in the *Android emulator acceptance* workflow (by hand, or when the script changes) | automatic |
+| Every main screen fits at the largest text size and in dark mode, with no layout overflow (and what the app looks like on Android 16), on a phone and in the Galaxy Z Fold 6's window shapes: its cover screen, its inner screen upright and sideways, and half of the inner screen | `tool/android_tour` on an emulator whose display is set to each shape (`tool/android/window_shape.sh`), in the *Android screen tour* workflow (by hand, or when the tour changes) | automatic |
+| What folding does to a running app: the window changes size under a half-filled wine editor, and the typed text and the screen must survive | the tour's resize walk (`screen_tour.sh --resize-walk`), in the same workflow | automatic |
+| The app comes back from what Android does to it: a first launch killed part-way through, Home and back, a rotation, the window taking each of the Fold's sizes, a critical memory trim, a kill while in the background, Back on the first screen (which must leave the app), and an update installed over it | `tool/android/resilience.sh` on an emulator, in the *Android emulator acceptance* workflow (by hand, or when the script changes) | automatic |
 | A backup restores the journal: a wine and its photo are exported through Settings, Your data, lost, and imported back, and a file that is not a backup changes nothing. The file dialog itself is replaced by memory here | `tool/android_tour/roundtrip.dart` on an emulator, in the same workflow | automatic |
 | Camera capture, gallery picking, OCR on a real label, the system file dialogs, gestures, speed on real hardware, heat, battery | **only the phone** | you, with the list below |
+| The hinge and the half-folded (Flex) posture, Samsung's cover-screen continuity, split screen and pop-up view, the taskbar, the camera under the inner display | **only the Z Fold 6** | you, with section I of the list |
 | Anything about the wine facts | a qualified reviewer | never automatic (D3) |
 
 An emulator is not a phone. It proves the app starts and runs on the Android
@@ -106,8 +109,9 @@ Cellar and Settings screens and their sub-pages in four looks: the default,
 dark mode, 1.3 times text (about the top of Samsung's own slider) and twice
 the text (Android's accessibility maximum). It took 81 screenshots on an
 Android 16 emulator, and the framework reported no layout overflow in any of
-them. The screenshots are the workflow's artifact, `android-screen-tour`: open
-`shots/` to see the app on Android 16 without a phone (the corner banner says
+them. The screenshots are the workflow's artifacts, `android-screen-tour-phone`
+and one for each Fold shape: open `shots/` to see the app on Android 16
+without a phone (the corner banner says
 DEBUG because the tour runs the debug build, which is the one that reports
 overflows). Study opened in about half a second after its first visit in
 every look, so the long lesson list is not slow. One cosmetic point at twice
@@ -116,6 +120,27 @@ To run it: Actions, *Android screen tour*, *Run workflow*. It is not run on
 every change to the app, so that a renamed button does not fail every other
 pull request; `test/tool/android_tour_test.dart` keeps the tour in step with
 the screens in the normal suite.
+
+**It comes back from what Android does to it.** The *Resilience on Android 16*
+job installs the release app, kills it 30 seconds into its first launch and
+checks that the next launch does the first launch again and reaches the first
+screen: 346 seconds on the emulator, so a learner on a slow phone who is
+interrupted loses that much, and nothing is half done. Then it sends the app
+Home, rotates it, trims its memory, kills it in the background, presses Back
+on the first screen and installs the same APK over it with `adb install -r`.
+Each time the first screen was back in 2 to 3 seconds, Back left the app (it
+does not trap the gesture), and the update kept the learner's data, so it did
+not install the curriculum again (run 37096333173). The shell user of these
+images may not signal another app's process, so the script ends the app with
+`kill -9` when it may and with `am force-stop` otherwise, which is just as
+abrupt, and says which it used.
+
+**A backup restores.** The *Backup round trip on Android 16* job saves a wine
+and its photo through the journal editor, exports through Settings, Your data
+(the system file dialog is replaced by memory in this test), wipes the data,
+imports the file and finds the wine and its photo back. A file that is not a
+backup is refused and changes nothing (run 37096333173). Samsung's own file
+dialogs are for the phone: rows G1 to G3.
 
 **The database is 22 MB when the first launch ends**, before any study
 history, and it also holds your journal photos (they are stored in it). After
@@ -153,6 +178,11 @@ launch.
    * Samsung: Settings > Security and privacy > **Auto Blocker** off. It blocks
      both USB commands and installs from outside the stores.
    * If Play Protect offers to scan the app, choose *Install anyway*.
+   * Galaxy Z Fold 6: the same menus, on either screen. Unfold the phone for
+     the setup and the install. The helper's screenshot is of the screen that
+     is on, so leave the phone unfolded if you want the inner screen in it.
+     To see the app on the cover screen too, close the phone with the app
+     open and look at what comes up (row I8).
 3. **Run the helper** from the repository folder, with the phone unlocked:
 
    ```powershell
@@ -253,6 +283,25 @@ Mark each row pass, fail or a note. "Expected" is what should happen.
 | H1 | Scroll the Study list and Cellar quickly | No long freezes |
 | H2 | Use the app for ten minutes | The phone does not get hot; no crash; `summary.md` memory figures stay sane |
 | H3 | Open Home, Practice, Study, Cellar, Tasting, Map and Settings in turn, then press Back repeatedly | Back steps through screens sensibly, then leaves the app; never a blank screen |
+
+### I. Foldable (Galaxy Z Fold 6)
+
+The emulators have shown that the app draws at the Fold's window sizes and
+keeps a half-filled form when the window changes size (see "Window shapes of
+a foldable" above). These rows are what only the phone can show.
+
+| # | Do | Expected |
+|---|---|---|
+| I1 | With the app on its first screen, unfold the phone, then fold it | The screen redraws at each size within about a second and stays on the same screen; nothing restarts |
+| I2 | In the wine editor (Cellar > add a wine) type a producer and add a photo, then unfold and fold | The text and the photo are still there; if the keyboard was open it fits again |
+| I3 | In Practice, start a typed answer, then unfold | The question and your half-typed answer are still there |
+| I4 | On the cover screen (phone closed), open Home, Study, Practice, Cellar, Tasting, Map and Settings, with Font size and style on the largest | Everything fits the narrow screen; nothing is cut off or overlaps |
+| I5 | On the inner screen, held upright and then sideways, open the same screens | Nothing overflows or is cut off; lines stay readable. A bottom bar rather than a side rail is expected up to 840 dp wide; note whether the space looks well used |
+| I6 | Half-fold the phone to about 90 degrees on Practice and on the wine editor | The app keeps running; nothing you need sits on the crease |
+| I7 | Open Sommelier in split screen next to another app (Recents > tap the app's icon > *Open in split screen view*), then in a pop-up window | It resizes and stays usable; the keyboard never hides the field you type in; moving and resizing the window loses nothing |
+| I8 | With the app open on the inner screen, close the phone, then open it again. Try it with Settings > Display > *Continue apps on cover screen* on and off | The app is where you left it, on the same screen with the same typed text, on whichever screen that setting sends it to |
+| I9 | On the inner screen, bring up the taskbar (Settings > Display > Taskbar), and look at the top right where the camera sits under the display | The bottom navigation and buttons are not hidden behind the taskbar or the gesture bar; nothing is unreadable or out of reach at the top right |
+| I10 | *Scan label* once with the phone unfolded, and once folded | Samsung's camera opens on the screen you are using, and the photo comes back to the same wine editor |
 
 ## Updating
 
