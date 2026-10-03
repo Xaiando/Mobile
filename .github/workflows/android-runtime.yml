@@ -9,9 +9,6 @@ name: Android runtime
 # plugin version is the likeliest way to break Android) or this tooling, and
 # can be run by hand.
 on:
-  # Temporary: lets this branch iterate without running the whole of ci.yml.
-  push:
-    branches: ['claude/android-**']
   pull_request:
     paths:
       - 'android/**'
