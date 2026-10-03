@@ -179,8 +179,10 @@ launch.
      both USB commands and installs from outside the stores.
    * If Play Protect offers to scan the app, choose *Install anyway*.
    * Galaxy Z Fold 6: the same menus, on either screen. Unfold the phone for
-     the setup and the install. The helper's screenshot is of the screen that
-     is on, so leave the phone unfolded if you want the inner screen in it.
+     the setup and the install, and use a USB cable that carries data (a
+     charge-only cable shows no device). A Fold has two displays, so the
+     helper saves a first-launch screenshot of each
+     (`first-launch-display-<id>.png`); the one that was on shows the app.
      To see the app on the cover screen too, close the phone with the app
      open and look at what comes up (row I8).
 3. **Run the helper** from the repository folder, with the phone unlocked:

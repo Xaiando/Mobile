@@ -42,7 +42,18 @@ run_case success 0 \
   "TOTAL PSS" "**Result: passed**" -- FAKE_READY_AFTER_MS=1500 --
 [[ -s $work/out-success/first-launch.png ]] || { echo "FAIL success: no screenshot"; failures=$((failures + 1)); }
 
+[[ -z $(ls "$work"/out-success/first-launch-display-* 2>/dev/null) ]] \
+  || { echo "FAIL success: per-display screenshots on a one-display phone"; failures=$((failures + 1)); }
+grep -q -F "more than one display" "$work/out-success/summary.md" \
+  && { echo "FAIL success: a one-display phone is called a foldable"; failures=$((failures + 1)); }
+
 run_case sixteen_kb_pages 0 "page:     16384 bytes" -- FAKE_PAGE_SIZE=16384 --
+
+# A foldable has two displays; each gets its own screenshot.
+run_case foldable_displays 0 "this phone has more than one display (a foldable)" "**Result: passed**" \
+  -- FAKE_DISPLAYS=2 FAKE_READY_AFTER_MS=0 --
+shots=$(ls "$work"/out-foldable_displays/first-launch-display-*.png 2>/dev/null | wc -l | tr -d ' ')
+[[ $shots == 2 ]] || { echo "FAIL foldable_displays: $shots per-display screenshots, expected 2"; failures=$((failures + 1)); }
 
 run_case never_ready 1 'FAIL** first launch: no "I am of legal drinking age" within 6 s' \
   "**Result: FAILED**" -- FAKE_READY_AFTER_MS=999999 --

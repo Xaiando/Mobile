@@ -167,6 +167,15 @@ note "Launches"
 note ""
 if launch first; then
   timeout 60 adb exec-out screencap -p > "$out/first-launch.png" 2>/dev/null
+  # A foldable has two screens, and a capture without a display id takes whichever
+  # one Android finds first. Take each, so the report holds the one that was on.
+  displays=$(adbq shell dumpsys SurfaceFlinger --display-id | awk '/^Display [0-9]+ / { print $2 }')
+  if (( $(echo "$displays" | grep -c .) > 1 )); then
+    for id in $displays; do
+      timeout 60 adb exec-out screencap -p -d "$id" > "$out/first-launch-display-$id.png" 2>/dev/null
+    done
+    note "- this phone has more than one display (a foldable): first-launch-display-<id>.png is the first screen as each display shows it; only the display that is on shows the app"
+  fi
   adbq shell dumpsys meminfo "$package" > "$out/meminfo.txt"
 fi
 launch second

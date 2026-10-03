@@ -94,6 +94,11 @@ case "$1" in
             if [[ ${FAKE_RUNTIME_PERMISSION:-0} == 1 ]]; then
               echo "        android.permission.CAMERA: granted=true, flags=[ USER_SET]"
             fi ;;
+          SurfaceFlinger)
+            # One display, or FAKE_DISPLAYS of them, as on a foldable.
+            for i in $(seq 1 "${FAKE_DISPLAYS:-1}"); do
+              echo "Display 46198272598356446$((70 + i)) (HWC display $((i - 1))): port=$((i - 1)) pnpId=SAM"
+            done ;;
           cpuinfo) echo "Load: 2.5 / 2.0 / 1.0"; echo "  120% 1234/com.xaiando.sommelier: 100% user + 20% kernel" ;;
           meminfo) echo "  Native Heap    20000"; echo "  TOTAL PSS:   250000"; echo "  TOTAL RSS:   400000" ;;
         esac ;;
