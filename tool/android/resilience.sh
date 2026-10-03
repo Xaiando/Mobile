@@ -137,13 +137,24 @@ else
   if screen_has "$ready"; then
     note "- the first launch had already finished after $interrupt_after s, so the kill came after it, not during it; use a smaller --interrupt-after to cut it short"
   else
-    note "- killed the app $interrupt_after s into its first launch, before its first screen"
+    note "- the app was still on its first launch $interrupt_after s in, before its first screen"
   fi
+  # kill -9 is closest to what the system does to a backgrounded app, but the
+  # shell user may not signal another app's process on a build that is not
+  # rooted. am force-stop ends the process just as abruptly (SIGKILL) and is
+  # always allowed, so it is the fallback.
   adbq shell kill -9 "$pid" > /dev/null
   pause 3
+  how="kill -9"
   if running; then
-    fail "the app was still running after kill -9"
+    adbq shell am force-stop "$package" > /dev/null
+    pause 3
+    how="am force-stop"
+  fi
+  if running; then
+    fail "the app was still running after $how"
   else
+    note "- ended the app with $how"
     adbq shell am start -W -n "$activity" > /dev/null
     if expect_ready "relaunch after the kill" "$limit"; then
       recovered=1

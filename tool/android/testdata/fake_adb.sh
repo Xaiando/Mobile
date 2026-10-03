@@ -82,7 +82,7 @@ case "$1" in
         esac ;;
       am)
         case "$3" in
-          force-stop) rm -f "$dir/running" ;;
+          force-stop) [[ ${FAKE_IGNORE_FORCE_STOP:-0} == 1 ]] || rm -f "$dir/running" ;;
           kill) [[ ${FAKE_KEEP_ALIVE:-0} == 1 ]] || rm -f "$dir/running" ;;
           send-trim-memory)
             [[ ${FAKE_DIES_ON_TRIM:-0} == 1 ]] && rm -f "$dir/running"

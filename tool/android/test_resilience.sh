@@ -35,7 +35,7 @@ run_case() { # NAME EXPECTED_STATUS EXPECTED_TEXT... -- ENV... -- SCRIPT_ARGS...
 }
 
 run_case success 0 \
-  "killed the app 0 s into its first launch, before its first screen" \
+  "the app was still on its first launch 0 s in, before its first screen" "ended the app with kill -9" \
   "relaunch after the kill: the first screen was back after" \
   "back from the home screen: the first screen was back after" \
   "rotated to landscape: the app kept running" \
@@ -57,7 +57,13 @@ run_case not_running_before_the_kill 1 \
   "interrupted first launch: the app was not running 0 s into its first launch" "**Result: FAILED**" \
   -- FAKE_APP_DIES=1 --
 
-run_case survives_the_kill 1 "the app was still running after kill -9" -- FAKE_IGNORE_KILL=1 FAKE_READY_AFTER_MS=1500 --
+run_case survives_every_kill 1 "the app was still running after am force-stop" "**Result: FAILED**" \
+  -- FAKE_IGNORE_KILL=1 FAKE_IGNORE_FORCE_STOP=1 FAKE_READY_AFTER_MS=1500 --
+
+# The shell user may not signal another app's process on a build that is not
+# rooted: am force-stop ends it just as abruptly.
+run_case kill_not_permitted 0 "ended the app with am force-stop" "relaunch after the kill: the first screen was back after" \
+  "**Result: passed**" -- FAKE_IGNORE_KILL=1 FAKE_READY_AFTER_MS=1500 --
 
 run_case never_recovers 1 \
   'relaunch after the kill: no "I am of legal drinking age" within 6 s' "**Result: FAILED**" \
