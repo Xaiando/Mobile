@@ -47,6 +47,10 @@ DEBUG_PERMISSIONS = ALLOWED_PERMISSIONS | {'android.permission.INTERNET'}
 
 MIN_TARGET_SDK = 35
 LOAD_ALIGNMENT = 16 * 1024
+# The Android debug keystore's certificate is issued to this name. A build
+# machine makes the key afresh, so what it signs cannot update, or be updated
+# by, an app signed with any other key.
+DEBUG_KEY_NAME = b'Android Debug'
 SIGNING_SCHEMES = {
     0x7109871A: 'v2',
     0xF05368C0: 'v3',
@@ -279,8 +283,8 @@ def check_native_libraries(apk: bytes, archive: zipfile.ZipFile, result: Result)
     result.facts['libraries16kbChecked'] = checked
 
 
-def signing_schemes(apk: bytes) -> tuple[list[str], list[str]]:
-    """The signature schemes present, and the SHA-256 of each signing certificate."""
+def read_signing_block(apk: bytes) -> tuple[list[str], list[bytes]]:
+    """The signature schemes present, and the DER certificates that signed."""
     marker = b'APK Sig Block 42'
     position = apk.rfind(marker)
     if position < 8:
@@ -289,20 +293,27 @@ def signing_schemes(apk: bytes) -> tuple[list[str], list[str]]:
     start = position + len(marker) - block_size - 8
     cursor = start + 8
     schemes: list[str] = []
-    fingerprints: list[str] = []
+    certificates: list[bytes] = []
     while cursor < position - 8:
         pair_length = struct.unpack_from('<Q', apk, cursor)[0]
         pair_id = struct.unpack_from('<I', apk, cursor + 8)[0]
         value = apk[cursor + 12:cursor + 8 + pair_length]
         if pair_id in SIGNING_SCHEMES:
             schemes.append(SIGNING_SCHEMES[pair_id])
-            fingerprints += _certificate_fingerprints(value)
+            certificates += _certificates(value)
         cursor += 8 + pair_length
-    return schemes, sorted(set(fingerprints))
+    return schemes, certificates
 
 
-def _certificate_fingerprints(block: bytes) -> list[str]:
-    """SHA-256 fingerprints of the certificates in a v2 or v3 signer block."""
+def signing_schemes(apk: bytes) -> tuple[list[str], list[str]]:
+    """The signature schemes present, and the SHA-256 of each signing certificate."""
+    schemes, certificates = read_signing_block(apk)
+    fingerprints = {hashlib.sha256(c).hexdigest().upper() for c in certificates}
+    return schemes, sorted(fingerprints)
+
+
+def _certificates(block: bytes) -> list[bytes]:
+    """The DER certificates in a v2 or v3 signer block."""
     def length_prefixed(data: bytes, at: int) -> tuple[bytes, int]:
         size = struct.unpack_from('<I', data, at)[0]
         return data[at + 4:at + 4 + size], at + 4 + size
@@ -319,18 +330,20 @@ def _certificate_fingerprints(block: bytes) -> list[str]:
             inner = 0
             while inner < len(certificates):
                 certificate, inner = length_prefixed(certificates, inner)
-                out.append(hashlib.sha256(certificate).hexdigest().upper())
+                out.append(certificate)
     except (struct.error, IndexError):
         pass
     return out
 
 
 def check_signing(apk: bytes, archive: zipfile.ZipFile, result: Result) -> None:
-    schemes, fingerprints = signing_schemes(apk)
+    schemes, certificates = read_signing_block(apk)
+    fingerprints = sorted({hashlib.sha256(c).hexdigest().upper() for c in certificates})
     legacy = [n for n in archive.namelist()
               if n.startswith('META-INF/') and n.endswith(('.RSA', '.DSA', '.EC'))]
     result.facts['signatureSchemes'] = schemes + (['v1'] if legacy else [])
     result.facts['certificateSha256'] = fingerprints
+    result.facts['signedWithDebugKey'] = any(DEBUG_KEY_NAME in c for c in certificates)
     if not schemes:
         result.problems.append('the APK has no v2 or later signature')
 
@@ -381,6 +394,10 @@ def main(argv: list[str] | None = None) -> int:
         print()
         for problem in result.problems:
             print(f'FAIL {problem}')
+        if result.facts.get('signedWithDebugKey'):
+            print('NOTE signed with the Android debug key, which a build machine makes afresh: '
+                  'this APK cannot update, or be updated by, an app installed from a build '
+                  'signed with any other key (docs/android-acceptance.md, "Updating").')
         print('OK: every check passed.' if result.ok
               else f'{len(result.problems)} check(s) failed.')
     return 0 if result.ok else 1

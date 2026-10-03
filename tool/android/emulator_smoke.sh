@@ -93,18 +93,33 @@ if (( install )); then
   fi
 fi
 adbq shell dumpsys package "$package" > "$out/package.txt"
+# What the system itself reports for the installed app: no runtime permission
+# may be requested or granted. The camera runs through the system camera app,
+# the gallery through the system photo picker and files through the system
+# dialogs, so nothing here needs one.
+runtime_permissions=$(awk '
+  /^ *runtime permissions:/ { in_runtime = 1; next }
+  in_runtime && /^ *[A-Za-z0-9_.]+: granted=/ { sub(/^ */, ""); print; next }
+  in_runtime { in_runtime = 0 }
+' "$out/package.txt")
 
 # Every check starts a Java process on the device to read the screen, which on
 # a small emulator is heavy enough to slow the very start being timed. So the
 # checks back off: 2 s, 4 s, 8 s, 16 s, then every 20 s.
 wait_for_text() { # TEXT SECONDS LABEL -> prints the milliseconds waited
-  local text=$1 seconds=$2 label=$3 begin elapsed pid xml delay=2 snapshot=0
+  local text=$1 seconds=$2 label=$3 begin elapsed pid xml delay=2 snapshot=0 seen=0
   begin=$(now_ms)
   while :; do
     elapsed=$(( $(now_ms) - begin ))
     if (( elapsed > seconds * 1000 )); then return 1; fi
     pid=$(adbq shell pidof "$package")
-    if [[ -z $pid ]]; then return 2; fi
+    if [[ -z $pid ]]; then
+      # A process still being started is not a stopped one: give it a grace.
+      if (( seen || elapsed > ${SMOKE_START_GRACE:-15} * 1000 )); then return 2; fi
+      sleep 2
+      continue
+    fi
+    seen=1
     if (( ! snapshot && elapsed > 60000 )); then
       # Who is using the CPU while the app is still starting?
       snapshot=1
@@ -200,6 +215,11 @@ if grep -E -q "$registrar" "$out/logcat.txt"; then
   note '```'
 else
   note "- ML Kit started its components"
+fi
+if [[ -n $runtime_permissions ]]; then
+  fail "the system lists runtime permissions for the app: $(echo "$runtime_permissions" | tr '\n' ' ')"
+else
+  note "- the system lists no runtime permission for the app"
 fi
 denied=$(grep -c -E 'EACCES|missing INTERNET permission|Permission denied.*(socket|INTERNET)' "$out/logcat.txt")
 note "- network attempts the system refused (expected without INTERNET): $denied"
