@@ -191,7 +191,9 @@ class _Walk {
     await step('practice', () async {
       await go('/practice', 'practice');
       await capture('practice');
-      await tester.tap(find.widgetWithText(FilledButton, 'Start session'));
+      // A session left open by the previous look is still on this tab.
+      final startSession = find.widgetWithText(FilledButton, 'Start session');
+      if (startSession.evaluate().isNotEmpty) await tester.tap(startSession);
       final flashcard = find.text('Show answer');
       final options = find.byType(OutlinedButton);
       final arrived = await pumpUntilFound(
@@ -213,7 +215,10 @@ class _Walk {
       await capture('tasting');
       await go('/tasting/new', 'tasting-new');
       await capture('tasting-new');
-      await tester.tap(find.text('Start tasting'));
+      final begin = find.text('Start tasting');
+      await tester.ensureVisible(begin);
+      await tester.pump();
+      await tester.tap(begin);
       final grid = find.byType(ChoiceChip);
       final arrived = await pumpUntilFound(
         tester,
