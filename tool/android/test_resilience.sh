@@ -67,6 +67,9 @@ grep -q "What Android does to a running app" "$work/out-never_recovers/resilienc
 run_case dies_on_a_memory_trim 1 \
   "after a critical memory trim: the app stopped running" -- FAKE_DIES_ON_TRIM=1 FAKE_READY_AFTER_MS=1500 --
 
+run_case trim_refused 0 "the system refused the memory trim, so none was applied" "**Result: passed**" \
+  -- FAKE_TRIM_REFUSED=1 FAKE_READY_AFTER_MS=1500 --
+
 run_case kept_alive_in_the_background 0 \
   "the system kept the backgrounded app alive" "**Result: passed**" -- FAKE_KEEP_ALIVE=1 FAKE_READY_AFTER_MS=1500 --
 
@@ -75,7 +78,7 @@ run_case crash_in_logcat 1 "logcat shows a crash, ANR or native-library failure"
 
 # A slow emulator takes seconds to start the process; that is not a stopped app.
 run_case slow_start 0 "relaunch after the kill: the first screen was back after" "**Result: passed**" \
-  -- RESILIENCE_START_GRACE=10 FAKE_PID_DELAY_MS=2500 FAKE_READY_AFTER_MS=0 -- --interrupt-after 3
+  -- RESILIENCE_START_GRACE=10 FAKE_PID_DELAY_MS=2500 FAKE_READY_AFTER_MS=0 -- --interrupt-after 3 --short-timeout 9
 
 run_case no_device 1 "no device is attached" -- FAKE_NO_DEVICE=1 --
 

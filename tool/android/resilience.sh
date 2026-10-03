@@ -174,9 +174,15 @@ if (( recovered )); then
   expect_ready "rotated back to portrait" "$short"
   adbq shell settings put system accelerometer_rotation 1 > /dev/null
 
-  adbq shell am send-trim-memory "$package" RUNNING_CRITICAL > /dev/null
+  # The system may refuse this on a build that is not debuggable (a phone):
+  # say so, and do not count a trim that never happened.
+  trim=$(adbq shell am send-trim-memory "$package" RUNNING_CRITICAL)
   pause 3
-  expect_ready "after a critical memory trim" "$short"
+  if [[ $trim == *Exception* || $trim == *Error* || $trim == *refus* ]]; then
+    note "- the system refused the memory trim, so none was applied: $(echo "$trim" | head -1)"
+  else
+    expect_ready "after a critical memory trim" "$short"
+  fi
 
   adbq shell input keyevent KEYCODE_HOME > /dev/null
   pause 3

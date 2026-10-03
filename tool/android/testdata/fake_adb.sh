@@ -84,7 +84,9 @@ case "$1" in
         case "$3" in
           force-stop) rm -f "$dir/running" ;;
           kill) [[ ${FAKE_KEEP_ALIVE:-0} == 1 ]] || rm -f "$dir/running" ;;
-          send-trim-memory) [[ ${FAKE_DIES_ON_TRIM:-0} == 1 ]] && rm -f "$dir/running" ;;
+          send-trim-memory)
+            [[ ${FAKE_DIES_ON_TRIM:-0} == 1 ]] && rm -f "$dir/running"
+            [[ ${FAKE_TRIM_REFUSED:-0} == 1 ]] && echo "java.lang.SecurityException: Process not debuggable" ;;
           start)
             now > "$dir/started"
             [[ ${FAKE_APP_DIES:-0} == 1 ]] || touch "$dir/running"
