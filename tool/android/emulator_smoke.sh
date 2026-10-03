@@ -93,6 +93,15 @@ if (( install )); then
   fi
 fi
 adbq shell dumpsys package "$package" > "$out/package.txt"
+# What the system itself reports for the installed app: no runtime permission
+# may be requested or granted. The camera runs through the system camera app,
+# the gallery through the system photo picker and files through the system
+# dialogs, so nothing here needs one.
+runtime_permissions=$(awk '
+  /^ *runtime permissions:/ { in_runtime = 1; next }
+  in_runtime && /^ *[A-Za-z0-9_.]+: granted=/ { sub(/^ */, ""); print; next }
+  in_runtime { in_runtime = 0 }
+' "$out/package.txt")
 
 # Every check starts a Java process on the device to read the screen, which on
 # a small emulator is heavy enough to slow the very start being timed. So the
@@ -206,6 +215,11 @@ if grep -E -q "$registrar" "$out/logcat.txt"; then
   note '```'
 else
   note "- ML Kit started its components"
+fi
+if [[ -n $runtime_permissions ]]; then
+  fail "the system lists runtime permissions for the app: $(echo "$runtime_permissions" | tr '\n' ' ')"
+else
+  note "- the system lists no runtime permission for the app"
 fi
 denied=$(grep -c -E 'EACCES|missing INTERNET permission|Permission denied.*(socket|INTERNET)' "$out/logcat.txt")
 note "- network attempts the system refused (expected without INTERNET): $denied"

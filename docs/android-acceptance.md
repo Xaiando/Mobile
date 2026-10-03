@@ -170,8 +170,12 @@ launch.
 
    It checks the APK, installs it, launches it twice and writes a folder
    (`build\android-acceptance\...`) with `summary.md`, a screenshot, `logcat.txt`
-   and memory figures. It never taps anything on the phone. Without a cable you
-   can install the APK by hand (Files > tap the APK) and skip the helper.
+   and memory figures. Before installing, it says in a NOTE when the APK is
+   signed with the throwaway debug key (see "Updating"). After the launches,
+   `summary.md` also says whether the system lists any runtime permission for
+   the app: there must be none. It never taps anything on the phone. Without a
+   cable you can install the APK by hand (Files > tap the APK) and skip the
+   helper.
 4. **Do onboarding yourself:** confirm your age and choose a track. Then work
    through the list.
 
@@ -256,7 +260,9 @@ Android installs an update only over an app signed with the **same key**.
 CI builds on pull requests, and on `main` until the release key exists, are
 signed with a debug key that is made afresh on every run, so each such APK
 refuses to replace the previous one (`INSTALL_FAILED_UPDATE_INCOMPATIBLE`).
-Before installing a differently signed build: *Settings > Your data > Export*,
+The device helper and `tool/android/verify_apk.py` say so in a NOTE when the
+debug key signed the APK, so you know before Android refuses. Before
+installing a differently signed build: *Settings > Your data > Export*,
 uninstall the old one, install the new one, *Import*.
 
 The lasting fix is the release key: run `tool\android\make_release_key.ps1`

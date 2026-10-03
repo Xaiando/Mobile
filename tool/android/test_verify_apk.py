@@ -173,6 +173,19 @@ class SigningTest(unittest.TestCase):
         self.assertEqual(result.facts['certificateSha256'],
                          [hashlib.sha256(b'CERTIFICATE-DER').hexdigest().upper()])
 
+    def test_knows_the_throwaway_debug_key_from_any_other(self):
+        facts = {}
+        for name, certificate in (('debug', b'0' + b'CN=Android Debug,O=Android,C=US'),
+                                  ('release', b'0' + b'CN=Sommelier Study Companion, O=Xaiando')):
+            with tempfile.TemporaryDirectory() as folder:
+                path = Path(folder) / 'app.apk'
+                make_apk(path, certificate=certificate)
+                result = verify_apk.Result()
+                verify_apk.check_signing(path.read_bytes(), zipfile.ZipFile(path), result)
+            self.assertEqual(result.problems, [])
+            facts[name] = result.facts['signedWithDebugKey']
+        self.assertEqual(facts, {'debug': True, 'release': False})
+
     def test_an_unsigned_apk_fails(self):
         with tempfile.TemporaryDirectory() as folder:
             path = Path(folder) / 'app.apk'
@@ -213,6 +226,20 @@ class CommandLineTest(unittest.TestCase):
             report = json.loads(text)
             self.assertTrue(report['ok'])
             self.assertEqual(report['facts']['targetSdk'], 36)
+
+    def test_says_so_when_the_debug_key_signed_the_apk(self):
+        with tempfile.TemporaryDirectory() as folder:
+            debug = Path(folder) / 'debug.apk'
+            make_apk(debug, certificate=b'CN=Android Debug,O=Android,C=US',
+                     libs={'lib/arm64-v8a/libgood.so': elf64(0x4000)})
+            other = Path(folder) / 'other.apk'
+            make_apk(other, certificate=b'CN=Someone Else',
+                     libs={'lib/arm64-v8a/libgood.so': elf64(0x4000)})
+            _, text = self.run_main(debug, '--debug')
+            self.assertIn('NOTE signed with the Android debug key', text)
+            self.assertIn('cannot update, or be updated by', text)
+            _, text = self.run_main(other, '--debug')
+            self.assertNotIn('NOTE', text)
 
     def test_a_missing_file_is_bad_input(self):
         saved, sys.stderr = sys.stderr, io.StringIO()

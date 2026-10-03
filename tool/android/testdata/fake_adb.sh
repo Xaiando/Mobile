@@ -83,7 +83,17 @@ case "$1" in
         esac ;;
       dumpsys)
         case "$3" in
-          package) echo "    versionName=0.4.0"; echo "    targetSdk=36" ;;
+          package)
+            echo "    versionName=0.4.0"; echo "    targetSdk=36"
+            echo "    requested permissions:"
+            echo "      android.permission.ACCESS_NETWORK_STATE"
+            echo "    install permissions:"
+            echo "      android.permission.ACCESS_NETWORK_STATE: granted=true"
+            echo "    User 0: installed=true"
+            echo "      runtime permissions:"
+            if [[ ${FAKE_RUNTIME_PERMISSION:-0} == 1 ]]; then
+              echo "        android.permission.CAMERA: granted=true, flags=[ USER_SET]"
+            fi ;;
           cpuinfo) echo "Load: 2.5 / 2.0 / 1.0"; echo "  120% 1234/com.xaiando.sommelier: 100% user + 20% kernel" ;;
           meminfo) echo "  Native Heap    20000"; echo "  TOTAL PSS:   250000"; echo "  TOTAL RSS:   400000" ;;
         esac ;;
@@ -100,6 +110,10 @@ case "$1" in
             echo "Starting: Intent { cmp=com.xaiando.sommelier/.MainActivity }"
             echo "Status: ok"; echo "TotalTime: 1234"; echo "WaitTime: 1250" ;;
         esac ;;
+      cmd) ;;
+      settings)
+        # Only the airplane-mode read answers; every other settings call succeeds quietly.
+        if [[ "${3:-} ${4:-} ${5:-}" == "get global airplane_mode_on" ]]; then echo "${FAKE_AIRPLANE:-1}"; fi ;;
       pidof)
         # FAKE_PID_DELAY_MS: a slow emulator takes a while to start the process.
         if [[ -f $dir/running ]]; then
@@ -110,7 +124,6 @@ case "$1" in
       input)
         # Back on the first screen leaves the app, unless FAKE_BACK_STAYS=1.
         if [[ ${4:-} == KEYCODE_BACK && ${FAKE_BACK_STAYS:-0} != 1 ]]; then rm -f "$dir/running"; fi ;;
-      settings) ;;
       pm)
         case "$3" in
           path) [[ ${FAKE_NOT_INSTALLED:-0} == 1 ]] || echo "package:/data/app/fake/base.apk" ;;
