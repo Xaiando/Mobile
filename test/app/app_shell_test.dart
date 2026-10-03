@@ -1,5 +1,10 @@
+import 'dart:async';
+
 import 'package:flutter/material.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_test/flutter_test.dart';
+import 'package:sommelier/app/app.dart';
+import 'package:sommelier/app/app_shell.dart';
 import 'package:sommelier/app/startup.dart';
 import 'package:sommelier/core/database/app_database.dart';
 import 'package:sommelier/core/database/database_providers.dart';
@@ -86,6 +91,32 @@ void main() {
       ],
     );
     expect(find.textContaining('one browser tab'), findsOneWidget);
+  });
+
+  testApp('says what a slow first launch is doing', (tester) async {
+    final opening = Completer<StorageDurability>();
+    await tester.pumpWidget(
+      ProviderScope(
+        retry: noProviderRetry,
+        overrides: [
+          appDatabaseProvider.overrideWithValue(db),
+          appStartupProvider.overrideWith((ref) => opening.future),
+        ],
+        child: const SommelierApp(),
+      ),
+    );
+    final notice = find.textContaining('Setting up your study library');
+
+    await tester.pump(startupNoticeDelay - const Duration(seconds: 1));
+    expect(notice, findsNothing, reason: 'a quick start shows no notice');
+    await tester.pump(const Duration(seconds: 2));
+    expect(notice, findsOneWidget);
+    expect(find.byIcon(Icons.hourglass_top), findsOneWidget);
+
+    opening.complete(StorageDurability.persistent);
+    await tester.pump();
+    await tester.pump();
+    expect(notice, findsNothing, reason: 'it goes once startup is done');
   });
 
   testApp('shows a database failure at once instead of retrying', (
