@@ -140,17 +140,38 @@ Future<List<String>> roundTripYourData(
   await step('save a wine', () async {
     router.go('/cellar/new');
     await settle(tester);
-    await tester.enterText(
-      find.widgetWithText(TextField, 'Producer'),
-      _producer,
+    // The list that holds the form, found before anything is typed: its
+    // state outlives the typing, and no other screen's list can be mistaken
+    // for it.
+    final producer = find.widgetWithText(TextField, 'Producer');
+    final list = tester.state<ScrollableState>(
+      find.ancestor(of: producer, matching: find.byType(Scrollable)).first,
     );
+    await tester.enterText(producer, _producer);
+    // The soft keyboard slides in and shrinks the window; let that finish.
+    await settle(tester);
     final save = find.widgetWithText(FilledButton, 'Save to journal');
-    // The list builds only what is near the screen, so scroll to the button.
-    await tester.scrollUntilVisible(
-      save,
-      300,
-      scrollable: find.byType(Scrollable).first,
-    );
+    // The list builds only what is near the screen, so go to its end. Jumping
+    // there builds the button without a gesture, which an emulator that is
+    // dropping frames can lose. The end of a lazy list is an estimate that
+    // improves as it builds, so jump until the button is there.
+    for (var jump = 0; jump < 8 && save.evaluate().isEmpty; jump++) {
+      list.position.jumpTo(list.position.maxScrollExtent);
+      await tester.pump(const Duration(milliseconds: 200));
+    }
+    if (save.evaluate().isEmpty) {
+      final seen = find
+          .byType(Text)
+          .evaluate()
+          .map((element) => (element.widget as Text).data)
+          .whereType<String>()
+          .take(12)
+          .join(' | ');
+      throw StateError(
+        'the editor showed no "Save to journal" button; it shows: $seen',
+      );
+    }
+    await tester.ensureVisible(save);
     await tester.pump();
     await tester.tap(save);
     var saved = false;

@@ -240,7 +240,10 @@ class _Walk {
       await capture('tasting');
       await go('/tasting/new', 'tasting-new');
       await capture('tasting-new');
+      // The button can be below what the list has built: at twice the text on
+      // a narrow window the form is several screens long.
       final begin = find.text('Start tasting');
+      if (begin.evaluate().isEmpty) await tester.scrollUntilVisible(begin, 300);
       await tester.ensureVisible(begin);
       await tester.pump();
       await tester.tap(begin);
