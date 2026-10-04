@@ -6,12 +6,16 @@ import 'diploma_tasting_flight.dart';
 class DiplomaTastingEvidence {
   const DiplomaTastingEvidence({
     this.d3Flights = 0,
+    this.d3Sessions = const {},
     this.d4Flights = 0,
     this.d5Flights = 0,
     this.unreadableCount = 0,
   });
 
   final int d3Flights;
+
+  /// Distinct submitted named sessions, excluding legacy and timed records.
+  final Set<String> d3Sessions;
   final int d4Flights;
   final int d5Flights;
   final int unreadableCount;
@@ -30,6 +34,7 @@ class DiplomaTastingEvidenceReader {
     required DateTime now,
   }) {
     var d3 = 0;
+    final d3Sessions = <String>{};
     var d4 = 0;
     var d5 = 0;
     var unreadable = 0;
@@ -45,7 +50,13 @@ class DiplomaTastingEvidenceReader {
         }
         flight.validateAt(now);
         if (flight.isSubmitted) {
-          if (flight.unitId == 'D3') d3++;
+          if (flight.unitId == 'D3') {
+            if (flight.isNamedSession) {
+              d3Sessions.add(flight.sessionId);
+            } else {
+              d3++;
+            }
+          }
           if (flight.unitId == 'D4') d4++;
           if (flight.unitId == 'D5') d5++;
         }
@@ -57,6 +68,7 @@ class DiplomaTastingEvidenceReader {
     }
     return DiplomaTastingEvidence(
       d3Flights: d3,
+      d3Sessions: Set.unmodifiable(d3Sessions),
       d4Flights: d4,
       d5Flights: d5,
       unreadableCount: unreadable,

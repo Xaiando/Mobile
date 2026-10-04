@@ -16,7 +16,8 @@ import '../map_locate/map_locate_format.dart';
 
 /// A grape-to-geography question based on a cited complete legal union or
 /// a bounded, dated planting ranking. The two kinds never share candidates
-/// or bonus reviews. Every represented answer in the frame is accepted.
+/// or bonus reviews. One-location prompts accept every represented answer;
+/// bounded set prompts require every supported area shown on the frame.
 class MapGrapeFormat extends MapLocateFormat {
   const MapGrapeFormat();
 
@@ -158,6 +159,12 @@ class MapGrapeFormat extends MapLocateFormat {
     return await maps.frameOf(subjectId, eligibleNodeIds: complete, on: on) ??
         await maps.frameOf(
           subjectId,
+          minimum: 3,
+          eligibleNodeIds: complete,
+          on: on,
+        ) ??
+        await maps.frameOf(
+          subjectId,
           minimum: 2,
           eligibleNodeIds: complete,
           on: on,
@@ -218,6 +225,14 @@ class MapGrapeFormat extends MapLocateFormat {
     if (!(permissions[item.objectId]?.contains(mappedSubjectId) ?? false)) {
       throw StateError('$itemId is no longer a mapped grape fact');
     }
+    // A set question needs both several defensible positives and at least
+    // one defensible negative among the complete legal lists or one dated
+    // planting cohort. It asks about this frame, never the entire world.
+    final singleGrapeAnswers = permissions[item.objectId] ?? const <String>{};
+    final selectAll =
+        seed % 4 == 1 &&
+        singleGrapeAnswers.length >= 2 &&
+        singleGrapeAnswers.length < frame.candidates.length;
     // Combination clues ask only current, authored facts in this family about
     // the primary area. Structural links still establish valid alternatives,
     // but never become unplanned bonus reviews.
@@ -249,7 +264,7 @@ class MapGrapeFormat extends MapLocateFormat {
     peers = peers.where((peer) => seenGrapes.add(peer.objectId)).toList();
     final random = Random(seed);
     peers.shuffle(random);
-    final count = 1 + random.nextInt(min(3, peers.length + 1));
+    final count = selectAll ? 1 : 1 + random.nextInt(min(3, peers.length + 1));
     final asked = [item, ...peers.take(count - 1)];
     final grapes = await (db.select(
       db.knowledgeNodes,
@@ -272,7 +287,11 @@ class MapGrapeFormat extends MapLocateFormat {
     final year = item.relationType == plantingRelation
         ? RegExp(r'\b(?:19|20)\d{2}\b').firstMatch(subjectNode.name)!.group(0)
         : null;
-    final prompt = item.relationType == plantingRelation
+    final prompt = selectAll
+        ? item.relationType == plantingRelation
+              ? 'Select every marked region with $clue among its top two varieties by planted area in the $year record.'
+              : 'Select every marked wine area on this map that permits $clue.'
+        : item.relationType == plantingRelation
         ? switch (random.nextInt(3)) {
             0 =>
               'Find a region with $clue among its two most planted varieties ($year record).',
@@ -325,12 +344,53 @@ class MapGrapeFormat extends MapLocateFormat {
       names: names,
       correct: correct,
       correctByItem: correctByItem,
+      selectAll: selectAll,
     );
   }
 
   @override
   List<ItemGrade> grade(Exercise exercise, Object answer) {
     final map = exercise as MapExercise;
+    if (map.selectAll) {
+      if (answer is! MapMultiLocateAnswer) {
+        throw ArgumentError.value(answer, 'answer', 'is not a map set');
+      }
+      final selected = <String>{};
+      for (final choice in answer.selections) {
+        final node = choice.nodeId;
+        if (node == null ||
+            !map.candidateIds.contains(node) ||
+            !selected.add(node)) {
+          throw ArgumentError.value(
+            choice,
+            'answer',
+            'is not a distinct candidate',
+          );
+        }
+      }
+      if (map.itemIds.length != 1) {
+        throw StateError('A map set must practise one grape fact');
+      }
+      final exact =
+          selected.length == map.correctNodeIds.length &&
+          selected.containsAll(map.correctNodeIds);
+      return [
+        ItemGrade(
+          map.primaryItemId,
+          exact ? fsrs.Rating.good : fsrs.Rating.again,
+          optionNodeIds: map.frame.candidates.map((c) => c.id).toList(),
+          payload: {
+            'selected_nodes': selected.toList(),
+            'accepted_nodes': map.correctNodeIds.toList(),
+            'frame': map.frame.parent.id,
+            'mode': map.mode.name,
+            'selections': [
+              for (final choice in answer.selections) choice.payload(map),
+            ],
+          },
+        ),
+      ];
+    }
     final graded = super.grade(exercise, answer).single;
     final accepted = map.correctByItem.isEmpty
         ? {map.primaryItemId: map.correctNodeIds}

@@ -1,0 +1,279 @@
+{
+  "question_templates": [
+    {
+      "id": "qt_d45body_d4_criteria",
+      "relation_type": "CASE_ACTION",
+      "direction": "forward",
+      "prompt_template": "{subject.name}",
+      "mode": "case_criteria",
+      "variant": "d45body_d4_criteria",
+      "parameters": {
+        "scope_node_ids": [
+          "n_d45body_case_sparkling_roles"
+        ],
+        "scenario_prompts": {
+          "n_d45body_case_sparkling_roles": "Original fictional importer exercise. A Champagne house asks where to discuss shared reserve/supply planning and technical research. A Cava supplier offers a generic training attendance certificate instead of records for the named shipment's claimed DOP category. A South African supplier cites its CCPA membership but supplies no lot analysis or production dossier. No origin, category approval, costs or buyer preference is supplied for these wines. Route the three different enquiries to the relevant named bodies and evidence processes, and distinguish technical or promotional support from proof of the actual shipment. These records and requests are invented; the organisations' documented roles are factual study content."
+        },
+        "distractors": {
+          "n_d45body_case_sparkling_roles": [
+            {
+              "summary": "Accept the training and membership documents as product approvals for all three shipments.",
+              "explanation": "Training and membership do not contain the missing actual product evidence and these bodies have different remits."
+            },
+            {
+              "summary": "Send all designation-control questions to CCPA because every sparkling organisation has the same powers.",
+              "explanation": "The source-supported roles differ; CCPA's member work is not the Cava delegated certification remit."
+            }
+          ]
+        }
+      }
+    },
+    {
+      "id": "qt_d45body_d4_written",
+      "relation_type": "CASE_ACTION",
+      "direction": "forward",
+      "prompt_template": "{subject.name}",
+      "mode": "short_answer",
+      "variant": "d45body_d4_written",
+      "parameters": {
+        "scope_node_ids": [
+          "n_d45body_case_sparkling_roles"
+        ],
+        "key_points": {
+          "CASE_ACTION": "Conditional evidence request and responsible body",
+          "CASE_REASON": "Source-supported distinction in roles",
+          "CASE_TRADEOFF": "Planning and documentation comparison",
+          "CASE_LIMITATION": "Actual procedure, product evidence and remaining uncertainty"
+        }
+      }
+    },
+    {
+      "id": "qt_d45body_d4_action_choice",
+      "relation_type": "CASE_ACTION",
+      "direction": "forward",
+      "prompt_template": "{subject.name}",
+      "mode": "authored_choice",
+      "variant": "d45body_d4_action_choice",
+      "parameters": {
+        "item_choices": {
+          "ki_d45body_sparkling_roles_action": {
+            "prompt": "Original fictional importer exercise. A Champagne house asks where to discuss shared reserve/supply planning and technical research. A Cava supplier offers a generic training attendance certificate instead of records for the named shipment's claimed DOP category. A South African supplier cites its CCPA membership but supplies no lot analysis or production dossier. No origin, category approval, costs or buyer preference is supplied for these wines. Route the three different enquiries to the relevant named bodies and evidence processes, and distinguish technical or promotional support from proof of the actual shipment. These records and requests are invented; the organisations' documented roles are factual study content. Which action is best supported?",
+            "options": [
+              "Use Comite Champagne for shared industry/technical enquiries; obtain the relevant Cava certification dossier, and request the Cap Classique supplier's actual lot and compliance evidence separately from CCPA membership.",
+              "Accept the training and membership documents as product approvals for all three shipments.",
+              "Send all designation-control questions to CCPA because every sparkling organisation has the same powers.",
+              "Set the Champagne house's sale price from the shared reserve without costing or demand evidence."
+            ],
+            "correctIndex": 0,
+            "explanation": "Champagne interprofessional coordination, Cava delegated product certification and CCPA member promotion/technical work answer different questions; none of the supplied substitute documents proves this shipment's claims. Confirm the current procedure, lot identity and complete approval records with the responsible parties; organisational descriptions cannot establish the wine's condition, commercial return or all current legal rules.",
+            "sourceCitationId": "src_d45body_champagne"
+          }
+        }
+      }
+    },
+    {
+      "id": "qt_d45body_d4_principle_choice",
+      "relation_type": "PRINCIPLE_EXPLANATION",
+      "direction": "forward",
+      "prompt_template": "{subject.name}",
+      "mode": "authored_choice",
+      "variant": "d45body_d4_principle_choice",
+      "parameters": {
+        "item_choices": {
+          "ki_d45body_champagne": {
+            "prompt": "Which work distinguishes Comite Champagne from a single Champagne producer's sales department?",
+            "options": [
+              "It coordinates shared grower-house interests, supply and reserves, technical research and protection and promotion of the designation.",
+              "It sets every individual house's final retail price and guarantees its margin.",
+              "It only runs tastings, with no supply or technical responsibilities.",
+              "It authorises the Cava denomination and Madeira categories."
+            ],
+            "correctIndex": 0,
+            "explanation": "Comite Champagne works across growers and houses on industry balance, the shared reserve, vineyard and wine research, and defence and education for the Champagne designation. Collective support does not establish one producer's realised price or a buyer's preference.",
+            "sourceCitationId": "src_d45body_champagne"
+          },
+          "ki_d45body_cava": {
+            "prompt": "What control role does the Cava Regulatory Board describe alongside promotion?",
+            "options": [
+              "It is the delegated control body for certification of DOP Cava's origin, production method and product characteristics against its specification.",
+              "Its only function is voluntary tastings, with no product-control remit.",
+              "A Cava Academy attendance record certifies every bottle a student sells.",
+              "It certifies any tank-fermented sparkling wine worldwide as Cava."
+            ],
+            "correctIndex": 0,
+            "explanation": "The Cava Regulatory Board describes delegated product control and certification under the competent public authority, covering origin, method and analytical and sensory characteristics against the specification. It also defends and promotes Cava. Training attendance or a producer's advertisement is not a product certification record.",
+            "sourceCitationId": "src_d45body_cava"
+          },
+          "ki_d45body_cap": {
+            "prompt": "What does the Cap Classique Producers Association's own account establish about its work?",
+            "options": [
+              "It promotes the category and members' interests and supports member technical and base-wine assessment work.",
+              "It certifies Spanish DOP Cava origin and category claims.",
+              "Its member directory by itself is a finished-lot analysis or release record.",
+              "It replaces all supplier traceability and tasting evidence for an individual wine."
+            ],
+            "correctIndex": 0,
+            "explanation": "The Cap Classique Producers Association describes promotion of the South African bottle-fermented category, producer interests and member technical and base-wine assessment work. This description supports its industry role; a membership statement alone does not supply a named finished lot's release or compliance evidence.",
+            "sourceCitationId": "src_d4nw_za_cap"
+          }
+        }
+      }
+    },
+    {
+      "id": "qt_d45body_d5_criteria",
+      "relation_type": "CASE_ACTION",
+      "direction": "forward",
+      "prompt_template": "{subject.name}",
+      "mode": "case_criteria",
+      "variant": "d45body_d5_criteria",
+      "parameters": {
+        "scope_node_ids": [
+          "n_d45body_case_fortified_roles",
+          "n_d45body_case_muscat_classification"
+        ],
+        "scenario_prompts": {
+          "n_d45body_case_fortified_roles": "Original fictional wine buyer exercise. A supplier's intended Port lot has only a general Douro origin statement. A Sherry seller substitutes a seminar attendance certificate for the named wine's product documentation. A Madeira seller supplies a producer laboratory sheet without the intended DO and release documentation. The buyer wants truthful product claims rather than a generic regional advert; no category approvals are supplied. Identify the relevant council or institute for each dossier and the different value of their product control and educational or promotional work. All supplier documents and offers are invented; no real product is judged.",
+          "n_d45body_case_muscat_classification": "Original fictional Rutherglen label and training exercise. A supplier says it participates in producer classification work and proposes Grand on a blended Muscat label. It supplies neither the applicable classification evidence nor the blend records. The oldest component is highlighted in an advert as though it were the vintage of every component. The buyer has a regional four-class style brochure and a legacy trade code, but no current label review or lot sample. Decide what the Network's classification role can explain and which evidence is still needed. All supplier statements, records and planned claims are invented; no age range, membership rule or statutory power is asserted."
+        },
+        "distractors": {
+          "n_d45body_case_fortified_roles": [
+            {
+              "summary": "Approve all three wines from their region name without consulting their product-specific processes.",
+              "explanation": "A generic origin claim does not contain the missing category and release documentation."
+            },
+            {
+              "summary": "Ask IVBAM to certify Port and IVDP to certify Madeira because both are Portuguese institutes.",
+              "explanation": "The sources identify different Porto/Douro and Madeira remits."
+            }
+          ],
+          "n_d45body_case_muscat_classification": [
+            {
+              "summary": "Copy Grand and the oldest component's date because participation certifies every blend claim.",
+              "explanation": "The packet supplies no classification or full blend evidence; an old component is not the vintage of all components."
+            },
+            {
+              "summary": "Describe the Muscat Network as the government PDO authority for every Australian fortified wine.",
+              "explanation": "The cited primary materials establish producer classification work and a voluntary scheme, not that authority."
+            }
+          ]
+        }
+      }
+    },
+    {
+      "id": "qt_d45body_d5_written",
+      "relation_type": "CASE_ACTION",
+      "direction": "forward",
+      "prompt_template": "{subject.name}",
+      "mode": "short_answer",
+      "variant": "d45body_d5_written",
+      "parameters": {
+        "scope_node_ids": [
+          "n_d45body_case_fortified_roles",
+          "n_d45body_case_muscat_classification"
+        ],
+        "key_points": {
+          "CASE_ACTION": "Conditional evidence request and responsible body",
+          "CASE_REASON": "Source-supported distinction in roles",
+          "CASE_TRADEOFF": "Planning and documentation comparison",
+          "CASE_LIMITATION": "Actual procedure, product evidence and remaining uncertainty"
+        }
+      }
+    },
+    {
+      "id": "qt_d45body_d5_action_choice",
+      "relation_type": "CASE_ACTION",
+      "direction": "forward",
+      "prompt_template": "{subject.name}",
+      "mode": "authored_choice",
+      "variant": "d45body_d5_action_choice",
+      "parameters": {
+        "item_choices": {
+          "ki_d45body_fortified_roles_action": {
+            "prompt": "Original fictional wine buyer exercise. A supplier's intended Port lot has only a general Douro origin statement. A Sherry seller substitutes a seminar attendance certificate for the named wine's product documentation. A Madeira seller supplies a producer laboratory sheet without the intended DO and release documentation. The buyer wants truthful product claims rather than a generic regional advert; no category approvals are supplied. Identify the relevant council or institute for each dossier and the different value of their product control and educational or promotional work. All supplier documents and offers are invented; no real product is judged. Which action is best supported?",
+            "options": [
+              "Seek the appropriate IVDP evidence for Port, Sherry Council product-control evidence for Sherry and IVBAM DO Madeira dossier evidence, rather than treating origin notes, seminar attendance or a lab sheet as complete approval.",
+              "Approve all three wines from their region name without consulting their product-specific processes.",
+              "Ask IVBAM to certify Port and IVDP to certify Madeira because both are Portuguese institutes.",
+              "Treat attendance at Sherry training as certification of the named wine lot."
+            ],
+            "correctIndex": 0,
+            "explanation": "The named bodies have distinct territorial and product-control remits as well as promotional roles; the supplied documents answer only part of the intended wine claims. Authenticate the actual lot, designation and category documents and current process; the packet establishes neither finished-wine quality, legal permission for release nor a profitable order.",
+            "sourceCitationId": "src_d45body_ivdp"
+          },
+          "ki_d45body_muscat_classification_action": {
+            "prompt": "Original fictional Rutherglen label and training exercise. A supplier says it participates in producer classification work and proposes Grand on a blended Muscat label. It supplies neither the applicable classification evidence nor the blend records. The oldest component is highlighted in an advert as though it were the vintage of every component. The buyer has a regional four-class style brochure and a legacy trade code, but no current label review or lot sample. Decide what the Network's classification role can explain and which evidence is still needed. All supplier statements, records and planned claims are invented; no age range, membership rule or statutory power is asserted. Which action is best supported?",
+            "options": [
+              "Use the producer classification framework for style education, but obtain the actual blend and classification evidence and current label review before repeating the proposed Grand and vintage claims.",
+              "Copy Grand and the oldest component's date because participation certifies every blend claim.",
+              "Describe the Muscat Network as the government PDO authority for every Australian fortified wine.",
+              "Use the legacy trade code to certify current numeric legal compliance without checking current rules."
+            ],
+            "correctIndex": 0,
+            "explanation": "The Network's historical classification work and the voluntary scheme organise style descriptors; participation or a highlighted old component does not substantiate this blended lot's class or a single harvest year. Check the scheme's current applicable criteria, authentic lot records, sample condition and destination labelling requirements; the legacy code is not a current-law certificate or a guarantee of sales.",
+            "sourceCitationId": "src_d45body_muscat_history"
+          }
+        }
+      }
+    },
+    {
+      "id": "qt_d45body_d5_principle_choice",
+      "relation_type": "PRINCIPLE_EXPLANATION",
+      "direction": "forward",
+      "prompt_template": "{subject.name}",
+      "mode": "authored_choice",
+      "variant": "d45body_d5_principle_choice",
+      "parameters": {
+        "item_choices": {
+          "ki_d45body_sherry": {
+            "prompt": "Which complementary functions does the Sherry Regulatory Council describe?",
+            "options": [
+              "Control and certification, defence of the shared designation, and promotion including professional education.",
+              "It solely trains educators and has no origin-control functions.",
+              "A seminar certificate is certification of any supplier's Sherry stock.",
+              "It certifies Port and Madeira in place of their respective institutes."
+            ],
+            "correctIndex": 0,
+            "explanation": "The Sherry Regulatory Council groups its functions into control and certification, protection of the shared heritage, and promotion. Vineyard and cellar controls support designation claims; educational courses communicate the wines. Completing a course is distinct from obtaining evidence for the particular product being sold.",
+            "sourceCitationId": "src_d45body_sherry"
+          },
+          "ki_d45body_ivdp": {
+            "prompt": "Which protected wine designations does IVDP's stated mission cover?",
+            "options": [
+              "Porto and Douro: certification, control, defence and promotion are combined responsibilities.",
+              "Only Port promotion; Douro wine and certification are outside the mission.",
+              "Madeira certification, while Port falls to IVBAM.",
+              "It assigns every merchant the same selling price and guaranteed profit."
+            ],
+            "correctIndex": 0,
+            "explanation": "IVDP's mission combines certification, control, defence and promotion of the Porto and Douro protected designations. Its institutional remit is broader than Port advertising or a single merchant's marketing. A general Douro provenance document is not by itself the evidence for a specific Port category claim.",
+            "sourceCitationId": "src_d45body_ivdp"
+          },
+          "ki_d45body_ivbam": {
+            "prompt": "How does IVBAM's wine remit differ from a Madeira producer's promotional brochure?",
+            "options": [
+              "Its services control and certify DO Madeira and other stated designations, while the institute also supports and promotes regional wine.",
+              "It is a voluntary Muscat club with no Madeira control remit.",
+              "Its wine remit is identical to IVDP's Porto and Douro remit.",
+              "Any producer's analysis sheet alone proves the intended Madeira designation approval."
+            ],
+            "correctIndex": 0,
+            "explanation": "IVBAM's control and certification service explicitly covers DO Madeira, DO Madeirense and IG Terras Madeirenses, alongside other stated responsibilities. The institute's functions also include control and promotion of regional quality wine. A producer's laboratory sheet may inform a dossier, but is not by itself evidence that the intended designation and release have been approved.",
+            "sourceCitationId": "src_d45body_ivbam_control"
+          },
+          "ki_d45body_muscat": {
+            "prompt": "What is the source-supported role of the Muscat of Rutherglen Network in classification?",
+            "options": [
+              "Producer collaboration developed a style-classification system to help buyers distinguish wines; the cited trade code describes the Rutherglen scheme as voluntary.",
+              "The Network is the Spanish public authority certifying Sherry.",
+              "The classes make every blend a single-vintage wine.",
+              "The legacy trade document establishes all current Australian legal limits."
+            ],
+            "correctIndex": 0,
+            "explanation": "Campbells' producer history identifies the Muscat of Rutherglen Network with classification development. The trade code describes a voluntary producer-developed Rutherglen scheme, and the regional brochure presents four richness and complexity classes. This establishes industry classification work, not a government PDO authority, a single vintage for a blend, or current legal numeric limits.",
+            "sourceCitationId": "src_d45body_muscat_history"
+          }
+        }
+      }
+    }
+  ]
+}

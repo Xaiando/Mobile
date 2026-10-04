@@ -83,12 +83,25 @@ class _StartView extends ConsumerWidget {
             : '${overview.certification.displayName}: '
                   '${overview.dueCount} due, '
                   '${overview.newAvailable} new available.',
-        action: FilledButton.icon(
-          onPressed: overview.dueCount + overview.newAvailable == 0
-              ? null
-              : ref.read(studySessionProvider.notifier).start,
-          icon: const Icon(Icons.play_arrow),
-          label: const Text('Start session'),
+        action: Wrap(
+          alignment: WrapAlignment.center,
+          spacing: 8,
+          runSpacing: 8,
+          children: [
+            FilledButton.icon(
+              onPressed: overview.dueCount + overview.newAvailable == 0
+                  ? null
+                  : ref.read(studySessionProvider.notifier).start,
+              icon: const Icon(Icons.play_arrow),
+              label: const Text('Start session'),
+            ),
+            OutlinedButton.icon(
+              key: const ValueKey('practice-maps-open'),
+              onPressed: () => context.push('/practice/maps'),
+              icon: const Icon(Icons.map_outlined),
+              label: const Text('Practice maps'),
+            ),
+          ],
         ),
       ),
       AsyncError(:final error) => _Message(
@@ -222,7 +235,7 @@ class _Summary extends ConsumerWidget {
         children: [
           OutlinedButton(onPressed: controller.end, child: const Text('Done')),
           FilledButton(
-            onPressed: controller.start,
+            onPressed: controller.repeat,
             child: const Text('Study more'),
           ),
         ],

@@ -1,0 +1,152 @@
+{
+  "schemaVersion": 1,
+  "version": "1.0.0",
+  "variants": [
+    {
+      "unitId": "D3",
+      "title": "France: evidence, cellar choices and routes",
+      "durationSeconds": 3600,
+      "questions": [
+        {
+          "id": "d3_candidate_burgundy_lots",
+          "prompt": "All lot details and observations here are hypothetical scenario inputs. A Burgundy grower has two Pinot Noir lots intended for a fresh red wine. Lot A comes from a cooler, later-ripening parcel; its berries are sound, but a small trial tastes lean and has firm tannin. Lot B ripened earlier and its trial tastes fuller, though fruit health varies within the parcel. Trials used different extraction regimes and were tasted at different ages. The winery can sort, ferment separately and alter extraction, but has limited tank space. A merchant offers more for a named parcel without a blind comparison or confirmed repeat demand. Recommend a harvest-to-blend plan. Explain how site, fruit condition and cellar choices could affect the target style; compare separate release with blending; and evaluate what the merchant's offer does and does not establish. Name evidence that could reverse your recommendation.",
+          "criteria": [
+            {
+              "id": "evidence",
+              "text": "I distinguished supplied parcel and fruit observations from untested generalisations about Burgundy, and explained how unequal trials limit a site comparison."
+            },
+            {
+              "id": "cellar",
+              "text": "I linked ripeness, fruit condition and extraction choices to the intended style, while identifying a possible adverse effect and a way to monitor it."
+            },
+            {
+              "id": "tradeoffs",
+              "text": "I compared sorting, separate fermentation, blending and separate release in terms of tank capacity, quality aims and commercial risk."
+            },
+            {
+              "id": "decision",
+              "text": "I made a conditional recommendation and specified a comparable sensory or sales test that could change it, without treating a parcel name as proof of quality."
+            }
+          ]
+        },
+        {
+          "id": "d3_candidate_bordeaux_route",
+          "prompt": "All vineyard, blend and commercial details here are hypothetical scenario inputs. A Bordeaux estate targets a balanced dry red at a viable selling price. Its Cabernet Sauvignon block is sound but has uneven ripeness; its Merlot block is riper with a small separately identifiable area of rot. Rain is forecast before the next available harvest crew. The estate can sort and vinify separately at extra cost. Two trial blends taste promising, but come from earlier seasons. A distributor offers a lower net price paid on delivery for most of the volume; a direct route has a higher headline price, delayed payment and unknown customer-acquisition costs. No opening cash balance or confirmed demand is supplied. Propose a harvest, cellar and route plan. Explain the causal links to style and quality, compare the commercial options, and state what cannot yet be concluded from the trials or quoted prices.",
+          "criteria": [
+            {
+              "id": "fruit",
+              "text": "I used the supplied maturity, health and crew information to justify a conditional harvest and segregation sequence, without assuming a grape name settles ripeness."
+            },
+            {
+              "id": "mechanism",
+              "text": "I connected fruit and cellar decisions to blend balance and quality, and identified why trials from other seasons need confirmation."
+            },
+            {
+              "id": "commercial",
+              "text": "I compared net returns, timing, volume commitment and omitted selling costs, without declaring the higher headline price more profitable or inferring a cash deficit."
+            },
+            {
+              "id": "limits",
+              "text": "I identified the minimum fruit, blend, demand and cash-flow evidence needed before committing, and a condition that would change the plan."
+            }
+          ]
+        },
+        {
+          "id": "d3_candidate_loire_rhone",
+          "prompt": "All weather records, lots and buyer observations here are hypothetical scenario inputs. A restaurant compares a Loire Cabernet Franc lot with a Rhone Syrah lot for its fresh-red selection. In the supplied season, the Loire site had cooler ripening conditions and harvest rain; the Rhone site had hotter days and a documented period of water stress. Both growers report sound sorted fruit. The Loire wine has lighter body and fresh fruit in a blind panel; the Rhone wine has fuller body and firmer tannin. Their extraction and oak regimes differ, and the panel is small. Quotes meet the restaurant's target purchase cost, but repeat supply and customer demand are unknown. Compare the likely links between the supplied vineyard/cellar evidence and the wines. Recommend a conditional menu and buying trial, explaining why these two lots cannot establish the usual style or overall quality of either region.",
+          "criteria": [
+            {
+              "id": "vineyard",
+              "text": "I explained plausible effects of the supplied ripening, rain and water-stress evidence, while distinguishing this season from a regional climate claim."
+            },
+            {
+              "id": "cellar",
+              "text": "I considered extraction and oak as alternative contributors to the observed differences and avoided attributing the contrast entirely to origin or variety."
+            },
+            {
+              "id": "sensory",
+              "text": "I used the supplied blind observations to compare style and possible menu fit without treating body or tannin intensity as a quality ranking."
+            },
+            {
+              "id": "route",
+              "text": "I proposed a proportionate buying and service trial, checking repeat supply and customer response and stating the limits of the small, confounded comparison."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "unitId": "D3",
+      "title": "New York and New World: comparative evidence and routes",
+      "durationSeconds": 3600,
+      "questions": [
+        {
+          "id": "d3_candidate_new_york_sites",
+          "prompt": "All site, weather and trial details here are hypothetical scenario inputs. A New York grower compares a Finger Lakes site for Riesling with a Long Island site for Cabernet Franc. The Finger Lakes record supplied shows damaging spring frost in two recent seasons, a later harvest and a narrow weather window before rain. The Long Island record supplied shows humid harvest conditions and variable fruit health. The Finger Lakes option needs funded frost protection; the Long Island option needs extra sorting labour. Small trials suggest saleable wines, but use different varieties and seasons. The target is a fresh dry wine with reliable delivery, and buyer demand is untested. Recommend a staged vineyard-to-release plan for one option or a limited trial of both. Explain the style, cost and reliability trade-offs, and identify why the supplied comparison cannot isolate a regional effect.",
+          "criteria": [
+            {
+              "id": "action",
+              "text": "I proposed a staged site, management and release decision tied to the supplied records, rather than a guaranteed regional recommendation."
+            },
+            {
+              "id": "reason",
+              "text": "I connected frost, harvest timing and fruit-health risks to management, processing and the intended wine, and explained how the actions address those risks."
+            },
+            {
+              "id": "tradeoff",
+              "text": "I weighed protection, labour, capacity, wine style and delivery reliability, without treating either promising trial as proof of demand or profitability."
+            },
+            {
+              "id": "limitation",
+              "text": "I identified variety, season and trial design as confounders and specified comparable evidence and a result that could change my choice."
+            }
+          ]
+        },
+        {
+          "id": "d3_candidate_riesling_compare",
+          "prompt": "All measurements, tasting results and quotations here are hypothetical scenario inputs. An importer compares a Finger Lakes Riesling with a Clare Valley Riesling for a dry-white range. The supplied lots have similar residual sugar and alcohol, but the Finger Lakes wine has higher measured acidity. A small blind panel calls it fresher; panel preference is split. Fruit ripeness, yeast, fermentation temperature and time on lees differ, and the wines were sampled at different ages. Both arrive at the same quoted landed purchase cost. One supplier offers a small trial order; the other requires a larger minimum and has no confirmed reorder timetable. Compare possible causes of the style differences and the quality evidence still needed. Recommend a conditional listing and supply trial, separating the observations from claims about the two regions and from unsupported assumptions about customer preference.",
+          "criteria": [
+            {
+              "id": "comparison",
+              "text": "I compared the supplied chemistry and blind observations and distinguished perceived freshness, preference and quality."
+            },
+            {
+              "id": "mechanism",
+              "text": "I considered ripeness, fermentation, lees and sample age alongside acidity, explaining why the supplied lots do not isolate a regional cause."
+            },
+            {
+              "id": "route",
+              "text": "I compared trial size, inventory exposure and supply continuity as well as quoted landed cost, and checked omitted storage and selling costs."
+            },
+            {
+              "id": "limits",
+              "text": "I proposed comparable samples and a customer/supply trial, naming a finding that would reverse the listing rather than generalising from the small panel."
+            }
+          ]
+        },
+        {
+          "id": "d3_candidate_new_world_routes",
+          "prompt": "All costs, lots and route observations here are hypothetical scenario inputs. A merchant is choosing a New World white-wine launch: a South African Chenin Blanc lot or a Chilean Chardonnay lot. The supplied panel finds both sound; the Chenin is fresher and lighter, while the Chardonnay is fuller with oak-derived aromas. Winemaking, vintage and sample age differ. For equal saleable volume, quoted landed wine costs are EUR 18,000 and EUR 20,000 respectively. A wholesale trial has quoted handling/selling costs of EUR 2,000; a direct trial has EUR 5,000. These figures exclude returns and finance, and no net sales receipts or opening cash balance are supplied. Compare the lots' style and evidence limits, calculate the four supplied initial cost totals, and recommend a conditional wine/route trial. Explain what demand, margins and payment evidence is required before scaling.",
+          "criteria": [
+            {
+              "id": "style",
+              "text": "I used the supplied sensory evidence for positioning and considered variety, winemaking, vintage and age as confounders rather than ranking the countries."
+            },
+            {
+              "id": "cost",
+              "text": "I calculated the supplied wine-plus-route cost totals for both lots and kept them separate from omitted costs, sales receipts and profit."
+            },
+            {
+              "id": "commercial",
+              "text": "I compared inventory, customer reach, selling work and payment timing, without assuming a route's headline potential proves demand or a cash shortfall."
+            },
+            {
+              "id": "decision",
+              "text": "I proposed a limited trial with explicit demand, quality, net-return and payment checks, and identified a result that could change the wine or route choice."
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

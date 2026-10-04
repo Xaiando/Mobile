@@ -2,6 +2,7 @@ import 'dart:convert';
 import 'dart:io';
 
 import 'package:clock/clock.dart';
+import 'package:crypto/crypto.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:sommelier/core/curriculum/curriculum_ingestion.dart';
 import 'package:sommelier/core/curriculum/curriculum_validator.dart';
@@ -57,6 +58,24 @@ const _expectedIds = <String>{
   'ki_wset_role_zweigelt',
 };
 
+Map<String, dynamic> _frozenHistoricalChoices(String templateId) {
+  final compressed = File(
+    'test/fixtures/curriculum/diploma_release_0_24_73_complete_frozen.json.gz',
+  ).readAsBytesSync();
+  expect(
+    sha256.convert(compressed).toString(),
+    '15a944ed92394c94d4ec67b9fb83388bf3b8718e15e3c3da007af5666e211cdf',
+  );
+  final frozen =
+      jsonDecode(utf8.decode(gzip.decode(compressed))) as Map<String, dynamic>;
+  expect(frozen['dataset_version'], '0.24.73');
+  final template = (frozen['question_templates'] as List)
+      .cast<Map<String, dynamic>>()
+      .singleWhere((row) => row['id'] == templateId);
+  return (template['parameters'] as Map<String, dynamic>)['item_choices']
+      as Map<String, dynamic>;
+}
+
 void main() {
   final dataset = bundledDataset();
   final template = dataset.questionTemplates.singleWhere(
@@ -65,12 +84,31 @@ void main() {
   final choices =
       (jsonDecode(template.parameters!) as Map<String, dynamic>)['item_choices']
           as Map<String, dynamic>;
+  const retiredId = 'ki_reg_isi_salice_context';
+  const successorId = 'ki_reg_isi_salice_context_2026';
+  final currentExpectedIds = {
+    for (final id in _expectedIds) id == retiredId ? successorId : id,
+  };
+  final currentChoices = {
+    for (final entry in choices.entries)
+      if (currentExpectedIds.contains(entry.key)) entry.key: entry.value,
+  };
 
   test('40 distinct Level 3 core comparisons have linked sources and balanced answers', () {
     expect(validateDataset(dataset).errors, isEmpty);
     expect(template.mode, 'authored_choice');
     expect(template.relationType, 'PRINCIPLE_EXPLANATION');
-    expect(choices.keys.toSet(), _expectedIds);
+    // Legacy cues remain exact historical records; only their successors serve.
+    expect(choices.keys.toSet(), {..._expectedIds, successorId});
+    final historical = _frozenHistoricalChoices(_templateId);
+    expect(historical.keys.toSet(), _expectedIds);
+    expect(
+      {for (final id in _expectedIds) id: choices[id]},
+      historical,
+      reason: 'Preserve every original .73 authored choice verbatim.',
+    );
+    expect(currentChoices.keys.toSet(), currentExpectedIds);
+    expect(currentChoices, hasLength(40));
     final items = {for (final row in dataset.knowledgeItems) row.id: row};
     final mappings = {
       for (final row in dataset.certificationKnowledgeMappings)
@@ -80,6 +118,7 @@ void main() {
       for (final row in dataset.knowledgeItemCitations)
         (row.knowledgeItemId, row.sourceCitationId),
     };
+    expect(items[retiredId]!.supersededByItemId, successorId);
     final positions = <int, int>{};
     final absoluteCue = RegExp(
       r'\b(?:all|always|never|every|guarantee|identical|must|only|compulsory|fixed)\b',
@@ -87,7 +126,7 @@ void main() {
     );
     var keyedAbsoluteCues = 0;
     var distractorAbsoluteCues = 0;
-    for (final entry in choices.entries) {
+    for (final entry in currentChoices.entries) {
       final id = entry.key;
       final choice = entry.value as Map<String, dynamic>;
       final options = (choice['options'] as List<dynamic>).cast<String>();
@@ -144,9 +183,10 @@ void main() {
     () async {
       final db = openTestDatabase();
       addTearDown(db.close);
+      final servingClock = Clock.fixed(DateTime.utc(2026, 10, 3, 12));
       final generation = await CurriculumIngester(
         db,
-        clock: Clock.fixed(DateTime.utc(2026, 9, 29, 12)),
+        clock: servingClock,
       ).ingest(dataset);
       final generated = (await db.select(db.questions).get()).where(
         (question) => question.questionTemplateId == _templateId,
@@ -154,13 +194,17 @@ void main() {
       expect(generated, hasLength(40));
       expect(
         generated.map((question) => question.knowledgeItemId).toSet(),
-        _expectedIds,
+        currentExpectedIds,
       );
+      expect(
+        generated.any((question) => question.knowledgeItemId == retiredId),
+        isFalse,
+      );
+      final planner = StudyPlanner(db, clock: servingClock);
       final cards = {
-        for (final card in await StudyPlanner(db).cards('WSET_L3'))
-          card.itemId: card,
+        for (final card in await planner.cards('WSET_L3')) card.itemId: card,
       };
-      for (final id in _expectedIds) {
+      for (final id in currentExpectedIds) {
         expect(
           cards[id]?.formats.map((format) => format.mode).toSet(),
           containsAll({'authored_choice', 'typed', 'flashcard'}),
@@ -173,13 +217,13 @@ void main() {
         CoveragePolicy.parse(
           File('assets/curriculum/coverage_policy.yaml').readAsStringSync(),
         ),
-      ).check('WSET_L3', on: '2026-09-29', skipped: generation.skipped);
+      ).check('WSET_L3', on: '2026-10-03', skipped: generation.skipped);
       final geography = audit.domains.singleWhere(
         (row) => row.id == 'geography',
       );
       expect(geography.counts[CoverageMetric.core], 1071);
       expect(geography.counts[CoverageMetric.coreUsefulPractice], 1071);
-      for (final id in _expectedIds) {
+      for (final id in currentExpectedIds) {
         final row = audit.items.singleWhere((item) => item.id == id);
         expect(row.hasUsefulPractice, isTrue, reason: id);
       }

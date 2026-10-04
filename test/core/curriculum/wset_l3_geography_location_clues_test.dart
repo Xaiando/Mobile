@@ -1,3 +1,6 @@
+import 'package:crypto/crypto.dart';
+
+import 'dart:convert';
 import 'dart:io';
 
 import 'package:clock/clock.dart';
@@ -55,12 +58,36 @@ const _answers = <String, String>{
   'ki_wset_geo_yecla_location': 'Spain',
 };
 
+const _retiredSaliceIds = <String>{
+  'ki_reg_isi_salice_context',
+  'ki_reg_isi_salice_styles',
+};
+const _saliceSuccessors = <String, String>{
+  'ki_reg_isi_salice_context': 'ki_reg_isi_salice_context_2026',
+  'ki_reg_isi_salice_styles': 'ki_reg_isi_salice_styles_2026',
+};
+
+Map<String, dynamic> _frozen073Release() {
+  final bytes = File(
+    'test/fixtures/curriculum/diploma_release_0_24_73_complete_frozen.json.gz',
+  ).readAsBytesSync();
+  expect(
+    sha256.convert(bytes).toString(),
+    '15a944ed92394c94d4ec67b9fb83388bf3b8718e15e3c3da007af5666e211cdf',
+  );
+  final frozen =
+      jsonDecode(utf8.decode(gzip.decode(bytes))) as Map<String, dynamic>;
+  expect(frozen['dataset_version'], '0.24.73');
+  return frozen;
+}
+
 void main() {
   final dataset = bundledDataset();
   final template = dataset.questionTemplates.singleWhere(
     (row) => row.id == _templateId,
   );
   final choices = AuthoredChoiceFormat.itemChoicesOf(template);
+  final servingClock = Clock.fixed(DateTime.utc(2026, 10, 3, 18));
   late AppDatabase db;
   late TrackCoverage report;
 
@@ -68,13 +95,13 @@ void main() {
     db = openTestDatabase();
     final generated = await CurriculumIngester(
       db,
-      clock: Clock.fixed(DateTime.utc(2026, 9, 29, 16, 30)),
+      clock: servingClock,
     ).ingest(dataset);
     const path = 'assets/curriculum/coverage_policy.yaml';
     report = await CoverageChecker(
       db,
       CoveragePolicy.parse(File(path).readAsStringSync(), path: path),
-    ).check('WSET_L3', on: '2026-09-29', skipped: generated.skipped);
+    ).check('WSET_L3', on: '2026-10-03', skipped: generated.skipped);
   });
 
   tearDownAll(() async => db.close());
@@ -182,7 +209,10 @@ void main() {
         );
       }
       final cards = {
-        for (final card in await StudyPlanner(db).cards('WSET_L3'))
+        for (final card in await StudyPlanner(
+          db,
+          clock: servingClock,
+        ).cards('WSET_L3'))
           card.itemId: card,
       };
       for (final id in ids) {
@@ -200,6 +230,46 @@ void main() {
       final geography = report.domains.singleWhere(
         (row) => row.id == 'geography',
       );
+      final historical = _frozen073Release();
+      final certifications = {
+        for (final row in (historical['certifications'] as List))
+          (row as Map<String, dynamic>)['id'] as String: row,
+      };
+      final historicalMappings = <String, Map<String, dynamic>>{};
+      String? cursor = 'WSET_L3';
+      final chain = <String>{};
+      while (cursor != null) {
+        expect(chain.add(cursor), isTrue);
+        for (final raw
+            in (historical['certification_knowledge_mappings'] as List)) {
+          final mapping = raw as Map<String, dynamic>;
+          if (mapping['certification_id'] == cursor) {
+            historicalMappings.putIfAbsent(
+              mapping['knowledge_item_id'] as String,
+              () => mapping,
+            );
+          }
+        }
+        cursor =
+            certifications[cursor]!['includes_certification_id'] as String?;
+      }
+      final historicalCore = {
+        for (final raw in (historical['knowledge_items'] as List))
+          if ((raw as Map<String, dynamic>)['domain_id'] == 'geography' &&
+              historicalMappings[raw['id']]?['importance'] == 'core')
+            raw['id'] as String,
+      };
+      expect(historicalCore, hasLength(1071));
+      final currentCore = report.items
+          .where((row) => row.item.domainId == 'geography' && row.isCore)
+          .map((row) => row.id)
+          .toSet();
+      expect(currentCore, {
+        ...historicalCore.difference(_retiredSaliceIds),
+        ..._saliceSuccessors.values,
+      });
+      expect(currentCore.intersection(_retiredSaliceIds), isEmpty);
+      expect(currentCore, containsAll(_saliceSuccessors.values));
       expect(geography.counts[CoverageMetric.core], 1071);
       expect(geography.counts[CoverageMetric.coreUsefulPractice], 1071);
       expect(geography.counts[CoverageMetric.spatial], 1675);
@@ -248,12 +318,13 @@ void main() {
         'ki_wset_geo_bourgogne_hautes_cotes_de_nuits_location',
         'ki_wset_geo_valencia_do_location',
       ]) {
-        final exercise = await ExercisePresenter(db).present(
-          id,
-          _templateId,
-          seed: 11,
-          certificationId: 'WSET_L3',
-        ) as AuthoredChoiceQuestion;
+        final exercise =
+            await ExercisePresenter(db, clock: servingClock).present(
+              id,
+              _templateId,
+              seed: 11,
+              certificationId: 'WSET_L3',
+            ) as AuthoredChoiceQuestion;
         expect(exercise.answer.name, _answers[id]);
         expect(exercise.options, hasLength(4));
         expect(exercise.sourceCitationId, choices[id]!.sourceCitationId);

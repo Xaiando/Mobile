@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "version": "1.2.0",
+  "version": "1.4.0",
   "units": [
     {
       "unitId": "D1",
@@ -362,6 +362,519 @@
             {
               "id": "limits",
               "text": "I recognised that different-season fruit cannot isolate a site effect and named further vineyard, finished-wine, supply or demand evidence needed before leasing."
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "variants": [
+    {
+      "unitId": "D1",
+      "title": "Establishment, quality and packaging decisions",
+      "durationSeconds": 5400,
+      "questions": [
+        {
+          "id": "d1_candidate_establishment_canopy",
+          "prompt": "All site details here are hypothetical scenario inputs. A grower wants a fresh, mid-priced white wine from a 3-hectare site. One hectare contains mature vines with sound-looking trunks, but their virus status is unknown; the grower wants to change the fruiting variety and replace scattered gaps. The other two hectares are to be newly planted. Site tests show a deeper water-storing upper block and a shallower lower block; irrigation access has not yet been confirmed. The manager has a fixed establishment budget and limited skilled labour, but no complete nursery or contractor quotations. Develop an establishment and first-season canopy plan. Compare retaining or converting existing vines with replanting, explain the planting-material and site checks you would require, and show how you would adapt canopy and crop decisions to the different blocks. State which recommendation must remain conditional.",
+          "criteria": [
+            {
+              "id": "evidence",
+              "text": "I separated supplied observations from unconfirmed vine health, water access and costs, and identified the checks needed before committing."
+            },
+            {
+              "id": "material",
+              "text": "I compared renewal and planting-material choices by the problem they solve, rather than assuming visible health or a selection method proves sanitary suitability."
+            },
+            {
+              "id": "canopy",
+              "text": "I connected block conditions and the intended wine to canopy, crop and water decisions, while explaining at least one possible adverse effect."
+            },
+            {
+              "id": "resources",
+              "text": "I compared establishment time, skilled labour and capital demands and stated a condition that could change my preferred sequence."
+            }
+          ]
+        },
+        {
+          "id": "d1_candidate_intake_quality",
+          "prompt": "All lot and trial details here are hypothetical scenario inputs. A winery plans a fresh white wine from 20 tonnes of incoming fruit. Intake inspection finds visible rot in a separately identifiable 3-tonne portion; no enzyme, microbial or sensory analysis has yet been completed. The other 17 tonnes look sound. The team can segregate fruit, sort it and run small protected-flotation and deliberate juice-oxidation trials, but tank and chilling capacity are limited. A supplier claims that a single treatment will make every lot safe to blend and bottle. Design a defensible intake-to-fermentation comparison. Explain what you would investigate, how trial results would guide processing and fermentation choices, and how you would prevent an uncertain lot from being released prematurely. Include a cost or capacity trade-off and the records needed to reconstruct the decision.",
+          "criteria": [
+            {
+              "id": "diagnosis",
+              "text": "I distinguished observed rot from an established enzyme, microbial or finished-wine diagnosis and asked for evidence appropriate to the suspected risks."
+            },
+            {
+              "id": "processing",
+              "text": "I explained why segregation, sorting and controlled trial conditions matter, and compared the proposed juice treatments without assuming they erase every risk."
+            },
+            {
+              "id": "control",
+              "text": "I proposed monitoring and hold/release decisions tied to actual lot evidence and traceable records, without declaring every quality defect a food-safety critical control point."
+            },
+            {
+              "id": "tradeoffs",
+              "text": "I weighed tank time, chilling, equipment or labour against the intended style and identified a result that would change the blend or release decision."
+            }
+          ]
+        },
+        {
+          "id": "d1_candidate_package_route",
+          "prompt": "Hypothetical inputs: A winery has 10,000 litres of fresh white wine for consumption within twelve months of filling. For equal saleable volume, complete initial packaging-and-filling quotes are EUR 12,000 for glass, EUR 8,000 for lined cans and EUR 6,500 for pouches. Freight on the same route is EUR 3,000, EUR 1,600 and EUR 1,400 respectively. Returns, storage, trials and product losses are excluded. A three-month pilot shows no visible leaks; oxygen measurements, closure or seam checks, flavour comparisons and later shelf-life results are unavailable. Warm storage is possible, with no temperature record. Compare the options, calculate each quoted initial cost total and propose evidence required before launch. Explain why the cheapest quote or an intact pilot cannot settle the decision.",
+          "criteria": [
+            {
+              "id": "cost",
+              "text": "I added packaging/filling and freight for each route and kept the supplied totals separate from omitted costs and a final selling price."
+            },
+            {
+              "id": "compatibility",
+              "text": "I identified package-specific wine, barrier, liner, seal or closure checks rather than treating the material name or lack of leaks as complete performance evidence."
+            },
+            {
+              "id": "shelf_life",
+              "text": "I designed a comparison tied to the intended twelve-month consumption window, oxygen, temperature and sensory condition, and recognised the three-month evidence limit."
+            },
+            {
+              "id": "decision",
+              "text": "I made a conditional recommendation that weighed cost, distribution, intended style and credible failure/return risks, naming the evidence that could reverse it."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "unitId": "D2",
+      "title": "Pricing evidence, cash timelines and campaign returns",
+      "durationSeconds": 3600,
+      "questions": [
+        {
+          "id": "d2_candidate_price_evidence",
+          "prompt": "Hypothetical inputs: A merchant's producer cost is EUR 7.80 per saleable bottle, freight EUR 0.60, insurance EUR 0.10, handling EUR 0.20, nonrecoverable import charge EUR 0.80 and variable fulfilment EUR 0.50. These are all variable costs. Period fixed costs are EUR 6,000; capacity is 4,000 bottles. Selling prices of EUR 13 or a proposed EUR 12 discount and variable costs are constant within capacity; all figures exclude sales tax. Next vintage supply reportedly falls 12%; the merchant's restaurant orders fall 15% and it holds six months of stock. Market-wide demand, elasticity and substitute prices are unknown. Calculate bottle contribution and minimum whole sales volume covering fixed costs at each price. Assess the discount and a supplier's claim that the crop fall requires a matching price rise. Specify missing evidence and a review point.",
+          "criteria": [
+            {
+              "id": "arithmetic",
+              "text": "I included every supplied variable cost, calculated contribution at both prices, and rounded the fixed-cost coverage volume upward to a whole bottle within capacity."
+            },
+            {
+              "id": "market",
+              "text": "I considered supply, orders and existing stock together, without deriving a fixed market-price change from one percentage or treating local orders as all market demand."
+            },
+            {
+              "id": "decision",
+              "text": "I evaluated the proposed discount using contribution and plausible sales response, and stated what further evidence would support a price or purchasing decision."
+            },
+            {
+              "id": "limits",
+              "text": "I kept the supplied one-product, constant-cost assumptions explicit and distinguished contribution and fixed-cost coverage from profit, cash availability or assured sales."
+            }
+          ]
+        },
+        {
+          "id": "d2_candidate_channel_cash",
+          "prompt": "Hypothetical inputs: A producer starts Day 0 with EUR 5,000 unrestricted cash. Both routes require EUR 6,000 production payment on Day 10 and EUR 1,000 launch payment on Day 20. No other flows, taxes or financing costs occur. Route A is a binding prepaid partner order: EUR 8,000 arrives on Day 0, delivery costs EUR 600 on Day 5, and the partner handles consumer selling and fulfilment. Route B is producer-run online selling: forecast full customer receipts are EUR 15,000 on Day 60 and fulfilment payment EUR 2,000 on Day 30, with no earlier receipts. Demand is uncertain. Day-0 receipts precede payments. Show each event's cash balance and peak shortfall below zero. Compare period receipts less supplied outflows and each party's work and control. Recommend a route or funding contingency; state what changes if online receipts fail.",
+          "criteria": [
+            {
+              "id": "timeline",
+              "text": "I used opening cash and each supplied date to calculate balances and the largest deficit, rather than assuming a profitable forecast funds earlier payments."
+            },
+            {
+              "id": "economics",
+              "text": "I calculated receipts less all stated outflows for each route and kept that period comparison separate from a complete accounting-profit or long-term demand claim."
+            },
+            {
+              "id": "roles",
+              "text": "I compared customer access, selling/fulfilment work, partner dependence and control using the contract conditions supplied rather than a universal ranking of channels."
+            },
+            {
+              "id": "risk",
+              "text": "I made a conditional recommendation or financing contingency and showed how uncertain online receipts could change liquidity and the commercial decision."
+            }
+          ]
+        },
+        {
+          "id": "d2_candidate_campaign_evidence",
+          "prompt": "Hypothetical six-week pilots target repeat restaurant orders. Contribution is EUR 4 per bottle after all other variable wine and fulfilment costs, before campaign spend. All sales are paid, with no returns or other campaign costs. Campaign A costs EUR 1,500, reaches 200 target accounts and gets 60 trial accounts, 20 of which reorder; total sales are 500 bottles. Campaign B costs EUR 2,000 and gets 8,000 views, 100 enquiries and 30 trial accounts, 12 of which reorder; total sales are 400 bottles. Viewers' target-segment membership is unknown. The remaining budget is EUR 3,000. Calculate each pilot's contribution after campaign spend and share of trial accounts reordering. Propose the next bounded trial's audience, product, price, channel, service and promotion, with a measurable objective, budget and review date. Explain limits on conclusions about future demand or market-wide price.",
+          "criteria": [
+            {
+              "id": "measures",
+              "text": "I calculated bottle contribution less campaign spend and repeat-account shares using the stated denominators, and kept views, enquiries, trial accounts and repeat accounts distinct."
+            },
+            {
+              "id": "audience",
+              "text": "I based the next trial on the intended restaurant buyers and identified the missing target-segment evidence for the online audience."
+            },
+            {
+              "id": "plan",
+              "text": "I coordinated the offer, price, channel, people/service and promotion with the EUR 3,000 constraint and specified a time-bound outcome and comparison baseline."
+            },
+            {
+              "id": "inference",
+              "text": "I used the pilot to propose a bounded test, without claiming guaranteed future sales, complete net profitability or the best full-market price from these limited observations."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "unitId": "D3",
+      "title": "France: evidence, cellar choices and routes",
+      "durationSeconds": 3600,
+      "questions": [
+        {
+          "id": "d3_candidate_burgundy_lots",
+          "prompt": "All lot details and observations here are hypothetical scenario inputs. A Burgundy grower has two Pinot Noir lots intended for a fresh red wine. Lot A comes from a cooler, later-ripening parcel; its berries are sound, but a small trial tastes lean and has firm tannin. Lot B ripened earlier and its trial tastes fuller, though fruit health varies within the parcel. Trials used different extraction regimes and were tasted at different ages. The winery can sort, ferment separately and alter extraction, but has limited tank space. A merchant offers more for a named parcel without a blind comparison or confirmed repeat demand. Recommend a harvest-to-blend plan. Explain how site, fruit condition and cellar choices could affect the target style; compare separate release with blending; and evaluate what the merchant's offer does and does not establish. Name evidence that could reverse your recommendation.",
+          "criteria": [
+            {
+              "id": "evidence",
+              "text": "I distinguished supplied parcel and fruit observations from untested generalisations about Burgundy, and explained how unequal trials limit a site comparison."
+            },
+            {
+              "id": "cellar",
+              "text": "I linked ripeness, fruit condition and extraction choices to the intended style, while identifying a possible adverse effect and a way to monitor it."
+            },
+            {
+              "id": "tradeoffs",
+              "text": "I compared sorting, separate fermentation, blending and separate release in terms of tank capacity, quality aims and commercial risk."
+            },
+            {
+              "id": "decision",
+              "text": "I made a conditional recommendation and specified a comparable sensory or sales test that could change it, without treating a parcel name as proof of quality."
+            }
+          ]
+        },
+        {
+          "id": "d3_candidate_bordeaux_route",
+          "prompt": "All vineyard, blend and commercial details here are hypothetical scenario inputs. A Bordeaux estate targets a balanced dry red at a viable selling price. Its Cabernet Sauvignon block is sound but has uneven ripeness; its Merlot block is riper with a small separately identifiable area of rot. Rain is forecast before the next available harvest crew. The estate can sort and vinify separately at extra cost. Two trial blends taste promising, but come from earlier seasons. A distributor offers a lower net price paid on delivery for most of the volume; a direct route has a higher headline price, delayed payment and unknown customer-acquisition costs. No opening cash balance or confirmed demand is supplied. Propose a harvest, cellar and route plan. Explain the causal links to style and quality, compare the commercial options, and state what cannot yet be concluded from the trials or quoted prices.",
+          "criteria": [
+            {
+              "id": "fruit",
+              "text": "I used the supplied maturity, health and crew information to justify a conditional harvest and segregation sequence, without assuming a grape name settles ripeness."
+            },
+            {
+              "id": "mechanism",
+              "text": "I connected fruit and cellar decisions to blend balance and quality, and identified why trials from other seasons need confirmation."
+            },
+            {
+              "id": "commercial",
+              "text": "I compared net returns, timing, volume commitment and omitted selling costs, without declaring the higher headline price more profitable or inferring a cash deficit."
+            },
+            {
+              "id": "limits",
+              "text": "I identified the minimum fruit, blend, demand and cash-flow evidence needed before committing, and a condition that would change the plan."
+            }
+          ]
+        },
+        {
+          "id": "d3_candidate_loire_rhone",
+          "prompt": "All weather records, lots and buyer observations here are hypothetical scenario inputs. A restaurant compares a Loire Cabernet Franc lot with a Rhone Syrah lot for its fresh-red selection. In the supplied season, the Loire site had cooler ripening conditions and harvest rain; the Rhone site had hotter days and a documented period of water stress. Both growers report sound sorted fruit. The Loire wine has lighter body and fresh fruit in a blind panel; the Rhone wine has fuller body and firmer tannin. Their extraction and oak regimes differ, and the panel is small. Quotes meet the restaurant's target purchase cost, but repeat supply and customer demand are unknown. Compare the likely links between the supplied vineyard/cellar evidence and the wines. Recommend a conditional menu and buying trial, explaining why these two lots cannot establish the usual style or overall quality of either region.",
+          "criteria": [
+            {
+              "id": "vineyard",
+              "text": "I explained plausible effects of the supplied ripening, rain and water-stress evidence, while distinguishing this season from a regional climate claim."
+            },
+            {
+              "id": "cellar",
+              "text": "I considered extraction and oak as alternative contributors to the observed differences and avoided attributing the contrast entirely to origin or variety."
+            },
+            {
+              "id": "sensory",
+              "text": "I used the supplied blind observations to compare style and possible menu fit without treating body or tannin intensity as a quality ranking."
+            },
+            {
+              "id": "route",
+              "text": "I proposed a proportionate buying and service trial, checking repeat supply and customer response and stating the limits of the small, confounded comparison."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "unitId": "D3",
+      "title": "New York and New World: comparative evidence and routes",
+      "durationSeconds": 3600,
+      "questions": [
+        {
+          "id": "d3_candidate_new_york_sites",
+          "prompt": "All site, weather and trial details here are hypothetical scenario inputs. A New York grower compares a Finger Lakes site for Riesling with a Long Island site for Cabernet Franc. The Finger Lakes record supplied shows damaging spring frost in two recent seasons, a later harvest and a narrow weather window before rain. The Long Island record supplied shows humid harvest conditions and variable fruit health. The Finger Lakes option needs funded frost protection; the Long Island option needs extra sorting labour. Small trials suggest saleable wines, but use different varieties and seasons. The target is a fresh dry wine with reliable delivery, and buyer demand is untested. Recommend a staged vineyard-to-release plan for one option or a limited trial of both. Explain the style, cost and reliability trade-offs, and identify why the supplied comparison cannot isolate a regional effect.",
+          "criteria": [
+            {
+              "id": "action",
+              "text": "I proposed a staged site, management and release decision tied to the supplied records, rather than a guaranteed regional recommendation."
+            },
+            {
+              "id": "reason",
+              "text": "I connected frost, harvest timing and fruit-health risks to management, processing and the intended wine, and explained how the actions address those risks."
+            },
+            {
+              "id": "tradeoff",
+              "text": "I weighed protection, labour, capacity, wine style and delivery reliability, without treating either promising trial as proof of demand or profitability."
+            },
+            {
+              "id": "limitation",
+              "text": "I identified variety, season and trial design as confounders and specified comparable evidence and a result that could change my choice."
+            }
+          ]
+        },
+        {
+          "id": "d3_candidate_riesling_compare",
+          "prompt": "All measurements, tasting results and quotations here are hypothetical scenario inputs. An importer compares a Finger Lakes Riesling with a Clare Valley Riesling for a dry-white range. The supplied lots have similar residual sugar and alcohol, but the Finger Lakes wine has higher measured acidity. A small blind panel calls it fresher; panel preference is split. Fruit ripeness, yeast, fermentation temperature and time on lees differ, and the wines were sampled at different ages. Both arrive at the same quoted landed purchase cost. One supplier offers a small trial order; the other requires a larger minimum and has no confirmed reorder timetable. Compare possible causes of the style differences and the quality evidence still needed. Recommend a conditional listing and supply trial, separating the observations from claims about the two regions and from unsupported assumptions about customer preference.",
+          "criteria": [
+            {
+              "id": "comparison",
+              "text": "I compared the supplied chemistry and blind observations and distinguished perceived freshness, preference and quality."
+            },
+            {
+              "id": "mechanism",
+              "text": "I considered ripeness, fermentation, lees and sample age alongside acidity, explaining why the supplied lots do not isolate a regional cause."
+            },
+            {
+              "id": "route",
+              "text": "I compared trial size, inventory exposure and supply continuity as well as quoted landed cost, and checked omitted storage and selling costs."
+            },
+            {
+              "id": "limits",
+              "text": "I proposed comparable samples and a customer/supply trial, naming a finding that would reverse the listing rather than generalising from the small panel."
+            }
+          ]
+        },
+        {
+          "id": "d3_candidate_new_world_routes",
+          "prompt": "All costs, lots and route observations here are hypothetical scenario inputs. A merchant is choosing a New World white-wine launch: a South African Chenin Blanc lot or a Chilean Chardonnay lot. The supplied panel finds both sound; the Chenin is fresher and lighter, while the Chardonnay is fuller with oak-derived aromas. Winemaking, vintage and sample age differ. For equal saleable volume, quoted landed wine costs are EUR 18,000 and EUR 20,000 respectively. A wholesale trial has quoted handling/selling costs of EUR 2,000; a direct trial has EUR 5,000. These figures exclude returns and finance, and no net sales receipts or opening cash balance are supplied. Compare the lots' style and evidence limits, calculate the four supplied initial cost totals, and recommend a conditional wine/route trial. Explain what demand, margins and payment evidence is required before scaling.",
+          "criteria": [
+            {
+              "id": "style",
+              "text": "I used the supplied sensory evidence for positioning and considered variety, winemaking, vintage and age as confounders rather than ranking the countries."
+            },
+            {
+              "id": "cost",
+              "text": "I calculated the supplied wine-plus-route cost totals for both lots and kept them separate from omitted costs, sales receipts and profit."
+            },
+            {
+              "id": "commercial",
+              "text": "I compared inventory, customer reach, selling work and payment timing, without assuming a route's headline potential proves demand or a cash shortfall."
+            },
+            {
+              "id": "decision",
+              "text": "I proposed a limited trial with explicit demand, quality, net-return and payment checks, and identified a result that could change the wine or route choice."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "unitId": "D4",
+      "title": "Regional sparkling wine decisions",
+      "durationSeconds": 2700,
+      "questions": [
+        {
+          "id": "d4_candidate_british_range",
+          "prompt": "Hypothetical case: A merchant wants a British bottle-fermented sparkling range for restaurants. One proposed wine is from England and another from Wales. The suppliers offer the same grape varieties and target release price, but their site exposure, growing-season conditions, yields, blending options and maturation plans differ. State assumptions for those differences and compare how they could affect fruit, style, quality, cost and supply reliability. Recommend a buying approach, explaining what records and tasting evidence you would request before treating either wine as the stronger offer.",
+          "criteria": [
+            {
+              "id": "site_fruit",
+              "text": "I stated plausible site and growing-season assumptions for each offer and explained their effects on ripening, yield and grape components."
+            },
+            {
+              "id": "production_style",
+              "text": "I linked blending and maturation choices to the proposed wine styles, quality aims and release plans."
+            },
+            {
+              "id": "commercial_fit",
+              "text": "I compared cost, supply reliability and restaurant demand and used those differences to support a buying approach."
+            },
+            {
+              "id": "evidence_limits",
+              "text": "I identified records and tasting evidence needed to check supplier claims and explained what could change my recommendation."
+            }
+          ]
+        },
+        {
+          "id": "d4_candidate_american_routes",
+          "prompt": "Hypothetical case: An importer receives three sparkling wine proposals: a bottle-fermented wine from the USA, a tank-fermented wine from Chile and a bottle-fermented wine from Argentina. All aim at the same retail price, but volumes, release schedules and sales channels differ. Select a plausible growing area and grape choice for each proposal and label these as assumptions. Compare how grape growing and production could shape style, quality and cost. Recommend which proposal best fits one sales channel you define, and identify the supplier evidence needed to test your reasoning.",
+          "criteria": [
+            {
+              "id": "regional_assumptions",
+              "text": "I chose plausible areas and grapes for the three proposals, stated my assumptions and linked growing conditions to the intended wines."
+            },
+            {
+              "id": "method_effects",
+              "text": "I explained how the specified fermentation and maturation routes could affect style, quality, capacity and release timing."
+            },
+            {
+              "id": "market_choice",
+              "text": "I defined a sales channel and compared price, volume and customer expectations before recommending an offer."
+            },
+            {
+              "id": "supplier_checks",
+              "text": "I named useful origin, production, cost and tasting evidence and acknowledged limits in comparing the proposals."
+            }
+          ]
+        },
+        {
+          "id": "d4_candidate_south_african_scale",
+          "prompt": "Hypothetical case: A South African producer has established a small premium bottle-fermented sparkling range and is considering a larger export contract. The buyer wants dependable style and supply, while the producer has limited cellar space and cash. Compare expanding the existing range with developing a separate sparkling product that can be released sooner. State suitable grape, site and production assumptions for each option. Explain likely effects on quality, cost, inventory and market positioning, then propose a conditional plan and the production and sales checks needed before committing.",
+          "criteria": [
+            {
+              "id": "product_design",
+              "text": "I connected stated grape, site and production assumptions to the style and quality aims of both options."
+            },
+            {
+              "id": "scale_controls",
+              "text": "I considered fruit supply, blending consistency, cellar capacity and relevant quality controls as production expands."
+            },
+            {
+              "id": "capital_positioning",
+              "text": "I explained how release timing and stock commitments could affect cash, cost and the positioning of the two products."
+            },
+            {
+              "id": "conditional_plan",
+              "text": "I proposed a practical plan with production and market evidence that would support, limit or reverse the commitment."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "unitId": "D5",
+      "title": "Fortified styles and stock decisions",
+      "durationSeconds": 2700,
+      "questions": [
+        {
+          "id": "d5_candidate_french_vdn",
+          "prompt": "Hypothetical case: A merchant is choosing between two French vin doux naturel offers for a restaurant range. A supplier describes one as a youthful aromatic Muscat wine and the other as a Grenache wine matured with deliberate oxygen exposure. State plausible origin, grape-growing and cellar assumptions for each offer. Explain how harvest decisions, fortification, any skin contact and maturation could produce the proposed styles and influence quality and cost. Recommend a place for each wine in the range, identifying the production records and tasting evidence needed to check the supplier's descriptions.",
+          "criteria": [
+            {
+              "id": "origin_fruit",
+              "text": "I stated plausible origins and growing or harvest assumptions and linked them to the fruit needed for each proposed style."
+            },
+            {
+              "id": "process_style",
+              "text": "I explained causal links between fortification, relevant skin contact, oxygen exposure and maturation and the wines I described."
+            },
+            {
+              "id": "range_value",
+              "text": "I evaluated quality, production cost, price and customer use when recommending a role for each wine."
+            },
+            {
+              "id": "claim_checks",
+              "text": "I identified production and tasting evidence that could confirm or challenge the descriptions and acknowledged missing information."
+            }
+          ]
+        },
+        {
+          "id": "d5_candidate_rutherglen_blend",
+          "prompt": "Hypothetical case: A Rutherglen Muscat producer holds mature cask parcels and younger wine intended for blending. A new buyer requests a larger supply and argues that the product's category alone guarantees quality. Compare increasing the current blend's release volume with creating a separate blend for a different price and customer target. Explain how fruit ripeness, fortification, cask maturation and parcel selection could affect the resulting wines. Assess the effects on mature stocks, replenishment and cash, then recommend a conditional response and the evidence needed to judge the buyer's claim.",
+          "criteria": [
+            {
+              "id": "base_wine",
+              "text": "I connected fruit ripeness and fortification choices to the character and suitability of the wine available for blending."
+            },
+            {
+              "id": "blend_quality",
+              "text": "I explained how parcel selection and maturation could alter style, balance and quality for the two stated targets."
+            },
+            {
+              "id": "stock_replenishment",
+              "text": "I evaluated mature-stock availability, younger-wine replenishment and cash implications before choosing a release approach."
+            },
+            {
+              "id": "category_evidence",
+              "text": "I separated a category claim from observed quality and named tasting, blending and stock records needed for a conditional decision."
+            }
+          ]
+        },
+        {
+          "id": "d5_candidate_fortified_working_capital",
+          "prompt": "Hypothetical case: A merchant with limited cash and storage wants to supply Port, Sherry and Madeira to restaurants that pay after delivery. It can buy a broad range at a lower unit cost under a large advance order, or buy a smaller range more frequently at a higher unit cost. Choose and state specific wine styles and customer uses for the range. Compare the two purchasing approaches using production and maturation context, likely demand, payment timing, stock turnover and risks to wine condition. Recommend a purchasing plan and the evidence that would trigger a change.",
+          "criteria": [
+            {
+              "id": "styles_customers",
+              "text": "I specified suitable Port, Sherry and Madeira styles and connected their production or maturation to distinct customer uses."
+            },
+            {
+              "id": "cash_cycle",
+              "text": "I traced when cash is committed and received under both purchasing approaches and explained the working-capital consequences."
+            },
+            {
+              "id": "stock_risks",
+              "text": "I considered demand uncertainty, turnover, storage and wine-condition risks for the selected styles."
+            },
+            {
+              "id": "buying_plan",
+              "text": "I recommended a plan supported by sales, payment and stock evidence and stated conditions that would change the choice."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "unitId": "D3",
+      "title": "Regional law and commercial release",
+      "durationSeconds": 3600,
+      "questions": [
+        {
+          "id": "d3_law_jura_release_value",
+          "prompt": "All records, prices and offers are fictional. A producer plans 2026-harvest Côtes du Jura vin jaune. Apply the adopted 2022 rules: maturation in oak without topping up through 15 December of the sixth year after harvest, including at least 60 months under veil; consumer marketing from 1 January of the seventh year. The roughly 62-cl clavelin format is reserved to appellation wines designated vin jaune. Records show veil maturation, but not its duration. A buyer proposes consumer sale in December 2032. The forecast is EUR40 per 62-cl bottle; another white costs EUR45 per 75-cl bottle. Compare release eligibility, likely style and quality evidence, and price per litre. For a future order, both routes quote EUR40 each for 100 clavelins: the merchant pays 20% in advance and the remaining 80% on delivery; the direct route pays 100% on delivery. Explain the cash implications and missing evidence before recommending a route. These selected rules do not establish complete compliance.",
+          "criteria": [
+            {
+              "id": "release",
+              "text": "I identified maturation through 15 December 2032, at least 60 months under veil in oak without topping up, and earliest consumer marketing on 1 January 2033 as distinct gates. I requested the missing veil-duration record and did not approve December 2032 sale."
+            },
+            {
+              "id": "identity_style",
+              "text": "I treated the clavelin reservation as a product/format identity rule, without claiming every vin jaune must use it or every 75-cl bottle is illegal. I explained potential veil-maturation style effects and requested sensory/condition evidence rather than assuming superior quality."
+            },
+            {
+              "id": "unit_price",
+              "text": "I calculated EUR64.52/L for the 62-cl forecast and EUR60/L for the 75-cl offer, with 100 clavelins representing 62L and EUR4,000 forecast revenue. I separated unit-price comparison from product equivalence, landed costs, demand and profit."
+            },
+            {
+              "id": "route_cash",
+              "text": "I calculated the producer’s EUR800 advance and EUR3,200 balance for the merchant order; the direct route supplies no advance. I distinguished cash timing from margin and named missing holding costs, opening cash, payment terms, buyer reliability and demand."
+            }
+          ]
+        },
+        {
+          "id": "d3_law_tokaj_current_release",
+          "prompt": "All lot records and commercial offers here are fictional. A 2026-harvest Tokaj Aszú lot has 135g/L residual sugar and documented 18 months of wood ageing completed by 30 June 2028. Version 10 applies to grapes harvested after 1 August 2025: all Aszú requires at least 120g/L; optional 3/4/5/6 puttonyos wording is allowed, with 6 requiring at least 150g/L. Earliest market release under this specification is 1 January of the third year after harvest. The producer proposes “6 puttonyos” and July 2028 market release. Compare those proposals with “5 puttonyos” and a later release, distinguishing the checked gates from complete compliance. Explain how sweetness, acidity and maturation evidence could affect style and perceived quality. A merchant offers EUR2,400 on delivery for 100 50-cl bottles; a direct route forecasts EUR2,800 paid 60 days later with unknown selling costs. Recommend a conditional route and identify holding-cash and demand evidence.",
+          "criteria": [
+            {
+              "id": "current_label",
+              "text": "I applied version 10 to the 2026 harvest: 135g/L clears the common 120g/L minimum but fails the 150g/L condition for 6 puttonyos. Optional 5 wording is not ruled out by the checked sugar gate; I did not invent an old 3=60/4=90 scale or a blanket ban on 3/4 labels."
+            },
+            {
+              "id": "release_wood",
+              "text": "I rejected July 2028 market release and identified 1 January 2029 as the earliest date under the supplied calendar rule. I kept recorded 18-month wood ageing separate from the release date and remaining production/origin eligibility."
+            },
+            {
+              "id": "style_quality",
+              "text": "I related residual sugar to sweetness while considering acidity, concentration, maturation and actual tasting records. Neither the numbered label nor meeting a legal minimum alone proves balance, higher quality, consumer preference or an achievable premium."
+            },
+            {
+              "id": "commercial",
+              "text": "I calculated 50L and EUR48/L for the merchant offer. I compared its earlier receipt with the direct route’s EUR400 higher headline total and 60-day delay, without assuming extra net profit. I requested selling/holding costs, opening cash, credit and demand evidence."
+            }
+          ]
+        },
+        {
+          "id": "d3_law_china_standard_origin",
+          "prompt": "All supplier records, tasting and offers here are fictional. A Ningxia winery offers 100 75-cl bottles to a merchant for EUR20 each paid on delivery; direct sales are forecast at EUR30 each, with delayed receipts and unknown selling costs. Its sample has fresh acidity and firm tannin, but grape, extraction and ageing records are missing. The supplier cites GB/T15037-2006 and proposes a geographical-indication special mark. The official register lists that standard as recommended. Under CNIPA’s GI-product route, a recognised product’s dossier and defined origin requirements are separate; producer special-mark use requires the prescribed application, checks and approval. The actual recognised-product dossier, origin records and producer permission have not been supplied. Do not assume the word Ningxia itself establishes protection. Recommend a document, style and buying review; compare commercial routes and state what cannot yet be concluded. Other mandatory rules still require review.",
+          "criteria": [
+            {
+              "id": "standard_scope",
+              "text": "I distinguished the recommended GB/T standard’s current status from mandatory applicable rules, without inventing alcohol, sugar, variety or origin percentages from its register page. Its identifier or sample analysis does not grant a GI special-mark entitlement."
+            },
+            {
+              "id": "origin_permission",
+              "text": "I requested the actual recognised-product name/dossier, defined-zone and product conformity records, and the producer’s approved special-mark permission. I separated this CNIPA GI-product route from other protection routes and did not assume all Ningxia names are protected."
+            },
+            {
+              "id": "style_evidence",
+              "text": "I used the observed acidity and tannin as sample evidence, requested site/grape/cellar and comparative tasting records, and avoided inferring regional typicality, an approved origin, superior quality or guaranteed demand from one sample or a mark."
+            },
+            {
+              "id": "routes_cash",
+              "text": "I calculated 75L, EUR2,000 merchant receipts and EUR26.67/L, versus EUR3,000 forecast direct receipts. I weighed payment timing, customer-acquisition/holding costs, claim approval and demand; EUR1,000 extra headline receipts is not established net profit or available working capital."
             }
           ]
         }

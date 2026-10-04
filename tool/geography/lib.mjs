@@ -34,7 +34,10 @@ export async function hashOf(file) {
   return hash.digest('hex');
 }
 
-export const readYaml = (file) => YAML.parse(fs.readFileSync(file, 'utf8'));
+// YAML 1.2.2 §5.4: each CRLF, CR or LF is one line break.
+// Preserve consecutive breaks: CRCRLF represents two breaks, not one.
+export const readYaml = (file) =>
+  YAML.parse(fs.readFileSync(file, 'utf8').replace(/\r\n|\r/g, '\n'));
 
 /** The cached download of [source]. */
 export const downloadPath = (source) => source.snapshot

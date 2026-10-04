@@ -64,7 +64,9 @@ class ExercisePresenter {
             ? {for (final card in cards) card.itemId}
             : readyItems;
       }
-    } else if (template.mode == 'reasoning' || template.mode == 'map_pair') {
+    } else if (template.mode == 'reasoning' ||
+        template.mode == 'map_pair' ||
+        template.mode == 'authored_choice') {
       final profile = await db.select(db.userProfiles).getSingleOrNull();
       final track = certificationId ?? profile?.activeCertificationId;
       if (track != null) {

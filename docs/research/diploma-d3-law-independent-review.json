@@ -1,0 +1,130 @@
+{
+  "schemaVersion": 1,
+  "status": "bounded_primary_source_fit_approved_facts_unverified",
+  "candidateDatasetVersion": "0.24.73",
+  "reviewer": "Codex independent D3 critic",
+  "asOf": "2026-10-03",
+  "qualifiedVerification": false,
+  "canonicalEdits": false,
+  "files": [
+    {
+      "path": "build/diploma-law-candidates-073/diploma_d3_regional_law_completion.area.yaml",
+      "sha256": "7c6e9a59173d888a14850e85621c8c3e5978778ad88e51a1adf7b5b579950379"
+    },
+    {
+      "path": "build/diploma-law-candidates-073/diploma_d3_regional_law_completion.templates.yaml",
+      "sha256": "82f9550e6c7c318c6834aecc423f022030f7b1652ab8f16c074da6a43c5267eb"
+    },
+    {
+      "path": "build/diploma-law-written-pack-candidate-073.json",
+      "sha256": "55cf61ba499088b3e861dc4ed0c05b80f04641f5e0a59697816953c76da94b1d"
+    }
+  ],
+  "reviewed": {
+    "knowledgeItems": 24,
+    "principles": 12,
+    "fourRoleCases": 3,
+    "authoredChoices": 12,
+    "wrongChoiceOptions": 36,
+    "criteriaDistractors": 6,
+    "templates": 3,
+    "writingQuestions": 3,
+    "writingCriteria": 12
+  },
+  "sourceChecks": [
+    {
+      "group": "Côtes du Jura",
+      "law": "Adopted20September2022 specification, BO29September2022",
+      "locators": [
+        "ChapterI IX.2(a)",
+        "IX.3(b)",
+        "IX.5"
+      ],
+      "researchPath": "build/diploma-jura-current-law-research-073.json",
+      "scope": "Calendar and >=60veil months both apply; consumer date distinct.62cl reservation is not reverse universal bottle mandate. Explicit Côtes du Jura AOC only.",
+      "sourceByteHash": null,
+      "observedExtractPath": "build/diploma-jura-current-law-observed-extract-073.json",
+      "observedExtractSha256": "fd560f7a1f58a7847ade97053fd9bdf03ea0c1a3f4544add583933223eb50375"
+    },
+    {
+      "group": "Tokaj",
+      "law": "Version10 for grapes harvested after1August2025",
+      "locators": [
+        "p3 II.1(a)",
+        "p6 III.A",
+        "p18 VIII.1(d)(ii)",
+        "p18 VIII.2(a)"
+      ],
+      "pdfPath": "build/diploma-law-candidates-073/sources/tokaj-version10.pdf",
+      "pdfSha256": "1a290e9513313daba01a2fd4314f0a9c3047d594770ca4ae5e7363ab945e1c3e",
+      "scope": "120g/L allcurrentAszu; optional3/4/5/6 wording,6>=150g/L; thirdyearfollowingharvest placing-on-market gate distinct from18monthswood. No consumer-only qualifier or invented wholesale-transfer ban. Older vintage applicability retained."
+    },
+    {
+      "group": "China",
+      "law": "SAMR current recommended standard status plus CNIPA Order80 GI-product route",
+      "locators": [
+        "SAMR status/2017 conversion remark",
+        "CNIPA Articles2,18,20,23,30"
+      ],
+      "pdfPath": "build/diploma-law-candidates-073/sources/china-gi-order80.pdf",
+      "pdfSha256": "65f86b465796b77daa85496210b2215208133f5bf096e478ce2c2e2ded2096d8",
+      "scope": "Metadata does not supply unread numeric clauses or waive otherlaws. GI-product dossier and producer mark permission distinct; hypothetical recognised-product premise explicit, actual Ningxia protected status not invented."
+    }
+  ],
+  "resolvedCriticIssues": [
+    "Jura writing contract price explicitly EUR40 each for both100-bottle routes; merchant20%advance80%delivery vs direct100%delivery supports EUR800/EUR3200.",
+    "Jura unit-price comparison distinguished from landed cost/product equivalence.",
+    "Jura and Tokaj curriculum buyer outflows and supplier receipts explicitly identified, with buyer revenue unknown.",
+    "Tokaj market-release legal wording corrected; explicit proposed consumer dispatch is blocked as a consequence, without invented wholesale restriction.",
+    "Spacing/thousands formatting repaired without changing rules, IDs or arithmetic."
+  ],
+  "arithmeticChecks": {
+    "juraCase": {
+      "litres": 62,
+      "purchase": 4000,
+      "purchasePerLitre": 64.51612903225806,
+      "listedBuyerCosts": 4240,
+      "listedPerLitre": 68.38709677419355,
+      "maturationThrough": "2032-12-15",
+      "consumerFrom": "2033-01-01"
+    },
+    "tokajCase": {
+      "purchase": 2500,
+      "holding": 360,
+      "reprint": 180,
+      "listedBuyerCosts": 3040,
+      "marketFrom": "2028-01-01",
+      "residualSugar": 135,
+      "sixPuttonyosFails": true
+    },
+    "chinaCase": {
+      "purchase": 10000,
+      "optionAListedCosts": 10800,
+      "optionBListedCosts": 10500,
+      "partialCostDifference": 300
+    },
+    "writing": {
+      "juraUnitPrices": [
+        64.51612903225806,
+        60.0
+      ],
+      "juraAdvance": 800,
+      "juraBalance": 3200,
+      "tokajMarketFrom": "2029-01-01",
+      "tokajLitres": 50,
+      "tokajMerchantPerLitre": 48,
+      "tokajHeadlineDifference": 400,
+      "chinaLitres": 75,
+      "chinaMerchantPerLitre": 26.666666666666668,
+      "chinaHeadlineDifference": 1000
+    }
+  },
+  "pedagogicReview": "All36 authored wrongoptions and6 criteria distractors contain independently indefensible premises under the explicitly supplied scope. Supplied case gates are not whole-label approval. Written criteria request conditional reasoning, source limits, real sensory evidence and cost/payment separation; no automatic prose grade or officialexam replication.",
+  "remainingLimits": [
+    "Qualified current-law and factual review not performed",
+    "Jura original PDF bytes not obtained; adopted official indexed clauses independently read and extracts preserved",
+    "English Tokaj paraphrase remains subject to qualified Hungarian/legal review",
+    "Learner writing/tasting performance and real commercial outcomes external"
+  ],
+  "blockingIssuesRemaining": []
+}

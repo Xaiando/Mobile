@@ -139,10 +139,41 @@ class DiplomaWrittenBank {
         !(legacy || extended || regional)) {
       throw const FormatException('Invalid Diploma written bank.');
     }
+    variants = [
+      for (final value in (row['variants'] as List? ?? const []))
+        DiplomaWrittenPreset.fromJson(_map(value)),
+    ];
+    final questionIds = <String>{};
+    for (final preset in [...presets, ...variants]) {
+      if (!units.contains(preset.unitId)) {
+        throw const FormatException('Variant unit needs a default preset.');
+      }
+      for (final question in preset.questions) {
+        if (!questionIds.add(question.id)) {
+          throw const FormatException(
+            'Duplicate written-practice question ID.',
+          );
+        }
+      }
+    }
   }
 
   late final String version;
   late final List<DiplomaWrittenPreset> presets;
+  late final List<DiplomaWrittenPreset> variants;
+
+  /// Selects a whole pack for a new attempt. Saved attempts retain their
+  /// question snapshots, and legacy banks do not consume an extra random draw.
+  DiplomaWrittenPreset choosePreset(String unitId, Random random) {
+    final choices = [
+      preset(unitId),
+      ...variants.where((variant) => variant.unitId == unitId),
+    ];
+    return choices.length == 1
+        ? choices.single
+        : choices[random.nextInt(choices.length)];
+  }
+
   DiplomaWrittenPreset preset(String unitId) => presets.singleWhere(
     (preset) => preset.unitId == unitId,
     orElse: () => throw ArgumentError.value(unitId, 'unitId'),
@@ -380,7 +411,7 @@ class DiplomaWrittenRepository {
 
   Future<DiplomaWrittenAttempt> start(String unitId) =>
       db.transaction(() async {
-        final preset = bank.preset(unitId);
+        bank.preset(unitId);
         if (await _currentInTransaction(unitId) != null) {
           throw StateError('Resume or end the saved $unitId written practice.');
         }
@@ -390,6 +421,7 @@ class DiplomaWrittenRepository {
         if (profile?.activeCertificationId != 'WSET_L4') {
           throw StateError('Choose WSET Level 4 as your study track first.');
         }
+        final preset = bank.choosePreset(unitId, random);
         var id = newUuid(random);
         while (await _setting(keyFor(id)) != null) {
           id = newUuid(random);

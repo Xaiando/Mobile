@@ -2,6 +2,7 @@
 // checked-in GeoJSON; coordinate statements never imply legal boundaries.
 import fs from 'node:fs';
 import YAML from 'yaml';
+import { readYaml } from './lib.mjs';
 
 // suffix, displayed name, type, parent, primary source, gazetteer title,
 // optional wiki site, optional assertion. References are intentionally named.
@@ -202,7 +203,7 @@ const aliases=[['barolo_commune','Barolo'],['barbaresco_commune','Barbaresco'],[
 const content={knowledge_nodes:nodes,node_alternative_names:aliases,knowledge_relations:relations,knowledge_items:items,certification_knowledge_mappings:tracks,knowledge_item_citations:citations,source_citations:sources};
 const authoredPath='assets/curriculum/areas/europe_atlas_completion.yaml';
 if(fs.existsSync(authoredPath)) {
- const previous=YAML.parse(fs.readFileSync(authoredPath,'utf8'));
+ const previous=readYaml(authoredPath);
  for(const table of ['knowledge_nodes','knowledge_items','source_citations']) {
   const nextIds=new Set(content[table].map(row=>row.id));
   const missing=(previous[table]??[]).filter(row=>!nextIds.has(row.id)).map(row=>row.id);

@@ -3,6 +3,7 @@
 import fs from 'node:fs';
 import crypto from 'node:crypto';
 import YAML from 'yaml';
+import { readYaml } from './lib.mjs';
 
 const retrieved = '2026-09-26';
 const commit = '7af5b29d45aee5e6c6ce3889e9b1de19085d7107';
@@ -164,7 +165,7 @@ Object.assign(specs.at(-1),{cfr:'9.301',locator:'27 CFR §9.301; 91 FR 53191–5
 // Implementation helpers follow below. No authored files are changed until
 // every legal parent and published marker has passed validation.
 const oldFiles=fs.readdirSync('assets/curriculum/areas').filter(f=>f.endsWith('.yaml')&&f!=='new_world_americas.yaml');
-const oldDocuments=oldFiles.map(f=>YAML.parse(fs.readFileSync(`assets/curriculum/areas/${f}`,'utf8')));
+const oldDocuments=oldFiles.map(f=>readYaml(`assets/curriculum/areas/${f}`));
 const existingNodes=oldDocuments.flatMap(d=>d.knowledge_nodes??[]);
 const existingSources=oldDocuments.flatMap(d=>d.source_citations??[]);
 // Reuse already authored primary registers. This unreleased work may replace
@@ -296,7 +297,7 @@ if(process.argv.includes('--author')){
   source_citations:sources,
   knowledge_item_citations:specs.flatMap(s=>[{knowledge_item_id:item(s),source_citation_id:s.source,locator:s.locator??(s.source==='src_nwa_ca_bc'?`Section 56(1), ${s.name.replace(/ \([^)]*\)/g,'')} entry and explicit containing subdivision`:(s.source_origin??s.source)==='src_nwa_ar_register'?`${s.name}: register name and Departamento y Provincia column`:s.source==='src_nwa_ar_provinces'?`${s.name}: province list`:s.country==='chile'?`Article 1 wine-geography hierarchy: ${s.name}; containing region/valley and named-area definition`:`${s.name}: current regional/sub-appellation list; containing Niagara Peninsula or Lake Erie North Shore`)},...(s.cfr?[{knowledge_item_id:item(s),source_citation_id:ttbCitation,locator:s.locator}]:[])]),
  };
- if(fs.existsSync(curriculumPath)){const previous=YAML.parse(fs.readFileSync(curriculumPath,'utf8'));for(const key of ['knowledge_nodes','knowledge_items','source_citations'])for(const row of previous[key]??[])if(!dataset[key].some(next=>next.id===row.id)&&!(key==='source_citations'&&duplicateCitationDrafts.has(row.id)))throw Error(`Would delete authored ${row.id}`);}
+ if(fs.existsSync(curriculumPath)){const previous=readYaml(curriculumPath);for(const key of ['knowledge_nodes','knowledge_items','source_citations'])for(const row of previous[key]??[])if(!dataset[key].some(next=>next.id===row.id)&&!(key==='source_citations'&&duplicateCitationDrafts.has(row.id)))throw Error(`Would delete authored ${row.id}`);}
  fs.writeFileSync(curriculumPath,'# Additive Americas atlas: primary-cited geography, not complete wine analysis.\n# Published locality/interior references are not legal boundary shapes. Expert review remains open.\n'+YAML.stringify(dataset));
 }
 fs.writeFileSync(pointPath,JSON.stringify({type:'FeatureCollection',features},null,2)+'\n');

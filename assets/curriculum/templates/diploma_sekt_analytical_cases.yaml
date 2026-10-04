@@ -31,7 +31,7 @@
             ]
           },
           "ki_d4sekt_base_wine_selection": {
-            "prompt": "Which harmful fungal infection must be strictly absent from sparkling base grapes because its enzymes destroy foam stability?",
+            "prompt": "Which fungal infection can introduce both foam-damaging proteases and oxidation-promoting laccase into sparkling base wine?",
             "acceptedAnswers": [
               "Botrytis",
               "grey rot",
@@ -39,14 +39,14 @@
             ]
           },
           "ki_d4sekt_autolysis_vs_fruit": {
-            "prompt": "What biological process of yeast enzymatic breakdown during extended bottle maturation yields mannoproteins and brioche aromas?",
+            "prompt": "What is the biological breakdown of yeast cells during lees contact called?",
             "acceptedAnswers": [
               "autolysis",
               "yeast autolysis"
             ]
           },
           "ki_d4sekt_dosage_style": {
-            "prompt": "Which statutory sparkling sweetness category applies to wines with less than 12 grams per litre of residual sugar?",
+            "prompt": "Which sparkling sweetness category has a nominal upper sugar limit of 12 g/L, exclusive? Ignore analytical tolerance for this limit question.",
             "acceptedAnswers": [
               "Brut"
             ]
@@ -160,28 +160,28 @@
             "sourceCitationId": "src_d4sekt_vdp_statut"
           },
           "ki_d4sekt_base_wine_selection": {
-            "prompt": "What viticultural and harvesting strategy is required to produce high-quality base wine for traditional-method German Sekt?",
+            "prompt": "A Sekt base-wine brief requires freshness and low phenolic harshness. Which plan best manages measured composition and fruit-health risks without inventing universal production rules?",
             "options": [
               "Harvesting late after noble rot develops to achieve maximum sugar and honeyed botrytis aromatics",
-              "Early harvest of clean, botrytis-free fruit with brisk natural acidity and moderate potential alcohol, followed by gentle whole-cluster pressing",
+              "Select sound fruit, measure acidity and potential alcohol for the brief, and assess press fractions separately",
               "Extensive skin maceration at high temperatures to extract deep colour and heavy tannins before alcoholic fermentation",
               "Allowing full physiological over-ripeness so that the base wine achieves at least 14% potential alcohol before second fermentation"
             ],
             "correctIndex": 1,
-            "explanation": "Sparkling base wine requires moderate potential alcohol (around 9.5-11.5% abv) to allow for the 1.2-1.5% abv gain during secondary fermentation, high crisp acidity for freshness, and healthy grapes devoid of Botrytis. Botrytis infection releases fungal proteases that degrade foam-active proteins (damaging foam formation and stability) and produces laccase causing oxidative browning. Gentle whole-cluster pressing minimizes extraction of coarse skin phenolics.",
+            "explanation": "Use lot measurements and trials rather than fixed harvest alcohol or mandatory press equipment. Botrytis proteases and laccase are distinct foam and oxidation risks.",
             "sourceCitationId": "src_spark_gushing"
           },
           "ki_d4sekt_autolysis_vs_fruit": {
-            "prompt": "When comparing a young tank-fermented Riesling Sekt with a 24-month bottle-fermented Winzersekt, what enological mechanism explains the textural and aromatic differences?",
+            "prompt": "A tank and a bottle Sekt differ in coded tasting after different maturation periods. Which interpretation avoids confusing vessel, yeast breakdown and wine ageing?",
             "options": [
               "Tank fermentation induces rapid yeast autolysis, whereas bottle fermentation prevents yeast cell breakdown",
-              "Short-cycle tank fermentation rapidly clarifies the wine to preserve primary floral and fruit aromatics, while extended bottle aging allows prolonged yeast contact where autolysis releases mannoproteins and brioche aromas",
+              "Yeast autolysis and wine ageing can both contribute; use composition, lees-time and sensory records rather than attributing the difference to vessel alone",
               "Bottle fermentation completely eliminates acidity, whereas tank fermentation concentrates malic acid",
               "The difference is determined entirely by atmospheric carbonation pressure, with tank wines reaching twice the pressure of bottle-fermented wines"
             ],
             "correctIndex": 1,
-            "explanation": "Short-cycle pressurised tank fermentation intentionally clarifies wine quickly after second fermentation to preserve primary fruit and floral aromatics. In contrast, extended bottle maturation allows long-term yeast contact where autolysis (enzymatic breakdown of dead yeast cells starting around 9-12 months) releases mannoproteins and amino acids, enriching mouthfeel, softening perceived acidity, and imparting biscuity, brioche aromas.",
-            "sourceCitationId": "src_d4sekt_autolysis_oenology"
+            "explanation": "A measured 24-month experiment found an important wine-ageing contribution. Tank production does not rule out lees effects; this comparison does not isolate causation or establish a fixed onset date.",
+            "sourceCitationId": "src_d4sekt_sawyer_2022"
           },
           "ki_d4sekt_dosage_style": {
             "prompt": "A German winemaker finishes a traditional-method Sekt with high natural acidity (9 g/L). After liqueur d'expédition dosage, the finished sparkling wine has a final total residual sugar content of 8 g/L. How is this wine classified under EU/German sparkling regulations, and what is the sensory role of dosage?",

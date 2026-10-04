@@ -27,6 +27,14 @@ const diplomaTastingWineKinds = {
   'D4': 'sparkling',
   'D5': 'fortified',
 };
+
+/// Named six-wine sessions are separate from legacy three-wine flights.
+const diplomaTastingNamedSessionIds = {'D3_1', 'D3_2'};
+
+bool _validSession(String unitId, String sessionId) =>
+    sessionId == unitId ||
+    (unitId == 'D3' && diplomaTastingNamedSessionIds.contains(sessionId));
+
 const _maxProse = 4000;
 const _maxSnapshotCharacters = 300000;
 
@@ -65,6 +73,7 @@ class DiplomaTastingPrompt {
 class DiplomaTastingUnit {
   DiplomaTastingUnit.fromJson(Map<String, dynamic> row)
     : unitId = row['unitId'] as String,
+      sessionId = (row['sessionId'] as String?) ?? row['unitId'] as String,
       title = row['title'] as String,
       wineKind = row['wineKind'] as String,
       evidencePrompts = [
@@ -74,6 +83,7 @@ class DiplomaTastingUnit {
       comparisonPrompt = row['comparisonPrompt'] as String,
       selfReviewPrompt = row['selfReviewPrompt'] as String {
     if (!diplomaTastingWineKinds.containsKey(unitId) ||
+        !_validSession(unitId, sessionId) ||
         title.trim().isEmpty ||
         title.length > 100 ||
         wineKind != diplomaTastingWineKinds[unitId] ||
@@ -94,8 +104,11 @@ class DiplomaTastingUnit {
   }
 
   final String unitId;
+  final String sessionId;
+  bool get isNamedSession => sessionId != unitId;
   final String title;
   final String wineKind;
+  int get wineCount => isNamedSession ? 6 : 3;
   final List<DiplomaTastingPrompt> evidencePrompts;
   final String comparisonPrompt;
   final String selfReviewPrompt;
@@ -113,6 +126,19 @@ class DiplomaTastingBank {
       for (final unit in row['units'] as List)
         DiplomaTastingUnit.fromJson(_map(unit)),
     ];
+    namedSessions = [
+      for (final value in (row['namedSessions'] as List? ?? const []))
+        DiplomaTastingUnit.fromJson(_map(value)),
+    ];
+    final sessionIds = namedSessions
+        .map((session) => session.sessionId)
+        .toSet();
+    final validNamedSessions =
+        namedSessions.isEmpty ||
+        (namedSessions.length == 2 &&
+            sessionIds.length == 2 &&
+            sessionIds.containsAll(diplomaTastingNamedSessionIds) &&
+            namedSessions.every((session) => session.unitId == 'D3'));
     final ids = units.map((unit) => unit.unitId).toSet();
     final legacyUnits = ids.length == 2 && ids.containsAll({'D4', 'D5'});
     final currentUnits =
@@ -120,6 +146,8 @@ class DiplomaTastingBank {
     if (version.trim().isEmpty ||
         version.length > 40 ||
         ids.length != units.length ||
+        units.any((unit) => unit.isNamedSession) ||
+        !validNamedSessions ||
         (!legacyUnits && !currentUnits)) {
       throw const FormatException('Invalid Diploma tasting prompt bank.');
     }
@@ -128,6 +156,14 @@ class DiplomaTastingBank {
   late final String version;
   late final String gridId;
   late final List<DiplomaTastingUnit> units;
+  late final List<DiplomaTastingUnit> namedSessions;
+
+  /// Keep unit(D3) as the legacy three-wine API; named IDs are explicit.
+  DiplomaTastingUnit session(String id) =>
+      [...units, ...namedSessions].singleWhere(
+        (session) => session.sessionId == id,
+        orElse: () => throw ArgumentError.value(id, 'sessionId'),
+      );
 
   DiplomaTastingUnit unit(String id) => units.singleWhere(
     (unit) => unit.unitId == id,
@@ -285,6 +321,7 @@ class DiplomaTastingFlight {
   DiplomaTastingFlight.fromJson(Map<String, dynamic> row)
     : id = row['id'] as String,
       unitId = row['unitId'] as String,
+      sessionId = (row['sessionId'] as String?) ?? row['unitId'] as String,
       bankVersion = row['bankVersion'] as String,
       gridId = row['gridId'] as String,
       startedAt = _savedUtc(row['startedAt']),
@@ -307,10 +344,11 @@ class DiplomaTastingFlight {
     if (row['schemaVersion'] != 1 ||
         !_uuid.hasMatch(id) ||
         !diplomaTastingWineKinds.containsKey(unitId) ||
+        !_validSession(unitId, sessionId) ||
         bankVersion.trim().isEmpty ||
         bankVersion.length > 40 ||
         gridId != 'tg_structured' ||
-        wines.length != 3 ||
+        wines.length != (isNamedSession ? 6 : 3) ||
         wines.any(
           (wine) =>
               jsonEncode(wine.attributes.map((a) => a.toJson()).toList()) !=
@@ -344,6 +382,8 @@ class DiplomaTastingFlight {
 
   final String id;
   final String unitId;
+  final String sessionId;
+  bool get isNamedSession => sessionId != unitId;
   final String bankVersion;
   final String gridId;
   final DateTime startedAt;
@@ -360,9 +400,10 @@ class DiplomaTastingFlight {
   String get wineKind => diplomaTastingWineKinds[unitId]!;
   bool get isFinished => completedAt != null;
   bool get isSubmitted => finishReason == 'submitted';
+  int get wineCount => wines.length;
   int get completeWineCount => wines.where((wine) => wine.isComplete).length;
   bool get readyToReview =>
-      completeWineCount == 3 &&
+      completeWineCount == wineCount &&
       reflection.trim().isNotEmpty &&
       selfReview.trim().isNotEmpty;
   bool get readyToSubmit => readyToReview && selfReviewedAt != null;
@@ -381,6 +422,7 @@ class DiplomaTastingFlight {
     'schemaVersion': 1,
     'id': id,
     'unitId': unitId,
+    if (isNamedSession) 'sessionId': sessionId,
     'bankVersion': bankVersion,
     'gridId': gridId,
     'startedAt': startedAt.toIso8601String(),
@@ -396,7 +438,7 @@ class DiplomaTastingFlight {
   };
 }
 
-/// Three untimed real-wine observations, isolated from Levels 1–3 tastings.
+/// Untimed real-wine observations, isolated from Levels 1–3 tastings.
 class DiplomaTastingFlightRepository {
   DiplomaTastingFlightRepository(
     this.db, {
@@ -461,20 +503,22 @@ class DiplomaTastingFlightRepository {
   Future<DiplomaTastingFlight> read(String id) => _load(id);
 
   Future<DiplomaTastingFlight?> current(String unitId) async {
-    bank.unit(unitId);
+    bank.session(unitId);
     final id = await _setting(currentKey(unitId));
     if (id == null) return null;
     final flight = await _load(id);
-    if (flight.unitId != unitId) {
-      throw const FormatException('Diploma tasting pointer has wrong unit.');
+    if (flight.sessionId != unitId) {
+      throw const FormatException('Diploma tasting pointer has wrong session.');
     }
     return flight.isFinished ? null : flight;
   }
 
   Future<DiplomaTastingFlight> start(String unitId) => db.transaction(() async {
-    final unit = bank.unit(unitId);
+    final unit = bank.session(unitId);
     if (await current(unitId) case final active?) {
-      throw StateError('Resume or abandon the saved ${active.unitId} flight.');
+      throw StateError(
+        'Resume or abandon the saved ${active.sessionId} flight.',
+      );
     }
     final profile = await (db.select(
       db.userProfiles,
@@ -501,7 +545,8 @@ class DiplomaTastingFlightRepository {
     final flight = DiplomaTastingFlight.fromJson({
       'schemaVersion': 1,
       'id': id,
-      'unitId': unitId,
+      'unitId': unit.unitId,
+      if (unit.isNamedSession) 'sessionId': unit.sessionId,
       'bankVersion': bank.version,
       'gridId': bank.gridId,
       'startedAt': now.toIso8601String(),
@@ -509,7 +554,7 @@ class DiplomaTastingFlightRepository {
       'completedAt': null,
       'finishReason': null,
       'wines': [
-        for (var i = 0; i < 3; i++)
+        for (var i = 0; i < unit.wineCount; i++)
           {
             'physicallyTasted': false,
             'attributes': attributes,
@@ -532,11 +577,11 @@ class DiplomaTastingFlightRepository {
   Future<DiplomaTastingFlight> resume(String id) => db.transaction(() async {
     final flight = await _load(id);
     if (flight.isFinished) return flight;
-    final active = await current(flight.unitId);
+    final active = await current(flight.sessionId);
     if (active != null && active.id != id) {
       throw StateError('Resume or abandon the other saved flight first.');
     }
-    await _put(currentKey(flight.unitId), id);
+    await _put(currentKey(flight.sessionId), id);
     return flight;
   });
 
@@ -562,10 +607,11 @@ class DiplomaTastingFlightRepository {
   });
 
   static Map<String, dynamic> _wine(Map<String, dynamic> row, int index) {
-    if (index < 0 || index >= 3) {
-      throw RangeError.range(index, 0, 2, 'wineIndex');
+    final wines = row['wines'] as List;
+    if (index < 0 || index >= wines.length) {
+      throw RangeError.range(index, 0, wines.length - 1, 'wineIndex');
     }
-    return _map((row['wines'] as List)[index]);
+    return _map(wines[index]);
   }
 
   Future<DiplomaTastingFlight> acknowledgePhysical(
@@ -613,16 +659,17 @@ class DiplomaTastingFlightRepository {
   Future<DiplomaTastingFlight> saveSelfReview(String id, String text) =>
       _change(id, (row) => row['selfReview'] = text);
 
-  Future<DiplomaTastingFlight> markSelfReviewed(String id) =>
-      _change(id, (row) {
-        final flight = DiplomaTastingFlight.fromJson(row);
-        if (!flight.readyToReview) {
-          throw StateError(
-            'Taste and describe all three wines, then compare and review them.',
-          );
-        }
-        row['selfReviewedAt'] = utcNow(clock).toIso8601String();
-      }, resetReview: false);
+  Future<DiplomaTastingFlight> markSelfReviewed(String id) => _change(id, (
+    row,
+  ) {
+    final flight = DiplomaTastingFlight.fromJson(row);
+    if (!flight.readyToReview) {
+      throw StateError(
+        'Taste and describe all ${flight.isNamedSession ? 'six' : 'three'} wines, then compare and review them.',
+      );
+    }
+    row['selfReviewedAt'] = utcNow(clock).toIso8601String();
+  }, resetReview: false);
 
   Future<DiplomaTastingFlight> finish(String id) => db.transaction(() async {
     final flight = await _load(id);
@@ -632,7 +679,7 @@ class DiplomaTastingFlightRepository {
     }
     if (!flight.readyToSubmit) {
       throw StateError(
-        'Complete three physical wines, their observations and evidence, '
+        'Complete ${flight.isNamedSession ? 'six' : 'three'} physical wines, their observations and evidence, '
         'the comparison, and your self-review before recording this flight.',
       );
     }
@@ -644,7 +691,7 @@ class DiplomaTastingFlightRepository {
     row['finishReason'] = 'submitted';
     final finished = DiplomaTastingFlight.fromJson(row);
     await _save(finished);
-    await _deleteCurrentIfMatches(flight.unitId, id);
+    await _deleteCurrentIfMatches(flight.sessionId, id);
     return finished;
   });
 
@@ -662,19 +709,19 @@ class DiplomaTastingFlightRepository {
     row['finishReason'] = 'abandoned';
     final finished = DiplomaTastingFlight.fromJson(row);
     await _save(finished);
-    await _deleteCurrentIfMatches(flight.unitId, id);
+    await _deleteCurrentIfMatches(flight.sessionId, id);
     return finished;
   });
 
   /// Repairs only a pointer, leaving every saved flight in history.
   Future<void> resetCurrentPointer(String unitId) async {
-    bank.unit(unitId);
+    bank.session(unitId);
     await _delete(currentKey(unitId));
   }
 
   Future<({List<DiplomaTastingFlight> entries, int unreadableCount})>
   historyWithDiagnostics(String unitId) async {
-    bank.unit(unitId);
+    bank.session(unitId);
     final rows = await (db.select(
       db.userSettings,
     )..where((s) => s.name.like('$flightPrefix%'))).get();
@@ -689,7 +736,7 @@ class DiplomaTastingFlightRepository {
           throw const FormatException('Diploma tasting key mismatch.');
         }
         flight.validateAt(utcNow(clock));
-        if (flight.unitId == unitId) entries.add(flight);
+        if (flight.sessionId == unitId) entries.add(flight);
       } catch (_) {
         // Parsing only: the database query above remains outside this catch.
         unreadableCount++;

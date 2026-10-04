@@ -964,6 +964,24 @@ tracks:
             - n_fault_case_lit_display
             - n_fault_case_hot_delivery
             - n_fault_case_sporadic_sweet_spoilage
+            - n_d12depth_intake_throughput
+            - n_d12depth_intake_clarification
+            - n_d12depth_case_intake
+            - n_d12depth_fermentation_nutrition
+            - n_d12depth_fermentation_trial
+            - n_d12depth_case_fermentation
+            - n_d12depth_mlf_decision
+            - n_d12depth_mlf_sulfur
+            - n_d12depth_case_mlf
+            - n_d12depth_quality_diagnosis
+            - n_d12depth_quality_release
+            - n_d12depth_case_quality
+            - n_d12depth_nolo_compare
+            - n_d12depth_nolo_cost
+            - n_d12depth_case_nolo
+            - n_d12depth_package_assembly
+            - n_d12depth_package_landed
+            - n_d12depth_case_package
         tasks: [DIP-1, C5]
 
       # D2: commercial decisions; CMS service arithmetic is not a substitute.
@@ -1000,10 +1018,53 @@ tracks:
             - n_biz_routes_reviewable_roles
             - n_biz_routes_case_dtc_capacity
             - n_biz_routes_case_downstream_review
+            - n_d2market_us_tiers
+            - n_d2market_us_variation
+            - n_d2market_us_federal
+            - n_d2market_ew_authority
+            - n_d2market_ew_scope
+            - n_d2market_ew_personal
+            - n_d2market_se_retail
+            - n_d2market_se_mission
+            - n_d2market_se_supplier
+            - n_d2market_se_serving
+            - n_d2market_se_farm
+            - n_d2market_case_us_entry
+            - n_d2market_case_ew_retail
+            - n_d2market_case_sweden_access
+            - n_d12depth_models_ownership
+            - n_d12depth_models_group
+            - n_d12depth_case_models
+            - n_d12depth_channels_duties
+            - n_d12depth_channels_evidence
+            - n_d12depth_case_channels
+            - n_d12depth_outlets_fit
+            - n_d12depth_outlets_return
+            - n_d12depth_case_outlets
         tasks: [DIP-2]
       - id: wset_l4.business.marketing
         label: Build and evaluate a wine marketing decision
-        covers: {within: [n_biz_customer_segment, n_biz_primary_research, n_biz_cost_plus, n_biz_value_pricing, n_biz_competitor_pricing, n_biz_price_review, n_biz_case_wine_discount, n_d2_marketing_mix, n_d2_competitor_baseline, n_d2_target_sample, n_d2_marketing_objective, n_d2_campaign_review, n_d2_case_market_launch]}
+        covers:
+          within:
+            - n_biz_customer_segment
+            - n_biz_primary_research
+            - n_biz_cost_plus
+            - n_biz_value_pricing
+            - n_biz_competitor_pricing
+            - n_biz_price_review
+            - n_biz_case_wine_discount
+            - n_d2_marketing_mix
+            - n_d2_competitor_baseline
+            - n_d2_target_sample
+            - n_d2_marketing_objective
+            - n_d2_campaign_review
+            - n_d2_case_market_launch
+            - n_d12depth_marketing_position
+            - n_d12depth_marketing_plan
+            - n_d12depth_case_marketing
+            - n_d12depth_campaign_net
+            - n_d12depth_campaign_discount
+            - n_d12depth_case_campaign
         tasks: [DIP-2]
 
       # D3: existing places support regional study; analytical content is partial.
@@ -1018,6 +1079,8 @@ tracks:
             - n_reg_fr_principle_bordeaux_2024
             - n_reg_fr_case_bordeaux_blend
             - n_d3fr2_case_bordeaux_route
+            - n_d3close_case_bordeaux_sweet
+            - n_d3close_case_bordeaux_dry
         tasks: [DIP-3, C2, G10]
       - id: wset_l4.world.burgundy
         label: Analyse Burgundy through its places and wines
@@ -1043,6 +1106,7 @@ tracks:
             - n_reg_fe_principle_beaujolais_semicarbonic
             - n_reg_fe_principle_beaujolais_extraction
             - n_reg_fe_case_beaujolais_berry_handling
+            - n_d3close_case_beaujolais_release
         tasks: [DIP-3, C2, G10]
       - id: wset_l4.world.alsace
         label: Analyse Alsace through its places and wines
@@ -1055,6 +1119,7 @@ tracks:
             - n_reg_fe_principle_alsace_pinot_whites
             - n_reg_fe_principle_alsace_aroma_sweetness
             - n_reg_fe_case_alsace_dry_aromatic
+            - n_d3close_case_alsace_balance
         tasks: [DIP-3, C2, G10]
       - id: wset_l4.world.loire
         label: Analyse the Loire through its places and wines
@@ -1071,6 +1136,7 @@ tracks:
             - n_reg_fs_principle_loire_chenin_harvest
             - n_reg_fs_case_loire_muscadet_inventory
             - n_d3fr_case_chinon_extract
+            - n_d3close_case_loire_chenin
         tasks: [DIP-3, C2, G10]
       - id: wset_l4.world.rhone
         label: Analyse the Rhône through its places and wines
@@ -1138,6 +1204,11 @@ tracks:
             - n_reg_fe_principle_jura_patient_wines
             - n_reg_fe_case_jura_white_comparison
             - n_reg_fe_case_jura_maturation_cash
+            - n_d3law_principle_jura_cellar_calendar
+            - n_d3law_principle_jura_veil_duration
+            - n_d3law_principle_jura_consumer_release
+            - n_d3law_principle_jura_clavelin_reserved
+            - n_d3law_case_jura_release_inventory
         tasks: [DIP-3, C2, G10]
       - id: wset_l4.world.germany
         label: Compare German wine regions and their regulatory distinctions
@@ -1192,6 +1263,11 @@ tracks:
             - n_reg_ah_principle_tokaj_maturation
             - n_reg_ah_case_tokaj_berry_selection
             - n_reg_ah_case_tokaj_maturation_cash
+            - n_d3law_principle_tokaj_applicability
+            - n_d3law_principle_tokaj_aszu_sugar
+            - n_d3law_principle_tokaj_optional_puttonyos
+            - n_d3law_principle_tokaj_consumer_release
+            - n_d3law_case_tokaj_label_release
         tasks: [DIP-3, C6]
       - id: wset_l4.world.greece
         label: Compare Greek mainland and island wine contexts
@@ -1321,6 +1397,9 @@ tracks:
             - n_d3pt_principle_setubal_product_boundary
             - n_d3pt_case_tejo_white
             - n_d3pt_case_setubal_still_red
+            - n_d3close_case_tejo_red
+            - n_d3close_case_setubal_white_rose
+            - n_d3close_case_lisboa_route
         tasks: [DIP-3, C3, G11]
       - id: wset_l4.world.usa_west
         label: Compare Pacific-state wine regions and their wines
@@ -1347,6 +1426,15 @@ tracks:
             - n_reg_na_principle_oregon_stem_comparison
             - n_reg_na_case_lodi_sampling_triage
             - n_reg_na_case_oregon_stem_trial
+            - n_d3labels_principle_us_variety
+            - n_d3labels_principle_us_vintage
+            - n_d3labels_case_us_ava_release
+            - n_d3pacific_principle_ca_origin
+            - n_d3pacific_principle_ca_finishing
+            - n_d3pacific_principle_or_origin
+            - n_d3pacific_principle_or_variety
+            - n_d3pacific_principle_wa_origin
+            - n_d3pacific_case_release_compare
         tasks: [DIP-3, C4, G13]
       - id: wset_l4.world.usa_new_york
         label: Study the contrasting wine contexts of New York
@@ -1356,6 +1444,11 @@ tracks:
             - n_geo_lake_erie
             - n_reg_am_principle_finger_seasons
             - n_reg_na_principle_long_island_grape_timing
+            - n_d3close_case_long_island
+            - n_d3close_case_finger_lakes
+            - n_d3labels_principle_us_variety
+            - n_d3labels_principle_us_vintage
+            - n_d3labels_case_us_ava_release
         tasks: [DIP-3, C4, G13]
       - id: wset_l4.world.canada
         label: Compare Canadian wine regions and their wines
@@ -1370,6 +1463,7 @@ tracks:
             - n_reg_na_principle_okanagan_specific_grapes
             - n_reg_na_case_county_protection_budget
             - n_reg_na_case_niagara_preplant_drainage
+            - n_d3close_case_bc_comparison
         tasks: [DIP-3, C4, G13]
       - id: wset_l4.world.chile
         label: Compare Chilean wine regions and their wines
@@ -1390,6 +1484,11 @@ tracks:
             - n_reg_sa_principle_biobio
             - n_reg_sa_case_maule_brand
             - n_reg_sa_case_itata_skin_trial
+            - n_d3labels_principle_cl_origin
+            - n_d3labels_principle_cl_variety
+            - n_d3labels_principle_cl_vintage
+            - n_d3labels_principle_cl_territorial
+            - n_d3labels_case_cl_territorial_release
         tasks: [DIP-3, C4, G13]
       - id: wset_l4.world.argentina
         label: Compare Argentine wine regions and their wines
@@ -1408,6 +1507,9 @@ tracks:
             - n_reg_sa_principle_patagonia_provinces
             - n_reg_sa_case_mendoza_capacity
             - n_reg_sa_case_mendoza_yeast_trial
+            - n_d3close_case_salta_torrontes
+            - n_d3close_case_patagonia
+            - n_d3close_case_san_juan
         tasks: [DIP-3, C4, G13]
       - id: wset_l4.world.south_africa
         label: Compare South African wine regions and their wines
@@ -1424,6 +1526,13 @@ tracks:
             - n_reg_oa_principle_robertson_chardonnay
             - n_reg_oa_principle_paarl_pinotage
             - n_reg_oa_case_robertson_water_plan
+            - n_d3close_case_olifants_chenin
+            - n_d3close_principle_olifants_site
+            - n_d3close_principle_olifants_water
+            - n_d3labels_principle_za_origin_exceptions
+            - n_d3labels_principle_za_cultivar
+            - n_d3labels_principle_za_vintage
+            - n_d3labels_case_za_cultivar_release
         tasks: [DIP-3, C4, G13]
       - id: wset_l4.world.australia
         label: Compare Australian wine regions and their wines
@@ -1447,6 +1556,10 @@ tracks:
             - n_reg_oa_case_hunter_toast
             - n_reg_oa_case_mclaren_cap_trial
             - n_d3rt_case_margaret_blend
+            - n_d3labels_principle_au_variety
+            - n_d3labels_principle_au_gi
+            - n_d3labels_principle_au_vintage
+            - n_d3labels_case_au_single_claim
         tasks: [DIP-3, C4, G13]
       - id: wset_l4.world.new_zealand
         label: Compare New Zealand wine regions and their wines
@@ -1488,6 +1601,11 @@ tracks:
             - n_reg_cn_case_shandong_water_budget
             - n_reg_cn_case_xinjiang_shade_style
             - n_reg_cn_case_yunnan_blend_evidence
+            - n_d3law_principle_china_standard_status
+            - n_d3law_principle_china_gi_requirements
+            - n_d3law_principle_china_special_mark
+            - n_d3law_principle_china_claim_scope
+            - n_d3law_case_china_gi_dossier
         tasks: [DIP-3, C4, G13]
       - id: wset_l4.world.comparison
         label: Develop supported comparisons of regional wine choices
@@ -1813,13 +1931,24 @@ tracks:
       - id: wset_l4.sparkling.france
         label: Compare French sparkling-wine contexts
         covers:
-          within: [n_geo_champagne_region, n_geo_cremant_d_alsace, n_geo_cremant_de_loire,
-            n_geo_saumur, n_geo_vouvray,
-            n_d4depth_principle_champ_reserve, n_d4depth_principle_champ_vintage,
-            n_d4depth_principle_champ_rose, n_d4depth_principle_alsace_grapes,
-            n_d4depth_principle_alsace_harvest, n_d4depth_principle_loire_variety,
-            n_d4depth_case_champagne_house, n_geo_cremant_de_bourgogne,
-            n_d4d5_principle_bourgogne_base, n_d4d5_principle_saumur_bottle]
+          within:
+            - n_geo_champagne_region
+            - n_geo_cremant_d_alsace
+            - n_geo_cremant_de_loire
+            - n_geo_saumur
+            - n_geo_vouvray
+            - n_d4depth_principle_champ_reserve
+            - n_d4depth_principle_champ_vintage
+            - n_d4depth_principle_champ_rose
+            - n_d4depth_principle_alsace_grapes
+            - n_d4depth_principle_alsace_harvest
+            - n_d4depth_principle_loire_variety
+            - n_d4depth_case_champagne_house
+            - n_geo_cremant_de_bourgogne
+            - n_d4d5_principle_bourgogne_base
+            - n_d4d5_principle_saumur_bottle
+            - n_d456_case_champagne_stock
+            - n_d456_case_cremant_loire
         tasks: [DIP-4, C2, G10]
       - id: wset_l4.sparkling.germany
         label: Study German sparkling-wine choices
@@ -1840,28 +1969,62 @@ tracks:
       - id: wset_l4.sparkling.italy
         label: Compare Italian sparkling-wine contexts
         covers:
-          within: [n_geo_asti, n_geo_franciacorta, n_geo_conegliano_valdobbiadene,
-            n_geo_asolo_prosecco, n_geo_prosecco, n_geo_trento_doc, n_geo_lambrusco_sorbara,
-            n_geo_lambrusco_grasparossa, n_geo_lambrusco_salamino,
-            n_d4depth_principle_prosecco_tank, n_d4depth_principle_prosecco_rive,
-            n_d4depth_principle_prosecco_rose, n_d4depth_principle_franciacorta_method,
-            n_d4depth_principle_franciacorta_saten, n_d4depth_principle_asti_moscato,
-            n_d4depth_case_rive_offer, n_d4d5_principle_trento_riserva,
-            n_d4d5_principle_sorbara_dry, n_d4d5_principle_grasparossa_body,
-            n_d4d5_case_italian_list]
+          within:
+            - n_geo_asti
+            - n_geo_franciacorta
+            - n_geo_conegliano_valdobbiadene
+            - n_geo_asolo_prosecco
+            - n_geo_prosecco
+            - n_geo_trento_doc
+            - n_geo_lambrusco_sorbara
+            - n_geo_lambrusco_grasparossa
+            - n_geo_lambrusco_salamino
+            - n_d4depth_principle_prosecco_tank
+            - n_d4depth_principle_prosecco_rive
+            - n_d4depth_principle_prosecco_rose
+            - n_d4depth_principle_franciacorta_method
+            - n_d4depth_principle_franciacorta_saten
+            - n_d4depth_principle_asti_moscato
+            - n_d4depth_case_rive_offer
+            - n_d4d5_principle_trento_riserva
+            - n_d4d5_principle_sorbara_dry
+            - n_d4d5_principle_grasparossa_body
+            - n_d4d5_case_italian_list
+            - n_d456_case_lambrusco_pairing
+            - n_d456_case_italian_bottle
+            - n_d456_case_asti_aroma
+            - n_d456_case_prosecco_supply
         tasks: [DIP-4, C3, G11]
       - id: wset_l4.sparkling.spain
         label: Study Cava and its regional contexts
         covers:
-          within: [n_geo_cava, n_d4depth_principle_cava_age, n_d4depth_principle_cava_grapes,
-            n_d4depth_principle_cava_organic, n_d4depth_principle_cava_paraje,
-            n_d4depth_case_cava_upgrade]
+          within:
+            - n_geo_cava
+            - n_d4depth_principle_cava_age
+            - n_d4depth_principle_cava_grapes
+            - n_d4depth_principle_cava_organic
+            - n_d4depth_principle_cava_paraje
+            - n_d4depth_case_cava_upgrade
+            - n_d456_case_cava_water
         tasks: [DIP-4, C3, G11]
       - id: wset_l4.sparkling.britain
         label: Study sparkling-wine contexts in England and Wales
-        covers: {within: [n_geo_england, n_geo_wales, n_d4depth_principle_britain_variety,
-          n_d4depth_principle_britain_frost, n_d4depth_case_british_frost,
-          n_d4brit_principle_pdo_origin, n_d4brit_principle_pdo_grapes, n_d4brit_principle_pdo_method, n_d4brit_principle_pgi_hybrid, n_d4brit_principle_unprotected_origin, n_d4brit_principle_pdo_assessment, n_d4brit_case_hybrid_offer, n_d4brit_case_category_quality]}
+        covers:
+          within:
+            - n_geo_england
+            - n_geo_wales
+            - n_d4depth_principle_britain_variety
+            - n_d4depth_principle_britain_frost
+            - n_d4depth_case_british_frost
+            - n_d4brit_principle_pdo_origin
+            - n_d4brit_principle_pdo_grapes
+            - n_d4brit_principle_pdo_method
+            - n_d4brit_principle_pgi_hybrid
+            - n_d4brit_principle_unprotected_origin
+            - n_d4brit_principle_pdo_assessment
+            - n_d4brit_case_hybrid_offer
+            - n_d4brit_case_category_quality
+            - n_d456_case_british_vintage
         tasks: [DIP-4, G13]
       - id: wset_l4.sparkling.americas
         label: Compare sparkling-wine contexts in the Americas
@@ -1874,6 +2037,9 @@ tracks:
             - n_d4nw_principle_argentina_market
             - n_d4nw_principle_argentina_terms
             - n_d4depth_principle_us_blend
+            - n_d456_case_us_site_method
+            - n_d456_case_chile_method
+            - n_d456_case_argentina_capacity
         tasks: [DIP-4, C4]
       - id: wset_l4.sparkling.south_africa
         label: Study South African bottle-fermented sparkling wines
@@ -1882,6 +2048,7 @@ tracks:
             - n_d4nw_principle_za_association
             - n_d4nw_principle_za_variation
             - n_d4depth_principle_za_chenin
+            - n_d456_case_cap_classique_route
         tasks: [DIP-4, C4]
       - id: wset_l4.sparkling.australia
         label: Compare Australian sparkling-wine contexts
@@ -1893,6 +2060,7 @@ tracks:
             - n_d4nw_principle_au_sea_label
             - n_d4nw_case_australian_offer
             - n_d4depth_principle_au_shiraz
+            - n_d456_case_australia_portfolio
         tasks: [DIP-4, C4]
       - id: wset_l4.sparkling.new_zealand
         label: Study New Zealand sparkling-wine contexts
@@ -1901,6 +2069,7 @@ tracks:
             - n_d4nw_principle_nz_regions
             - n_d4nw_principle_nz_method
             - n_d4depth_principle_nz_aromatic
+            - n_d456_case_nz_harvest_blend
         tasks: [DIP-4, C4]
       - id: wset_l4.sparkling.production
         label: Compare ways to create and finish sparkling wines
@@ -1964,6 +2133,23 @@ tracks:
             - n_d4sekt_principle_autolysis_vs_fruit
             - n_d4sekt_principle_dosage_style
             - n_d4sekt_case_winzersekt_allocation
+            - n_d4c_press_fraction_principle
+            - n_d4c_method_cost_principle
+            - n_d4c_ancestral_release_principle
+            - n_d456_case_champagne_stock
+            - n_d456_case_cremant_loire
+            - n_d456_case_prosecco_supply
+            - n_d456_case_asti_aroma
+            - n_d456_case_italian_bottle
+            - n_d456_case_lambrusco_pairing
+            - n_d456_case_cava_water
+            - n_d456_case_british_vintage
+            - n_d456_case_us_site_method
+            - n_d456_case_chile_method
+            - n_d456_case_argentina_capacity
+            - n_d456_case_australia_portfolio
+            - n_d456_case_nz_harvest_blend
+            - n_d456_case_cap_classique_route
           relation_types:
             - REQUIRES_METHOD
             - PRINCIPLE_EXPLANATION
@@ -1999,6 +2185,24 @@ tracks:
             - n_d4commercial_case_oceania_africa_offer
             - n_d4sekt_case_winzersekt_allocation
             - n_d4sekt_case_extended_lees_positioning
+            - n_d456_case_champagne_stock
+            - n_d456_case_cremant_loire
+            - n_d456_case_prosecco_supply
+            - n_d456_case_asti_aroma
+            - n_d456_case_italian_bottle
+            - n_d456_case_lambrusco_pairing
+            - n_d456_case_cava_water
+            - n_d456_case_british_vintage
+            - n_d456_case_us_site_method
+            - n_d456_case_chile_method
+            - n_d456_case_argentina_capacity
+            - n_d456_case_australia_portfolio
+            - n_d456_case_nz_harvest_blend
+            - n_d456_case_cap_classique_route
+            - n_d45body_champagne
+            - n_d45body_cava
+            - n_d45body_cap
+            - n_d45body_case_sparkling_roles
           relation_types:
             - PRINCIPLE_EXPLANATION
             - CASE_ACTION
@@ -2042,6 +2246,7 @@ tracks:
             - n_d5f_case_sherry_vos_stock
             - n_d4d5_principle_palo_route
             - n_d4d5_principle_palo_dry
+            - n_d456_case_sherry_cellar
         tasks: [DIP-5, C3, G11]
       - id: wset_l4.fortified.port
         label: Study Port through its places and wines
@@ -2065,6 +2270,7 @@ tracks:
             - n_d4d5_principle_colheita_cask
             - n_d4d5_principle_white_port_age
             - n_d4d5_case_port_release
+            - n_d456_case_port_extraction_stock
         tasks: [DIP-5, C3, G11]
       - id: wset_l4.fortified.madeira
         label: Study Madeira through its places and wines
@@ -2090,6 +2296,7 @@ tracks:
             - n_d5madeira_principle_boal
             - n_d5madeira_case_terrace_logistics
             - n_d5madeira_case_style_comparison
+            - n_d456_case_madeira_working_capital
         tasks: [DIP-5, C3]
       - id: wset_l4.fortified.france
         label: Compare French fortified sweet-wine contexts
@@ -2111,6 +2318,7 @@ tracks:
             - n_d5f_principle_vdn_banyuls_style
             - n_d5f_principle_vdn_banyuls_labour
             - n_d5f_case_fortified_list
+            - n_d456_case_vdn_style_stock
         tasks: [DIP-5, C2, G10]
       - id: wset_l4.fortified.australia
         label: Study Rutherglen's fortified Muscat context
@@ -2128,6 +2336,7 @@ tracks:
             - n_d5f_principle_ruth_hang
             - n_d5f_principle_ruth_tiers
             - n_d5f_case_fortified_list
+            - n_d456_case_rutherglen_replenishment
         tasks: [DIP-5, C4, G13]
       - id: wset_l4.fortified.production_and_market
         label: Compare fortified-wine cellar decisions and their market consequences
@@ -2194,6 +2403,18 @@ tracks:
             - n_d5f_principle_ruth_variety
             - n_d5f_principle_ruth_hang
             - n_d5f_principle_ruth_tiers
+            - n_d5c_style_price_principle
+            - n_d456_case_sherry_cellar
+            - n_d456_case_port_extraction_stock
+            - n_d456_case_madeira_working_capital
+            - n_d456_case_vdn_style_stock
+            - n_d456_case_rutherglen_replenishment
+            - n_d45body_sherry
+            - n_d45body_ivdp
+            - n_d45body_ivbam
+            - n_d45body_muscat
+            - n_d45body_case_fortified_roles
+            - n_d45body_case_muscat_classification
           relation_types:
             - PRINCIPLE_EXPLANATION
             - CASE_ACTION
@@ -2225,6 +2446,9 @@ tracks:
             - n_d6_principle_claim
             - n_d6_principle_comparable
             - n_d6_case_channel_evidence
+            - n_d6c_denominator_principle
+            - n_d456_case_research_denominators
+            - n_d456_case_research_competing
           relation_types: [PRINCIPLE_EXPLANATION, CASE_ACTION, CASE_REASON, CASE_TRADEOFF, CASE_LIMITATION]
         tasks: [DIP-6]
       - id: wset_l4.research.argument
@@ -2235,6 +2459,9 @@ tracks:
             - n_d6_principle_structure
             - n_d6_principle_reference
             - n_d6_case_campaign_argument
+            - n_d6c_causal_principle
+            - n_d6c_revision_principle
+            - n_d456_case_research_revision
           relation_types: [PRINCIPLE_EXPLANATION, CASE_ACTION, CASE_REASON, CASE_TRADEOFF, CASE_LIMITATION]
         tasks: [DIP-6]
 

@@ -4,6 +4,9 @@
 # line endings in every checkout.
 *.drift linguist-language=SQL text eol=lf
 drift_schemas/** text eol=lf
+lib/core/database/app_database.g.dart text eol=lf
+lib/core/database/app_database.steps.dart text eol=lf
+test/drift/app_database/generated/** text eol=lf
 
 # Generated and vendored files: collapsed in diffs, excluded from language stats.
 *.g.dart linguist-generated=true

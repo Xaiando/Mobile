@@ -1,0 +1,135 @@
+{
+  "question_templates": [
+    {
+      "id": "qt_d12depth_d2reg_choices",
+      "relation_type": "PRINCIPLE_EXPLANATION",
+      "direction": "forward",
+      "mode": "authored_choice",
+      "variant": "d12depth_d2reg_choices",
+      "prompt_template": "{subject.name}",
+      "parameters": {
+        "item_choices": {
+          "ki_d12depth_regcompare_excise": {
+            "prompt": "Why must a US wine-import budget identify the actual tax category and credit entitlement?",
+            "options": [
+              "Section5041 distinguishes wine categories and makes credits conditional; one rate or automatic credit cannot describe every shipment",
+              "Every wine has the same excise treatment",
+              "All quoted customs duty automatically includes excise",
+              "A foreign producer's size automatically credits every importer"
+            ],
+            "correctIndex": 0,
+            "explanation": "US26U.S.C.5041 applies wine excise at removal for consumption/sale and distinguishes classes. Check actual product, removal and any credit assignment/eligibility; a customs duty quote or producer's size alone does not establish the final tax liability.",
+            "sourceCitationId": "src_d12depth_us_excise"
+          },
+          "ki_d12depth_regcompare_vat": {
+            "prompt": "Under the EU VAT Directive, is import VAT always an unrecoverable cost for every wine buyer?",
+            "options": [
+              "Every purchaser automatically recovers every tax immediately",
+              "No; deduction depends on taxable use and required import evidence, with national rules and mixed-use limits",
+              "Import VAT and customs duty are the same charge",
+              "A recoverable amount can never require funding"
+            ],
+            "correctIndex": 1,
+            "explanation": "EU Directive2006/112/EC Articles168(e),173 and178(e) condition deduction on taxed transactions and documentation, with proportionate treatment for mixed use. Recovery timing and national procedure need checking; deductible tax may still create a cash requirement.",
+            "sourceCitationId": "src_d12depth_eu_vat"
+          },
+          "ki_d12depth_regcompare_customs": {
+            "prompt": "Why is a supplier's claim 'our country has a trade agreement' insufficient for an EU preferential-duty budget?",
+            "options": [
+              "Transit through a partner country always establishes origin",
+              "The supplier's country removes the need to classify the wine",
+              "The goods must meet the relevant tariff classification and preferential-origin conditions",
+              "A trade agreement fixes all tax and labeling costs"
+            ],
+            "correctIndex": 2,
+            "explanation": "EU Union Customs Code Articles56,57 and64 link tariffs to classification and condition preferential treatment on origin rules. Check the actual wine/product category, agreement and proof; shipping through a partner country does not alone establish preference.",
+            "sourceCitationId": "src_d12depth_eu_customs"
+          },
+          "ki_d12depth_regcompare_restriction": {
+            "prompt": "For US entry, why cannot a suspected forced-labour issue simply be budgeted as an extra duty?",
+            "options": [
+              "Paying a larger duty automatically permits prohibited goods",
+              "Only the final bottling stage matters to the prohibition",
+              "An attractive landed price proves entry eligibility",
+              "Section1307 is an import prohibition, not permission purchasable by paying more"
+            ],
+            "correctIndex": 3,
+            "explanation": "19U.S.C.1307 prohibits entry of foreign goods made wholly or partly through the specified forced/convict/indentured labour. Establish supply-chain evidence and resolve applicable enforcement requirements before entry; ordinary payment of a charge does not remove a prohibition.",
+            "sourceCitationId": "src_d12depth_us_forced"
+          },
+          "ki_d12depth_regcompare_support": {
+            "prompt": "What does US STEP's existence establish for a winery seeking export-promotion help?",
+            "options": [
+              "A state-administered support framework for qualifying small businesses, not an automatic winery grant",
+              "Every foreign winery qualifies automatically",
+              "An unapproved application is cash already received",
+              "Support replaces packing and shipping resource requirements"
+            ],
+            "correctIndex": 0,
+            "explanation": "15U.S.C.649(l) establishes grants to states assisting eligible small businesses with export activities. Statutory eligibility includes US organization/operation, business history, size and resources; state application rules, availability and approval must still be established before recording funding.",
+            "sourceCitationId": "src_d12depth_us_step"
+          },
+          "ki_d12depth_regcompare_label": {
+            "prompt": "A US interstate wine proposal subject to the FAA Act uses a beautiful label with missing product information. What must its plan establish?",
+            "options": [
+              "A decorative brand name replaces all product information",
+              "Conformity with the relevant federal label rules and product-specific information requirements",
+              "A label accepted in one market automatically authorises sale in every market",
+              "A general label example proves every formulation and claim lawful"
+            ],
+            "correctIndex": 1,
+            "explanation": "27U.S.C.205(e) requires conforming packaging/labeling for the covered commerce and directs consumer information, including identity, contents and responsible business. The applicable regulations and label review remain necessary; one compliant-looking design is not proof of all-market access.",
+            "sourceCitationId": "src_d12depth_us_label"
+          }
+        }
+      }
+    },
+    {
+      "id": "qt_d12depth_d2reg_criteria",
+      "relation_type": "CASE_ACTION",
+      "direction": "forward",
+      "mode": "case_criteria",
+      "variant": "d12depth_d2reg_criteria",
+      "prompt_template": "{subject.name}",
+      "parameters": {
+        "scope_node_ids": [
+          "n_d12depth_case_regcompare"
+        ],
+        "scenario_prompts": {
+          "n_d12depth_case_regcompare": "Fictional comparison dated3October2026: a US importer budgets a shipment solely from a customs quote, assumes an excise credit without assignment evidence, and accepts incomplete supply-chain records. An EU buyer assumes immediate full import-VAT recovery despite mixed taxed/exempt use and missing importer documentation. The supplier promises preferential duty from transit through a trade-agreement country. A US winery records an unapproved STEP application as received cash and proposes interstate wine labels without checking mandatory product information. Determine the conditional sequence and compare tax, prohibition, support and labeling effects. All commercial proposals are fictional; no real customs rates, national VAT rates, awards or shipment permissions are supplied. All numbers and business proposals are original hypothetical inputs. Explain a conditional action, causal evidence, a trade-off and the remaining limitations. Self-review supports study; it does not certify real-world permission or professional competence."
+        },
+        "distractors": {
+          "n_d12depth_case_regcompare": [
+            {
+              "summary": "Treat every regulatory issue as one extra percentage charge",
+              "explanation": "Prohibitions, permissions, conditional support and tax deductions have different effects."
+            },
+            {
+              "summary": "Book the unapproved grant and full tax recovery as immediate guaranteed cash",
+              "explanation": "Neither approval nor the necessary deduction evidence and timing are supplied."
+            }
+          ]
+        }
+      }
+    },
+    {
+      "id": "qt_d12depth_d2reg_written",
+      "relation_type": "CASE_ACTION",
+      "direction": "forward",
+      "mode": "short_answer",
+      "variant": "d12depth_d2reg_written",
+      "prompt_template": "{subject.name}",
+      "parameters": {
+        "scope_node_ids": [
+          "n_d12depth_case_regcompare"
+        ],
+        "key_points": {
+          "CASE_ACTION": "Conditional decision and supplied calculation",
+          "CASE_REASON": "Causal explanation using relevant evidence",
+          "CASE_TRADEOFF": "Style, resources and operational trade-off",
+          "CASE_LIMITATION": "Missing evidence and scope of the conclusion"
+        }
+      }
+    }
+  ]
+}

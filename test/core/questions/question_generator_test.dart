@@ -1,3 +1,8 @@
+import 'package:crypto/crypto.dart';
+
+import 'dart:io';
+import 'dart:convert';
+
 import 'package:clock/clock.dart';
 import 'package:drift/drift.dart' show Variable;
 import 'package:flutter_test/flutter_test.dart';
@@ -11,6 +16,29 @@ import 'package:sommelier/core/questions/template_renderer.dart';
 
 import '../../support/curriculum_fixture.dart';
 import '../../support/fixture.dart';
+
+const _retiredSaliceIds = <String>{
+  'ki_reg_isi_salice_context',
+  'ki_reg_isi_salice_styles',
+};
+const _saliceSuccessors = <String, String>{
+  'ki_reg_isi_salice_context': 'ki_reg_isi_salice_context_2026',
+  'ki_reg_isi_salice_styles': 'ki_reg_isi_salice_styles_2026',
+};
+
+Map<String, dynamic> _frozen073Release() {
+  final bytes = File(
+    'test/fixtures/curriculum/diploma_release_0_24_73_complete_frozen.json.gz',
+  ).readAsBytesSync();
+  expect(
+    sha256.convert(bytes).toString(),
+    '15a944ed92394c94d4ec67b9fb83388bf3b8718e15e3c3da007af5666e211cdf',
+  );
+  final frozen =
+      jsonDecode(utf8.decode(gzip.decode(bytes))) as Map<String, dynamic>;
+  expect(frozen['dataset_version'], '0.24.73');
+  return frozen;
+}
 
 void main() {
   test('templates fill every placeholder', () {
@@ -28,10 +56,14 @@ void main() {
   group('the bundled curriculum', () {
     late AppDatabase db;
     late GenerationReport report;
+    final servingClock = Clock.fixed(DateTime.utc(2026, 10, 3, 18));
 
     setUp(() async {
       db = openTestDatabase();
-      report = await CurriculumIngester(db).ingest(bundledDataset());
+      report = await CurriculumIngester(
+        db,
+        clock: servingClock,
+      ).ingest(bundledDataset());
     });
     tearDown(() => db.close());
 
@@ -54,25 +86,82 @@ void main() {
         .map((row) => row.read<String>('question_template_id'))
         .get();
 
-    test('every item gets a flashcard, and an MCQ unless disabled', () async {
-      expect(report.multipleChoice, greaterThan(0));
-      expect(report.flashcards, greaterThan(0));
-      // §S.3 gate (register §4): an item without an MCQ must be marked
-      // flashcard-only by a curator.
-      final withoutMcq = await db.customSelect('''
+    test(
+      'every current item gets a flashcard, and an MCQ unless disabled',
+      () async {
+        expect(report.multipleChoice, greaterThan(0));
+        expect(report.flashcards, greaterThan(0));
+        // §S.3 gate (register §4): an item without an MCQ must be marked
+        // flashcard-only by a curator.
+        final withoutMcq = await db.customSelect('''
         SELECT i.id FROM knowledge_items i
         WHERE i.mcq_disabled = 0 AND NOT EXISTS (
           SELECT 1 FROM questions q
           JOIN question_templates t ON t.id = q.question_template_id
           WHERE q.knowledge_item_id = i.id AND t.mode = 'mcq')''').get();
-      expect(withoutMcq, isEmpty);
-      final withoutFlashcard = await db.customSelect('''
+        expect(withoutMcq, isEmpty);
+        final withoutFlashcard = await db.customSelect('''
         SELECT i.id FROM knowledge_items i WHERE NOT EXISTS (
           SELECT 1 FROM questions q
           JOIN question_templates t ON t.id = q.question_template_id
           WHERE q.knowledge_item_id = i.id AND t.mode = 'flashcard')''').get();
-      expect(withoutFlashcard, isEmpty);
-    });
+        // Missing flashcards are exactly the two deliberately retained history
+        // items, not an arbitrary exemption for any disabled/expired row.
+        expect(
+          withoutFlashcard.map((row) => row.read<String>('id')).toSet(),
+          _retiredSaliceIds,
+        );
+        final historical = _frozen073Release();
+        final historicalIds = {
+          for (final row in (historical['knowledge_items'] as List))
+            (row as Map<String, dynamic>)['id'] as String,
+        };
+        expect(historicalIds, hasLength(4957));
+        final all = await db.select(db.knowledgeItems).get();
+        expect(all.map((item) => item.id).toSet(), {
+          ...historicalIds,
+          ..._saliceSuccessors.values,
+        });
+        final currentIds = (await KnowledgeGraph(
+          db,
+          clock: servingClock,
+        ).currentItems()).map((item) => item.id).toSet();
+        expect(currentIds, {
+          ...historicalIds.difference(_retiredSaliceIds),
+          ..._saliceSuccessors.values,
+        });
+        expect(currentIds.intersection(_retiredSaliceIds), isEmpty);
+        expect(currentIds, containsAll(_saliceSuccessors.values));
+        final flashcardRows = await db.customSelect('''
+        SELECT DISTINCT q.knowledge_item_id FROM questions q
+        JOIN question_templates t ON t.id = q.question_template_id
+        WHERE t.mode = 'flashcard'
+      ''').get();
+        expect(
+          flashcardRows
+              .map((row) => row.read<String>('knowledge_item_id'))
+              .toSet(),
+          currentIds,
+        );
+        final retiredQuestions = await db.customSelect('''
+        SELECT q.knowledge_item_id FROM questions q
+        WHERE q.knowledge_item_id IN
+          ('ki_reg_isi_salice_context', 'ki_reg_isi_salice_styles')
+      ''').get();
+        expect(retiredQuestions, isEmpty);
+        for (final id in _retiredSaliceIds) {
+          final item = all.singleWhere((item) => item.id == id);
+          expect(item.mcqDisabled, isTrue);
+          expect(item.supersededByItemId, _saliceSuccessors[id]);
+        }
+        expect(
+          withoutMcq.where(
+            (row) => currentIds.contains(row.read<String>('id')),
+          ),
+          isEmpty,
+        );
+      },
+    );
 
     test('every MCQ has at least 3 distractors (§S.3)', () async {
       final short = await db.customSelect('''
@@ -275,7 +364,10 @@ void main() {
           .map((row) => row.read<String>('q'))
           .get();
       final before = await snapshot();
-      await CurriculumIngester(db).ingest(bundledDataset());
+      await CurriculumIngester(
+        db,
+        clock: servingClock,
+      ).ingest(bundledDataset());
       expect(await snapshot(), before);
     });
   });

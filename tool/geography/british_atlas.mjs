@@ -3,6 +3,7 @@
 import fs from 'node:fs';
 import crypto from 'node:crypto';
 import YAML from 'yaml';
+import { readYaml } from './lib.mjs';
 
 const retrieved = '2026-09-26';
 const sha = data => crypto.createHash('sha256').update(data).digest('hex');
@@ -60,7 +61,7 @@ const features=specs.map(s=>{
 });
 const names=Object.fromEntries([['united_kingdom','United Kingdom'],...specs.map(s=>[s.id,s.name])]);
 const files=fs.readdirSync('assets/curriculum/areas').filter(f=>f.endsWith('.yaml')&&f!=='british_atlas.yaml');
-const existingIds=new Set(files.flatMap(f=>(YAML.parse(fs.readFileSync(`assets/curriculum/areas/${f}`,'utf8')).knowledge_nodes??[]).map(n=>n.id)));
+const existingIds=new Set(files.flatMap(f=>(readYaml(`assets/curriculum/areas/${f}`).knowledge_nodes??[]).map(n=>n.id)));
 for (const s of [{id:'united_kingdom'},...specs]) if(existingIds.has(`n_geo_${s.id}`)) throw Error(`Existing node ${s.id}`);
 for (const s of specs) if(!names[s.parent])throw Error(`Unknown parent ${s.parent}`);
 const item=s=>`ki_british_${s.id}_location`;

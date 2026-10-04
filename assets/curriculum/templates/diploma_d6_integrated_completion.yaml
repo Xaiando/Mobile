@@ -1,0 +1,185 @@
+{
+  "question_templates": [
+    {
+      "id": "qt_d6c_integrated_criteria",
+      "relation_type": "CASE_ACTION",
+      "direction": "forward",
+      "prompt_template": "{subject.name}",
+      "mode": "case_criteria",
+      "variant": "d6c_integrated_criteria",
+      "parameters": {
+        "scope_node_ids": [
+          "n_d456_case_research_denominators",
+          "n_d456_case_research_competing",
+          "n_d456_case_research_revision"
+        ],
+        "scenario_prompts": {
+          "n_d456_case_research_denominators": "Original fictional D6 method packet, not an issued assignment or submission. Your practice inquiry asks whether younger adults in Region R are buying more wine directly from wineries. A voluntary online survey of 80 cellar-door visitors reports that 60% intend to buy again. A winery association reports direct-sales value rose 12%, but excludes nonmembers and does not provide prices, volume or ages. A retail survey covers shop purchases in another region. A draft treats these as proof that all young adults increased direct wine volume. All places, samples and figures are invented. Plan source appraisal and a bounded claim, then name evidence that could test a rival interpretation.",
+          "n_d456_case_research_competing": "Original fictional D6 argument packet. A practice inquiry compares winery lightweight-bottle programmes. Eight self-selecting wineries report lower outbound freight spending after a package change; the same period also brought a carrier discount, lower dispatched volume and a different export mix. A bottle supplier's brochure attributes the entire saving to its glass. Two independent operators report no per-bottle saving but use different shipping distances. All sources, programmes and findings are invented and carry no actual emissions or transport calculations. Construct an argument outline that distinguishes observation, a plausible packaging mechanism, conflicting evidence and the limits of causal attribution; propose a useful follow-up.",
+          "n_d456_case_research_revision": "Original fictional D6 revision exercise. A learner's own practice brief asks for a bounded comparison of wine-sales channels. Their draft claims that a region switched to direct sales, citing a trade article that repeats a voluntary winery survey. The paragraph includes paraphrased survey data without a citation, a quotation with no page or section record, and an unsupported concluding claim about all consumers. The source log has a URL but no author, date or method note. Word count is within the learner's practice target; that does not establish compliance with any current official brief. All claims and brief wording are invented. Design a revision checklist without writing an assessed submission."
+        },
+        "distractors": {
+          "n_d456_case_research_denominators": [
+            {
+              "summary": "Interpret the 60% as observed repeat purchases by all young adults.",
+              "explanation": "Intentions among selected visitors are neither observed behaviour nor a regional population estimate."
+            },
+            {
+              "summary": "Use sales-value growth as wine-volume growth without price evidence.",
+              "explanation": "Value can change through price or mix as well as volume."
+            }
+          ],
+          "n_d456_case_research_competing": [
+            {
+              "summary": "Attribute the complete freight saving to the supplier's bottle because spending fell afterwards.",
+              "explanation": "The supplied concurrent changes and selection confound the attribution."
+            },
+            {
+              "summary": "Reject every report solely because two operators found different outcomes.",
+              "explanation": "Different distances and baselines may explain differences; appraisal should examine comparability."
+            }
+          ],
+          "n_d456_case_research_revision": [
+            {
+              "summary": "Delete references to save words because paraphrases are original writing.",
+              "explanation": "Paraphrased findings still require traceable attribution."
+            },
+            {
+              "summary": "Mark the assignment complete because the word count fits.",
+              "explanation": "Length alone cannot establish inquiry quality, compliance or assessed performance."
+            }
+          ]
+        }
+      }
+    },
+    {
+      "id": "qt_d6c_integrated_written",
+      "relation_type": "CASE_ACTION",
+      "direction": "forward",
+      "prompt_template": "{subject.name}",
+      "mode": "short_answer",
+      "variant": "d6c_integrated_written",
+      "parameters": {
+        "scope_node_ids": [
+          "n_d456_case_research_denominators",
+          "n_d456_case_research_competing",
+          "n_d456_case_research_revision"
+        ],
+        "key_points": {
+          "CASE_ACTION": "Conditional decision",
+          "CASE_REASON": "Evidence and causal reasoning",
+          "CASE_TRADEOFF": "Alternative and resource comparison",
+          "CASE_LIMITATION": "Uncertainty and required checks"
+        }
+      }
+    },
+    {
+      "id": "qt_d6c_integrated_action_choice",
+      "relation_type": "CASE_ACTION",
+      "direction": "forward",
+      "prompt_template": "{subject.name}",
+      "mode": "authored_choice",
+      "variant": "d6c_integrated_action_choice",
+      "parameters": {
+        "item_choices": {
+          "ki_d456_research_denominators_action": {
+            "prompt": "Original fictional D6 method packet, not an issued assignment or submission. Your practice inquiry asks whether younger adults in Region R are buying more wine directly from wineries. A voluntary online survey of 80 cellar-door visitors reports that 60% intend to buy again. A winery association reports direct-sales value rose 12%, but excludes nonmembers and does not provide prices, volume or ages. A retail survey covers shop purchases in another region. A draft treats these as proof that all young adults increased direct wine volume. All places, samples and figures are invented. Plan source appraisal and a bounded claim, then name evidence that could test a rival interpretation. Which initial decision is best supported?",
+            "options": [
+              "Narrow the claim to what each sample measures and seek age-specific comparable direct-purchase volume evidence.",
+              "Interpret the 60% as observed repeat purchases by all young adults.",
+              "Use sales-value growth as wine-volume growth without price evidence.",
+              "Declare the supplied conclusion externally verified and release the entire stock or assignment without further checks."
+            ],
+            "correctIndex": 0,
+            "explanation": "Visitor intentions, selected members' sales value and another region's retail sales measure different populations and outcomes. Check recruitment, nonresponse, age definitions, dates, price changes and raw denominators; repeated summaries do not make independent data.",
+            "sourceCitationId": "src_d6_leeds_evaluate"
+          },
+          "ki_d456_research_competing_action": {
+            "prompt": "Original fictional D6 argument packet. A practice inquiry compares winery lightweight-bottle programmes. Eight self-selecting wineries report lower outbound freight spending after a package change; the same period also brought a carrier discount, lower dispatched volume and a different export mix. A bottle supplier's brochure attributes the entire saving to its glass. Two independent operators report no per-bottle saving but use different shipping distances. All sources, programmes and findings are invented and carry no actual emissions or transport calculations. Construct an argument outline that distinguishes observation, a plausible packaging mechanism, conflicting evidence and the limits of causal attribution; propose a useful follow-up. Which initial decision is best supported?",
+            "options": [
+              "State the observed spending change narrowly and compare plausible explanations before estimating a packaging effect.",
+              "Attribute the complete freight saving to the supplier's bottle because spending fell afterwards.",
+              "Reject every report solely because two operators found different outcomes.",
+              "Declare the supplied conclusion externally verified and release the entire stock or assignment without further checks."
+            ],
+            "correctIndex": 0,
+            "explanation": "Carrier price, volume, route and selection changed too, while differing distances make the independent reports imperfect comparators. Request comparable per-bottle weights, shipments, routes and tariffs across periods plus uncertainty; no emissions saving or whole-sector effect can be estimated from this packet.",
+            "sourceCitationId": "src_d6_leeds_read"
+          },
+          "ki_d456_research_revision_action": {
+            "prompt": "Original fictional D6 revision exercise. A learner's own practice brief asks for a bounded comparison of wine-sales channels. Their draft claims that a region switched to direct sales, citing a trade article that repeats a voluntary winery survey. The paragraph includes paraphrased survey data without a citation, a quotation with no page or section record, and an unsupported concluding claim about all consumers. The source log has a URL but no author, date or method note. Word count is within the learner's practice target; that does not establish compliance with any current official brief. All claims and brief wording are invented. Design a revision checklist without writing an assessed submission. Which initial decision is best supported?",
+            "options": [
+              "Trace and cite the original survey, qualify the regional claim and revise the paragraph against the learner's actual brief.",
+              "Delete references to save words because paraphrases are original writing.",
+              "Mark the assignment complete because the word count fits.",
+              "Declare the supplied conclusion externally verified and release the entire stock or assignment without further checks."
+            ],
+            "correctIndex": 0,
+            "explanation": "The current paragraph conceals selected-sample limits and does not separate sourced findings from the learner's inference. Confirm original author/date/method, exact quotation location, claim relevance and current presentation rules; the app checklist cannot judge originality or award a mark.",
+            "sourceCitationId": "src_d6_leeds_brief"
+          }
+        }
+      }
+    },
+    {
+      "id": "qt_d6c_principle_choice",
+      "relation_type": "PRINCIPLE_EXPLANATION",
+      "direction": "forward",
+      "prompt_template": "{subject.name}",
+      "mode": "authored_choice",
+      "variant": "d6c_principle_choice",
+      "parameters": {
+        "item_choices": {
+          "ki_d6c_denominator": {
+            "prompt": "What denominator check belongs before interpreting a wine-sales percentage?",
+            "options": [
+              "Identify what is counted, its baseline, coverage and units.",
+              "Every percentage measures wine volume.",
+              "Identical percentages establish identical populations.",
+              "A large percentage makes the denominator irrelevant."
+            ],
+            "correctIndex": 0,
+            "explanation": "A percentage can describe value, volume, orders or respondents. Record the underlying measure and population before comparison; a percentage of selected respondents cannot stand for every winery.",
+            "sourceCitationId": "src_d6_leeds_evaluate"
+          },
+          "ki_d6c_causal": {
+            "prompt": "What limits a cause-and-effect conclusion from a before-and-after winery comparison?",
+            "options": [
+              "Check selection, concurrent changes and a suitable comparison before attributing an effect.",
+              "After an intervention means caused by it.",
+              "A plausible mechanism proves the effect size.",
+              "Counterevidence should be omitted to keep a clear argument."
+            ],
+            "correctIndex": 0,
+            "explanation": "A temporal sequence can support an association while leaving alternative explanations. Use the study's methods and counterevidence to qualify the conclusion rather than assign every observed change to the proposed intervention.",
+            "sourceCitationId": "src_d6_leeds_read"
+          },
+          "ki_d6c_synthesis": {
+            "prompt": "What distinguishes research synthesis from a list of wine-source summaries?",
+            "options": [
+              "Organise sources around a claim and weigh their agreement, conflict and limits.",
+              "More summaries automatically create an argument.",
+              "Contradictions make every source unusable.",
+              "A conclusion may introduce an unsupported new claim."
+            ],
+            "correctIndex": 0,
+            "explanation": "An argument links relevant evidence to a stated position, explains conflicting findings and reaches a proportionate conclusion. Several summaries without a connecting judgement do not answer an inquiry.",
+            "sourceCitationId": "src_d6_leeds_argument"
+          },
+          "ki_d6c_revision": {
+            "prompt": "What must happen when revising a paragraph that paraphrases a wine-market source?",
+            "options": [
+              "Keep its citation, separate your inference and recheck the actual brief.",
+              "Paraphrasing removes the need to cite.",
+              "A model paragraph may replace the learner's own inquiry.",
+              "Word count alone establishes a satisfactory assignment."
+            ],
+            "correctIndex": 0,
+            "explanation": "Paraphrasing still requires a traceable citation. In revision, preserve the distinction between the source finding and your analysis, then check relevance and presentation against the learner's own brief.",
+            "sourceCitationId": "src_d6_leeds_cite"
+          }
+        }
+      }
+    }
+  ]
+}

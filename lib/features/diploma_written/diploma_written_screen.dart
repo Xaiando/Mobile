@@ -1,6 +1,7 @@
 import 'dart:async';
 
 import 'package:flutter/material.dart';
+import 'package:flutter/rendering.dart' show ScrollDirection;
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 import '../../core/diploma_written/diploma_written.dart';
@@ -26,6 +27,8 @@ class _DiplomaWrittenScreenState extends ConsumerState<DiplomaWrittenScreen> {
   final _reviewNotes = <String, String>{};
   Future<void> _writeTail = Future<void>.value();
   final _pendingProse = <(String, String), String>{};
+  // Latest admitted UI values outlive queue consumption while storage awaits.
+  final _draftProse = <(String, String), String>{};
   Timer? _timer;
   bool _loading = true;
   bool _busy = false;
@@ -54,6 +57,7 @@ class _DiplomaWrittenScreenState extends ConsumerState<DiplomaWrittenScreen> {
   void _setAttempt(DiplomaWrittenAttempt? attempt) {
     final selectionChanged = _attempt?.id != attempt?.id;
     _attempt = attempt;
+    if (selectionChanged || (attempt?.isFinished ?? false)) _draftProse.clear();
     // Saving one response must not replace another response's unsaved review.
     // Selection and explicit reload still hydrate from the saved snapshot.
     if (!selectionChanged) return;
@@ -126,6 +130,7 @@ class _DiplomaWrittenScreenState extends ConsumerState<DiplomaWrittenScreen> {
     if (_mutationsBlocked || _attempt == null || _writeFailed) return;
     final id = _attempt!.id;
     final key = (id, questionId);
+    _draftProse[key] = text;
     _pendingProse[key] = text;
     _writeTail = _writeTail.then((_) async {
       // A running answer keeps its captured text. Pending callbacks for the
@@ -135,7 +140,19 @@ class _DiplomaWrittenScreenState extends ConsumerState<DiplomaWrittenScreen> {
       if (_writeFailed || latest == null) return;
       try {
         final changed = await _repository!.answer(id, questionId, latest);
-        if (mounted && _attempt?.id == id) _attempt = changed;
+        if (mounted && _attempt?.id == id) {
+          if (changed.isFinished) {
+            // Tick returns early for finished attempts: rebuild status now.
+            setState(() => _setAttempt(changed));
+          } else {
+            _attempt = changed;
+            if (_draftProse[key] == latest &&
+                changed.prose[questionId] == latest) {
+              // An older acknowledgement cannot remove a newer local draft.
+              _draftProse.remove(key);
+            }
+          }
+        }
       } catch (_) {
         _writeFailed = true;
         _pendingProse.clear();
@@ -230,18 +247,24 @@ class _DiplomaWrittenScreenState extends ConsumerState<DiplomaWrittenScreen> {
         ),
         Text(q.prompt),
         const SizedBox(height: 8),
-        TextFormField(
-          key: ValueKey('diploma-written-prose-${q.id}'),
-          initialValue: attempt.prose[q.id] ?? '',
-          enabled: !attempt.isFinished && !_mutationsBlocked,
-          minLines: 5,
-          maxLines: 12,
-          maxLength: _maxResponseCharacters,
-          decoration: const InputDecoration(
-            labelText: 'Your explanation',
-            border: OutlineInputBorder(),
+        KeyedSubtree(
+          // Finishing/expiry remounts from durable prose, not rejected drafts.
+          key: ValueKey((attempt.id, attempt.isFinished)),
+          child: TextFormField(
+            key: ValueKey('diploma-written-prose-${q.id}'),
+            initialValue: attempt.isFinished
+                ? attempt.prose[q.id] ?? ''
+                : _draftProse[(attempt.id, q.id)] ?? attempt.prose[q.id] ?? '',
+            enabled: !attempt.isFinished && !_mutationsBlocked,
+            minLines: 5,
+            maxLines: 12,
+            maxLength: _maxResponseCharacters,
+            decoration: const InputDecoration(
+              labelText: 'Your explanation',
+              border: OutlineInputBorder(),
+            ),
+            onChanged: (value) => _saveProse(q.id, value),
           ),
-          onChanged: (value) => _saveProse(q.id, value),
         ),
         if (attempt.isFinished && !attempt.isAbandoned) ...[
           if ((attempt.prose[q.id] ?? '').trim().isEmpty)
@@ -333,142 +356,159 @@ class _DiplomaWrittenScreenState extends ConsumerState<DiplomaWrittenScreen> {
         appBar: AppBar(title: Text('${widget.unitId} written practice')),
         body: _loading
             ? const Center(child: CircularProgressIndicator())
-            : ListView(
-                padding: const EdgeInsets.all(16),
-                children: [
-                  Text(
-                    regionalUnit
-                        ? 'App-authored $minutes-minute regional writing practice for D3. '
-                              'This timer is an app study choice, not an official examination allocation. '
-                              'Explain the supplied regional cases in your own words, then review the evidence and limitations. '
-                              'Physical wine flights are separate activities. '
-                              'These are not official examination questions or marks. '
-                              'Your prose and later self-review are saved locally.'
-                        : productUnit
-                        ? 'App-authored $minutes-minute writing-only practice for ${widget.unitId}. '
-                              'The official unit assessment combines theory and three-wine tasting in 90 minutes; '
-                              'this writing timer is an app preset, not an official split. '
-                              'Physical wine flights are separate activities. '
-                              'These are not official examination questions or marks. '
-                              'Your prose and later self-review are saved locally.'
-                        : minutes == null
-                        ? 'This unit has no written-practice preset.'
-                        : 'Original $minutes-minute writing practice for ${widget.unitId}. '
-                              'These are not official examination questions or marks. '
-                              'Your prose and later self-review are saved locally.',
-                  ),
-                  if (_unreadable > 0)
+            : NotificationListener<UserScrollNotification>(
+                onNotification: (notification) {
+                  // Genuine scrolling of the outer writing list ends editing
+                  // before an offscreen semantics textarea can be recreated.
+                  // Inner multiline scrolling and programmatic caret reveal
+                  // must keep their existing editing focus.
+                  if (notification.depth == 0 &&
+                      notification.direction != ScrollDirection.idle) {
+                    FocusScope.of(context).unfocus();
+                  }
+                  return false;
+                },
+                child: ListView(
+                  padding: const EdgeInsets.all(16),
+                  children: [
                     Text(
-                      '$_unreadable saved attempt${_unreadable == 1 ? '' : 's'} could not be read.',
-                      key: const ValueKey('diploma-written-history-warning'),
+                      regionalUnit
+                          ? 'App-authored $minutes-minute regional writing practice for D3. '
+                                'This timer is an app study choice, not an official examination allocation. '
+                                'Explain the supplied regional cases in your own words, then review the evidence and limitations. '
+                                'Physical wine flights are separate activities. '
+                                'These are not official examination questions or marks. '
+                                'Your prose and later self-review are saved locally.'
+                          : productUnit
+                          ? 'App-authored $minutes-minute writing-only practice for ${widget.unitId}. '
+                                'The official unit assessment combines theory and three-wine tasting in 90 minutes; '
+                                'this writing timer is an app preset, not an official split. '
+                                'Physical wine flights are separate activities. '
+                                'These are not official examination questions or marks. '
+                                'Your prose and later self-review are saved locally.'
+                          : minutes == null
+                          ? 'This unit has no written-practice preset.'
+                          : 'Original $minutes-minute writing practice for ${widget.unitId}. '
+                                'These are not official examination questions or marks. '
+                                'Your prose and later self-review are saved locally.',
                     ),
-                  if (_error != null) ...[
-                    Text(_error!, key: const ValueKey('diploma-written-error')),
-                    if (_writeFailed)
-                      TextButton(
-                        onPressed: _mutationsBlocked ? null : _reload,
-                        child: const Text('Reload saved draft'),
-                      ),
-                  ],
-                  if (attempt == null) ...[
-                    const SizedBox(height: 12),
-                    FilledButton(
-                      key: const ValueKey('diploma-written-start'),
-                      onPressed: _mutationsBlocked || _repository == null
-                          ? null
-                          : () => _action((repository) async {
-                              await ref
-                                  .read(learnerProfilesProvider)
-                                  .selectTrack('WSET_L4');
-                              return repository.start(widget.unitId);
-                            }),
-                      child: Text('Start ${widget.unitId} writing'),
-                    ),
-                  ] else ...[
-                    const SizedBox(height: 8),
-                    if (!attempt.isFinished) ...[
+                    if (_unreadable > 0)
                       Text(
-                        'Time remaining: ${_time(attempt.remaining(ref.watch(clockProvider).now()))}',
-                        key: const ValueKey('diploma-written-timer'),
+                        '$_unreadable saved attempt${_unreadable == 1 ? '' : 's'} could not be read.',
+                        key: const ValueKey('diploma-written-history-warning'),
                       ),
-                      const Text(
-                        'The timer continues while the app is closed. Responses save as you type; '
-                        'the self-review criteria appear after writing ends.',
+                    if (_error != null) ...[
+                      Text(
+                        _error!,
+                        key: const ValueKey('diploma-written-error'),
+                      ),
+                      if (_writeFailed)
+                        TextButton(
+                          onPressed: _mutationsBlocked ? null : _reload,
+                          child: const Text('Reload saved draft'),
+                        ),
+                    ],
+                    if (attempt == null) ...[
+                      const SizedBox(height: 12),
+                      FilledButton(
+                        key: const ValueKey('diploma-written-start'),
+                        onPressed: _mutationsBlocked || _repository == null
+                            ? null
+                            : () => _action((repository) async {
+                                await ref
+                                    .read(learnerProfilesProvider)
+                                    .selectTrack('WSET_L4');
+                                return repository.start(widget.unitId);
+                              }),
+                        child: Text('Start ${widget.unitId} writing'),
                       ),
                     ] else ...[
-                      Text(
-                        attempt.isAbandoned
-                            ? 'Attempt ended without review participation.'
-                            : attempt.isReviewed
-                            ? 'All three responses self-reviewed. This is participation, not a grade or pass.'
-                            : 'Writing ended. Compare each saved answer with the criteria and explain what to improve.',
-                        key: const ValueKey('diploma-written-status'),
-                      ),
+                      const SizedBox(height: 8),
+                      if (!attempt.isFinished) ...[
+                        Text(
+                          'Time remaining: ${_time(attempt.remaining(ref.watch(clockProvider).now()))}',
+                          key: const ValueKey('diploma-written-timer'),
+                        ),
+                        const Text(
+                          'The timer continues while the app is closed. Responses save as you type; '
+                          'the self-review criteria appear after writing ends.',
+                        ),
+                      ] else ...[
+                        Text(
+                          attempt.isAbandoned
+                              ? 'Attempt ended without review participation.'
+                              : attempt.isReviewed
+                              ? 'All three responses self-reviewed. This is participation, not a grade or pass.'
+                              : 'Writing ended. Compare each saved answer with the criteria and explain what to improve.',
+                          key: const ValueKey('diploma-written-status'),
+                        ),
+                      ],
+                      for (final (index, question) in attempt.questions.indexed)
+                        KeyedSubtree(
+                          key: ValueKey('${attempt.id}-${question.id}'),
+                          child: _question(attempt, question, index),
+                        ),
+                      const SizedBox(height: 16),
+                      if (!attempt.isFinished) ...[
+                        FilledButton(
+                          key: const ValueKey('diploma-written-finish'),
+                          onPressed: _mutationsBlocked
+                              ? null
+                              : () => _action(
+                                  (repository) => repository.finish(attempt.id),
+                                ),
+                          child: const Text('End writing and self-review'),
+                        ),
+                        TextButton(
+                          onPressed: _mutationsBlocked
+                              ? null
+                              : () => _action(
+                                  (repository) =>
+                                      repository.abandon(attempt.id),
+                                ),
+                          child: const Text('Abandon this attempt'),
+                        ),
+                      ] else
+                        TextButton(
+                          onPressed: _mutationsBlocked
+                              ? null
+                              : () {
+                                  if (_mutationsBlocked) return;
+                                  setState(() => _setAttempt(null));
+                                },
+                          child: const Text('Choose another attempt'),
+                        ),
                     ],
-                    for (final (index, question) in attempt.questions.indexed)
-                      KeyedSubtree(
-                        key: ValueKey('${attempt.id}-${question.id}'),
-                        child: _question(attempt, question, index),
-                      ),
-                    const SizedBox(height: 16),
-                    if (!attempt.isFinished) ...[
-                      FilledButton(
-                        key: const ValueKey('diploma-written-finish'),
-                        onPressed: _mutationsBlocked
+                    const Divider(height: 32),
+                    Text(
+                      'Saved attempts',
+                      style: Theme.of(context).textTheme.titleMedium,
+                    ),
+                    if (_history.isEmpty)
+                      const Text('No written attempts saved yet.'),
+                    for (final saved in _history.take(10))
+                      ListTile(
+                        key: ValueKey('diploma-written-history-${saved.id}'),
+                        title: Text(
+                          saved.isReviewed
+                              ? 'Self-reviewed practice'
+                              : saved.isAbandoned
+                              ? 'Abandoned draft'
+                              : saved.isFinished
+                              ? 'Writing ended · review available'
+                              : 'Saved writing draft',
+                        ),
+                        subtitle: Text(
+                          saved.startedAt.toLocal().toString().split('.').first,
+                        ),
+                        onTap: _mutationsBlocked
                             ? null
                             : () => _action(
-                                (repository) => repository.finish(attempt.id),
+                                (repository) => repository.resume(saved.id),
                               ),
-                        child: const Text('End writing and self-review'),
-                      ),
-                      TextButton(
-                        onPressed: _mutationsBlocked
-                            ? null
-                            : () => _action(
-                                (repository) => repository.abandon(attempt.id),
-                              ),
-                        child: const Text('Abandon this attempt'),
-                      ),
-                    ] else
-                      TextButton(
-                        onPressed: _mutationsBlocked
-                            ? null
-                            : () {
-                                if (_mutationsBlocked) return;
-                                setState(() => _setAttempt(null));
-                              },
-                        child: const Text('Choose another attempt'),
                       ),
                   ],
-                  const Divider(height: 32),
-                  Text(
-                    'Saved attempts',
-                    style: Theme.of(context).textTheme.titleMedium,
-                  ),
-                  if (_history.isEmpty)
-                    const Text('No written attempts saved yet.'),
-                  for (final saved in _history.take(10))
-                    ListTile(
-                      key: ValueKey('diploma-written-history-${saved.id}'),
-                      title: Text(
-                        saved.isReviewed
-                            ? 'Self-reviewed practice'
-                            : saved.isAbandoned
-                            ? 'Abandoned draft'
-                            : saved.isFinished
-                            ? 'Writing ended · review available'
-                            : 'Saved writing draft',
-                      ),
-                      subtitle: Text(
-                        saved.startedAt.toLocal().toString().split('.').first,
-                      ),
-                      onTap: _mutationsBlocked
-                          ? null
-                          : () => _action(
-                              (repository) => repository.resume(saved.id),
-                            ),
-                    ),
-                ],
+                ),
               ),
       ),
     );

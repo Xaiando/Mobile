@@ -1,0 +1,32 @@
+{
+  "status": "codec_defect_repaired_exact_source_equivalent_nine_tests_passed",
+  "scope": "Earlier nine passing runs exercised mojibake-containing UIadapter; source-equivalence claim withdrawn. Productsource unchanged, behavior assertions unchanged; new adapters preserve exactUnicodebytes except explicitimportsubstitutions.",
+  "files": [
+    {
+      "source": "d3_tasting_paper_screen.dart",
+      "sourceSha256": "c438d94c83d4352ebf69e1f1f283a35faeafcc040474f3a3211c9d7a16732110",
+      "adapter": "d3_tasting_paper_screen.run.dart",
+      "adapterSha256": "ce7ff707d480aeaccdbee3e35091ab1500c330635370342f3ad5f0f7c7ee30c1",
+      "invalidEarlierAdapterSha256": "473fd2aa6327f1f48b2d39b5f27671d8375afbc7a4e4172d3fe65cc93e5c714e",
+      "reverseImportNormalizedByteEquality": true,
+      "explicitCodec": "UTF-8 bytes, no implicit Windows default or newline translation"
+    },
+    {
+      "source": "d3_tasting_paper_screen_test.dart",
+      "sourceSha256": "cfa0ff6e2a28f29a95ee738167ee3be2deba38e1495635a9b2c50d761dc1bece",
+      "adapter": "d3_tasting_paper_screen.run_test.dart",
+      "adapterSha256": "4fc908310a102351acffd57c0f343018c79303b387b09f975ba1570e3fda3b14",
+      "invalidEarlierAdapterSha256": "4fc908310a102351acffd57c0f343018c79303b387b09f975ba1570e3fda3b14",
+      "reverseImportNormalizedByteEquality": true,
+      "explicitCodec": "UTF-8 bytes, no implicit Windows default or newline translation"
+    }
+  ],
+  "finalEvidence": {
+    "log": "build/d3-timed-widget-utf8-source-074.log",
+    "sha256": "b66dedc180c581c5e8166aa43a8b0cff50756e092eace9db4a4a8aecf04dca8f",
+    "passed": 9,
+    "failed": 0,
+    "exitCode": 0,
+    "scope": "Byte-exact sourceequivalent adapters exceptreversibleexplicitimportsubstitutions"
+  }
+}

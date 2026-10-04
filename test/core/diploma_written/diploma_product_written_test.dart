@@ -22,6 +22,7 @@ Map<String, dynamic> _document() => jsonDecode(
 
 Map<String, dynamic> _legacy() {
   final row = _document();
+  row.remove('variants');
   row['version'] = '1.0.0';
   row['units'] = (row['units'] as List).take(2).toList();
   return row;
@@ -61,7 +62,7 @@ void main() {
   tearDown(() => db.close());
 
   test('only complete legacy or expanded banks are accepted', () {
-    expect(bank.version, '1.2.0');
+    expect(bank.version, '1.4.0');
     expect(bank.presets.map((preset) => preset.unitId), [
       'D1',
       'D2',
@@ -97,6 +98,7 @@ void main() {
       [0, 1, 2, 3, 3],
     ]) {
       final row = _document();
+      row.remove('variants');
       row['units'] = [for (final index in indices) units[index]];
       expect(
         () => DiplomaWrittenBank.fromJson(jsonEncode(row)),
@@ -163,7 +165,7 @@ void main() {
         );
       }
       final d4 = await repository.start('D4');
-      expect(d4.bankVersion, '1.2.0');
+      expect(d4.bankVersion, '1.4.0');
       expect(d4.deadline.difference(d4.startedAt), const Duration(minutes: 45));
       expect(
         (await repository.historyWithDiagnostics('D1')).unreadableCount,

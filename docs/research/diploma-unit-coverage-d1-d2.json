@@ -1,0 +1,1394 @@
+{
+  "schemaVersion": 1,
+  "scopeSourceUrl": "https://www.wsetglobal.com/media/17609/wset_l4wines_specification_en_august-2025.pdf",
+  "units": [
+    "D1",
+    "D2"
+  ],
+  "rows": [
+    {
+      "id": "d1.vine-cycle",
+      "unit": "D1",
+      "subject": "Vine structure and seasonal development",
+      "outcomes": [
+        "1.1"
+      ],
+      "itemIds": [
+        "ki_vit_current_shoots",
+        "ki_vit_two_seasons",
+        "ki_vit_spring_reserves",
+        "ki_vit_postharvest_reserves",
+        "ki_wset_prod_dormancy_budburst",
+        "ki_d12depth_season_anatomy",
+        "ki_d12depth_season_timing",
+        "ki_d12depth_case_season_action",
+        "ki_d12depth_case_season_reason",
+        "ki_d12depth_case_season_tradeoff",
+        "ki_d12depth_case_season_limitation"
+      ],
+      "templateIds": [
+        "qt_wset_l3_viticulture_application_40",
+        "qt_d12depth_d1_choices",
+        "qt_d12depth_d1_criteria",
+        "qt_d12depth_d1_written"
+      ],
+      "featureRefs": [
+        {
+          "path": "assets/study/diploma_written_practice.json",
+          "id": "d1_environment"
+        }
+      ],
+      "status": "partial",
+      "gap": "Registered teaching now joins roots/perennial wood, one-year canes, current shoots and two-season development with a seasonal management comparison. Qualified review must check factual accuracy and response breadth; learner seasonal reasoning remains to be demonstrated.",
+      "reviewRequired": true
+    },
+    {
+      "id": "d1.berry-physiology",
+      "unit": "D1",
+      "subject": "Resources, berry development and ripening",
+      "outcomes": [
+        "1.1"
+      ],
+      "itemIds": [
+        "ki_vit_photosynthesis",
+        "ki_vit_flower_set",
+        "ki_vit_ripening_chemistry",
+        "ki_reason_water_co2_entry",
+        "ki_reason_water_assimilation",
+        "ki_reason_bloom_berries",
+        "ki_climate_ripen_malate_remaining",
+        "ki_d12depth_berry_concentration",
+        "ki_d12depth_berry_stage",
+        "ki_d12depth_case_berry_action",
+        "ki_d12depth_case_berry_reason",
+        "ki_d12depth_case_berry_tradeoff",
+        "ki_d12depth_case_berry_limitation"
+      ],
+      "templateIds": [
+        "qt_reason_water_chain",
+        "qt_reason_bloom_chain",
+        "qt_climate_ripen_malate_chain",
+        "qt_wset_l3_viticulture_application_40",
+        "qt_d12depth_d1_choices",
+        "qt_d12depth_d1_criteria",
+        "qt_d12depth_d1_written"
+      ],
+      "featureRefs": [
+        {
+          "path": "assets/study/diploma_written_practice.json",
+          "id": "d1_environment"
+        }
+      ],
+      "status": "partial",
+      "gap": "Registered teaching separates sugar concentration from dehydration and joins berry stages with representative compositional/sensory sampling in an original block comparison. Qualified factual review and learner application across ripening conditions remain; a sweeter sample is not treated as a quality verdict.",
+      "reviewRequired": true
+    },
+    {
+      "id": "d1.site-weather",
+      "unit": "D1",
+      "subject": "Site, climate and vintage variation",
+      "outcomes": [
+        "1.1",
+        "1.2"
+      ],
+      "itemIds": [
+        "ki_wset_prod_climate_types",
+        "ki_wset_prod_latitude_altitude",
+        "ki_wset_prod_water_moderation",
+        "ki_wset_prod_site_fog",
+        "ki_wset_found_soil_drainage",
+        "ki_vit_cold_air",
+        "ki_vit_saturated_soil",
+        "ki_d12depth_site_scale",
+        "ki_d12depth_site_trend",
+        "ki_d12depth_case_site_action",
+        "ki_d12depth_case_site_reason",
+        "ki_d12depth_case_site_tradeoff",
+        "ki_d12depth_case_site_limitation"
+      ],
+      "templateIds": [
+        "qt_wset_l3_viticulture_general_22",
+        "qt_wset_l2_viticulture_gap_choices",
+        "qt_wset_l2_application_choice",
+        "qt_d12depth_d1_choices",
+        "qt_d12depth_d1_criteria",
+        "qt_d12depth_d1_written"
+      ],
+      "featureRefs": [
+        {
+          "path": "assets/study/diploma_written_practice.json",
+          "id": "d1_environment"
+        }
+      ],
+      "status": "partial",
+      "gap": "Registered teaching distinguishes regional climate, actual weather, site/root-zone conditions and feasible adaptation, with a supplied land/drainage/water-cost comparison. Qualified factual review and learner site analysis remain; one hot vintage does not establish a future climate trend.",
+      "reviewRequired": true
+    },
+    {
+      "id": "d1.hazard-decisions",
+      "unit": "D1",
+      "subject": "Water, frost, heat, hail, fire and smoke decisions",
+      "outcomes": [
+        "1.1",
+        "1.2"
+      ],
+      "itemIds": [
+        "ki_vit_radiation_inversion",
+        "ki_vit_advective_limit",
+        "ki_climate_frost_wind_warming",
+        "ki_climate_frost_sprinkler_temperature",
+        "ki_wset_prod_hazard_hail",
+        "ki_d1vp_fire",
+        "ki_d1vp_smoke",
+        "ki_d1vp_case_smoke_action",
+        "ki_d1vp_case_smoke_limit",
+        "ki_d12depth_hazard_capacity",
+        "ki_d12depth_hazard_smoke",
+        "ki_d12depth_case_hazard_action",
+        "ki_d12depth_case_hazard_reason",
+        "ki_d12depth_case_hazard_tradeoff",
+        "ki_d12depth_case_hazard_limitation"
+      ],
+      "templateIds": [
+        "qt_climate_frost_wind_chain",
+        "qt_climate_frost_sprinkler_chain",
+        "qt_d1vp_choices",
+        "qt_d1vp_case_smoke",
+        "qt_d1vp_case_criteria",
+        "qt_d12depth_d1_choices",
+        "qt_d12depth_d1_criteria",
+        "qt_d12depth_d1_written"
+      ],
+      "featureRefs": [
+        {
+          "path": "assets/study/diploma_written_practice.json",
+          "id": "d1_vineyard"
+        }
+      ],
+      "status": "partial",
+      "gap": "Existing hazard mechanisms are joined by an original capacity-constrained frost, smoke and hail plan covering contingency, timing, resources and residual risk. Qualified factual review and learner hazard prioritisation remain; no scenario guarantees protection.",
+      "reviewRequired": true
+    },
+    {
+      "id": "d1.pest-disease",
+      "unit": "D1",
+      "subject": "Pest and disease assessment",
+      "outcomes": [
+        "1.1",
+        "1.2"
+      ],
+      "itemIds": [
+        "ki_vit_phylloxera_roots",
+        "ki_vit_nematode_species",
+        "ki_vit_powdery_inoculum",
+        "ki_vit_downy_preventive",
+        "ki_vit_botrytis_wet",
+        "ki_wset_prod_virus_bacteria",
+        "ki_wset_prod_hazard_animals",
+        "ki_climate_ripen_botrytis_risk",
+        "ki_d12depth_pests_mites",
+        "ki_d12depth_pests_moths",
+        "ki_d12depth_case_pests_action",
+        "ki_d12depth_case_pests_reason",
+        "ki_d12depth_case_pests_tradeoff",
+        "ki_d12depth_case_pests_limitation"
+      ],
+      "templateIds": [
+        "qt_wset_l3_viticulture_application_40",
+        "qt_wset_l3_viticulture_general_22",
+        "qt_climate_ripen_botrytis_chain",
+        "qt_d12depth_d1_choices",
+        "qt_d12depth_d1_criteria",
+        "qt_d12depth_d1_written"
+      ],
+      "featureRefs": [
+        {
+          "path": "assets/study/diploma_written_practice.json",
+          "id": "d1_vineyard"
+        }
+      ],
+      "status": "partial",
+      "gap": "Existing phylloxera, nematode, disease and animal anchors are extended by sourced mite/leafroller monitoring and an integrated species-specific pressure comparison. Qualified factual review and learner diagnosis/control reasoning remain; local chemical permissions and thresholds are not inferred from the example.",
+      "reviewRequired": true
+    },
+    {
+      "id": "d1.growing-approaches",
+      "unit": "D1",
+      "subject": "Growing systems and targeted intervention",
+      "outcomes": [
+        "1.2"
+      ],
+      "itemIds": [
+        "ki_wset_prod_conventional_ipm",
+        "ki_wset_prod_sustainable",
+        "ki_wset_prod_organic",
+        "ki_wset_prod_biodynamic",
+        "ki_d1target_regen_cover",
+        "ki_d1target_regen_water",
+        "ki_d1target_precision_zones",
+        "ki_d1target_precision_cost",
+        "ki_d1target_case_vineyard_tradeoff",
+        "ki_d12depth_approaches_comparison",
+        "ki_d12depth_approaches_trial",
+        "ki_d12depth_case_approaches_action",
+        "ki_d12depth_case_approaches_reason",
+        "ki_d12depth_case_approaches_tradeoff",
+        "ki_d12depth_case_approaches_limitation"
+      ],
+      "templateIds": [
+        "qt_wset_l3_viticulture_general_22",
+        "qt_d1target_choices",
+        "qt_wset_l4_viticulture_principle_closure_51",
+        "qt_d1target_case_vineyard",
+        "qt_wset_l4_viticulture_case_criteria_4",
+        "qt_d12depth_d1_choices",
+        "qt_d12depth_d1_criteria",
+        "qt_d12depth_d1_written"
+      ],
+      "featureRefs": [
+        {
+          "path": "assets/study/diploma_written_practice.json",
+          "id": "d1_vineyard"
+        }
+      ],
+      "status": "partial",
+      "gap": "Registered comparisons join conventional/IPM, sustainable, organic, biodynamic, regenerative and precision aims with measured soil/water/input/labour outcomes and certification limits. Qualified review and learner comparison remain; no universal environmental, cost or quality ranking is asserted.",
+      "reviewRequired": true
+    },
+    {
+      "id": "d1.establishment-material",
+      "unit": "D1",
+      "subject": "Establishment and planting-material choices",
+      "outcomes": [
+        "1.2"
+      ],
+      "itemIds": [
+        "ki_wset_prod_species_variety",
+        "ki_wset_prod_clone_selection",
+        "ki_wset_prod_cross_hybrid",
+        "ki_wset_prod_graft_not_cross",
+        "ki_wset_prod_planting_density",
+        "ki_d1vp_topwork",
+        "ki_d1vp_layer",
+        "ki_d1vp_massal",
+        "ki_d1vp_massal_health",
+        "ki_vit_case_rootstock_replant_action",
+        "ki_d12depth_planting_sequence",
+        "ki_d12depth_planting_capital",
+        "ki_d12depth_case_planting_action",
+        "ki_d12depth_case_planting_reason",
+        "ki_d12depth_case_planting_tradeoff",
+        "ki_d12depth_case_planting_limitation"
+      ],
+      "templateIds": [
+        "qt_d1vp_choices",
+        "qt_d1vp_case_vines",
+        "qt_d1vp_case_criteria",
+        "qt_d12depth_d1_choices",
+        "qt_d12depth_d1_criteria",
+        "qt_d12depth_d1_written"
+      ],
+      "featureRefs": [
+        {
+          "path": "assets/study/diploma_written_practice.json",
+          "id": "d1_vineyard"
+        }
+      ],
+      "status": "partial",
+      "gap": "Registered teaching and a supplied plant-capital comparison join soil preparation, material identity/health, variety/rootstock/clone suitability, layout, machinery access and non-bearing-year resources. Qualified review and learner establishment analysis remain; health records do not prove species-specific nematode protection.",
+      "reviewRequired": true
+    },
+    {
+      "id": "d1.soil-water-nutrients",
+      "unit": "D1",
+      "subject": "Soil health, water and nutrient management",
+      "outcomes": [
+        "1.1",
+        "1.2"
+      ],
+      "itemIds": [
+        "ki_wset_found_nutrients",
+        "ki_wset_found_water_roots",
+        "ki_wset_prod_irrigation_methods",
+        "ki_wset_prod_nutrition_test",
+        "ki_vit_pressure_chamber",
+        "ki_vit_rdi_window",
+        "ki_vit_rdi_soil",
+        "ki_d1target_regen_water",
+        "ki_d12depth_budget_water",
+        "ki_d12depth_budget_nutrition",
+        "ki_d12depth_case_budget_action",
+        "ki_d12depth_case_budget_reason",
+        "ki_d12depth_case_budget_tradeoff",
+        "ki_d12depth_case_budget_limitation"
+      ],
+      "templateIds": [
+        "qt_d1target_choices",
+        "qt_d1target_case_vineyard",
+        "qt_d12depth_d1_choices",
+        "qt_d12depth_d1_criteria",
+        "qt_d12depth_d1_written"
+      ],
+      "featureRefs": [
+        {
+          "path": "assets/study/diploma_written_practice.json",
+          "id": "d1_vineyard"
+        }
+      ],
+      "status": "partial",
+      "gap": "Registered teaching adds physical/chemical/biological soil evidence, pH and tissue interpretation, seasonal water accounting, gross-delivery efficiency and a dimensional volume comparison. Qualified factual review and learner budgeting remain; actual water access and site-specific prescriptions are separate.",
+      "reviewRequired": true
+    },
+    {
+      "id": "d1.canopy-yield",
+      "unit": "D1",
+      "subject": "Training, canopy and crop decisions",
+      "outcomes": [
+        "1.2"
+      ],
+      "itemIds": [
+        "ki_wset_prod_head_cordon",
+        "ki_wset_prod_spur_cane",
+        "ki_wset_prod_trellis_untrellis",
+        "ki_vit_airflow",
+        "ki_vit_prebloom_set",
+        "ki_vit_late_leaf_burn",
+        "ki_vit_overcrop",
+        "ki_vit_not_min_yield",
+        "ki_vit_case_humid_canopy_tradeoff",
+        "ki_d12depth_canopy_yield",
+        "ki_d12depth_canopy_exposure",
+        "ki_d12depth_case_canopy_action",
+        "ki_d12depth_case_canopy_reason",
+        "ki_d12depth_case_canopy_tradeoff",
+        "ki_d12depth_case_canopy_limitation"
+      ],
+      "templateIds": [
+        "qt_wset_l3_application_40",
+        "qt_reason_bloom_chain",
+        "qt_d12depth_d1_choices",
+        "qt_d12depth_d1_criteria",
+        "qt_d12depth_d1_written"
+      ],
+      "featureRefs": [
+        {
+          "path": "assets/study/diploma_written_practice.json",
+          "id": "d1_vineyard"
+        }
+      ],
+      "status": "partial",
+      "gap": "Registered teaching joins training/pruning anchors with exposure, airflow, weather, water, labour/mechanisation and crop balance, including yield per vine versus area arithmetic. Qualified review and learner conditional comparisons remain; low yield or exposure is not a universal quality rule.",
+      "reviewRequired": true
+    },
+    {
+      "id": "d1.harvest-sweet-fruit",
+      "unit": "D1",
+      "subject": "Harvest decisions and concentrated fruit",
+      "outcomes": [
+        "1.1",
+        "1.2",
+        "1.3"
+      ],
+      "itemIds": [
+        "ki_vit_multiple_measures",
+        "ki_vit_representative_samples",
+        "ki_vit_delay_risk",
+        "ki_wset_prod_hand_machine",
+        "ki_wset_prod_harvest_cost_quality",
+        "ki_wset_prod_dry_on_off_vine",
+        "ki_wset_found_noble_rot",
+        "ki_d1vp_cryo",
+        "ki_d1vp_ice",
+        "ki_wset_prod_sweet_routes",
+        "ki_d12depth_harvest_route",
+        "ki_d12depth_harvest_capacity",
+        "ki_d12depth_case_harvest_action",
+        "ki_d12depth_case_harvest_reason",
+        "ki_d12depth_case_harvest_tradeoff",
+        "ki_d12depth_case_harvest_limitation"
+      ],
+      "templateIds": [
+        "qt_wset_l2_viticulture_gap_choices",
+        "qt_d1vp_choices",
+        "qt_wset_winemaking_shared_application_9",
+        "qt_d12depth_d1_choices",
+        "qt_d12depth_d1_criteria",
+        "qt_d12depth_d1_written"
+      ],
+      "featureRefs": [
+        {
+          "path": "assets/study/diploma_written_practice.json",
+          "id": "d1_vineyard"
+        },
+        {
+          "path": "assets/study/diploma_written_practice.json",
+          "id": "d1_winery"
+        }
+      ],
+      "status": "partial",
+      "gap": "Registered teaching compares representative ripeness, picking material, weather and processing capacity, and distinguishes drying, noble rot, natural freezing and artificial freezing with product-claim limits. Qualified review and learner harvest analysis remain; no legal name or superior method follows from one treatment.",
+      "reviewRequired": true
+    },
+    {
+      "id": "d1.components-production-style",
+      "unit": "D1",
+      "subject": "Wine components and production approach",
+      "outcomes": [
+        "1.3"
+      ],
+      "itemIds": [
+        "ki_wset_found_acidity",
+        "ki_wset_found_tannin",
+        "ki_wset_found_alcohol",
+        "ki_wset_found_body",
+        "ki_win_alcoholic_products",
+        "ki_wset_prod_organic_winery",
+        "ki_d12depth_components_balance",
+        "ki_d12depth_components_method",
+        "ki_d12depth_case_components_action",
+        "ki_d12depth_case_components_reason",
+        "ki_d12depth_case_components_tradeoff",
+        "ki_d12depth_case_components_limitation",
+        "ki_d12depth_components_glycerol"
+      ],
+      "templateIds": [
+        "qt_wset_winemaking_shared_application_9",
+        "qt_d12depth_d1_choices",
+        "qt_d12depth_d1_criteria",
+        "qt_d12depth_d1_written"
+      ],
+      "featureRefs": [
+        {
+          "path": "assets/study/diploma_written_practice.json",
+          "id": "d1_winery"
+        }
+      ],
+      "status": "partial",
+      "gap": "Registered teaching extends introductory components with sensory interactions, residual sugar, glycerol origin and measured style versus named production approaches, including an original pilot comparison. Qualified factual review and learner balance analysis remain; glycerol or a method label alone does not establish body or quality.",
+      "reviewRequired": true
+    },
+    {
+      "id": "d1.intake-juice-processing",
+      "unit": "D1",
+      "subject": "Fruit handling and juice preparation",
+      "outcomes": [
+        "1.3"
+      ],
+      "itemIds": [
+        "ki_win_machine_contact",
+        "ki_win_rot_sort",
+        "ki_win_laccase",
+        "ki_win_gentle_press",
+        "ki_win_press_fractions",
+        "ki_wset_prod_destem_crush",
+        "ki_d1method_hyper",
+        "ki_d1method_hyper_risk",
+        "ki_d1method_flotation",
+        "ki_d1method_flotation_gas",
+        "ki_d1method_flash",
+        "ki_d12depth_intake_throughput",
+        "ki_d12depth_intake_clarification",
+        "ki_d12depth_case_intake_action",
+        "ki_d12depth_case_intake_reason",
+        "ki_d12depth_case_intake_tradeoff",
+        "ki_d12depth_case_intake_limitation"
+      ],
+      "templateIds": [
+        "qt_wset_l2_authored_principles",
+        "qt_wset_winemaking_l3_application_12",
+        "qt_d1method_choices",
+        "qt_d1method_case_white",
+        "qt_d1method_case_criteria",
+        "qt_d12depth_d1_choices",
+        "qt_d12depth_d1_criteria",
+        "qt_d12depth_d1_written"
+      ],
+      "featureRefs": [
+        {
+          "path": "assets/study/diploma_written_practice.json",
+          "id": "d1_winery"
+        }
+      ],
+      "status": "partial",
+      "gap": "Registered teaching and a timed intake comparison join transport/fruit condition, sorting/chilling, press fractions, settling/flotation/centrifugation, solids and capacity constraints. Qualified review and learner process planning remain; a faster clarification stage does not remove the stated press bottleneck.",
+      "reviewRequired": true
+    },
+    {
+      "id": "d1.adjustments-fermentation",
+      "unit": "D1",
+      "subject": "Must adjustment and fermentation decisions",
+      "outcomes": [
+        "1.3"
+      ],
+      "itemIds": [
+        "ki_wset_prod_enrichment",
+        "ki_wset_prod_acidification",
+        "ki_wset_prod_deacidification",
+        "ki_win_grape_sugars",
+        "ki_win_yan_measure",
+        "ki_win_dap_scope",
+        "ki_win_white_cooling",
+        "ki_win_red_heat",
+        "ki_win_oxygen_stage",
+        "ki_d12depth_fermentation_nutrition",
+        "ki_d12depth_fermentation_trial",
+        "ki_d12depth_case_fermentation_action",
+        "ki_d12depth_case_fermentation_reason",
+        "ki_d12depth_case_fermentation_tradeoff",
+        "ki_d12depth_case_fermentation_limitation"
+      ],
+      "templateIds": [
+        "qt_wset_l2_authored_principles",
+        "qt_wset_winemaking_l3_depth_37",
+        "qt_d12depth_d1_choices",
+        "qt_d12depth_d1_criteria",
+        "qt_d12depth_d1_written"
+      ],
+      "featureRefs": [
+        {
+          "path": "assets/study/diploma_written_practice.json",
+          "id": "d1_winery"
+        }
+      ],
+      "status": "partial",
+      "gap": "Registered teaching adds a conditional yeast/nutrition, vessel/temperature, acid-trial and concentration/enrichment plan with monitoring, cost and legal-evidence limits. Qualified factual review and learner fermentation reasoning remain; no universal dose, permission or rescue success is implied.",
+      "reviewRequired": true
+    },
+    {
+      "id": "d1.extraction-residual-sugar",
+      "unit": "D1",
+      "subject": "Extraction and retention of sugar",
+      "outcomes": [
+        "1.3"
+      ],
+      "itemIds": [
+        "ki_win_cap_contact",
+        "ki_win_colour_tannin",
+        "ki_wset_prod_red_extraction_stages",
+        "ki_wset_prod_red_press_timing",
+        "ki_wset_prod_carbonic",
+        "ki_wset_prod_semi_carbonic",
+        "ki_wset_prod_whole_bunch_crushed",
+        "ki_wset_prod_rose_direct_short",
+        "ki_wset_prod_sweet_routes",
+        "ki_wset_prod_arrest_chill",
+        "ki_d12depth_workflow_routes",
+        "ki_d12depth_workflow_arrest",
+        "ki_d12depth_case_workflow_action",
+        "ki_d12depth_case_workflow_reason",
+        "ki_d12depth_case_workflow_tradeoff",
+        "ki_d12depth_case_workflow_limitation",
+        "ki_d12depth_workflow_coferment"
+      ],
+      "templateIds": [
+        "qt_wset_l3_application_40",
+        "qt_wset_winemaking_shared_application_9",
+        "qt_d12depth_d1_choices",
+        "qt_d12depth_d1_criteria",
+        "qt_d12depth_d1_written"
+      ],
+      "featureRefs": [
+        {
+          "path": "assets/study/diploma_written_practice.json",
+          "id": "d1_winery"
+        }
+      ],
+      "status": "partial",
+      "gap": "Registered teaching now separates crushed/whole-fruit routes, carbonic and yeast activity, red/white/rose separation, co-fermentation versus finished-wine blending, and arrest versus microbial stability. Qualified review and learner complete-workflow analysis remain; cooling or a whole-bunch label is not sufficient release evidence.",
+      "reviewRequired": true
+    },
+    {
+      "id": "d1.mlf-sulfur-controls",
+      "unit": "D1",
+      "subject": "Malolactic conversion and sulphur controls",
+      "outcomes": [
+        "1.3"
+      ],
+      "itemIds": [
+        "ki_win_mlf_conversion",
+        "ki_win_mlf_inhibitors",
+        "ki_win_mlf_monitor",
+        "ki_win_sulfur_forms",
+        "ki_win_sulfur_ph",
+        "ki_reason_mlf_acidity",
+        "ki_reason_so2_protection",
+        "ki_d12depth_mlf_decision",
+        "ki_d12depth_mlf_sulfur",
+        "ki_d12depth_case_mlf_action",
+        "ki_d12depth_case_mlf_reason",
+        "ki_d12depth_case_mlf_tradeoff",
+        "ki_d12depth_case_mlf_limitation"
+      ],
+      "templateIds": [
+        "qt_wset_l2_authored_principles",
+        "qt_reason_mlf_chain",
+        "qt_reason_so2_chain",
+        "qt_wset_l4_winemaking_causal_closure_2",
+        "qt_d12depth_d1_choices",
+        "qt_d12depth_d1_criteria",
+        "qt_d12depth_d1_written"
+      ],
+      "featureRefs": [
+        {
+          "path": "assets/study/diploma_written_practice.json",
+          "id": "d1_winery"
+        }
+      ],
+      "status": "partial",
+      "gap": "Registered teaching and a contrasting red/fresh-white case join encourage/avoid MLF, malic monitoring, pH, free/bound sulfur, style and later microbial protection. Qualified review and learner interpretation remain; equal total sulfur does not prove equal protection.",
+      "reviewRequired": true
+    },
+    {
+      "id": "d1.maturation-blending",
+      "unit": "D1",
+      "subject": "Maturation, lees, wood and blending",
+      "outcomes": [
+        "1.3"
+      ],
+      "itemIds": [
+        "ki_win_oak_flavours",
+        "ki_win_oak_variables",
+        "ki_win_lees_release",
+        "ki_win_lees_stirring",
+        "ki_d1method_microox",
+        "ki_d1method_oak_pieces",
+        "ki_d1method_oak_compare",
+        "ki_wset_prod_blend_balance",
+        "ki_wset_prod_blend_consistency",
+        "ki_wset_prod_blend_trials",
+        "ki_d12depth_maturation_trial",
+        "ki_d12depth_maturation_blend",
+        "ki_d12depth_case_maturation_action",
+        "ki_d12depth_case_maturation_reason",
+        "ki_d12depth_case_maturation_tradeoff",
+        "ki_d12depth_case_maturation_limitation"
+      ],
+      "templateIds": [
+        "qt_wset_l2_authored_principles",
+        "qt_wset_winemaking_shared_application_9",
+        "qt_d1method_choices",
+        "qt_d1method_case_red",
+        "qt_d1method_case_criteria",
+        "qt_d12depth_d1_choices",
+        "qt_d12depth_d1_criteria",
+        "qt_d12depth_d1_written"
+      ],
+      "featureRefs": [
+        {
+          "path": "assets/study/diploma_written_practice.json",
+          "id": "d1_winery"
+        }
+      ],
+      "status": "partial",
+      "gap": "Registered teaching joins oak/neutral alternatives, lees/MLF trial confounding, oxygen conditions, blend trials, stability and inventory costs in an original comparison. Qualified review and learner maturation analysis remain; treatments are not assumed equivalent or a single cause of a sensory result.",
+      "reviewRequired": true
+    },
+    {
+      "id": "d1.stability-fault-quality",
+      "unit": "D1",
+      "subject": "Stability, faults and quality systems",
+      "outcomes": [
+        "1.3"
+      ],
+      "itemIds": [
+        "ki_win_bentonite",
+        "ki_win_filter_ratings",
+        "ki_win_tartrate_cooling",
+        "ki_win_stability_retest",
+        "ki_win_packaging_hygiene",
+        "ki_fault_tca_compound",
+        "ki_fault_va_acid",
+        "ki_fault_refermentation",
+        "ki_fault_haze_diagnosis",
+        "ki_d1target_qc_haccp",
+        "ki_d1target_qc_iso_trace",
+        "ki_d1target_case_qc_limit",
+        "ki_d12depth_quality_diagnosis",
+        "ki_d12depth_quality_release",
+        "ki_d12depth_case_quality_action",
+        "ki_d12depth_case_quality_reason",
+        "ki_d12depth_case_quality_tradeoff",
+        "ki_d12depth_case_quality_limitation"
+      ],
+      "templateIds": [
+        "qt_wset_winemaking_l3_application_12",
+        "qt_wset_winemaking_l3_depth_37",
+        "qt_wset_l2_core_principle_choices_6",
+        "qt_wset_l2_winemaking_principles_remaining_39",
+        "qt_d1target_choices",
+        "qt_d1target_case_qc",
+        "qt_wset_l4_winemaking_case_criteria_23",
+        "qt_d12depth_d1_choices",
+        "qt_d12depth_d1_criteria",
+        "qt_d12depth_d1_written"
+      ],
+      "featureRefs": [
+        {
+          "path": "assets/study/diploma_written_practice.json",
+          "id": "d1_winery"
+        }
+      ],
+      "status": "partial",
+      "gap": "Registered teaching separates protein/tartrate/microbial diagnosis, existing fault anchors, hygienic release controls, lot traceability and HACCP/ISO scope in a hold/release case. Qualified review and learner diagnostic reasoning remain; clarity, an ISO reference or a quality fault does not establish safety certification.",
+      "reviewRequired": true
+    },
+    {
+      "id": "d1.nolo-production",
+      "unit": "D1",
+      "subject": "Alcohol reduction and product balance",
+      "outcomes": [
+        "1.3"
+      ],
+      "itemIds": [
+        "ki_d1target_nolo_route",
+        "ki_d1target_nolo_balance",
+        "ki_d1target_case_nolo_action",
+        "ki_d1target_case_nolo_reason",
+        "ki_d1target_case_nolo_tradeoff",
+        "ki_d1target_case_nolo_limit",
+        "ki_d12depth_nolo_compare",
+        "ki_d12depth_nolo_cost",
+        "ki_d12depth_case_nolo_action",
+        "ki_d12depth_case_nolo_reason",
+        "ki_d12depth_case_nolo_tradeoff",
+        "ki_d12depth_case_nolo_limitation"
+      ],
+      "templateIds": [
+        "qt_d1target_choices",
+        "qt_wset_l4_winemaking_principles_global_22",
+        "qt_d1target_case_nolo",
+        "qt_wset_l4_winemaking_case_criteria_23",
+        "qt_d12depth_d1_choices",
+        "qt_d12depth_d1_criteria",
+        "qt_d12depth_d1_written"
+      ],
+      "featureRefs": [
+        {
+          "path": "assets/study/diploma_written_practice.json",
+          "id": "d1_winery"
+        }
+      ],
+      "status": "partial",
+      "gap": "Registered teaching compares OIV vacuum, membrane and distillation routes under specialist oversight, with supplied treatment costs, sensory/stability evidence and destination-name limits. Qualified factual review and learner process comparison remain; reaching a commissioned alcohol target does not establish a lawful, stable final product.",
+      "reviewRequired": true
+    },
+    {
+      "id": "d1.packaging-transport",
+      "unit": "D1",
+      "subject": "Packaging, closure and transport choices",
+      "outcomes": [
+        "1.3"
+      ],
+      "itemIds": [
+        "ki_wset_prod_glass_pet_bib",
+        "ki_wset_prod_package_oxygen",
+        "ki_wset_prod_closure_types",
+        "ki_d1vp_pouch",
+        "ki_d1vp_can",
+        "ki_d1vp_glass",
+        "ki_d1target_pack_barrier",
+        "ki_d1target_pack_freight",
+        "ki_d1vp_case_pack_tradeoff",
+        "ki_d12depth_package_assembly",
+        "ki_d12depth_package_landed",
+        "ki_d12depth_case_package_action",
+        "ki_d12depth_case_package_reason",
+        "ki_d12depth_case_package_tradeoff",
+        "ki_d12depth_case_package_limitation"
+      ],
+      "templateIds": [
+        "qt_wset_winemaking_l3_depth_37",
+        "qt_d1vp_choices",
+        "qt_d1vp_case_pack",
+        "qt_d1vp_case_criteria",
+        "qt_d1target_case_pack",
+        "qt_wset_l4_winemaking_case_criteria_23",
+        "qt_d12depth_d1_choices",
+        "qt_d12depth_d1_criteria",
+        "qt_d12depth_d1_written"
+      ],
+      "featureRefs": [
+        {
+          "path": "assets/study/diploma_written_practice.json",
+          "id": "d1_winery"
+        }
+      ],
+      "status": "partial",
+      "gap": "Registered teaching joins existing format/closure anchors with glass/PET/bag-in-box/bricks/pouches/cans, compatible assemblies, filling oxygen, route temperature, shelf life, traceability and full supplied freight/fill costs. Qualified review and learner route-specific analysis remain; supplier performance evidence is deliberately incomplete in the case.",
+      "reviewRequired": true
+    },
+    {
+      "id": "d1.sustained-writing",
+      "unit": "D1",
+      "subject": "Sustained production analysis",
+      "outcomes": [
+        "1.1",
+        "1.2",
+        "1.3"
+      ],
+      "itemIds": [
+        "ki_d1target_case_vineyard_tradeoff",
+        "ki_d1method_case_white_reason",
+        "ki_d1method_case_red_tradeoff"
+      ],
+      "templateIds": [
+        "qt_d1target_case_vineyard",
+        "qt_d1method_case_white",
+        "qt_d1method_case_red"
+      ],
+      "featureRefs": [
+        {
+          "path": "assets/study/diploma_written_practice.json",
+          "id": "d1_environment"
+        },
+        {
+          "path": "assets/study/diploma_written_practice.json",
+          "id": "d1_vineyard"
+        },
+        {
+          "path": "assets/study/diploma_written_practice.json",
+          "id": "d1_winery"
+        },
+        {
+          "path": "assets/study/diploma_written_practice.json",
+          "id": "d1_candidate_establishment_canopy"
+        },
+        {
+          "path": "assets/study/diploma_written_practice.json",
+          "id": "d1_candidate_intake_quality"
+        },
+        {
+          "path": "assets/study/diploma_written_practice.json",
+          "id": "d1_candidate_package_route"
+        }
+      ],
+      "status": "needs_review",
+      "gap": "Default and alternate whole writing packs now run through the same durable self-review workflow. Obtain qualified calibration of original prompts, criteria and response breadth; these saved exercises do not establish externally assessed performance.",
+      "reviewRequired": true
+    },
+    {
+      "id": "d2.market-forces",
+      "unit": "D2",
+      "subject": "Supply, demand and stock evidence",
+      "outcomes": [
+        "2.1"
+      ],
+      "itemIds": [
+        "ki_d2_supply_demand_shift",
+        "ki_d2_paired_shifts",
+        "ki_d2_market_stock_context",
+        "ki_d2_case_supply_and_demand_action",
+        "ki_d2_case_supply_and_demand_limitation",
+        "ki_d12depth_market_balance",
+        "ki_d12depth_market_drivers",
+        "ki_d12depth_case_market_action",
+        "ki_d12depth_case_market_reason",
+        "ki_d12depth_case_market_tradeoff",
+        "ki_d12depth_case_market_limitation"
+      ],
+      "templateIds": [
+        "qt_wset_d2_business_application_29",
+        "qt_wset_d2_market_decisions_choice_6",
+        "qt_wset_d2_supply_and_demand_case",
+        "qt_wset_d2_market_decisions_case_criteria_2",
+        "qt_d12depth_d2_choices",
+        "qt_d12depth_d2_criteria",
+        "qt_d12depth_d2_written"
+      ],
+      "featureRefs": [
+        {
+          "path": "assets/study/diploma_written_practice.json",
+          "id": "d2_price"
+        }
+      ],
+      "status": "partial",
+      "gap": "Registered teaching adds an explicit production/stock/release balance and a social/economic/political demand comparison to existing paired-shift and dated-market anchors. Qualified review and learner market interpretation remain; incomplete relative shifts cannot establish a fixed price change.",
+      "reviewRequired": true
+    },
+    {
+      "id": "d2.cost-contribution",
+      "unit": "D2",
+      "subject": "Production costs and unit economics",
+      "outcomes": [
+        "2.1"
+      ],
+      "itemIds": [
+        "ki_wset_prod_cost_land_establishment",
+        "ki_wset_prod_cost_cellar",
+        "ki_biz_fixed_cost",
+        "ki_biz_variable_cost",
+        "ki_biz_contribution",
+        "ki_biz_breakeven",
+        "ki_d2_calc_unit_contribution",
+        "ki_d2_calc_breakeven_bottles",
+        "ki_d12depth_cost_capacity",
+        "ki_d12depth_cost_statements",
+        "ki_d12depth_case_cost_action",
+        "ki_d12depth_case_cost_reason",
+        "ki_d12depth_case_cost_tradeoff",
+        "ki_d12depth_case_cost_limitation"
+      ],
+      "templateIds": [
+        "qt_wset_l3_business_gap_30",
+        "qt_wset_d2_business_application_29",
+        "qt_cms_calculated_value_fwd_flashcard",
+        "qt_cms_calculated_value_fwd_numeric",
+        "qt_d12depth_d2_choices",
+        "qt_d12depth_d2_criteria",
+        "qt_d12depth_d2_written"
+      ],
+      "featureRefs": [
+        {
+          "path": "assets/study/diploma_written_practice.json",
+          "id": "d2_price"
+        }
+      ],
+      "status": "partial",
+      "gap": "Registered teaching and supplied arithmetic join establishment/operating/maturation costs, capacity, contribution, break-even, sensitivity, profit and cash distinctions. Qualified review and learner commercial analysis remain; the stated cost range does not prove equipment funding or constant costs outside capacity.",
+      "reviewRequired": true
+    },
+    {
+      "id": "d2.landed-cost-regulation",
+      "unit": "D2",
+      "subject": "Freight, import charges and regulatory exposure",
+      "outcomes": [
+        "2.1"
+      ],
+      "itemIds": [
+        "ki_d2_import_cost_stack",
+        "ki_d2_calc_landed_cost_per_bottle",
+        "ki_wset_prod_price_chain",
+        "ki_d1target_pack_freight",
+        "ki_d12depth_landed_recoverable",
+        "ki_d12depth_landed_floor",
+        "ki_d12depth_case_landed_action",
+        "ki_d12depth_case_landed_reason",
+        "ki_d12depth_case_landed_tradeoff",
+        "ki_d12depth_case_landed_limitation",
+        "ki_d12depth_regcompare_excise",
+        "ki_d12depth_regcompare_vat",
+        "ki_d12depth_regcompare_customs",
+        "ki_d12depth_regcompare_restriction",
+        "ki_d12depth_regcompare_support",
+        "ki_d12depth_regcompare_label",
+        "ki_d12depth_case_regcompare_action",
+        "ki_d12depth_case_regcompare_reason",
+        "ki_d12depth_case_regcompare_tradeoff",
+        "ki_d12depth_case_regcompare_limitation"
+      ],
+      "templateIds": [
+        "qt_wset_d2_business_application_29",
+        "qt_cms_calculated_value_fwd_numeric",
+        "qt_wset_l4_winemaking_principles_global_22",
+        "qt_d12depth_d2_choices",
+        "qt_d12depth_d2_criteria",
+        "qt_d12depth_d2_written",
+        "qt_d12depth_d2reg_choices",
+        "qt_d12depth_d2reg_criteria",
+        "qt_d12depth_d2reg_written"
+      ],
+      "featureRefs": [
+        {
+          "path": "assets/study/diploma_written_practice.json",
+          "id": "d2_price"
+        }
+      ],
+      "status": "partial",
+      "gap": "Registered teaching now separates permanent landed cost from recoverable-tax funding and adds dated Scotland minimum pricing plus selected current US/EU excise, VAT, customs/origin, import-prohibition, support and label-conformity mechanisms. Qualified factual review and learner jurisdiction comparison remain; real shipment rates, deduction procedures, awards and permissions require destination/product evidence.",
+      "reviewRequired": true
+    },
+    {
+      "id": "d2.currency-risk",
+      "unit": "D2",
+      "subject": "Currency exposure and contractual responses",
+      "outcomes": [
+        "2.1"
+      ],
+      "itemIds": [
+        "ki_biz_fx_receivable",
+        "ki_biz_home_currency_invoice",
+        "ki_biz_forward_exchange",
+        "ki_biz_case_export_currency_tradeoff",
+        "ki_biz_case_export_currency_limitation",
+        "ki_d2_calc_fx_receipt",
+        "ki_d2_calc_fx_receipt_reduction",
+        "ki_d12depth_fx_instrument",
+        "ki_d12depth_fx_matching",
+        "ki_d12depth_case_fx_action",
+        "ki_d12depth_case_fx_reason",
+        "ki_d12depth_case_fx_tradeoff",
+        "ki_d12depth_case_fx_limitation",
+        "ki_d12depth_fx_prefund"
+      ],
+      "templateIds": [
+        "qt_wset_d2_business_application_29",
+        "qt_biz_export_currency_case",
+        "qt_wset_l4_business_case_criteria_37",
+        "qt_cms_calculated_value_fwd_numeric",
+        "qt_d12depth_d2_choices",
+        "qt_d12depth_d2_criteria",
+        "qt_d12depth_d2_written"
+      ],
+      "featureRefs": [
+        {
+          "path": "assets/study/diploma_written_practice.json",
+          "id": "d2_price"
+        }
+      ],
+      "status": "partial",
+      "gap": "Registered teaching extends existing receipt/forward anchors with paid options, matched receipts/payments, early currency purchase and USD/EUR/other-currency account holdings using explicit fictional terms. Qualified review and learner risk comparisons remain; fees, timing and counterparty performance cannot be removed by a hedge or an account.",
+      "reviewRequired": true
+    },
+    {
+      "id": "d2.cash-inventory",
+      "unit": "D2",
+      "subject": "Working capital and payment timing",
+      "outcomes": [
+        "2.1"
+      ],
+      "itemIds": [
+        "ki_biz_profit_cash",
+        "ki_biz_working_capital",
+        "ki_biz_inventory_cash",
+        "ki_biz_inventory_turnover",
+        "ki_biz_payment_timing",
+        "ki_biz_case_cellar_cash_action",
+        "ki_biz_case_cellar_cash_limitation",
+        "ki_d2_calc_cash_gap_days",
+        "ki_d12depth_cash_peak",
+        "ki_d12depth_cash_stock",
+        "ki_d12depth_case_cash_action",
+        "ki_d12depth_case_cash_reason",
+        "ki_d12depth_case_cash_tradeoff",
+        "ki_d12depth_case_cash_limitation"
+      ],
+      "templateIds": [
+        "qt_wset_d2_business_application_29",
+        "qt_wset_l4_business_principle_choice_29",
+        "qt_biz_cellar_cash_case",
+        "qt_wset_l4_business_case_criteria_37",
+        "qt_cms_calculated_value_fwd_numeric",
+        "qt_d12depth_d2_choices",
+        "qt_d12depth_d2_criteria",
+        "qt_d12depth_d2_written"
+      ],
+      "featureRefs": [
+        {
+          "path": "assets/study/diploma_written_practice.json",
+          "id": "d2_price"
+        }
+      ],
+      "status": "partial",
+      "gap": "Registered teaching adds opening cash, dated outflows/receipts, recoverable-tax timing, inventory and late-payment sensitivity with an explicit peak funding calculation. Qualified review and learner liquidity planning remain; final positive cash or profitability is not proof of interim solvency.",
+      "reviewRequired": true
+    },
+    {
+      "id": "d2.producer-models",
+      "unit": "D2",
+      "subject": "Producer assets, services and control",
+      "outcomes": [
+        "2.2"
+      ],
+      "itemIds": [
+        "ki_biz_models_integration",
+        "ki_biz_models_vineyard_commitment",
+        "ki_biz_models_custom_capacity",
+        "ki_biz_models_custom_scope",
+        "ki_biz_models_cooperative_pool",
+        "ki_biz_models_cooperative_control",
+        "ki_biz_models_grape_purchase",
+        "ki_biz_models_bulk_purchase",
+        "ki_biz_models_case_contract_pilot_tradeoff",
+        "ki_biz_models_case_cooperative_pool_limitation",
+        "ki_d12depth_models_ownership",
+        "ki_d12depth_models_group",
+        "ki_d12depth_case_models_action",
+        "ki_d12depth_case_models_reason",
+        "ki_d12depth_case_models_tradeoff",
+        "ki_d12depth_case_models_limitation"
+      ],
+      "templateIds": [
+        "qt_wset_d2_business_application_29",
+        "qt_wset_l4_business_principle_choice_29",
+        "qt_biz_models_contract_pilot_case",
+        "qt_biz_models_cooperative_pool_case",
+        "qt_wset_l4_business_case_criteria_37",
+        "qt_d12depth_d2_choices",
+        "qt_d12depth_d2_criteria",
+        "qt_d12depth_d2_written"
+      ],
+      "featureRefs": [
+        {
+          "path": "assets/study/diploma_written_practice.json",
+          "id": "d2_route"
+        }
+      ],
+      "status": "partial",
+      "gap": "Registered teaching now contrasts grower/grower-producer, estate/integrated, merchant, virtual/custom-production, cooperative and group roles through supplied capital, sourcing, control, service and marketing duties. Qualified review and learner model comparisons remain; a producer label alone does not determine cost or quality.",
+      "reviewRequired": true
+    },
+    {
+      "id": "d2.channel-roles",
+      "unit": "D2",
+      "subject": "Channel roles and downstream demand",
+      "outcomes": [
+        "2.2"
+      ],
+      "itemIds": [
+        "ki_biz_channel_mix",
+        "ki_biz_routes_downstream_sales",
+        "ki_biz_routes_service_scope",
+        "ki_biz_routes_partner_fit",
+        "ki_biz_routes_reviewable_roles",
+        "ki_biz_routes_case_downstream_review_action",
+        "ki_biz_routes_case_downstream_review_limitation",
+        "ki_d12depth_channels_duties",
+        "ki_d12depth_channels_evidence",
+        "ki_d12depth_case_channels_action",
+        "ki_d12depth_case_channels_reason",
+        "ki_d12depth_case_channels_tradeoff",
+        "ki_d12depth_case_channels_limitation"
+      ],
+      "templateIds": [
+        "qt_wset_d2_business_application_29",
+        "qt_biz_routes_downstream_review_case",
+        "qt_wset_l4_business_case_criteria_37",
+        "qt_d12depth_d2_choices",
+        "qt_d12depth_d2_criteria",
+        "qt_d12depth_d2_written"
+      ],
+      "featureRefs": [
+        {
+          "path": "assets/study/diploma_written_practice.json",
+          "id": "d2_route"
+        }
+      ],
+      "status": "partial",
+      "gap": "Registered teaching adds an explicit importer/distributor, broker, joint-venture and direct-to-seller contract comparison, with service scope, stock title, commissions/payment and shipment-versus-downstream evidence. Qualified review and learner route analysis remain; placement is not consumer demand.",
+      "reviewRequired": true
+    },
+    {
+      "id": "d2.consumer-routes",
+      "unit": "D2",
+      "subject": "Retail, hospitality and direct-sales routes",
+      "outcomes": [
+        "2.2"
+      ],
+      "itemIds": [
+        "ki_biz_routes_retail_access",
+        "ki_biz_routes_ontrade_fit",
+        "ki_biz_routes_dtc_resources",
+        "ki_biz_routes_dtc_records",
+        "ki_biz_tasting_room_relationship",
+        "ki_biz_routes_case_dtc_capacity_tradeoff",
+        "ki_biz_routes_case_dtc_capacity_limitation",
+        "ki_d12depth_outlets_fit",
+        "ki_d12depth_outlets_return",
+        "ki_d12depth_case_outlets_action",
+        "ki_d12depth_case_outlets_reason",
+        "ki_d12depth_case_outlets_tradeoff",
+        "ki_d12depth_case_outlets_limitation"
+      ],
+      "templateIds": [
+        "qt_wset_d2_business_application_29",
+        "qt_wset_l4_business_principle_choice_29",
+        "qt_biz_routes_dtc_capacity_case",
+        "qt_wset_l4_business_case_criteria_37",
+        "qt_d12depth_d2_choices",
+        "qt_d12depth_d2_criteria",
+        "qt_d12depth_d2_written"
+      ],
+      "featureRefs": [
+        {
+          "path": "assets/study/diploma_written_practice.json",
+          "id": "d2_route"
+        }
+      ],
+      "status": "partial",
+      "gap": "Registered teaching joins existing retail/hospitality/DTC anchors with distinct outlet purposes, discount/convenience/specialist/hybrid/online/travel/investment routes and supplied DTC-versus-wholesale service/acquisition sensitivity. Qualified review and learner outlet comparison remain; headline receipt does not establish highest net return or validated demand.",
+      "reviewRequired": true
+    },
+    {
+      "id": "d2.regulated-market-systems",
+      "unit": "D2",
+      "subject": "Regulated market-system comparison",
+      "outcomes": [
+        "2.2"
+      ],
+      "itemIds": [
+        "ki_d2market_us_tiers",
+        "ki_d2market_us_variation",
+        "ki_d2market_us_federal",
+        "ki_d2market_ew_authority",
+        "ki_d2market_ew_scope",
+        "ki_d2market_ew_personal",
+        "ki_d2market_se_retail",
+        "ki_d2market_se_mission",
+        "ki_d2market_se_supplier",
+        "ki_d2market_se_serving",
+        "ki_d2market_se_farm",
+        "ki_d2market_case_us_entry_action",
+        "ki_d2market_case_us_entry_reason",
+        "ki_d2market_case_us_entry_tradeoff",
+        "ki_d2market_case_us_entry_limitation",
+        "ki_d2market_case_ew_retail_action",
+        "ki_d2market_case_ew_retail_reason",
+        "ki_d2market_case_ew_retail_tradeoff",
+        "ki_d2market_case_ew_retail_limitation",
+        "ki_d2market_case_sweden_access_action",
+        "ki_d2market_case_sweden_access_reason",
+        "ki_d2market_case_sweden_access_tradeoff",
+        "ki_d2market_case_sweden_access_limitation"
+      ],
+      "templateIds": [
+        "qt_d2market_choice_11",
+        "qt_d2market_typed_3",
+        "qt_d2market_criteria_3",
+        "qt_d2market_written_3"
+      ],
+      "featureRefs": [],
+      "status": "partial",
+      "gap": "Eleven jurisdiction-bounded principles and three original four-role cases now cover US federal/Texas importer roles, England/Wales licensing, and Swedish retail/serving routes and the limited farm-sales exception. These are study examples; qualified factual review and learner application remain separate.",
+      "reviewRequired": true
+    },
+    {
+      "id": "d2.marketing-design",
+      "unit": "D2",
+      "subject": "Audience, positioning and marketing plan",
+      "outcomes": [
+        "2.3"
+      ],
+      "itemIds": [
+        "ki_biz_customer_segment",
+        "ki_biz_primary_research",
+        "ki_biz_value_pricing",
+        "ki_biz_competitor_pricing",
+        "ki_d2_marketing_mix",
+        "ki_d2_competitor_baseline",
+        "ki_d2_target_sample",
+        "ki_d2_marketing_objective",
+        "ki_d2_case_market_launch_reason",
+        "ki_d12depth_marketing_position",
+        "ki_d12depth_marketing_plan",
+        "ki_d12depth_case_marketing_action",
+        "ki_d12depth_case_marketing_reason",
+        "ki_d12depth_case_marketing_tradeoff",
+        "ki_d12depth_case_marketing_limitation"
+      ],
+      "templateIds": [
+        "qt_wset_d2_business_application_29",
+        "qt_wset_d2_market_decisions_choice_6",
+        "qt_wset_d2_market_launch_case",
+        "qt_wset_d2_market_decisions_case_criteria_2",
+        "qt_d12depth_d2_choices",
+        "qt_d12depth_d2_criteria",
+        "qt_d12depth_d2_written"
+      ],
+      "featureRefs": [
+        {
+          "path": "assets/study/diploma_written_practice.json",
+          "id": "d2_marketing"
+        }
+      ],
+      "status": "partial",
+      "gap": "Registered teaching extends existing research/mix anchors into brand positioning, intended-buyer/competitor evidence, measurable objectives and a coordinated budget/people/channel plan. Qualified review and learner plan design remain; existing club preferences do not establish restaurant demand.",
+      "reviewRequired": true
+    },
+    {
+      "id": "d2.campaign-price-review",
+      "unit": "D2",
+      "subject": "Campaign evidence and pricing review",
+      "outcomes": [
+        "2.1",
+        "2.3"
+      ],
+      "itemIds": [
+        "ki_biz_cost_plus",
+        "ki_biz_discount_contribution",
+        "ki_biz_price_review",
+        "ki_d2_campaign_review",
+        "ki_d2_case_market_launch_tradeoff",
+        "ki_d2_case_market_launch_limitation",
+        "ki_biz_case_wine_discount_reason",
+        "ki_d12depth_campaign_net",
+        "ki_d12depth_campaign_discount",
+        "ki_d12depth_case_campaign_action",
+        "ki_d12depth_case_campaign_reason",
+        "ki_d12depth_case_campaign_tradeoff",
+        "ki_d12depth_case_campaign_limitation"
+      ],
+      "templateIds": [
+        "qt_wset_d2_business_application_29",
+        "qt_wset_d2_market_decisions_choice_6",
+        "qt_wset_d2_market_launch_case",
+        "qt_biz_wine_discount_case",
+        "qt_wset_l4_business_case_criteria_37",
+        "qt_d12depth_d2_choices",
+        "qt_d12depth_d2_criteria",
+        "qt_d12depth_d2_written"
+      ],
+      "featureRefs": [
+        {
+          "path": "assets/study/diploma_written_practice.json",
+          "id": "d2_price"
+        },
+        {
+          "path": "assets/study/diploma_written_practice.json",
+          "id": "d2_marketing"
+        }
+      ],
+      "status": "partial",
+      "gap": "Registered teaching adds matched-baseline incremental campaign arithmetic, contribution after promotion, discount-volume sensitivity and pending repeat/return evidence. Qualified review and learner campaign analysis remain; impressions or more orders alone do not establish net commercial success.",
+      "reviewRequired": true
+    },
+    {
+      "id": "d2.sustained-writing",
+      "unit": "D2",
+      "subject": "Sustained business analysis",
+      "outcomes": [
+        "2.1",
+        "2.2",
+        "2.3"
+      ],
+      "itemIds": [
+        "ki_d2_case_supply_and_demand_limitation",
+        "ki_biz_routes_case_dtc_capacity_tradeoff",
+        "ki_d2_case_market_launch_limitation"
+      ],
+      "templateIds": [
+        "qt_wset_d2_supply_and_demand_case",
+        "qt_biz_routes_dtc_capacity_case",
+        "qt_wset_d2_market_launch_case"
+      ],
+      "featureRefs": [
+        {
+          "path": "assets/study/diploma_written_practice.json",
+          "id": "d2_price"
+        },
+        {
+          "path": "assets/study/diploma_written_practice.json",
+          "id": "d2_route"
+        },
+        {
+          "path": "assets/study/diploma_written_practice.json",
+          "id": "d2_marketing"
+        },
+        {
+          "path": "assets/study/diploma_written_practice.json",
+          "id": "d2_candidate_price_evidence"
+        },
+        {
+          "path": "assets/study/diploma_written_practice.json",
+          "id": "d2_candidate_channel_cash"
+        },
+        {
+          "path": "assets/study/diploma_written_practice.json",
+          "id": "d2_candidate_campaign_evidence"
+        }
+      ],
+      "status": "needs_review",
+      "gap": "Default and alternate whole writing packs now run through the same durable self-review workflow. Obtain qualified calibration of original prompts, criteria and response breadth; these saved exercises do not establish externally assessed performance.",
+      "reviewRequired": true
+    }
+  ]
+}

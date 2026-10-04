@@ -1,0 +1,137 @@
+{
+  "schemaVersion": 1,
+  "createdAt": "2026-10-02T23:54:22.000Z",
+  "scope": {
+    "unit": "D3",
+    "subject": "California, Oregon and Washington ordinary state/local origin and grape labels",
+    "source": "https://www.wsetglobal.com/media/17609/wset_l4wines_specification_en_august-2025.pdf",
+    "printedPages": [
+      12,
+      13
+    ],
+    "outcomes": [
+      "3.1"
+    ],
+    "criteria": [
+      "3.1.6",
+      "3.1.7"
+    ],
+    "scopeInterpretation": "The specification identifies these principal US regions and national/local legislation, geographical indications and label terms; this bounded state/federal comparison fills teaching omitted by the current inventory. Exact thresholds are primary-law teaching decisions, not separately enumerated WSET specification clauses. China numeric labels and universal destination compliance are not required local tasks established by this comparison."
+  },
+  "counts": {
+    "knowledgeItems": 9,
+    "principles": 5,
+    "cases": 1,
+    "caseRoles": 4,
+    "templates": 3,
+    "sourceCitations": 5,
+    "knowledgeItemCitations": 35,
+    "prerequisites": 28
+  },
+  "matrixRouting": [
+    {
+      "rowId": "d3.usa_west",
+      "itemIds": [
+        "ki_d3pacific_ca_origin",
+        "ki_d3pacific_ca_finishing",
+        "ki_d3pacific_or_origin",
+        "ki_d3pacific_or_variety",
+        "ki_d3pacific_wa_origin",
+        "ki_d3pacific_case_release_compare_action",
+        "ki_d3pacific_case_release_compare_reason",
+        "ki_d3pacific_case_release_compare_tradeoff",
+        "ki_d3pacific_case_release_compare_limitation"
+      ],
+      "templateIds": [
+        "qt_d3pacific_principles_5",
+        "qt_d3pacific_case_criteria_1",
+        "qt_d3pacific_case_written_1"
+      ]
+    },
+    {
+      "rowId": "d3.law_and_commercial_connections",
+      "itemIds": [
+        "ki_d3pacific_ca_origin",
+        "ki_d3pacific_ca_finishing",
+        "ki_d3pacific_or_origin",
+        "ki_d3pacific_or_variety",
+        "ki_d3pacific_wa_origin",
+        "ki_d3pacific_case_release_compare_action",
+        "ki_d3pacific_case_release_compare_reason",
+        "ki_d3pacific_case_release_compare_tradeoff",
+        "ki_d3pacific_case_release_compare_limitation"
+      ],
+      "templateIds": [
+        "qt_d3pacific_principles_5",
+        "qt_d3pacific_case_criteria_1",
+        "qt_d3pacific_case_written_1"
+      ]
+    }
+  ],
+  "caseScope": "n_d3pacific_case_release_compare",
+  "existingCredit": [
+    "ki_wset_nw_usa_ava_origin",
+    "ki_d3labels_us_variety",
+    "ki_d3labels_us_vintage"
+  ],
+  "sourceReadEvidence": [
+    {
+      "id": "src_d3pacific_ca_origin",
+      "readMethod": "Focused web search of official contracted CCR publication returned full current section text, including all exceptions and currentness through18 September 2026; direct HTTP challenge and unavailable browser backend were not bypassed.",
+      "oalAuthority": "https://oal.ca.gov/publications/ccr/",
+      "sourceRef": "turn4072search0",
+      "scopeCaveat": "No spirits in principles' ordinary case or fictional lots; exception retained separately. Statewide 100% does not mean 100% AVA or 100% variety."
+    },
+    {
+      "id": "src_d3pacific_or_scope",
+      "readMethod": "Successful ordinary Invoke-WebRequest of official current rule; 2021 amendment and applicability read."
+    },
+    {
+      "id": "src_d3pacific_or_origin",
+      "readMethod": "Successful ordinary Invoke-WebRequest of official current rule; paragraphs 2 and 3 read."
+    },
+    {
+      "id": "src_d3pacific_or_variety",
+      "readMethod": "Web open of current primary official page; ordinary 90% and listed Cabernet Sauvignon 75% exception read."
+    },
+    {
+      "id": "src_d3pacific_wa_origin",
+      "readMethod": "Web open of current primary statute; paragraphs 2, 3 and 5 read, including post-2009 applicability."
+    }
+  ],
+  "caseCalculations": {
+    "A": {
+      "CaliforniaFruit": 97,
+      "ordinaryMinimum": 100,
+      "fails": true
+    },
+    "B": {
+      "AVAOrigin": 94,
+      "whollyOregonAVAminimum": 95,
+      "PinotNoir": 88,
+      "varietyMinimum": 90,
+      "failsBoth": true,
+      "AVAOriginDenominator": "grapes used in production under Oregon rule; not federal finished-wine volume",
+      "PinotNoirDenominator": "wine volume under Oregon variety rule"
+    },
+    "C": {
+      "WashingtonOrigin": 96,
+      "stateMinimum": 95,
+      "clearsOnlyIdentifiedGate": true,
+      "harvestYear": 2025,
+      "applicability": "grapes harvested after31December2009; ordinary unfortified wine, no suspension assumed in fictional premise"
+    },
+    "quoted100BottleCosts": {
+      "A": 1000,
+      "B": 1100,
+      "C": 1300,
+      "paymentPerspective": "buyer purchase outflow; prepayment benefits seller collections while buyer cash is tied up and delivery remains exposed"
+    }
+  },
+  "authorship": "All questions and supplied production/commercial premises are original; current legal prose is paraphrased. Sources establish narrow legal conditions, not fictional record authenticity or market outcomes.",
+  "integration": "Root owns manifest version/includes, WSET scope/progress, matrix integration and full runtime validation. This module does not modify them.",
+  "remaining": {
+    "localTeaching": "No further ordinary Pacific state comparison is required by this bounded task. Cross-border, fortified, nested presentation, destination and real lot compliance are separate limits, not blanket completion blockers.",
+    "external": "Every new item is unverified; qualified factual review and real sensory/learner feedback remain outstanding."
+  }
+}

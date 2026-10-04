@@ -1,0 +1,246 @@
+{
+  "question_templates": [
+    {
+      "id": "qt_d3labels_principles_12",
+      "relation_type": "PRINCIPLE_EXPLANATION",
+      "direction": "forward",
+      "mode": "authored_choice",
+      "variant": "d3labels_principles_12",
+      "prompt_template": "{subject.name}",
+      "parameters": {
+        "item_choices": {
+          "ki_d3labels_us_variety": {
+            "prompt": "What must an ordinary US Vitis vinifera single-variety label demonstrate?",
+            "options": [
+              "For ordinary grape wine under 27 CFR 4.23(b), a single-variety designation requires at least 75% of the wine from that grape, with that qualifying 75% grown in the labelled appellation. An appellation is also required. Exceptions under paragraph(c) and stricter state rules must be checked separately.",
+              "Only 75% from the grape, regardless of where that portion grew.",
+              "An AVA name automatically proves the grape percentage.",
+              "Every US grape wine must contain 100% of the named variety."
+            ],
+            "correctIndex": 0,
+            "explanation": "The grape percentage and origin of the qualifying portion are separate conditions; an origin name alone is insufficient.",
+            "sourceCitationId": "src_d3labels_us_variety"
+          },
+          "ki_d3labels_us_vintage": {
+            "prompt": "How do federal US vintage percentages differ with AVA and other origin labels?",
+            "options": [
+              "Every appellation uses 85% for vintage.",
+              "Under 27 CFR 4.27(a), a vintage claim with a viticultural-area appellation requires at least 95% from the stated harvest year; other appellations require at least 85%. The vintage and grape-origin requirements are separate, and substantiating records and other applicable rules still matter.",
+              "An AVA uses 75% because that is the ordinary grape-variety threshold.",
+              "Any bottle may display a year without an appellation or substantiation."
+            ],
+            "correctIndex": 1,
+            "explanation": "The federal vintage condition is 95% with an AVA and 85% for other appellations; that is not the AVA fruit-origin percentage.",
+            "sourceCitationId": "src_d3labels_us_vintage"
+          },
+          "ki_d3labels_au_variety": {
+            "prompt": "What is the ordinary Australian single-variety blending threshold?",
+            "options": [
+              "75%, borrowing the ordinary US grape rule.",
+              "95%, borrowing the Australian multiple-GI aggregate rule.",
+              "For wine originating in Australia made from multiple varieties, section 25(2) permits a single-variety presentation only when at least 850 mL/L, or 85%, comes from that variety. Recognised names and specified calculation adjustments also apply; the threshold alone does not approve the whole label.",
+              "The variety name is justified solely by the winery's address."
+            ],
+            "correctIndex": 2,
+            "explanation": "The Australian ordinary single-variety gate is 85%; special calculation adjustments and all other labelling duties remain separate.",
+            "sourceCitationId": "src_d3labels_au_blending"
+          },
+          "ki_d3labels_au_gi": {
+            "prompt": "What origin percentage supports one ordinary Australian registered GI claim?",
+            "options": [
+              "A cellar address inside the GI is enough.",
+              "75% because that threshold applies to ordinary Chilean D.O. geography.",
+              "100% for every Australian GI, regardless of presentation.",
+              "Where section 26(2)'s conditions apply—one Australian registered GI with no foreign GI or foreign place name—at least 850 mL/L, or 85%, must come from grapes grown in that GI. Multiple-GI presentation follows different conditions; the named GI does not rank sensory quality."
+            ],
+            "correctIndex": 3,
+            "explanation": "Section 26(2) sets an 85% grape-source gate in this single-GI context; a winery location or quality impression cannot replace it.",
+            "sourceCitationId": "src_d3labels_au_blending"
+          },
+          "ki_d3labels_au_vintage": {
+            "prompt": "What is the ordinary Australian single-vintage percentage?",
+            "options": [
+              "Section 27(2) permits wine to be presented as one vintage when at least 850 mL/L, or 85%, is obtained from grapes harvested in that vintage. The date identifies harvest year, not bottling year; multi-vintage presentation and fortified-wine calculations have separate provisions.",
+              "100% is always necessary for a single vintage.",
+              "85% from the named grape proves the vintage too.",
+              "The year refers to the date when the bottles were filled."
+            ],
+            "correctIndex": 0,
+            "explanation": "The single-vintage gate uses harvest year; origin and grape composition cannot substitute for vintage records.",
+            "sourceCitationId": "src_d3labels_au_blending"
+          },
+          "ki_d3labels_cl_origin": {
+            "prompt": "Which ordinary Chilean D.O. geographical percentage is set by Decree 464?",
+            "options": [
+              "All Chilean geographical and territorial claims use 85%.",
+              "For the ordinary geographical D.O. claims governed by Decree 464 article 3(a), at least 75% of the wine must be produced from grapes from the named place. Other category, permitted-grape, certification and domestic-packaging conditions remain; Secano Interior and additional territorial terms have distinct rules.",
+              "A winery address establishes the named fruit origin.",
+              "An ordinary D.O. name proves a superior tasting score."
+            ],
+            "correctIndex": 1,
+            "explanation": "The ordinary D.O. geographical gate is 75%, while special and supplementary terms and remaining category conditions need separate checks.",
+            "sourceCitationId": "src_atlas_cl_zonation"
+          },
+          "ki_d3labels_cl_variety": {
+            "prompt": "What supports a Chilean D.O. single-variety claim in the ordinary case?",
+            "options": [
+              "The named grape always requires 85% because Chile exports wine.",
+              "Any grape is permitted if it supplies 75%.",
+              "Decree 464 article 4(a) requires at least 75% of the named grape for a D.O. varietal claim, and that grape must be eligible under the applicable ordinary or Secano Interior provisions. A permitted name and enough grape do not by themselves establish all origin or label conditions.",
+              "The D.O. place name makes grape records unnecessary."
+            ],
+            "correctIndex": 2,
+            "explanation": "Both the percentage and the applicable eligible-grape provision matter; destination rules must be checked separately from this domestic rule.",
+            "sourceCitationId": "src_atlas_cl_zonation"
+          },
+          "ki_d3labels_cl_vintage": {
+            "prompt": "What is the domestic single-vintage minimum for a Chilean D.O. wine?",
+            "options": [
+              "A vintage claim guarantees 75% from the named region without origin records.",
+              "Every destination must accept this 75% vintage rule.",
+              "The indicated year identifies bottling rather than harvest.",
+              "Decree 464 article 5 requires at least 75% from the indicated harvest year for a D.O. vintage claim. That domestic vintage condition differs from supplementary territorial claims and may not suffice for a particular export destination."
+            ],
+            "correctIndex": 3,
+            "explanation": "Article 5 concerns harvest-year composition; other claims and destination requirements remain separate.",
+            "sourceCitationId": "src_atlas_cl_zonation"
+          },
+          "ki_d3labels_cl_territorial": {
+            "prompt": "Why distinguish Costa, Andes and Entre Cordilleras from the basic Chilean D.O. gate?",
+            "options": [
+              "Article 5 bis sets at least 85% by volume from eligible areas with the stated territorial condition, declared to SAG, for Costa, Andes or Entre Cordilleras. These supplementary terms require wine produced and packaged in Chile; basic D.O. percentages do not automatically justify them.",
+              "Meeting 75% basic D.O. geography automatically authorises Costa.",
+              "Any vineyard within a kilometre of water qualifies as Costa.",
+              "The supplementary term promises a fixed flavour or high quality."
+            ],
+            "correctIndex": 0,
+            "explanation": "A supplementary territorial term has its own eligible-area, declaration,85% and production/packaging conditions.",
+            "sourceCitationId": "src_atlas_cl_zonation"
+          },
+          "ki_d3labels_za_origin_exceptions": {
+            "prompt": "How should the South African Wine of Origin rule be read?",
+            "options": [
+              "85% local grapes always authorises Wine of Origin.",
+              "Section 9(1)(a) requires origin wine solely from grapes harvested in its named production area, subject to 9(2)'s specified deeming provisions. Check those provisions and certified records rather than silently treating cellar location or an 85% varietal percentage as origin entitlement.",
+              "A winery address inside a ward establishes grape provenance.",
+              "Every addition automatically defeats origin without reading 9(2)."
+            ],
+            "correctIndex": 1,
+            "explanation": "Sole-area grape sourcing and the scheme's specific deeming conditions must be read together;85% cultivar or vintage rules are separate.",
+            "sourceCitationId": "src_d3labels_za_scheme"
+          },
+          "ki_d3labels_za_cultivar": {
+            "prompt": "Which South African cultivar percentages must be distinguished?",
+            "options": [
+              "85% grape mass always suffices for co-crushed different cultivars.",
+              "The origin rule means all cultivar wines must be 100% one grape.",
+              "For current ordinary cultivar wine, section 10(1)(a)(ii) requires at least 85% of the contents from the named cultivar. If different cultivars are combined before, during or directly after crushing, at least 90% of grape mass must be that cultivar. Section 10's other conditions and deeming provisions still apply.",
+              "The former pre 2006 finished-wine 75% threshold is current."
+            ],
+            "correctIndex": 2,
+            "explanation": "The current contents 85% condition and qualifying co-crush mass 90% condition are distinct; denominators and process timing matter.",
+            "sourceCitationId": "src_d3labels_za_scheme"
+          },
+          "ki_d3labels_za_vintage": {
+            "prompt": "What current South African vintage condition is separate from origin?",
+            "options": [
+              "The named-year requirement is always 100%.",
+              "The 85% vintage condition permits 15% nonlocal fruit regardless of origin.",
+              "The old pre 2006 minimum 75% remains the current rule.",
+              "Under section 11(1)(a)(ii), at least 85% of a current vintage wine's contents must come from grapes harvested in the named year, subject to 11(2). Ordinary wine also requires the applicable origin and certification conditions. A year or certification mark does not establish one sensory style."
+            ],
+            "correctIndex": 3,
+            "explanation": "Vintage composition is a separate 85% condition with specified provisions; it cannot be used as a substitute origin rule.",
+            "sourceCitationId": "src_d3labels_za_scheme"
+          }
+        }
+      }
+    },
+    {
+      "id": "qt_d3labels_case_criteria_4",
+      "relation_type": "CASE_ACTION",
+      "direction": "forward",
+      "mode": "case_criteria",
+      "variant": "d3labels_case_criteria_4",
+      "prompt_template": "{subject.name}",
+      "parameters": {
+        "scope_node_ids": [
+          "n_d3labels_case_us_ava_release",
+          "n_d3labels_case_au_single_claim",
+          "n_d3labels_case_cl_territorial_release",
+          "n_d3labels_case_za_cultivar_release"
+        ],
+        "scenario_prompts": {
+          "n_d3labels_case_us_ava_release": "A fictional New York producer proposes 'Finger Lakes Riesling 2025' for an ordinary Vitis vinifera still wine sold under federal US rules. Batch records supplied for this exercise assign 90% to grapes grown within the named approved AVA,80% to Riesling with all of that qualifying portion grown within it, and 92% to grapes harvested in 2025. It was fully finished in New York, with no class/type-altering exception invoked. The records are invented; their authenticity and any stricter state or other label rules are not established. A shop offers a 300-bottle pilot after full compliant label review. Reprinting costs a fictional $250 and delays dispatch seven days; an early dispatch penalty is $400. Compare the separate federal origin, variety and vintage gates, propose a conditional release, and assess the tradeoff. No actual label approval or sensory-quality evidence is supplied.",
+          "n_d3labels_case_au_single_claim": "A fictional Australian cellar proposes one registered Australian GI, Chardonnay and a 2025 harvest date on an ordinary still wine. No foreign GI/place name, excluded sweetening/culture allowance or fortifying spirit affects this exercise. Supplied batch records show 87% from the claimed GI,82% Chardonnay and 86% from 2025. All proportions and trade observations are invented. A buyer will reserve 500 bottles if a compliant approved label meets its Chardonnay brief; revising the grape presentation requires buyer review and a fictional A$180 reprint. Reblending would occupy limited tank space and require fresh analyses with unknown cost and style. Compare the three composition gates, a conditional response, style/quality uncertainty and commercial consequences. Current complete records, other obligations and label approval remain absent.",
+          "n_d3labels_case_cl_territorial_release": "A fictional Chilean ordinary D.O. wine is proposed for domestic sale with one eligible grape, a named article 1 origin, a 2025 vintage and Costa as a supplementary term. Supplied fictional records show 80% grapes from the named D.O.,80% from the eligible variety,80% from 2025 and 82% by volume from the eligible areas with the Costa condition, declared to SAG. Production and packaging occurred in Chile. Assume no Secano Interior claim; category records and remaining label conditions still need full review. A specialist shop will reconsider a 200-bottle pilot if the supplementary term is removed after compliant review, but asks for a repeat sample. A new label costs a fictional CLP 80,000; an unconfirmed export enquiry gives no destination or payment terms. Compare the basic domestic composition gates, territorial claim, product evidence and conditional route.",
+          "n_d3labels_case_za_cultivar_release": "A fictional South African cellar proposes an ordinary current Wine of Origin Chenin Blanc 2025. All source grapes came from the named demarcated area, and 88% of the finished wine derives from 2025 grapes. Different cultivars were combined directly after crushing; Chenin formed 88% of that combined grape mass, although separate finished-wine records assign 87% of the wine contents to Chenin. No deemed additions, fortification or alcohol-free/dealcoholised/low-alcohol exception is invoked. Percentages and observations are invented and certification is not supplied. A retailer provisionally requests 400 bottles subject to full lawful label and quality approval. A revised supported presentation could require an invented R 1,500 reprint and a new tasting; the buyer might reject a blend. Compare origin, vintage and cultivar conditions, the relevant denominator and a conditional commercial response."
+        },
+        "distractors": {
+          "n_d3labels_case_us_ava_release": [
+            {
+              "summary": "Approve all three claims because 92% vintage exceeds the 85% AVA-origin minimum.",
+              "explanation": "Vintage 95% and origin 85% are different federal gates; passing origin does not pass vintage."
+            },
+            {
+              "summary": "Replace the AVA with a county name and dispatch immediately without reviewing county eligibility, state rules or the buyer's agreement.",
+              "explanation": "A different appellation needs its own evidence and complete review; the exercise gives no automatic alternative-label approval."
+            }
+          ],
+          "n_d3labels_case_au_single_claim": [
+            {
+              "summary": "Approve Chardonnay because both the GI and vintage portions exceed 85%.",
+              "explanation": "Each claim requires its own compositional evidence; passing two does not cure the failed grape gate."
+            },
+            {
+              "summary": "Add more Chardonnay and guarantee higher quality and profit without a trial, cost or buyer review.",
+              "explanation": "Changing a blend may change style, costs and market fit; grape identity does not guarantee quality or profit."
+            }
+          ],
+          "n_d3labels_case_cl_territorial_release": [
+            {
+              "summary": "Use Costa because 82% is above the ordinary 75% origin threshold.",
+              "explanation": "Costa has a distinct 85% supplementary gate and eligible-area/declaration conditions."
+            },
+            {
+              "summary": "Approve the export offer because the domestic percentages must be sufficient worldwide.",
+              "explanation": "Domestic composition rules do not establish destination acceptance, demand, credit or contract terms."
+            }
+          ],
+          "n_d3labels_case_za_cultivar_release": [
+            {
+              "summary": "Approve Chenin Blanc because 87% of finished-wine contents exceeds 85%, ignoring the co-crush mass condition.",
+              "explanation": "The process triggers a distinct 90% grape-mass condition; finished-wine 85% alone is insufficient."
+            },
+            {
+              "summary": "Use 88% vintage as proof that origin, cultivar and all label requirements are satisfied.",
+              "explanation": "Vintage, origin, cultivar, certification and sensory suitability have separate evidential requirements."
+            }
+          ]
+        }
+      }
+    },
+    {
+      "id": "qt_d3labels_case_written_4",
+      "relation_type": "CASE_ACTION",
+      "direction": "forward",
+      "mode": "short_answer",
+      "variant": "d3labels_case_written_4",
+      "prompt_template": "{subject.name}",
+      "parameters": {
+        "scope_node_ids": [
+          "n_d3labels_case_us_ava_release",
+          "n_d3labels_case_au_single_claim",
+          "n_d3labels_case_cl_territorial_release",
+          "n_d3labels_case_za_cultivar_release"
+        ],
+        "key_points": {
+          "CASE_ACTION": "Conditional label and buyer decision",
+          "CASE_REASON": "Separately constrained current-law composition gates",
+          "CASE_TRADEOFF": "Supplied cost, delay and product-fit consequences",
+          "CASE_LIMITATION": "Whole-label approval, records, market and quality evidence"
+        }
+      }
+    }
+  ]
+}

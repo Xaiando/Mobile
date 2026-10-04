@@ -828,7 +828,7 @@ try {
           // a wheel event. It still clips the control to the same body bounds.
           if (!['scroll', 'auto', 'hidden', 'clip'].includes(overflow)) continue;
           const body = parent.getBoundingClientRect();
-          if (body.width <= 0 || body.height <= rect.height) continue;
+          if (body.width <= 0 || body.height <= 0) continue;
           return {
             x: rect.x, y: rect.y, width: rect.width, height: rect.height,
             bodyTop: body.top, bodyBottom: body.bottom,
@@ -840,25 +840,156 @@ try {
         return null;
       });
     }
-    async function gutterReveal(locator, { direction = 1, steps = 70, writingBody = false } = {}) {
+    async function writingResponseBounds(locator) {
+      return locator.evaluateAll(elements => {
+        const element = elements[0];
+        if (!element) return null;
+        const describe = node => {
+          const r = node.getBoundingClientRect();
+          return { x: r.x, y: r.y, width: r.width, height: r.height,
+            top: r.top, bottom: r.bottom, left: r.left, right: r.right };
+        };
+        const rect = describe(element);
+        let owner = null;
+        let counter = null;
+        for (let parent = element.parentElement; parent &&
+          parent.tagName !== 'FLT-SEMANTICS-HOST'; parent = parent.parentElement) {
+          // A neighbour's counter cannot establish this question's editable end.
+          const inputs = [...parent.querySelectorAll('textarea')];
+          if (inputs.some(node => node !== element)) break;
+          const counters = [...parent.querySelectorAll('span')]
+            .filter(node => /^\d+ characters remaining$/.test(node.textContent?.trim() ?? ''));
+          if (counters.length === 1) { owner = parent; counter = counters[0]; break; }
+          if (counters.length > 1) break;
+        }
+        let clippingBody = null;
+        for (let parent = element.parentElement; parent; parent = parent.parentElement) {
+          const style = getComputedStyle(parent);
+          if (!['scroll', 'auto', 'hidden', 'clip'].includes(style.overflowY)) continue;
+          const body = describe(parent);
+          // The merged prompt can be taller than this body. It still clips here.
+          if (body.width <= 0 || body.height <= 0) continue;
+          clippingBody = { ...body, id: parent.id, tag: parent.tagName,
+            overflowY: style.overflowY, overflowX: style.overflowX };
+          break;
+        }
+        const counterRect = counter ? describe(counter) : null;
+        // Saved screenshots place the editable border about 14px above the
+        // owned counter. A 24px offset lands inside that lower editable area.
+        const pointer = counterRect ? {
+          x: rect.left + rect.width / 2, y: counterRect.top - 24,
+        } : null;
+        const lowerStrip = pointer ? { left: pointer.x - 4, right: pointer.x + 4,
+          top: pointer.y - 8, bottom: pointer.y + 8 } : null;
+        const inside = (part, body) => part && body &&
+          part.left >= body.left && part.right <= body.right &&
+          part.top >= body.top && part.bottom <= body.bottom;
+        const viewport = { left: 0, top: 0, right: innerWidth, bottom: innerHeight };
+        const counterInside = counterRect && counterRect.width > 0 && counterRect.height > 0 &&
+          inside(counterRect, clippingBody) && inside(counterRect, viewport);
+        const lowerInside = lowerStrip && rect.width > 0 && rect.height > 0 &&
+          inside(lowerStrip, clippingBody) && inside(lowerStrip, viewport) && inside(lowerStrip, rect);
+        return { x: rect.x, y: rect.y, width: rect.width, height: rect.height,
+          bodyTop: clippingBody?.top, bodyBottom: clippingBody?.bottom, clippingBody,
+          counter: counter ? { text: counter.textContent?.trim(), rect: counterRect } : null,
+          counterOwner: owner ? { id: owner.id, tag: owner.tagName,
+            responseCount: owner.querySelectorAll('textarea').length,
+            responseLabel: element.getAttribute('aria-label') } : null,
+          pointer, lowerStrip, counterInside: Boolean(counterInside), lowerInside: Boolean(lowerInside),
+          responseReady: Boolean(counterInside && lowerInside && !element.disabled) };
+      });
+    }
+    async function activateWritingResponse(locator) {
+      const measured = await writingResponseBounds(locator);
+      assert(measured?.responseReady && measured.counterOwner?.responseCount === 1,
+        'Running response lacks a visible owned counter and editable lower area during ' + stageName +
+        ': ' + JSON.stringify(measured));
+      const point = measured.pointer;
+      assert(point.x > measured.clippingBody.left && point.x < measured.clippingBody.right &&
+        point.y > measured.clippingBody.top && point.y < measured.clippingBody.bottom,
+        'Running response pointer would fall outside its nearest clipping body.');
+      await page.mouse.click(point.x, point.y);
+      const observation = { stage: stageName, at: new Date().toISOString(),
+        label: await locator.getAttribute('aria-label'), point, ownership: measured.counterOwner,
+        measured, afterPointer: await writingResponseBounds(locator) };
+      result.writingPointerDiagnostics ??= [];
+      result.writingPointerDiagnostics.push(observation);
+      console.log('WRITING_POINTER_DIAGNOSTIC ' + JSON.stringify(observation));
+      // Existing focus/read/trusted keyboard paths and their assertions follow.
+    }
+    async function captureWritingGeometry(locator) {
+      return locator.evaluateAll(elements => elements.map(element => {
+        const describeRect = node => {
+          const rect = node.getBoundingClientRect();
+          return { x: rect.x, y: rect.y, width: rect.width, height: rect.height,
+            top: rect.top, bottom: rect.bottom, left: rect.left, right: rect.right };
+        };
+        const ancestors = [];
+        for (let parent = element.parentElement; parent; parent = parent.parentElement) {
+          const style = getComputedStyle(parent);
+          if (!['scroll', 'auto', 'hidden', 'clip'].includes(style.overflowY) &&
+            !['scroll', 'auto', 'hidden', 'clip'].includes(style.overflowX)) continue;
+          ancestors.push({ tag: parent.tagName, id: parent.id, rect: describeRect(parent),
+            overflowY: style.overflowY, overflowX: style.overflowX,
+            scrollTop: parent.scrollTop, scrollLeft: parent.scrollLeft,
+            responseLabels: [...parent.querySelectorAll('textarea')].map(node => node.getAttribute('aria-label')),
+            counters: [...parent.querySelectorAll('span')].map(node => node.textContent?.trim())
+              .filter(value => /^\d+ characters remaining$/.test(value ?? '')) });
+        }
+        const owner = element.parentElement;
+        return { tag: element.tagName, label: element.getAttribute('aria-label'),
+          rect: describeRect(element), focused: element.matches(':focus'), ancestors,
+          immediateOwner: owner ? { tag: owner.tagName, id: owner.id,
+            responseCount: owner.querySelectorAll('textarea').length,
+            counters: [...owner.querySelectorAll('span')].map(node => node.textContent?.trim())
+              .filter(value => /^\d+ characters remaining$/.test(value ?? '')) } : null };
+      }));
+    }
+    async function gutterReveal(locator, { direction = 1, steps = 70, writingBody = false, writingResponse = false } = {}) {
+      let lastMatchedControls = [];
+      let lastMatchedAt = null;
       for (let step = 0; step <= steps; step++) {
         for (let match = 0, count = await locator.count(); match < count; match++) {
           const candidate = locator.nth(match);
-          if (!writingBody && await onScreen(candidate)) return candidate;
-          if (writingBody) {
-            const before = await writingBodyBounds(candidate);
-            if (before?.fullyInside) {
+          if (!writingBody && !writingResponse && await onScreen(candidate)) return candidate;
+          if (writingBody || writingResponse) {
+            const measured = await captureWritingGeometry(candidate);
+            if (measured.length) {
+              lastMatchedControls = measured;
+              lastMatchedAt = new Date().toISOString();
+            }
+            const before = writingResponse ? await writingResponseBounds(candidate) :
+              await writingBodyBounds(candidate);
+            if (writingResponse ? before?.responseReady : before?.fullyInside) {
               await page.waitForTimeout(200);
-              const after = await writingBodyBounds(candidate);
-              if (after?.fullyInside && ['x', 'y', 'width', 'height', 'bodyTop', 'bodyBottom']
-                .every(key => Math.abs(after[key] - before[key]) <= 1)) return candidate;
+              const after = writingResponse ? await writingResponseBounds(candidate) :
+                await writingBodyBounds(candidate);
+              const stableRect = after && ['x', 'y', 'width', 'height', 'bodyTop', 'bodyBottom']
+                .every(key => Math.abs(after[key] - before[key]) <= 1);
+              const stableEditableEnd = !writingResponse || (after?.responseReady &&
+                after.counterOwner?.id === before.counterOwner?.id &&
+                ['x', 'y'].every(key => Math.abs(after.pointer[key] - before.pointer[key]) <= 1) &&
+                ['top', 'bottom', 'left', 'right'].every(key =>
+                  Math.abs(after.counter.rect[key] - before.counter.rect[key]) <= 1));
+              if (stableRect && stableEditableEnd &&
+                (writingResponse ? after?.responseReady : after?.fullyInside)) return candidate;
             }
           }
         }
         if (step === steps) break;
         await page.mouse.move(8, viewport.height / 2);
-        await page.mouse.wheel(0, direction * (writingBody ? 160 : 540));
+        await page.mouse.wheel(0, direction * (writingBody || writingResponse ? 160 : 540));
         await page.waitForTimeout(120);
+      }
+      if (writingBody || writingResponse) {
+        const currentMatchedControls = await captureWritingGeometry(locator);
+        const matchedControls = currentMatchedControls.length ? currentMatchedControls : lastMatchedControls;
+        const observation = { stage: stageName, at: new Date().toISOString(),
+          locator: String(locator), currentMatchedControls, matchedControls, lastMatchedAt,
+          responseBounds: writingResponse ? await writingResponseBounds(locator) : null };
+        result.writingGeometryFailures ??= [];
+        result.writingGeometryFailures.push(observation);
+        console.log('WRITING_GEOMETRY_FAILURE ' + JSON.stringify(observation));
       }
       throw new Error('Control could not be revealed from the list gutter during ' + stageName + ': ' + locator);
     }
@@ -879,9 +1010,11 @@ try {
     async function writingField(question, { review = false } = {}) {
       await gutterTop();
       if (!review) {
-        return gutterReveal(page.getByRole('textbox', {
+        const field = await gutterReveal(page.getByRole('textbox', {
           name: new RegExp('^Prompt \\d+\\s+' + escapeRegex(question.prompt) + '\\s+Your explanation$'),
-        }));
+        }), { writingResponse: true });
+        await activateWritingResponse(field);
+        return field;
       }
       return gutterReveal(reviewSection(question).getByRole('textbox', {
         name: 'What would improve this answer?', exact: true,
@@ -948,36 +1081,100 @@ try {
 
     await navigation('Home');
     await chooseTrack('WSET Level 4 Diploma');
-    for (const unitId of ['D4', 'D5', 'D3']) {
+    const verifyD3Long = process.env.SOMMELIER_VERIFY_D3_LONG === '1';
+    const targetQuestionIds = ['d3_candidate_new_york_sites',
+      'd3_candidate_riesling_compare', 'd3_candidate_new_world_routes'];
+    const reviewedCounts = new Map();
+    if (verifyD3Long) result.d3LongPackVerification = {
+      requested: true, maxAttempts: 6, attemptCount: 0, status: 'pending',
+      targetQuestionIds, attempts: [] };
+    async function runWritingAttempt(unitId, iteration = 1) {
+      const participationBefore = reviewedCounts.get(unitId) ?? 0;
+      const participationAfter = participationBefore + 1;
+      if (unitId === 'D3' && verifyD3Long) {
+        result.d3LongPackVerification.attemptCount = iteration;
+        result.d3LongPackVerification.status = 'running';
+      }
       const unit = diploma.units.find(row => row.id === unitId);
-      const preset = bank.units.find(row => row.unitId === unitId);
       const appDuration = unitId === 'D3' ? 3600 : 2700;
-      assert(unit && preset?.durationSeconds === appDuration && preset.questions.length === 3 &&
-        preset.questions.every(question => question.criteria.length === 4),
-      `${unitId} has no complete ${appDuration / 60}-minute app writing preset.`);
-      const prose = new Map(preset.questions.map(question => [question.id,
-        `UI smoke ${unitId} ${question.id}: compare the supplied production, style and ` +
-        'stock evidence before a conditional decision. Actual wines and missing records still need review.']));
-      const improvements = new Map(preset.questions.map(question => [question.id,
-        `I need a fuller sourced comparison for ${question.id}; this short saved draft ` +
-        'does not yet justify the checklist criteria.']));
+      const candidates = [...bank.units, ...(bank.variants ?? [])]
+        .filter(row => row.unitId === unitId);
+      assert(unit && candidates.length > 0 && candidates.every(row =>
+        row.durationSeconds === appDuration && row.questions.length === 3 &&
+        row.questions.every(question => question.criteria.length === 4)),
+      `${unitId} has an incomplete writing pack.`);
 
       await expandUnit(unit);
-      await reviewedParticipation(unit, 0);
+      await reviewedParticipation(unit, participationBefore);
       await openWriting(unit);
       await gutterTap(`Start ${unitId} writing`);
       await gutterTop();
       const before = await secondsRemaining();
       const deadline = Date.now() + before * 1000;
       assert(before > appDuration - 100 && before <= appDuration, `${unitId} did not start its ${appDuration / 60}-minute timer.`);
+      const normalize = value => value.replace(/\s+/g, ' ').trim();
+      const displayedPrompts = [];
+      for (let ordinal = 1; ordinal <= 3; ordinal++) {
+        await gutterTop();
+        const field = await gutterReveal(page.getByRole('textbox', {
+          name: new RegExp(`^Prompt ${ordinal}\\s+[\\s\\S]+\\s+Your explanation$`),
+        }));
+        const label = await field.getAttribute('aria-label');
+        const match = label?.match(new RegExp(
+          `^Prompt ${ordinal}\\s+([\\s\\S]+)\\s+Your explanation$`));
+        assert(match, `${unitId} Prompt ${ordinal} lacks its question identity.`);
+        displayedPrompts.push(normalize(match[1]));
+      }
+      const matches = candidates.filter(candidate =>
+        candidate.questions.every((question, index) =>
+          normalize(question.prompt) === displayedPrompts[index]));
+      assert(matches.length === 1,
+        `${unitId} displayed an unknown, ambiguous or mixed writing pack.`);
+      const preset = matches[0];
+      result.selectedWritingPacks ??= [];
+      result.selectedWritingPacks.push({ unitId, iteration, attemptCount: participationAfter, title: preset.title,
+        questionIds: preset.questions.map(question => question.id) });
+      // Extra repetitions use distinct text so an older same-pack history cannot pass restoration.
+      const attemptMarker = iteration === 1 ? '' : ' Attempt ' + iteration + '.';
+      const prose = new Map(preset.questions.map(question => [question.id,
+        `UI smoke ${unitId} ${question.id}: compare the supplied production, style and ` +
+        'stock evidence before a conditional decision. Actual wines and missing records still need review.' + attemptMarker]));
+      const improvements = new Map(preset.questions.map(question => [question.id,
+        `I need a fuller sourced comparison for ${question.id}; this short saved draft ` +
+        'does not yet justify the checklist criteria.' + attemptMarker]));
       assert(await named(preset.questions[0].criteria[0].text).count() === 0,
         `${unitId} exposed self-review criteria before writing ended.`);
       for (const question of preset.questions) {
         const field = await writingField(question);
+        const boundsBefore = await writingBodyBounds(field);
         await replaceText(field, prose.get(question.id));
+        const expectedRemaining = 20000 - prose.get(question.id).length;
+        const renderedRemaining = async () => field.evaluate(element => {
+          for (let parent = element.parentElement; parent &&
+            parent.tagName !== 'FLT-SEMANTICS-HOST'; parent = parent.parentElement) {
+            // A neighbouring question's counter cannot establish this field's delivery.
+            if ([...parent.querySelectorAll('textarea')].some(node => node !== element)) return null;
+            const counters = [...parent.querySelectorAll('span')]
+              .map(node => node.textContent?.trim())
+              .filter(value => /^\d+ characters remaining$/.test(value ?? ''));
+            if (counters.length === 1) return counters[0];
+          }
+          return null;
+        });
+        await until(async () => await renderedRemaining() ===
+          `${expectedRemaining} characters remaining`,
+        `${unitId} ${question.id} did not update Flutter's rendered character counter.`, actionTimeout);
+        const observation = { unitId, iteration, questionId: question.id, expectedRemaining,
+          renderedCounter: await renderedRemaining(), boundsBefore,
+          boundsAfter: await writingBodyBounds(field), at: new Date().toISOString() };
+        result.writingDeliveryDiagnostics ??= [];
+        result.writingDeliveryDiagnostics.push(observation);
+        console.log('WRITING_DELIVERY_DIAGNOSTIC ' + JSON.stringify(observation));
+        if (unitId === 'D3') await page.screenshot({
+          path: path.join(output, '11-attempt-' + iteration + '-' + question.id + '-after-typing.png') });
       }
       await leaveWriting(unit);
-      await reviewedParticipation(unit, 0);
+      await reviewedParticipation(unit, participationBefore);
       await closeUnit(unit);
       await reload();
       await visible('Home', startupTimeout);
@@ -985,7 +1182,7 @@ try {
         `${unitId} writing did not retain the selected Diploma track.`, loadedTimeout);
 
       await expandUnit(unit);
-      await reviewedParticipation(unit, 0);
+      await reviewedParticipation(unit, participationBefore);
       await openWriting(unit);
       const after = await secondsRemaining();
       assert(after < before && Math.abs(Date.now() + after * 1000 - deadline) <= 3000,
@@ -1037,21 +1234,25 @@ try {
       await visible('All three responses self-reviewed. This is participation, not a grade or pass.');
       await screenshot(`11-writing-${unitId.toLowerCase()}-reviewed`);
       await leaveWriting(unit);
-      await reviewedParticipation(unit, 1);
+      await reviewedParticipation(unit, participationAfter);
       await closeUnit(unit);
       await reload();
       await visible('Home', startupTimeout);
 
       await expandUnit(unit);
-      await reviewedParticipation(unit, 1);
+      await reviewedParticipation(unit, participationAfter);
       await openWriting(unit);
       await visible(`Start ${unitId} writing`);
       await gutterTap('Self-reviewed practice', { prefix: true });
-      // Resuming history also loads its controls asynchronously before the list
-      // settles. Observe the saved review before scrolling to its status text.
-      const resumedReviewCriterion = page.getByRole('group', {
-        name: /^Prompt \d+\s+[\s\S]*Self-review:/,
-      }).getByRole('checkbox').first();
+      // Resuming history loads a saved snapshot, but its first checkbox may be
+      // below a long prompt and absent from Flutter's lazy viewport semantics.
+      // Observe the saved reviewed status, then genuinely reveal the exact
+      // first question's criterion before retaining the enabled-state check.
+      await visible('All three responses self-reviewed. This is participation, not a grade or pass.');
+      await gutterTop();
+      const resumedReviewCriterion = reviewSection(preset.questions[0])
+        .getByRole('checkbox').first();
+      await gutterReveal(resumedReviewCriterion, { writingBody: true });
       await until(async () => await resumedReviewCriterion.isVisible() &&
         await resumedReviewCriterion.isEnabled(),
       `${unitId} did not load its saved self-reviewed writing history.`, actionTimeout);
@@ -1064,15 +1265,40 @@ try {
           `${unitId} did not restore ${question.id}'s explicit self-review exactly.`);
       }
       await leaveWriting(unit);
-      await reviewedParticipation(unit, 1);
+      await reviewedParticipation(unit, participationAfter);
       await closeUnit(unit);
       await checkRuntimeMessages();
-      const writtenResult = { unit: unitId,
+      const writtenResult = { unit: unitId, iteration, title: preset.title,
+        questionIds: preset.questions.map(question => question.id),
         durationSeconds: preset.durationSeconds, responsesRestored: 3,
         selfReviewsRestored: 3, absoluteDeadlineRestored: true,
-        reviewedParticipation: 1, appPresetQualified: true };
+        reviewedParticipation: participationAfter, appPresetQualified: true };
       if (unitId === 'D3') result.assertions.d3RegionalWriting = writtenResult;
       else result.assertions.diplomaProductWriting.push(writtenResult);
+      reviewedCounts.set(unitId, participationAfter);
+      return writtenResult;
+    }
+    const isLongPack = attempt => attempt.questionIds.length === targetQuestionIds.length &&
+      attempt.questionIds.every((id, index) => id === targetQuestionIds[index]);
+    for (const unitId of ['D4', 'D5', 'D3']) {
+      const firstAttempt = await runWritingAttempt(unitId, 1);
+      if (unitId !== 'D3' || !verifyD3Long) continue;
+      result.d3LongPackVerification.attempts.push(firstAttempt);
+      let targetPassed = isLongPack(firstAttempt);
+      for (let iteration = 2; !targetPassed && iteration <= 6; iteration++) {
+        // Every actual random draw receives the complete existing lifecycle;
+        // none is abandoned, filtered, or counted without persistence/history proof.
+        const attempt = await runWritingAttempt('D3', iteration);
+        result.d3LongPackVerification.attempts.push(attempt);
+        targetPassed = isLongPack(attempt);
+      }
+      result.d3LongPackVerification.status = targetPassed ? 'passed' : 'unknown_target_not_drawn';
+      if (!targetPassed) {
+        throw new Error('D3 long-pack verification is unknown: the target ordered question IDs ' +
+          targetQuestionIds.join(', ') + ' were not drawn in six fully tested real UI attempts. ' +
+          'Observed packs: ' + result.d3LongPackVerification.attempts
+            .map(attempt => attempt.questionIds.join(', ')).join(' | '));
+      }
     }
   });
   await stage('12-d3-flight-draft-and-saved-history', async () => {
@@ -1827,6 +2053,445 @@ try {
       boundary: 'Browser UI durability only; synthetic prose does not establish physical tasting or service technique.',
     };
   });
+  await stage('14-d3-timed-six-wine-partial-durability', async () => {
+    const loadedTimeout = 30_000;
+    const durationSeconds = 5400;
+    const diploma = scope.levels.find(level => level.certificationId === 'WSET_L4');
+    const unit = diploma.units.find(row => row.id === 'D3');
+    const entry = 'Timed six-wine D3 practice';
+    const descriptions = new Map([
+      [0, 'Timed browser Wine 1: distinct private draft; no actual wine was tasted or evaluated.'],
+      [5, 'Timed browser Wine 6: separate saved evidence; no physical acknowledgement or tasting grade.'],
+    ]);
+    const countText = 'Reviewed timed D3 papers: 0 grouped · 0 mixed. ' +
+      'Self-reviewed participation, not a tasting grade or unit pass.';
+    async function paperTop() {
+      await page.mouse.move(8, viewport.height / 2);
+      await page.mouse.wheel(0, -100_000);
+      await page.waitForTimeout(200);
+    }
+    async function paperBounds(locator) {
+      return locator.first().evaluateAll(elements => {
+        const element = elements[0]; if (!element) return null;
+        const r = element.getBoundingClientRect();
+        let body = { x: 0, y: 0, width: innerWidth, height: innerHeight };
+        const clips = [];
+        for (let ancestor = element.parentElement; ancestor; ancestor = ancestor.parentElement) {
+          const style = getComputedStyle(ancestor), b = ancestor.getBoundingClientRect();
+          if (/(hidden|clip|auto|scroll)/.test(style.overflow + ' ' + style.overflowY) &&
+              b.width > 0 && b.height > 0) {
+            clips.push({ x: b.x, y: b.y, width: b.width, height: b.height });
+            const left = Math.max(body.x, b.x), top = Math.max(body.y, b.y);
+            const right = Math.min(body.x + body.width, b.right), bottom = Math.min(body.y + body.height, b.bottom);
+            body = { x: left, y: top, width: right - left, height: bottom - top };
+          }
+        }
+        return { box: { x: r.x, y: r.y, width: r.width, height: r.height }, body, clips };
+      });
+    }
+    async function paperReveal(locator, { direction = 1, whole = false, steps = 70 } = {}) {
+      for (let step = 0; step <= steps; step++) {
+        for (let match = 0, count = await locator.count(); match < count; match++) {
+          const target = locator.nth(match), observed = await paperBounds(target);
+          if (!observed) continue;
+          const { box, body } = observed;
+          const visible = box.width > 0 && box.height > 0 && body.width > 0 && body.height > 0 &&
+            (whole ? box.x >= body.x && box.y >= body.y && box.x + box.width <= body.x + body.width &&
+              box.y + box.height <= body.y + body.height :
+              box.x + box.width / 2 >= body.x && box.x + box.width / 2 < body.x + body.width &&
+              box.y + box.height / 2 >= body.y && box.y + box.height / 2 < body.y + body.height);
+          if (visible) return target;
+        }
+        if (step === steps) break;
+        await page.mouse.move(8, viewport.height / 2);
+        await page.mouse.wheel(0, direction * 160);
+        await page.waitForTimeout(120);
+      }
+      throw new Error('Timed-paper control could not be revealed: ' + locator +
+        ' bounds=' + JSON.stringify(await paperBounds(locator)));
+    }
+    async function paperTap(label, options = {}) {
+      await (await paperReveal(named(label, options), { ...options, whole: true })).click({ timeout: actionTimeout });
+    }
+    async function noParticipation() {
+      const owner = page.getByRole('group', { name: new RegExp('^' + escapeRegex(diploma.title) + '(?:\\s|$)') });
+      await until(async () => await text(countText).count() > 0 ||
+        (await owner.first().getAttribute('aria-label'))?.includes(countText),
+      'A partial timed D3 paper granted reviewed participation.', loadedTimeout);
+    }
+    async function openPaper() {
+      await openHomeAction('View WSET progress', 'WSET progress');
+      await paperTop();
+      await paperTap(unit.id + ' · ' + unit.title, { prefix: true });
+      await paperReveal(named(entry));
+      await noParticipation();
+      await paperTap(entry);
+      await page.getByRole('heading', { name: entry, exact: true })
+        .waitFor({ state: 'visible', timeout: actionTimeout });
+    }
+    async function leavePaper() {
+      await paperTap('Back');
+      await visible('WSET progress');
+      await noParticipation();
+      await paperTap(unit.id + ' · ' + unit.title, { prefix: true, direction: -1 });
+      await paperTap('Back');
+      await page.getByRole('heading', { name: 'Home', exact: true })
+        .waitFor({ state: 'visible', timeout: actionTimeout });
+    }
+    async function sampleDeadline(phase) {
+      const remaining = text(/^Remaining \d+:\d{2}$/);
+      await remaining.waitFor({ state: 'visible', timeout: actionTimeout });
+      const value = (await remaining.innerText()).match(/^Remaining (\d+):(\d{2})$/);
+      assert(value, 'Timed D3 lacks a readable running deadline.');
+      const seconds = Number(value[1]) * 60 + Number(value[2]), at = Date.now();
+      assert(seconds > 0 && seconds <= durationSeconds, 'Timed D3 has an invalid saved duration.');
+      return { phase, at: new Date(at).toISOString(), seconds, inferredDeadlineMs: at + seconds * 1000 };
+    }
+    async function wine(index) {
+      await paperTop();
+      await paperTap('Wine ' + (index + 1));
+      await visible('Wine ' + (index + 1) + ' of 6');
+      const physical = named('I physically tasted this still wine', { prefix: true });
+      await paperReveal(physical);
+      assert(!await selected(physical), 'Synthetic timed D3 draft claimed physical tasting.');
+    }
+    async function description() {
+      return paperReveal(page.getByRole('textbox', { name: /^description(?:\s|$)/ }), { whole: true });
+    }
+    async function delivery(field, expected) {
+      await until(async () => field.evaluate((element, length) => {
+        for (let parent = element.parentElement; parent; parent = parent.parentElement) {
+          if ([...parent.querySelectorAll('textarea')].some(other => other !== element)) return false;
+          const counters = [...parent.querySelectorAll('span')].map(node => node.textContent?.trim())
+            .filter(value => /^\d+ characters remaining$/.test(value ?? ''));
+          if (counters.length === 1) return counters[0] === (4000 - length) + ' characters remaining';
+        }
+        return false;
+      }, expected.length), 'Timed D3 did not update the owned Flutter character counter.', actionTimeout);
+    }
+    async function savedReadOnly(index, phase) {
+      await wine(index);
+      const field = await description();
+      assert(!await field.isEnabled() || await field.getAttribute('aria-readonly') === 'true',
+        'Ended timed D3 wine evidence remained editable.');
+      const snapshot = await field.evaluate(element => ({ value: element.value,
+        ariaValue: element.getAttribute('aria-valuetext'), label: element.getAttribute('aria-label'),
+        text: element.textContent, readOnly: element.readOnly, disabled: element.disabled }));
+      result.timedPaperReadOnlySnapshots ??= [];
+      result.timedPaperReadOnlySnapshots.push({ index, ...snapshot });
+      const expected = descriptions.get(index);
+      // Disabled Flutter semantics can expose an empty native DOM value while
+      // rendering the saved text. Any actual exposed value must remain exact.
+      for (const exposed of [snapshot.value, snapshot.ariaValue, snapshot.text]
+        .filter(value => typeof value === 'string' && value.length > 0)) {
+        assert(exposed === expected, 'Ended timed D3 Wine ' + (index + 1) + ' exposed different saved evidence.');
+      }
+      if (snapshot.label?.includes('Timed browser Wine ')) {
+        assert(snapshot.label.split(/\r?\n/).includes(expected),
+          'Ended timed D3 response line exposed different saved evidence.');
+      }
+      await context.grantPermissions(['clipboard-read', 'clipboard-write'], { origin });
+      const clipboardSentinel = 'Timed D3 saved-record sentinel ' + Date.now();
+      await page.evaluate(value => navigator.clipboard.writeText(value), clipboardSentinel);
+      assert(await page.evaluate(() => navigator.clipboard.readText()) === clipboardSentinel,
+        'Timed D3 did not establish its fresh clipboard sentinel.');
+      await paperTap('Copy saved record');
+      await until(async () => await page.evaluate(() => navigator.clipboard.readText()) !== clipboardSentinel,
+        'Timed D3 did not replace its sentinel through the genuine saved-record action.', actionTimeout);
+      const rawRecord = await page.evaluate(() => navigator.clipboard.readText());
+      const copiedRecord = rawRecord.replace(/\r\n/g, '\n');
+      const wineBlocks = copiedRecord.split(/\n(?=Wine [1-6]\n)/).slice(1);
+      const descriptionPrompt = 'Record the appearance, aromas, flavours and structure you observed in this still wine. Distinguish your observations from any information supplied about the bottle.';
+      const copiedStartedMs = Date.parse(copiedRecord.match(/^Started: (.+)$/m)?.[1] ?? '');
+      const copiedDeadlineMs = Date.parse(copiedRecord.match(/^Deadline: (.+)$/m)?.[1] ?? '');
+      const sections = wineBlocks.map((block, slot) => ({
+        wine: slot + 1,
+        neutralIdExact: block.startsWith('Wine ' + (slot + 1) + '\n'),
+        physicalFlagFalse: block.split('\n').includes('Physically tasted: false'),
+        descriptionExact: block.includes(descriptionPrompt + '\n' + (descriptions.get(slot) ?? '') + '\n'),
+        noForeignDescription: [...descriptions].every(([owner, prose]) => owner === slot || !block.split('\n').includes(prose)),
+      }));
+      assert(copiedRecord.startsWith('D3 timed six-wine practice · grouped\nPrivate practice; no independently assessed grade or pass.\n') &&
+        !copiedRecord.includes(clipboardSentinel) && sections.length === 6 &&
+        sections.every(row => row.neutralIdExact && row.physicalFlagFalse && row.descriptionExact && row.noForeignDescription),
+        'Timed D3 saved record did not preserve six distinct neutral untasted description sections exactly.');
+      assert(copiedDeadlineMs - copiedStartedMs === durationSeconds * 1000 &&
+        Math.abs(copiedDeadlineMs - before.inferredDeadlineMs) <= 3000 &&
+        copiedRecord.split('\n').includes('End: submitted'),
+        'Timed D3 saved record changed its original90-minute deadline or submitted end.');
+      const priorCopies = result.assertions.timedD3PaperCopies ??= [];
+      assert(priorCopies.length === 0 || copiedDeadlineMs === priorCopies[0].copiedDeadlineMs,
+        'Timed D3 reopened history exported a different deadline.');
+      priorCopies.push({ phase, wine: index + 1, at: new Date().toISOString(),
+        exactDescriptionSections: sections, copiedStartedMs, copiedDeadlineMs,
+        rawRecord, freshSentinelReplaced: true, endedSubmitted: true,
+        readonlyControl: true, newlineNormalization: 'CRLF to LF only; no prose alteration.',
+        boundary: 'Durable saved-record proof, not visual equality, physical tasting or a grade.' });
+    }
+    await navigation('Home');
+    await chooseTrack('WSET Level 4 Diploma');
+    await openPaper();
+    await paperTop();
+    const setup = text(/^Taste six actual still wines under one 90-minute deadline\./);
+    await setup.waitFor({ state: 'visible', timeout: actionTimeout });
+    assert((await setup.innerText()).includes('app-authored arrangement') &&
+      (await setup.innerText()).includes('do not specify official paper layouts'),
+    'Timed D3 omitted its original-practice arrangement boundary.');
+    await paperTap('Start two groups of three');
+    const before = await sampleDeadline('first-start');
+    assert(before.seconds > durationSeconds - 100, 'Timed D3 did not begin its real 90-minute duration.');
+    for (let index = 0; index < 6; index++) {
+      assert(await named('Wine ' + (index + 1)).count() === 1,
+        'Timed D3 lacks exactly six neutral wine navigation slots.');
+    }
+    for (const [index, value] of descriptions) {
+      await wine(index);
+      const field = await description();
+      assert(await readText(field) === '', 'A new timed D3 wine inherited another slot draft.');
+      await replaceText(field, value);
+      await delivery(field, value);
+    }
+    for (const [index, value] of descriptions) {
+      await wine(index);
+      assert(await readText(await description()) === value, 'Switching timed D3 wines lost exact distinct evidence.');
+    }
+    await leavePaper();
+    await reload();
+    await visible('Home', startupTimeout);
+    await until(() => selected(named('WSET Level 4 Diploma')), 'Timed paper did not retain Diploma track.', loadedTimeout);
+    await openPaper();
+    const after = await sampleDeadline('after-route-and-reload');
+    assert(after.seconds < before.seconds && Math.abs(after.inferredDeadlineMs - before.inferredDeadlineMs) <= 3000,
+      'Timed D3 reload extended or replaced its original absolute deadline.');
+    for (const [index, value] of descriptions) {
+      await wine(index);
+      assert(await readText(await description()) === value, 'Timed D3 reload lost Wine ' + (index + 1) + ' exact evidence.');
+    }
+    await paperTap('End and review');
+    await visible('Paper ended · saved responses');
+    assert(await text(/^Remaining \d+:\d{2}$/).count() === 0, 'Ended timed D3 retained a running timer.');
+    await paperTop();
+    const incomplete = text('This incomplete paper can be inspected, but cannot count as reviewed six-wine participation.');
+    await paperReveal(incomplete);
+    await incomplete.waitFor({ state: 'visible', timeout: actionTimeout });
+    const reviewSave = await paperReveal(named('Save self-review'), { whole: true });
+    assert(!await reviewSave.isEnabled(), 'Partial timed D3 enabled reviewed-participation submission.');
+    assert(await named('End and review').count() === 0 && await named('Abandon paper').count() === 0,
+      'Ended timed D3 retained draft completion controls.');
+    for (const index of descriptions.keys()) await savedReadOnly(index, 'ended');
+    await paperTap('Practice menu');
+    await paperTop();
+    await paperReveal(page.getByRole('group', { name: /^grouped · 0 of 6 complete(?:\s|$)/ }));
+    assert(await named('View').count() === 1 && await named('Resume').count() === 0,
+      'Ended timed D3 history retained Resume or lacked its one saved View control.');
+    await paperTap('View');
+    await visible('Paper ended · saved responses');
+    for (const index of descriptions.keys()) await savedReadOnly(index, 'history');
+    await screenshot('14-timed-d3-incomplete-read-only-history');
+    await leavePaper();
+    await checkRuntimeMessages();
+    result.assertions.timedD3Paper = { durationSeconds, neutralWineSlots: 6,
+      testedArrangement: 'grouped', originalArrangementBoundary: true,
+      distinctEvidenceSaved: [1, 6], switchedAndReloadedExactly: true,
+      deadlineSamples: [before, after], partialEndedReadOnly: true,
+      partialHistoryReadOnly: true, completeWineCount: 0,
+      reviewedGroupedParticipation: 0, reviewedMixedParticipation: 0,
+      physicalAcknowledged: false, syntheticDraftsOnly: true,
+      boundary: 'Browser durability only; no physical tasting, accuracy, qualified feedback or official pass evidence.' };
+  });
+// Additive PR26/PR28 checks use the same real UI and bounded gutter scrolling.
+  async function addonTop() {
+    await page.mouse.move(8, viewport.height / 2);
+    await page.mouse.wheel(0, -100_000);
+    await page.waitForTimeout(200);
+  }
+  async function addonReveal(locator, { direction = 1, steps = 70 } = {}) {
+    for (let step = 0; step <= steps; step++) {
+      for (let match = 0, count = await locator.count(); match < count; match++) {
+        const candidate = locator.nth(match);
+        if (await onScreen(candidate)) return candidate;
+      }
+      if (step === steps) break;
+      await page.mouse.move(8, viewport.height / 2);
+      await page.mouse.wheel(0, direction * 160);
+      await page.waitForTimeout(120);
+    }
+    throw new Error('Additive smoke control not revealed during ' + stageName + ': ' + locator);
+  }
+  async function addonTap(label, options = {}) {
+    const locator = label === 'Back' ? page.getByRole('button', { name: 'Back', exact: true }) :
+      named(label, options).or(text(label));
+    await (await addonReveal(locator, options)).click({ timeout: actionTimeout });
+  }
+  await stage('15-focused-map-country-region-entry', async () => {
+    await navigation('Home');
+    await chooseTrack('WSET Level 4 Diploma');
+    await navigation('Practice');
+    const end = named('End session');
+    if (await end.count() > 0) await end.first().click({ timeout: actionTimeout });
+    await addonTop();
+    await addonTap('Practice maps');
+    await visible('Practice maps');
+    await visible('Choose a country, region or subregion. Each session uses your normal review schedule and asks map questions only.');
+    await (await addonReveal(page.getByRole('button', { name: /^Country\s+All countries$/ }))).click({ timeout: actionTimeout });
+    await addonTap('France');
+    const search = await addonReveal(page.getByRole('textbox', { name: /^Search region or subregion(?:\s|$)/ }));
+    await replaceText(search, 'Burgundy');
+    // ListTile semantics owns its exact title, geographic path and ready count.
+    const region = await addonReveal(named('Burgundy', { prefix: true }));
+    const scopeLabel = (await region.getAttribute('aria-label')) ?? (await region.textContent()) ?? '';
+    assert(/^Burgundy(?:\s|$)/.test(scopeLabel) && scopeLabel.includes('France'),
+      'Focused map result lacks its Burgundy identity and France parent.');
+    const ready = scopeLabel.match(/(\d+) map facts\s*·\s*(\d+) ready/);
+    assert(ready && Number(ready[1]) > 0 && Number(ready[2]) > 0,
+      'Focused Burgundy scope has no actual ready mapped facts.');
+    await region.click({ timeout: actionTimeout });
+    await page.getByRole('heading', { name: 'Practice', exact: true })
+      .waitFor({ state: 'visible', timeout: actionTimeout });
+    const formats = ['Find it on the map', 'Name it on the map', 'Find several places', 'Grapes on the map'];
+    let format;
+    await until(async () => {
+      for (const label of formats) {
+        const match = named(new RegExp('^' + escapeRegex(label) + '(?: · reverse)?$'));
+        if (await match.count() > 0) { format = label; return true; }
+      }
+      return false;
+    }, 'Focused map practice did not serve one of the four registered map formats.', 30_000);
+    assert(!page.url().includes('/practice/maps'), 'Focused region never entered the practice route.');
+    await checkRuntimeMessages();
+    await (await reveal(named('End session'), { steps: 0 })).click({ timeout: actionTimeout });
+    await navigation('Home');
+    await visible('Home');
+    result.assertions.focusedMapEntry = { activeTrack: 'WSET_L4', country: 'France', region: 'Burgundy',
+      servedFormat: format, scopeLabel, readyFacts: Number(ready[2]), answered: false,
+      boundary: 'Entry, served format and live scoped readiness only; exact item-set confinement is checked by native planner tests.' };
+  });
+  await stage('16-d3-named-six-wine-draft-isolation', async () => {
+    const diploma = scope.levels.find(level => level.certificationId === 'WSET_L4');
+    const unit = diploma.units.find(row => row.id === 'D3');
+    const values = new Map([
+      [1, new Map([[0, 'Session one Wine1 synthetic draft, not a tasted wine.'],
+        [5, 'Session one Wine6 distinct synthetic draft, no physical credit.']])],
+      [2, new Map([[0, 'Session two Wine1 separate synthetic draft, not session one.'],
+        [5, 'Session two Wine6 own synthetic draft, no physical credit.']])],
+    ]);
+    const comparisons = new Map([[1, 'Session one six-slot comparison: synthetic draft only.'],
+      [2, 'Session two six-slot comparison: independent synthetic draft only.']]);
+    async function noCredit() {
+      await addonReveal(named('Open D3 six-wine session 1', { prefix: true }));
+      const namedParagraph = 'Six-wine named sessions recorded: 0 of 2. These are self-reviewed participation, not a tasting score or exam pass. Three-wine practices and timed papers count separately.';
+      const legacyParagraph = 'Three-wine physical practices recorded: 0. These are self-reviewed participation, not a tasting score or exam pass.';
+      const card = page.getByRole('group', { name: new RegExp('^' + escapeRegex(diploma.title) + '(?:\\s|$)') });
+      for (const paragraph of [namedParagraph, legacyParagraph]) {
+        await until(async () => await text(paragraph).count() > 0 ||
+          (await card.first().getAttribute('aria-label'))?.includes(paragraph),
+        'Synthetic named drafts granted physical participation.', 30_000);
+      }
+    }
+    async function open(session) {
+      await openHomeAction('View WSET progress', 'WSET progress');
+      await addonTop();
+      await addonTap(unit.id + ' · ' + unit.title, { prefix: true });
+      await noCredit();
+      await addonTap('Open D3 six-wine session ' + session, { prefix: true });
+      await visible('D3 session ' + session + ' Still tasting practice');
+      await addonTop();
+      await visible(/^Taste six actual still wines and record what you observe\./);
+      await visible(session === 1 ?
+        'App-authored session 1: structure and origin. This is separate from timed six-wine papers and three-wine practice.' :
+        'App-authored session 2: style and production. This is separate from timed six-wine papers and three-wine practice.');
+    }
+    async function leave() {
+      await addonTop();
+      await addonTap('Back');
+      await visible('WSET progress');
+      await noCredit();
+      await addonTap(unit.id + ' · ' + unit.title, { prefix: true, direction: -1 });
+      await addonTap('Back');
+      await visible('Home');
+    }
+    async function wine(index) {
+      await addonTop();
+      await addonTap('Wine ' + (index + 1));
+      const panel = page.getByRole('group', { name: new RegExp('^Wine ' + (index + 1) + ' of 6(?:\\s|$)') });
+      await until(async () => await panel.count() === 1 && await selected(named('Wine ' + (index + 1))),
+        'Named session did not load its exact six-wine slot.');
+      const physical = await addonReveal(named('I physically tasted this still wine', { prefix: true }));
+      assert(!await selected(physical), 'Named draft inherited a physical tasting acknowledgment.');
+    }
+    async function description() {
+      return addonReveal(page.getByRole('textbox', { name: /^description(?:\s|$)/ }));
+    }
+    async function comparison() {
+      await addonTop();
+      await addonTap('Compare');
+      const complete = page.getByRole('group', { name: /^Compare and review\s+Complete physical wines: 0 of 6\s+Recording a flight means you documented 6 real wines and reviewed your reasoning\. It is not a tasting score or exam result\.$/ });
+      await addonReveal(complete);
+      await complete.waitFor({ state: 'visible', timeout: actionTimeout });
+      return addonReveal(page.getByRole('textbox', { name: /^Six-wine comparison(?:\s|$)/ }));
+    }
+    for (const session of [1, 2]) {
+      await open(session);
+      await addonReveal(text('Saved flights\nNo flights recorded yet.'));
+      assert(await named('View saved flight').count() === 0,
+        'Named session exposed the older legacy or other session history.');
+      await addonTop();
+      await addonTap('Start six-wine still flight');
+      for (const [index, value] of values.get(session)) {
+        await wine(index);
+        assert(await readText(await description()) === '', 'Fresh named slot inherited another flight prose.');
+        await replaceText(await description(), value);
+      }
+      await replaceText(await comparison(), comparisons.get(session));
+      await leave();
+    }
+    await reload();
+    await visible('Home', startupTimeout);
+    await until(() => selected(named('WSET Level 4 Diploma')), 'Named sessions did not retain the Diploma track.', 30_000);
+    for (const session of [2, 1]) {
+      await open(session);
+      assert(await named('Start six-wine still flight').count() === 0,
+        'Named session lost its saved current pointer after reload.');
+      for (let index = 0; index < 6; index++) {
+        await wine(index);
+        const actual = await readText(await description());
+        const expected = values.get(session).get(index) ?? '';
+        assert(actual === expected, 'Named session ' + session + ' Wine ' + (index + 1) + ' did not restore its own exact prose.');
+        for (const [otherSession, otherValues] of values) {
+          if (otherSession !== session) assert(![...otherValues.values()].includes(actual),
+            'Named session displayed another session\'s prose.');
+        }
+      }
+      assert(await readText(await comparison()) === comparisons.get(session),
+        'Named session comparison was changed or crossed during reload.');
+      await leave();
+    }
+    // The stage12 historical three-wine draft remains separate and empty.
+    await openHomeAction('View WSET progress', 'WSET progress');
+    await addonTop();
+    await addonTap(unit.id + ' · ' + unit.title, { prefix: true });
+    await noCredit();
+    await addonTap('Open D3 three-wine practice');
+    await visible('D3 Still tasting practice');
+    await addonTop();
+    await addonTap('Wine 1');
+    const oldPanel = page.getByRole('group', { name: /^Wine 1 of 3(?:\s|$)/ });
+    await until(() => oldPanel.count().then(count => count === 1), 'Legacy D3 draft no longer has three wine slots.');
+    assert(await readText(await description()) === '', 'Named-session prose contaminated the historical legacy draft.');
+    await addonTop();
+    await addonTap('Back');
+    await visible('WSET progress');
+    await noCredit();
+    await addonTap(unit.id + ' · ' + unit.title, { prefix: true, direction: -1 });
+    await addonTap('Back');
+    await visible('Home');
+    await checkRuntimeMessages();
+    result.assertions.namedD3DraftIsolation = { sessions: ['D3_1', 'D3_2'], wineSlotsEach: 6,
+      distinctProseSlotsEach: [1, 6], allSixSlotsCheckedAfterReload: true, ownComparisonsRestored: true,
+      namedHistoryDidNotExposeLegacy: true, legacyThreeWineDraftUnchanged: true,
+      physicalParticipation: 0, physicalAcknowledged: false,
+      boundary: 'Synthetic draft persistence and isolation only; no real-wine participation, tasting score or exam evidence.' };
+  });
   await waitForFontManifest(currentDocumentLoaderId, 'final document');
   await waitForTransientRequests('final browser check');
   assertNoBrowserErrors();
@@ -1885,3 +2550,5 @@ try {
 }
 console.log(`APP_UI_SMOKE_RESULT ${JSON.stringify(result)}`);
 if (!result.ok) process.exitCode = 1;
+
+

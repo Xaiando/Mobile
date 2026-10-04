@@ -1,14 +1,14 @@
 import fs from 'node:fs';
 import assert from 'node:assert/strict';
 import {test} from 'node:test';
-import YAML from 'yaml';
+import { readYaml } from './lib.mjs';
 const areaDir=new URL('../../assets/curriculum/areas/',import.meta.url);
-const documents=fs.readdirSync(areaDir).filter(f=>f.endsWith('.yaml')).map(f=>YAML.parse(fs.readFileSync(new URL(f,areaDir),'utf8')));
+const documents=fs.readdirSync(areaDir).filter(f=>f.endsWith('.yaml')).map(f=>readYaml(new URL(f,areaDir)));
 const nodes=new Map(documents.flatMap(d=>d.knowledge_nodes??[]).map(n=>[n.id,n]));
 const items=documents.flatMap(d=>d.knowledge_items??[]);
 const sources=documents.flatMap(d=>d.source_citations??[]);
 const relations=documents.flatMap(d=>d.knowledge_relations??[]);
-const authored=YAML.parse(fs.readFileSync(new URL('new_world_americas.yaml',areaDir),'utf8'));
+const authored=readYaml(new URL('new_world_americas.yaml',areaDir));
 const parentOf=id=>relations.find(r=>r.subject_id===id&&r.relation_type==='LOCATED_IN')?.object_id;
 
 test('Ontario named main/regional/sub-appellations match the current closed regulator lists',()=>{

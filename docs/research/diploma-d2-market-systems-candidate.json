@@ -1,0 +1,115 @@
+{
+  "schemaVersion": 1,
+  "reviewId": "d2.market-systems-candidate",
+  "checkedOn": "2026-10-03",
+  "sourceAccessDateUTC": "2026-10-02",
+  "classification": "local_unregistered_editorial_candidate",
+  "baseCommit": "154a2a531402ca742115d1430545e689d9a04443",
+  "canonicalDatasetVersion": "0.24.69",
+  "previewVersion": "0.24.71",
+  "releaseNumberReserved": false,
+  "activeLessonCoverageAdded": false,
+  "qualifiedFactualVerification": false,
+  "curriculumComplete": false,
+  "matrixRow": "d2.regulated-market-systems",
+  "officialOutcomeReference": "2.2",
+  "canonicalRowStatus": "missing",
+  "candidateRowStatus": "partial",
+  "files": [
+    "assets/curriculum/areas/diploma_market_systems.yaml",
+    "assets/curriculum/templates/diploma_market_systems.yaml"
+  ],
+  "itemIds": [
+    "ki_d2market_us_tiers",
+    "ki_d2market_us_variation",
+    "ki_d2market_us_federal",
+    "ki_d2market_ew_authority",
+    "ki_d2market_ew_scope",
+    "ki_d2market_ew_personal",
+    "ki_d2market_se_retail",
+    "ki_d2market_se_mission",
+    "ki_d2market_se_supplier",
+    "ki_d2market_se_serving",
+    "ki_d2market_se_farm",
+    "ki_d2market_case_us_entry_action",
+    "ki_d2market_case_us_entry_reason",
+    "ki_d2market_case_us_entry_tradeoff",
+    "ki_d2market_case_us_entry_limitation",
+    "ki_d2market_case_ew_retail_action",
+    "ki_d2market_case_ew_retail_reason",
+    "ki_d2market_case_ew_retail_tradeoff",
+    "ki_d2market_case_ew_retail_limitation",
+    "ki_d2market_case_sweden_access_action",
+    "ki_d2market_case_sweden_access_reason",
+    "ki_d2market_case_sweden_access_tradeoff",
+    "ki_d2market_case_sweden_access_limitation"
+  ],
+  "practice": {
+    "principles": 11,
+    "fourRoleCases": 3,
+    "casePoints": 12,
+    "authoredChoices": 11,
+    "typedQuestions": 3,
+    "caseCriteriaExercises": 3,
+    "shortAnswerExercises": 3,
+    "track": "WSET_L4"
+  },
+  "sourceReview": {
+    "guidanceSources": 9,
+    "legalTexts": 5,
+    "legalRetrieval": [
+      {
+        "url": "https://www.legislation.gov.uk/ukpga/2003/17/section/17",
+        "readVia": "Official data.xml; current section 17(1), 17(4)(f)."
+      },
+      {
+        "url": "https://www.legislation.gov.uk/ukpga/2003/17/section/19",
+        "readVia": "Official data.xml; current section 19(2)-(3)."
+      },
+      {
+        "url": "https://www.legislation.gov.uk/ukpga/2003/17/section/111",
+        "readVia": "Official data.xml; current section 111(1)."
+      },
+      {
+        "url": "https://uscode.house.gov/view.xhtml?edition=prelim&num=0&req=granuleid%3AUSC-prelim-title27-section203",
+        "readVia": "Official indexed current text through September 17, 2026; subsections (a) and (c). Direct web open failed; search returned official text."
+      },
+      {
+        "url": "https://www.riksdagen.se/sv/dokument-och-lagar/dokument/svensk-forfattningssamling/alkohollag-20101622_sfs-2010-1622/",
+        "readVia": "Current consolidated Alcohol Act through SFS 2026:511; operative chapters 5, 5a and 8; prospective 2031 wording excluded."
+      }
+    ],
+    "curationTimestampMeaning": "Schema-required last_verified_at is the authoring/source-check timestamp, not qualified expert review. Every new item stays unverified."
+  },
+  "boundaries": [
+    "Texas illustrates tier roles, not every state's permitted routes or exceptions.",
+    "England and Wales only; Scotland and Northern Ireland are not established.",
+    "Swedish retail, approved supplier access, serving and restricted farm sales are differentiated without thresholds or individual eligibility decisions.",
+    "Original fictional cases supply business inputs; no standard payment periods, prices, profits or legal permission is inferred.",
+    "Authored choices grade bounded distinctions. Four-role criteria grade matching. Short answers require explicit learner self-review and do not automatically assess prose.",
+    "Source attribution and mechanical tests do not establish complete D2 depth or qualification."
+  ],
+  "integration": {
+    "owner": "Gemini: release integration, Git and CI; Claude: Android; Codex: this isolated curriculum candidate",
+    "canonicalFilesNotEdited": [
+      "assets/curriculum/curriculum.yaml",
+      "assets/curriculum/track_scope.yaml",
+      "pubspec.yaml"
+    ],
+    "steps": [
+      "Integrate after Gemini's Sekt repairs, with final metadata newer than the release into which this candidate is combined. 0.24.71 is only a preview; inspect actual versions before selecting the release.",
+      "Register both marketIncludes entries from tool/curriculum/diploma_market_candidate.dart in the actual canonical manifest.",
+      "Append the 14 distinct new subject IDs to wset_l4.business.routes covers.within in the actual track_scope.yaml; marketCandidateScope() demonstrates the exact additive change.",
+      "Run the market tests against the actual registered release. marketCandidate() then uses the real bundle, and upgrade tests load the exact captured 0.24.69 predecessor.",
+      "Retain the predecessor fixture intact; it contains every authored source file from the exact observed 0.24.69 release, not learner data.",
+      "After registration and validation, update the canonical matrix row from missing to partial with the new item and template anchors. Do not label it complete or expert verified.",
+      "Run canonical lint, affected preservation/writing tests, full required native/browser/build release checks on the final integrated head. Keep each evidence scope separate.",
+      "Do not modify Claude's Android files or cancel/restart protected workflows. Do not merge or force-push existing protected PRs."
+    ],
+    "deferred": [
+      "Qualified factual and Diploma-depth review",
+      "Full integrated-release native/browser/build verification",
+      "Physical Android acceptance owned by Claude"
+    ]
+  }
+}

@@ -30,6 +30,59 @@ String _canonicalFileSha256(String path) {
   return sha256.convert(utf8.encode(text)).toString();
 }
 
+// Source repairs may relocate documents and add direct legal evidence, while
+// all published teaching rows and their existing citation identities survive.
+void _expectSourceRepairsPreserveHistoricalTeaching() {
+  const fixturePath = 'test/fixtures/diploma_sekt_content_0_24_73.json';
+  expect(
+    _canonicalFileSha256(fixturePath),
+    'd060d876b5b4e6c93aa51203a86cc0c298a9a1bb227017ace46c66ef6ef30231',
+  );
+  final before =
+      jsonDecode(File(fixturePath).readAsStringSync()) as Map<String, dynamic>;
+  final after = jsonDecode(
+    File('assets/curriculum/areas/diploma_sekt_analytical_cases.yaml')
+        .readAsStringSync(),
+  ) as Map<String, dynamic>;
+  expect(after.keys.toSet(), before.keys.toSet());
+  for (final section in before.keys) {
+    if (section != 'source_citations' &&
+        section != 'knowledge_item_citations') {
+      expect(after[section], before[section], reason: section);
+    }
+  }
+  Map<String, dynamic> sources(Map<String, dynamic> document) => {
+    for (final row in document['source_citations'] as List)
+      row['id'] as String: row,
+  };
+  final oldSources = sources(before), newSources = sources(after);
+  expect(newSources.keys, containsAll(oldSources.keys));
+  expect(newSources.keys.toSet().difference(oldSources.keys.toSet()), {
+    'src_d4sekt_weing_quality_review',
+  });
+  const relocatedSources = {
+    'src_d4sekt_dwi_regulations',
+    'src_d4sekt_vdp_statut',
+    'src_d4sekt_awri_sparkling',
+  };
+  for (final id in oldSources.keys.where(
+    (id) => !relocatedSources.contains(id),
+  )) {
+    expect(newSources[id], oldSources[id], reason: id);
+  }
+  Set<String> citationKeys(Map<String, dynamic> document) => {
+    for (final row in document['knowledge_item_citations'] as List)
+      '${row['knowledge_item_id']}|${row['source_citation_id']}',
+  };
+  final oldKeys = citationKeys(before), newKeys = citationKeys(after);
+  expect(newKeys, containsAll(oldKeys));
+  expect(newKeys.difference(oldKeys), {
+    'ki_d4sekt_origin_hierarchy|src_d4sekt_weing_quality_review',
+    'ki_d4sekt_case_winzersekt_allocation_action|src_d4sekt_weing_quality_review',
+    'ki_d4sekt_case_winzersekt_allocation_limitation|src_d4sekt_weing_quality_review',
+  });
+}
+
 // Registration and actual D4 delivery are required. Finite recall does not
 // replace the original four-role regional cases or confer qualification.
 void main() {
@@ -90,11 +143,18 @@ void main() {
     },
   };
   const sourceUrls = {
-    'src_d4sekt_dwi_regulations':
-        'https://www.deutscheweine.de/wissen/qualitaetsstufen/',
-    'src_d4sekt_vdp_statut': 'https://www.vdp.de/en/vdp-sekt/',
+    'src_d4sekt_dwi_regulations': 'https://www.deutscheweine.de/fileadmin/DWI/Seminare-KD/pdf/Seminarhandbuch.pdf#page=56',
+    'src_d4sekt_vdp_statut': 'https://www.vdp.de/en/the-wines/vdpsektstatut',
     'src_d4sekt_oiv_sparkling': 'https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=CELEX%3A32019R0934',
+    'src_d4sekt_weing_quality_review':
+        'https://www.gesetze-im-internet.de/weing_1994/__19.html',
     'src_d4sekt_autolysis_oenology': 'https://www.oiv.int/',
+    'src_d4sekt_awri_sparkling':
+        'https://www.awri.com.au/information_services/fact-sheets/',
+    'src_d4sekt_sawyer_2022':
+        'https://onlinelibrary.wiley.com/doi/10.1111/ajgw.12527',
+    'src_d4sekt_awri_process_project': 'https://www.awri.com.au/research_and_development/rde-plan/projects/project-3-3-4/',
+    'src_d4sekt_press_fraction_trial': 'https://ives-openscience.eu/4623/',
     'src_d4sekt_awri_laccase': 'https://www.awri.com.au/information_services/ebulletin/2011/04/07/botrytis-and-laccase-winemaking-strategies/',
     'src_d4sekt_eu_reg_2019_33': 'https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=CELEX%3A32019R0033',
   };
@@ -167,7 +227,10 @@ void main() {
       expect(nodes, hasLength(22));
       expect(nodes.map((row) => row.id).toSet(), hasLength(22));
       final expectedPrincipleCitations = {
-        'ki_d4sekt_origin_hierarchy': {'src_d4sekt_dwi_regulations'},
+        'ki_d4sekt_origin_hierarchy': {
+          'src_d4sekt_dwi_regulations',
+          'src_d4sekt_weing_quality_review',
+        },
         'ki_d4sekt_winzersekt_standards': {'src_wset_sf_winzersekt'},
         'ki_d4sekt_vdp_classification': {'src_d4sekt_vdp_statut'},
         'ki_d4sekt_base_wine_selection': {
@@ -175,8 +238,14 @@ void main() {
           'src_d4sekt_oiv_sparkling',
           'src_spark_gushing',
           'src_d4sekt_awri_laccase',
+          'src_d4sekt_press_fraction_trial',
         },
-        'ki_d4sekt_autolysis_vs_fruit': {'src_d4sekt_autolysis_oenology'},
+        'ki_d4sekt_autolysis_vs_fruit': {
+          'src_d4sekt_autolysis_oenology',
+          'src_d4sekt_awri_sparkling',
+          'src_d4sekt_sawyer_2022',
+          'src_d4sekt_awri_process_project',
+        },
         'ki_d4sekt_dosage_style': {'src_d4sekt_eu_reg_2019_33'},
       };
       for (final item in cohort) {
@@ -433,11 +502,10 @@ void main() {
       ),
       isEmpty,
     );
+    _expectSourceRepairsPreserveHistoricalTeaching();
     for (final entry in {
-      'assets/curriculum/areas/diploma_sekt_analytical_cases.yaml':
-          '94123eb8ab443d49350faa68c317f94c51d737c4b6ce210b8718f13a199b6e6b',
       'assets/curriculum/templates/diploma_sekt_analytical_cases.yaml':
-          '34e0402d0a346856f3fb25ae40c66cd7933b4ee1795b72433274e173ef5c13bc',
+          '45afbdc5062375bfa38a60f399f090cc877de4d6cafb952e8a09ccc2fb4eb2d7',
     }.entries) {
       expect(_canonicalFileSha256(entry.key), entry.value, reason: entry.key);
     }
@@ -561,19 +629,45 @@ void main() {
           'A6: Proteases and laccase have separate, authoritative citations',
     );
 
-    // A6: Autolysis onset typically observable after 9-12 months citing OIV Code Section II.4.3.3
+    final officialReviewSource = dataset.sourceCitations.singleWhere(
+      (row) => row.id == 'src_d4sekt_weing_quality_review',
+    );
+    expect(officialReviewSource.kind, 'legislation');
+    expect(officialReviewSource.documentIdentifier, contains('19(1) and (3)'));
+    for (final itemId in {
+      'ki_d4sekt_origin_hierarchy',
+      'ki_d4sekt_case_winzersekt_allocation_action',
+      'ki_d4sekt_case_winzersekt_allocation_limitation',
+    }) {
+      expect(
+        dataset.knowledgeItemCitations.where(
+          (row) =>
+              row.knowledgeItemId == itemId &&
+              row.sourceCitationId == 'src_d4sekt_weing_quality_review',
+        ),
+        hasLength(1),
+        reason: itemId,
+      );
+    }
+
+    // B3: precise measured evidence replaces the unsupported universal onset claim.
     final autolysisItem = dataset.knowledgeItems.singleWhere(
       (row) => row.id == 'ki_d4sekt_autolysis_vs_fruit',
     );
     expect(
       autolysisItem.assertionText,
-      contains('typically observable after 9–12 months of lees contact'),
+      contains('no universal 9-12-month onset rule'),
     );
     final autolysisCitations = dataset.knowledgeItemCitations
         .where((row) => row.knowledgeItemId == 'ki_d4sekt_autolysis_vs_fruit')
         .map((row) => row.sourceCitationId)
         .toSet();
-    expect(autolysisCitations, {'src_d4sekt_autolysis_oenology'});
+    expect(autolysisCitations, {
+      'src_d4sekt_autolysis_oenology',
+      'src_d4sekt_awri_sparkling',
+      'src_d4sekt_sawyer_2022',
+      'src_d4sekt_awri_process_project',
+    });
 
     // 2. Source-grounded expectations tied to presented/graded exercises
     final db = openTestDatabase();
@@ -850,7 +944,8 @@ void main() {
       // Analytical Sweetness Verification:
       // Nominal Brut allows <12 g/L finished RS. Article 47(3) allows 3 g/L tolerance (max 15 g/L).
       // Finished wine with 6 g/L base RS + 12 g/L dosage RS = 18 g/L finished RS strictly exceeds 15 g/L,
-      // making Brut legally impossible and mandating Trocken (17–32 g/L).
+      // excludes Brut even with tolerance; Trocken fits its nominal band, but
+      // Extra Dry can also fit its 12-17 g/L band with the permitted 3 g/L tolerance.
       double finalRs(double baseRs, double dosageRs) => baseRs + dosageRs;
       const baseRs = 6.0;
       const dosageRs = 12.0;

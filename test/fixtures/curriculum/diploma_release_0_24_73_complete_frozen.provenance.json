@@ -1,0 +1,1997 @@
+{
+  "preparedAt": "2026-10-03T16:10:04.036Z",
+  "datasetVersion": "0.24.73",
+  "baseHead": "154a2a531402ca742115d1430545e689d9a04443",
+  "sourceFreeze": "build/diploma-source-freeze-pc-final-v7.json",
+  "sourceFreezeSha256": "b3e66be496624f8343f15a6209be6e7b459042b3cf3383af30df4e4dd9b203b2",
+  "overlay": "build/diploma-local-source-capsule-0.4.2-19-final/files",
+  "liveMutableReadFallback": false,
+  "allSourceBytesMatchedFreeze": true,
+  "includeCount": 282,
+  "mapLayerCount": 41,
+  "rawSourceInputs": [
+    {
+      "path": "assets/curriculum/curriculum.yaml",
+      "mode": "immutable_capsule_overlay",
+      "sha256": "7f3f4fe32c7797b0aeceeaf99436103345a0f0ad5bebc560ffceaceec2394b00",
+      "bytes": 14681
+    },
+    {
+      "path": "assets/curriculum/areas/diploma_d3_regional_law_completion.yaml",
+      "mode": "immutable_capsule_overlay",
+      "sha256": "d2a72ea6d706f3f50dd0ee7803d2b3094390ecdd2309bf09584a1a96fb25ee8c",
+      "bytes": 66996
+    },
+    {
+      "path": "assets/curriculum/templates/diploma_d3_regional_law_completion.yaml",
+      "mode": "immutable_capsule_overlay",
+      "sha256": "b21bf0e3433be67b936f0394604b4514027b6145497299bcdd0b2fab1dd8f451",
+      "bytes": 29437
+    },
+    {
+      "path": "assets/curriculum/templates/diploma_d3_pacific_label_rules.yaml",
+      "mode": "immutable_capsule_overlay",
+      "sha256": "2b30481df1be1289b470b34a3f07cd4bae71ee58f6e117cd3fd28eb39660960a",
+      "bytes": 8969
+    },
+    {
+      "path": "assets/curriculum/areas/diploma_d3_pacific_label_rules.yaml",
+      "mode": "immutable_capsule_overlay",
+      "sha256": "7451b4d2c418c91632853611fc5ec1b08b0fa2fcdc38352dc1500e9fe586252e",
+      "bytes": 33757
+    },
+    {
+      "path": "assets/curriculum/templates/diploma_product_industry_bodies.yaml",
+      "mode": "immutable_capsule_overlay",
+      "sha256": "1f6b5fb44dd922d23d5832f14d9c8a6bcf4ded25ebc98f30259b7493bbb2f7e7",
+      "bytes": 20855
+    },
+    {
+      "path": "assets/curriculum/areas/diploma_product_industry_bodies.yaml",
+      "mode": "immutable_capsule_overlay",
+      "sha256": "4317ee95d39c1b264a9853e7ae3a08d3630043c0bac4b40113fbb1e7fb5ca737",
+      "bytes": 52076
+    },
+    {
+      "path": "assets/curriculum/templates/diploma_d3_label_claims.yaml",
+      "mode": "immutable_capsule_overlay",
+      "sha256": "9686907f6d75ecd72b2fc0504db98991ccb45c9517004eec878d14c89b15d4fb",
+      "bytes": 19548
+    },
+    {
+      "path": "assets/curriculum/areas/diploma_d3_label_claims.yaml",
+      "mode": "immutable_capsule_overlay",
+      "sha256": "be4d04a2f5436a41803d97c8d93308b6d92cb59d9c11a3b97cf37c3d77e2486b",
+      "bytes": 65976
+    },
+    {
+      "path": "assets/curriculum/templates/diploma_d2_regulatory_comparisons.yaml",
+      "mode": "immutable_capsule_overlay",
+      "sha256": "39dd80a1b32c99abba66da525f2f182699f840a55dc764e48f2e5944b582e5bc",
+      "bytes": 8797
+    },
+    {
+      "path": "assets/curriculum/areas/diploma_d2_regulatory_comparisons.yaml",
+      "mode": "immutable_capsule_overlay",
+      "sha256": "89d9447fab7bdb4ed4c6c95e6984fb752b0bfda3d646e4dfd28b36e8835bf9f9",
+      "bytes": 29568
+    },
+    {
+      "path": "assets/curriculum/templates/diploma_d2_integrated_depth.yaml",
+      "mode": "immutable_capsule_overlay",
+      "sha256": "e37402ddf02363af13f6dc1210707822b854a110c2478190104def5f1b92b5f6",
+      "bytes": 32419
+    },
+    {
+      "path": "assets/curriculum/areas/diploma_d2_integrated_depth.yaml",
+      "mode": "immutable_capsule_overlay",
+      "sha256": "0c8a7ebdc28936d551ab880522f2d91afda53d05b953f273fdea793d3d52d7b5",
+      "bytes": 125666
+    },
+    {
+      "path": "assets/curriculum/templates/diploma_d6_integrated_completion.yaml",
+      "mode": "immutable_capsule_overlay",
+      "sha256": "541a16f003866c1d913064981750975254a4a90f2c6875200eb4ed2766d0c10e",
+      "bytes": 14243
+    },
+    {
+      "path": "assets/curriculum/areas/diploma_d6_integrated_completion.yaml",
+      "mode": "immutable_capsule_overlay",
+      "sha256": "8be88e35096c36d76790cad4db33effb061e1013356a4057e8409b858c48c242",
+      "bytes": 36451
+    },
+    {
+      "path": "assets/curriculum/templates/diploma_d5_integrated_completion.yaml",
+      "mode": "immutable_capsule_overlay",
+      "sha256": "7e6bda4efe5540e9473d684767d8749dcf9ea4154511c32e6daf241d6d32a183",
+      "bytes": 18896
+    },
+    {
+      "path": "assets/curriculum/areas/diploma_d5_integrated_completion.yaml",
+      "mode": "immutable_capsule_overlay",
+      "sha256": "97c5b9f3f367e5a65019770121b3cb773a9608aa71bde0a5afe117f9954dbfc9",
+      "bytes": 63971
+    },
+    {
+      "path": "assets/curriculum/templates/diploma_d4_integrated_completion.yaml",
+      "mode": "immutable_capsule_overlay",
+      "sha256": "6fca40d980183641c8664b948268f9acb458518f13bacc6f2bb3ae8525df0078",
+      "bytes": 47803
+    },
+    {
+      "path": "assets/curriculum/areas/diploma_d4_integrated_completion.yaml",
+      "mode": "immutable_capsule_overlay",
+      "sha256": "5db9a3ff49e2451ede6a5f649e6612cd83363822ff85146f9ac0df17dccdc123",
+      "bytes": 137596
+    },
+    {
+      "path": "assets/curriculum/templates/diploma_d3_regional_gap_closure.yaml",
+      "mode": "immutable_capsule_overlay",
+      "sha256": "847336116d5a7953f9b3161d1a857e779113b6bc0c3ccb92609356f9835aa3ec",
+      "bytes": 28656
+    },
+    {
+      "path": "assets/curriculum/areas/diploma_d3_regional_gap_closure.yaml",
+      "mode": "immutable_capsule_overlay",
+      "sha256": "7ba1ceb6ec7b8882fdada5cb4808915510c8824643f4b81d3470d2ad7eee89f7",
+      "bytes": 160758
+    },
+    {
+      "path": "assets/curriculum/templates/diploma_d1_integrated_depth.yaml",
+      "mode": "immutable_capsule_overlay",
+      "sha256": "eeb056eec2e5e4358d361b9674b06b53ba528f3aed8e393badcb490063533ed8",
+      "bytes": 59237
+    },
+    {
+      "path": "assets/curriculum/areas/diploma_d1_integrated_depth.yaml",
+      "mode": "immutable_capsule_overlay",
+      "sha256": "d23eb05eea1ced483efece1549220a3b28b3814cb7f80f6a8eae255bcc83b986",
+      "bytes": 243201
+    },
+    {
+      "path": "assets/curriculum/areas/diploma_market_systems.yaml",
+      "mode": "immutable_capsule_overlay",
+      "sha256": "45254ec3e727604bae71f4b661af2070d42b8959aced878c581c6c1e7895bc4f",
+      "bytes": 67857
+    },
+    {
+      "path": "assets/curriculum/templates/diploma_market_systems.yaml",
+      "mode": "immutable_capsule_overlay",
+      "sha256": "d1f9aa7d30e17b25580038c6c1df03134d80d6b8a0bfc2d8c2800ac78776a45c",
+      "bytes": 15883
+    },
+    {
+      "path": "assets/curriculum/areas/diploma_sekt_analytical_cases.yaml",
+      "mode": "immutable_capsule_overlay",
+      "sha256": "55ca3167fc2cfff10118f1f9d312ce15278783ef5554d561facf5275b36eff49",
+      "bytes": 51686
+    },
+    {
+      "path": "assets/curriculum/templates/diploma_sekt_analytical_cases.yaml",
+      "mode": "immutable_capsule_overlay",
+      "sha256": "b6ead37ff0905a17054d21bcb644dba259f4c3dd86eb6baa22440374e7c9bbea",
+      "bytes": 17745
+    },
+    {
+      "path": "assets/curriculum/areas/diploma_tejo_setubal_analytical_cases.yaml",
+      "mode": "git_blob_exact_frozen_crlf_materialization",
+      "sha256": "ede6a3a01a0b160ef380a72854b2cb10f92cc2108bf8e6525e6c4dc0c824302c",
+      "bytes": 49119
+    },
+    {
+      "path": "assets/curriculum/templates/diploma_tejo_setubal_analytical_cases.yaml",
+      "mode": "git_blob_exact_frozen_crlf_materialization",
+      "sha256": "4251509d7ea291f16f13ef62a6f20025549368591382d5c8f8d5c5ba5bd85dd7",
+      "bytes": 15202
+    },
+    {
+      "path": "assets/curriculum/areas/diploma_french_analytical_cases.yaml",
+      "mode": "git_blob_exact_frozen_crlf_materialization",
+      "sha256": "b3f06ef69ee490b5557538e61e122dfe18250dce2d7b1695c47ceb646ac9a69c",
+      "bytes": 24231
+    },
+    {
+      "path": "assets/curriculum/templates/diploma_french_analytical_cases.yaml",
+      "mode": "git_blob_exact_frozen_crlf_materialization",
+      "sha256": "95ff9c92aa7e685068c8cc57c4e03cc215324a3ad7c6b3de6f4683669d7fb94c",
+      "bytes": 5619
+    },
+    {
+      "path": "assets/curriculum/areas/diploma_french_commercial_white_cases.yaml",
+      "mode": "git_blob_exact_frozen_crlf_materialization",
+      "sha256": "fe8ab3e260fa2332654b0ba9ec1d8a6f217a94e6656b1b7757e1c52c3afd9a12",
+      "bytes": 27003
+    },
+    {
+      "path": "assets/curriculum/templates/diploma_french_commercial_white_cases.yaml",
+      "mode": "git_blob_exact_frozen_crlf_materialization",
+      "sha256": "cb0289edc69c0ea5ec9a95ac87c400405ccc2c46147b9f7cdb08ee390a80ed2b",
+      "bytes": 5794
+    },
+    {
+      "path": "assets/curriculum/areas/diploma_d2_worked_calculations.yaml",
+      "mode": "git_blob_exact_frozen_crlf_materialization",
+      "sha256": "2b75f73d80cc67d842d297c284f2cd2ef15aedfb9e32d2a29efb19ea0f675da9",
+      "bytes": 14456
+    },
+    {
+      "path": "assets/curriculum/areas/diploma_new_world_commercial_cases.yaml",
+      "mode": "git_blob_exact_frozen_crlf_materialization",
+      "sha256": "262d941f3176f9073109673f3ae01ebc6882a73a31e52f974406ac3eb9d984b5",
+      "bytes": 28158
+    },
+    {
+      "path": "assets/curriculum/templates/diploma_new_world_commercial_cases.yaml",
+      "mode": "git_blob_exact_frozen_crlf_materialization",
+      "sha256": "a3db28ecfcafca405287c570780385f2ac410eef76638ccc1d2e584663f23354",
+      "bytes": 6063
+    },
+    {
+      "path": "assets/curriculum/areas/diploma_fortified_sensory_cases.yaml",
+      "mode": "git_blob_exact_frozen_crlf_materialization",
+      "sha256": "15b75520b0269ba276ba30bb2fc473a0b87db9752cd41912d18a9e513dfbbd5e",
+      "bytes": 26409
+    },
+    {
+      "path": "assets/curriculum/templates/diploma_fortified_sensory_cases.yaml",
+      "mode": "git_blob_exact_frozen_crlf_materialization",
+      "sha256": "b35e19ae5ed478918d01e4630c81ffd352244bf70a6d48c0c911c7345e43d4be",
+      "bytes": 11053
+    },
+    {
+      "path": "assets/curriculum/areas/alto_adige_bilingual_references.yaml",
+      "mode": "git_blob_exact_frozen_crlf_materialization",
+      "sha256": "03a377bcc9c3b9628ad4aaa0b7b21308016c164cb7e04e74f7b0ee64168f7d06",
+      "bytes": 5183
+    },
+    {
+      "path": "assets/curriculum/areas/diploma_british_sparkling_categories.yaml",
+      "mode": "git_blob_exact_frozen_crlf_materialization",
+      "sha256": "9a55afaf6281f81da3952d8fa6fad8afb0a71593c0e9e06f3142d1bc5f977ca1",
+      "bytes": 24295
+    },
+    {
+      "path": "assets/curriculum/templates/diploma_british_sparkling_categories.yaml",
+      "mode": "git_blob_exact_frozen_crlf_materialization",
+      "sha256": "9b2f6a86e97f76394689eb427b1c77e575864d3952fb003606e80f301fd6863c",
+      "bytes": 11516
+    },
+    {
+      "path": "assets/curriculum/areas/diploma_madeira_site_style.yaml",
+      "mode": "git_blob_exact_frozen_crlf_materialization",
+      "sha256": "ab2b6e3560af8b78647ae920f8c9804604c16a28bb6645f5c83ebe1ea73743a5",
+      "bytes": 27013
+    },
+    {
+      "path": "assets/curriculum/templates/diploma_madeira_site_style.yaml",
+      "mode": "git_blob_exact_frozen_crlf_materialization",
+      "sha256": "314d3109f844924686407c0d3e4f180e967bb80b2db58af31e079f725a299c65",
+      "bytes": 11598
+    },
+    {
+      "path": "assets/curriculum/areas/cms_classic_cocktail_service.yaml",
+      "mode": "git_blob_exact_frozen_crlf_materialization",
+      "sha256": "5bd27c06d2dcb84ea0b0fd01270dacaa540b0ce521b93c767a49957240eac18f",
+      "bytes": 26452
+    },
+    {
+      "path": "assets/curriculum/templates/cms_classic_cocktail_service.yaml",
+      "mode": "git_blob_exact_frozen_crlf_materialization",
+      "sha256": "7ccebae3b10ae7f9e957c7baf2fe679a117045dbd55ce207d3c41ae64ee8026b",
+      "bytes": 12790
+    },
+    {
+      "path": "assets/curriculum/areas/cms_business_calculations.yaml",
+      "mode": "git_blob_exact_frozen_crlf_materialization",
+      "sha256": "9bcca3671f6c27128eda075ea1490770fed39a4f865ffb1f1dde554c16919d00",
+      "bytes": 9663
+    },
+    {
+      "path": "assets/curriculum/templates/cms_business_calculations.yaml",
+      "mode": "git_blob_exact_frozen_crlf_materialization",
+      "sha256": "0094b6c7b64ded4fbd4cf8593db1076c78c5af18c1502a18b575e90698cced9f",
+      "bytes": 920
+    },
+    {
+      "path": "assets/curriculum/areas/foundations.yaml",
+      "mode": "git_blob_exact_frozen_crlf_materialization",
+      "sha256": "2099bda4f7b50282e0b8483a8b68245b97de37e5fa4e5d24ef640ce4c1ee01a8",
+      "bytes": 6200
+    },
+    {
+      "path": "assets/curriculum/areas/principles.yaml",
+      "mode": "git_blob_exact_frozen_crlf_materialization",
+      "sha256": "d22773a294c1b14985e99a0ae63fcfe62302d90a5898be8c278f78ea8d09f7e6",
+      "bytes": 2067
+    },
+    {
+      "path": "assets/curriculum/areas/principles_learning_model.yaml",
+      "mode": "git_blob_exact_frozen_crlf_materialization",
+      "sha256": "305a1204992805e396b2cba6758c6bafc5fe4bc5e8e86bbeecc7b0e07925b8b2",
+      "bytes": 1749
+    },
+    {
+      "path": "assets/curriculum/areas/principles_viticulture.yaml",
+      "mode": "git_blob_exact_frozen_crlf_materialization",
+      "sha256": "9b489bda69e18241ba956a1a3e8a096ed619f240784ccd5e63980d073610dc05",
+      "bytes": 99174
+    },
+    {
+      "path": "assets/curriculum/areas/principles_winemaking.yaml",
+      "mode": "git_blob_exact_frozen_crlf_materialization",
+      "sha256": "e7f35e810b67ab1ea244883d4e07184e7eecbc5b69a5c22dcc1005e5e46acd10",
+      "bytes": 100012
+    },
+    {
+      "path": "assets/curriculum/areas/principles_business_service.yaml",
+      "mode": "git_blob_exact_frozen_crlf_materialization",
+      "sha256": "97dfc61e8b56b76f2e1adecc92a7d05b5d3f33af6770303bfe76cbb3f81742b3",
+      "bytes": 86893
+    },
+    {
+      "path": "assets/curriculum/areas/principles_sparkling.yaml",
+      "mode": "git_blob_exact_frozen_crlf_materialization",
+      "sha256": "0e58e04e25f24bd204aafd4a0124e594e4bc247f8b1287ff5fd0643a2d879519",
+      "bytes": 87575
+    },
+    {
+      "path": "assets/curriculum/areas/principles_fortified.yaml",
+      "mode": "git_blob_exact_frozen_crlf_materialization",
+      "sha256": "29f6a143e0076e0010b831789e64d566ad23d501bab50db1e2a0a96fb97bb923",
+      "bytes": 91752
+    },
+    {
+      "path": "assets/curriculum/areas/principles_faults.yaml",
+      "mode": "git_blob_exact_frozen_crlf_materialization",
+      "sha256": "1ec178df89892def3eebad28f7dd0de68be38e43b6d39c3d41d353569b5b0469",
+      "bytes": 89370
+    },
+    {
+      "path": "assets/curriculum/areas/regional_france_comparisons.yaml",
+      "mode": "git_blob_exact_frozen_crlf_materialization",
+      "sha256": "f9b32ef37483a6a814b734e818701d4090bd63e15faf521a6d9bfd613098cb14",
+      "bytes": 75798
+    },
+    {
+      "path": "assets/curriculum/areas/regional_americas_comparisons.yaml",
+      "mode": "git_blob_exact_frozen_crlf_materialization",
+      "sha256": "4834a3ab4e9334e8dd9fd9e2393eb46613c52e48a772b621b0058aec8f57e484",
+      "bytes": 77491
+    },
+    {
+      "path": "assets/curriculum/areas/regional_southern_comparisons.yaml",
+      "mode": "git_blob_exact_frozen_crlf_materialization",
+      "sha256": "89068e4868ef37d041ace100ca1b7aac5aed39380eeba2cd4071c2d012100a1a",
+      "bytes": 78901
+    },
+    {
+      "path": "assets/curriculum/areas/regional_italy_north_centre_comparisons.yaml",
+      "mode": "git_blob_exact_frozen_crlf_materialization",
+      "sha256": "06498e20c4ade01aa654ba2b2983335afef73a113a2d8d8c1ece02378748b683",
+      "bytes": 81979
+    },
+    {
+      "path": "assets/curriculum/areas/regional_italy_south_islands_comparisons.yaml",
+      "mode": "git_blob_exact_frozen_crlf_materialization",
+      "sha256": "9aea2e4f38b6d7d429ac6a32e79567553cf930466a052aea4d1189a1cc323ae6",
+      "bytes": 81568
+    },
+    {
+      "path": "assets/curriculum/areas/regional_iberia_comparisons.yaml",
+      "mode": "git_blob_exact_frozen_crlf_materialization",
+      "sha256": "49cbdecd88c8b95d8bce8cbd694bcf0b2975466d70093984698f8e48e28afd62",
+      "bytes": 92965
+    },
+    {
+      "path": "assets/curriculum/areas/regional_france_east_comparisons.yaml",
+      "mode": "git_blob_exact_frozen_crlf_materialization",
+      "sha256": "1aea5267d748ab9c178c640fe950f4753d37ba665dbfeefa4c483eb434aff429",
+      "bytes": 85791
+    },
+    {
+      "path": "assets/curriculum/areas/regional_france_mediterranean_comparisons.yaml",
+      "mode": "git_blob_exact_frozen_crlf_materialization",
+      "sha256": "354352625b687693d780d742067fad7d84c3c392fbd4cb253a5b037a02ed0041",
+      "bytes": 85533
+    },
+    {
+      "path": "assets/curriculum/areas/regional_france_rivers_southwest_comparisons.yaml",
+      "mode": "git_blob_exact_frozen_crlf_materialization",
+      "sha256": "5ae0af0096908a6537b4e848567ea986feb902ab1b4c95f87bce1dc1e1d08719",
+      "bytes": 97193
+    },
+    {
+      "path": "assets/curriculum/areas/regional_germany_comparisons.yaml",
+      "mode": "git_blob_exact_frozen_crlf_materialization",
+      "sha256": "5e0668fe5894a9696c59c91cae0b3e0f06f855ca8b379eb5139279c81a9a0836",
+      "bytes": 88651
+    },
+    {
+      "path": "assets/curriculum/areas/regional_austria_hungary_comparisons.yaml",
+      "mode": "git_blob_exact_frozen_crlf_materialization",
+      "sha256": "a1af775b4d5e324561e6ff539043b99fe5c46870a57020bab5a8f27e43f627c3",
+      "bytes": 89822
+    },
+    {
+      "path": "assets/curriculum/areas/regional_greece_comparisons.yaml",
+      "mode": "git_blob_exact_frozen_crlf_materialization",
+      "sha256": "4710a88cf7a82d72ccaa6ac2cc83a411d47f4bffef93fe8070c9fb413bff10a2",
+      "bytes": 103526
+    },
+    {
+      "path": "assets/curriculum/areas/regional_north_america_depth.yaml",
+      "mode": "git_blob_exact_frozen_crlf_materialization",
+      "sha256": "94d2c16a15d183262ac0632ab05f6340b6f25d55ce4dc11daf9dbabde4a8f547",
+      "bytes": 93969
+    },
+    {
+      "path": "assets/curriculum/areas/regional_south_america_depth.yaml",
+      "mode": "git_blob_exact_frozen_crlf_materialization",
+      "sha256": "085420c2d986013f369a3d9012a28b269a57272c8b806523fa88aa821817b413",
+      "bytes": 88299
+    },
+    {
+      "path": "assets/curriculum/areas/regional_oceania_africa_depth.yaml",
+      "mode": "git_blob_exact_frozen_crlf_materialization",
+      "sha256": "0724cac45a74a8c8ee0f5ba0b562c0badfb154a4c21c34620aa3cff6c75016a6",
+      "bytes": 95193
+    },
+    {
+      "path": "assets/curriculum/areas/regional_china_comparisons.yaml",
+      "mode": "git_blob_exact_frozen_crlf_materialization",
+      "sha256": "a4e1432abc992098b10b38b63455b0c587687defd0a5b13db511640cc804bc16",
+      "bytes": 78313
+    },
+    {
+      "path": "assets/curriculum/areas/reasoning_principles.yaml",
+      "mode": "git_blob_exact_frozen_crlf_materialization",
+      "sha256": "9fd08a318736a0f6ba6aca1835dcf81c3863ba5f3b9e13e51aacba5d058e22f8",
+      "bytes": 31687
+    },
+    {
+      "path": "assets/curriculum/areas/reasoning_wset_foundations.yaml",
+      "mode": "git_blob_exact_frozen_crlf_materialization",
+      "sha256": "33b0fc0cc98e9a4a529e48a6e79a71837a05379e630d67e5b579a710cbca4c95",
+      "bytes": 16857
+    },
+    {
+      "path": "assets/curriculum/areas/grapes.yaml",
+      "mode": "git_blob_exact_frozen_crlf_materialization",
+      "sha256": "739417459c7ee8f58f80888ea9382864374853cc8c969b0c22358bde827934b2",
+      "bytes": 4070
+    },
+    {
+      "path": "assets/curriculum/areas/france.yaml",
+      "mode": "git_blob_exact_frozen_crlf_materialization",
+      "sha256": "8ff087c7d25d0c8783f5f57880ffc1226ac35c3659312733fa217cd10fece875",
+      "bytes": 51274
+    },
+    {
+      "path": "assets/curriculum/areas/italy.yaml",
+      "mode": "git_blob_exact_frozen_crlf_materialization",
+      "sha256": "4666b76e8597eabe55dd98a45ebfe2705d851550718e2c0a8503b167fd0fbad6",
+      "bytes": 22616
+    },
+    {
+      "path": "assets/curriculum/areas/vino_nobile_pievi.yaml",
+      "mode": "git_blob_exact_frozen_crlf_materialization",
+      "sha256": "bdf9a52b0238ba55fbe5a86b99095b4d46a36221860107545278fe5261bceb0a",
+      "bytes": 12991
+    },
+    {
+      "path": "assets/curriculum/areas/eu.yaml",
+      "mode": "git_blob_exact_frozen_crlf_materialization",
+      "sha256": "553117f7788bd00fedc76446daaaeb81b255d98697d1ed9822dbdccd773bff45",
+      "bytes": 3447
+    },
+    {
+      "path": "assets/curriculum/areas/germany.yaml",
+      "mode": "git_blob_exact_frozen_crlf_materialization",
+      "sha256": "ce04c1132011430085c672244f8f1a95f417b34faa8637fdee2ccdc49e4e0418",
+      "bytes": 77135
+    },
+    {
+      "path": "assets/curriculum/areas/austria.yaml",
+      "mode": "git_blob_exact_frozen_crlf_materialization",
+      "sha256": "42de84d457184da4a16bdfdc43f80d7da63becea1d87341e946ad8d475fb1606",
+      "bytes": 29026
+    },
+    {
+      "path": "assets/curriculum/areas/switzerland.yaml",
+      "mode": "git_blob_exact_frozen_crlf_materialization",
+      "sha256": "5c6fc93a677ebf13eb8bc783ffe5c1b5e076eab7db2192057775e5ebf9bacfc2",
+      "bytes": 10816
+    },
+    {
+      "path": "assets/curriculum/areas/hungary.yaml",
+      "mode": "git_blob_exact_frozen_crlf_materialization",
+      "sha256": "60b00fae860e5bc5c16f38956326e7c54cccd240a1e2276b1ac5b25ad0ff8c0f",
+      "bytes": 19028
+    },
+    {
+      "path": "assets/curriculum/areas/greece.yaml",
+      "mode": "git_blob_exact_frozen_crlf_materialization",
+      "sha256": "cab7c00fc09f83fc4d171f39911439d800f305aaef0c68399b21fcedb0d1bbd6",
+      "bytes": 26407
+    },
+    {
+      "path": "assets/curriculum/areas/cms_eastern_europe.yaml",
+      "mode": "git_blob_exact_frozen_crlf_materialization",
+      "sha256": "2b50a33804be47a0ef08a0cfab03ff7fa6fbb11d711225cc084fb080e553b8ee",
+      "bytes": 24438
+    },
+    {
+      "path": "assets/curriculum/areas/cms_loire_atlas.yaml",
+      "mode": "git_blob_exact_frozen_crlf_materialization",
+      "sha256": "1fcfca5a50c20968f839ffb90eab364d685b5d3b57294b0cfbd1b4b6bb74756a",
+      "bytes": 14532
+    },
+    {
+      "path": "assets/curriculum/areas/wset_l2_scope_corrections.yaml",
+      "mode": "git_blob_exact_frozen_crlf_materialization",
+      "sha256": "5dff8ac68521be3a8a123a00225656d6be126bacf80d705908bbaf3eee218f81",
+      "bytes": 5095
+    },
+    {
+      "path": "assets/curriculum/areas/tasting.yaml",
+      "mode": "git_blob_exact_frozen_crlf_materialization",
+      "sha256": "6fde38e6f5b381b82bd6525f5beaee6e51901de47193c16dcefe49c02c6e48b3",
+      "bytes": 29759
+    },
+    {
+      "path": "assets/curriculum/areas/geography.yaml",
+      "mode": "git_blob_exact_frozen_crlf_materialization",
+      "sha256": "f8c45760653eca65d963aa11a452d86457975dd3ef9b1a9893b987b29a450388",
+      "bytes": 23230
+    },
+    {
+      "path": "assets/curriculum/templates/flashcard.yaml",
+      "mode": "git_blob_exact_frozen_crlf_materialization",
+      "sha256": "d36dd30a2c93309e1bac7b0e3b97deab44eddfea4b3cd81032ec1939e4014f7a",
+      "bytes": 4931
+    },
+    {
+      "path": "assets/curriculum/templates/mcq.yaml",
+      "mode": "git_blob_exact_frozen_crlf_materialization",
+      "sha256": "ddb8493ad023e5a88a648f04f50280aab8c112009e48b37128fd0ac9963c63e9",
+      "bytes": 3830
+    },
+    {
+      "path": "assets/curriculum/templates/map.yaml",
+      "mode": "git_blob_exact_frozen_crlf_materialization",
+      "sha256": "380c57c4a0daeba535b93c0be649f7ccedc1303cec88c9addba69dbcdca16b11",
+      "bytes": 1771
+    },
+    {
+      "path": "assets/curriculum/templates/typed.yaml",
+      "mode": "git_blob_exact_frozen_crlf_materialization",
+      "sha256": "0df7560d803cda11efc0511855a3aebc536a9f8800a5add13ca5814aac0b3ca0",
+      "bytes": 3476
+    },
+    {
+      "path": "assets/curriculum/templates/short_answer.yaml",
+      "mode": "git_blob_exact_frozen_crlf_materialization",
+      "sha256": "1e234712a6bd4e30e0256a0f202cf3a577e415412d16c0020d53ae15ec6ba5d8",
+      "bytes": 1275
+    },
+    {
+      "path": "assets/curriculum/templates/principles_recall.yaml",
+      "mode": "git_blob_exact_frozen_crlf_materialization",
+      "sha256": "298419ca6e4e457c8dc2e9e295fab00c7f880943052f986bb1d607d58ca41bae",
+      "bytes": 2443
+    },
+    {
+      "path": "assets/curriculum/templates/viticulture_cases.yaml",
+      "mode": "git_blob_exact_frozen_crlf_materialization",
+      "sha256": "6c7e5ee45f847433c28f4627a3ad4ac72d620346aa96514b8c61ea50a8fe0f31",
+      "bytes": 4287
+    },
+    {
+      "path": "assets/curriculum/templates/winemaking_cases.yaml",
+      "mode": "git_blob_exact_frozen_crlf_materialization",
+      "sha256": "13df02d97aed079dc702b6e122775e9e271688ff40c81bd907680d89b49a0ec2",
+      "bytes": 4570
+    },
+    {
+      "path": "assets/curriculum/templates/business_service_cases.yaml",
+      "mode": "git_blob_exact_frozen_crlf_materialization",
+      "sha256": "3f490d4caccdcd1fc47e3b60703db3345f7997de32983c5ba8d2d1fb6594fbb6",
+      "bytes": 3470
+    },
+    {
+      "path": "assets/curriculum/templates/sparkling_cases.yaml",
+      "mode": "git_blob_exact_frozen_crlf_materialization",
+      "sha256": "50e63173c9e1cf64c07909ca02ed56f5cb9e2541bd6f414fccf29a4d2fba92a5",
+      "bytes": 4266
+    },
+    {
+      "path": "assets/curriculum/templates/fortified_cases.yaml",
+      "mode": "git_blob_exact_frozen_crlf_materialization",
+      "sha256": "eb85a42fd33b5c6b89db33630ecdf5337b3fce63e75784d035a06b9e382e877f",
+      "bytes": 3963
+    },
+    {
+      "path": "assets/curriculum/templates/faults_cases.yaml",
+      "mode": "git_blob_exact_frozen_crlf_materialization",
+      "sha256": "52d4359c09b517b0c92cb0448db06cfa49941bad781d93d8a1db0ac5622fa9a2",
+      "bytes": 4195
+    },
+    {
+      "path": "assets/curriculum/templates/regional_france_cases.yaml",
+      "mode": "git_blob_exact_frozen_crlf_materialization",
+      "sha256": "bc5073bbcccf3e19f6d298115a151d3608149902e5896acbbbc53fda56aa171e",
+      "bytes": 3612
+    },
+    {
+      "path": "assets/curriculum/templates/regional_americas_cases.yaml",
+      "mode": "git_blob_exact_frozen_crlf_materialization",
+      "sha256": "f46d1a764ff6b16804b98998e5b9a47eec4d3b3376239ee911185107db823ddf",
+      "bytes": 3797
+    },
+    {
+      "path": "assets/curriculum/templates/regional_southern_cases.yaml",
+      "mode": "git_blob_exact_frozen_crlf_materialization",
+      "sha256": "1ac6d876d7c120ba44923122f6b8751db6dbd205297bde8e1f7516c2f82c7d28",
+      "bytes": 3653
+    },
+    {
+      "path": "assets/curriculum/templates/regional_italy_north_centre_cases.yaml",
+      "mode": "git_blob_exact_frozen_crlf_materialization",
+      "sha256": "768bb6cfb0802afc77a6e0e84bb332d0d40302b5010a6c3c709b165b2b6a168b",
+      "bytes": 3547
+    },
+    {
+      "path": "assets/curriculum/templates/regional_italy_south_islands_cases.yaml",
+      "mode": "git_blob_exact_frozen_crlf_materialization",
+      "sha256": "2616ce69b2f3deeef02e0a33bb0ab077ee10a500939cd5860818e6404dd2af58",
+      "bytes": 3721
+    },
+    {
+      "path": "assets/curriculum/templates/regional_iberia_cases.yaml",
+      "mode": "git_blob_exact_frozen_crlf_materialization",
+      "sha256": "93fb3bcd2794a269b33db31230a2196c3125a2acbffd76e6929e93db1cc7fe0d",
+      "bytes": 3839
+    },
+    {
+      "path": "assets/curriculum/templates/regional_france_east_cases.yaml",
+      "mode": "git_blob_exact_frozen_crlf_materialization",
+      "sha256": "fbfe627733223470d156cbd199915f9b3e97c7fd69144ded6813c249d8c0a0c2",
+      "bytes": 4053
+    },
+    {
+      "path": "assets/curriculum/templates/regional_france_mediterranean_cases.yaml",
+      "mode": "git_blob_exact_frozen_crlf_materialization",
+      "sha256": "92c39d135d0dd952b6bc2b8ad43fbbe6796e83d999e4d5ccd6160f03a1c500ad",
+      "bytes": 3882
+    },
+    {
+      "path": "assets/curriculum/templates/regional_france_rivers_southwest_cases.yaml",
+      "mode": "git_blob_exact_frozen_crlf_materialization",
+      "sha256": "ea57d39d05de7899a5f00f0442b4b0ba5c6d0e8b7ecd8282aaeb47f88b8a9abd",
+      "bytes": 4402
+    },
+    {
+      "path": "assets/curriculum/templates/regional_germany_cases.yaml",
+      "mode": "git_blob_exact_frozen_crlf_materialization",
+      "sha256": "888600f9309a1429b175c11798e74af7273cbd4f86e1736188244ea86f03ae1f",
+      "bytes": 4496
+    },
+    {
+      "path": "assets/curriculum/templates/regional_austria_hungary_cases.yaml",
+      "mode": "git_blob_exact_frozen_crlf_materialization",
+      "sha256": "983ad4838a47f1779d179d6f77cb64164d6e19dbac7bb34663d08e8da366715d",
+      "bytes": 4082
+    },
+    {
+      "path": "assets/curriculum/templates/regional_greece_cases.yaml",
+      "mode": "git_blob_exact_frozen_crlf_materialization",
+      "sha256": "bef439e20a06377b089b22b753b89f77e7d111a6e7ae9ed1ac05d0d95c97b204",
+      "bytes": 4820
+    },
+    {
+      "path": "assets/curriculum/templates/regional_north_america_depth_cases.yaml",
+      "mode": "git_blob_exact_frozen_crlf_materialization",
+      "sha256": "88105a45275757fe68b42368646b506a2628a4749a811a09af5378ccecc96415",
+      "bytes": 4917
+    },
+    {
+      "path": "assets/curriculum/templates/regional_south_america_depth_cases.yaml",
+      "mode": "git_blob_exact_frozen_crlf_materialization",
+      "sha256": "c3fa3ef2adb43e1affc213be1856af663c561f0e316f8732054fb2ce99b58c54",
+      "bytes": 4135
+    },
+    {
+      "path": "assets/curriculum/templates/regional_oceania_africa_depth_cases.yaml",
+      "mode": "git_blob_exact_frozen_crlf_materialization",
+      "sha256": "fb48a19f25170a89474b6933a2bb69f2e88ea41c9e60b4eb24c2a8d1e5b0b5c3",
+      "bytes": 4398
+    },
+    {
+      "path": "assets/curriculum/templates/regional_china_cases.yaml",
+      "mode": "git_blob_exact_frozen_crlf_materialization",
+      "sha256": "7d8e9144eef1f65393ff55b6f08caae2788c3d869c674129020b8d398c499f10",
+      "bytes": 5335
+    },
+    {
+      "path": "assets/curriculum/templates/reasoning.yaml",
+      "mode": "git_blob_exact_frozen_crlf_materialization",
+      "sha256": "f4569e67a669ce3badb7cc5f54818b0169a28b4053ee7da49e8072348e3620e2",
+      "bytes": 8072
+    },
+    {
+      "path": "assets/curriculum/templates/reasoning_wset_foundations.yaml",
+      "mode": "git_blob_exact_frozen_crlf_materialization",
+      "sha256": "6eb6a52f627dc58114136a780d7107b5c01ccc6eb9d0f7d3d90a91e7d18d0af7",
+      "bytes": 3221
+    },
+    {
+      "path": "assets/curriculum/areas/reasoning_climate_frost.yaml",
+      "mode": "git_blob_exact_frozen_crlf_materialization",
+      "sha256": "abfc52eb74ebb0566bd24ac29f5f1dbeaebd6409f4d975c8f8eca1bed4c85b30",
+      "bytes": 19893
+    },
+    {
+      "path": "assets/curriculum/areas/reasoning_climate_ripening.yaml",
+      "mode": "git_blob_exact_frozen_crlf_materialization",
+      "sha256": "46f794539a29a24c89d6d8a6ea224af6f826210038398ac28c9d03b4bba179d8",
+      "bytes": 20273
+    },
+    {
+      "path": "assets/curriculum/templates/reasoning_climate_frost.yaml",
+      "mode": "git_blob_exact_frozen_crlf_materialization",
+      "sha256": "5f239fea989b48dc465fc70d16423a242359f547a072d3b66fb507e0c5130d8b",
+      "bytes": 3571
+    },
+    {
+      "path": "assets/curriculum/templates/reasoning_climate_ripening.yaml",
+      "mode": "git_blob_exact_frozen_crlf_materialization",
+      "sha256": "63fa01cd5c6b110747bd6d6db7634dbc950673ba364aa6c373f594c78c313dab",
+      "bytes": 3672
+    },
+    {
+      "path": "assets/curriculum/areas/france_atlas.yaml",
+      "mode": "git_blob_exact_frozen_crlf_materialization",
+      "sha256": "15ebbf3d7f2771034bbede3a3edead88e0566b57be04beb3986cccadaa9526e2",
+      "bytes": 353442
+    },
+    {
+      "path": "assets/curriculum/areas/world_atlas.yaml",
+      "mode": "git_blob_exact_frozen_crlf_materialization",
+      "sha256": "03e7481e9530fa873075b014be09bfc6f11fd149fa9e350bd659f05cf030a76f",
+      "bytes": 197541
+    },
+    {
+      "path": "assets/curriculum/areas/central_europe_atlas.yaml",
+      "mode": "git_blob_exact_frozen_crlf_materialization",
+      "sha256": "b9481f2f6351b69da592509ed4e74f4e634f6179518156753ef287251fb5ec23",
+      "bytes": 51320
+    },
+    {
+      "path": "assets/curriculum/areas/map_grape_sets.yaml",
+      "mode": "git_blob_exact_frozen_crlf_materialization",
+      "sha256": "0b724b574ce94d10c8698a91714775fd68074d6fdc8904f1b69c726d7d10df89",
+      "bytes": 3002
+    },
+    {
+      "path": "assets/curriculum/areas/france_atlas_completion.yaml",
+      "mode": "git_blob_exact_frozen_crlf_materialization",
+      "sha256": "d3dfd4c20e188952e7c942fced17b7e2ba1ddcd036d5c4751d4c086546fb5597",
+      "bytes": 110152
+    },
+    {
+      "path": "assets/curriculum/areas/europe_atlas_completion.yaml",
+      "mode": "git_blob_exact_frozen_crlf_materialization",
+      "sha256": "3baabac5266a47faa6ea093450d2b6d989ad9af22d1eff3dfd76bba939dd9b67",
+      "bytes": 179949
+    },
+    {
+      "path": "assets/curriculum/areas/new_world_atlas_completion.yaml",
+      "mode": "git_blob_exact_frozen_crlf_materialization",
+      "sha256": "2f0c79e1a3c8d11e7a39117782408ee7b6da62fb4ecd6b6ceefc0fe76d8dd071",
+      "bytes": 211905
+    },
+    {
+      "path": "assets/curriculum/areas/iberian_grape_maps.yaml",
+      "mode": "git_blob_exact_frozen_crlf_materialization",
+      "sha256": "65fb37ff7cf1cea7c527d4b6e301df3683a9c8797817e831ec3c6eb961e5faf2",
+      "bytes": 174966
+    },
+    {
+      "path": "assets/curriculum/areas/british_atlas.yaml",
+      "mode": "git_blob_exact_frozen_crlf_materialization",
+      "sha256": "c22af1b2c7a0167a4e79f3b85d091148692e19f6e795faf252d7d9053b14c0bc",
+      "bytes": 24833
+    },
+    {
+      "path": "assets/curriculum/areas/china_atlas.yaml",
+      "mode": "git_blob_exact_frozen_crlf_materialization",
+      "sha256": "57996d480c3fdf9991044acbe86f3e968d1149ea81cee9b736900befb1c5454d",
+      "bytes": 18447
+    },
+    {
+      "path": "assets/curriculum/areas/diploma_us_atlas.yaml",
+      "mode": "git_blob_exact_frozen_crlf_materialization",
+      "sha256": "80797c70656e8556e7504d661ed71dd5de71cecefc47d72e44aff9be0540f8c9",
+      "bytes": 19638
+    },
+    {
+      "path": "assets/curriculum/areas/diploma_regions.yaml",
+      "mode": "git_blob_exact_frozen_crlf_materialization",
+      "sha256": "8089476a75403a07fc5236dc0a43f70bb388336387926de4ecbd8d2bff794abe",
+      "bytes": 13598
+    },
+    {
+      "path": "assets/curriculum/areas/new_world_plantings.yaml",
+      "mode": "git_blob_exact_frozen_crlf_materialization",
+      "sha256": "50462d3fce42d4787fe82a391bde04161561d3f2c08a6093ee76da2d418034f4",
+      "bytes": 18951
+    },
+    {
+      "path": "assets/curriculum/areas/new_world_oceania_africa.yaml",
+      "mode": "git_blob_exact_frozen_crlf_materialization",
+      "sha256": "1ac553bc878dbf7e5ed23adc6e3ea804dac78f283bf040d2b2821be61d814df4",
+      "bytes": 193174
+    },
+    {
+      "path": "assets/curriculum/areas/new_world_americas.yaml",
+      "mode": "git_blob_exact_frozen_crlf_materialization",
+      "sha256": "cafebce6183c0d2019826ef3aa9f7be042efa7a35d220250043bbdce79779cea",
+      "bytes": 273688
+    },
+    {
+      "path": "assets/curriculum/areas/grape_colour_corrections.yaml",
+      "mode": "git_blob_exact_frozen_crlf_materialization",
+      "sha256": "fd61b3389635a764828e0c3570936662997eb7d6e62cba1297ed61c80bac8d4c",
+      "bytes": 1866
+    },
+    {
+      "path": "assets/curriculum/areas/business_producer_models.yaml",
+      "mode": "git_blob_exact_frozen_crlf_materialization",
+      "sha256": "ff9e0bc051e0c14b5c4c989ce9e925b37247d7dcd86455229e4f8bddd4c6d5b8",
+      "bytes": 32271
+    },
+    {
+      "path": "assets/curriculum/areas/business_routes_to_market.yaml",
+      "mode": "git_blob_exact_frozen_crlf_materialization",
+      "sha256": "13f8da8615bbb6e057c0e3baa2b06b9ce0345ef1ff48019dedd91c26354d3d5a",
+      "bytes": 34854
+    },
+    {
+      "path": "assets/curriculum/areas/wset_d2_business_gaps.yaml",
+      "mode": "git_blob_exact_frozen_crlf_materialization",
+      "sha256": "d9b0a5f1a1594bc107ca9bbaaff1be09eba39b03677b78a842b97763e3aa681e",
+      "bytes": 6648
+    },
+    {
+      "path": "assets/curriculum/areas/wset_d2_market_decisions.yaml",
+      "mode": "git_blob_exact_frozen_crlf_materialization",
+      "sha256": "34e63d6d4961d357be9c03cef83bdeaf223990d30403ca409a4127a4e80915a4",
+      "bytes": 20484
+    },
+    {
+      "path": "assets/curriculum/templates/business_producer_models_cases.yaml",
+      "mode": "git_blob_exact_frozen_crlf_materialization",
+      "sha256": "a01091496769aa49a5520503d2aecb08be7df11f9a5d06086f46498df1ddb414",
+      "bytes": 2579
+    },
+    {
+      "path": "assets/curriculum/templates/business_routes_to_market_cases.yaml",
+      "mode": "git_blob_exact_frozen_crlf_materialization",
+      "sha256": "77787970d565c1d4300fe12be5c67f4ad43338c893ec23f205f5da5c92346f75",
+      "bytes": 2676
+    },
+    {
+      "path": "assets/curriculum/templates/wset_d2_business_application_choice.yaml",
+      "mode": "git_blob_exact_frozen_crlf_materialization",
+      "sha256": "515dd57ca6176647b8de6ae29f44a0ca9e0009687a74b5364ebadbb985bd7d0a",
+      "bytes": 24638
+    },
+    {
+      "path": "assets/curriculum/templates/wset_d2_market_decisions_choice.yaml",
+      "mode": "git_blob_exact_frozen_crlf_materialization",
+      "sha256": "de1c3a8b1e4b65aba7c2e96f8c422f7fbf2f88bfbd48e4d321d9ef2387c6a6a8",
+      "bytes": 5363
+    },
+    {
+      "path": "assets/curriculum/templates/wset_d2_market_decisions_cases.yaml",
+      "mode": "git_blob_exact_frozen_crlf_materialization",
+      "sha256": "6e66f1315f5313fe83d3f03a3ad709b744f3d68cc59a67d731ea7b800cc728c0",
+      "bytes": 3528
+    },
+    {
+      "path": "assets/curriculum/templates/numeric.yaml",
+      "mode": "git_blob_exact_frozen_crlf_materialization",
+      "sha256": "a2867597f1d030cad9c3577b2a2fa1460774db25bb750fe1a746829b1fa5bfad",
+      "bytes": 2632
+    },
+    {
+      "path": "assets/curriculum/areas/soave_ugas.yaml",
+      "mode": "git_blob_exact_frozen_crlf_materialization",
+      "sha256": "ad8f52b396179f4068dcd4edf3cb94398538d0ebaa45c187008da3858f3e2dbd",
+      "bytes": 8522
+    },
+    {
+      "path": "assets/curriculum/areas/alto_adige_ugas.yaml",
+      "mode": "git_blob_exact_frozen_crlf_materialization",
+      "sha256": "b0a02456df6100339c10fa0ab3defea742085118c4cfe69ab9aebab111b8902b",
+      "bytes": 7794
+    },
+    {
+      "path": "assets/curriculum/areas/wset_wine_service.yaml",
+      "mode": "git_blob_exact_frozen_crlf_materialization",
+      "sha256": "3805236bba6b34553c2c74f74d86583cc3eb3213e6e029df9a444d5e92046e17",
+      "bytes": 94937
+    },
+    {
+      "path": "assets/curriculum/templates/wset_wine_service_cases.yaml",
+      "mode": "git_blob_exact_frozen_crlf_materialization",
+      "sha256": "84b7e7c09157088e8c27311ccd68697f1e741faa1d79f43d019078ad63b545a2",
+      "bytes": 2157
+    },
+    {
+      "path": "assets/curriculum/areas/wset_tasting_learning.yaml",
+      "mode": "git_blob_exact_frozen_crlf_materialization",
+      "sha256": "91327c8b73eb2f6cb71b39af4971867805ebf65d53fd8133ca125f65140c5054",
+      "bytes": 51379
+    },
+    {
+      "path": "assets/curriculum/areas/wset_guided_tasting_grids.yaml",
+      "mode": "git_blob_exact_frozen_crlf_materialization",
+      "sha256": "b99a2877b0a4946b071af3cfd0cb25c1db3087ac0f4f37f2a4522eb3fb184154",
+      "bytes": 37537
+    },
+    {
+      "path": "assets/curriculum/areas/wset_foundations.yaml",
+      "mode": "git_blob_exact_frozen_crlf_materialization",
+      "sha256": "2cd753399c228e0411edb5f4d9ce70ba277084cbdcc9bf432d7848679ade6916",
+      "bytes": 98163
+    },
+    {
+      "path": "assets/curriculum/areas/wset_grape_profiles.yaml",
+      "mode": "git_blob_exact_frozen_crlf_materialization",
+      "sha256": "ea6e75538ea777a64950f44ef7dc569802fa18357311c552bcd9c874ea0dd192",
+      "bytes": 119839
+    },
+    {
+      "path": "assets/curriculum/areas/wset_regional_europe.yaml",
+      "mode": "git_blob_exact_frozen_crlf_materialization",
+      "sha256": "7bd627c1702a0adccd234db1e2937ab2393637c7e6d0701664b75868d1dd834e",
+      "bytes": 190631
+    },
+    {
+      "path": "assets/curriculum/areas/wset_regional_new_world.yaml",
+      "mode": "git_blob_exact_frozen_crlf_materialization",
+      "sha256": "bbe735f141a4ba8689ce22f3022ee788924b3c8c348e03bc4ae9590556a0951d",
+      "bytes": 127307
+    },
+    {
+      "path": "assets/curriculum/areas/wset_general_production.yaml",
+      "mode": "git_blob_exact_frozen_crlf_materialization",
+      "sha256": "495536b17a13d741506bebf1c18bc7266a707732023e554ea968dcadf07b584a",
+      "bytes": 123985
+    },
+    {
+      "path": "assets/curriculum/areas/wset_sparkling_fortified.yaml",
+      "mode": "git_blob_exact_frozen_crlf_materialization",
+      "sha256": "6856e79f6d451292709b388944362ea753ac1a2de5f8002001571103ebe49eaf",
+      "bytes": 146975
+    },
+    {
+      "path": "assets/curriculum/areas/wset_regional_grape_roles.yaml",
+      "mode": "git_blob_exact_frozen_crlf_materialization",
+      "sha256": "75676b8fd7e170fd218ee564bc0e792aed1d4af5c57fcf729be6410baf226df2",
+      "bytes": 48673
+    },
+    {
+      "path": "assets/curriculum/areas/wset_outcome_closure.yaml",
+      "mode": "git_blob_exact_frozen_crlf_materialization",
+      "sha256": "1ab54d167214640af174cf34bdad1dd003ba7be91f61940b52c4388342ed739c",
+      "bytes": 38280
+    },
+    {
+      "path": "assets/curriculum/areas/wset_new_world_applications.yaml",
+      "mode": "git_blob_exact_frozen_crlf_materialization",
+      "sha256": "9bc6c54f376b3bd3db42d54acc2cf04fd07d7d7d9d62ad28d88af46ff8ff136b",
+      "bytes": 126230
+    },
+    {
+      "path": "assets/curriculum/areas/wset_grape_origin_contexts.yaml",
+      "mode": "git_blob_exact_frozen_crlf_materialization",
+      "sha256": "a6514948998866ddec85db480ce8c35b72076e3500472b014464bafc801948cc",
+      "bytes": 38609
+    },
+    {
+      "path": "assets/curriculum/areas/wset_regional_applications.yaml",
+      "mode": "git_blob_exact_frozen_crlf_materialization",
+      "sha256": "1c2b52277a4b03577757f93a4b902ffc57e5dc95b34fe86760bb9bbac28f7549",
+      "bytes": 41770
+    },
+    {
+      "path": "assets/curriculum/areas/wset_required_geography.yaml",
+      "mode": "git_blob_exact_frozen_crlf_materialization",
+      "sha256": "31b75daffe5b4712e97f73cae39b456903f86ecc712f0ff5dd7ffa1439b71f29",
+      "bytes": 81719
+    },
+    {
+      "path": "assets/curriculum/areas/wset_level_1_closure.yaml",
+      "mode": "git_blob_exact_frozen_crlf_materialization",
+      "sha256": "0b44fbd09809540d1bd0b1fe06a2d1b7f046939970835054e64ada82447ac2ba",
+      "bytes": 17645
+    },
+    {
+      "path": "assets/curriculum/areas/wset_service_fault_closure.yaml",
+      "mode": "git_blob_exact_frozen_crlf_materialization",
+      "sha256": "98b9d77c01d669e213c11c2a4c0f296900ca8588d69609c32114a6f45b4d7f34",
+      "bytes": 5902
+    },
+    {
+      "path": "assets/curriculum/areas/wset_service_advice_closure.yaml",
+      "mode": "git_blob_exact_frozen_crlf_materialization",
+      "sha256": "1054d9ddb60d264ab378d558ebe07dc7a2edf8873c5807dc79d727d50e385d40",
+      "bytes": 5834
+    },
+    {
+      "path": "assets/curriculum/areas/wset_service_sequence.yaml",
+      "mode": "git_blob_exact_frozen_crlf_materialization",
+      "sha256": "60d0da50345e552b1098b8d9c91e3048880235b8769e3697afca58a754c02ec1",
+      "bytes": 3839
+    },
+    {
+      "path": "assets/curriculum/areas/wset_origin_final_closure.yaml",
+      "mode": "git_blob_exact_frozen_crlf_materialization",
+      "sha256": "1c3db9e814dfbf932a787ec4b12b61332ee26c285437f2129cf358f83e97fa16",
+      "bytes": 2426
+    },
+    {
+      "path": "assets/curriculum/areas/wset_grape_structure.yaml",
+      "mode": "git_blob_exact_frozen_crlf_materialization",
+      "sha256": "77f8d4de983fb732de530b6de141e1222a2bd1b48a0f684c199846a1bf1ea83e",
+      "bytes": 107247
+    },
+    {
+      "path": "assets/curriculum/areas/wine_history.yaml",
+      "mode": "git_blob_exact_frozen_crlf_materialization",
+      "sha256": "de1d5fbaed7cd51315d3444a548756050133880de240182a71a51842abf865be",
+      "bytes": 28493
+    },
+    {
+      "path": "assets/curriculum/areas/sommelier_beverages.yaml",
+      "mode": "git_blob_exact_frozen_crlf_materialization",
+      "sha256": "fe7f2383c7fcac92b21571cbf37413de1bf3f032b885b706489ec676e8c94174",
+      "bytes": 33723
+    },
+    {
+      "path": "assets/curriculum/areas/sommelier_enrichment_bridge.yaml",
+      "mode": "git_blob_exact_frozen_crlf_materialization",
+      "sha256": "5ad3c1c72207b85258181efb81940f1e1f9390c719744f7925282e68d36c96b4",
+      "bytes": 30986
+    },
+    {
+      "path": "assets/curriculum/areas/wine_history_course.yaml",
+      "mode": "git_blob_exact_frozen_crlf_materialization",
+      "sha256": "435947fb7a8a958e09089d96f500700ec01aee8669facc937edd23aac202abb1",
+      "bytes": 88493
+    },
+    {
+      "path": "assets/curriculum/areas/wine_history_timeline.yaml",
+      "mode": "git_blob_exact_frozen_crlf_materialization",
+      "sha256": "6dd4bfa52f962467d9d3237f97a60004a81fb67a4860ca735a5e3db9edfce4dc",
+      "bytes": 57951
+    },
+    {
+      "path": "assets/curriculum/areas/sommelier_practice.yaml",
+      "mode": "git_blob_exact_frozen_crlf_materialization",
+      "sha256": "a01701126b26aae83745afe352ba4ddb8ea47db84c1b855a623b7ebe6d63b962",
+      "bytes": 113883
+    },
+    {
+      "path": "assets/curriculum/areas/sommelier_beverage_basics.yaml",
+      "mode": "git_blob_exact_frozen_crlf_materialization",
+      "sha256": "ec4f06db4acc6573a90879a22383685956d64a10caa07e3587807a618a6489cb",
+      "bytes": 45647
+    },
+    {
+      "path": "assets/curriculum/areas/cms_beer_cider_closure.yaml",
+      "mode": "git_blob_exact_frozen_crlf_materialization",
+      "sha256": "c58b64f3cdef5a733b1d671f45402b55b580df260b36a470feb4c5961e32c680",
+      "bytes": 45451
+    },
+    {
+      "path": "assets/curriculum/areas/cms_spirits_liqueurs_closure.yaml",
+      "mode": "git_blob_exact_frozen_crlf_materialization",
+      "sha256": "b7bf73c2c08ed8b6a45b12339619b19adc6b597c65bbadaa4bf9c64364254131",
+      "bytes": 19196
+    },
+    {
+      "path": "assets/curriculum/areas/cms_spirits_liqueurs_examples.yaml",
+      "mode": "git_blob_exact_frozen_crlf_materialization",
+      "sha256": "0afff057fb80b80b31228adb610b6fdfb079d9821226a80ce27e1cb2235a0576",
+      "bytes": 52559
+    },
+    {
+      "path": "assets/curriculum/areas/cms_pairing_closure.yaml",
+      "mode": "git_blob_exact_frozen_crlf_materialization",
+      "sha256": "60828e61cd3a06a55c2a4f46f1876a8c7ec052e6d9059f592b09a1a95204a6a9",
+      "bytes": 21937
+    },
+    {
+      "path": "assets/curriculum/areas/diploma_sparkling_new_world.yaml",
+      "mode": "git_blob_exact_frozen_crlf_materialization",
+      "sha256": "47818715e5975fb335854d23b801d21c06266577fc6ad8a1a70810d8ee30f629",
+      "bytes": 29803
+    },
+    {
+      "path": "assets/curriculum/areas/diploma_d4_sparkling_depth.yaml",
+      "mode": "git_blob_exact_frozen_crlf_materialization",
+      "sha256": "5751cdb148e47bf912dc943e5c68cb226933bd8ad4dd264855ce9d75ac0ca871",
+      "bytes": 56596
+    },
+    {
+      "path": "assets/curriculum/areas/diploma_independent_research.yaml",
+      "mode": "git_blob_exact_frozen_crlf_materialization",
+      "sha256": "f17dc0c081d76224c09365cddeeb3a09103c74de3580924e809ac46df391b469",
+      "bytes": 24922
+    },
+    {
+      "path": "assets/curriculum/areas/diploma_d1_targeted_production.yaml",
+      "mode": "git_blob_exact_frozen_crlf_materialization",
+      "sha256": "4bc3c598cf543f5ec7c71bb14cb8cc944f301244527122be472be19d77274b17",
+      "bytes": 39347
+    },
+    {
+      "path": "assets/curriculum/areas/diploma_d1_cellar_methods.yaml",
+      "mode": "git_blob_exact_frozen_crlf_materialization",
+      "sha256": "5a6c40157357a66183315c6899eb6f107ec155afc7bea5def43fa7b6b19551dd",
+      "bytes": 22751
+    },
+    {
+      "path": "assets/curriculum/areas/diploma_d1_vine_and_packaging.yaml",
+      "mode": "git_blob_exact_frozen_crlf_materialization",
+      "sha256": "7660f03d13f70928a47338735b4b4bfbf2825b0ca4dad0510cdf6e8cf69d3d6a",
+      "bytes": 31576
+    },
+    {
+      "path": "assets/curriculum/areas/diploma_d3_regional_theory.yaml",
+      "mode": "git_blob_exact_frozen_crlf_materialization",
+      "sha256": "9e4ab21438a6d47b60af5e3588bdbad7ce75d349eb569fcaad1e128e05678739",
+      "bytes": 21638
+    },
+    {
+      "path": "assets/curriculum/areas/diploma_fortified_depth.yaml",
+      "mode": "git_blob_exact_frozen_crlf_materialization",
+      "sha256": "41a6a4cb0981c6ed695429528bba6cfd406c80c8902465400fa1e40fd570429e",
+      "bytes": 38249
+    },
+    {
+      "path": "assets/curriculum/areas/diploma_d4_d5_product_distinctions.yaml",
+      "mode": "git_blob_exact_frozen_crlf_materialization",
+      "sha256": "8a938ef6b2b9f49647e5fb6f5f1d63a3ee81bcc3deeaf210038d8fac38d3fbb1",
+      "bytes": 23682
+    },
+    {
+      "path": "assets/curriculum/areas/diploma_d4_d5_tasting_evidence.yaml",
+      "mode": "git_blob_exact_frozen_crlf_materialization",
+      "sha256": "83ff4ea0b91f59d95d7090938625309160e6fb921bd11899759a264a04e85425",
+      "bytes": 32868
+    },
+    {
+      "path": "assets/curriculum/templates/wine_history_course_cases.yaml",
+      "mode": "git_blob_exact_frozen_crlf_materialization",
+      "sha256": "828ee675c5681315660589f43f8cce14eec569e73c87a7548f735e52669ca4bf",
+      "bytes": 7885
+    },
+    {
+      "path": "assets/curriculum/templates/sommelier_practice_cases.yaml",
+      "mode": "git_blob_exact_frozen_crlf_materialization",
+      "sha256": "a680343d5ee4c0ddb40ef997f22e8eca6ef547fa0c48d8d24052d0bee86361cb",
+      "bytes": 5037
+    },
+    {
+      "path": "assets/curriculum/templates/sommelier_enrichment_bridge_cases.yaml",
+      "mode": "git_blob_exact_frozen_crlf_materialization",
+      "sha256": "4104a9b054ad6f21bca2ce773473664b6ebb4f70292f84fa3cd26283ad33b006",
+      "bytes": 4498
+    },
+    {
+      "path": "assets/curriculum/templates/cms_spirits_liqueurs_case_criteria.yaml",
+      "mode": "git_blob_exact_frozen_crlf_materialization",
+      "sha256": "2ab46b9321536e68a1d45a760370367635752d735be9a0c2d165d8e90b434e7b",
+      "bytes": 4588
+    },
+    {
+      "path": "assets/curriculum/templates/cms_service_remaining_case_criteria.yaml",
+      "mode": "git_blob_exact_frozen_crlf_materialization",
+      "sha256": "dc1c52f533ed6baf5ee6216f0527865e9b9d8ae0f2ad9404cffa153bfa7e0f20",
+      "bytes": 7693
+    },
+    {
+      "path": "assets/curriculum/templates/cms_service_remaining_principles.yaml",
+      "mode": "git_blob_exact_frozen_crlf_materialization",
+      "sha256": "b3b8daef90fdf0cce8e079dd17ddea81942cd8fa94f96846a1a374f80d262f59",
+      "bytes": 28667
+    },
+    {
+      "path": "assets/curriculum/templates/cms_loire_product_choices.yaml",
+      "mode": "git_blob_exact_frozen_crlf_materialization",
+      "sha256": "d682ee2560715d3a22bda5b81b38a598f9444924c4fd62f9e64525f72d1c0738",
+      "bytes": 5341
+    },
+    {
+      "path": "assets/curriculum/templates/wset_l2_scope_corrections.yaml",
+      "mode": "git_blob_exact_frozen_crlf_materialization",
+      "sha256": "30e4389960b8aa07fe1932e5d64fa813e1c23a7930c1087d556a40edcdfe3ca6",
+      "bytes": 3444
+    },
+    {
+      "path": "assets/curriculum/templates/wset_point_recall.yaml",
+      "mode": "git_blob_exact_frozen_crlf_materialization",
+      "sha256": "a2a40f76cdab60cb4914d636e63b9a2028bdec365b9636d4d04dab9dc5f0434d",
+      "bytes": 122269
+    },
+    {
+      "path": "assets/curriculum/templates/authored_choice.yaml",
+      "mode": "git_blob_exact_frozen_crlf_materialization",
+      "sha256": "819e6e61dc11c33d32c64eb27ea5af5fc73454be2aa6d2423424d311ffc41e57",
+      "bytes": 2992
+    },
+    {
+      "path": "assets/curriculum/templates/authored_choice_l1_final_16.yaml",
+      "mode": "git_blob_exact_frozen_crlf_materialization",
+      "sha256": "890152fabe26db777f228de20416a78fa6d949ea74c6173519b24026497526b1",
+      "bytes": 9796
+    },
+    {
+      "path": "assets/curriculum/templates/authored_choice_l1_geography.yaml",
+      "mode": "git_blob_exact_frozen_crlf_materialization",
+      "sha256": "0807b4f364c2cca7836ae0f6aac992a3ed72a03981ee73fa95365ef14bd6588e",
+      "bytes": 8645
+    },
+    {
+      "path": "assets/curriculum/templates/authored_choice_l1_more_core.yaml",
+      "mode": "git_blob_exact_frozen_crlf_materialization",
+      "sha256": "4c263ea1a70e31c8afe9016e4b58be06dc6813321a44f9c4c6703a5c2441eb2f",
+      "bytes": 14583
+    },
+    {
+      "path": "assets/curriculum/templates/authored_choice_l1_remaining_13.yaml",
+      "mode": "git_blob_exact_frozen_crlf_materialization",
+      "sha256": "b96a471165465eacfc531331584a52fc9beeef8a07b834e6ef193ba3cb2785d0",
+      "bytes": 8029
+    },
+    {
+      "path": "assets/curriculum/templates/authored_choice_l1_process.yaml",
+      "mode": "git_blob_exact_frozen_crlf_materialization",
+      "sha256": "fb179976f0c45f10ea7371bba84f22532ae314ffee85528a204891c2644f6ed8",
+      "bytes": 11078
+    },
+    {
+      "path": "assets/curriculum/templates/authored_choice_l1_service_observation.yaml",
+      "mode": "git_blob_exact_frozen_crlf_materialization",
+      "sha256": "01a797e302c0e44b84920da60b06ef5c352f4bdcac5d61707544246e072caa90",
+      "bytes": 14246
+    },
+    {
+      "path": "assets/curriculum/templates/authored_choice_l1_styles.yaml",
+      "mode": "git_blob_exact_frozen_crlf_materialization",
+      "sha256": "6565dc2ab7bf9c4eba5485dc26261d3d13c297da75eb2712ff137d3c2c13a787",
+      "bytes": 2688
+    },
+    {
+      "path": "assets/curriculum/templates/authored_choice_l1_tasting_service.yaml",
+      "mode": "git_blob_exact_frozen_crlf_materialization",
+      "sha256": "fb8cf99c0fd88fe5223c3f0a0a804b121a2ada28a0264a7babef50efe2988687",
+      "bytes": 7001
+    },
+    {
+      "path": "assets/curriculum/templates/wset_l2_authored_choice_grape_place_style.yaml",
+      "mode": "git_blob_exact_frozen_crlf_materialization",
+      "sha256": "9faf533361181a3fade2e72d6fd9257385fe0bd4d3d9e7c30b5fd9816b2df512",
+      "bytes": 24811
+    },
+    {
+      "path": "assets/curriculum/templates/wset_l2_authored_choice_grape_expansion.yaml",
+      "mode": "git_blob_exact_frozen_crlf_materialization",
+      "sha256": "59714331e16333002ad0e6d6d5dfb01077d92b8d3a6c1dbcb0b8361990e44536",
+      "bytes": 20950
+    },
+    {
+      "path": "assets/curriculum/templates/wset_l2_authored_choice_principles.yaml",
+      "mode": "git_blob_exact_frozen_crlf_materialization",
+      "sha256": "6422fe5e430790e659e0fbe6fe528f3a3e20596b5e16cac1ed59c23b3ea4dd85",
+      "bytes": 20857
+    },
+    {
+      "path": "assets/curriculum/templates/wset_l2_authored_choice_remaining.yaml",
+      "mode": "git_blob_exact_frozen_crlf_materialization",
+      "sha256": "4cba18a6f9256232d130508ab0baa29e81e0ec612bb0dadf2f6b38f01c30e170",
+      "bytes": 20329
+    },
+    {
+      "path": "assets/curriculum/templates/wset_l2_winemaking_remaining.yaml",
+      "mode": "git_blob_exact_frozen_crlf_materialization",
+      "sha256": "d7dea1262a60234ad7ded067cd56abe00edd217b08418e9a6c7ad9132ad092a8",
+      "bytes": 30349
+    },
+    {
+      "path": "assets/curriculum/templates/wset_l2_core_practice_closure.yaml",
+      "mode": "git_blob_exact_frozen_crlf_materialization",
+      "sha256": "a99a57373c5a1fb18f9c833ef219c5ff99a378fa81bde2f89392b4feca78b211",
+      "bytes": 7084
+    },
+    {
+      "path": "assets/curriculum/templates/wset_l2_application_choice.yaml",
+      "mode": "git_blob_exact_frozen_crlf_materialization",
+      "sha256": "5d17333072ae927defad7da714d5b316276bf676c4a443712b333e580d571d5a",
+      "bytes": 20241
+    },
+    {
+      "path": "assets/curriculum/templates/wset_l2_viticulture_gap_choices.yaml",
+      "mode": "git_blob_exact_frozen_crlf_materialization",
+      "sha256": "25d3aa2b40329c9bffa3409802299810fb7bccb6e1ea1b0a05a0cead8a402258",
+      "bytes": 23131
+    },
+    {
+      "path": "assets/curriculum/templates/wset_l2_geography_gap_choices.yaml",
+      "mode": "git_blob_exact_frozen_crlf_materialization",
+      "sha256": "0cb77ae95c272219d04171dd0233996d494a0850f918428c335096ccac58b9e9",
+      "bytes": 20764
+    },
+    {
+      "path": "assets/curriculum/templates/wset_l2_geography_location_clues.yaml",
+      "mode": "git_blob_exact_frozen_crlf_materialization",
+      "sha256": "c26ad51165be7478b1e13b0b0ab224c77ff2d40409c9498b7c404d59104e5b92",
+      "bytes": 9282
+    },
+    {
+      "path": "assets/curriculum/templates/wset_l3_geography_location_clues.yaml",
+      "mode": "git_blob_exact_frozen_crlf_materialization",
+      "sha256": "b16563be4cf6fc3d29191f446a5cb6913f59dc99575a187e1a514ea5654d4ece",
+      "bytes": 16551
+    },
+    {
+      "path": "assets/curriculum/templates/wset_shared_grape_choice.yaml",
+      "mode": "git_blob_exact_frozen_crlf_materialization",
+      "sha256": "6119fa605074e98ddc5967e30655fa259634d1e687f57c6aed062d3fcd157244",
+      "bytes": 13098
+    },
+    {
+      "path": "assets/curriculum/templates/wset_shared_grape_variation.yaml",
+      "mode": "git_blob_exact_frozen_crlf_materialization",
+      "sha256": "7cdbab6a96bc399f60166e660c490d686fc19280ca4f493c73645a8402bc400c",
+      "bytes": 8127
+    },
+    {
+      "path": "assets/curriculum/templates/wset_shared_grape_profiles_remaining.yaml",
+      "mode": "git_blob_exact_frozen_crlf_materialization",
+      "sha256": "89bf5187e978b871fcd2020fb44ced186952b1780735225ee36f14b26a8d03f9",
+      "bytes": 2677
+    },
+    {
+      "path": "assets/curriculum/templates/wset_shared_grape_berry_colour_remaining.yaml",
+      "mode": "git_blob_exact_frozen_crlf_materialization",
+      "sha256": "7206ad14a6c87ef2485b463393af5ff8e879572a2fda0889234b2798901ff339",
+      "bytes": 6116
+    },
+    {
+      "path": "assets/curriculum/templates/wset_shared_grape_structure_remaining.yaml",
+      "mode": "git_blob_exact_frozen_crlf_materialization",
+      "sha256": "92e5915cf44a6ad75024f4aea605912762c78685595821f5741e134094419425",
+      "bytes": 6067
+    },
+    {
+      "path": "assets/curriculum/templates/wset_europe_application_choice.yaml",
+      "mode": "git_blob_exact_frozen_crlf_materialization",
+      "sha256": "6682fc4c9a7c680aa5d55026c11b1b4fe6645f5c7d4fd5bcad323477c92c6dd0",
+      "bytes": 48024
+    },
+    {
+      "path": "assets/curriculum/templates/wset_new_world_application_choice.yaml",
+      "mode": "git_blob_exact_frozen_crlf_materialization",
+      "sha256": "ffe976427da0ecf0845f701672ab5f75c7d523895eef1f3c51da8def42d3d5b4",
+      "bytes": 11834
+    },
+    {
+      "path": "assets/curriculum/templates/wset_business_application_choice.yaml",
+      "mode": "git_blob_exact_frozen_crlf_materialization",
+      "sha256": "ba7f23aaf137f4cc4f69449f0297745c58f7d78ceba4a721adde62329055c28f",
+      "bytes": 26342
+    },
+    {
+      "path": "assets/curriculum/templates/wset_l3_business_gap_scenarios.yaml",
+      "mode": "git_blob_exact_frozen_crlf_materialization",
+      "sha256": "73e24d2ea1378d0c9061fc2ae994ad6c19a0170df024249b5b9c5f383021edc4",
+      "bytes": 24715
+    },
+    {
+      "path": "assets/curriculum/templates/wset_l3_business_case_criteria.yaml",
+      "mode": "git_blob_exact_frozen_crlf_materialization",
+      "sha256": "c312cebe4859b3e5a44b0f5c6eeeacfd93ff2c90c890fbe069a007dd72f00ea6",
+      "bytes": 10391
+    },
+    {
+      "path": "assets/curriculum/templates/wset_l3_geography_case_criteria.yaml",
+      "mode": "git_blob_exact_frozen_crlf_materialization",
+      "sha256": "3f176b141335b57ac34c2f2de47341080a91a928a436e24810c32311500e4963",
+      "bytes": 3636
+    },
+    {
+      "path": "assets/curriculum/templates/wset_winemaking_shared_choice.yaml",
+      "mode": "git_blob_exact_frozen_crlf_materialization",
+      "sha256": "62b62e9a8b67ce87f48373faa9fef7f463ec2d150765df19e15f2f8c6c017fff",
+      "bytes": 6775
+    },
+    {
+      "path": "assets/curriculum/templates/wset_winemaking_l3_choice.yaml",
+      "mode": "git_blob_exact_frozen_crlf_materialization",
+      "sha256": "165362b8883a2feacb2aeeb30bd3de8fdbe9fdc71509d18530a791d3563f8bcc",
+      "bytes": 8685
+    },
+    {
+      "path": "assets/curriculum/templates/wset_winemaking_l3_depth_choice.yaml",
+      "mode": "git_blob_exact_frozen_crlf_materialization",
+      "sha256": "6b0e6ac1e1df56b4fce267880fbd33db4043c0cdd56f136e97b78923fa8ecec4",
+      "bytes": 28565
+    },
+    {
+      "path": "assets/curriculum/templates/wset_l3_winemaking_gap_scenarios.yaml",
+      "mode": "git_blob_exact_frozen_crlf_materialization",
+      "sha256": "5d759b6b17b47b3e35ed81dc2268b25cb32cf9dab5e702fd42a796e3957f2961",
+      "bytes": 29102
+    },
+    {
+      "path": "assets/curriculum/templates/wset_l3_winemaking_principle_closure_40.yaml",
+      "mode": "git_blob_exact_frozen_crlf_materialization",
+      "sha256": "cfdb102c2d9d7bff1964db7376ab163b743953d50eea84ac773dee94a784a490",
+      "bytes": 25753
+    },
+    {
+      "path": "assets/curriculum/templates/wset_l3_winemaking_regional_principles_54.yaml",
+      "mode": "git_blob_exact_frozen_crlf_materialization",
+      "sha256": "998be44b42b0543471d643570c8d1c2852f450728666baeff02c6814d20d8576",
+      "bytes": 35877
+    },
+    {
+      "path": "assets/curriculum/templates/wset_l3_winemaking_special_principles_47.yaml",
+      "mode": "git_blob_exact_frozen_crlf_materialization",
+      "sha256": "0cc871d640e6e5d74ad40404f532ffbf48676742c33a48155d19d30dc88c7579",
+      "bytes": 33997
+    },
+    {
+      "path": "assets/curriculum/templates/wset_l3_winemaking_case_criteria.yaml",
+      "mode": "git_blob_exact_frozen_crlf_materialization",
+      "sha256": "35f7a27b37d6ac8bf2ba2a86e80f0ae4a0f422f12b4ec56fa3af541368c990cb",
+      "bytes": 14466
+    },
+    {
+      "path": "assets/curriculum/templates/wset_l3_application_choice.yaml",
+      "mode": "git_blob_exact_frozen_crlf_materialization",
+      "sha256": "252f077b9a1418b223bfb84b040faf3d7294ded9c7e7dcabad192c7cfb2ea00d",
+      "bytes": 24666
+    },
+    {
+      "path": "assets/curriculum/templates/wset_l3_viticulture_application_choice.yaml",
+      "mode": "git_blob_exact_frozen_crlf_materialization",
+      "sha256": "72ae9d921b14ef2eda28f2e318a171b4e392b69d0092aed592893385aeb660bc",
+      "bytes": 25679
+    },
+    {
+      "path": "assets/curriculum/templates/wset_l3_viticulture_principle_closure_40.yaml",
+      "mode": "git_blob_exact_frozen_crlf_materialization",
+      "sha256": "9564cd05dc6338b18767e7c4ccb457727abf65a4b923c40629b25874fb6156bb",
+      "bytes": 29073
+    },
+    {
+      "path": "assets/curriculum/templates/wset_l3_viticulture_principle_closure_next_40.yaml",
+      "mode": "git_blob_exact_frozen_crlf_materialization",
+      "sha256": "b8f67b0115498b04be0755ee9392f95f26b767242ca634d7eacbceed33063252",
+      "bytes": 29341
+    },
+    {
+      "path": "assets/curriculum/templates/wset_l3_viticulture_case_choice.yaml",
+      "mode": "git_blob_exact_frozen_crlf_materialization",
+      "sha256": "f38bab5abd973ca6076e7d13550754e2e901f187e0f28d56cd8960fa61e0a0b9",
+      "bytes": 32355
+    },
+    {
+      "path": "assets/curriculum/templates/wset_l3_viticulture_principle_final_16.yaml",
+      "mode": "git_blob_exact_frozen_crlf_materialization",
+      "sha256": "3dfd09b862e8c3d43a96f8d0d3afb19500dd78c0163b0dce58f63c670591872a",
+      "bytes": 13185
+    },
+    {
+      "path": "assets/curriculum/templates/wset_l3_viticulture_general_22.yaml",
+      "mode": "git_blob_exact_frozen_crlf_materialization",
+      "sha256": "757761faae71b0d4e45d04e5f9e049c9d77e1740d7a3755ef091f7aea315c58b",
+      "bytes": 16429
+    },
+    {
+      "path": "assets/curriculum/templates/wset_l3_tasting_application_choice.yaml",
+      "mode": "git_blob_exact_frozen_crlf_materialization",
+      "sha256": "dd84d3155c4fe59924e31d287f005c34bddbfcd4c3c25a9a709e6b259dd7cc32",
+      "bytes": 14308
+    },
+    {
+      "path": "assets/curriculum/templates/wset_l3_service_application_choice.yaml",
+      "mode": "git_blob_exact_frozen_crlf_materialization",
+      "sha256": "498ac1aeca169727fd18c531fb5e290fb6123a14bf90d64bff398b5ae86e4595",
+      "bytes": 10339
+    },
+    {
+      "path": "assets/curriculum/templates/wset_l3_tasting_fault_closure_choices.yaml",
+      "mode": "git_blob_exact_frozen_crlf_materialization",
+      "sha256": "d23fb33ec11031e89c878fcff485822028f05073d514481525bbf46ce93440ab",
+      "bytes": 7940
+    },
+    {
+      "path": "assets/curriculum/templates/wset_l3_service_principle_closure_choices.yaml",
+      "mode": "git_blob_exact_frozen_crlf_materialization",
+      "sha256": "56e1d6a2407800b85e756249b43223cd2cf21f995276dd9f5cf45e2c9c7d673f",
+      "bytes": 5770
+    },
+    {
+      "path": "assets/curriculum/templates/wset_l3_service_case_closure_choices.yaml",
+      "mode": "git_blob_exact_frozen_crlf_materialization",
+      "sha256": "005550534cab99f16c7464d6a593a59be42238e889736874d08fc95ca850e895",
+      "bytes": 11356
+    },
+    {
+      "path": "assets/curriculum/templates/wset_l3_authored_choice_regional_geography.yaml",
+      "mode": "git_blob_exact_frozen_crlf_materialization",
+      "sha256": "a3d77ac11179d40664eeb5ea4a8e4a92051034c0b77683f9a4fd358ce90610d5",
+      "bytes": 34463
+    },
+    {
+      "path": "assets/curriculum/templates/wset_l3_authored_choice_new_world_expansion.yaml",
+      "mode": "git_blob_exact_frozen_crlf_materialization",
+      "sha256": "cb89dbbbf2543cb583764e2dcb73148586122d73ee2cfefd3701c0fb0bf819e5",
+      "bytes": 22255
+    },
+    {
+      "path": "assets/curriculum/templates/wset_l3_geography_gap_scenarios.yaml",
+      "mode": "git_blob_exact_frozen_crlf_materialization",
+      "sha256": "bb8e9d5b1f87e5d0e2d859b53e0d3ad2dfb574d815dfc9488553c522f259152f",
+      "bytes": 25921
+    },
+    {
+      "path": "assets/curriculum/templates/wset_l3_geography_gap_scenarios_2.yaml",
+      "mode": "git_blob_exact_frozen_crlf_materialization",
+      "sha256": "103985813f4fe22508ed6558f32dadc49b30f258cf253985542ed1bda09ffecb",
+      "bytes": 29866
+    },
+    {
+      "path": "assets/curriculum/templates/wset_l3_geography_remaining_principles.yaml",
+      "mode": "git_blob_exact_frozen_crlf_materialization",
+      "sha256": "11eea37ba9ad381c7e9894d537e638f9c9ace81486cb3962c07df41ffb1b2dc0",
+      "bytes": 30659
+    },
+    {
+      "path": "assets/curriculum/templates/wset_l3_geography_final_nonspatial.yaml",
+      "mode": "git_blob_exact_frozen_crlf_materialization",
+      "sha256": "ca757dc12e0f18dbee6d74bb405ae29e639de02f968c1fef0cceadf1cc798bc3",
+      "bytes": 13473
+    },
+    {
+      "path": "assets/curriculum/templates/diploma_sparkling_new_world_cases.yaml",
+      "mode": "git_blob_exact_frozen_crlf_materialization",
+      "sha256": "1087ab7b8185501261d16d9a5d25bb1ebb867aa4fe65b52be54aa05e871f0a26",
+      "bytes": 1169
+    },
+    {
+      "path": "assets/curriculum/templates/diploma_d4_sparkling_depth_questions.yaml",
+      "mode": "git_blob_exact_frozen_crlf_materialization",
+      "sha256": "0a4f2af29eab34f4b102ad65818b213518fec6bbce49d370ef67daf55325438a",
+      "bytes": 14052
+    },
+    {
+      "path": "assets/curriculum/templates/diploma_d4_sparkling_depth_cases.yaml",
+      "mode": "git_blob_exact_frozen_crlf_materialization",
+      "sha256": "76efe327b46ca2e0d753dcb84427e5e14d614241ebd5cf9f4db216eabf3de09c",
+      "bytes": 3197
+    },
+    {
+      "path": "assets/curriculum/templates/diploma_independent_research_cases.yaml",
+      "mode": "git_blob_exact_frozen_crlf_materialization",
+      "sha256": "ae42bde4c5a0845f0b67f155d44d2202d61d92665ff0cbab15eeb4542ca86b0a",
+      "bytes": 2248
+    },
+    {
+      "path": "assets/curriculum/templates/diploma_d1_targeted_production_cases.yaml",
+      "mode": "git_blob_exact_frozen_crlf_materialization",
+      "sha256": "1dbe0d54f23f3d8f44fb77adc95006cfcc3035eba17e775cf2190eb6eafff072",
+      "bytes": 6919
+    },
+    {
+      "path": "assets/curriculum/templates/wset_l4_viticulture_principle_closure_51.yaml",
+      "mode": "git_blob_exact_frozen_crlf_materialization",
+      "sha256": "cc75263455733a72d94aeeb9bd97e8c09ed047855780984bdbd16dec34ccab8d",
+      "bytes": 45972
+    },
+    {
+      "path": "assets/curriculum/templates/wset_l4_viticulture_causal_choices.yaml",
+      "mode": "git_blob_exact_frozen_crlf_materialization",
+      "sha256": "e7f8d20793c0b17b38b3204f045f72fcfdc2291d37ce1826f2de8ea263e3d7f8",
+      "bytes": 6430
+    },
+    {
+      "path": "assets/curriculum/templates/wset_l4_viticulture_case_criteria.yaml",
+      "mode": "git_blob_exact_frozen_crlf_materialization",
+      "sha256": "3ff4de6ef020bcfab166c8018917286b16d70caf78e77c79a9c6c8c44e6a7db9",
+      "bytes": 3082
+    },
+    {
+      "path": "assets/curriculum/templates/diploma_d1_cellar_methods_practice.yaml",
+      "mode": "git_blob_exact_frozen_crlf_materialization",
+      "sha256": "f503d49f2dac1b0ac69102ca779374db2f0ed9b1daad4c520f415e7dfe8e0578",
+      "bytes": 9857
+    },
+    {
+      "path": "assets/curriculum/templates/diploma_d1_vine_and_packaging_practice.yaml",
+      "mode": "git_blob_exact_frozen_crlf_materialization",
+      "sha256": "b6d77140cfc6270dc7ccc8b4707e3d95e305e991db6174fe10db3eb612a612dc",
+      "bytes": 12779
+    },
+    {
+      "path": "assets/curriculum/templates/diploma_d3_regional_theory_questions.yaml",
+      "mode": "git_blob_exact_frozen_crlf_materialization",
+      "sha256": "ebad0fe029056babc526985a3880ffe65f4420abc9d05eb490b3ae6215a1c3a8",
+      "bytes": 13819
+    },
+    {
+      "path": "assets/curriculum/templates/diploma_d3_regional_theory_cases.yaml",
+      "mode": "git_blob_exact_frozen_crlf_materialization",
+      "sha256": "6be57523a3d524d5d431b967acccf121cc07148998b97f8a7e8956c4b45ecced",
+      "bytes": 3666
+    },
+    {
+      "path": "assets/curriculum/templates/diploma_d3_geography_principle_closure.yaml",
+      "mode": "git_blob_exact_frozen_crlf_materialization",
+      "sha256": "30d2aa5855de87466334d4eee1dd079dde693f57c0ed7771d211db87ccfec9a3",
+      "bytes": 19302
+    },
+    {
+      "path": "assets/curriculum/templates/diploma_d3_geography_service_case_criteria.yaml",
+      "mode": "git_blob_exact_frozen_crlf_materialization",
+      "sha256": "334daf74320bc97fefb497b51d898afc1774f296cf072417020acf02903cdd4b",
+      "bytes": 7878
+    },
+    {
+      "path": "assets/curriculum/templates/wset_l4_winemaking_case_criteria.yaml",
+      "mode": "git_blob_exact_frozen_crlf_materialization",
+      "sha256": "8d4edff926177534830c8bef48d473d5a366064410e93043dc00dc3c11a5fd41",
+      "bytes": 18824
+    },
+    {
+      "path": "assets/curriculum/templates/wset_l4_winemaking_principles_global.yaml",
+      "mode": "git_blob_exact_frozen_crlf_materialization",
+      "sha256": "0fa1f914ce991fc8cff98ab74176bd9cb94e12d25bd2b3a820e51f84241d390e",
+      "bytes": 18150
+    },
+    {
+      "path": "assets/curriculum/templates/wset_l4_winemaking_principles_regional.yaml",
+      "mode": "git_blob_exact_frozen_crlf_materialization",
+      "sha256": "43aee067d421cc2ebc236eb8be5259bba39104611646fda4c9b3c7da1f8f3cc3",
+      "bytes": 20742
+    },
+    {
+      "path": "assets/curriculum/templates/diploma_fortified_depth_choice.yaml",
+      "mode": "git_blob_exact_frozen_crlf_materialization",
+      "sha256": "025112b7e71a48e88b589c32d142dfdd8456922f5ec3e2d2acaa74f11b99082d",
+      "bytes": 11558
+    },
+    {
+      "path": "assets/curriculum/templates/diploma_fortified_depth_cases.yaml",
+      "mode": "git_blob_exact_frozen_crlf_materialization",
+      "sha256": "7f4332b37c6234af16843e062690def14c8c94fd6e904b52ea20bd1b41e2c505",
+      "bytes": 2650
+    },
+    {
+      "path": "assets/curriculum/templates/wset_l4_business_case_criteria.yaml",
+      "mode": "git_blob_exact_frozen_crlf_materialization",
+      "sha256": "b65e626bc06067b0811fd4b5649ce6ae2460216aa0a68d9fa9713fb4de09e07c",
+      "bytes": 21482
+    },
+    {
+      "path": "assets/curriculum/templates/wset_l4_business_principle_choice.yaml",
+      "mode": "git_blob_exact_frozen_crlf_materialization",
+      "sha256": "e93a219d93478aca2feea724466ddf88dbea61a65d65d7f4e813e48eaad9d443",
+      "bytes": 19735
+    },
+    {
+      "path": "assets/curriculum/templates/diploma_d4_d5_product_distinctions.yaml",
+      "mode": "git_blob_exact_frozen_crlf_materialization",
+      "sha256": "27a40cac83a64f632eba51559bb246df863354e9464257b6307ee27a12947079",
+      "bytes": 10325
+    },
+    {
+      "path": "assets/curriculum/templates/diploma_d4_d5_tasting_evidence.yaml",
+      "mode": "git_blob_exact_frozen_crlf_materialization",
+      "sha256": "49112576640eb3620efe7eb5a19584c1cf3b23a276cc73d0f48219f1ba48a5ce",
+      "bytes": 8104
+    },
+    {
+      "path": "assets/geography/manifest.yaml",
+      "mode": "git_blob_exact_frozen_crlf_materialization",
+      "sha256": "56cb19171f52dba4fb7f73858321cc1b7c59fe906899688d559be1657e466c6d",
+      "bytes": 449857
+    },
+    {
+      "path": "assets/geography/world_continents.topo.json",
+      "mode": "git_blob_raw",
+      "sha256": "c21dd98a7998f0a40538c7b357b6d30cb7089dc7c6aeb31e47c5b6c4ccb6608b",
+      "bytes": 77797
+    },
+    {
+      "path": "assets/geography/world_countries.topo.json",
+      "mode": "git_blob_raw",
+      "sha256": "47af093d38af91b43c811f9e60ee54f474ff8d39f24fdc53a1b8eb0296ea1839",
+      "bytes": 347336
+    },
+    {
+      "path": "assets/geography/world_coastline.topo.json",
+      "mode": "git_blob_raw",
+      "sha256": "75516c214ba1a28e3724bb4c3d04f1bf5a3042532d7b760bce979061c5fb6a84",
+      "bytes": 270227
+    },
+    {
+      "path": "assets/geography/world_marine.topo.json",
+      "mode": "git_blob_raw",
+      "sha256": "01347138556090dd510d3142a96a480c0311d81ca08133d3940221d75f92a87f",
+      "bytes": 131967
+    },
+    {
+      "path": "assets/geography/world_lakes.topo.json",
+      "mode": "git_blob_raw",
+      "sha256": "d660fad325a5c61f8a771a03cff7badbff8e0c4dacac7d0952f5654a4427697b",
+      "bytes": 98990
+    },
+    {
+      "path": "assets/geography/world_rivers.topo.json",
+      "mode": "git_blob_raw",
+      "sha256": "ef3a9730317843ded9b257373b3e49a66ddf1c7c0d5bd7e70d09cf8816d23f6c",
+      "bytes": 133294
+    },
+    {
+      "path": "assets/geography/world_physical.topo.json",
+      "mode": "git_blob_raw",
+      "sha256": "2c229552f4fd874ddfea2502a6af9cb9cba7e32fc15934ac388b3a6574e2f897",
+      "bytes": 139990
+    },
+    {
+      "path": "assets/geography/fr_regions.topo.json",
+      "mode": "git_blob_raw",
+      "sha256": "6ea3e82d8c3143447f5e65dc4594943157589583db8988aced80fb29fd7c465d",
+      "bytes": 370860
+    },
+    {
+      "path": "assets/geography/fr_subregions.topo.json",
+      "mode": "git_blob_raw",
+      "sha256": "d366b3f9a72a65f2caeed2d0bccb245af13595be96cacf354f9a5e48ac2d4d8e",
+      "bytes": 120816
+    },
+    {
+      "path": "assets/geography/fr_appellations.topo.json",
+      "mode": "git_blob_raw",
+      "sha256": "96cc59f95bcaf710ea0c3f91e52315f8dc8ab76fbd4ff148b8802341b82635e0",
+      "bytes": 797070
+    },
+    {
+      "path": "assets/geography/current_regions_markers.topo.json",
+      "mode": "git_blob_raw",
+      "sha256": "f3250792cf7b898f67cc995674559d9309637f845c72faa2ada6df8107a18833",
+      "bytes": 6034
+    },
+    {
+      "path": "assets/geography/world_atlas_markers.topo.json",
+      "mode": "git_blob_raw",
+      "sha256": "50c9af397ff14426431eb6ed28c5358af54cff02195926c9e29daff0c8d39150",
+      "bytes": 23727
+    },
+    {
+      "path": "assets/geography/central_europe_atlas_markers.topo.json",
+      "mode": "git_blob_raw",
+      "sha256": "eec5661268a821abe8844f2e081278d96809f50cac2ebe3c4a70784908748443",
+      "bytes": 6441
+    },
+    {
+      "path": "assets/geography/cms_eastern_europe_markers.topo.json",
+      "mode": "git_blob_raw",
+      "sha256": "78d00879f3653276338c194d4ece1228d4b289ffbb9d8671a724c10b2eb00719",
+      "bytes": 1125
+    },
+    {
+      "path": "assets/geography/cms_greece_markers.topo.json",
+      "mode": "git_blob_raw",
+      "sha256": "f34eeaf5aeaf4858c036929f5419baabc62485331066e3a2f8e4293e280c393b",
+      "bytes": 636
+    },
+    {
+      "path": "assets/geography/cms_loire_markers.topo.json",
+      "mode": "git_blob_raw",
+      "sha256": "159f0ae797bdca887b17dd44399cf01484f185c01d1bd2cedf689314b9b6d501",
+      "bytes": 443
+    },
+    {
+      "path": "assets/geography/france_champagne_markers.topo.json",
+      "mode": "git_blob_raw",
+      "sha256": "a65ff7e2372c426e782ba019cb9e253fef88cc18f379ed92ff829440a406d1a8",
+      "bytes": 627
+    },
+    {
+      "path": "assets/geography/france_atlas_markers.topo.json",
+      "mode": "git_blob_raw",
+      "sha256": "a62785516a4a706503568a6c0bfab43cc8061420b8f4661cf474dbeaf93a26bc",
+      "bytes": 8511
+    },
+    {
+      "path": "assets/geography/france_chablis_cadastre_markers.topo.json",
+      "mode": "git_blob_raw",
+      "sha256": "9fea83a0d93c5f47929ecfbc6b8d551da4c96425700130e3532d21be79ebdd4b",
+      "bytes": 971
+    },
+    {
+      "path": "assets/geography/france_atlas_completion_markers.topo.json",
+      "mode": "git_blob_raw",
+      "sha256": "fee4e6726fbfe4d2e11cccea0d75adc83218543752092247b977ed279d20b5fb",
+      "bytes": 7688
+    },
+    {
+      "path": "assets/geography/france_atlas_completion_cadastre_markers.topo.json",
+      "mode": "git_blob_raw",
+      "sha256": "dba457d97afa2f73f0bf4caadf4c32d1eedaa6f3042d276526df2cceddb675dd",
+      "bytes": 3368
+    },
+    {
+      "path": "assets/geography/france_atlas_completion_reference_markers.topo.json",
+      "mode": "git_blob_raw",
+      "sha256": "df8ad38bd32eca58e0e295f0249f26be507b04515b7ad59caa78b5db5a9b864e",
+      "bytes": 278
+    },
+    {
+      "path": "assets/geography/vino_nobile_pievi_markers.topo.json",
+      "mode": "git_blob_raw",
+      "sha256": "600ce7a15f136a66d005d19ad1b864a083266e07757bce09cdbbb2659b7de1f2",
+      "bytes": 1178
+    },
+    {
+      "path": "assets/geography/europe_atlas_completion_markers.topo.json",
+      "mode": "git_blob_raw",
+      "sha256": "58fe6d4836d75367e9b70250715e3c40d5a2817fccc4189e6660f3feaa7317cf",
+      "bytes": 19397
+    },
+    {
+      "path": "assets/geography/new_world_atlas_completion_markers.topo.json",
+      "mode": "git_blob_raw",
+      "sha256": "bd9689d301aacfb3ed5f3d5b935c31a728878eb3d47ab0ec6180a2280fa8e6ad",
+      "bytes": 21527
+    },
+    {
+      "path": "assets/geography/new_world_atlas_completion_gazetteer_markers.topo.json",
+      "mode": "git_blob_raw",
+      "sha256": "e0bb6020bf84f495c4ece99bfb25f0207eba45ebf840be0eb5ad3f45237a9598",
+      "bytes": 1673
+    },
+    {
+      "path": "assets/geography/british_atlas_markers.topo.json",
+      "mode": "git_blob_raw",
+      "sha256": "46929a9059c87b4112b052f78541968d976ab044415847e4a74dfcbbd1361ab2",
+      "bytes": 2511
+    },
+    {
+      "path": "assets/geography/china_atlas_markers.topo.json",
+      "mode": "git_blob_raw",
+      "sha256": "43d29622f9136dae770d20680ce7059e7c0849812187ced5f307792d9fa17a94",
+      "bytes": 1031
+    },
+    {
+      "path": "assets/geography/diploma_us_atlas_markers.topo.json",
+      "mode": "git_blob_raw",
+      "sha256": "10af1c0b7e775d8ed3e5e4333454b18517b0f2b74bdb8ba9b56f8c364d8d4402",
+      "bytes": 1760
+    },
+    {
+      "path": "assets/geography/diploma_regions_markers.topo.json",
+      "mode": "git_blob_raw",
+      "sha256": "ce0befbcca2e2b865cc6da5a66bfae945194da352f04c48ce08428ac52c9fb9c",
+      "bytes": 1444
+    },
+    {
+      "path": "assets/geography/new_world_oceania_africa_au_gis_markers.topo.json",
+      "mode": "git_blob_raw",
+      "sha256": "ea6bbf6dab6949cb0e434c26afebddcd378bde570a68896894e1f10d91b4cfe0",
+      "bytes": 8380
+    },
+    {
+      "path": "assets/geography/new_world_oceania_africa_reference_markers.topo.json",
+      "mode": "git_blob_raw",
+      "sha256": "8577abf5fbe60a15300c434fbe74fcfbb137a2c62820b31383886d164bbb7f36",
+      "bytes": 4357
+    },
+    {
+      "path": "assets/geography/new_world_oceania_africa_gazetteer_markers.topo.json",
+      "mode": "git_blob_raw",
+      "sha256": "5bcf794d0d12109c6cf8a836f5e546eaafde8390845996a1c08740a2d5d415c8",
+      "bytes": 9438
+    },
+    {
+      "path": "assets/geography/new_world_americas_markers.topo.json",
+      "mode": "git_blob_raw",
+      "sha256": "0c315ffb60a388da5f74066fed82a9e16f14eb28505f53ff9c0b120941d49d81",
+      "bytes": 19773
+    },
+    {
+      "path": "assets/geography/new_world_americas_gazetteer_markers.topo.json",
+      "mode": "git_blob_raw",
+      "sha256": "b5e06170acdbca439d0d0b1431ba167da7b2a2f9ac0051c169d0607c50c112bc",
+      "bytes": 6113
+    },
+    {
+      "path": "assets/geography/soave_uga_wikidata_markers.topo.json",
+      "mode": "git_blob_raw",
+      "sha256": "58b561ce5e6fdc0cab8468eb717ac2de02dfa97615aee6792740780fbd7289fc",
+      "bytes": 373
+    },
+    {
+      "path": "assets/geography/soave_uga_geonames_markers.topo.json",
+      "mode": "git_blob_raw",
+      "sha256": "bb39be13e53ca7ea50297721ae2dd76e45099d0a2189fefbb27ac668343fd881",
+      "bytes": 599
+    },
+    {
+      "path": "assets/geography/alto_adige_uga_geonames_markers.topo.json",
+      "mode": "git_blob_raw",
+      "sha256": "886fa4cecb0407d112f4274a315b9a85d2c4194bf08d08225554d1d1399794ff",
+      "bytes": 938
+    },
+    {
+      "path": "assets/geography/wset_required_gazetteer.topo.json",
+      "mode": "git_blob_raw",
+      "sha256": "a1e71d4bcb1647b57e895c71be465aff36e9d0476c603d9f7372204b0cb6d542",
+      "bytes": 3528
+    },
+    {
+      "path": "assets/geography/wset_required_ava.topo.json",
+      "mode": "git_blob_raw",
+      "sha256": "6e050bd4752fb3086195c15659e8d3f312d74e800171de3c629565a6995bea50",
+      "bytes": 236
+    },
+    {
+      "path": "assets/geography/world_land.topo.json",
+      "mode": "git_blob_raw",
+      "sha256": "ebbbdde430834eb80403782abcf14bffeeac309b547ad12769702d03902366c0",
+      "bytes": 44059
+    }
+  ],
+  "fixture": "build/salice-v3-candidates-075/diploma_release_0_24_73_complete_frozen.json.gz",
+  "fixtureSha256": "15a944ed92394c94d4ec67b9fb83388bf3b8718e15e3c3da007af5666e211cdf",
+  "uncompressedJsonSha256": "2f06f384e7e0c9fac1987110236d641045b12abf01af7310c93faeb16add2f55",
+  "uncompressedBytes": 9767117,
+  "rowCounts": {
+    "knowledge_nodes": 6655,
+    "knowledge_relations": 5107,
+    "knowledge_items": 4957,
+    "certification_knowledge_mappings": 8687,
+    "source_citations": 1561,
+    "knowledge_item_citations": 6965,
+    "knowledge_item_prerequisites": 1272,
+    "question_templates": 458,
+    "quantity_values": 30,
+    "node_alternative_names": 1531,
+    "node_types": 31,
+    "relation_types": 32,
+    "relation_type_signatures": 65,
+    "curriculum_domains": 6,
+    "certifications": 8,
+    "relation_set_assertions": 40,
+    "map_layers": 41,
+    "map_layer_citations": 49,
+    "node_geometries": 1527,
+    "tasting_grids": 5,
+    "tasting_grid_attributes": 82,
+    "tasting_grid_values": 410
+  },
+  "oldSaliceAssertions": {
+    "ki_reg_isi_salice_context": "The Salice Salentino consortium describes Negroamaro as a central local grape and the sea as moderating climate. This provides a setting for comparison within Salento without treating all coastal and inland vineyards as identical.",
+    "ki_reg_isi_salice_styles": "The consortium describes structured, tannic red Salice Salentino and a lighter rosato expression. Compare colour, tannin and intended style in the actual wines; these descriptions do not grade all reds above all rosatos."
+  },
+  "runtimeExecuted": false
+}

@@ -1,0 +1,233 @@
+{
+  "question_templates": [
+    {
+      "id": "qt_d3law_principles_12",
+      "relation_type": "PRINCIPLE_EXPLANATION",
+      "direction": "forward",
+      "mode": "authored_choice",
+      "variant": "d3law_principles_12",
+      "prompt_template": "{subject.name}",
+      "parameters": {
+        "item_choices": {
+          "ki_d3law_jura_cellar_calendar": {
+            "prompt": "Which calendar condition applies to Côtes du Jura wine seeking the Vin Jaune mention under the adopted 2022 specification?",
+            "options": [
+              "After vinification, Côtes du Jura Vin Jaune requires oak maturation without topping-up through 15 December of the sixth year after the harvest year, including at least 60 months under a yeast veil. The calendar end and veil-duration conditions must both be checked.",
+              "Any oak maturation lasting sixty months from harvest satisfies the Côtes du Jura Vin Jaune requirement, even if topping-up continued and the recorded period ended before the specified sixth-year date. Counting a long total residence in wood replaces both the no-ouillage condition and the need to document the actual veil period.",
+              "Through 15 December of the sixth year after harvest, topped-up oak ageing is interchangeable with non-topped maturation for Côtes du Jura Vin Jaune. The sixty-month veil condition describes a preferred cellar practice rather than a separate eligibility requirement, so the producer can substitute topping-up when its sensory assessment favours that method.",
+              "A producer may release Côtes du Jura Vin Jaune whenever a tasting panel judges the desired flavour fully developed. The adopted calendar and veil-duration figures describe conventional maturation, and strong sensory results authorise shortening them; records of oak, topping-up and actual veil duration are unnecessary once quality is satisfactory."
+            ],
+            "correctIndex": 0,
+            "explanation": "Use the named AOC's dated rule and minimum veil duration together; this is not a universal calendar claim for every Jura AOC.",
+            "sourceCitationId": "src_d3law_jura_cdc"
+          },
+          "ki_d3law_jura_veil_duration": {
+            "prompt": "A Côtes du Jura 2026 Vin Jaune lot remains in non-topped oak through 15 December 2032 but records only 58 months under veil. What does the supplied evidence establish?",
+            "options": [
+              "The sixth-year calendar end establishes the maturation requirement despite the recorded fifty-eight months under veil. The stated sixty months is counted as general time in oak, so two additional months without veil can supply the difference; no further veil records are necessary when the calendar date has already been reached.",
+              "The supplied calendar end is reached but the recorded 58 months misses the separate minimum 60 months under veil. Reaching 15 December 2032 alone does not establish this maturation eligibility; additional records and conformity review are needed.",
+              "The fifty-eight-month veil record qualifies when the wine tastes more concentrated than the reference lot. Sensory concentration is the controlling maturity test, and the calendar date plus superior flavour permits the producer to reduce the nominal sixty-month veil floor without seeking any additional eligibility evidence.",
+              "The supplied clavelin format cures the missing two veil months because bottle presentation identifies completed Vin Jaune maturation. Reaching the sixth-year date and preparing the reserved bottle together establish release eligibility, so the recorded fifty-eight months need not be compared separately with the sixty-month minimum."
+            ],
+            "correctIndex": 1,
+            "explanation": "The two conditions are conjunctive; a release date, taste or bottle cannot erase a deficient veil-duration record.",
+            "sourceCitationId": "src_d3law_jura_cdc"
+          },
+          "ki_d3law_jura_consumer_release": {
+            "prompt": "When may an otherwise eligible Côtes du Jura 2026 Vin Jaune reach the consumer under the adopted specification?",
+            "options": [
+              "15 December 2032 is the earliest consumer-sale date because it is the sixth-year cellar end for the supplied 2026 harvest. The separate January provision governs administrative paperwork rather than consumer access; once the stated veil duration and oak conditions are complete, a retailer may immediately sell the lot to customers.",
+              "An otherwise eligible 2026 lot may reach consumers in 2027 if a buyer prepays for a long-maturing wine. Prepayment transfers the commercial exposure to the buyer and replaces the future consumer-release calendar; no distinction is needed between reserving stock and actually supplying that stock to consumers.",
+              "After required maturation, Côtes du Jura Vin Jaune may be put on the consumer market from 1 January of the seventh year after the harvest year. For a 2026 harvest this gives 1 January 2033; completing the sixth-year 15 December cellar date does not itself authorise earlier consumer sale.",
+              "Consumer release is permitted exactly six years after the actual harvest day rather than on a January calendar date. The lot's picking record determines that anniversary, and meeting the sixty-month veil minimum permits consumer sales from it; there is no additional seventh-year gate for Côtes du Jura."
+            ],
+            "correctIndex": 2,
+            "explanation": "Consumer sale has its own calendar gate. All other eligibility and obligations still need review.",
+            "sourceCitationId": "src_d3law_jura_cdc"
+          },
+          "ki_d3law_jura_clavelin_reserved": {
+            "prompt": "What does the adopted Côtes du Jura clavelin clause actually establish?",
+            "options": [
+              "The clavelin's approximately 62 cl capacity establishes that every cellar loses exactly 38 percent from each original litre during maturation. This fixed loss is part of the bottle rule and can replace the producer's volume records when budgeting evaporation; different cellar conditions do not alter the regulatory percentage.",
+              "The reservation clause establishes a universal reverse obligation: every Côtes du Jura Vin Jaune must use exactly this bottle size, so every 75 cl presentation is automatically illegal solely on that clause. No separate packaging provision or complete specification needs review before making that universal prohibition.",
+              "Any ordinary Côtes du Jura white may use the clavelin because all whites of the AOC share the same maturation and mention conditions. The bottle is reserved geographically rather than by the Vin Jaune mention, so a topped-up ordinary white qualifies on origin alone without checking its type.",
+              "The approximately 62 cl clavelin or Vin Jaune bottle is reserved for wines of this AOC bearing the Vin Jaune mention. That reservation identifies permitted use of this format; by itself it does not prove that every other bottle size is forbidden or that every cellar loses exactly 38% of its wine."
+            ],
+            "correctIndex": 3,
+            "explanation": "Read the reservation in its stated direction; bottle volume is not a fixed evaporation or sensory-quality formula.",
+            "sourceCitationId": "src_d3law_jura_cdc"
+          },
+          "ki_d3law_tokaj_applicability": {
+            "prompt": "Which Tokaj specification is used for the supplied 2025 harvest case?",
+            "options": [
+              "Tokaj specification version 10 applies to products from grapes harvested after 1 August 2025. Use that stated harvest scope for the supplied September 2025 case. Different historical vintages require their actually applicable specification; current sugar or release rules cannot be projected indiscriminately onto older harvests.",
+              "The version label alone establishes which rules apply: a document with a more recent-sounding title governs any bottle sold today, regardless of the grapes' harvest period. The stated post-August 2025 scope can be ignored for older lots if bottling or marketing takes place after that date.",
+              "Every historic Tokaj vintage is governed by version 10's current sugar and release conditions because it remains in commercial circulation. Its original harvest period and the specification then applicable cease to matter after publication of a newer document; older cellar records can therefore be reinterpreted using current minima.",
+              "The bottling date alone determines applicability of version 10, so wine bottled after August 2025 follows it even when its grapes were harvested earlier. The document's stated harvest scope serves only to identify an example season, and the actual harvest date does not constrain the applicable requirements."
+            ],
+            "correctIndex": 0,
+            "explanation": "Read the document's stated harvest period rather than sorting version labels or replacing historical validity.",
+            "sourceCitationId": "src_hu_tokaj_2025"
+          },
+          "ki_d3law_tokaj_aszu_sugar": {
+            "prompt": "What current sugar prerequisite is set for Tokaj Aszú in the applicable version 10 specification?",
+            "options": [
+              "A current Aszú with 60 g/L residual sugar qualifies when its label uses 3 puttonyos. The historical number-to-sugar scale remains an alternative to the current analytical table, so choosing that optional number permits the producer to bypass the stated 120 g/L minimum for a post-August 2025 harvest.",
+              "For Tokaj Aszú under the post 1 August 2025 harvest specification, the residual-sugar minimum is 120 g/L. Meeting this analytical prerequisite does not establish the whole PDO claim, sensory balance or a quality score.",
+              "A current Aszú with 90 g/L residual sugar qualifies when 4 puttonyos is claimed. Optional numbered wording supplies its own lower analytical minimum and replaces the general Aszú sugar condition; no separate comparison with 120 g/L is required once the producer chooses that number.",
+              "A current Aszú measuring at least 120 g/L is fully approved for every PDO, berry-selection, maturation and label condition. The laboratory result replaces origin and cellar records and independently proves premium sensory quality, so the producer can clear the whole claim without further documentary review."
+            ],
+            "correctIndex": 1,
+            "explanation": "A current minimum is a composition condition; historical sugar scales and complete conformity are distinct.",
+            "sourceCitationId": "src_hu_tokaj_2025"
+          },
+          "ki_d3law_tokaj_optional_puttonyos": {
+            "prompt": "How should optional numbered puttonyos wording be interpreted for the current Tokaj Aszú case?",
+            "options": [
+              "The current specification prohibits 3 and 4 puttonyos wording, so every such proposed label must be refused even where its Aszú meets 120 g/L. Only higher numbered wording can appear on a current label, and the list of optional numbers cannot preserve the lower two terms.",
+              "A 135 g/L Aszú qualifies for 6 puttonyos because it exceeds the product's 120 g/L minimum. Six denotes a preferred premium presentation rather than a distinct 150 g/L condition, so the producer may choose it whenever the base analytical prerequisite is met and its buyer accepts the wording.",
+              "Version 10 lists optional 3, 4, 5 or 6 puttonyos wording for Aszú, with 6 puttonyos requiring at least 150 g/L residual sugar. All such current Aszú must meet its 120 g/L minimum; do not infer the old 3=60 or 4=90 scale or claim the current specification simply bans 3 and 4 wording.",
+              "Optional numbered wording removes the underlying 120 g/L minimum, so a producer may retain the historical 3 equals 60 or 4 equals 90 scale for a current Aszú. The choice of number is sufficient to determine eligibility, and the product minimum does not apply alongside that label."
+            ],
+            "correctIndex": 2,
+            "explanation": "Read the actual current optional-label provision alongside the product minimum. Six has a separate higher sugar gate.",
+            "sourceCitationId": "src_hu_tokaj_2025"
+          },
+          "ki_d3law_tokaj_consumer_release": {
+            "prompt": "Why must a 2025-harvest Tokaj Aszu meet both wood maturation and the separate placing-on-market date?",
+            "options": [
+              "Eighteen months of wood maturation authorises consumer sale on the next day for any Aszú harvest year. The January provision describes a customary release season rather than a separate earliest-market gate, so the supplied 2025 lot may be sold in June 2027 as soon as its recorded wood period ends.",
+              "The third-year date is 1 January 2027 for a 2025 harvest because the harvest year counts as the first of the three years. The eighteenth wood month need only finish before that sale, and no additional 2028 consumer-market date applies to an otherwise documented lot.",
+              "Buyer acceptance of a 6 puttonyos presentation waives the earliest consumer-release calendar once eighteen wood months are recorded. Its higher sugar requirement constitutes a separate premium route with earlier marketing permission, so an accepted 2025 lot may reach consumers during 2027 without waiting until January 2028 at all.",
+              "Version 10 sets earliest placing-on-market release for Aszú at 1 January of the third year after harvest, separately from its 18 month minimum wood maturation. A 2025 harvest therefore cannot reach that market before 1 January 2028 merely because 18 months wood have been completed."
+            ],
+            "correctIndex": 3,
+            "explanation": "Count years following the harvest year. Keep the separate wood and placing-on-market gates; consumer dispatch does not create a wholesale exemption.",
+            "sourceCitationId": "src_hu_tokaj_2025"
+          },
+          "ki_d3law_china_standard_status": {
+            "prompt": "What status does the official current page give GB/T15037-2006 Wines?",
+            "options": [
+              "SAMR/SAC lists GB/T15037-2006 as current and notes its conversion from mandatory to recommended status on 23 March 2017. This official status page does not supply the full standard's substantive clauses and does not by itself establish that all other wine, food, label or market rules are optional.",
+              "The official page establishes that GB/T15037-2006 remains a mandatory blanket wine law because its original number is from 2006. The conversion remark changes only the displayed prefix, with no effect on its legal status, and every later wine or label decision is completely governed by that one standard.",
+              "Recommended status establishes that Chinese wine, food and origin-label obligation is optional. A producer may use a protected-product mark without approval whenever it follows a wine standard, because the absence of a mandatory generic standard removes the force of all other recognition and market rules.",
+              "The official status page supplies the complete substantive standard and proves a grape-origin percentage or sugar threshold even when that clause was not read. An identifier is sufficient evidence for inferred analytical condition, and access to the underlying text is unnecessary when applying the requirement."
+            ],
+            "correctIndex": 0,
+            "explanation": "Read the recorded standard status narrowly; neither full-text thresholds nor the status of other laws follows from it.",
+            "sourceCitationId": "src_d3law_china_standard"
+          },
+          "ki_d3law_china_gi_requirements": {
+            "prompt": "How does a protected product origin differ from a generic wine-standard reference under CNIPA Order 80?",
+            "options": [
+              "A winery address inside the stated region establishes the protected product's conformity without source records or its corresponding specification. Generic wine analysis plus that address replaces the recognised product's origin and characteristic requirements; no separate evidence of grape provenance or product conditions is necessary for this GI-product claim.",
+              "In the GI-product protection route effective 1 February 2024, protected products link characteristics or reputation to a specific geographic origin, and their corresponding product standard must respect recognised name, type, origin and quality requirements. A generic wine-standard identifier or winery address alone does not demonstrate the protected product's conformity.",
+              "Any current recommended wine standard automatically becomes the corresponding specification for every recognised protected product. Origin, product type and recognised characteristic requirements can be replaced by that generic reference, and a producer satisfying it is entitled to any product's special mark without identifying which protected specification applies.",
+              "A high tasting score establishes the protected geographic source and all recognised product conditions. Sensory preference supplies sufficient official conformity evidence even where no origin dossier or corresponding product standard is provided, so the producer can rely on the score rather than document the particular recognised GI."
+            ],
+            "correctIndex": 1,
+            "explanation": "Separate a broad wine standard from the recognised product's actual origin and specification requirements.",
+            "sourceCitationId": "src_d3law_china_gi80"
+          },
+          "ki_d3law_china_special_mark": {
+            "prompt": "What evidence process applies to producer use of the protected-product GI special mark under Order 80?",
+            "options": [
+              "Any passing ordinary laboratory result automatically authorises this producer to use the special mark of every recognised GI product. No separate producer application, origin verification, registration or announcement is required; a generic analytical report supplies both product conformity and official mark-use approval regardless of the specific claim.",
+              "A buyer's willingness to pay serves as official producer approval for the special mark. Commercial acceptance replaces origin checks and administrative review, so an accepted order proves entitlement to print that presentation without application or registration.",
+              "The GI-product route requires producer application with origin and testing evidence, official review, and approval, registration and announcement for special-mark use. A standard reference or ordinary laboratory result alone does not show that this producer is authorised to use the mark.",
+              "The producer may print and sell the protected-product special mark first, then submit its origin dossier only if sales succeed. Approval is a retrospective quality exercise rather than a prerequisite to authorised use, and the initial laboratory report allows the producer to bypass application and registration before dispatch."
+            ],
+            "correctIndex": 2,
+            "explanation": "Product conformity and producer mark-use approval must be evidenced, rather than assumed from a generic report.",
+            "sourceCitationId": "src_d3law_china_gi80"
+          },
+          "ki_d3law_china_claim_scope": {
+            "prompt": "Why must a China origin-claim teaching case state its protection route and recognised product premise?",
+            "options": [
+              "Order 80 gives an exhaustive account of every Chinese wine trademark, food, label and import condition, so no other protection route or market obligation needs examination. Clearing one GI-product mark process establishes full lawful market access, even when the intended route involves separate collective or certification trademarks.",
+              "An invented regional brand can be treated as an officially recognised GI product without a stated premise or recognition record. A plausible origin name establishes protection under Order 80, and the producer can assume the region has an approved specification and mark simply because the wine is described that way.",
+              "Unauthorised protected-product name or special-mark use is permitted whenever the label makes no promise about a tasting score. Avoiding an explicit quality rating removes the relevant protection restrictions, so no recognised-product conformity or producer-use approval need be checked for this otherwise undocumented origin presentation.",
+              "Order 80's GI-product route governs recognised protected-product conditions and use of its name or special mark; it is not a complete account of parallel collective/certification trademark routes or all market rules. A case must identify this route and supply the recognised product premise rather than invent a real wine's GI status or infer full label clearance."
+            ],
+            "correctIndex": 3,
+            "explanation": "A bounded applicable route prevents invented regional approvals and overstated market clearance.",
+            "sourceCitationId": "src_d3law_china_gi80"
+          }
+        }
+      }
+    },
+    {
+      "id": "qt_d3law_case_criteria_3",
+      "relation_type": "CASE_ACTION",
+      "direction": "forward",
+      "mode": "case_criteria",
+      "variant": "d3law_case_criteria_3",
+      "prompt_template": "{subject.name}",
+      "parameters": {
+        "scope_node_ids": [
+          "n_d3law_case_jura_release_inventory",
+          "n_d3law_case_tokaj_label_release",
+          "n_d3law_case_china_gi_dossier"
+        ],
+        "scenario_prompts": {
+          "n_d3law_case_jura_release_inventory": "A fictional Côtes du Jura lot from grapes harvested in 2026 seeks the Vin Jaune mention. For this exercise, all other PDO and product conditions are satisfied and recorded. The cellar records oak maturation without topping-up through 15 December 2032, with 64 completed months under veil by that date. The buyer proposes consumer launch on 20 December 2032. A conditional replacement launch on 1 January 2033 is available after complete record and label review. No sensory results or confirmed selling pace are supplied. The pilot buyer would purchase 100 clavelins from the supplier at the lawful launch, each with a stated net fill of 62 cl, at a quote of EUR 40 per bottle payable on dispatch. Independently supplied additional holding cost for 16 December 2032 through 31 December 2032 is a fixed EUR 240 for the lot, contractually borne by the pilot buyer in this exercise; it is not a monthly rate. Packaging and launch facts, prices and costs are invented. Explain the calendar and veil conditions, the consumer launch decision, the reserved bottle identity and the pilot's quantity/cost arithmetic. The bottle-reservation clause alone is not a premise that all other sizes are forbidden. Quotes omit delivery, tax and other costs.",
+          "n_d3law_case_tokaj_label_release": "A fictional Tokaj Aszú lot is made from grapes harvested on 15 September 2025. Assume all other PDO and Aszú production conditions are documented and satisfied for this exercise. Its residual sugar is 135 g/L; records show 18 completed months in wood from 1 December 2025 to 1 June 2027. The proposal is a 6 puttonyos label and consumer dispatch on 1 July 2027. The buyer will reconsider an Aszú presentation without that numbered claim and a 1 January 2028 launch, subject to complete current label/record review and a repeat tasting. The pilot buyer bears a fictional EUR 180 reprint charge. Holding stock from 1 July 2027 through 31 December 2027 costs the pilot buyer a stipulated EUR 60 per whole calendar month for six months. The pilot buyer would buy 100 bottles from the supplier at EUR 25 each, paying the supplier on dispatch. The buyer's future receipts from selling to its own customers are unknown. There is no confirmed selling revenue, demand or tasting result. Compare the applicable vintage scope, sugar and optional wording, wood and earliest consumer-date gates, action, supplied costs and limits. All market observations and prices are invented.",
+          "n_d3law_case_china_gi_dossier": "A fictional Chinese producer intends to sell a still grape wine using the special mark for a hypothetical recognised GI product under CNIPA Order 80's product-protection route. The prompt stipulates this product is officially recognised; it does not name or invent a real wine's GI status. The producer provides the current GB/T15037-2006 status-page reference, an ordinary laboratory report and a winery address. It provides no corresponding protected-product specification, source-origin dossier or producer mark-use approval/registration evidence. A merchant will reconsider 200 bottles after supported presentation and product sampling. Option A holds the protected-mark packaging while seeking the missing dossier; supplied record work costs CNY 600 and a stipulated whole-month holding interval costs CNY 200. Option B uses a revised presentation omitting that unsupported protected mark/name only after full lawful ordinary-label review and buyer agreement; reprinting costs CNY 500. Neither option is approved in this exercise; completion times, sensory results and final acceptance are unknown. A hypothetical purchase quote is CNY 50 per bottle for either option before additional listed costs. Compare standard status, actual protected-product conformity, producer mark-use approval, the conditional route and listed cost arithmetic. Other wine/food/import requirements and parallel GI-trademark routes remain outside the supplied dossier."
+        },
+        "distractors": {
+          "n_d3law_case_jura_release_inventory": [
+            {
+              "summary": "Dispatch to consumers on 20 December 2032 because the oak and veil records already satisfy maturation.",
+              "explanation": "The separate consumer-market gate is 1 January 2033 for this 2026 harvest; completing maturation does not remove that gate."
+            },
+            {
+              "summary": "Treat 62 cl as proof of exactly 38% loss, declare all 75 cl formats illegal from the reservation clause alone, and guarantee a premium price.",
+              "explanation": "Neither a fixed evaporation proportion, a reverse universal bottle-size mandate nor a quality or price guarantee follows from the cited reservation."
+            }
+          ],
+          "n_d3law_case_tokaj_label_release": [
+            {
+              "summary": "Keep 6 puttonyos and dispatch in July 2027 because 135 g/L exceeds 120 g/L and 18 months wood are completed.",
+              "explanation": "The 6 wording needs 150 g/L and the separate consumer date is 1 January 2028; this proposal misses both conditions."
+            },
+            {
+              "summary": "Reject every Aszú label with 3 or 4 puttonyos as currently banned and use the historical 3=60 or 4=90 sugar scale for any alternative.",
+              "explanation": "Version 10 lists optional 3/4 wording while all current Aszú still needs 120 g/L. Neither the proposed blanket ban nor obsolete lower minima follows."
+            }
+          ],
+          "n_d3law_case_china_gi_dossier": [
+            {
+              "summary": "Use the special mark immediately because the ordinary lab report passes and the winery has a regional address.",
+              "explanation": "Those documents do not establish the recognised product's source/specification conformity or this producer's special-mark approval."
+            },
+            {
+              "summary": "Declare both options fully cleared because the current wine standard is recommended, and guaranteeB's lower listed cost means higher profit.",
+              "explanation": "Recommended status does not waive other duties; neither route is approved, and the limited supplied costs contain no selling revenue or complete profit evidence."
+            }
+          ]
+        }
+      }
+    },
+    {
+      "id": "qt_d3law_case_written_3",
+      "relation_type": "CASE_ACTION",
+      "direction": "forward",
+      "mode": "short_answer",
+      "variant": "d3law_case_written_3",
+      "prompt_template": "{subject.name}",
+      "parameters": {
+        "scope_node_ids": [
+          "n_d3law_case_jura_release_inventory",
+          "n_d3law_case_tokaj_label_release",
+          "n_d3law_case_china_gi_dossier"
+        ],
+        "key_points": {
+          "CASE_ACTION": "Conditional record, claim and consumer-release decision",
+          "CASE_REASON": "Separate dated legal and documentary prerequisites",
+          "CASE_TRADEOFF": "Supplied quantity, cash, cost and route consequences",
+          "CASE_LIMITATION": "Complete approval, sensory and market evidence limits"
+        }
+      }
+    }
+  ]
+}

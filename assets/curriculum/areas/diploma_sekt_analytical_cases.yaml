@@ -38,7 +38,7 @@
     {
       "id": "n_d4sekt_point_base_wine_selection",
       "node_type": "learning_point",
-      "name": "Sound botrytis-free fruit with moderate potential alcohol and brisk acidity, pressed gently with separated fractions"
+      "name": "Select sound fruit, measure base composition and evaluate press fractions for the intended style; no universal harvest-alcohol target applies."
     },
     {
       "id": "n_d4sekt_principle_autolysis_vs_fruit",
@@ -48,7 +48,7 @@
     {
       "id": "n_d4sekt_point_autolysis_vs_fruit",
       "node_type": "learning_point",
-      "name": "Short-cycle tank fermentation preserves primary floral fruit and rapid turnaround, whereas extended bottle maturation allows yeast autolysis to enrich texture"
+      "name": "Yeast autolysis and wine ageing both matter; vessel and a fixed month count cannot guarantee the sensory result."
     },
     {
       "id": "n_d4sekt_principle_dosage_style",
@@ -73,7 +73,7 @@
     {
       "id": "n_d4sekt_case_winzersekt_allocation_reason",
       "node_type": "learning_point",
-      "name": "The 10-month traditional lees aging of Lot A aligns with the Winzersekt autolytic brief and deadline; Lot B's tank method preserves fruit rather than autolysis. The different terroir lots and secondary fermentation routes represent confounded variables that prevent attributing sensory differences to lees aging alone"
+      "name": "The supplied coded panel favours Lot A for this brief and its planned release fits the deadline. Lees time alone does not guarantee the described aroma, and tank fermentation does not exclude autolysis. Parcel, vessel and maturation differences are confounded, so this trial cannot isolate a lees-ageing effect."
     },
     {
       "id": "n_d4sekt_case_winzersekt_allocation_tradeoff",
@@ -237,10 +237,10 @@
       "relation_type": "PRINCIPLE_EXPLANATION",
       "object_id": "n_d4sekt_point_base_wine_selection",
       "domain_id": "winemaking",
-      "assertion_text": "Base wines for German sparkling production require early harvest to capture healthy, botrytis-free grapes with preserved high natural acidity and moderate potential alcohol (around 9.5% to 11.5% abv), leaving headroom for second fermentation (+1.2–1.5% abv). Whole-cluster gentle pneumatic pressing separates the delicate cuvée fraction from phenolic press fractions. Grapes infected with Botrytis cinerea introduce fungal proteases that degrade foam-active proteins and laccase that causes oxidative browning, compromising foam stability and sparkling longevity.",
+      "assertion_text": "Select sound fruit and a measured base-wine composition suitable for the intended sparkling style; target acidity and potential alcohol depend on the lot and production plan, not a universal numerical range. Evaluate press fractions separately rather than assuming whole-cluster pneumatic pressing is mandatory. Botrytis can introduce fungal proteases that degrade foam-active proteins and laccase that causes oxidative browning; these are distinct risks. Fruit inspection, analysis and coded trials support selection.",
       "verification_status": "unverified",
       "mcq_disabled": true,
-      "last_verified_at": "2026-10-01T02:34:06.539Z"
+      "last_verified_at": "2026-10-02T22:51:56.000Z"
     },
     {
       "id": "ki_d4sekt_autolysis_vs_fruit",
@@ -248,10 +248,10 @@
       "relation_type": "PRINCIPLE_EXPLANATION",
       "object_id": "n_d4sekt_point_autolysis_vs_fruit",
       "domain_id": "winemaking",
-      "assertion_text": "Short-cycle tank (autoclave/Charmat) fermentation clarifies wine quickly to preserve primary varietal aromatics (such as green apple, peach and floral notes in aromatic Riesling) with fast cellar turnaround and lower working capital. In contrast, extended bottle maturation provides prolonged yeast contact where autolysis (the enological consensus on yeast cellular degradation, typically observable after 9–12 months of lees contact) releases mannoproteins and amino acids that enrich texture, soften the perception of cool-climate acidity, and introduce brioche and biscuit notes while muting primary fruit.",
+      "assertion_text": "Autolysis is the breakdown of yeast cells during lees contact. Vessel alone does not establish its extent or a wine's aroma. In a Chardonnay/Pinot Noir experiment followed for 24 months, wine ageing contributed strongly to aroma and the autolysis contribution was smaller than anticipated. Lees time, base composition and sensory evidence must be considered; there is no universal 9-12-month onset rule. Tank wines can also develop lees-derived character.",
       "verification_status": "unverified",
       "mcq_disabled": true,
-      "last_verified_at": "2026-10-01T02:34:06.539Z"
+      "last_verified_at": "2026-10-02T22:51:56.000Z"
     },
     {
       "id": "ki_d4sekt_dosage_style",
@@ -281,10 +281,10 @@
       "relation_type": "CASE_REASON",
       "object_id": "n_d4sekt_case_winzersekt_allocation_reason",
       "domain_id": "winemaking",
-      "assertion_text": "The 10-month traditional lees aging of Lot A aligns with the Winzersekt autolytic brief and deadline; Lot B's tank method preserves fruit rather than autolysis. The different terroir lots and secondary fermentation routes represent confounded variables that prevent attributing sensory differences to lees aging alone.",
+      "assertion_text": "The supplied coded panel favours Lot A for this brief and its planned release fits the deadline. Lees time alone does not guarantee the described aroma, and tank fermentation does not exclude autolysis. Parcel, vessel and maturation differences are confounded, so this trial cannot isolate a lees-ageing effect.",
       "verification_status": "unverified",
       "mcq_disabled": true,
-      "last_verified_at": "2026-10-01T02:34:06.539Z"
+      "last_verified_at": "2026-10-02T22:51:56.000Z"
     },
     {
       "id": "ki_d4sekt_case_winzersekt_allocation_tradeoff",
@@ -357,12 +357,12 @@
     {
       "id": "src_d4sekt_dwi_regulations",
       "kind": "reference_work",
-      "title": "Deutsches Weininstitut: Sekt and Quality Levels",
+      "title": "DWI Seminarhandbuch: Deutscher Sekt - Schäumende Qualität",
       "publisher": "Deutsches Weininstitut",
       "jurisdiction": "DE",
-      "url": "https://www.deutscheweine.de/wissen/qualitaetsstufen/",
-      "document_identifier": "DWI Sekt categories and production standards",
-      "accessed_on": "2026-10-01"
+      "url": "https://www.deutscheweine.de/fileadmin/DWI/Seminare-KD/pdf/Seminarhandbuch.pdf#page=56",
+      "document_identifier": "Seminarhandbuch - Deutsche Weine; printed pages 110-113 (PDF pages 56-57): German base-wine origin, area-origin rules and official testing. Educational summary; no six-month production or autolysis-onset evidence.",
+      "accessed_on": "2026-10-03"
     },
     {
       "id": "src_d4sekt_vdp_statut",
@@ -370,9 +370,9 @@
       "title": "VDP.SEKT Statut: Classification and Maturation Tiers",
       "publisher": "VDP.Die Prädikatsweingüter",
       "jurisdiction": "DE",
-      "url": "https://www.vdp.de/en/vdp-sekt/",
-      "document_identifier": "VDP sparkling wine classification regulations",
-      "accessed_on": "2026-10-01"
+      "url": "https://www.vdp.de/en/the-wines/vdpsektstatut",
+      "document_identifier": "VDP.SEKT.STATUT, The VDP.SEKT.STATUT table: traditional bottle fermentation, 15-month NV/24-month vintage VDP.SEKT, 36-month VDP.SEKT.PRESTIGE; estate grapes, hand harvest, whole-bunch pressing, optional site designation. Private association standards.",
+      "accessed_on": "2026-10-03"
     },
     {
       "id": "src_d4sekt_oiv_sparkling",
@@ -387,11 +387,11 @@
     {
       "id": "src_d4sekt_autolysis_oenology",
       "kind": "reference_work",
-      "title": "OIV International Code of Oenological Practices: Sparkling Wine Yeast Autolysis",
+      "title": "OIV website (legacy citation; original autolysis attribution was unsupported)",
       "publisher": "International Organisation of Vine and Wine",
       "jurisdiction": "INT",
       "url": "https://www.oiv.int/",
-      "document_identifier": "OIV Code Section II.4.3.3: Autolysis onset and enological maturation on lees",
+      "document_identifier": "Historical source identity retained; Code II.4.3.3 concerns storage in a closed tank, not autolysis onset",
       "accessed_on": "2026-10-02"
     },
     {
@@ -413,13 +413,63 @@
       "url": "https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=CELEX%3A32019R0033",
       "document_identifier": "EU Regulation 2019/33 labelling and residual sugar rules",
       "accessed_on": "2026-10-01"
+    },
+    {
+      "id": "src_d4sekt_awri_sparkling",
+      "kind": "reference_work",
+      "title": "AWRI fact-sheet index (legacy citation; original autolysis attribution was unsupported)",
+      "publisher": "The Australian Wine Research Institute",
+      "jurisdiction": "AU",
+      "url": "https://www.awri.com.au/information_services/fact-sheets/",
+      "document_identifier": "Historical index URL retained for learner-database upgrades; not evidence for a fixed autolysis onset or a specific fact sheet",
+      "accessed_on": "2026-10-03"
+    },
+    {
+      "id": "src_d4sekt_sawyer_2022",
+      "kind": "reference_work",
+      "title": "Autolysis and the duration of ageing on lees independently influence the aroma composition of traditional method sparkling wine",
+      "publisher": "Sawyer et al.; Australian Journal of Grape and Wine Research",
+      "jurisdiction": "AU",
+      "url": "https://onlinelibrary.wiley.com/doi/10.1111/ajgw.12527",
+      "document_identifier": "doi:10.1111/ajgw.12527; Abstract, Introduction and Discussion; original Chardonnay/Pinot Noir experiment, not a universal timeline",
+      "accessed_on": "2026-10-02"
+    },
+    {
+      "id": "src_d4sekt_awri_process_project",
+      "kind": "reference_work",
+      "title": "Developing simplified sparkling winemaking processes",
+      "publisher": "The Australian Wine Research Institute",
+      "jurisdiction": "AU",
+      "url": "https://www.awri.com.au/research_and_development/rde-plan/projects/project-3-3-4/",
+      "document_identifier": "Project 3.3.4: tank and bottle sensory development, including bottle-fermented characters in tank",
+      "accessed_on": "2026-10-02"
+    },
+    {
+      "id": "src_d4sekt_press_fraction_trial",
+      "kind": "reference_work",
+      "title": "Impact of press fractioning on Pinot noir and Pinot meunier grape juice and wine compositions and colour",
+      "publisher": "Richard Marchal; IVES Conference Series",
+      "jurisdiction": "FR",
+      "url": "https://ives-openscience.eu/4623/",
+      "document_identifier": "OENO IVAS 2019; 2018-vintage press-fraction experiment; Abstract and Conclusion",
+      "accessed_on": "2026-10-02"
+    },
+    {
+      "id": "src_d4sekt_weing_quality_review",
+      "kind": "legislation",
+      "title": "German Wine Act: Sekt b.A. official quality examination and number",
+      "publisher": "Federal Ministry of Justice and Federal Office of Justice; Gesetze im Internet",
+      "jurisdiction": "DE",
+      "url": "https://www.gesetze-im-internet.de/weing_1994/__19.html",
+      "document_identifier": "Weingesetz section 19(1) and (3): Sekt b.A. designation requires an allocated official examination number; organoleptic/analytical examination and number on containers. Section 19(2) is a distinct rule for other varietally labelled domestic sparkling wines.",
+      "accessed_on": "2026-10-03"
     }
   ],
   "knowledge_item_citations": [
     {
       "knowledge_item_id": "ki_d4sekt_origin_hierarchy",
       "source_citation_id": "src_d4sekt_dwi_regulations",
-      "locator": "Sekt, Deutscher Sekt, Sekt b.A. and AP-Nr requirements"
+      "locator": "Printed pp. 110-113 (PDF pp. 56-57), Deutscher Sekt / Schäumende Qualität and Kurze Zusammenfassung: German base wine, specific-area origin rules and official quality testing. Direct A.P.-Nr. legal support is separately cited to Weingesetz section 19; this handbook does not establish a six-month production rule."
     },
     {
       "knowledge_item_id": "ki_d4sekt_winzersekt_standards",
@@ -429,17 +479,17 @@
     {
       "knowledge_item_id": "ki_d4sekt_vdp_classification",
       "source_citation_id": "src_d4sekt_vdp_statut",
-      "locator": "VDP.SEKT 15-month non-vintage (24-month vintage) and VDP.SEKT.PRESTIGE 36-month tiers"
+      "locator": "The VDP.SEKT.STATUT table, Maturation on yeast / Vintage / Grape production / Harvest / Pressing / Further designations: 15-month NV and 24-month vintage VDP.SEKT, 36-month Prestige, estate grapes, hand picking, whole-bunch pressing, optional vineyard designation; private standards."
     },
     {
       "knowledge_item_id": "ki_d4sekt_base_wine_selection",
       "source_citation_id": "src_d4sekt_dwi_regulations",
-      "locator": "German sparkling base wine standards: healthy, botrytis-free fruit with brisk acidity and moderate alcohol"
+      "locator": "Origin/quality categories only; not evidence for the removed numerical harvest targets."
     },
     {
       "knowledge_item_id": "ki_d4sekt_base_wine_selection",
       "source_citation_id": "src_d4sekt_oiv_sparkling",
-      "locator": "Commission Delegated Regulation (EU) 2019/934 Annex I Part A: authorised sparkling enological practices and pressing separation"
+      "locator": "Annex II concerns authorised sparkling production; it does not establish the removed universal ripeness range or mandatory pressing method."
     },
     {
       "knowledge_item_id": "ki_d4sekt_base_wine_selection",
@@ -454,7 +504,7 @@
     {
       "knowledge_item_id": "ki_d4sekt_autolysis_vs_fruit",
       "source_citation_id": "src_d4sekt_autolysis_oenology",
-      "locator": "OIV II.4.3.3: Tank primary fruit retention vs bottle lees autolysis and mouthfeel"
+      "locator": "Historical unsupported autolysis attribution retained for upgrade compatibility only; see the precise Sawyer and AWRI project citations for current teaching."
     },
     {
       "knowledge_item_id": "ki_d4sekt_dosage_style",
@@ -469,7 +519,7 @@
     {
       "knowledge_item_id": "ki_d4sekt_case_winzersekt_allocation_reason",
       "source_citation_id": "src_d4sekt_autolysis_oenology",
-      "locator": "Autolytic timeline vs short-cycle tank turnaround; parcel and vessel variation represent confounded factors in fictional trial"
+      "locator": "Historical unsupported autolysis attribution retained for upgrade compatibility only; see the precise Sawyer and AWRI project citations for current teaching."
     },
     {
       "knowledge_item_id": "ki_d4sekt_case_winzersekt_allocation_tradeoff",
@@ -500,6 +550,56 @@
       "knowledge_item_id": "ki_d4sekt_case_extended_lees_positioning_limitation",
       "source_citation_id": "src_d4sekt_vdp_statut",
       "locator": "Association certification status and repeat dosage trials; export broker sell-through and holding costs require independent verification"
+    },
+    {
+      "knowledge_item_id": "ki_d4sekt_autolysis_vs_fruit",
+      "source_citation_id": "src_d4sekt_awri_sparkling",
+      "locator": "Historical unsupported fact-sheet attribution retained for upgrades only; this index does not establish an onset timeline."
+    },
+    {
+      "knowledge_item_id": "ki_d4sekt_autolysis_vs_fruit",
+      "source_citation_id": "src_d4sekt_sawyer_2022",
+      "locator": "Abstract Conclusions and Introduction: measured aroma development over 24 months; no universal onset date or vessel-only sensory inference."
+    },
+    {
+      "knowledge_item_id": "ki_d4sekt_autolysis_vs_fruit",
+      "source_citation_id": "src_d4sekt_awri_process_project",
+      "locator": "Project summary: sensory development in tank and bottle; bottle-fermented characters in tank are an explicit research objective."
+    },
+    {
+      "knowledge_item_id": "ki_d4sekt_case_winzersekt_allocation_reason",
+      "source_citation_id": "src_d4sekt_awri_sparkling",
+      "locator": "Historical unsupported fact-sheet attribution retained for upgrades only; this index does not establish an onset timeline."
+    },
+    {
+      "knowledge_item_id": "ki_d4sekt_case_winzersekt_allocation_reason",
+      "source_citation_id": "src_d4sekt_sawyer_2022",
+      "locator": "Abstract Conclusions and Introduction: measured aroma development over 24 months; no universal onset date or vessel-only sensory inference."
+    },
+    {
+      "knowledge_item_id": "ki_d4sekt_case_winzersekt_allocation_reason",
+      "source_citation_id": "src_d4sekt_awri_process_project",
+      "locator": "Project summary: sensory development in tank and bottle; bottle-fermented characters in tank are an explicit research objective."
+    },
+    {
+      "knowledge_item_id": "ki_d4sekt_base_wine_selection",
+      "source_citation_id": "src_d4sekt_press_fraction_trial",
+      "locator": "Abstract and Conclusion: press fractions differ in composition and colour; the experiment supports separate evaluation, not a universal press specification."
+    },
+    {
+      "knowledge_item_id": "ki_d4sekt_origin_hierarchy",
+      "source_citation_id": "src_d4sekt_weing_quality_review",
+      "locator": "Weingesetz section 19(1): domestic quality sparkling wine may be designated Sekt b.A. only after allocation of its official examination number; section 19(3): organoleptic and analytical examination, compliance and number on containers. Does not establish a generic Sekt German-grape requirement or autolysis onset."
+    },
+    {
+      "knowledge_item_id": "ki_d4sekt_case_winzersekt_allocation_action",
+      "source_citation_id": "src_d4sekt_weing_quality_review",
+      "locator": "Weingesetz section 19(1) and (3): official examination number requirement for Sekt b.A. and examination/compliance conditions; supports verifying certification rather than assuming commercial or sensory readiness."
+    },
+    {
+      "knowledge_item_id": "ki_d4sekt_case_winzersekt_allocation_limitation",
+      "source_citation_id": "src_d4sekt_weing_quality_review",
+      "locator": "Weingesetz section 19(1) and (3): official examination number and examination/compliance conditions remain required evidence; no assurance from a fictional sensory panel alone."
     }
   ],
   "certification_knowledge_mappings": [

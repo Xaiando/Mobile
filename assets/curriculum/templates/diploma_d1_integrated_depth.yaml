@@ -1,0 +1,777 @@
+{
+  "question_templates": [
+    {
+      "id": "qt_d12depth_d1_choices",
+      "relation_type": "PRINCIPLE_EXPLANATION",
+      "direction": "forward",
+      "mode": "authored_choice",
+      "variant": "d12depth_d1_choices",
+      "prompt_template": "{subject.name}",
+      "parameters": {
+        "item_choices": {
+          "ki_d12depth_season_anatomy": {
+            "prompt": "Which distinction should guide dormant pruning and spring canopy work?",
+            "options": [
+              "Retained one-year wood supplies buds; new shoots form this season's canopy",
+              "Roots are the year's fruit-bearing shoots",
+              "All permanent arms must be replaced at every harvest",
+              "Green shoot thinning is the same operation as retaining dormant canes"
+            ],
+            "correctIndex": 0,
+            "explanation": "Perennial trunk, arms and roots provide the framework and stored reserves. A lignified shoot becomes a cane; retained buds on one-year wood produce new shoots. Pruning retained wood and thinning green shoots act at different stages.",
+            "sourceCitationId": "src_vit_phenology"
+          },
+          "ki_d12depth_season_timing": {
+            "prompt": "Why should a vineyard management diary record developmental stage rather than rely on a fixed calendar?",
+            "options": [
+              "A single harvest date determines next year's whole crop",
+              "Stage and actual conditions govern the timing of interventions",
+              "Every variety flowers on the same calendar date",
+              "Post-harvest leaves have no continuing management purpose"
+            ],
+            "correctIndex": 1,
+            "explanation": "Phenological stages connect budburst, flowering, fruit set, veraison and harvest to management. Current conditions affect this crop while bud development influences the next; dates from one region are not a universal schedule.",
+            "sourceCitationId": "src_vit_phenology"
+          },
+          "ki_d12depth_berry_concentration": {
+            "prompt": "A berry sample has higher sugar concentration but lower mean berry mass after a dry week. What remains unresolved?",
+            "options": [
+              "The sugar reading proves every berry accumulated more sugar",
+              "Shrivelling necessarily increases usable juice yield",
+              "How much reflects sugar accumulation versus water loss",
+              "Acid, flavour and vine water evidence are now irrelevant"
+            ],
+            "correctIndex": 2,
+            "explanation": "A concentration rise can accompany berry shrivelling. Combine representative berry mass and composition data with vine water status; a sugar reading alone does not establish improved flavour, phenolic maturity or wine quality.",
+            "sourceCitationId": "src_vit_sampling"
+          },
+          "ki_d12depth_berry_stage": {
+            "prompt": "Which evidence best avoids treating veraison as the completion of harvest maturity?",
+            "options": [
+              "Harvest every variety at its first coloured berry",
+              "Declare seeds, acids and aromas identical at veraison",
+              "Use one sun-exposed bunch to certify the block",
+              "Track composition, berry condition and intended style after ripening begins"
+            ],
+            "correctIndex": 3,
+            "explanation": "Veraison marks softening and the start of ripening, not one complete harvest criterion. Assess sugar, acidity, pH, flavour, skin and seed condition together and repeat representative sampling across the block.",
+            "sourceCitationId": "src_vit_maturity"
+          },
+          "ki_d12depth_site_scale": {
+            "prompt": "Two blocks share a climate classification. What additional evidence is needed for site selection?",
+            "options": [
+              "Block weather, topography, soil constraints and operational access",
+              "Their frost exposure and drainage must be identical",
+              "The classification replaces all soil inspection",
+              "The cheaper site must produce the highest quality"
+            ],
+            "correctIndex": 0,
+            "explanation": "Regional warmth does not identify a block's cold-air pooling, aspect, water supply or soil restrictions. Evaluate site records and root-zone conditions alongside land, access, drainage and management costs.",
+            "sourceCitationId": "src_wset_prod_site"
+          },
+          "ki_d12depth_site_trend": {
+            "prompt": "How should one unusually hot vintage inform a long-lived planting decision?",
+            "options": [
+              "Treat one hot day as a complete climate forecast",
+              "Compare long-term patterns, extreme-event evidence and adaptable choices",
+              "Assume warming improves every variety in every site",
+              "Ignore extreme events because the long-term average exists"
+            ],
+            "correctIndex": 1,
+            "explanation": "Climate describes longer-term patterns and weather the actual season. A hot year informs risk management but does not by itself quantify the future site climate; compare records and feasible adaptation rather than assume a guaranteed benefit.",
+            "sourceCitationId": "src_wset_prod_latitude_weather_noaa"
+          },
+          "ki_d12depth_hazard_capacity": {
+            "prompt": "What makes a hazard response plan operationally credible?",
+            "options": [
+              "Buying equipment proves protection in every weather type",
+              "An inversion method must protect in any windy freeze",
+              "Match hazard timing and mechanism to reliable equipment and backup capacity",
+              "A supplier's headline capacity replaces a site assessment"
+            ],
+            "correctIndex": 2,
+            "explanation": "Identify the hazard and susceptible vine stage, then check system capacity, power, water, labour and contingency. An inversion-dependent frost method cannot be assumed effective in a windy advective freeze.",
+            "sourceCitationId": "src_vit_frost_ncsu"
+          },
+          "ki_d12depth_hazard_smoke": {
+            "prompt": "Why separate fire-injured vines from smoke-risk grape lots?",
+            "options": [
+              "Every intact vine proves its grapes are smoke-free",
+              "All smoke-exposed fruit must have identical future sensory impact",
+              "A green shoot inspection alone diagnoses bottled wine taint",
+              "Vine survival and potential wine contamination require different evidence"
+            ],
+            "correctIndex": 3,
+            "explanation": "Burnt vine tissues need injury assessment; smoke-exposed fruit needs suitable analytical and sensory assessment. A visually intact vine or an early clean taste does not eliminate a grape lot's smoke-related risk.",
+            "sourceCitationId": "src_d1vp_awri_fire"
+          },
+          "ki_d12depth_pests_mites": {
+            "prompt": "What is missing from a plan that treats every bronzed grape leaf with the same broad spray?",
+            "options": [
+              "Species identification, pest and predator counts, pressure and permitted control choice",
+              "All bronzing proves one mite species",
+              "Predatory mites are always the pests to remove",
+              "A disruptive spray has no consequences for natural enemies"
+            ],
+            "correctIndex": 0,
+            "explanation": "UC grape guidance separates pest mite species and integrates biological, cultural and chemical controls. Dust and vine stress can worsen problems, while disruptive applications may harm predators; verify the pest before responding.",
+            "sourceCitationId": "src_d12depth_mites"
+          },
+          "ki_d12depth_pests_moths": {
+            "prompt": "Why must a grape moth or leafroller plan connect scouting with development stage?",
+            "options": [
+              "One calendar date controls every moth in every region",
+              "Trap and larval evidence inform species-specific timing rather than one universal date",
+              "A moth trap alone quantifies every damaged bunch",
+              "Late bunch damage and early larval prevention are identical"
+            ],
+            "correctIndex": 1,
+            "explanation": "UC leafroller guidance uses monitoring and pest development to time interventions. Eggs, young larvae and established damaged bunches are different targets; a Californian example is not a universal pesticide prescription or treatment threshold.",
+            "sourceCitationId": "src_d12depth_leafroller"
+          },
+          "ki_d12depth_approaches_comparison": {
+            "prompt": "How can named vineyard approaches be compared without inventing a quality ranking?",
+            "options": [
+              "Rank every approach by its name alone",
+              "Treat a map as proof of improved flavour",
+              "Specify practices, site constraints, measured outcomes and the claim being assessed",
+              "Assume every sustainable scheme is organic certification"
+            ],
+            "correctIndex": 2,
+            "explanation": "Conventional/IPM, sustainable, organic, biodynamic, regenerative and precision labels answer different management or scheme questions. Compare actual inputs, soil, vine and business outcomes; a name alone is not an environmental score or sensory result.",
+            "sourceCitationId": "src_d1target_awri_cover"
+          },
+          "ki_d12depth_approaches_trial": {
+            "prompt": "A cover-crop trial reduces erosion but increases dry-season vine stress. What evaluation is justified?",
+            "options": [
+              "Erosion improvement proves all outcomes improved",
+              "Water competition must be impossible in regenerative practice",
+              "Extra labour proves higher quality",
+              "Weigh both outcomes and adapt cover timing or area against costs"
+            ],
+            "correctIndex": 3,
+            "explanation": "A floor treatment can bring soil benefits while competing for water. Record erosion, soil moisture, vine status, yield, inputs and labour against a comparison area; adapt the intervention before generalising its success.",
+            "sourceCitationId": "src_d1target_awri_cover"
+          },
+          "ki_d12depth_planting_sequence": {
+            "prompt": "Why should soil constraints and planting-material identity be checked before ordering vines?",
+            "options": [
+              "They influence rootstock, scion, preparation, layout and long-lived investment",
+              "A prestigious clone makes sanitary records unnecessary",
+              "Rootstock identity cannot affect site suitability",
+              "Planting density replaces soil preparation"
+            ],
+            "correctIndex": 0,
+            "explanation": "Prepare an establishment plan joining root-zone and site limitations with variety, clone/rootstock suitability and true-to-type high-health supply. Planting a famous clone does not resolve drainage, pest, water or machinery requirements.",
+            "sourceCitationId": "src_d12depth_planting"
+          },
+          "ki_d12depth_planting_capital": {
+            "prompt": "Fictional 2 ha planting uses 4,000 vines/ha at EUR 4 per plant. What is the plant-purchase subtotal?",
+            "options": [
+              "EUR 8,000 and no further establishment cost",
+              "EUR 32,000; other establishment and operating costs remain additional",
+              "EUR 16,000 as a complete budget",
+              "EUR 32,000 proves immediate profitable production"
+            ],
+            "correctIndex": 1,
+            "explanation": "2 x 4,000 x 4 = EUR 32,000 for plants alone. Land preparation, trellis, water, labour, failed plants and non-bearing years are excluded; a higher density changes the budget and operations without proving better wine.",
+            "sourceCitationId": "src_wset_prod_site"
+          },
+          "ki_d12depth_budget_water": {
+            "prompt": "A fictional period needs 40 mm usable water, has 10 mm effective rain and 15 mm usable soil supply. What is the net irrigation shortfall?",
+            "options": [
+              "65 mm because all supplies should be added",
+              "15 mm is automatically the same as gross pumped water",
+              "15 mm net; gross delivery depends on efficiency and site constraints",
+              "The calculation grants water access"
+            ],
+            "correctIndex": 2,
+            "explanation": "40 - 10 - 15 = 15 mm under the supplied simplified budget. At a stated 75% delivery efficiency this requires 20 mm gross application. This accounting does not determine a universal vine requirement or permission to irrigate.",
+            "sourceCitationId": "src_wset_prod_irrigation"
+          },
+          "ki_d12depth_budget_nutrition": {
+            "prompt": "What should precede a nutrient application in a weak patch with unusual soil pH?",
+            "options": [
+              "Weak growth always proves nitrogen deficiency",
+              "Ignore soil pH because only total nutrient mass matters",
+              "Add every nutrient until canopy growth stops increasing",
+              "Representative soil and vine evidence identifying the actual limitation"
+            ],
+            "correctIndex": 3,
+            "explanation": "Soil structure, pH, nutrient supply, salinity and root health can constrain growth differently. Use soil and plant results to identify needs and timing; a weak canopy does not prove nitrogen deficiency or justify unlimited fertiliser.",
+            "sourceCitationId": "src_d12depth_soil"
+          },
+          "ki_d12depth_canopy_yield": {
+            "prompt": "Fictional A yields 2 kg/vine at 5,000 vines/ha; B yields 3 kg/vine at 2,000 vines/ha. Which has higher tonnes/ha?",
+            "options": [
+              "A: 10 t/ha versus B: 6 t/ha",
+              "B: higher kg/vine must mean higher t/ha",
+              "Both must have the same area yield",
+              "A: higher area yield proves higher sensory quality"
+            ],
+            "correctIndex": 0,
+            "explanation": "Yield per area combines yield per vine and vine density: A = 10,000 kg/ha; B = 6,000 kg/ha. The lower per-vine yield produces the larger area yield here; neither quantity alone proves quality.",
+            "sourceCitationId": "src_vit_balance"
+          },
+          "ki_d12depth_canopy_exposure": {
+            "prompt": "Why can the same severe fruit-zone leaf removal be unsuitable in two different sites?",
+            "options": [
+              "Exposure benefits every site without a trade-off",
+              "Disease pressure, exposure timing and heat/sunburn risk differ",
+              "All leaf area should be removed to maximise photosynthesis",
+              "Training systems have no interaction with labour or equipment"
+            ],
+            "correctIndex": 1,
+            "explanation": "Canopy work changes light, air movement and operations. Opening a humid shaded zone can help drying and access, whereas suddenly exposing hot-site fruit may add sunburn risk. Match training, pruning and passes to vigour, weather and fruit condition.",
+            "sourceCitationId": "src_vit_leaf_removal"
+          },
+          "ki_d12depth_harvest_route": {
+            "prompt": "Which comparison keeps sweet-fruit routes distinct?",
+            "options": [
+              "All concentrated fruit must be noble-rot fruit",
+              "Artificial chilling proves every ice-wine label eligible",
+              "Drying, beneficial rot and natural freezing concentrate by different processes",
+              "Drying necessarily preserves the original juice volume"
+            ],
+            "correctIndex": 2,
+            "explanation": "Drying removes water before or after picking. Suitable noble rot changes and concentrates fruit under particular conditions; natural on-vine freezing separates frozen water at pressing. Artificial freezing is a distinct treatment and cannot by itself establish an ice-wine claim.",
+            "sourceCitationId": "src_wset_prod_drying"
+          },
+          "ki_d12depth_harvest_capacity": {
+            "prompt": "Why should a whole-bunch style be planned before harvest method is booked?",
+            "options": [
+              "Any machine harvest supplies intact bunches by definition",
+              "Hand harvest guarantees every quality target",
+              "Picking can be scheduled without checking winery reception",
+              "Intact-fruit needs must match collection, transport and processing capacity"
+            ],
+            "correctIndex": 3,
+            "explanation": "Ordinary berry-removing machine harvest and intact-bunch picking deliver different material. Compare style needs with crop condition, transport time, labour and press capacity; neither method name is a universal quality verdict.",
+            "sourceCitationId": "src_wset_prod_harvest_cost"
+          },
+          "ki_d12depth_components_balance": {
+            "prompt": "Two wines have equal alcohol but different acidity, sugar and tannin. What follows?",
+            "options": [
+              "Alcohol alone cannot describe their complete balance",
+              "Their sensory balance must be identical",
+              "Their glycerol must be identical",
+              "Their production method and quality must be identical"
+            ],
+            "correctIndex": 0,
+            "explanation": "Assess components together: sugar affects sweetness, acids freshness, phenolics colour or structure, and alcohol body or warmth. Sensory interactions and individual sensitivity make an isolated measurement an incomplete style or quality judgment.",
+            "sourceCitationId": "src_wset_taste_awri"
+          },
+          "ki_d12depth_components_method": {
+            "prompt": "What evidence supports comparing natural, conventional, organic or biodynamic winemaking?",
+            "options": [
+              "A natural label establishes microbial stability",
+              "Actual processes, fruit, analyses and tasting rather than a name alone",
+              "Organic means every wine contains no sulfur dioxide",
+              "A conventional method proves lower sensory quality"
+            ],
+            "correctIndex": 1,
+            "explanation": "A named approach does not replace a description of handling, fermentation, additions and stability controls. Compare the measured wines and documented practices; organic certification and a sensory assessment answer different questions.",
+            "sourceCitationId": "src_win_fermentation"
+          },
+          "ki_d12depth_intake_throughput": {
+            "prompt": "Fictional arrivals are 8 t/hour and the available press processes 4 t/hour. What is the immediate logistics issue?",
+            "options": [
+              "The queue falls by 4 t/hour",
+              "Flotation alone doubles pressing capacity",
+              "Fruit accumulates at 4 t/hour unless arrival or processing capacity changes",
+              "Arrival and pressing rates are irrelevant"
+            ],
+            "correctIndex": 2,
+            "explanation": "Arrival exceeds pressing by 4 t/hour under the supplied rates. Schedule loads, protect waiting fruit and verify sorting/chilling capacity; a faster clarification stage cannot alone remove the press bottleneck.",
+            "sourceCitationId": "src_d1method_awri_flotation"
+          },
+          "ki_d12depth_intake_clarification": {
+            "prompt": "Which distinction belongs in a pre-fermentation clarification comparison?",
+            "options": [
+              "All clarification mechanisms are identical settling",
+              "All solids must always be removed before yeast can ferment",
+              "Air and nitrogen flotation necessarily have identical oxidation effects",
+              "Separation mechanism, solids target, throughput and fruit/oxygen response"
+            ],
+            "correctIndex": 3,
+            "explanation": "Settling uses gravity; flotation lifts aggregated solids with gas; centrifugation uses centrifugal force. Compare a suitable solids target and capacity rather than equate visual brilliance with successful fermentation.",
+            "sourceCitationId": "src_d1method_awri_flotation"
+          },
+          "ki_d12depth_fermentation_nutrition": {
+            "prompt": "Why measure YAN before designing a high-sugar must fermentation?",
+            "options": [
+              "Sugar, strain needs and available nutrients affect the plan",
+              "Every must needs the same nitrogen dose",
+              "DAP supplies every vitamin and micronutrient",
+              "Additions late in fermentation are always fully absorbed"
+            ],
+            "correctIndex": 0,
+            "explanation": "Measure yeast-assimilable nitrogen and consider sugar, chosen strain and micronutrients. Late rescue additions may be poorly used, while excessive early additions can alter kinetics and spoilage risk; no universal dose is supplied.",
+            "sourceCitationId": "src_win_yan"
+          },
+          "ki_d12depth_fermentation_trial": {
+            "prompt": "What makes a must-adjustment plan defensible?",
+            "options": [
+              "A target pH proves permission for every adjustment",
+              "A lawful proposed treatment tested for its measured and sensory response",
+              "Concentration and sugar addition are identical operations",
+              "One trial guarantees identical results at every vessel scale"
+            ],
+            "correctIndex": 1,
+            "explanation": "Bench trials and monitoring should inform enrichment, concentration or acidity choices. Concentrating must and adding fermentable sugar are different operations; a desired analysis does not itself establish a permitted process or stable finished wine.",
+            "sourceCitationId": "src_wset_prod_acid"
+          },
+          "ki_d12depth_workflow_routes": {
+            "prompt": "Why does the description 'whole-bunch fermentation' not prove that all fermentation is intracellular?",
+            "options": [
+              "Every whole-bunch ferment is wholly yeast-free",
+              "Whole-bunch wording guarantees exclusively intracellular fermentation",
+              "Whole-bunch methods can combine intracellular berry activity with yeast fermentation; the actual workflow matters",
+              "All cap management can be ignored whenever whole fruit is present"
+            ],
+            "correctIndex": 2,
+            "explanation": "Carbonic, semi-carbonic and whole bunches in crushed fruit use different fruit forms and fermentation premises. Yeast fermentation completes the wine; whole-bunch wording alone does not establish wholly intracellular fermentation or a guaranteed sensory result.",
+            "sourceCitationId": "src_wset_prod_carbonic"
+          },
+          "ki_d12depth_workflow_arrest": {
+            "prompt": "Why is cooling a sweet fermentation only one part of a finished-wine plan?",
+            "options": [
+              "Cooling proves every yeast cell has been removed",
+              "Visual clarity proves no refermentation can occur",
+              "Residual sugar protects the wine from all microorganisms",
+              "Cooling slows activity; residual fermentable sugar still needs stability controls"
+            ],
+            "correctIndex": 3,
+            "explanation": "A chosen residual-sugar endpoint needs monitoring and suitable microbial controls through filtration, hygiene and packaging. Cooling does not by itself remove viable yeast or permanently stabilise the wine.",
+            "sourceCitationId": "src_wset_prod_filter"
+          },
+          "ki_d12depth_mlf_decision": {
+            "prompt": "What distinguishes encouraging MLF from preserving a malic-acid-driven style?",
+            "options": [
+              "A style-specific plan with compatible organisms, conditions and monitoring",
+              "MLF is always a mandatory quality improvement",
+              "MLF and alcoholic fermentation consume the same substrate identically",
+              "Avoiding inoculation proves future MLF impossible"
+            ],
+            "correctIndex": 0,
+            "explanation": "MLF converts malic acid to lactic acid. When desired, consider strain compatibility, alcohol, pH, temperature and sulfur; when avoided, manage organisms and substrates through appropriate controls rather than assume it cannot start later.",
+            "sourceCitationId": "src_win_mlf"
+          },
+          "ki_d12depth_mlf_sulfur": {
+            "prompt": "Two wines have equal total SO2 but different pH and free SO2. What follows?",
+            "options": [
+              "Equal total SO2 proves equal protection at every pH",
+              "Total SO2 alone does not establish equivalent protection",
+              "Bound SO2 always replaces free SO2 in the same way",
+              "pH has no relevance after adding sulfur"
+            ],
+            "correctIndex": 1,
+            "explanation": "Free and bound sulfur forms differ, and pH affects molecular antimicrobial action. Use suitable measurements and wine-specific monitoring; equal total SO2 is not proof of identical microbial or oxidation control.",
+            "sourceCitationId": "src_win_sulfur"
+          },
+          "ki_d12depth_maturation_trial": {
+            "prompt": "A lees pilot also undergoes MLF while its control does not. What can the comparison establish?",
+            "options": [
+              "Every sensory difference must be caused only by lees",
+              "The trial proves stirring always improves every wine",
+              "The combined treatment differs; it cannot isolate lees as the sole cause",
+              "MLF status is irrelevant to a lees comparison"
+            ],
+            "correctIndex": 2,
+            "explanation": "AWRI's Chardonnay trial disclosed a lees-plus-MLF confound. A useful sensory comparison records all changed variables, oxygen and vessel conditions; intended treatment labels do not prove a single causal mechanism.",
+            "sourceCitationId": "src_win_lees"
+          },
+          "ki_d12depth_maturation_blend": {
+            "prompt": "Why test a completed blend after each component appeared stable?",
+            "options": [
+              "Stable components mathematically prove a stable final blend",
+              "Oak pieces reproduce every barrel effect",
+              "More components automatically mean higher quality",
+              "Mixing changes the resulting composition and may alter stability"
+            ],
+            "correctIndex": 3,
+            "explanation": "Trial blends can address balance, consistency, style or cost, but the final wine needs suitable sensory and analytical checks. Oak pieces, barrels and neutral vessels do not provide interchangeable oxygen, evaporation and flavour conditions.",
+            "sourceCitationId": "src_wset_prod_blend"
+          },
+          "ki_d12depth_quality_diagnosis": {
+            "prompt": "Why distinguish a tartrate deposit from an unexplained haze before treatment?",
+            "options": [
+              "Different causes require appropriate tests and controls",
+              "Every haze is harmless tartrate",
+              "Every deposit proves a food-safety critical control point",
+              "One coarse filter guarantees all forms of stability"
+            ],
+            "correctIndex": 0,
+            "explanation": "A visible deposit or haze is an observation, not a complete diagnosis. Protein, crystals, viable organisms and other material call for different investigation; clarification alone does not establish microbiological or package stability.",
+            "sourceCitationId": "src_win_protein"
+          },
+          "ki_d12depth_quality_release": {
+            "prompt": "What joins fruit, cellar and packaging quality control into an auditable workflow?",
+            "options": [
+              "All sensory faults must be food-safety CCPs",
+              "Defined sampling, decision criteria, records and tested traceability",
+              "A named ISO standard proves the winery is certified",
+              "A release decision can omit lot and process evidence"
+            ],
+            "correctIndex": 1,
+            "explanation": "Hygiene prerequisites and site-specific hazard analysis support controls; lot records connect materials and processes to destinations. A quality fault does not automatically become a safety CCP, and mentioning ISO does not prove certification.",
+            "sourceCitationId": "src_d1target_oiv_haccp"
+          },
+          "ki_d12depth_nolo_compare": {
+            "prompt": "How should two alcohol-removal routes be evaluated for the same sound base wine?",
+            "options": [
+              "The method name guarantees sensory equivalence",
+              "Alcohol removal may be used to certify a faulty base as sound",
+              "Compare achieved analysis, sensory retention, stability, throughput and full cost",
+              "An OIV technical admission settles every country's product name"
+            ],
+            "correctIndex": 2,
+            "explanation": "OIV lists vacuum evaporation, membrane techniques and distillation as routes under specialist oversight. Process names do not quantify aroma, mouthfeel, microbial control or destination eligibility; examine actual trial results.",
+            "sourceCitationId": "src_d1target_oiv_dealc"
+          },
+          "ki_d12depth_nolo_cost": {
+            "prompt": "Fictional route A costs EUR 100 setup plus EUR 0.10/L; B costs EUR 40 plus EUR 0.20/L. At 1,000 L which quoted treatment cost is lower?",
+            "options": [
+              "B at EUR 40 because only setup counts",
+              "A at EUR 100 because volume cost can be ignored",
+              "A's lower quoted cost proves superior sensory results",
+              "A at EUR 200 versus B at EUR 240, before omitted costs"
+            ],
+            "correctIndex": 3,
+            "explanation": "A = 100 + 100; B = 40 + 200. These supplied treatment quotations omit testing, adjustment, losses, packaging and finance; cheaper treatment is not a complete product or quality decision.",
+            "sourceCitationId": "src_d1target_oiv_dealc"
+          },
+          "ki_d12depth_package_assembly": {
+            "prompt": "What should a closure comparison specify beyond its material name?",
+            "options": [
+              "The wine, complete bottle/closure assembly, filling conditions and intended use period",
+              "Every screwcap has the same oxygen performance",
+              "All glass stoppers fit all bottle mouths",
+              "A material name removes the need to validate the filler"
+            ],
+            "correctIndex": 0,
+            "explanation": "Natural or technical cork, synthetic closures, screwcaps and glass systems differ by design and performance. Bottle compatibility, seals and equipment settings matter; a class name alone does not determine oxygen ingress, taint risk or shelf life.",
+            "sourceCitationId": "src_wset_prod_closure"
+          },
+          "ki_d12depth_package_landed": {
+            "prompt": "A fictional 1,000 L bulk route costs EUR 300 freight plus EUR 700 destination fill/assurance; packaged freight costs EUR 600 plus EUR 600 origin fill. Which supplied total is lower?",
+            "options": [
+              "Bulk costs EUR 300 in total",
+              "Bulk at EUR 1,000 versus packaged at EUR 1,200",
+              "Packaged costs EUR 600 in total",
+              "Bulk is universally cheaper at all volumes and destinations"
+            ],
+            "correctIndex": 1,
+            "explanation": "The supplied comparison gives 300 + 700 = 1,000 and 600 + 600 = 1,200. Compare transfers, oxygen, temperature, lot records and shelf life too; fictional costs do not make bulk universally cheapest.",
+            "sourceCitationId": "src_wset_prod_package"
+          },
+          "ki_d12depth_components_glycerol": {
+            "prompt": "How should glycerol be distinguished from residual grape sugar when interpreting a fermented wine?",
+            "options": [
+              "Glycerol is exactly the same analytical measure as residual glucose/fructose",
+              "Higher glycerol proves that all wines have identical perceived body",
+              "Yeast can produce glycerol during fermentation; its concentration alone does not establish residual glucose/fructose or perceived body",
+              "Glycerol concentration alone guarantees improved wine quality"
+            ],
+            "correctIndex": 2,
+            "explanation": "Glycerol is a fermentation-derived component rather than a measure of unfermented glucose/fructose. AWRI yeast trials connect metabolism with glycerol and other metabolites. Interpret sweetness/body with the whole wine and sensory evidence rather than assuming that more glycerol guarantees superior texture.",
+            "sourceCitationId": "src_d12depth_glycerol"
+          },
+          "ki_d12depth_workflow_coferment": {
+            "prompt": "What distinguishes combining different grape varieties before fermentation from blending finished wines?",
+            "options": [
+              "Co-fermentation and finished-wine blending occur at the same stage",
+              "Co-fermentation joins the grape components during fermentation; finished-wine blending joins separately fermented wines later",
+              "Adding white grapes invariably increases final colour",
+              "Co-fermentation makes different harvest dates irrelevant"
+            ],
+            "correctIndex": 1,
+            "explanation": "Co-fermentation joins grape components before/during fermentation, while later blending preserves separately fermented components for trials. Different ripening dates can complicate co-fermentation; colour, aroma and quality outcomes depend on materials and process rather than being guaranteed by the method.",
+            "sourceCitationId": "src_d12depth_coferment"
+          }
+        }
+      }
+    },
+    {
+      "id": "qt_d12depth_d1_criteria",
+      "relation_type": "CASE_ACTION",
+      "direction": "forward",
+      "mode": "case_criteria",
+      "variant": "d12depth_d1_criteria",
+      "prompt_template": "{subject.name}",
+      "parameters": {
+        "scope_node_ids": [
+          "n_d12depth_case_season",
+          "n_d12depth_case_berry",
+          "n_d12depth_case_site",
+          "n_d12depth_case_hazard",
+          "n_d12depth_case_pests",
+          "n_d12depth_case_approaches",
+          "n_d12depth_case_planting",
+          "n_d12depth_case_budget",
+          "n_d12depth_case_canopy",
+          "n_d12depth_case_harvest",
+          "n_d12depth_case_components",
+          "n_d12depth_case_intake",
+          "n_d12depth_case_fermentation",
+          "n_d12depth_case_workflow",
+          "n_d12depth_case_mlf",
+          "n_d12depth_case_maturation",
+          "n_d12depth_case_quality",
+          "n_d12depth_case_nolo",
+          "n_d12depth_case_package"
+        ],
+        "scenario_prompts": {
+          "n_d12depth_case_season": "A fictional vineyard has rapid spring shoot growth, a shaded fruit zone at flowering and healthy leaves after an early harvest. It can fund one spring canopy pass and limited post-harvest water. A manager proposes waiting until shoots become woody to thin them and stopping all care on picking day. Compare seasonal priorities and explain the next-season consequence. All numbers and business proposals are original hypothetical inputs. Explain a conditional action, causal evidence, a trade-off and the remaining limitations. Self-review supports study; it does not certify real-world permission or professional competence.",
+          "n_d12depth_case_berry": "Fictional Block A goes from 21 to 23 Brix while average berry mass falls from 2.0 to 1.6 g; titratable acidity falls and sensory samples remain uneven. Block B stays at 21 Brix with stable mass and representative samples meeting its fresh-white target. Water status and weather forecasts are incomplete. Compare harvesting and further sampling without declaring the sweeter sample the better wine. All numbers and business proposals are original hypothetical inputs. Explain a conditional action, causal evidence, a trade-off and the remaining limitations. Self-review supports study; it does not certify real-world permission or professional competence.",
+          "n_d12depth_case_site": "Two fictional 4 ha sites have the same regional warmth index. A costs EUR 120,000 and has observed cold-air pooling and a restrictive wet subsoil; B costs EUR 150,000 with better observed air drainage and a dry shallow root zone. A drainage quote is EUR 20,000; B's reliable water supply and delivery cost are unknown. Compare establishment costs, site risks and climate evidence. All numbers and business proposals are original hypothetical inputs. Explain a conditional action, causal evidence, a trade-off and the remaining limitations. Self-review supports study; it does not certify real-world permission or professional competence.",
+          "n_d12depth_case_hazard": "Fictional estate: a frost forecast follows budburst; a 6 ha sprinkler system has dependable water for only 3 ha throughout the event. A distant smoke event also affected two separate lots, and next week's hail risk is uncertain. Budget supports a 3 ha protected priority area, smoke sampling and one netted trial. Explain priorities, contingency and residual risk; no perfect protection is promised. All numbers and business proposals are original hypothetical inputs. Explain a conditional action, causal evidence, a trade-off and the remaining limitations. Self-review supports study; it does not certify real-world permission or professional competence.",
+          "n_d12depth_case_pests": "Fictional block has dusty access roads, bronzed leaves with both pest and predator mites, moth-trap captures and some larvae in bunches. Powdery mildew scouting and virus-status records are incomplete. A manager proposes one blanket spray and declares all remaining pests controlled. Compare a monitoring-led response across these distinct risks; no chemical product or legal permission is supplied. All numbers and business proposals are original hypothetical inputs. Explain a conditional action, causal evidence, a trade-off and the remaining limitations. Self-review supports study; it does not certify real-world permission or professional competence.",
+          "n_d12depth_case_approaches": "Fictional dry slope compares current IPM with a seasonal cover and mapped targeted inputs. Trial results show erosion loss falling, water stress rising in permanent-cover rows, and EUR 400/ha extra monitoring labour. Scheme status and sensory results are not supplied. Evaluate seasonal cover timing, monitored zones and full cost while comparing all named approach goals. All numbers and business proposals are original hypothetical inputs. Explain a conditional action, causal evidence, a trade-off and the remaining limitations. Self-review supports study; it does not certify real-world permission or professional competence.",
+          "n_d12depth_case_planting": "Fictional replant: soil testing finds compaction and nematodes. A supplier offers named scion/rootstock material with health records at EUR 4/vine or untested layered own-rooted vines at EUR 1/vine. The plan is 2 ha at 4,000 vines/ha with 2.5 m machinery access. Soil preparation, water equipment and non-bearing-year cash are not quoted. Compare material, layout and capital before ordering. All numbers and business proposals are original hypothetical inputs. Explain a conditional action, causal evidence, a trade-off and the remaining limitations. Self-review supports study; it does not certify real-world permission or professional competence.",
+          "n_d12depth_case_budget": "Fictional 3 ha vineyard budget: crop need 40 mm, effective rain 10 mm and usable stored soil water 15 mm; irrigation delivery efficiency is 75%. Tissue results indicate adequate nitrogen, while one patch has compacted roots and abnormal pH. Fertiliser and water permissions are not supplied. Calculate the gross water volume (1 mm over 1 ha = 10 m3), compare intervention timing and identify missing evidence. All numbers and business proposals are original hypothetical inputs. Explain a conditional action, causal evidence, a trade-off and the remaining limitations. Self-review supports study; it does not certify real-world permission or professional competence.",
+          "n_d12depth_case_canopy": "Fictional A is humid, vigorous and shaded at 5,000 vines/ha with 2 kg/vine; B is hot and water-limited at 2,000 vines/ha with 3 kg/vine. One crew is available. A's equipment fits its rows; B's layout requires hand work. Compare canopy timing, crop numbers and labour without using yield as a quality score. All numbers and business proposals are original hypothetical inputs. Explain a conditional action, causal evidence, a trade-off and the remaining limitations. Self-review supports study; it does not certify real-world permission or professional competence.",
+          "n_d12depth_case_harvest": "Fictional 12 t crop meets a fresh-white maturity target today; rain risk rises tomorrow. Hand picking can deliver 2 t/hour of intact bunches for six hours; a booked machine can deliver 4 t/hour of berries, but the whole-bunch press plan cannot use that fruit unchanged. A separate drying trial loses 30% fruit mass. Compare timing, method and the independent sweet-fruit trial; no legal name eligibility is supplied. All numbers and business proposals are original hypothetical inputs. Explain a conditional action, causal evidence, a trade-off and the remaining limitations. Self-review supports study; it does not certify real-world permission or professional competence.",
+          "n_d12depth_case_components": "Fictional pilot wines share 12% alcohol. A has 2 g/L residual sugar and firmer acidity; B has 12 g/L sugar and lower acidity. A glycerol measurement differs, but blind tasting finds B sweeter without consistent preference. One label says natural; its processing and stability records are incomplete. Compare component balance and method evidence. All numbers and business proposals are original hypothetical inputs. Explain a conditional action, causal evidence, a trade-off and the remaining limitations. Self-review supports study; it does not certify real-world permission or professional competence.",
+          "n_d12depth_case_intake": "Fictional 24 t intake arrives over three hours at 8 t/hour; press capacity is 4 t/hour. Sound and damaged fruit are separate. Cold settling occupies a tank overnight; a supplier's flotation trial clears the same juice in four hours, with extra rental cost. Press fractions and solids analyses are not yet complete. Compare reception and clarification separately. All numbers and business proposals are original hypothetical inputs. Explain a conditional action, causal evidence, a trade-off and the remaining limitations. Self-review supports study; it does not certify real-world permission or professional competence.",
+          "n_d12depth_case_fermentation": "Fictional juice is 25 Brix with low measured YAN and uneven fermentation temperatures in an uncooled vessel. A cooled tank quote is EUR 500; a nutrient proposal has no dose justification. Acid trials change both pH and taste, while a concentration proposal raises sugar further. Applicable process permission and strain specifications are not supplied. Compare a monitored plan. All numbers and business proposals are original hypothetical inputs. Explain a conditional action, causal evidence, a trade-off and the remaining limitations. Self-review supports study; it does not certify real-world permission or professional competence.",
+          "n_d12depth_case_workflow": "Fictional cellar has crushed red fruit for extraction, intact bunches for a small aroma pilot, black grapes for pale rose and a white ferment stopped by chilling at its intended 15 g/L sugar. A membrane integrity result is missing. Compare skin-separation and fermentation workflows, and decide what must precede releasing the sweet lot. All numbers and business proposals are original hypothetical inputs. Explain a conditional action, causal evidence, a trade-off and the remaining limitations. Self-review supports study; it does not certify real-world permission or professional competence.",
+          "n_d12depth_case_mlf": "Fictional A is a red wine intended for complete MLF; B is a fresh white intended to retain malic acid. A's malic result is declining but still detected; B has residual malate and an uncertain microbial result. Both report identical total SO2, but free levels and pH differ. Compare completion, avoidance and later protection without specifying a universal addition. All numbers and business proposals are original hypothetical inputs. Explain a conditional action, causal evidence, a trade-off and the remaining limitations. Self-review supports study; it does not certify real-world permission or professional competence.",
+          "n_d12depth_case_maturation": "Fictional barrel pilot costs EUR 900 and a neutral-tank/oak-piece pilot EUR 300. The barrel wine also receives lees stirring and MLF, while the tank control does not. A 60:40 blend meets the panel's style target, but stability is untested; one option holds stock six months longer. Compare trial interpretation, blend release and inventory costs. All numbers and business proposals are original hypothetical inputs. Explain a conditional action, causal evidence, a trade-off and the remaining limitations. Self-review supports study; it does not certify real-world permission or professional competence.",
+          "n_d12depth_case_quality": "Fictional finished blend is visually clear but its membrane integrity check failed. An unrelated lot has crystals and another a volatile-acidity signal. Packaging records cannot identify all affected pallets. Compare diagnosis, containment, release evidence and the distinction between spoilage and a site-validated safety hazard. All numbers and business proposals are original hypothetical inputs. Explain a conditional action, causal evidence, a trade-off and the remaining limitations. Self-review supports study; it does not certify real-world permission or professional competence.",
+          "n_d12depth_case_nolo": "Fictional 1,000 L sound base: A's vacuum pilot costs EUR 200 and B's membrane pilot EUR 240 under supplied quotes. Both reach the commissioned alcohol target; A has more aroma loss in the panel and B needs an extra hygiene step. Final stability and destination product-name eligibility are unknown. Compare route choice and release criteria. All numbers and business proposals are original hypothetical inputs. Explain a conditional action, causal evidence, a trade-off and the remaining limitations. Self-review supports study; it does not certify real-world permission or professional competence.",
+          "n_d12depth_case_package": "Fictional early-drinking 1,000 L wine compares glass, PET, bag-in-box, bricks, pouches and cans. Supplier data cover only three packages; all six have different quotes and intended use periods. Bulk shipment and destination fill total EUR 1,000, versus EUR 1,200 origin fill plus packaged freight. Closure compatibility, total package oxygen and hot-route shelf-life trials are incomplete. Recommend a bounded trial. All numbers and business proposals are original hypothetical inputs. Explain a conditional action, causal evidence, a trade-off and the remaining limitations. Self-review supports study; it does not certify real-world permission or professional competence."
+        },
+        "distractors": {
+          "n_d12depth_case_season": [
+            {
+              "summary": "Abandon all management immediately after picking",
+              "explanation": "Harvest does not end the vine's reserve-building season."
+            },
+            {
+              "summary": "Thin only after shoots are woody because timing cannot affect labour",
+              "explanation": "The source describes easier removal of rapidly growing green shoots."
+            }
+          ],
+          "n_d12depth_case_berry": [
+            {
+              "summary": "Rank A as universally better solely because its Brix is higher",
+              "explanation": "Concentration does not alone establish physiological or sensory maturity."
+            },
+            {
+              "summary": "Infer that A now supplies more juice because its concentration rose",
+              "explanation": "The fictional berry mass fell; juice recovery must be measured."
+            }
+          ],
+          "n_d12depth_case_site": [
+            {
+              "summary": "Choose A because the regional index proves identical block risk",
+              "explanation": "The observed site-specific risks differ."
+            },
+            {
+              "summary": "Choose B as fully budgeted because only its land price is higher",
+              "explanation": "Water and many establishment inputs remain unquoted."
+            }
+          ],
+          "n_d12depth_case_hazard": [
+            {
+              "summary": "Spread the available water across all 6 ha and assume full protection",
+              "explanation": "Adequate continuous application has not been supplied for that area."
+            },
+            {
+              "summary": "Release smoke lots because no vine is visibly burnt",
+              "explanation": "Visible fire injury and smoke contamination are different evidence questions."
+            }
+          ],
+          "n_d12depth_case_pests": [
+            {
+              "summary": "Kill the predators first because all mites harm vines",
+              "explanation": "Predator mites can suppress pest mites."
+            },
+            {
+              "summary": "Declare one spray a cure for viruses, bacteria, moths and fungi",
+              "explanation": "The case does not support that biological or efficacy claim."
+            }
+          ],
+          "n_d12depth_case_approaches": [
+            {
+              "summary": "Convert every row to permanent cover because erosion improved",
+              "explanation": "The scenario also supplies worsening water stress."
+            },
+            {
+              "summary": "Claim organic and biodynamic certification from the map and cover trial",
+              "explanation": "Actual scheme compliance and certification are not supplied."
+            }
+          ],
+          "n_d12depth_case_planting": [
+            {
+              "summary": "Select untested own-rooted vines because their price proves equal pest protection",
+              "explanation": "Price is not rootstock or sanitary evidence."
+            },
+            {
+              "summary": "Order plants first and treat compaction, access and cash as irrelevant",
+              "explanation": "Those conditions are long-lived establishment dependencies."
+            }
+          ],
+          "n_d12depth_case_budget": [
+            {
+              "summary": "Apply nitrogen automatically because the patch grows weakly",
+              "explanation": "The supplied tissue result does not indicate nitrogen deficiency."
+            },
+            {
+              "summary": "Pump 450 m3 and call it the 600 m3 gross requirement",
+              "explanation": "450 m3 represents 15 mm net; the stated efficiency requires 600 m3 gross."
+            }
+          ],
+          "n_d12depth_case_canopy": [
+            {
+              "summary": "Strip both canopies identically because all exposure improves quality",
+              "explanation": "The hot water-limited block has different exposure risks."
+            },
+            {
+              "summary": "Call B the higher area-yield block from its kg/vine alone",
+              "explanation": "Multiplication by density gives A the larger area yield."
+            }
+          ],
+          "n_d12depth_case_harvest": [
+            {
+              "summary": "Run berry-harvested fruit through an unchanged whole-bunch premise",
+              "explanation": "The stated fruit form does not meet that premise."
+            },
+            {
+              "summary": "Call the drying trial ice wine because fruit mass fell",
+              "explanation": "Drying is not natural on-vine freezing."
+            }
+          ],
+          "n_d12depth_case_components": [
+            {
+              "summary": "Call the wines identical because their alcohol matches",
+              "explanation": "Sugar, acidity and observations differ."
+            },
+            {
+              "summary": "Release the natural lot without stability records because its label assures safety",
+              "explanation": "The label does not provide those records."
+            }
+          ],
+          "n_d12depth_case_intake": [
+            {
+              "summary": "Adopt flotation and declare the 12 t pressing queue eliminated",
+              "explanation": "It changes clarification after pressing, not the supplied press throughput."
+            },
+            {
+              "summary": "Mix damaged and sound fruit because all clarification removes every rot effect",
+              "explanation": "Fruit condition and oxidation enzymes still need assessment."
+            }
+          ],
+          "n_d12depth_case_fermentation": [
+            {
+              "summary": "Concentrate further and add unlimited DAP because sugar ensures success",
+              "explanation": "Sugar and indiscriminate nitrogen do not resolve the stated risks."
+            },
+            {
+              "summary": "Use the desired pH as proof every adjustment is legal",
+              "explanation": "Legal permission is an independent condition."
+            }
+          ],
+          "n_d12depth_case_workflow": [
+            {
+              "summary": "Release chilled sweet wine because its clear appearance proves yeast absence",
+              "explanation": "Clarity and low temperature do not demonstrate microbial removal."
+            },
+            {
+              "summary": "Call all intact-bunch wines completely yeast-free",
+              "explanation": "Yeast fermentation is needed to complete the wine."
+            }
+          ],
+          "n_d12depth_case_mlf": [
+            {
+              "summary": "Bottle A as complete merely because malic acid is falling",
+              "explanation": "The endpoint has not been demonstrated."
+            },
+            {
+              "summary": "Treat both wines identically because their total sulfur matches",
+              "explanation": "Free sulfur, pH, style and microbial evidence differ."
+            }
+          ],
+          "n_d12depth_case_maturation": [
+            {
+              "summary": "Attribute every barrel difference to oak alone",
+              "explanation": "Lees and MLF were changed too."
+            },
+            {
+              "summary": "Release the blend without testing because both parts were stable",
+              "explanation": "The final mixture may respond differently."
+            }
+          ],
+          "n_d12depth_case_quality": [
+            {
+              "summary": "Release all clear wine despite failed integrity",
+              "explanation": "Visual clarity does not replace the control result."
+            },
+            {
+              "summary": "Treat crystals, VA and a pallet-record gap as one identical fault",
+              "explanation": "They require separate investigation and containment evidence."
+            }
+          ],
+          "n_d12depth_case_nolo": [
+            {
+              "summary": "Choose A and release immediately because treatment is EUR 40 cheaper",
+              "explanation": "The case leaves sensory, stability and naming evidence unresolved."
+            },
+            {
+              "summary": "Declare B universally best because it retains more aroma in one pilot",
+              "explanation": "Other costs and conditions can change the decision."
+            }
+          ],
+          "n_d12depth_case_package": [
+            {
+              "summary": "Approve all six packages because three supplier files look sound",
+              "explanation": "Evidence for one package does not validate the others."
+            },
+            {
+              "summary": "Ignore destination assurance costs when quoting the bulk option",
+              "explanation": "Those EUR 700 are explicitly part of the supplied cost."
+            }
+          ]
+        }
+      }
+    },
+    {
+      "id": "qt_d12depth_d1_written",
+      "relation_type": "CASE_ACTION",
+      "direction": "forward",
+      "mode": "short_answer",
+      "variant": "d12depth_d1_written",
+      "prompt_template": "{subject.name}",
+      "parameters": {
+        "scope_node_ids": [
+          "n_d12depth_case_season",
+          "n_d12depth_case_berry",
+          "n_d12depth_case_site",
+          "n_d12depth_case_hazard",
+          "n_d12depth_case_pests",
+          "n_d12depth_case_approaches",
+          "n_d12depth_case_planting",
+          "n_d12depth_case_budget",
+          "n_d12depth_case_canopy",
+          "n_d12depth_case_harvest",
+          "n_d12depth_case_components",
+          "n_d12depth_case_intake",
+          "n_d12depth_case_fermentation",
+          "n_d12depth_case_workflow",
+          "n_d12depth_case_mlf",
+          "n_d12depth_case_maturation",
+          "n_d12depth_case_quality",
+          "n_d12depth_case_nolo",
+          "n_d12depth_case_package"
+        ],
+        "key_points": {
+          "CASE_ACTION": "Conditional decision and supplied calculation",
+          "CASE_REASON": "Causal explanation using relevant evidence",
+          "CASE_TRADEOFF": "Style, resources and operational trade-off",
+          "CASE_LIMITATION": "Missing evidence and scope of the conclusion"
+        }
+      }
+    }
+  ]
+}

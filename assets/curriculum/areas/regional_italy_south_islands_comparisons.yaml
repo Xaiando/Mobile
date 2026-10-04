@@ -65,9 +65,19 @@ knowledge_nodes:
   - id: n_reg_isi_point_salice_context
     node_type: learning_point
     name: Salice Salentino combines Negroamaro traditions and maritime moderation
+    valid_until: 2026-10-03
+  - id: n_reg_isi_point_salice_context_2026
+    node_type: learning_point
+    name: Salice Negroamaro supports a local red and rosato comparison
+    valid_from: 2026-10-03
   - id: n_reg_isi_point_salice_styles
     node_type: learning_point
     name: Salice red and rosato expressions show distinct sensory targets
+    valid_until: 2026-10-03
+  - id: n_reg_isi_point_salice_styles_2026
+    node_type: learning_point
+    name: Salice robust velvety reds contrast with fresh fruit-scented rosato
+    valid_from: 2026-10-03
   - id: n_reg_isi_principle_etna_slopes
     node_type: production_principle
     name: Which Etna north-versus-east site influences support a qualified grape and style comparison?
@@ -250,8 +260,14 @@ node_alternative_names:
   - knowledge_node_id: n_reg_isi_point_salice_context
     name: Salice Negroamaro and maritime context
     kind: synonym
+  - knowledge_node_id: n_reg_isi_point_salice_context_2026
+    name: Salice Negroamaro red and rosato production context
+    kind: synonym
   - knowledge_node_id: n_reg_isi_point_salice_styles
     name: Salice red versus rosato expression
+    kind: synonym
+  - knowledge_node_id: n_reg_isi_point_salice_styles_2026
+    name: Salice red structure versus rosato freshness
     kind: synonym
   - knowledge_node_id: n_reg_isi_point_etna_north
     name: Etna northern Nerello setting
@@ -396,10 +412,20 @@ knowledge_relations:
     relation_type: PRINCIPLE_EXPLANATION
     object_id: n_reg_isi_point_salice_context
     valid_from: 2026-09-27
+    valid_until: 2026-10-03
+  - subject_id: n_reg_isi_principle_salice_comparison
+    relation_type: PRINCIPLE_EXPLANATION
+    object_id: n_reg_isi_point_salice_context_2026
+    valid_from: 2026-10-03
   - subject_id: n_reg_isi_principle_salice_comparison
     relation_type: PRINCIPLE_EXPLANATION
     object_id: n_reg_isi_point_salice_styles
     valid_from: 2026-09-27
+    valid_until: 2026-10-03
+  - subject_id: n_reg_isi_principle_salice_comparison
+    relation_type: PRINCIPLE_EXPLANATION
+    object_id: n_reg_isi_point_salice_styles_2026
+    valid_from: 2026-10-03
   - subject_id: n_reg_isi_principle_etna_slopes
     relation_type: PRINCIPLE_EXPLANATION
     object_id: n_reg_isi_point_etna_north
@@ -666,6 +692,18 @@ knowledge_items:
     verification_status: unverified
     mcq_disabled: true
     last_verified_at: 2026-09-27T05:49:52.000Z
+    superseded_by_item_id: ki_reg_isi_salice_context_2026
+  - id: ki_reg_isi_salice_context_2026
+    subject_id: n_reg_isi_principle_salice_comparison
+    relation_type: PRINCIPLE_EXPLANATION
+    object_id: n_reg_isi_point_salice_context_2026
+    domain_id: geography
+    assertion_text: The ministry-published Salice Salentino document identifies Negroamaro with the
+      area's red and rosato tradition. Use that grape and production context to compare actual wines
+      and vineyards; it does not make every Salice parcel or finished wine identical.
+    verification_status: unverified
+    mcq_disabled: true
+    last_verified_at: 2026-10-03T15:26:02.473Z
   - id: ki_reg_isi_salice_styles
     subject_id: n_reg_isi_principle_salice_comparison
     relation_type: PRINCIPLE_EXPLANATION
@@ -677,6 +715,18 @@ knowledge_items:
     verification_status: unverified
     mcq_disabled: true
     last_verified_at: 2026-09-27T05:49:52.000Z
+    superseded_by_item_id: ki_reg_isi_salice_styles_2026
+  - id: ki_reg_isi_salice_styles_2026
+    subject_id: n_reg_isi_principle_salice_comparison
+    relation_type: PRINCIPLE_EXPLANATION
+    object_id: n_reg_isi_point_salice_styles_2026
+    domain_id: geography
+    assertion_text: The ministry-published Salice Salentino document contrasts robust, velvety red
+      styles with fresh, fruit-scented rosato. Assess colour, structure, freshness and the intended role
+      in the actual wines; these descriptions do not rank every red above every rosato.
+    verification_status: unverified
+    mcq_disabled: true
+    last_verified_at: 2026-10-03T15:26:02.473Z
   - id: ki_reg_isi_etna_north
     subject_id: n_reg_isi_principle_etna_slopes
     relation_type: PRINCIPLE_EXPLANATION
@@ -1159,24 +1209,48 @@ certification_knowledge_mappings:
     knowledge_item_id: ki_reg_isi_salice_context
     importance: core
     minimum_depth: 3
+  - certification_id: WSET_L4
+    knowledge_item_id: ki_reg_isi_salice_context_2026
+    importance: core
+    minimum_depth: 3
   - certification_id: WSET_L3
     knowledge_item_id: ki_reg_isi_salice_context
     importance: core
     minimum_depth: 2
+  - certification_id: WSET_L3
+    knowledge_item_id: ki_reg_isi_salice_context_2026
+    importance: core
+    minimum_depth: 2
   - certification_id: CMS_CERTIFIED
     knowledge_item_id: ki_reg_isi_salice_context
+    importance: core
+    minimum_depth: 2
+  - certification_id: CMS_CERTIFIED
+    knowledge_item_id: ki_reg_isi_salice_context_2026
     importance: core
     minimum_depth: 2
   - certification_id: WSET_L4
     knowledge_item_id: ki_reg_isi_salice_styles
     importance: core
     minimum_depth: 3
+  - certification_id: WSET_L4
+    knowledge_item_id: ki_reg_isi_salice_styles_2026
+    importance: core
+    minimum_depth: 3
   - certification_id: WSET_L3
     knowledge_item_id: ki_reg_isi_salice_styles
     importance: core
     minimum_depth: 2
+  - certification_id: WSET_L3
+    knowledge_item_id: ki_reg_isi_salice_styles_2026
+    importance: core
+    minimum_depth: 2
   - certification_id: CMS_CERTIFIED
     knowledge_item_id: ki_reg_isi_salice_styles
+    importance: core
+    minimum_depth: 2
+  - certification_id: CMS_CERTIFIED
+    knowledge_item_id: ki_reg_isi_salice_styles_2026
     importance: core
     minimum_depth: 2
   - certification_id: WSET_L4
@@ -1459,22 +1533,22 @@ source_citations:
     accessed_on: 2026-09-27
   - id: src_reg_isi_salice_territory
     kind: reference_work
-    title: "Territorio: Salice Salentino"
-    publisher: Consorzio Tutela Vini DOP Salice Salentino
+    title: "Salice Salentino D.O.C. - Disciplinare consolidato aggiornato con i rilievi nota Ares(2026)6620774 - 01/07/2026"
+    publisher: Ministero dell'agricoltura, della sovranità alimentare e delle foreste (MASAF)
     jurisdiction: IT
-    url: https://www.consorziosalicesalentino.it/territorio/
-    document_identifier: Primary public educational reference read 27 September 2026; promotional
-      rankings, current statistics and exhaustive legal lists unused
-    accessed_on: 2026-09-27
+    url: https://www.masaf.gov.it/flex/cm/pages/ServeAttachment.php/L/IT/D/1%252F4%252F3%252FD.34eb57fb96c66de76050/P/BLOB:ID=24578/E/pdf?mode=download#page=10
+    document_identifier: Ministry-published consolidated specification updated 1 July 2026; qualitative
+      product/context support only. Current legal effectiveness and numerical minimums not asserted.
+    accessed_on: 2026-10-03
   - id: src_reg_isi_salice_styles
     kind: reference_work
-    title: "Salice Salentino: red and rosato descriptions"
-    publisher: Consorzio Tutela Vini DOP Salice Salentino
+    title: "Salice Salentino D.O.C. - Disciplinare consolidato aggiornato con i rilievi nota Ares(2026)6620774 - 01/07/2026"
+    publisher: Ministero dell'agricoltura, della sovranità alimentare e delle foreste (MASAF)
     jurisdiction: IT
-    url: https://www.consorziosalicesalentino.it/salice-salentino/
-    document_identifier: Primary public educational reference read 27 September 2026; promotional
-      rankings, current statistics and exhaustive legal lists unused
-    accessed_on: 2026-09-27
+    url: https://www.masaf.gov.it/flex/cm/pages/ServeAttachment.php/L/IT/D/1%252F4%252F3%252FD.34eb57fb96c66de76050/P/BLOB:ID=24578/E/pdf?mode=download#page=5
+    document_identifier: Ministry-published consolidated specification updated 1 July 2026; qualitative
+      product/context support only. Current legal effectiveness and numerical minimums not asserted.
+    accessed_on: 2026-10-03
   - id: src_reg_isi_etna
     kind: reference_work
     title: Etna terroir and the four volcano slopes
@@ -1582,10 +1656,22 @@ knowledge_item_citations:
       requirement asserted
   - knowledge_item_id: ki_reg_isi_salice_context
     source_citation_id: src_reg_isi_salice_territory
-    locator: Territorio; Negroamaro and sea moderation; salts-and-flavour claims unused
+    locator: Legacy provenance only; superseded 2026-10-03. Original consortium attribution is
+      unsupported by the replacement ministry PDF for this retired premise; no current source-fit
+      or legal-effectiveness claim. Original authored identity and learner history retained.
+  - knowledge_item_id: ki_reg_isi_salice_context_2026
+    source_citation_id: src_reg_isi_salice_territory
+    locator: Arts 2 and 9.A.2; Negroamaro and local red/rosato production context. No sea-moderation,
+      numerical grape minimum or current legal-effectiveness claim.
   - knowledge_item_id: ki_reg_isi_salice_styles
     source_citation_id: src_reg_isi_salice_styles
-    locator: DOP Rosso; DOP Rosato; original qualified style comparison
+    locator: Legacy provenance only; superseded 2026-10-03. Original consortium attribution is
+      unsupported by the replacement ministry PDF for this retired premise; no current source-fit
+      or legal-effectiveness claim. Original authored identity and learner history retained.
+  - knowledge_item_id: ki_reg_isi_salice_styles_2026
+    source_citation_id: src_reg_isi_salice_styles
+    locator: Art 6; ordinary rosso and rosato descriptors. Qualitative product contrast, not a guarantee
+      of uniform bottle quality, a higher quality rank or current legal effectiveness.
   - knowledge_item_id: ki_reg_isi_etna_north
     source_citation_id: src_reg_isi_etna
     locator: The four volcano slopes; Northern slope

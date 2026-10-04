@@ -1,0 +1,152 @@
+{
+  "schemaVersion": 1,
+  "version": "1.0.0",
+  "variants": [
+    {
+      "unitId": "D4",
+      "title": "Regional sparkling wine decisions",
+      "durationSeconds": 2700,
+      "questions": [
+        {
+          "id": "d4_candidate_british_range",
+          "prompt": "Hypothetical case: A merchant wants a British bottle-fermented sparkling range for restaurants. One proposed wine is from England and another from Wales. The suppliers offer the same grape varieties and target release price, but their site exposure, growing-season conditions, yields, blending options and maturation plans differ. State assumptions for those differences and compare how they could affect fruit, style, quality, cost and supply reliability. Recommend a buying approach, explaining what records and tasting evidence you would request before treating either wine as the stronger offer.",
+          "criteria": [
+            {
+              "id": "site_fruit",
+              "text": "I stated plausible site and growing-season assumptions for each offer and explained their effects on ripening, yield and grape components."
+            },
+            {
+              "id": "production_style",
+              "text": "I linked blending and maturation choices to the proposed wine styles, quality aims and release plans."
+            },
+            {
+              "id": "commercial_fit",
+              "text": "I compared cost, supply reliability and restaurant demand and used those differences to support a buying approach."
+            },
+            {
+              "id": "evidence_limits",
+              "text": "I identified records and tasting evidence needed to check supplier claims and explained what could change my recommendation."
+            }
+          ]
+        },
+        {
+          "id": "d4_candidate_american_routes",
+          "prompt": "Hypothetical case: An importer receives three sparkling wine proposals: a bottle-fermented wine from the USA, a tank-fermented wine from Chile and a bottle-fermented wine from Argentina. All aim at the same retail price, but volumes, release schedules and sales channels differ. Select a plausible growing area and grape choice for each proposal and label these as assumptions. Compare how grape growing and production could shape style, quality and cost. Recommend which proposal best fits one sales channel you define, and identify the supplier evidence needed to test your reasoning.",
+          "criteria": [
+            {
+              "id": "regional_assumptions",
+              "text": "I chose plausible areas and grapes for the three proposals, stated my assumptions and linked growing conditions to the intended wines."
+            },
+            {
+              "id": "method_effects",
+              "text": "I explained how the specified fermentation and maturation routes could affect style, quality, capacity and release timing."
+            },
+            {
+              "id": "market_choice",
+              "text": "I defined a sales channel and compared price, volume and customer expectations before recommending an offer."
+            },
+            {
+              "id": "supplier_checks",
+              "text": "I named useful origin, production, cost and tasting evidence and acknowledged limits in comparing the proposals."
+            }
+          ]
+        },
+        {
+          "id": "d4_candidate_south_african_scale",
+          "prompt": "Hypothetical case: A South African producer has established a small premium bottle-fermented sparkling range and is considering a larger export contract. The buyer wants dependable style and supply, while the producer has limited cellar space and cash. Compare expanding the existing range with developing a separate sparkling product that can be released sooner. State suitable grape, site and production assumptions for each option. Explain likely effects on quality, cost, inventory and market positioning, then propose a conditional plan and the production and sales checks needed before committing.",
+          "criteria": [
+            {
+              "id": "product_design",
+              "text": "I connected stated grape, site and production assumptions to the style and quality aims of both options."
+            },
+            {
+              "id": "scale_controls",
+              "text": "I considered fruit supply, blending consistency, cellar capacity and relevant quality controls as production expands."
+            },
+            {
+              "id": "capital_positioning",
+              "text": "I explained how release timing and stock commitments could affect cash, cost and the positioning of the two products."
+            },
+            {
+              "id": "conditional_plan",
+              "text": "I proposed a practical plan with production and market evidence that would support, limit or reverse the commitment."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "unitId": "D5",
+      "title": "Fortified styles and stock decisions",
+      "durationSeconds": 2700,
+      "questions": [
+        {
+          "id": "d5_candidate_french_vdn",
+          "prompt": "Hypothetical case: A merchant is choosing between two French vin doux naturel offers for a restaurant range. A supplier describes one as a youthful aromatic Muscat wine and the other as a Grenache wine matured with deliberate oxygen exposure. State plausible origin, grape-growing and cellar assumptions for each offer. Explain how harvest decisions, fortification, any skin contact and maturation could produce the proposed styles and influence quality and cost. Recommend a place for each wine in the range, identifying the production records and tasting evidence needed to check the supplier's descriptions.",
+          "criteria": [
+            {
+              "id": "origin_fruit",
+              "text": "I stated plausible origins and growing or harvest assumptions and linked them to the fruit needed for each proposed style."
+            },
+            {
+              "id": "process_style",
+              "text": "I explained causal links between fortification, relevant skin contact, oxygen exposure and maturation and the wines I described."
+            },
+            {
+              "id": "range_value",
+              "text": "I evaluated quality, production cost, price and customer use when recommending a role for each wine."
+            },
+            {
+              "id": "claim_checks",
+              "text": "I identified production and tasting evidence that could confirm or challenge the descriptions and acknowledged missing information."
+            }
+          ]
+        },
+        {
+          "id": "d5_candidate_rutherglen_blend",
+          "prompt": "Hypothetical case: A Rutherglen Muscat producer holds mature cask parcels and younger wine intended for blending. A new buyer requests a larger supply and argues that the product's category alone guarantees quality. Compare increasing the current blend's release volume with creating a separate blend for a different price and customer target. Explain how fruit ripeness, fortification, cask maturation and parcel selection could affect the resulting wines. Assess the effects on mature stocks, replenishment and cash, then recommend a conditional response and the evidence needed to judge the buyer's claim.",
+          "criteria": [
+            {
+              "id": "base_wine",
+              "text": "I connected fruit ripeness and fortification choices to the character and suitability of the wine available for blending."
+            },
+            {
+              "id": "blend_quality",
+              "text": "I explained how parcel selection and maturation could alter style, balance and quality for the two stated targets."
+            },
+            {
+              "id": "stock_replenishment",
+              "text": "I evaluated mature-stock availability, younger-wine replenishment and cash implications before choosing a release approach."
+            },
+            {
+              "id": "category_evidence",
+              "text": "I separated a category claim from observed quality and named tasting, blending and stock records needed for a conditional decision."
+            }
+          ]
+        },
+        {
+          "id": "d5_candidate_fortified_working_capital",
+          "prompt": "Hypothetical case: A merchant with limited cash and storage wants to supply Port, Sherry and Madeira to restaurants that pay after delivery. It can buy a broad range at a lower unit cost under a large advance order, or buy a smaller range more frequently at a higher unit cost. Choose and state specific wine styles and customer uses for the range. Compare the two purchasing approaches using production and maturation context, likely demand, payment timing, stock turnover and risks to wine condition. Recommend a purchasing plan and the evidence that would trigger a change.",
+          "criteria": [
+            {
+              "id": "styles_customers",
+              "text": "I specified suitable Port, Sherry and Madeira styles and connected their production or maturation to distinct customer uses."
+            },
+            {
+              "id": "cash_cycle",
+              "text": "I traced when cash is committed and received under both purchasing approaches and explained the working-capital consequences."
+            },
+            {
+              "id": "stock_risks",
+              "text": "I considered demand uncertainty, turnover, storage and wine-condition risks for the selected styles."
+            },
+            {
+              "id": "buying_plan",
+              "text": "I recommended a plan supported by sales, payment and stock evidence and stated conditions that would change the choice."
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

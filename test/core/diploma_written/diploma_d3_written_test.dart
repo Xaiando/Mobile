@@ -21,6 +21,7 @@ Map<String, dynamic> _document() => jsonDecode(
 
 Map<String, dynamic> _previousBank(int count, String version) {
   final row = _document();
+  row.remove('variants');
   row['version'] = version;
   row['units'] = (row['units'] as List).take(count).toList();
   return row;
@@ -83,7 +84,7 @@ void main() {
   tearDown(() => db.close());
 
   test('D3 app bank accepts only complete legacy, product and regional sets', () {
-    expect(bank.version, '1.2.0');
+    expect(bank.version, '1.4.0');
     expect(bank.presets.map((p) => p.unitId), ['D1', 'D2', 'D4', 'D5', 'D3']);
     final regional = bank.preset('D3');
     expect(regional.durationSeconds, 3600);
@@ -125,6 +126,7 @@ void main() {
       [0, 1, 2, 2, 4],
     ]) {
       final row = _document();
+      row.remove('variants');
       row['units'] = [for (final index in indices) units[index]];
       expect(
         () => DiplomaWrittenBank.fromJson(jsonEncode(row)),
@@ -149,7 +151,7 @@ void main() {
   });
 
   test(
-    'all four earlier unit snapshots resume unchanged under bank 1.2.0',
+    'all four earlier unit snapshots resume unchanged under bank 1.4.0',
     () async {
       final earlier = DiplomaWrittenRepository(
         db,
@@ -187,7 +189,7 @@ void main() {
       }
       expect(await _settings(db), savedBefore);
       final d3 = await repository.start('D3');
-      expect(d3.bankVersion, '1.2.0');
+      expect(d3.bankVersion, '1.4.0');
       expect(d3.deadline.difference(d3.startedAt), const Duration(minutes: 60));
       expect(d3.toJson()['schemaVersion'], 1);
       expect(

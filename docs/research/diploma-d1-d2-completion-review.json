@@ -1,0 +1,2740 @@
+{
+  "schemaVersion": 1,
+  "reviewedAt": "2026-10-02T23:19:00.000Z",
+  "curationTimestamp": "2026-10-02T23:14:50.000Z",
+  "scopeSourceUrl": "https://www.wsetglobal.com/media/17609/wset_l4wines_specification_en_august-2025.pdf",
+  "scopePages": {
+    "D1": "pp.9–11, outcomes1.1–1.3",
+    "D2": "pp.13–14, outcomes2.1–2.3"
+  },
+  "status": "locally_authored_unverified_pending_integration_and_qualified_calibration",
+  "counts": {
+    "newKnowledgeItems": 187,
+    "principles": 67,
+    "fourRoleCases": 30,
+    "templates": 9
+  },
+  "files": [
+    "assets/curriculum/areas/diploma_d1_integrated_depth.yaml",
+    "assets/curriculum/templates/diploma_d1_integrated_depth.yaml",
+    "assets/curriculum/areas/diploma_d2_integrated_depth.yaml",
+    "assets/curriculum/templates/diploma_d2_integrated_depth.yaml",
+    "assets/curriculum/areas/diploma_d2_regulatory_comparisons.yaml",
+    "assets/curriculum/templates/diploma_d2_regulatory_comparisons.yaml"
+  ],
+  "interpretation": [
+    "Checklist credits existing teaching and describes new authored depth against named scope ranges. It is not an exhaustive fact-verification certificate or evidence that a learner completed a WSET qualification.",
+    "Every new KI remains unverified. last_verified_at records actual UTC curation, not expert verification. valid_from is2026-10-02 so local publication must include that date.",
+    "Original cases supply fictional data and conditional four-role self-review. One case illustrates a range; it does not establish mastery of every real-world situation. Explicit conceptual teaching plus existing anchors and wider writing exercises must be considered together.",
+    "No WSET proprietary examination question or prose is copied. WSET specification is a scope source only; facts cite independent primary sources.",
+    "NoGit/CI/Android changes were made by this subagent; root owns integration andvalidation."
+  ],
+  "rows": [
+    {
+      "id": "d1.vine-cycle",
+      "subject": "Vine structure and seasonal development",
+      "existingTeachingCredited": {
+        "itemIds": [
+          "ki_vit_current_shoots",
+          "ki_vit_two_seasons",
+          "ki_vit_spring_reserves",
+          "ki_vit_postharvest_reserves",
+          "ki_wset_prod_dormancy_budburst"
+        ],
+        "templateIds": [
+          "qt_wset_l3_viticulture_application_40"
+        ],
+        "status": "represented_in_existing_course_unverified"
+      },
+      "newItemIds": [
+        "ki_d12depth_season_anatomy",
+        "ki_d12depth_season_timing",
+        "ki_d12depth_case_season_action",
+        "ki_d12depth_case_season_reason",
+        "ki_d12depth_case_season_tradeoff",
+        "ki_d12depth_case_season_limitation"
+      ],
+      "newTemplateIds": [
+        "qt_d12depth_d1_choices",
+        "qt_d12depth_d1_criteria",
+        "qt_d12depth_d1_written"
+      ],
+      "namedConceptRanges": [
+        "roots and perennial wood",
+        "one-year canes and current shoots",
+        "two-season reproduction",
+        "budburst, flowering, set, veraison, harvest and dormancy",
+        "season-specific management"
+      ],
+      "localAuthoringStatus": "new conceptual explanation and original bounded appliedpractice authored alongside existingrangeanchors",
+      "sourceAnchors": [
+        {
+          "sourceId": "src_vit_phenology",
+          "locator": "Pages 5-6: architecture, stored reserves, lignification and buds"
+        },
+        {
+          "sourceId": "src_vit_phenology",
+          "locator": "Pages 1-2 and 7-9: two cycles and management timing"
+        },
+        {
+          "sourceId": "src_vit_phenology",
+          "locator": "Pages 5-9: shoot thinning, bud development and reserves; original fictional scenario"
+        },
+        {
+          "sourceId": "src_vit_reserves",
+          "locator": "Post-harvest irrigation and nutrition: preserving active leaves; original application"
+        }
+      ],
+      "remainingLocallyFillableTasks": [],
+      "remainingExternalWork": [
+        "Qualified factual/sourceandpedagogical review; newlycuratedfacts remainunverified",
+        "Learner application across variablecontexts, notjustonesuppliedcase"
+      ],
+      "limitations": [
+        "Namedrange representation is credited; boundedcases donot imply exhaustive realworld coverage or professionalcompetence."
+      ]
+    },
+    {
+      "id": "d1.berry-physiology",
+      "subject": "Resources, berry development and ripening",
+      "existingTeachingCredited": {
+        "itemIds": [
+          "ki_vit_photosynthesis",
+          "ki_vit_flower_set",
+          "ki_vit_ripening_chemistry",
+          "ki_reason_water_co2_entry",
+          "ki_reason_water_assimilation",
+          "ki_reason_bloom_berries",
+          "ki_climate_ripen_malate_remaining"
+        ],
+        "templateIds": [
+          "qt_reason_water_chain",
+          "qt_reason_bloom_chain",
+          "qt_climate_ripen_malate_chain",
+          "qt_wset_l3_viticulture_application_40"
+        ],
+        "status": "represented_in_existing_course_unverified"
+      },
+      "newItemIds": [
+        "ki_d12depth_berry_concentration",
+        "ki_d12depth_berry_stage",
+        "ki_d12depth_case_berry_action",
+        "ki_d12depth_case_berry_reason",
+        "ki_d12depth_case_berry_tradeoff",
+        "ki_d12depth_case_berry_limitation"
+      ],
+      "newTemplateIds": [
+        "qt_d12depth_d1_choices",
+        "qt_d12depth_d1_criteria",
+        "qt_d12depth_d1_written"
+      ],
+      "namedConceptRanges": [
+        "water and carbon supply",
+        "sugar accumulation versus dehydration",
+        "acids, phenolics and aromatic maturity",
+        "berry stage and sampling limits"
+      ],
+      "localAuthoringStatus": "new conceptual explanation and original bounded appliedpractice authored alongside existingrangeanchors",
+      "sourceAnchors": [
+        {
+          "sourceId": "src_vit_sampling",
+          "locator": "Maturity and fruit sampling: multiple components and representative sampling"
+        },
+        {
+          "sourceId": "src_vit_phenology",
+          "locator": "Page 9: hang-time, dehydration, juice loss and chemistry"
+        },
+        {
+          "sourceId": "src_vit_maturity",
+          "locator": "Maturity measures and representative samples"
+        },
+        {
+          "sourceId": "src_vit_phenology",
+          "locator": "Pages 8-9: veraison and harvest trade-offs"
+        },
+        {
+          "sourceId": "src_vit_sampling",
+          "locator": "Fruit sampling and multiple maturity criteria; fictional data"
+        },
+        {
+          "sourceId": "src_vit_maturity",
+          "locator": "Maturity analysis and sampling; fictional comparison"
+        }
+      ],
+      "remainingLocallyFillableTasks": [],
+      "remainingExternalWork": [
+        "Qualified factual/sourceandpedagogical review; newlycuratedfacts remainunverified",
+        "Learner application across variablecontexts, notjustonesuppliedcase"
+      ],
+      "limitations": [
+        "Namedrange representation is credited; boundedcases donot imply exhaustive realworld coverage or professionalcompetence."
+      ]
+    },
+    {
+      "id": "d1.site-weather",
+      "subject": "Site, climate and vintage variation",
+      "existingTeachingCredited": {
+        "itemIds": [
+          "ki_wset_prod_climate_types",
+          "ki_wset_prod_latitude_altitude",
+          "ki_wset_prod_water_moderation",
+          "ki_wset_prod_site_fog",
+          "ki_wset_found_soil_drainage",
+          "ki_vit_cold_air",
+          "ki_vit_saturated_soil"
+        ],
+        "templateIds": [
+          "qt_wset_l3_viticulture_general_22",
+          "qt_wset_l2_viticulture_gap_choices",
+          "qt_wset_l2_application_choice"
+        ],
+        "status": "represented_in_existing_course_unverified"
+      },
+      "newItemIds": [
+        "ki_d12depth_site_scale",
+        "ki_d12depth_site_trend",
+        "ki_d12depth_case_site_action",
+        "ki_d12depth_case_site_reason",
+        "ki_d12depth_case_site_tradeoff",
+        "ki_d12depth_case_site_limitation"
+      ],
+      "newTemplateIds": [
+        "qt_d12depth_d1_choices",
+        "qt_d12depth_d1_criteria",
+        "qt_d12depth_d1_written"
+      ],
+      "namedConceptRanges": [
+        "regional climate and actual weather",
+        "topography and canopy conditions",
+        "soil depth, drainage, chemistry and water",
+        "climate adaptation costs"
+      ],
+      "localAuthoringStatus": "new conceptual explanation and original bounded appliedpractice authored alongside existingrangeanchors",
+      "sourceAnchors": [
+        {
+          "sourceId": "src_wset_prod_site",
+          "locator": "Climate and Topography; Temperature; soil/site evaluation"
+        },
+        {
+          "sourceId": "src_d12depth_soil",
+          "locator": "Physical and chemical soil limitations"
+        },
+        {
+          "sourceId": "src_wset_prod_latitude_weather_noaa",
+          "locator": "Weather versus climate"
+        },
+        {
+          "sourceId": "src_wset_prod_site",
+          "locator": "Relative comparisons and local station limitations"
+        },
+        {
+          "sourceId": "src_wset_prod_site",
+          "locator": "Site evaluation, air drainage and soil; fictional costs"
+        },
+        {
+          "sourceId": "src_d12depth_soil",
+          "locator": "Effective depth and drainage; fictional comparison"
+        }
+      ],
+      "remainingLocallyFillableTasks": [],
+      "remainingExternalWork": [
+        "Qualified factual/sourceandpedagogical review; newlycuratedfacts remainunverified",
+        "Learner application across variablecontexts, notjustonesuppliedcase"
+      ],
+      "limitations": [
+        "Namedrange representation is credited; boundedcases donot imply exhaustive realworld coverage or professionalcompetence."
+      ]
+    },
+    {
+      "id": "d1.hazard-decisions",
+      "subject": "Water, frost, heat, hail, fire and smoke decisions",
+      "existingTeachingCredited": {
+        "itemIds": [
+          "ki_vit_radiation_inversion",
+          "ki_vit_advective_limit",
+          "ki_climate_frost_wind_warming",
+          "ki_climate_frost_sprinkler_temperature",
+          "ki_wset_prod_hazard_hail",
+          "ki_d1vp_fire",
+          "ki_d1vp_smoke",
+          "ki_d1vp_case_smoke_action",
+          "ki_d1vp_case_smoke_limit"
+        ],
+        "templateIds": [
+          "qt_climate_frost_wind_chain",
+          "qt_climate_frost_sprinkler_chain",
+          "qt_d1vp_choices",
+          "qt_d1vp_case_smoke",
+          "qt_d1vp_case_criteria"
+        ],
+        "status": "represented_in_existing_course_unverified"
+      },
+      "newItemIds": [
+        "ki_d12depth_hazard_capacity",
+        "ki_d12depth_hazard_smoke",
+        "ki_d12depth_case_hazard_action",
+        "ki_d12depth_case_hazard_reason",
+        "ki_d12depth_case_hazard_tradeoff",
+        "ki_d12depth_case_hazard_limitation"
+      ],
+      "newTemplateIds": [
+        "qt_d12depth_d1_choices",
+        "qt_d12depth_d1_criteria",
+        "qt_d12depth_d1_written"
+      ],
+      "namedConceptRanges": [
+        "radiation frost versus advective freeze",
+        "water, hail, heat, untimely rain and drought",
+        "fire damage versus smoke contamination",
+        "capacity and contingency"
+      ],
+      "localAuthoringStatus": "new conceptual explanation and original bounded appliedpractice authored alongside existingrangeanchors",
+      "sourceAnchors": [
+        {
+          "sourceId": "src_vit_frost_ncsu",
+          "locator": "Active/passive frost control and sprinkler continuity"
+        },
+        {
+          "sourceId": "src_vit_frost",
+          "locator": "Radiation versus advective frost"
+        },
+        {
+          "sourceId": "src_d1vp_awri_fire",
+          "locator": "Fire damage versus smoke risk"
+        },
+        {
+          "sourceId": "src_d1vp_awri_smoke",
+          "locator": "Analytical markers, small-lot fermentation and sensory assessment"
+        },
+        {
+          "sourceId": "src_vit_frost_ncsu",
+          "locator": "Continuous supply and frost-system limits; fictional capacity"
+        },
+        {
+          "sourceId": "src_d1vp_awri_smoke",
+          "locator": "Grape sampling and lot interpretation; original plan"
+        },
+        {
+          "sourceId": "src_wset_prod_hail",
+          "locator": "Hail and severe storms: protection and damage"
+        }
+      ],
+      "remainingLocallyFillableTasks": [],
+      "remainingExternalWork": [
+        "Qualified factual/sourceandpedagogical review; newlycuratedfacts remainunverified",
+        "Learner application across variablecontexts, notjustonesuppliedcase"
+      ],
+      "limitations": [
+        "Namedrange representation is credited; boundedcases donot imply exhaustive realworld coverage or professionalcompetence."
+      ]
+    },
+    {
+      "id": "d1.pest-disease",
+      "subject": "Pest and disease assessment",
+      "existingTeachingCredited": {
+        "itemIds": [
+          "ki_vit_phylloxera_roots",
+          "ki_vit_nematode_species",
+          "ki_vit_powdery_inoculum",
+          "ki_vit_downy_preventive",
+          "ki_vit_botrytis_wet",
+          "ki_wset_prod_virus_bacteria",
+          "ki_wset_prod_hazard_animals",
+          "ki_climate_ripen_botrytis_risk"
+        ],
+        "templateIds": [
+          "qt_wset_l3_viticulture_application_40",
+          "qt_wset_l3_viticulture_general_22",
+          "qt_climate_ripen_botrytis_chain"
+        ],
+        "status": "represented_in_existing_course_unverified"
+      },
+      "newItemIds": [
+        "ki_d12depth_pests_mites",
+        "ki_d12depth_pests_moths",
+        "ki_d12depth_case_pests_action",
+        "ki_d12depth_case_pests_reason",
+        "ki_d12depth_case_pests_tradeoff",
+        "ki_d12depth_case_pests_limitation"
+      ],
+      "newTemplateIds": [
+        "qt_d12depth_d1_choices",
+        "qt_d12depth_d1_criteria",
+        "qt_d12depth_d1_written"
+      ],
+      "namedConceptRanges": [
+        "phylloxera and nematodes",
+        "grape moths and spider mites",
+        "natural enemies and species-specific scouting",
+        "birds and mammals",
+        "fungal, viral and bacterial disease"
+      ],
+      "localAuthoringStatus": "new conceptual explanation and original bounded appliedpractice authored alongside existingrangeanchors",
+      "sourceAnchors": [
+        {
+          "sourceId": "src_d12depth_mites",
+          "locator": "Damage; Biological/Cultural Control; Monitoring and Treatment Decisions"
+        },
+        {
+          "sourceId": "src_d12depth_leafroller",
+          "locator": "Monitoring and Treatment Decisions; generations and larvae"
+        },
+        {
+          "sourceId": "src_d12depth_mites",
+          "locator": "Integrated controls and monitoring; hypothetical observations"
+        },
+        {
+          "sourceId": "src_d12depth_leafroller",
+          "locator": "Stage-specific monitoring; hypothetical observations"
+        },
+        {
+          "sourceId": "src_wset_prod_ipm",
+          "locator": "Grape guideline range; no chemical recommendation"
+        }
+      ],
+      "remainingLocallyFillableTasks": [],
+      "remainingExternalWork": [
+        "Qualified factual/sourceandpedagogical review; newlycuratedfacts remainunverified",
+        "Learner application across variablecontexts, notjustonesuppliedcase"
+      ],
+      "limitations": [
+        "Namedrange representation is credited; boundedcases donot imply exhaustive realworld coverage or professionalcompetence."
+      ]
+    },
+    {
+      "id": "d1.growing-approaches",
+      "subject": "Growing systems and targeted intervention",
+      "existingTeachingCredited": {
+        "itemIds": [
+          "ki_wset_prod_conventional_ipm",
+          "ki_wset_prod_sustainable",
+          "ki_wset_prod_organic",
+          "ki_wset_prod_biodynamic",
+          "ki_d1target_regen_cover",
+          "ki_d1target_regen_water",
+          "ki_d1target_precision_zones",
+          "ki_d1target_precision_cost",
+          "ki_d1target_case_vineyard_tradeoff"
+        ],
+        "templateIds": [
+          "qt_wset_l3_viticulture_general_22",
+          "qt_d1target_choices",
+          "qt_wset_l4_viticulture_principle_closure_51",
+          "qt_d1target_case_vineyard",
+          "qt_wset_l4_viticulture_case_criteria_4"
+        ],
+        "status": "represented_in_existing_course_unverified"
+      },
+      "newItemIds": [
+        "ki_d12depth_approaches_comparison",
+        "ki_d12depth_approaches_trial",
+        "ki_d12depth_case_approaches_action",
+        "ki_d12depth_case_approaches_reason",
+        "ki_d12depth_case_approaches_tradeoff",
+        "ki_d12depth_case_approaches_limitation"
+      ],
+      "newTemplateIds": [
+        "qt_d12depth_d1_choices",
+        "qt_d12depth_d1_criteria",
+        "qt_d12depth_d1_written"
+      ],
+      "namedConceptRanges": [
+        "conventional/IPM",
+        "sustainable, organic and biodynamic aims",
+        "regenerative and precision aims",
+        "measured outcomes, labour and claims"
+      ],
+      "localAuthoringStatus": "new conceptual explanation and original bounded appliedpractice authored alongside existingrangeanchors",
+      "sourceAnchors": [
+        {
+          "sourceId": "src_d1target_awri_cover",
+          "locator": "Cover-crop benefits and disadvantages"
+        },
+        {
+          "sourceId": "src_d1target_wa_precision",
+          "locator": "Ground-check mapped variation"
+        },
+        {
+          "sourceId": "src_wset_prod_sustainable",
+          "locator": "Scheme description; distinction of claims"
+        },
+        {
+          "sourceId": "src_d1target_awri_cover",
+          "locator": "Advantages/disadvantages and selection"
+        },
+        {
+          "sourceId": "src_d12depth_soil",
+          "locator": "Structure, organic matter and nutrient availability"
+        },
+        {
+          "sourceId": "src_d1target_awri_cover",
+          "locator": "Water competition and selection; fictional results"
+        },
+        {
+          "sourceId": "src_d1target_wa_precision",
+          "locator": "Mapped zones and field validation; fictional comparison"
+        }
+      ],
+      "remainingLocallyFillableTasks": [],
+      "remainingExternalWork": [
+        "Qualified factual/sourceandpedagogical review; newlycuratedfacts remainunverified",
+        "Learner application across variablecontexts, notjustonesuppliedcase"
+      ],
+      "limitations": [
+        "Namedrange representation is credited; boundedcases donot imply exhaustive realworld coverage or professionalcompetence."
+      ]
+    },
+    {
+      "id": "d1.establishment-material",
+      "subject": "Establishment and planting-material choices",
+      "existingTeachingCredited": {
+        "itemIds": [
+          "ki_wset_prod_species_variety",
+          "ki_wset_prod_clone_selection",
+          "ki_wset_prod_cross_hybrid",
+          "ki_wset_prod_graft_not_cross",
+          "ki_wset_prod_planting_density",
+          "ki_d1vp_topwork",
+          "ki_d1vp_layer",
+          "ki_d1vp_massal",
+          "ki_d1vp_massal_health",
+          "ki_vit_case_rootstock_replant_action"
+        ],
+        "templateIds": [
+          "qt_d1vp_choices",
+          "qt_d1vp_case_vines",
+          "qt_d1vp_case_criteria"
+        ],
+        "status": "represented_in_existing_course_unverified"
+      },
+      "newItemIds": [
+        "ki_d12depth_planting_sequence",
+        "ki_d12depth_planting_capital",
+        "ki_d12depth_case_planting_action",
+        "ki_d12depth_case_planting_reason",
+        "ki_d12depth_case_planting_tradeoff",
+        "ki_d12depth_case_planting_limitation"
+      ],
+      "newTemplateIds": [
+        "qt_d12depth_d1_choices",
+        "qt_d12depth_d1_criteria",
+        "qt_d12depth_d1_written"
+      ],
+      "namedConceptRanges": [
+        "site/soil preparation",
+        "variety, rootstock, clone and sanitary evidence",
+        "density and training",
+        "cuttings, layering, selection, crossings/hybrids and topworking",
+        "time and capital"
+      ],
+      "localAuthoringStatus": "new conceptual explanation and original bounded appliedpractice authored alongside existingrangeanchors",
+      "sourceAnchors": [
+        {
+          "sourceId": "src_d12depth_planting",
+          "locator": "Known origin, high health, true-to-type material and rootstock selection"
+        },
+        {
+          "sourceId": "src_d12depth_soil",
+          "locator": "Physical/chemical limitations before establishment"
+        },
+        {
+          "sourceId": "src_wset_prod_site",
+          "locator": "Density and equipment/establishment considerations"
+        },
+        {
+          "sourceId": "src_biz_models_psu_vineyard",
+          "locator": "Vineyard establishment planning; fictional arithmetic"
+        },
+        {
+          "sourceId": "src_d12depth_planting",
+          "locator": "High-health planting material; hypothetical offers"
+        },
+        {
+          "sourceId": "src_vit_nematodes",
+          "locator": "Species and rootstock resistance; hypothetical replant"
+        },
+        {
+          "sourceId": "src_wset_prod_site",
+          "locator": "Layout and machinery considerations"
+        }
+      ],
+      "remainingLocallyFillableTasks": [],
+      "remainingExternalWork": [
+        "Qualified factual/sourceandpedagogical review; newlycuratedfacts remainunverified",
+        "Learner application across variablecontexts, notjustonesuppliedcase"
+      ],
+      "limitations": [
+        "Namedrange representation is credited; boundedcases donot imply exhaustive realworld coverage or professionalcompetence."
+      ]
+    },
+    {
+      "id": "d1.soil-water-nutrients",
+      "subject": "Soil health, water and nutrient management",
+      "existingTeachingCredited": {
+        "itemIds": [
+          "ki_wset_found_nutrients",
+          "ki_wset_found_water_roots",
+          "ki_wset_prod_irrigation_methods",
+          "ki_wset_prod_nutrition_test",
+          "ki_vit_pressure_chamber",
+          "ki_vit_rdi_window",
+          "ki_vit_rdi_soil",
+          "ki_d1target_regen_water"
+        ],
+        "templateIds": [
+          "qt_d1target_choices",
+          "qt_d1target_case_vineyard"
+        ],
+        "status": "represented_in_existing_course_unverified"
+      },
+      "newItemIds": [
+        "ki_d12depth_budget_water",
+        "ki_d12depth_budget_nutrition",
+        "ki_d12depth_case_budget_action",
+        "ki_d12depth_case_budget_reason",
+        "ki_d12depth_case_budget_tradeoff",
+        "ki_d12depth_case_budget_limitation"
+      ],
+      "newTemplateIds": [
+        "qt_d12depth_d1_choices",
+        "qt_d12depth_d1_criteria",
+        "qt_d12depth_d1_written"
+      ],
+      "namedConceptRanges": [
+        "physical, chemical and biological soil health",
+        "soil pH and tissue/soil tests",
+        "water status and seasonal budget",
+        "nutrient removal, availability and timing"
+      ],
+      "localAuthoringStatus": "new conceptual explanation and original bounded appliedpractice authored alongside existingrangeanchors",
+      "sourceAnchors": [
+        {
+          "sourceId": "src_wset_prod_irrigation",
+          "locator": "Irrigation delivery systems; fictional accounting"
+        },
+        {
+          "sourceId": "src_vit_water_status",
+          "locator": "Vine water status and physiological interpretation"
+        },
+        {
+          "sourceId": "src_d12depth_soil",
+          "locator": "Physical/chemical limitations, nutrient availability, soil and tissue testing"
+        },
+        {
+          "sourceId": "src_d12depth_soil",
+          "locator": "Limitation-specific soil intervention; hypothetical results"
+        },
+        {
+          "sourceId": "src_vit_water_status",
+          "locator": "Vine-status assessment; hypothetical budget"
+        },
+        {
+          "sourceId": "src_wset_prod_irrigation",
+          "locator": "Delivery systems; original dimensional arithmetic"
+        }
+      ],
+      "remainingLocallyFillableTasks": [],
+      "remainingExternalWork": [
+        "Qualified factual/sourceandpedagogical review; newlycuratedfacts remainunverified",
+        "Learner application across variablecontexts, notjustonesuppliedcase"
+      ],
+      "limitations": [
+        "Namedrange representation is credited; boundedcases donot imply exhaustive realworld coverage or professionalcompetence."
+      ]
+    },
+    {
+      "id": "d1.canopy-yield",
+      "subject": "Training, canopy and crop decisions",
+      "existingTeachingCredited": {
+        "itemIds": [
+          "ki_wset_prod_head_cordon",
+          "ki_wset_prod_spur_cane",
+          "ki_wset_prod_trellis_untrellis",
+          "ki_vit_airflow",
+          "ki_vit_prebloom_set",
+          "ki_vit_late_leaf_burn",
+          "ki_vit_overcrop",
+          "ki_vit_not_min_yield",
+          "ki_vit_case_humid_canopy_tradeoff"
+        ],
+        "templateIds": [
+          "qt_wset_l3_application_40",
+          "qt_reason_bloom_chain"
+        ],
+        "status": "represented_in_existing_course_unverified"
+      },
+      "newItemIds": [
+        "ki_d12depth_canopy_yield",
+        "ki_d12depth_canopy_exposure",
+        "ki_d12depth_case_canopy_action",
+        "ki_d12depth_case_canopy_reason",
+        "ki_d12depth_case_canopy_tradeoff",
+        "ki_d12depth_case_canopy_limitation"
+      ],
+      "newTemplateIds": [
+        "qt_d12depth_d1_choices",
+        "qt_d12depth_d1_criteria",
+        "qt_d12depth_d1_written"
+      ],
+      "namedConceptRanges": [
+        "head/cordon, cane/spur and trellis selection",
+        "canopy exposure, airflow and labour",
+        "crop balance and mechanisation",
+        "yield per vine versus area"
+      ],
+      "localAuthoringStatus": "new conceptual explanation and original bounded appliedpractice authored alongside existingrangeanchors",
+      "sourceAnchors": [
+        {
+          "sourceId": "src_vit_balance",
+          "locator": "Crop load and vine balance; fictional calculation"
+        },
+        {
+          "sourceId": "src_wset_prod_site",
+          "locator": "Density and canopy constraints"
+        },
+        {
+          "sourceId": "src_vit_leaf_removal",
+          "locator": "Timing, exposure and sunburn risks"
+        },
+        {
+          "sourceId": "src_vit_canopy",
+          "locator": "Canopy management and vine balance"
+        },
+        {
+          "sourceId": "src_vit_leaf_removal",
+          "locator": "Site/timing benefits and sunburn risk; fictional conditions"
+        },
+        {
+          "sourceId": "src_vit_balance",
+          "locator": "Yield, crop load and balance; fictional calculation"
+        }
+      ],
+      "remainingLocallyFillableTasks": [],
+      "remainingExternalWork": [
+        "Qualified factual/sourceandpedagogical review; newlycuratedfacts remainunverified",
+        "Learner application across variablecontexts, notjustonesuppliedcase"
+      ],
+      "limitations": [
+        "Namedrange representation is credited; boundedcases donot imply exhaustive realworld coverage or professionalcompetence."
+      ]
+    },
+    {
+      "id": "d1.harvest-sweet-fruit",
+      "subject": "Harvest decisions and concentrated fruit",
+      "existingTeachingCredited": {
+        "itemIds": [
+          "ki_vit_multiple_measures",
+          "ki_vit_representative_samples",
+          "ki_vit_delay_risk",
+          "ki_wset_prod_hand_machine",
+          "ki_wset_prod_harvest_cost_quality",
+          "ki_wset_prod_dry_on_off_vine",
+          "ki_wset_found_noble_rot",
+          "ki_d1vp_cryo",
+          "ki_d1vp_ice",
+          "ki_wset_prod_sweet_routes"
+        ],
+        "templateIds": [
+          "qt_wset_l2_viticulture_gap_choices",
+          "qt_d1vp_choices",
+          "qt_wset_winemaking_shared_application_9"
+        ],
+        "status": "represented_in_existing_course_unverified"
+      },
+      "newItemIds": [
+        "ki_d12depth_harvest_route",
+        "ki_d12depth_harvest_capacity",
+        "ki_d12depth_case_harvest_action",
+        "ki_d12depth_case_harvest_reason",
+        "ki_d12depth_case_harvest_tradeoff",
+        "ki_d12depth_case_harvest_limitation"
+      ],
+      "newTemplateIds": [
+        "qt_d12depth_d1_choices",
+        "qt_d12depth_d1_criteria",
+        "qt_d12depth_d1_written"
+      ],
+      "namedConceptRanges": [
+        "representative maturity and weather",
+        "hand/machine, whole bunch and throughput",
+        "on/off-vine drying, noble rot, natural freezing and artificial cryoextraction",
+        "juice loss and product-claim limits"
+      ],
+      "localAuthoringStatus": "new conceptual explanation and original bounded appliedpractice authored alongside existingrangeanchors",
+      "sourceAnchors": [
+        {
+          "sourceId": "src_wset_prod_drying",
+          "locator": "Drying-grape management"
+        },
+        {
+          "sourceId": "src_d1vp_oiv_cryo",
+          "locator": "Cryoextraction; distinct harvested-grape treatment"
+        },
+        {
+          "sourceId": "src_d1vp_oiv_ice",
+          "locator": "Definition: natural freezing on the vine; not universal law"
+        },
+        {
+          "sourceId": "src_wset_prod_harvest_cost",
+          "locator": "Harvesting technology and logistics"
+        },
+        {
+          "sourceId": "src_win_skin_contact",
+          "locator": "Fruit condition and processing/style"
+        },
+        {
+          "sourceId": "src_wset_prod_harvest_cost",
+          "locator": "Harvest systems and logistics; fictional rates"
+        },
+        {
+          "sourceId": "src_wset_prod_drying",
+          "locator": "Drying fruit and mould management; fictional trial"
+        }
+      ],
+      "remainingLocallyFillableTasks": [],
+      "remainingExternalWork": [
+        "Qualified factual/sourceandpedagogical review; newlycuratedfacts remainunverified",
+        "Learner application across variablecontexts, notjustonesuppliedcase"
+      ],
+      "limitations": [
+        "Namedrange representation is credited; boundedcases donot imply exhaustive realworld coverage or professionalcompetence."
+      ]
+    },
+    {
+      "id": "d1.components-production-style",
+      "subject": "Wine components and production approach",
+      "existingTeachingCredited": {
+        "itemIds": [
+          "ki_wset_found_acidity",
+          "ki_wset_found_tannin",
+          "ki_wset_found_alcohol",
+          "ki_wset_found_body",
+          "ki_win_alcoholic_products",
+          "ki_wset_prod_organic_winery"
+        ],
+        "templateIds": [
+          "qt_wset_winemaking_shared_application_9"
+        ],
+        "status": "represented_in_existing_course_unverified"
+      },
+      "newItemIds": [
+        "ki_d12depth_components_balance",
+        "ki_d12depth_components_method",
+        "ki_d12depth_components_glycerol",
+        "ki_d12depth_case_components_action",
+        "ki_d12depth_case_components_reason",
+        "ki_d12depth_case_components_tradeoff",
+        "ki_d12depth_case_components_limitation"
+      ],
+      "newTemplateIds": [
+        "qt_d12depth_d1_choices",
+        "qt_d12depth_d1_criteria",
+        "qt_d12depth_d1_written"
+      ],
+      "namedConceptRanges": [
+        "water and alcohol",
+        "acids, sugars, glycerol and phenolics",
+        "aromatic balance and interactions",
+        "method/label versus measured style"
+      ],
+      "localAuthoringStatus": "new conceptual explanation and original bounded appliedpractice authored alongside existingrangeanchors",
+      "sourceAnchors": [
+        {
+          "sourceId": "src_wset_taste_awri",
+          "locator": "Sensory interactions and tasting limitations"
+        },
+        {
+          "sourceId": "src_win_fermentation",
+          "locator": "Fermentation processes and microorganisms"
+        },
+        {
+          "sourceId": "src_wset_taste_awri",
+          "locator": "Assessment and contextual bias"
+        },
+        {
+          "sourceId": "src_d12depth_glycerol",
+          "locator": "AWRI 2002 annual report, research teams, printed pp.28–32: glycerol synthesis and yeast trials"
+        },
+        {
+          "sourceId": "src_wset_taste_awri",
+          "locator": "Wine texture and interacting sensory components"
+        },
+        {
+          "sourceId": "src_wset_taste_awri",
+          "locator": "Sensory assessment and component interactions; fictional results"
+        },
+        {
+          "sourceId": "src_win_fermentation",
+          "locator": "Process and fermentation context"
+        }
+      ],
+      "remainingLocallyFillableTasks": [],
+      "remainingExternalWork": [
+        "Qualified factual/sourceandpedagogical review; newlycuratedfacts remainunverified",
+        "Learner application across variablecontexts, notjustonesuppliedcase"
+      ],
+      "limitations": [
+        "Namedrange representation is credited; boundedcases donot imply exhaustive realworld coverage or professionalcompetence."
+      ]
+    },
+    {
+      "id": "d1.intake-juice-processing",
+      "subject": "Fruit handling and juice preparation",
+      "existingTeachingCredited": {
+        "itemIds": [
+          "ki_win_machine_contact",
+          "ki_win_rot_sort",
+          "ki_win_laccase",
+          "ki_win_gentle_press",
+          "ki_win_press_fractions",
+          "ki_wset_prod_destem_crush",
+          "ki_d1method_hyper",
+          "ki_d1method_hyper_risk",
+          "ki_d1method_flotation",
+          "ki_d1method_flotation_gas",
+          "ki_d1method_flash"
+        ],
+        "templateIds": [
+          "qt_wset_l2_authored_principles",
+          "qt_wset_winemaking_l3_application_12",
+          "qt_d1method_choices",
+          "qt_d1method_case_white",
+          "qt_d1method_case_criteria"
+        ],
+        "status": "represented_in_existing_course_unverified"
+      },
+      "newItemIds": [
+        "ki_d12depth_intake_throughput",
+        "ki_d12depth_intake_clarification",
+        "ki_d12depth_case_intake_action",
+        "ki_d12depth_case_intake_reason",
+        "ki_d12depth_case_intake_tradeoff",
+        "ki_d12depth_case_intake_limitation"
+      ],
+      "newTemplateIds": [
+        "qt_d12depth_d1_choices",
+        "qt_d12depth_d1_criteria",
+        "qt_d12depth_d1_written"
+      ],
+      "namedConceptRanges": [
+        "transport, sorting, chilling, destemming and crushing",
+        "press fractions and fruit condition",
+        "settling, agents, flotation and centrifugal separation",
+        "capacity, oxygen and solids"
+      ],
+      "localAuthoringStatus": "new conceptual explanation and original bounded appliedpractice authored alongside existingrangeanchors",
+      "sourceAnchors": [
+        {
+          "sourceId": "src_d1method_awri_flotation",
+          "locator": "Equipment size and processing capacity"
+        },
+        {
+          "sourceId": "src_win_botrytis",
+          "locator": "Reception, sorting and affected fruit"
+        },
+        {
+          "sourceId": "src_d1method_awri_flotation",
+          "locator": "Background and gas/solids separation"
+        },
+        {
+          "sourceId": "src_wset_prod_clarification",
+          "locator": "Production separation and reduced movements"
+        },
+        {
+          "sourceId": "src_wset_prod_grape_solids",
+          "locator": "Solids and fermentation performance"
+        },
+        {
+          "sourceId": "src_d1method_awri_flotation",
+          "locator": "Logistical benefits, gases, capacity and risks; fictional rates"
+        },
+        {
+          "sourceId": "src_win_botrytis",
+          "locator": "Sorting and separate affected-fruit handling"
+        }
+      ],
+      "remainingLocallyFillableTasks": [],
+      "remainingExternalWork": [
+        "Qualified factual/sourceandpedagogical review; newlycuratedfacts remainunverified",
+        "Learner application across variablecontexts, notjustonesuppliedcase"
+      ],
+      "limitations": [
+        "Namedrange representation is credited; boundedcases donot imply exhaustive realworld coverage or professionalcompetence."
+      ]
+    },
+    {
+      "id": "d1.adjustments-fermentation",
+      "subject": "Must adjustment and fermentation decisions",
+      "existingTeachingCredited": {
+        "itemIds": [
+          "ki_wset_prod_enrichment",
+          "ki_wset_prod_acidification",
+          "ki_wset_prod_deacidification",
+          "ki_win_grape_sugars",
+          "ki_win_yan_measure",
+          "ki_win_dap_scope",
+          "ki_win_white_cooling",
+          "ki_win_red_heat",
+          "ki_win_oxygen_stage"
+        ],
+        "templateIds": [
+          "qt_wset_l2_authored_principles",
+          "qt_wset_winemaking_l3_depth_37"
+        ],
+        "status": "represented_in_existing_course_unverified"
+      },
+      "newItemIds": [
+        "ki_d12depth_fermentation_nutrition",
+        "ki_d12depth_fermentation_trial",
+        "ki_d12depth_case_fermentation_action",
+        "ki_d12depth_case_fermentation_reason",
+        "ki_d12depth_case_fermentation_tradeoff",
+        "ki_d12depth_case_fermentation_limitation"
+      ],
+      "newTemplateIds": [
+        "qt_d12depth_d1_choices",
+        "qt_d12depth_d1_criteria",
+        "qt_d12depth_d1_written"
+      ],
+      "namedConceptRanges": [
+        "yeast and nutrition",
+        "must concentration/enrichment and acid trials",
+        "vessels, cooling and oxygen stage",
+        "monitoring and legal evidence"
+      ],
+      "localAuthoringStatus": "new conceptual explanation and original bounded appliedpractice authored alongside existingrangeanchors",
+      "sourceAnchors": [
+        {
+          "sourceId": "src_win_yan",
+          "locator": "YAN and timing; excessive and late additions"
+        },
+        {
+          "sourceId": "src_wset_prod_acid",
+          "locator": "Composition and adjustment response"
+        },
+        {
+          "sourceId": "src_wset_prod_deacid",
+          "locator": "Trials and alternatives"
+        },
+        {
+          "sourceId": "src_win_fermentation",
+          "locator": "Sugar concentration and fermentation context"
+        },
+        {
+          "sourceId": "src_win_yan",
+          "locator": "Sugar/strain-dependent nutrition and monitoring; fictional juice"
+        },
+        {
+          "sourceId": "src_win_temperature",
+          "locator": "Temperature and style/kinetics"
+        },
+        {
+          "sourceId": "src_wset_prod_acid",
+          "locator": "Bench response; no destination permission"
+        }
+      ],
+      "remainingLocallyFillableTasks": [],
+      "remainingExternalWork": [
+        "Qualified factual/sourceandpedagogical review; newlycuratedfacts remainunverified",
+        "Learner application across variablecontexts, notjustonesuppliedcase"
+      ],
+      "limitations": [
+        "Namedrange representation is credited; boundedcases donot imply exhaustive realworld coverage or professionalcompetence."
+      ]
+    },
+    {
+      "id": "d1.extraction-residual-sugar",
+      "subject": "Extraction and retention of sugar",
+      "existingTeachingCredited": {
+        "itemIds": [
+          "ki_win_cap_contact",
+          "ki_win_colour_tannin",
+          "ki_wset_prod_red_extraction_stages",
+          "ki_wset_prod_red_press_timing",
+          "ki_wset_prod_carbonic",
+          "ki_wset_prod_semi_carbonic",
+          "ki_wset_prod_whole_bunch_crushed",
+          "ki_wset_prod_rose_direct_short",
+          "ki_wset_prod_sweet_routes",
+          "ki_wset_prod_arrest_chill"
+        ],
+        "templateIds": [
+          "qt_wset_l3_application_40",
+          "qt_wset_winemaking_shared_application_9"
+        ],
+        "status": "represented_in_existing_course_unverified"
+      },
+      "newItemIds": [
+        "ki_d12depth_workflow_routes",
+        "ki_d12depth_workflow_arrest",
+        "ki_d12depth_workflow_coferment",
+        "ki_d12depth_case_workflow_action",
+        "ki_d12depth_case_workflow_reason",
+        "ki_d12depth_case_workflow_tradeoff",
+        "ki_d12depth_case_workflow_limitation"
+      ],
+      "newTemplateIds": [
+        "qt_d12depth_d1_choices",
+        "qt_d12depth_d1_criteria",
+        "qt_d12depth_d1_written"
+      ],
+      "namedConceptRanges": [
+        "red crushed/whole-fruit and cap work",
+        "white and rose separation timing",
+        "whole-bunch and carbonic pathways; finished-wine blending",
+        "fermentation arrest and microbial controls",
+        "co-fermentation versus blending"
+      ],
+      "localAuthoringStatus": "new conceptual explanation and original bounded appliedpractice authored alongside existingrangeanchors",
+      "sourceAnchors": [
+        {
+          "sourceId": "src_wset_prod_carbonic",
+          "locator": "Whole-bunch variants, intracellular activity and yeast completion"
+        },
+        {
+          "sourceId": "src_wset_prod_filter",
+          "locator": "Physical microbial removal and integrity"
+        },
+        {
+          "sourceId": "src_win_packaging",
+          "locator": "Microbiological packaging stability"
+        },
+        {
+          "sourceId": "src_d12depth_coferment",
+          "locator": "Introduction and methods: cofermentation versus post-MLF blending; logistical limits"
+        },
+        {
+          "sourceId": "src_wset_prod_blend",
+          "locator": "Finished-wine blending definition and scope"
+        },
+        {
+          "sourceId": "src_wset_prod_carbonic",
+          "locator": "Whole-fruit reactions and spoilage risk; fictional routes"
+        },
+        {
+          "sourceId": "src_wset_prod_filter",
+          "locator": "Microbial-removal integrity"
+        },
+        {
+          "sourceId": "src_win_packaging",
+          "locator": "Sugar and hygienic packaging"
+        }
+      ],
+      "remainingLocallyFillableTasks": [],
+      "remainingExternalWork": [
+        "Qualified factual/sourceandpedagogical review; newlycuratedfacts remainunverified",
+        "Learner application across variablecontexts, notjustonesuppliedcase"
+      ],
+      "limitations": [
+        "Namedrange representation is credited; boundedcases donot imply exhaustive realworld coverage or professionalcompetence."
+      ]
+    },
+    {
+      "id": "d1.mlf-sulfur-controls",
+      "subject": "Malolactic conversion and sulphur controls",
+      "existingTeachingCredited": {
+        "itemIds": [
+          "ki_win_mlf_conversion",
+          "ki_win_mlf_inhibitors",
+          "ki_win_mlf_monitor",
+          "ki_win_sulfur_forms",
+          "ki_win_sulfur_ph",
+          "ki_reason_mlf_acidity",
+          "ki_reason_so2_protection"
+        ],
+        "templateIds": [
+          "qt_wset_l2_authored_principles",
+          "qt_reason_mlf_chain",
+          "qt_reason_so2_chain",
+          "qt_wset_l4_winemaking_causal_closure_2"
+        ],
+        "status": "represented_in_existing_course_unverified"
+      },
+      "newItemIds": [
+        "ki_d12depth_mlf_decision",
+        "ki_d12depth_mlf_sulfur",
+        "ki_d12depth_case_mlf_action",
+        "ki_d12depth_case_mlf_reason",
+        "ki_d12depth_case_mlf_tradeoff",
+        "ki_d12depth_case_mlf_limitation"
+      ],
+      "newTemplateIds": [
+        "qt_d12depth_d1_choices",
+        "qt_d12depth_d1_criteria",
+        "qt_d12depth_d1_written"
+      ],
+      "namedConceptRanges": [
+        "encourage/avoid MLF for stated style",
+        "malic/lactic monitoring",
+        "pH and free/bound SO2",
+        "hygiene, residual substrates and stability"
+      ],
+      "localAuthoringStatus": "new conceptual explanation and original bounded appliedpractice authored alongside existingrangeanchors",
+      "sourceAnchors": [
+        {
+          "sourceId": "src_win_mlf",
+          "locator": "Compositional parameters and monitoring"
+        },
+        {
+          "sourceId": "src_win_white_mlf",
+          "locator": "Encouraging/avoiding MLF in white wine"
+        },
+        {
+          "sourceId": "src_win_sulfur",
+          "locator": "Free/bound forms and pH dependence"
+        },
+        {
+          "sourceId": "src_win_mlf",
+          "locator": "Monitoring and wine conditions; fictional results"
+        },
+        {
+          "sourceId": "src_win_white_mlf",
+          "locator": "Style-specific encouragement/avoidance"
+        },
+        {
+          "sourceId": "src_win_sulfur",
+          "locator": "pH and sulfur forms"
+        }
+      ],
+      "remainingLocallyFillableTasks": [],
+      "remainingExternalWork": [
+        "Qualified factual/sourceandpedagogical review; newlycuratedfacts remainunverified",
+        "Learner application across variablecontexts, notjustonesuppliedcase"
+      ],
+      "limitations": [
+        "Namedrange representation is credited; boundedcases donot imply exhaustive realworld coverage or professionalcompetence."
+      ]
+    },
+    {
+      "id": "d1.maturation-blending",
+      "subject": "Maturation, lees, wood and blending",
+      "existingTeachingCredited": {
+        "itemIds": [
+          "ki_win_oak_flavours",
+          "ki_win_oak_variables",
+          "ki_win_lees_release",
+          "ki_win_lees_stirring",
+          "ki_d1method_microox",
+          "ki_d1method_oak_pieces",
+          "ki_d1method_oak_compare",
+          "ki_wset_prod_blend_balance",
+          "ki_wset_prod_blend_consistency",
+          "ki_wset_prod_blend_trials"
+        ],
+        "templateIds": [
+          "qt_wset_l2_authored_principles",
+          "qt_wset_winemaking_shared_application_9",
+          "qt_d1method_choices",
+          "qt_d1method_case_red",
+          "qt_d1method_case_criteria"
+        ],
+        "status": "represented_in_existing_course_unverified"
+      },
+      "newItemIds": [
+        "ki_d12depth_maturation_trial",
+        "ki_d12depth_maturation_blend",
+        "ki_d12depth_case_maturation_action",
+        "ki_d12depth_case_maturation_reason",
+        "ki_d12depth_case_maturation_tradeoff",
+        "ki_d12depth_case_maturation_limitation"
+      ],
+      "newTemplateIds": [
+        "qt_d12depth_d1_choices",
+        "qt_d12depth_d1_criteria",
+        "qt_d12depth_d1_written"
+      ],
+      "namedConceptRanges": [
+        "oak versus neutral vessels, size/age/oxygen",
+        "lees, alternatives and microoxygenation",
+        "bottle development",
+        "blend trials, sweetening and inventory"
+      ],
+      "localAuthoringStatus": "new conceptual explanation and original bounded appliedpractice authored alongside existingrangeanchors",
+      "sourceAnchors": [
+        {
+          "sourceId": "src_win_lees",
+          "locator": "2019 Chardonnay trial and two-variable disclosure"
+        },
+        {
+          "sourceId": "src_wset_prod_blend",
+          "locator": "Reasons and final-blend considerations"
+        },
+        {
+          "sourceId": "src_d1method_awri_barrel_alt",
+          "locator": "Wood, oxygen and vessel differences"
+        },
+        {
+          "sourceId": "src_win_lees",
+          "locator": "Confounded treatment and risks; fictional pilot"
+        },
+        {
+          "sourceId": "src_d1method_awri_barrel_alt",
+          "locator": "Alternative vessel distinctions"
+        },
+        {
+          "sourceId": "src_wset_prod_blend",
+          "locator": "Blending evaluation"
+        }
+      ],
+      "remainingLocallyFillableTasks": [],
+      "remainingExternalWork": [
+        "Qualified factual/sourceandpedagogical review; newlycuratedfacts remainunverified",
+        "Learner application across variablecontexts, notjustonesuppliedcase"
+      ],
+      "limitations": [
+        "Namedrange representation is credited; boundedcases donot imply exhaustive realworld coverage or professionalcompetence."
+      ]
+    },
+    {
+      "id": "d1.stability-fault-quality",
+      "subject": "Stability, faults and quality systems",
+      "existingTeachingCredited": {
+        "itemIds": [
+          "ki_win_bentonite",
+          "ki_win_filter_ratings",
+          "ki_win_tartrate_cooling",
+          "ki_win_stability_retest",
+          "ki_win_packaging_hygiene",
+          "ki_fault_tca_compound",
+          "ki_fault_va_acid",
+          "ki_fault_refermentation",
+          "ki_fault_haze_diagnosis",
+          "ki_d1target_qc_haccp",
+          "ki_d1target_qc_iso_trace",
+          "ki_d1target_case_qc_limit"
+        ],
+        "templateIds": [
+          "qt_wset_winemaking_l3_application_12",
+          "qt_wset_winemaking_l3_depth_37",
+          "qt_wset_l2_core_principle_choices_6",
+          "qt_wset_l2_winemaking_principles_remaining_39",
+          "qt_d1target_choices",
+          "qt_d1target_case_qc",
+          "qt_wset_l4_winemaking_case_criteria_23"
+        ],
+        "status": "represented_in_existing_course_unverified"
+      },
+      "newItemIds": [
+        "ki_d12depth_quality_diagnosis",
+        "ki_d12depth_quality_release",
+        "ki_d12depth_case_quality_action",
+        "ki_d12depth_case_quality_reason",
+        "ki_d12depth_case_quality_tradeoff",
+        "ki_d12depth_case_quality_limitation"
+      ],
+      "newTemplateIds": [
+        "qt_d12depth_d1_choices",
+        "qt_d12depth_d1_criteria",
+        "qt_d12depth_d1_written"
+      ],
+      "namedConceptRanges": [
+        "tartrate, protein and microbial stability",
+        "oxidation, VA, reduction, TCA and Brett diagnosis",
+        "hygiene, HACCP/ISO distinctions",
+        "sampling, hold/release and lot trace"
+      ],
+      "localAuthoringStatus": "new conceptual explanation and original bounded appliedpractice authored alongside existingrangeanchors",
+      "sourceAnchors": [
+        {
+          "sourceId": "src_win_protein",
+          "locator": "Protein stability testing"
+        },
+        {
+          "sourceId": "src_win_tartrate",
+          "locator": "Potassium instability and testing"
+        },
+        {
+          "sourceId": "src_wset_prod_filter",
+          "locator": "Clarity versus microbial removal"
+        },
+        {
+          "sourceId": "src_d1target_oiv_haccp",
+          "locator": "Prerequisites and hazard analysis"
+        },
+        {
+          "sourceId": "src_d1target_awri_trace",
+          "locator": "Lot identification and recall"
+        },
+        {
+          "sourceId": "src_d1target_iso_22000",
+          "locator": "Management-system scope"
+        },
+        {
+          "sourceId": "src_wset_prod_filter",
+          "locator": "Integrity and microbiological removal"
+        },
+        {
+          "sourceId": "src_win_tartrate",
+          "locator": "Deposit diagnosis"
+        },
+        {
+          "sourceId": "src_d1target_oiv_haccp",
+          "locator": "Hazard-specific controls"
+        },
+        {
+          "sourceId": "src_d1target_awri_trace",
+          "locator": "Lot trails; fictional incident"
+        }
+      ],
+      "remainingLocallyFillableTasks": [],
+      "remainingExternalWork": [
+        "Qualified factual/sourceandpedagogical review; newlycuratedfacts remainunverified",
+        "Learner application across variablecontexts, notjustonesuppliedcase"
+      ],
+      "limitations": [
+        "Namedrange representation is credited; boundedcases donot imply exhaustive realworld coverage or professionalcompetence."
+      ]
+    },
+    {
+      "id": "d1.nolo-production",
+      "subject": "Alcohol reduction and product balance",
+      "existingTeachingCredited": {
+        "itemIds": [
+          "ki_d1target_nolo_route",
+          "ki_d1target_nolo_balance",
+          "ki_d1target_case_nolo_action",
+          "ki_d1target_case_nolo_reason",
+          "ki_d1target_case_nolo_tradeoff",
+          "ki_d1target_case_nolo_limit"
+        ],
+        "templateIds": [
+          "qt_d1target_choices",
+          "qt_wset_l4_winemaking_principles_global_22",
+          "qt_d1target_case_nolo",
+          "qt_wset_l4_winemaking_case_criteria_23"
+        ],
+        "status": "represented_in_existing_course_unverified"
+      },
+      "newItemIds": [
+        "ki_d12depth_nolo_compare",
+        "ki_d12depth_nolo_cost",
+        "ki_d12depth_case_nolo_action",
+        "ki_d12depth_case_nolo_reason",
+        "ki_d12depth_case_nolo_tradeoff",
+        "ki_d12depth_case_nolo_limitation"
+      ],
+      "newTemplateIds": [
+        "qt_d12depth_d1_choices",
+        "qt_d12depth_d1_criteria",
+        "qt_d12depth_d1_written"
+      ],
+      "namedConceptRanges": [
+        "vacuum, membrane and distillation routes",
+        "sound base and process oversight",
+        "analysis, sensory/stability and energy/capacity",
+        "destination definitions"
+      ],
+      "localAuthoringStatus": "new conceptual explanation and original bounded appliedpractice authored alongside existingrangeanchors",
+      "sourceAnchors": [
+        {
+          "sourceId": "src_d1target_oiv_dealc",
+          "locator": "Objectives and prescriptions"
+        },
+        {
+          "sourceId": "src_d1target_oiv_dealc",
+          "locator": "Process routes; original fictional arithmetic"
+        },
+        {
+          "sourceId": "src_biz_victoria_pricing",
+          "locator": "Fixed/variable cost distinction"
+        },
+        {
+          "sourceId": "src_d1target_oiv_dealc",
+          "locator": "Process and oversight limits; original pilot inputs"
+        },
+        {
+          "sourceId": "src_win_packaging",
+          "locator": "Microbiological controls for packaging"
+        }
+      ],
+      "remainingLocallyFillableTasks": [],
+      "remainingExternalWork": [
+        "Qualified factual/sourceandpedagogical review; newlycuratedfacts remainunverified",
+        "Learner application across variablecontexts, notjustonesuppliedcase"
+      ],
+      "limitations": [
+        "Namedrange representation is credited; boundedcases donot imply exhaustive realworld coverage or professionalcompetence."
+      ]
+    },
+    {
+      "id": "d1.packaging-transport",
+      "subject": "Packaging, closure and transport choices",
+      "existingTeachingCredited": {
+        "itemIds": [
+          "ki_wset_prod_glass_pet_bib",
+          "ki_wset_prod_package_oxygen",
+          "ki_wset_prod_closure_types",
+          "ki_d1vp_pouch",
+          "ki_d1vp_can",
+          "ki_d1vp_glass",
+          "ki_d1target_pack_barrier",
+          "ki_d1target_pack_freight",
+          "ki_d1vp_case_pack_tradeoff"
+        ],
+        "templateIds": [
+          "qt_wset_winemaking_l3_depth_37",
+          "qt_d1vp_choices",
+          "qt_d1vp_case_pack",
+          "qt_d1vp_case_criteria",
+          "qt_d1target_case_pack",
+          "qt_wset_l4_winemaking_case_criteria_23"
+        ],
+        "status": "represented_in_existing_course_unverified"
+      },
+      "newItemIds": [
+        "ki_d12depth_package_assembly",
+        "ki_d12depth_package_landed",
+        "ki_d12depth_case_package_action",
+        "ki_d12depth_case_package_reason",
+        "ki_d12depth_case_package_tradeoff",
+        "ki_d12depth_case_package_limitation"
+      ],
+      "newTemplateIds": [
+        "qt_d12depth_d1_choices",
+        "qt_d12depth_d1_criteria",
+        "qt_d12depth_d1_written"
+      ],
+      "namedConceptRanges": [
+        "glass, plastic, bag-in-box, bricks, pouches and cans",
+        "natural/technical cork, synthetic, screwcap and glass systems",
+        "filling oxygen, compatible closure assembly and shelf life",
+        "bulk/bottled freight, temperature, traceability and landed cost"
+      ],
+      "localAuthoringStatus": "new conceptual explanation and original bounded appliedpractice authored alongside existingrangeanchors",
+      "sourceAnchors": [
+        {
+          "sourceId": "src_wset_prod_closure",
+          "locator": "Oxygen transmission and choice"
+        },
+        {
+          "sourceId": "src_d1vp_vinolok",
+          "locator": "Compatible assembly and filling"
+        },
+        {
+          "sourceId": "src_wset_prod_package",
+          "locator": "Bulk transfer and packaging controls"
+        },
+        {
+          "sourceId": "src_d1target_wa_shipping",
+          "locator": "Packaging/freight factors"
+        },
+        {
+          "sourceId": "src_wset_prod_package",
+          "locator": "Packaging and bulk transfer controls; fictional costs"
+        },
+        {
+          "sourceId": "src_d1vp_awri_pack",
+          "locator": "Alternative formats"
+        },
+        {
+          "sourceId": "src_d1vp_awri_tpo",
+          "locator": "Total package oxygen"
+        },
+        {
+          "sourceId": "src_d1vp_awri_can",
+          "locator": "Can compatibility and stability"
+        }
+      ],
+      "remainingLocallyFillableTasks": [],
+      "remainingExternalWork": [
+        "Qualified factual/sourceandpedagogical review; newlycuratedfacts remainunverified",
+        "Learner application across variablecontexts, notjustonesuppliedcase"
+      ],
+      "limitations": [
+        "Namedrange representation is credited; boundedcases donot imply exhaustive realworld coverage or professionalcompetence."
+      ]
+    },
+    {
+      "id": "d1.sustained-writing",
+      "subject": "Sustained production analysis",
+      "existingTeachingCredited": {
+        "itemIds": [
+          "ki_d1target_case_vineyard_tradeoff",
+          "ki_d1method_case_white_reason",
+          "ki_d1method_case_red_tradeoff"
+        ],
+        "templateIds": [
+          "qt_d1target_case_vineyard",
+          "qt_d1method_case_white",
+          "qt_d1method_case_red"
+        ],
+        "status": "represented_in_existing_course_unverified"
+      },
+      "newItemIds": [],
+      "newTemplateIds": [],
+      "namedConceptRanges": [],
+      "localAuthoringStatus": "existing durable writing workflow and original default/alternate packs credited; no software or content gap identified by this review",
+      "sourceAnchors": [],
+      "remainingLocallyFillableTasks": [],
+      "remainingExternalWork": [
+        "Qualified calibration of prompts,criteria andsample answers across requiredbreadth",
+        "Learner sustained written performance with externalfeedback"
+      ],
+      "limitations": [
+        "Namedrange representation is credited; boundedcases donot imply exhaustive realworld coverage or professionalcompetence."
+      ]
+    },
+    {
+      "id": "d2.market-forces",
+      "subject": "Supply, demand and stock evidence",
+      "existingTeachingCredited": {
+        "itemIds": [
+          "ki_d2_supply_demand_shift",
+          "ki_d2_paired_shifts",
+          "ki_d2_market_stock_context",
+          "ki_d2_case_supply_and_demand_action",
+          "ki_d2_case_supply_and_demand_limitation"
+        ],
+        "templateIds": [
+          "qt_wset_d2_business_application_29",
+          "qt_wset_d2_market_decisions_choice_6",
+          "qt_wset_d2_supply_and_demand_case",
+          "qt_wset_d2_market_decisions_case_criteria_2"
+        ],
+        "status": "represented_in_existing_course_unverified"
+      },
+      "newItemIds": [
+        "ki_d12depth_market_balance",
+        "ki_d12depth_market_drivers",
+        "ki_d12depth_case_market_action",
+        "ki_d12depth_case_market_reason",
+        "ki_d12depth_case_market_tradeoff",
+        "ki_d12depth_case_market_limitation"
+      ],
+      "newTemplateIds": [
+        "qt_d12depth_d2_choices",
+        "qt_d12depth_d2_criteria",
+        "qt_d12depth_d2_written"
+      ],
+      "namedConceptRanges": [
+        "production, demand and inventory",
+        "market definition and dates",
+        "social/economic/political drivers",
+        "relative simultaneous shifts"
+      ],
+      "localAuthoringStatus": "new conceptual explanation and original bounded appliedpractice authored alongside existingrangeanchors",
+      "sourceAnchors": [
+        {
+          "sourceId": "src_d2_oiv_world_2025",
+          "locator": "Market context: stock adjustment alongside production and consumption; fictional arithmetic"
+        },
+        {
+          "sourceId": "src_d2_fed_supply_demand",
+          "locator": "Simultaneous shifts and relative effects"
+        },
+        {
+          "sourceId": "src_d2_oiv_world_2025",
+          "locator": "Production, consumption and inventories; fictional data"
+        },
+        {
+          "sourceId": "src_d2_fed_supply_demand",
+          "locator": "Joint shifts; fictional market"
+        }
+      ],
+      "remainingLocallyFillableTasks": [],
+      "remainingExternalWork": [
+        "Qualified factual/sourceandpedagogical review; newlycuratedfacts remainunverified",
+        "Learner application across variablecontexts, notjustonesuppliedcase"
+      ],
+      "limitations": [
+        "Namedrange representation is credited; boundedcases donot imply exhaustive realworld coverage or professionalcompetence."
+      ]
+    },
+    {
+      "id": "d2.cost-contribution",
+      "subject": "Production costs and unit economics",
+      "existingTeachingCredited": {
+        "itemIds": [
+          "ki_wset_prod_cost_land_establishment",
+          "ki_wset_prod_cost_cellar",
+          "ki_biz_fixed_cost",
+          "ki_biz_variable_cost",
+          "ki_biz_contribution",
+          "ki_biz_breakeven",
+          "ki_d2_calc_unit_contribution",
+          "ki_d2_calc_breakeven_bottles"
+        ],
+        "templateIds": [
+          "qt_wset_l3_business_gap_30",
+          "qt_wset_d2_business_application_29",
+          "qt_cms_calculated_value_fwd_flashcard",
+          "qt_cms_calculated_value_fwd_numeric"
+        ],
+        "status": "represented_in_existing_course_unverified"
+      },
+      "newItemIds": [
+        "ki_d12depth_cost_capacity",
+        "ki_d12depth_cost_statements",
+        "ki_d12depth_case_cost_action",
+        "ki_d12depth_case_cost_reason",
+        "ki_d12depth_case_cost_tradeoff",
+        "ki_d12depth_case_cost_limitation"
+      ],
+      "newTemplateIds": [
+        "qt_d12depth_d2_choices",
+        "qt_d12depth_d2_criteria",
+        "qt_d12depth_d2_written"
+      ],
+      "namedConceptRanges": [
+        "establishment, operating, maturation and capacity costs",
+        "fixed/variable and full cost",
+        "gross margin versus contribution, profit and cash",
+        "break-even and sensitivity"
+      ],
+      "localAuthoringStatus": "new conceptual explanation and original bounded appliedpractice authored alongside existingrangeanchors",
+      "sourceAnchors": [
+        {
+          "sourceId": "src_biz_victoria_pricing",
+          "locator": "Break-even and cost classification; fictional input"
+        },
+        {
+          "sourceId": "src_biz_sec_statements",
+          "locator": "Income statement versus cash-flow statement"
+        },
+        {
+          "sourceId": "src_biz_victoria_pricing",
+          "locator": "Cost and breakeven methods"
+        },
+        {
+          "sourceId": "src_biz_victoria_pricing",
+          "locator": "Contribution/breakeven; fictional calculation"
+        },
+        {
+          "sourceId": "src_biz_sec_statements",
+          "locator": "Capital, profit and cash distinction"
+        }
+      ],
+      "remainingLocallyFillableTasks": [],
+      "remainingExternalWork": [
+        "Qualified factual/sourceandpedagogical review; newlycuratedfacts remainunverified",
+        "Learner application across variablecontexts, notjustonesuppliedcase"
+      ],
+      "limitations": [
+        "Namedrange representation is credited; boundedcases donot imply exhaustive realworld coverage or professionalcompetence."
+      ]
+    },
+    {
+      "id": "d2.landed-cost-regulation",
+      "subject": "Freight, import charges and regulatory exposure",
+      "existingTeachingCredited": {
+        "itemIds": [
+          "ki_d2_import_cost_stack",
+          "ki_d2_calc_landed_cost_per_bottle",
+          "ki_wset_prod_price_chain",
+          "ki_d1target_pack_freight"
+        ],
+        "templateIds": [
+          "qt_wset_d2_business_application_29",
+          "qt_cms_calculated_value_fwd_numeric",
+          "qt_wset_l4_winemaking_principles_global_22"
+        ],
+        "status": "represented_in_existing_course_unverified"
+      },
+      "newItemIds": [
+        "ki_d12depth_landed_recoverable",
+        "ki_d12depth_landed_floor",
+        "ki_d12depth_case_landed_action",
+        "ki_d12depth_case_landed_reason",
+        "ki_d12depth_case_landed_tradeoff",
+        "ki_d12depth_case_landed_limitation",
+        "ki_d12depth_regcompare_excise",
+        "ki_d12depth_regcompare_vat",
+        "ki_d12depth_regcompare_customs",
+        "ki_d12depth_regcompare_restriction",
+        "ki_d12depth_regcompare_support",
+        "ki_d12depth_regcompare_label",
+        "ki_d12depth_case_regcompare_action",
+        "ki_d12depth_case_regcompare_reason",
+        "ki_d12depth_case_regcompare_tradeoff",
+        "ki_d12depth_case_regcompare_limitation"
+      ],
+      "newTemplateIds": [
+        "qt_d12depth_d2_choices",
+        "qt_d12depth_d2_criteria",
+        "qt_d12depth_d2_written",
+        "qt_d12depth_d2reg_choices",
+        "qt_d12depth_d2reg_criteria",
+        "qt_d12depth_d2reg_written"
+      ],
+      "namedConceptRanges": [
+        "freight, insurance, charges and partner margins",
+        "recoverable tax versus funding",
+        "duties, barriers, support, labels and floor-price mechanisms",
+        "dated named jurisdiction",
+        "US excise versus EU import VAT",
+        "EU customs classification and preferential origin",
+        "trade prohibition versus monetary charge",
+        "US STEP support eligibility versus guaranteed receipt",
+        "US FAA wine label compliance versus retail permission",
+        "active dates, destination and product scope"
+      ],
+      "localAuthoringStatus": "new conceptual explanation and original bounded appliedpractice authored alongside existingrangeanchors",
+      "sourceAnchors": [
+        {
+          "sourceId": "src_d2_ita_landed_cost",
+          "locator": "Export cost stack"
+        },
+        {
+          "sourceId": "src_biz_sec_statements",
+          "locator": "Cash versus income and assets; fictional stipulated tax"
+        },
+        {
+          "sourceId": "src_d12depth_scotland_order",
+          "locator": "Articles 1-2 and explanatory note; named dated instrument"
+        },
+        {
+          "sourceId": "src_d12depth_scotland_policy",
+          "locator": "Minimum pricing mechanism, scope and distinction from tax"
+        },
+        {
+          "sourceId": "src_d2_ita_landed_cost",
+          "locator": "Cost-stack method; fictional charges"
+        },
+        {
+          "sourceId": "src_biz_sec_statements",
+          "locator": "Assets and cash; fictional recovery"
+        },
+        {
+          "sourceId": "src_d12depth_scotland_order",
+          "locator": "Dated floor-price instrument"
+        },
+        {
+          "sourceId": "src_d12depth_scotland_policy",
+          "locator": "Floor is not tax"
+        },
+        {
+          "sourceId": "src_d12depth_us_excise",
+          "locator": "5041(a),(b),(c); currenttext checked3October2026"
+        },
+        {
+          "sourceId": "src_d12depth_eu_vat",
+          "locator": "Articles168(e),173,178(e),179; currentconsolidation14April2025"
+        },
+        {
+          "sourceId": "src_d12depth_eu_customs",
+          "locator": "Articles56,57,64; currentconsolidation12December2022"
+        },
+        {
+          "sourceId": "src_d12depth_us_forced",
+          "locator": "Section1307 operativeprohibition; textlawsineffect28September2026"
+        },
+        {
+          "sourceId": "src_d12depth_us_step",
+          "locator": "649(l)(1),(2): eligibility andexportactivities; currenttextchecked3October2026"
+        },
+        {
+          "sourceId": "src_d12depth_us_label",
+          "locator": "205(e); currenttextchecked3October2026"
+        },
+        {
+          "sourceId": "src_d12depth_us_label_guide",
+          "locator": "Domesticwine7%+overview; productscopeandmandatoryinformation"
+        },
+        {
+          "sourceId": "src_d12depth_us_excise",
+          "locator": "Category/conditionalcredit; fictionalbudget"
+        },
+        {
+          "sourceId": "src_d12depth_eu_vat",
+          "locator": "Deductionconditions; fictionalmixed-usebuyer"
+        },
+        {
+          "sourceId": "src_d12depth_eu_customs",
+          "locator": "Classificationandorigin; fictionaltransitclaim"
+        },
+        {
+          "sourceId": "src_d12depth_us_forced",
+          "locator": "Importprohibition; fictionalmissingrecords"
+        },
+        {
+          "sourceId": "src_d12depth_us_step",
+          "locator": "Conditionalstatesupport; fictionalunapprovedapplication"
+        },
+        {
+          "sourceId": "src_d12depth_us_label",
+          "locator": "Conforminglabelrequirement; fictionalproposal"
+        }
+      ],
+      "remainingLocallyFillableTasks": [],
+      "remainingExternalWork": [
+        "Qualified factual/sourceandpedagogical review; newlycuratedfacts remainunverified",
+        "Learner application across variablecontexts, notjustonesuppliedcase"
+      ],
+      "limitations": [
+        "SelectedUS/EU/Scotlandlegal mechanisms are scoped to the citedtexts anddates; actual national VAT procedures,shipment-specific tariffs and grants/labels still require livejurisdiction/productevidence. This is a study range comparison, not clearance of every potentialtransaction.",
+        "The2026EUCMO amendment history was detected; blockedlatestconsolidation was not used to invent currentlabelparticulars. Thismodule uses currentUSstatutorylabelconformity instead."
+      ]
+    },
+    {
+      "id": "d2.currency-risk",
+      "subject": "Currency exposure and contractual responses",
+      "existingTeachingCredited": {
+        "itemIds": [
+          "ki_biz_fx_receivable",
+          "ki_biz_home_currency_invoice",
+          "ki_biz_forward_exchange",
+          "ki_biz_case_export_currency_tradeoff",
+          "ki_biz_case_export_currency_limitation",
+          "ki_d2_calc_fx_receipt",
+          "ki_d2_calc_fx_receipt_reduction"
+        ],
+        "templateIds": [
+          "qt_wset_d2_business_application_29",
+          "qt_biz_export_currency_case",
+          "qt_wset_l4_business_case_criteria_37",
+          "qt_cms_calculated_value_fwd_numeric"
+        ],
+        "status": "represented_in_existing_course_unverified"
+      },
+      "newItemIds": [
+        "ki_d12depth_fx_instrument",
+        "ki_d12depth_fx_matching",
+        "ki_d12depth_fx_prefund",
+        "ki_d12depth_case_fx_action",
+        "ki_d12depth_case_fx_reason",
+        "ki_d12depth_case_fx_tradeoff",
+        "ki_d12depth_case_fx_limitation"
+      ],
+      "newTemplateIds": [
+        "qt_d12depth_d2_choices",
+        "qt_d12depth_d2_criteria",
+        "qt_d12depth_d2_written"
+      ],
+      "namedConceptRanges": [
+        "unhedged and fixed invoice exposure",
+        "forward versus paid option",
+        "matching currency receipts/payments and account holdings",
+        "commitment, costs and counterparty payment",
+        "buying currency early versus waiting; USD/EUR/other-currency accounts"
+      ],
+      "localAuthoringStatus": "new conceptual explanation and original bounded appliedpractice authored alongside existingrangeanchors",
+      "sourceAnchors": [
+        {
+          "sourceId": "src_d12depth_trade_finance",
+          "locator": "Foreign Exchange Risk Management: forwards and FX options"
+        },
+        {
+          "sourceId": "src_d12depth_trade_finance",
+          "locator": "FX cash-flow matching and forward terms"
+        },
+        {
+          "sourceId": "src_biz_ita_fx",
+          "locator": "Invoice currency and nonpayment risk"
+        },
+        {
+          "sourceId": "src_d12depth_trade_finance",
+          "locator": "FXriskmanagement: immediateconversion andnaturalhedges; originalhypotheticalpayer-sidecomparison"
+        },
+        {
+          "sourceId": "src_biz_au_cashflow",
+          "locator": "Timingofpaymentsandcashresources; fictionalprefunding"
+        },
+        {
+          "sourceId": "src_d12depth_trade_finance",
+          "locator": "Matching, committed forwards and purchased options; fictional quotes"
+        },
+        {
+          "sourceId": "src_biz_ita_fx",
+          "locator": "Exchange and customer-payment distinction"
+        }
+      ],
+      "remainingLocallyFillableTasks": [],
+      "remainingExternalWork": [
+        "Qualified factual/sourceandpedagogical review; newlycuratedfacts remainunverified",
+        "Learner application across variablecontexts, notjustonesuppliedcase"
+      ],
+      "limitations": [
+        "Namedrange representation is credited; boundedcases donot imply exhaustive realworld coverage or professionalcompetence."
+      ]
+    },
+    {
+      "id": "d2.cash-inventory",
+      "subject": "Working capital and payment timing",
+      "existingTeachingCredited": {
+        "itemIds": [
+          "ki_biz_profit_cash",
+          "ki_biz_working_capital",
+          "ki_biz_inventory_cash",
+          "ki_biz_inventory_turnover",
+          "ki_biz_payment_timing",
+          "ki_biz_case_cellar_cash_action",
+          "ki_biz_case_cellar_cash_limitation",
+          "ki_d2_calc_cash_gap_days"
+        ],
+        "templateIds": [
+          "qt_wset_d2_business_application_29",
+          "qt_wset_l4_business_principle_choice_29",
+          "qt_biz_cellar_cash_case",
+          "qt_wset_l4_business_case_criteria_37",
+          "qt_cms_calculated_value_fwd_numeric"
+        ],
+        "status": "represented_in_existing_course_unverified"
+      },
+      "newItemIds": [
+        "ki_d12depth_cash_peak",
+        "ki_d12depth_cash_stock",
+        "ki_d12depth_case_cash_action",
+        "ki_d12depth_case_cash_reason",
+        "ki_d12depth_case_cash_tradeoff",
+        "ki_d12depth_case_cash_limitation"
+      ],
+      "newTemplateIds": [
+        "qt_d12depth_d2_choices",
+        "qt_d12depth_d2_criteria",
+        "qt_d12depth_d2_written"
+      ],
+      "namedConceptRanges": [
+        "dated receipts/outflows",
+        "opening cash, tax funding and stock",
+        "peak funding need",
+        "late-payment and inventory sensitivity"
+      ],
+      "localAuthoringStatus": "new conceptual explanation and original bounded appliedpractice authored alongside existingrangeanchors",
+      "sourceAnchors": [
+        {
+          "sourceId": "src_biz_au_cashflow",
+          "locator": "Forecasting receipts/payments; original hypothetical timeline"
+        },
+        {
+          "sourceId": "src_biz_sec_statements",
+          "locator": "Inventory and cash flow"
+        },
+        {
+          "sourceId": "src_biz_au_cashflow",
+          "locator": "Inventory and cash planning"
+        },
+        {
+          "sourceId": "src_biz_au_cashflow",
+          "locator": "Dated forecasting and financing; fictional timeline"
+        },
+        {
+          "sourceId": "src_biz_sec_statements",
+          "locator": "Receivables versus cash"
+        }
+      ],
+      "remainingLocallyFillableTasks": [],
+      "remainingExternalWork": [
+        "Qualified factual/sourceandpedagogical review; newlycuratedfacts remainunverified",
+        "Learner application across variablecontexts, notjustonesuppliedcase"
+      ],
+      "limitations": [
+        "Namedrange representation is credited; boundedcases donot imply exhaustive realworld coverage or professionalcompetence."
+      ]
+    },
+    {
+      "id": "d2.producer-models",
+      "subject": "Producer assets, services and control",
+      "existingTeachingCredited": {
+        "itemIds": [
+          "ki_biz_models_integration",
+          "ki_biz_models_vineyard_commitment",
+          "ki_biz_models_custom_capacity",
+          "ki_biz_models_custom_scope",
+          "ki_biz_models_cooperative_pool",
+          "ki_biz_models_cooperative_control",
+          "ki_biz_models_grape_purchase",
+          "ki_biz_models_bulk_purchase",
+          "ki_biz_models_case_contract_pilot_tradeoff",
+          "ki_biz_models_case_cooperative_pool_limitation"
+        ],
+        "templateIds": [
+          "qt_wset_d2_business_application_29",
+          "qt_wset_l4_business_principle_choice_29",
+          "qt_biz_models_contract_pilot_case",
+          "qt_biz_models_cooperative_pool_case",
+          "qt_wset_l4_business_case_criteria_37"
+        ],
+        "status": "represented_in_existing_course_unverified"
+      },
+      "newItemIds": [
+        "ki_d12depth_models_ownership",
+        "ki_d12depth_models_group",
+        "ki_d12depth_case_models_action",
+        "ki_d12depth_case_models_reason",
+        "ki_d12depth_case_models_tradeoff",
+        "ki_d12depth_case_models_limitation"
+      ],
+      "newTemplateIds": [
+        "qt_d12depth_d2_choices",
+        "qt_d12depth_d2_criteria",
+        "qt_d12depth_d2_written"
+      ],
+      "namedConceptRanges": [
+        "estate, grower and grower-producer",
+        "merchant, cooperative and custom facility",
+        "virtual outsourced brand and group ownership",
+        "capital, sourcing, control and service dependence"
+      ],
+      "localAuthoringStatus": "new conceptual explanation and original bounded appliedpractice authored alongside existingrangeanchors",
+      "sourceAnchors": [
+        {
+          "sourceId": "src_biz_models_psu_business",
+          "locator": "Business planning and own/purchased grapes"
+        },
+        {
+          "sourceId": "src_biz_models_reddy_services",
+          "locator": "Clients and contracted services"
+        },
+        {
+          "sourceId": "src_biz_models_usda_ownership",
+          "locator": "Member ownership and pooled resources"
+        },
+        {
+          "sourceId": "src_biz_models_usda_services",
+          "locator": "Producer cooperative services"
+        },
+        {
+          "sourceId": "src_biz_models_psu_business",
+          "locator": "Business planning"
+        },
+        {
+          "sourceId": "src_biz_models_reddy_services",
+          "locator": "Custom service scope and client responsibilities"
+        },
+        {
+          "sourceId": "src_biz_models_usda_services",
+          "locator": "Pooling and producer services"
+        },
+        {
+          "sourceId": "src_biz_models_psu_business",
+          "locator": "Business and sourcing planning"
+        }
+      ],
+      "remainingLocallyFillableTasks": [],
+      "remainingExternalWork": [
+        "Qualified factual/sourceandpedagogical review; newlycuratedfacts remainunverified",
+        "Learner application across variablecontexts, notjustonesuppliedcase"
+      ],
+      "limitations": [
+        "Namedrange representation is credited; boundedcases donot imply exhaustive realworld coverage or professionalcompetence."
+      ]
+    },
+    {
+      "id": "d2.channel-roles",
+      "subject": "Channel roles and downstream demand",
+      "existingTeachingCredited": {
+        "itemIds": [
+          "ki_biz_channel_mix",
+          "ki_biz_routes_downstream_sales",
+          "ki_biz_routes_service_scope",
+          "ki_biz_routes_partner_fit",
+          "ki_biz_routes_reviewable_roles",
+          "ki_biz_routes_case_downstream_review_action",
+          "ki_biz_routes_case_downstream_review_limitation"
+        ],
+        "templateIds": [
+          "qt_wset_d2_business_application_29",
+          "qt_biz_routes_downstream_review_case",
+          "qt_wset_l4_business_case_criteria_37"
+        ],
+        "status": "represented_in_existing_course_unverified"
+      },
+      "newItemIds": [
+        "ki_d12depth_channels_duties",
+        "ki_d12depth_channels_evidence",
+        "ki_d12depth_case_channels_action",
+        "ki_d12depth_case_channels_reason",
+        "ki_d12depth_case_channels_tradeoff",
+        "ki_d12depth_case_channels_limitation"
+      ],
+      "newTemplateIds": [
+        "qt_d12depth_d2_choices",
+        "qt_d12depth_d2_criteria",
+        "qt_d12depth_d2_written"
+      ],
+      "namedConceptRanges": [
+        "importer/distributor, broker, JV and direct-to-seller",
+        "inventory title, services, commissions and payment",
+        "placement versus downstream sales",
+        "reporting and contractual duties"
+      ],
+      "localAuthoringStatus": "new conceptual explanation and original bounded appliedpractice authored alongside existingrangeanchors",
+      "sourceAnchors": [
+        {
+          "sourceId": "src_biz_routes_wine_australia_paths",
+          "locator": "Self-import/broker and JV/direct-to-retail examples"
+        },
+        {
+          "sourceId": "src_biz_routes_wine_australia_partner",
+          "locator": "Due diligence and performance evidence"
+        },
+        {
+          "sourceId": "src_biz_routes_wine_australia_terms",
+          "locator": "Negotiated terms and performance"
+        },
+        {
+          "sourceId": "src_biz_routes_wine_australia_paths",
+          "locator": "Broker, JV and direct-seller role examples; fictional offers"
+        },
+        {
+          "sourceId": "src_biz_routes_wine_australia_terms",
+          "locator": "Allocated terms and measurable performance"
+        }
+      ],
+      "remainingLocallyFillableTasks": [],
+      "remainingExternalWork": [
+        "Qualified factual/sourceandpedagogical review; newlycuratedfacts remainunverified",
+        "Learner application across variablecontexts, notjustonesuppliedcase"
+      ],
+      "limitations": [
+        "Namedrange representation is credited; boundedcases donot imply exhaustive realworld coverage or professionalcompetence."
+      ]
+    },
+    {
+      "id": "d2.consumer-routes",
+      "subject": "Retail, hospitality and direct-sales routes",
+      "existingTeachingCredited": {
+        "itemIds": [
+          "ki_biz_routes_retail_access",
+          "ki_biz_routes_ontrade_fit",
+          "ki_biz_routes_dtc_resources",
+          "ki_biz_routes_dtc_records",
+          "ki_biz_tasting_room_relationship",
+          "ki_biz_routes_case_dtc_capacity_tradeoff",
+          "ki_biz_routes_case_dtc_capacity_limitation"
+        ],
+        "templateIds": [
+          "qt_wset_d2_business_application_29",
+          "qt_wset_l4_business_principle_choice_29",
+          "qt_biz_routes_dtc_capacity_case",
+          "qt_wset_l4_business_case_criteria_37"
+        ],
+        "status": "represented_in_existing_course_unverified"
+      },
+      "newItemIds": [
+        "ki_d12depth_outlets_fit",
+        "ki_d12depth_outlets_return",
+        "ki_d12depth_case_outlets_action",
+        "ki_d12depth_case_outlets_reason",
+        "ki_d12depth_case_outlets_tradeoff",
+        "ki_d12depth_case_outlets_limitation"
+      ],
+      "newTemplateIds": [
+        "qt_d12depth_d2_choices",
+        "qt_d12depth_d2_criteria",
+        "qt_d12depth_d2_written"
+      ],
+      "namedConceptRanges": [
+        "supermarket, discount, convenience and specialist retail",
+        "hybrid/online, travel and investment routes",
+        "specialist/general bars and different restaurant purposes",
+        "cellar door, events, club and online DTC"
+      ],
+      "localAuthoringStatus": "new conceptual explanation and original bounded appliedpractice authored alongside existingrangeanchors",
+      "sourceAnchors": [
+        {
+          "sourceId": "src_d2_au_five_ps",
+          "locator": "Product, place, people and terms"
+        },
+        {
+          "sourceId": "src_biz_routes_wine_australia_partner",
+          "locator": "Partner fit and due diligence"
+        },
+        {
+          "sourceId": "src_biz_victoria_pricing",
+          "locator": "Contribution and costs; fictional inputs"
+        },
+        {
+          "sourceId": "src_biz_routes_osu_dtc",
+          "locator": "DTC cost and resource considerations"
+        },
+        {
+          "sourceId": "src_biz_routes_osu_dtc",
+          "locator": "DTC workload, shipping and costs; fictional offers"
+        },
+        {
+          "sourceId": "src_d2_au_five_ps",
+          "locator": "Product/place/people planning"
+        },
+        {
+          "sourceId": "src_biz_routes_wine_australia_partner",
+          "locator": "Fit and evaluation"
+        }
+      ],
+      "remainingLocallyFillableTasks": [],
+      "remainingExternalWork": [
+        "Qualified factual/sourceandpedagogical review; newlycuratedfacts remainunverified",
+        "Learner application across variablecontexts, notjustonesuppliedcase"
+      ],
+      "limitations": [
+        "Namedrange representation is credited; boundedcases donot imply exhaustive realworld coverage or professionalcompetence."
+      ]
+    },
+    {
+      "id": "d2.regulated-market-systems",
+      "subject": "Regulated market-system comparison",
+      "existingTeachingCredited": {
+        "itemIds": [
+          "ki_d2market_us_tiers",
+          "ki_d2market_us_variation",
+          "ki_d2market_us_federal",
+          "ki_d2market_ew_authority",
+          "ki_d2market_ew_scope",
+          "ki_d2market_ew_personal",
+          "ki_d2market_se_retail",
+          "ki_d2market_se_mission",
+          "ki_d2market_se_supplier",
+          "ki_d2market_se_serving",
+          "ki_d2market_se_farm",
+          "ki_d2market_case_us_entry_action",
+          "ki_d2market_case_us_entry_reason",
+          "ki_d2market_case_us_entry_tradeoff",
+          "ki_d2market_case_us_entry_limitation",
+          "ki_d2market_case_ew_retail_action",
+          "ki_d2market_case_ew_retail_reason",
+          "ki_d2market_case_ew_retail_tradeoff",
+          "ki_d2market_case_ew_retail_limitation",
+          "ki_d2market_case_sweden_access_action",
+          "ki_d2market_case_sweden_access_reason",
+          "ki_d2market_case_sweden_access_tradeoff",
+          "ki_d2market_case_sweden_access_limitation"
+        ],
+        "templateIds": [
+          "qt_d2market_choice_11",
+          "qt_d2market_typed_3",
+          "qt_d2market_criteria_3",
+          "qt_d2market_written_3"
+        ],
+        "status": "represented_in_existing_course_unverified"
+      },
+      "newItemIds": [],
+      "newTemplateIds": [],
+      "namedConceptRanges": [],
+      "localAuthoringStatus": "root-owned elevenprinciples andthreefourrolecases credited; not edited",
+      "sourceAnchors": [],
+      "remainingLocallyFillableTasks": [],
+      "remainingExternalWork": [
+        "Qualified factual/sourceandpedagogical review; newlycuratedfacts remainunverified",
+        "Learner application across variablecontexts, notjustonesuppliedcase"
+      ],
+      "limitations": [
+        "Namedrange representation is credited; boundedcases donot imply exhaustive realworld coverage or professionalcompetence."
+      ]
+    },
+    {
+      "id": "d2.marketing-design",
+      "subject": "Audience, positioning and marketing plan",
+      "existingTeachingCredited": {
+        "itemIds": [
+          "ki_biz_customer_segment",
+          "ki_biz_primary_research",
+          "ki_biz_value_pricing",
+          "ki_biz_competitor_pricing",
+          "ki_d2_marketing_mix",
+          "ki_d2_competitor_baseline",
+          "ki_d2_target_sample",
+          "ki_d2_marketing_objective",
+          "ki_d2_case_market_launch_reason"
+        ],
+        "templateIds": [
+          "qt_wset_d2_business_application_29",
+          "qt_wset_d2_market_decisions_choice_6",
+          "qt_wset_d2_market_launch_case",
+          "qt_wset_d2_market_decisions_case_criteria_2"
+        ],
+        "status": "represented_in_existing_course_unverified"
+      },
+      "newItemIds": [
+        "ki_d12depth_marketing_position",
+        "ki_d12depth_marketing_plan",
+        "ki_d12depth_case_marketing_action",
+        "ki_d12depth_case_marketing_reason",
+        "ki_d12depth_case_marketing_tradeoff",
+        "ki_d12depth_case_marketing_limitation"
+      ],
+      "newTemplateIds": [
+        "qt_d12depth_d2_choices",
+        "qt_d12depth_d2_criteria",
+        "qt_d12depth_d2_written"
+      ],
+      "namedConceptRanges": [
+        "product/brand identity and positioning",
+        "market and competitor analysis",
+        "target segment and research limitations",
+        "objectives and coordinated product/price/place/people/promotion"
+      ],
+      "localAuthoringStatus": "new conceptual explanation and original bounded appliedpractice authored alongside existingrangeanchors",
+      "sourceAnchors": [
+        {
+          "sourceId": "src_d2_au_marketing_plan",
+          "locator": "Research and positioning"
+        },
+        {
+          "sourceId": "src_d2_au_market_research",
+          "locator": "Customers, competitors and nonbuyers"
+        },
+        {
+          "sourceId": "src_d2_au_marketing_plan",
+          "locator": "Goals, strategies, budget and review"
+        },
+        {
+          "sourceId": "src_d2_au_five_ps",
+          "locator": "Coordinated marketing elements"
+        },
+        {
+          "sourceId": "src_d2_au_marketing_plan",
+          "locator": "Positioning, goals and resource plan; fictional launch"
+        },
+        {
+          "sourceId": "src_d2_au_market_research",
+          "locator": "Research samples and competing offers"
+        }
+      ],
+      "remainingLocallyFillableTasks": [],
+      "remainingExternalWork": [
+        "Qualified factual/sourceandpedagogical review; newlycuratedfacts remainunverified",
+        "Learner application across variablecontexts, notjustonesuppliedcase"
+      ],
+      "limitations": [
+        "Namedrange representation is credited; boundedcases donot imply exhaustive realworld coverage or professionalcompetence."
+      ]
+    },
+    {
+      "id": "d2.campaign-price-review",
+      "subject": "Campaign evidence and pricing review",
+      "existingTeachingCredited": {
+        "itemIds": [
+          "ki_biz_cost_plus",
+          "ki_biz_discount_contribution",
+          "ki_biz_price_review",
+          "ki_d2_campaign_review",
+          "ki_d2_case_market_launch_tradeoff",
+          "ki_d2_case_market_launch_limitation",
+          "ki_biz_case_wine_discount_reason"
+        ],
+        "templateIds": [
+          "qt_wset_d2_business_application_29",
+          "qt_wset_d2_market_decisions_choice_6",
+          "qt_wset_d2_market_launch_case",
+          "qt_biz_wine_discount_case",
+          "qt_wset_l4_business_case_criteria_37"
+        ],
+        "status": "represented_in_existing_course_unverified"
+      },
+      "newItemIds": [
+        "ki_d12depth_campaign_net",
+        "ki_d12depth_campaign_discount",
+        "ki_d12depth_case_campaign_action",
+        "ki_d12depth_case_campaign_reason",
+        "ki_d12depth_case_campaign_tradeoff",
+        "ki_d12depth_case_campaign_limitation"
+      ],
+      "newTemplateIds": [
+        "qt_d12depth_d2_choices",
+        "qt_d12depth_d2_criteria",
+        "qt_d12depth_d2_written"
+      ],
+      "namedConceptRanges": [
+        "baseline, conversion and repeat",
+        "acquisition, servicing and returns costs",
+        "discount contribution and sensitivity",
+        "measured success versus exposure"
+      ],
+      "localAuthoringStatus": "new conceptual explanation and original bounded appliedpractice authored alongside existingrangeanchors",
+      "sourceAnchors": [
+        {
+          "sourceId": "src_biz_victoria_pricing",
+          "locator": "Contribution method; fictional inputs"
+        },
+        {
+          "sourceId": "src_d2_au_marketing_plan",
+          "locator": "Budget and results review"
+        },
+        {
+          "sourceId": "src_biz_victoria_pricing",
+          "locator": "Pricing, costs and break-even; fictional discount"
+        },
+        {
+          "sourceId": "src_d2_au_marketing_plan",
+          "locator": "Budget and campaign review; fictional results"
+        },
+        {
+          "sourceId": "src_biz_victoria_pricing",
+          "locator": "Contribution and cost method"
+        }
+      ],
+      "remainingLocallyFillableTasks": [],
+      "remainingExternalWork": [
+        "Qualified factual/sourceandpedagogical review; newlycuratedfacts remainunverified",
+        "Learner application across variablecontexts, notjustonesuppliedcase"
+      ],
+      "limitations": [
+        "Namedrange representation is credited; boundedcases donot imply exhaustive realworld coverage or professionalcompetence."
+      ]
+    },
+    {
+      "id": "d2.sustained-writing",
+      "subject": "Sustained business analysis",
+      "existingTeachingCredited": {
+        "itemIds": [
+          "ki_d2_case_supply_and_demand_limitation",
+          "ki_biz_routes_case_dtc_capacity_tradeoff",
+          "ki_d2_case_market_launch_limitation"
+        ],
+        "templateIds": [
+          "qt_wset_d2_supply_and_demand_case",
+          "qt_biz_routes_dtc_capacity_case",
+          "qt_wset_d2_market_launch_case"
+        ],
+        "status": "represented_in_existing_course_unverified"
+      },
+      "newItemIds": [],
+      "newTemplateIds": [],
+      "namedConceptRanges": [],
+      "localAuthoringStatus": "existing durable writing workflow and original default/alternate packs credited; no software or content gap identified by this review",
+      "sourceAnchors": [],
+      "remainingLocallyFillableTasks": [],
+      "remainingExternalWork": [
+        "Qualified calibration of prompts,criteria andsample answers across requiredbreadth",
+        "Learner sustained written performance with externalfeedback"
+      ],
+      "limitations": [
+        "Namedrange representation is credited; boundedcases donot imply exhaustive realworld coverage or professionalcompetence."
+      ]
+    }
+  ],
+  "checks": {
+    "authoredChoices": "67 authored scopedchoices withone correctentry andthree independentlydefensible wrongentries; no generic answer-length clue imposed",
+    "cases": "30cases ×4separate KIroles; two authored distractors for eachcase; conceptprerequisites explicit",
+    "scope": "WSET_L4 core; ambiguous KI uses mcq_disabledtrue; scoped authored templates still available",
+    "citations": "Compositecitationduplicates checked; budgetnutritionsoil locatorsconsolidated; coferment andglycerol sourceadditions separate",
+    "timing": "Allnewrelations active from2026-10-02; actualcuration23:14:50UTC, localcalendarOct3",
+    "validation": "Subagent performed data construction, arithmetic review andJSONparse/composite-key checks; rootfullintegrated validation pending"
+  },
+  "numericCases": [
+    {
+      "row": "d1.establishment-material",
+      "premises": "2ha;4000vines/ha;EUR4/vine",
+      "expected": "8000vines;EUR32000 plantsubtotal",
+      "limits": "Othercapital,water,labour andnon-bearingyearcash excluded"
+    },
+    {
+      "row": "d1.soil-water-nutrients",
+      "premises": "40mm need,10mm rain,15mm soil;75%efficiency;3ha;1mm/ha=10m3",
+      "expected": "15mm net;20mm gross;600m3 gross",
+      "limits": "Noirrigationpermissionoruniversalvinerequirement"
+    },
+    {
+      "row": "d1.canopy-yield",
+      "premises": "A5000vines/ha×2kg;B2000×3kg",
+      "expected": "A10t/ha;B6t/ha",
+      "limits": "Yieldaloneisnotquality"
+    },
+    {
+      "row": "d1.intake-juice-processing",
+      "premises": "24tarrivein3h;8t/harrival,4t/hpress",
+      "expected": "12tbacklogafter3h",
+      "limits": "Noothercapacitylossesorpriorloads"
+    },
+    {
+      "row": "d1.nolo-production",
+      "premises": "A200 treatmentquote;B240",
+      "expected": "SuppliedAquotecheaperby40",
+      "limits": "Quality,losses,testing,packagingfinance omitted"
+    },
+    {
+      "row": "d1.packaging-transport",
+      "premises": "Bulk300freight+700fill;originfill600+600freight",
+      "expected": "Bulk1000;packaged1200",
+      "limits": "Routequalityandshelf-lifepending"
+    },
+    {
+      "row": "d2.market-forces",
+      "premises": "Opening500hL+100production−120releases;notherflows",
+      "expected": "Closing480hL",
+      "limits": "Nofixedpriceprediction"
+    },
+    {
+      "row": "d2.cost-contribution",
+      "premises": "Price10,variable6,fixed12000,capacity4000;3500sales;extra0.50storage",
+      "expected": "Contribution4;break-even3000;surplus2000beforeomissions;extra-storagecase250",
+      "limits": "Noequipmentfundingorreceipttimingdeduction"
+    },
+    {
+      "row": "d2.landed-cost-regulation",
+      "premises": "Wine1000+freight200+duty100+laterfullyrecoverabletax260",
+      "expected": "Permanentstipulatedcost1300;initialcash1560",
+      "limits": "Fictionalchargesare notactualstatutoryrates"
+    },
+    {
+      "row": "d2.currency-risk",
+      "premises": "EUR1000;forward850;optionfloor850premium20;spot800or900;EUR400payablealigned",
+      "expected": "Forward850;option830or880;alignednetEUR600;prefund850 usescashnow",
+      "limits": "Otherfees,counterparty andtimingrisknoteliminated"
+    },
+    {
+      "row": "d2.cash-inventory",
+      "premises": "Opening5000;d10−6000,d20−3000,d30+8000;extra d15−1000,d45+1000",
+      "expected": "Basepeakfunding4000;withtax5000;paymentatd50retainspeak5000",
+      "limits": "Nootherflowsorinterest"
+    },
+    {
+      "row": "d2.consumer-routes",
+      "premises": "DTC20−8−4−6;wholesale10−8−1;sensitivityDTCservice8",
+      "expected": "DTC2,wholesale1,sensitivityDTC0",
+      "limits": "Demandandfixedcostsnotestablished"
+    },
+    {
+      "row": "d2.campaign-price-review",
+      "premises": "A100incrementalorders×8−600;B80×10−300;1000bottles×4or2000×2",
+      "expected": "A200;B500;same4000contribution requiresdoublevolume",
+      "limits": "Laterreturnsandrepeatpending;cannotgeneralisecausality"
+    }
+  ],
+  "newSources": [
+    {
+      "id": "src_d12depth_soil",
+      "kind": "reference_work",
+      "title": "Vineyard management practices to improve soil health",
+      "publisher": "Australian Wine Research Institute",
+      "document_identifier": "Fact sheet updated June 2018; physical, chemical and biological limitations",
+      "url": "https://www.awri.com.au/files/attachment/vineyard-management-practices-to-improve-soil-health/",
+      "accessed_on": "2026-10-03"
+    },
+    {
+      "id": "src_d12depth_planting",
+      "kind": "reference_work",
+      "title": "Grapevine Planting Material",
+      "publisher": "Wine Australia",
+      "document_identifier": "Living guidance; identity, high health and rootstock resources; checked 3 October 2026",
+      "url": "https://www.wineaustralia.com/growing-making/planting-material",
+      "accessed_on": "2026-10-03"
+    },
+    {
+      "id": "src_d12depth_mites",
+      "kind": "academic",
+      "title": "Webspinning Spider Mites: Grape Pest Management Guidelines",
+      "publisher": "University of California Statewide IPM Program",
+      "document_identifier": "UC ANR publication 3448; updated July 2015; biology and monitoring only, no treatment rates taught",
+      "url": "https://ipm.ucanr.edu/agriculture/grape/webspinning-spider-mites/",
+      "accessed_on": "2026-10-03"
+    },
+    {
+      "id": "src_d12depth_leafroller",
+      "kind": "academic",
+      "title": "Omnivorous Leafroller: Grape Pest Management Guidelines",
+      "publisher": "University of California Statewide IPM Program",
+      "document_identifier": "UC ANR publication 3448; monitoring and development-stage principles only",
+      "url": "https://ipm.ucanr.edu/agriculture/grape/omnivorous-leafroller/",
+      "accessed_on": "2026-10-03"
+    },
+    {
+      "id": "src_d12depth_glycerol",
+      "kind": "reference_work",
+      "title": "AWRI Annual Report 2002: research teams' reports",
+      "publisher": "Australian Wine Research Institute",
+      "document_identifier": "Printed pp.28–32: yeast glycerol biosynthesis and composition trials; historical mechanistic evidence, no intervention prescription",
+      "url": "https://www.awri.com.au/wp-content/uploads/2002_AWRI_Annual_Report.pdf",
+      "accessed_on": "2026-10-03"
+    },
+    {
+      "id": "src_d12depth_coferment",
+      "kind": "academic",
+      "title": "Chemical and sensory effects of cofermentation and post-malolactic fermentation blending of Syrah with selected Rhône white cultivars",
+      "publisher": "Australian Journal of Grape and Wine Research / Wiley",
+      "document_identifier": "Casassa et al., 2020, 26(1),41–52; DOI10.1111/ajgw.12413; introduction and experimental design",
+      "url": "https://doi.org/10.1111/ajgw.12413",
+      "published_on": "2019-09-15",
+      "accessed_on": "2026-10-03"
+    },
+    {
+      "id": "src_d12depth_trade_finance",
+      "kind": "government_publication",
+      "title": "Trade Finance Guide",
+      "publisher": "U.S. Department of Commerce International Trade Administration",
+      "document_identifier": "Foreign Exchange Risk Management: cash-in-advance, natural hedges, forwards and options; checked 3 October 2026",
+      "url": "https://www.trade.gov/report/trade-finance-guide",
+      "accessed_on": "2026-10-03"
+    },
+    {
+      "id": "src_d12depth_scotland_order",
+      "kind": "legislation",
+      "title": "The Alcohol (Minimum Price per Unit) (Scotland) Amendment Order 2024",
+      "publisher": "Scottish Ministers / King's Printer for Scotland",
+      "document_identifier": "SSI 2024/128, articles 1 and 2; effective 30 September 2024",
+      "url": "https://www.legislation.gov.uk/ssi/2024/128/pdfs/ssi_20240128_en.pdf",
+      "published_on": "2024-04-23",
+      "accessed_on": "2026-10-03"
+    },
+    {
+      "id": "src_d12depth_scotland_policy",
+      "kind": "government_publication",
+      "title": "Minimum unit pricing for alcohol",
+      "publisher": "Scottish Government",
+      "document_identifier": "Current minimum 65p per unit and introduction date; checked 3 October 2026",
+      "url": "https://www.gov.scot/policies/alcohol-and-drugs/minimum-unit-pricing/",
+      "accessed_on": "2026-10-03"
+    },
+    {
+      "id": "src_d12depth_us_excise",
+      "kind": "legislation",
+      "title": "26 U.S.C. 5041: Imposition and rate of tax on wine",
+      "publisher": "U.S. House Office of the Law Revision Counsel",
+      "document_identifier": "Current preliminary text retrieved 3 October 2026; subsections(a),(b),(c): tax classes and conditional credits; no rates memorised",
+      "url": "https://uscode.house.gov/view.xhtml?req=%28title%3A26+section%3A5041+edition%3Aprelim%29",
+      "accessed_on": "2026-10-03"
+    },
+    {
+      "id": "src_d12depth_eu_vat",
+      "kind": "legislation",
+      "title": "Council Directive 2006/112/EC: common system of VAT",
+      "publisher": "European Union / EUR-Lex",
+      "document_identifier": "Consolidation14 April2025 shown as current on3October2026; Articles168(e),173,178(e),179: deduction conditions; national implementation still needed",
+      "url": "https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=CELEX%3A02006L0112-20250414",
+      "accessed_on": "2026-10-03"
+    },
+    {
+      "id": "src_d12depth_eu_customs",
+      "kind": "legislation",
+      "title": "Regulation (EU) No952/2013: Union Customs Code",
+      "publisher": "European Union / EUR-Lex",
+      "document_identifier": "Current consolidation12December2022 as checked3October2026; Articles56,57,64; selected tariff/origin mechanisms only",
+      "url": "https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=CELEX%3A02013R0952-20221212",
+      "accessed_on": "2026-10-03"
+    },
+    {
+      "id": "src_d12depth_us_forced",
+      "kind": "legislation",
+      "title": "19 U.S.C.1307: importation of goods produced with forced labour prohibited",
+      "publisher": "U.S. House Office of the Law Revision Counsel",
+      "document_identifier": "Current preliminary text, laws in effect28September2026; section1307 prohibition; source checked3October2026",
+      "url": "https://uscode.house.gov/view.xhtml?req=%28title%3A19+section%3A1307+edition%3Aprelim%29",
+      "accessed_on": "2026-10-03"
+    },
+    {
+      "id": "src_d12depth_us_step",
+      "kind": "legislation",
+      "title": "15 U.S.C.649: Office of International Trade",
+      "publisher": "U.S. House Office of the Law Revision Counsel",
+      "document_identifier": "Current preliminary text retrieved3October2026; subsection(l)(1),(2): eligible small business and state grants; no funding promise",
+      "url": "https://uscode.house.gov/view.xhtml?req=%28title%3A15+section%3A649+edition%3Aprelim%29",
+      "accessed_on": "2026-10-03"
+    },
+    {
+      "id": "src_d12depth_us_label",
+      "kind": "legislation",
+      "title": "27 U.S.C.205: Unfair competition and unlawful practices",
+      "publisher": "U.S. House Office of the Law Revision Counsel",
+      "document_identifier": "Current preliminary text retrieved3October2026; subsection(e): conforming labels, information and wine alcohol-content provision; implementing rules still apply",
+      "url": "https://uscode.house.gov/view.xhtml?req=%28title%3A27+section%3A205+edition%3Aprelim%29",
+      "accessed_on": "2026-10-03"
+    },
+    {
+      "id": "src_d12depth_us_label_guide",
+      "kind": "government_publication",
+      "title": "Wine Labeling: Overview of Labeling Requirements for Domestic Wines–7Percent or More Alcohol by Volume",
+      "publisher": "Alcohol and Tobacco Tax and Trade Bureau",
+      "document_identifier": "Living regulator guidance checked3October2026; scope and mandatoryinformation links; not complete legal compliance review",
+      "url": "https://www.ttb.gov/regulated-commodities/beverage-alcohol/wine/7percentormore",
+      "accessed_on": "2026-10-03"
+    }
+  ],
+  "externalChecklist": [
+    "Qualified reviewer validatescurriculumfacts, sourceanchors andscopebreadth. No authored KI is promoted to verifiedbycuration.",
+    "QualifiedDiplomainstructor calibrates writingcriteria/responseexpectations; appself-reviewcannotmarkorawardWSETqualification.",
+    "Learner produces sustainedanswersandpracticalapplications; theirperformance cannotbe substitutedbysoftwaretestpasses.",
+    "Androidphysicalcamera/OCR remainsoutside thiswork anddeferred to the Androidowner."
+  ],
+  "authenticRemainingLocalGaps": [],
+  "boundedLegalScope": "This review completes the targeted concept comparisons locally using namedprimary statutory mechanisms; it does not claim an encyclopaedia of every market's changing duties,permissions,subsidies orlabel rules."
+}

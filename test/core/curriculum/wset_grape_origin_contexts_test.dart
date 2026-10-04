@@ -3,12 +3,18 @@ import 'package:sommelier/core/curriculum/curriculum_validator.dart';
 
 import '../../support/curriculum_fixture.dart';
 
+String _normaliseWhitespace(String value) =>
+    value.replaceAll(RegExp(r'\s+'), ' ').trim();
+
 void main() {
   final dataset = bundledDataset();
   final points = dataset.knowledgeItems
       .where((item) => item.id.startsWith('ki_wset_origin_'))
       .toList();
-  final text = {for (final item in points) item.id: item.assertionText};
+  final text = {
+    for (final item in points)
+      item.id: _normaliseWhitespace(item.assertionText),
+  };
 
   test(
     'named grape-origin repairs are cited explanations at suitable depth',
