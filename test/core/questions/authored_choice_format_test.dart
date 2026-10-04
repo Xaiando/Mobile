@@ -1,3 +1,7 @@
+import 'package:crypto/crypto.dart';
+import 'package:clock/clock.dart';
+
+import 'dart:io';
 import 'dart:convert';
 import 'dart:math';
 
@@ -128,6 +132,29 @@ Map<String, dynamic> _cue(Map<String, dynamic> data) =>
                 as Map<String, dynamic>)['item_choices']
             as Map<String, dynamic>)[_itemId]
         as Map<String, dynamic>;
+
+const _retiredSaliceIds = <String>{
+  'ki_reg_isi_salice_context',
+  'ki_reg_isi_salice_styles',
+};
+const _saliceSuccessors = <String, String>{
+  'ki_reg_isi_salice_context': 'ki_reg_isi_salice_context_2026',
+  'ki_reg_isi_salice_styles': 'ki_reg_isi_salice_styles_2026',
+};
+
+Map<String, dynamic> _frozen073Release() {
+  final bytes = File(
+    'test/fixtures/curriculum/diploma_release_0_24_73_complete_frozen.json.gz',
+  ).readAsBytesSync();
+  expect(
+    sha256.convert(bytes).toString(),
+    '15a944ed92394c94d4ec67b9fb83388bf3b8718e15e3c3da007af5666e211cdf',
+  );
+  final frozen =
+      jsonDecode(utf8.decode(gzip.decode(bytes))) as Map<String, dynamic>;
+  expect(frozen['dataset_version'], '0.24.73');
+  return frozen;
+}
 
 void main() {
   test('daily practice has a view for authored choices', () {
@@ -364,7 +391,11 @@ void main() {
     () async {
       final db = openTestDatabase();
       try {
-        await CurriculumIngester(db).ingest(bundledDataset());
+        final servingClock = Clock.fixed(DateTime.utc(2026, 10, 3, 18));
+        await CurriculumIngester(
+          db,
+          clock: servingClock,
+        ).ingest(bundledDataset());
         const foundationExamples = {
           'ki_wset_found_flower_to_fruit': 'viticulture',
           'ki_wset_found_fermentation': 'winemaking',
@@ -388,13 +419,93 @@ void main() {
             )
             .toList();
         expect(templates, hasLength(84));
-        final expectedIds = {
+        final storedIds = {
           for (final template in templates)
             ...((jsonDecode(template.parameters!)
                         as Map<String, dynamic>)['item_choices']
                     as Map<String, dynamic>)
                 .keys,
         };
+        final expectedIds = storedIds.difference(_retiredSaliceIds);
+        final historical = _frozen073Release();
+        final historicalTemplates = (historical['question_templates'] as List)
+            .cast<Map<String, dynamic>>()
+            .where(
+              (row) => templates.any((template) => template.id == row['id']),
+            )
+            .toList();
+        expect(
+          historicalTemplates.map((row) => row['id']).toSet(),
+          templates.map((template) => template.id).toSet(),
+        );
+        final historicalIds = {
+          for (final row in historicalTemplates)
+            ...((row['parameters'] as Map<String, dynamic>)['item_choices']
+                    as Map<String, dynamic>)
+                .keys,
+        };
+        expect(historicalIds, hasLength(1724));
+        expect(storedIds, {...historicalIds, ..._saliceSuccessors.values});
+        expect(storedIds, hasLength(1726));
+        expect(expectedIds, {
+          ...historicalIds.difference(_retiredSaliceIds),
+          ..._saliceSuccessors.values,
+        });
+        var unchangedNonSalice = 0;
+        var preservedSalice = 0;
+        var reviewedMeerlust = 0;
+        for (final oldTemplate in historicalTemplates) {
+          final currentTemplate = templates.singleWhere(
+            (template) => template.id == oldTemplate['id'],
+          );
+          final currentChoices =
+              (jsonDecode(currentTemplate.parameters!)
+                      as Map<String, dynamic>)['item_choices']
+                  as Map<String, dynamic>;
+          final historicalChoices =
+              (oldTemplate['parameters']
+                      as Map<String, dynamic>)['item_choices']
+                  as Map<String, dynamic>;
+          for (final entry in historicalChoices.entries) {
+            if (entry.key == 'ki_wset_origin_stellenbosch_merlot') {
+              final oldCue = entry.value as Map<String, dynamic>;
+              final newCue = currentChoices[entry.key] as Map<String, dynamic>;
+              expect(
+                {
+                  for (final pair in newCue.entries)
+                    if (pair.key != 'explanation') pair.key: pair.value,
+                },
+                {
+                  for (final pair in oldCue.entries)
+                    if (pair.key != 'explanation') pair.key: pair.value,
+                },
+              );
+              expect(
+                newCue['explanation'],
+                "Meerlust's 2022 technical sheet documents a Stellenbosch bottling of 100% Merlot with 2.35 g/L residual sugar. It does not prescribe the body, blend or barrel treatment of every local Merlot.",
+              );
+              final item = await (db.select(
+                db.knowledgeItems,
+              )..where((row) => row.id.equals(entry.key))).getSingle();
+              expect(item.revision, 2);
+              reviewedMeerlust++;
+            } else {
+              expect(
+                currentChoices[entry.key],
+                entry.value,
+                reason: 'Exact historical cue ${entry.key}',
+              );
+              if (_retiredSaliceIds.contains(entry.key)) {
+                preservedSalice++;
+              } else {
+                unchangedNonSalice++;
+              }
+            }
+          }
+        }
+        expect(unchangedNonSalice, 1721);
+        expect(preservedSalice, 2);
+        expect(reviewedMeerlust, 1);
         final levelOneIds = {
           for (final template in templates)
             if (template.id.startsWith('qt_wset_l1_'))
@@ -426,7 +537,7 @@ void main() {
                           as Map<String, dynamic>)['item_choices']
                       as Map<String, dynamic>)
                   .keys,
-        };
+        }.difference(_retiredSaliceIds);
         final remainingGrapeIds = {
           ...idsForTemplate('qt_wset_shared_grape_profiles_remaining_3'),
           ...idsForTemplate('qt_wset_shared_grape_berry_colour_remaining_9'),
@@ -778,29 +889,58 @@ void main() {
             ),
         };
         expect(actual.keys.toSet(), expectedIds);
+        expect(actual.keys.toSet().intersection(_retiredSaliceIds), isEmpty);
+        expect(actual.keys.toSet(), containsAll(_saliceSuccessors.values));
         for (final entry in foundationExamples.entries) {
           expect(actual[entry.key], entry.value, reason: entry.key);
         }
         final levelOneCards = {
-          for (final card in await StudyPlanner(db).cards('WSET_L1'))
+          for (final card in await StudyPlanner(
+            db,
+            clock: servingClock,
+          ).cards('WSET_L1'))
             card.itemId: card,
         };
         final levelTwoCards = {
-          for (final card in await StudyPlanner(db).cards('WSET_L2'))
+          for (final card in await StudyPlanner(
+            db,
+            clock: servingClock,
+          ).cards('WSET_L2'))
             card.itemId: card,
         };
         final levelThreeCards = {
-          for (final card in await StudyPlanner(db).cards('WSET_L3'))
+          for (final card in await StudyPlanner(
+            db,
+            clock: servingClock,
+          ).cards('WSET_L3'))
             card.itemId: card,
         };
         final levelFourCards = {
-          for (final card in await StudyPlanner(db).cards('WSET_L4'))
+          for (final card in await StudyPlanner(
+            db,
+            clock: servingClock,
+          ).cards('WSET_L4'))
             card.itemId: card,
         };
         final cmsCards = {
-          for (final card in await StudyPlanner(db).cards('CMS_CERTIFIED'))
+          for (final card in await StudyPlanner(
+            db,
+            clock: servingClock,
+          ).cards('CMS_CERTIFIED'))
             card.itemId: card,
         };
+        for (final cards in [
+          levelOneCards,
+          levelTwoCards,
+          levelThreeCards,
+          levelFourCards,
+          cmsCards,
+        ]) {
+          expect(cards.keys.toSet().intersection(_retiredSaliceIds), isEmpty);
+        }
+        for (final cards in [levelThreeCards, levelFourCards, cmsCards]) {
+          expect(cards.keys.toSet(), containsAll(_saliceSuccessors.values));
+        }
         expect(
           europeIds.where(levelTwoCards.containsKey),
           hasLength(26),

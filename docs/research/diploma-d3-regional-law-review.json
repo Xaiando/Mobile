@@ -1,0 +1,436 @@
+{
+  "candidate": "0.24.73",
+  "createdAt": "2026-10-03T02:56:53.000Z",
+  "predecessor": {
+    "files": 282,
+    "items": 4933,
+    "checksum": "sha256:ffbbc9c66bd1ebc247e244a15e2482930cc846f3302dcf4e54d15550f50c2343",
+    "fixtureSha256": "a5ba673b72969a2555537e6c6018e0c01761e69d624bb7acc5c0cdebfaae7359"
+  },
+  "canonicalEdits": true,
+  "items": 24,
+  "principles": 12,
+  "cases": 3,
+  "caseRoleItems": 12,
+  "templates": 3,
+  "sources": 5,
+  "mapping": {
+    "certification": "WSET_L4",
+    "unit": "D3",
+    "importance": "core",
+    "domain": "geography",
+    "depth2": 12,
+    "depth3": 12
+  },
+  "status": "unverified_internal_source_fit_review_complete",
+  "ids": [
+    "ki_d3law_jura_cellar_calendar",
+    "ki_d3law_jura_veil_duration",
+    "ki_d3law_jura_consumer_release",
+    "ki_d3law_jura_clavelin_reserved",
+    "ki_d3law_tokaj_applicability",
+    "ki_d3law_tokaj_aszu_sugar",
+    "ki_d3law_tokaj_optional_puttonyos",
+    "ki_d3law_tokaj_consumer_release",
+    "ki_d3law_china_standard_status",
+    "ki_d3law_china_gi_requirements",
+    "ki_d3law_china_special_mark",
+    "ki_d3law_china_claim_scope",
+    "ki_d3law_case_jura_release_inventory_action",
+    "ki_d3law_case_jura_release_inventory_reason",
+    "ki_d3law_case_jura_release_inventory_tradeoff",
+    "ki_d3law_case_jura_release_inventory_limitation",
+    "ki_d3law_case_tokaj_label_release_action",
+    "ki_d3law_case_tokaj_label_release_reason",
+    "ki_d3law_case_tokaj_label_release_tradeoff",
+    "ki_d3law_case_tokaj_label_release_limitation",
+    "ki_d3law_case_china_gi_dossier_action",
+    "ki_d3law_case_china_gi_dossier_reason",
+    "ki_d3law_case_china_gi_dossier_tradeoff",
+    "ki_d3law_case_china_gi_dossier_limitation"
+  ],
+  "caseArithmetic": {
+    "jura": "Harvest 2026: cellar through 15 December 2032 and at least 60 veil months; earliest consumer date 1 January 2033. 100 * 0.62 = 62 litres; 100 * EUR 40 = EUR 4,000; EUR 4,000 / 62 = EUR 64.516129 per litre. Add fixed EUR 240 holding cost: EUR 4,240 / 62 = EUR 68.387097 per litre.",
+    "tokaj": "135 g/L meets 120 but misses 150; harvest 2025 gives earliest consumer date 1 January 2028. 100 * EUR 25 = EUR 2,500; six months * EUR 60 = EUR 360; plus EUR 180 reprint gives EUR 3,040 listed costs.",
+    "china": "200 * CNY 50 = CNY 10,000; A adds CNY 600 + CNY 200 = CNY 800, giving CNY 10,800. B adds CNY 500, giving CNY 10,500. CNY 300 difference concerns only listed costs."
+  },
+  "sourceLimits": [
+    "Jura adopted primary indexed text read, byte hash unknown; same primary clauses independently located by D3 reviewer. Reservation is not a reverse universal bottle mandate.",
+    "Tokaj Hungarian text paraphrased; optional3/4labels remain listed; post1Aug2025scope explicit, historical rules preserved.",
+    "China recommended status metadata only; no unread substantive standard thresholds. GI-product route only; recognition fictional premise, no actual GI status invented.",
+    "Study curation timestamps do not establish qualified factual verification."
+  ],
+  "rootIntegration": [
+    "Copy only reviewed area/template candidates into canonical curriculum after .73 integration authorisation.",
+    "Register include paths, D3 scope, publication after authored curation, coverage baseline and affected count/cohort fixtures.",
+    "Root owns one original3-question60minute alternate timed law pack using these three cases; no officialexam replica."
+  ],
+  "independentReviewPending": null,
+  "choiceLengthReview": [
+    {
+      "id": "ki_d3law_jura_cellar_calendar",
+      "correctIndex": 0,
+      "wordCounts": [
+        42,
+        51,
+        51,
+        49
+      ],
+      "correctWordRank": 0,
+      "charCounts": [
+        265,
+        329,
+        356,
+        348
+      ],
+      "correctCharRank": 0
+    },
+    {
+      "id": "ki_d3law_jura_veil_duration",
+      "correctIndex": 1,
+      "wordCounts": [
+        50,
+        37,
+        45,
+        45
+      ],
+      "correctWordRank": 0,
+      "charCounts": [
+        329,
+        246,
+        325,
+        333
+      ],
+      "correctCharRank": 0
+    },
+    {
+      "id": "ki_d3law_jura_consumer_release",
+      "correctIndex": 2,
+      "wordCounts": [
+        50,
+        46,
+        49,
+        47
+      ],
+      "correctWordRank": 2,
+      "charCounts": [
+        332,
+        309,
+        288,
+        303
+      ],
+      "correctCharRank": 0
+    },
+    {
+      "id": "ki_d3law_jura_clavelin_reserved",
+      "correctIndex": 3,
+      "wordCounts": [
+        48,
+        46,
+        48,
+        52
+      ],
+      "correctWordRank": 3,
+      "charCounts": [
+        327,
+        320,
+        292,
+        297
+      ],
+      "correctCharRank": 1
+    },
+    {
+      "id": "ki_d3law_tokaj_applicability",
+      "correctIndex": 0,
+      "wordCounts": [
+        45,
+        46,
+        48,
+        47
+      ],
+      "correctWordRank": 0,
+      "charCounts": [
+        329,
+        290,
+        334,
+        308
+      ],
+      "correctCharRank": 2
+    },
+    {
+      "id": "ki_d3law_tokaj_aszu_sugar",
+      "correctIndex": 1,
+      "wordCounts": [
+        47,
+        34,
+        44,
+        45
+      ],
+      "correctWordRank": 0,
+      "charCounts": [
+        300,
+        218,
+        282,
+        308
+      ],
+      "correctCharRank": 0
+    },
+    {
+      "id": "ki_d3law_tokaj_optional_puttonyos",
+      "correctIndex": 2,
+      "wordCounts": [
+        46,
+        48,
+        53,
+        47
+      ],
+      "correctWordRank": 3,
+      "charCounts": [
+        272,
+        291,
+        283,
+        280
+      ],
+      "correctCharRank": 2
+    },
+    {
+      "id": "ki_d3law_tokaj_consumer_release",
+      "correctIndex": 3,
+      "wordCounts": [
+        50,
+        45,
+        48,
+        46
+      ],
+      "correctWordRank": 1,
+      "charCounts": [
+        298,
+        266,
+        332,
+        289
+      ],
+      "correctCharRank": 1
+    },
+    {
+      "id": "ki_d3law_china_standard_status",
+      "correctIndex": 0,
+      "wordCounts": [
+        47,
+        48,
+        45,
+        45
+      ],
+      "correctWordRank": 2,
+      "charCounts": [
+        298,
+        305,
+        306,
+        311
+      ],
+      "correctCharRank": 0
+    },
+    {
+      "id": "ki_d3law_china_gi_requirements",
+      "correctIndex": 1,
+      "wordCounts": [
+        48,
+        49,
+        47,
+        47
+      ],
+      "correctWordRank": 3,
+      "charCounts": [
+        364,
+        374,
+        368,
+        336
+      ],
+      "correctCharRank": 3
+    },
+    {
+      "id": "ki_d3law_china_special_mark",
+      "correctIndex": 2,
+      "wordCounts": [
+        47,
+        36,
+        41,
+        48
+      ],
+      "correctWordRank": 1,
+      "charCounts": [
+        356,
+        263,
+        288,
+        328
+      ],
+      "correctCharRank": 1
+    },
+    {
+      "id": "ki_d3law_china_claim_scope",
+      "correctIndex": 3,
+      "wordCounts": [
+        47,
+        50,
+        44,
+        56
+      ],
+      "correctWordRank": 3,
+      "charCounts": [
+        335,
+        316,
+        339,
+        364
+      ],
+      "correctCharRank": 3
+    }
+  ],
+  "criticResolution": [
+    "D3 reviewer independently read adopted Jura clauses and original hash-matched Tokaj/China PDFs.",
+    "Explicit pilot buyer and supplier cash perspectives; all specified arithmetic unchanged.",
+    "Tokaj placing-on-market rule is broader than the blocked consumer dispatch; no wholesale exemption.",
+    "Final prompt consistently names 2025 harvest rather than mistakenly suggesting a2025dispatch."
+  ],
+  "integratedAt": "2026-10-03T03:18:51.866Z",
+  "dataset": "0.24.73",
+  "factualVerification": "unverified",
+  "writtenPackReview": {
+    "status": "unverified_pending_independent_source_fit_review",
+    "purpose": "Original local practice pack; no official examination questions, marking grid, qualification or learner-grade claim.",
+    "factsVsPremises": "Named adopted-law/status propositions are source-grounded. Lot records, dates, observations, quoted prices and sales/payment offers are explicitly hypothetical; meeting selected gates does not establish complete compliance.",
+    "sources": [
+      {
+        "questionId": "d3_law_jura_release_value",
+        "url": "https://info.agriculture.gouv.fr/boagri/document_administratif-40d171ab-4187-40be-86f4-fcc155a4eca8/telechargement",
+        "publisher": "French Ministry of Agriculture",
+        "documentIdentifier": "AGRT2222482A CDC Côtes du Jura; BO MASA 29 September 2022",
+        "locators": [
+          "Chapter I IX.2(a)",
+          "Chapter I IX.3(b)",
+          "Chapter I IX.5"
+        ],
+        "researchPath": "build/diploma-jura-current-law-research-073.json",
+        "originalPdfSha256": null,
+        "observedExtractSha256": "fd560f7a1f58a7847ade97053fd9bdf03ea0c1a3f4544add583933223eb50375",
+        "hashMeaning": "Preserved observed official-PDF extracts, not original PDF bytes.",
+        "guard": "Clavelin reservation does not establish compulsory use by every vin jaune or blanket 75-cl illegality."
+      },
+      {
+        "questionId": "d3_law_tokaj_current_release",
+        "url": "https://boraszat.kormany.hu/download/b/85/53000/TOKAJ%20term%C3%A9kle%C3%ADr%C3%A1s%20%2810%20v%C3%A1ltozat%29%20kn.pdf",
+        "publisher": "Hungarian Ministry of Agriculture",
+        "documentIdentifier": "Tokaj PDO specification version10",
+        "locators": [
+          "p3 II.1(a)",
+          "p6 III.A",
+          "p18 VIII.1(d)(ii)",
+          "p18 VIII.2(a)"
+        ],
+        "harvestScope": "grapes harvested after1August2025",
+        "researchPath": "build/diploma-residual-law-research-073.json",
+        "sourceSha256": "1a290e9513313daba01a2fd4314f0a9c3047d594770ca4ae5e7363ab945e1c3e",
+        "translationLimit": "English paraphrase of Hungarian original; independent source-fit review required."
+      },
+      {
+        "questionId": "d3_law_china_standard_origin",
+        "url": "https://openstd.samr.gov.cn/bzgk/std/newGbInfo?hcno=7D1FDC42A148D76E6BF379A8CB6D1DF7",
+        "publisher": "SAMR/SAC",
+        "locators": [
+          "current status",
+          "remarks:2017Announcement7 conversion to recommended"
+        ],
+        "guard": "Register status only; no unobserved numeric substantive standard thresholds."
+      },
+      {
+        "questionId": "d3_law_china_standard_origin",
+        "url": "https://www.cnipa.gov.cn/art/2024/1/2/art_526_189473.html?xxgkhide=1",
+        "publisher": "CNIPA",
+        "documentIdentifier": "Measures on Protection of Products with Geographical Indications, Order80, effective1February2024",
+        "locators": [
+          "Articles2,18,20,23,30"
+        ],
+        "researchPath": "build/diploma-residual-law-research-073.json",
+        "guard": "GI-product route only; no invented specific Ningxia protected-name status or blanket wine-law compliance."
+      }
+    ],
+    "referenceExpectations": {
+      "jura": {
+        "maturationThrough": "2032-12-15",
+        "earliestConsumerMarketing": "2033-01-01",
+        "veilMonthsMinimum": 60,
+        "clavelinLitres": 0.62,
+        "quotePerLitre": 64.51612903225806,
+        "comparisonPerLitre": 60,
+        "orderLitres": 62,
+        "forecastTotal": 4000,
+        "advance": 800,
+        "balance": 3200
+      },
+      "tokaj": {
+        "harvest": 2026,
+        "residualSugar": 135,
+        "minimumAszuSugar": 120,
+        "minimumSixPuttonyosSugar": 150,
+        "woodMonths": 18,
+        "earliestConsumerMarketing": "2029-01-01",
+        "orderLitres": 50,
+        "merchantPerLitre": 48,
+        "merchantTotal": 2400,
+        "directHeadlineTotal": 2800,
+        "headlineDifference": 400
+      },
+      "china": {
+        "orderLitres": 75,
+        "merchantTotal": 2000,
+        "merchantPerLitre": 26.666666666666668,
+        "directHeadlineTotal": 3000,
+        "headlineDifference": 1000
+      }
+    },
+    "criticCorrections": [
+      {
+        "reason": "Specify contract price and payment dates rather than inferring them from a separate forecast.",
+        "changed": "Jura100-bottleEUR40contract20%advance80%deliveryanddirect100%delivery;unit-pricecomparisonterminology."
+      },
+      {
+        "reason": "TokajVIII.2.ausesplacingonmarketwithnoconsumerqualifier;do notinventwholesaletransferrules.",
+        "changed": "Scoped earliestmarketreleasewording,datesandotherpremisesunchanged."
+      }
+    ]
+  },
+  "integrationTransform": {
+    "reason": "Reuse the already registered identical primary URL; preserve all historical source identities and per-item exact locators.",
+    "from": "src_d3law_tokaj10",
+    "to": "src_hu_tokaj_2025",
+    "originalDuplicateMetadata": {
+      "id": "src_d3law_tokaj10",
+      "kind": "legislation",
+      "title": "Tokaj PDO specification version 10: harvests after 1 August 2025",
+      "publisher": "Hungarian Ministry of Agriculture",
+      "jurisdiction": "HU",
+      "url": "https://boraszat.kormany.hu/download/b/85/53000/TOKAJ%20term%C3%A9kle%C3%ADr%C3%A1s%20%2810%20v%C3%A1ltozat%29%20kn.pdf",
+      "document_identifier": "Version 10 cover applicability; II.1.a (p3), III.A (p6), VIII.1.d.ii and VIII.2.a (p18). English paraphrase of Hungarian current text. PDF SHA256: 1a290e9513313daba01a2fd4314f0a9c3047d594770ca4ae5e7363ab945e1c3e.",
+      "accessed_on": "2026-10-03"
+    },
+    "knowledgeOrRubricPropositionsChanged": false,
+    "sourceKindCorrection": {
+      "id": "src_d3law_china_standard",
+      "from": "regulatory_guidance",
+      "to": "regulator_register",
+      "reason": "Existing SQLite source-kind constraint; actual official standards status catalog."
+    }
+  },
+  "integratedHashes": [
+    {
+      "path": "assets/curriculum/areas/diploma_d3_regional_law_completion.yaml",
+      "sha256": "d2a72ea6d706f3f50dd0ee7803d2b3094390ecdd2309bf09584a1a96fb25ee8c"
+    },
+    {
+      "path": "assets/curriculum/templates/diploma_d3_regional_law_completion.yaml",
+      "sha256": "b21bf0e3433be67b936f0394604b4514027b6145497299bcdd0b2fab1dd8f451"
+    }
+  ],
+  "independentReview": {
+    "path": "docs/research/diploma-d3-law-independent-review.json",
+    "sourceHash": "e2e53d7265d7a84f29ad0a761890348bbca7ed13b944499f55bebaeca9f1a900"
+  }
+}

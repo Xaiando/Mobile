@@ -3,14 +3,15 @@
 import fs from 'node:fs';
 import path from 'node:path';
 import YAML from 'yaml';
+import { readYaml } from './lib.mjs';
 
 const file = 'tool/geography/layers.yaml';
 const doc = YAML.parseDocument(fs.readFileSync(file, 'utf8'));
 const recipes = YAML.parse(fs.readFileSync('tool/geography/france_atlas_areas.yaml', 'utf8'));
 const manifestFile = 'assets/curriculum/curriculum.yaml';
-const manifest = YAML.parse(fs.readFileSync(manifestFile, 'utf8'));
+const manifest = readYaml(manifestFile);
 const authored = manifest.includes.map((include) =>
-  YAML.parse(fs.readFileSync(path.join(path.dirname(manifestFile), include), 'utf8')),
+  readYaml(path.join(path.dirname(manifestFile), include)),
 );
 const nodes = new Map(authored.flatMap((part) =>
   (part.knowledge_nodes ?? []).map((node) => [node.id, node]),

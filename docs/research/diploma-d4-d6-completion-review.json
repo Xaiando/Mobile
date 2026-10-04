@@ -1,0 +1,1443 @@
+{
+  "schemaVersion": 1,
+  "reviewId": "diploma.d4-d6.integrated-local-authoring",
+  "curatedAt": "2026-10-02T22:56:11.000Z",
+  "localDate": "2026-10-03",
+  "scopeSource": "https://www.wsetglobal.com/media/17609/wset_l4wines_specification_en_august-2025.pdf",
+  "scopeUse": "Product and outcome inventory only; original questions, prose and independent appraisal labels. This is not WSET's tasting form, assignment or grading.",
+  "scopePages": [
+    14,
+    15,
+    16,
+    17,
+    18
+  ],
+  "newKnowledgeItems": 96,
+  "originalPrinciples": 8,
+  "originalFourRoleCases": 22,
+  "newTemplates": 12,
+  "verificationStatus": "unverified",
+  "qualifiedFactualVerification": false,
+  "officialQualificationClaim": false,
+  "integrationResponsibility": "Root integrates into canonical new release, routes exact selectors, validates actual practice and preservation. This agent has not edited Git, CI, Android, existing files or canonical manifest.",
+  "files": [
+    "assets/curriculum/areas/diploma_d4_integrated_completion.yaml",
+    "assets/curriculum/templates/diploma_d4_integrated_completion.yaml",
+    "assets/curriculum/areas/diploma_d5_integrated_completion.yaml",
+    "assets/curriculum/templates/diploma_d5_integrated_completion.yaml",
+    "assets/curriculum/areas/diploma_d6_integrated_completion.yaml",
+    "assets/curriculum/templates/diploma_d6_integrated_completion.yaml"
+  ],
+  "sourcePolicy": "Reuse existing canonical source IDs and URLs. Every new item cites primary product/method evidence or university research-method teaching. Original scenarios clearly supply their own hypothetical observations, agronomic records, budgets, timings and demand; cited sources do not validate those premises. New items assert no numeric regulatory rule. Source pages' promotional superiority or numerical errors were not adopted.",
+  "principles": [
+    {
+      "itemId": "ki_d4c_press_fraction",
+      "subjectId": "n_d4c_press_fraction_principle",
+      "unit": "D4",
+      "sourceId": "src_spark_pressing",
+      "locator": "Pressing: successive juice fractions and different characteristics"
+    },
+    {
+      "itemId": "ki_d4c_method_cost",
+      "subjectId": "n_d4c_method_cost_principle",
+      "unit": "D4",
+      "sourceId": "src_spark_australian_methods",
+      "locator": "Transfer method versus tank method; stages of clarification and packaging"
+    },
+    {
+      "itemId": "ki_d4c_ancestral_release",
+      "subjectId": "n_d4c_ancestral_release_principle",
+      "unit": "D4",
+      "sourceId": "src_spark_ancestral",
+      "locator": "Producer description of completing original fermentation in bottle; stability checks are conditional application"
+    },
+    {
+      "itemId": "ki_d5c_style_price",
+      "subjectId": "n_d5c_style_price_principle",
+      "unit": "D5",
+      "sourceId": "src_fort_port_intro",
+      "locator": "Ruby and Tawny maturation differences; commercial evaluation is editorial conditional application",
+      "additionalSourceIds": [
+        "src_biz_victoria_pricing",
+        "src_biz_au_cashflow"
+      ],
+      "displayedChoiceSourceId": "src_biz_victoria_pricing"
+    },
+    {
+      "itemId": "ki_d6c_denominator",
+      "subjectId": "n_d6c_denominator_principle",
+      "unit": "D6",
+      "sourceId": "src_d6_leeds_evaluate",
+      "locator": "Relevance, evidence and follow-up checks; original wine-data application"
+    },
+    {
+      "itemId": "ki_d6c_causal",
+      "subjectId": "n_d6c_causal_principle",
+      "unit": "D6",
+      "sourceId": "src_d6_leeds_read",
+      "locator": "Evidence, unsupported assertions, omissions and competing evidence"
+    },
+    {
+      "itemId": "ki_d6c_synthesis",
+      "subjectId": "n_d6c_synthesis_principle",
+      "unit": "D6",
+      "sourceId": "src_d6_leeds_argument",
+      "locator": "Develop an argument by weighing different sides and evidence"
+    },
+    {
+      "itemId": "ki_d6c_revision",
+      "subjectId": "n_d6c_revision_principle",
+      "unit": "D6",
+      "sourceId": "src_d6_leeds_cite",
+      "locator": "Incorporate evidence: citing summaries, synthesis and paraphrases"
+    }
+  ],
+  "cases": [
+    {
+      "id": "champagne_stock",
+      "unit": "D4",
+      "subjectId": "n_d456_case_champagne_stock",
+      "itemIds": [
+        "ki_d456_champagne_stock_action",
+        "ki_d456_champagne_stock_reason",
+        "ki_d456_champagne_stock_tradeoff",
+        "ki_d456_champagne_stock_limitation"
+      ],
+      "rowIds": [
+        "d4.french_products",
+        "d4.commercial_choices"
+      ],
+      "prerequisiteItemIds": [
+        "ki_d4depth_champ_reserve",
+        "ki_d4c_press_fraction"
+      ],
+      "sourceIds": [
+        "src_d4depth_champ_houses",
+        "src_spark_pressing"
+      ],
+      "dimensions": [
+        "environment and hazards",
+        "vineyard/fruit and harvest evidence",
+        "process, blending and finishing",
+        "product identity and label-record limits",
+        "sensory style and quality evidence",
+        "usable yield, labour, stock and cost",
+        "route, customer brief and market demand"
+      ],
+      "practiceModes": [
+        "case_criteria",
+        "short_answer",
+        "authored_choice",
+        "four independent flashcard roles"
+      ],
+      "numericInputsStatus": "Original supplied context only; no numerical claim about actual wine market, product law, sensory trial or producer economics."
+    },
+    {
+      "id": "cremant_loire",
+      "unit": "D4",
+      "subjectId": "n_d456_case_cremant_loire",
+      "itemIds": [
+        "ki_d456_cremant_loire_action",
+        "ki_d456_cremant_loire_reason",
+        "ki_d456_cremant_loire_tradeoff",
+        "ki_d456_cremant_loire_limitation"
+      ],
+      "rowIds": [
+        "d4.french_products",
+        "d4.production_choices"
+      ],
+      "prerequisiteItemIds": [
+        "ki_d4depth_alsace_harvest",
+        "ki_d4d5_bourgogne_base",
+        "ki_d4depth_loire_variety",
+        "ki_d4d5_saumur_bottle"
+      ],
+      "sourceIds": [
+        "src_d4depth_alsace_process",
+        "src_d4d5_bourgogne",
+        "src_d4depth_loire_chenin"
+      ],
+      "dimensions": [
+        "environment and hazards",
+        "vineyard/fruit and harvest evidence",
+        "process, blending and finishing",
+        "product identity and label-record limits",
+        "sensory style and quality evidence",
+        "usable yield, labour, stock and cost",
+        "route, customer brief and market demand"
+      ],
+      "practiceModes": [
+        "case_criteria",
+        "short_answer",
+        "authored_choice",
+        "four independent flashcard roles"
+      ],
+      "numericInputsStatus": "Original supplied context only; no numerical claim about actual wine market, product law, sensory trial or producer economics."
+    },
+    {
+      "id": "prosecco_supply",
+      "unit": "D4",
+      "subjectId": "n_d456_case_prosecco_supply",
+      "itemIds": [
+        "ki_d456_prosecco_supply_action",
+        "ki_d456_prosecco_supply_reason",
+        "ki_d456_prosecco_supply_tradeoff",
+        "ki_d456_prosecco_supply_limitation"
+      ],
+      "rowIds": [
+        "d4.italian_products",
+        "d4.production_choices",
+        "d4.commercial_choices"
+      ],
+      "prerequisiteItemIds": [
+        "ki_d4depth_prosecco_tank",
+        "ki_d4depth_prosecco_rive"
+      ],
+      "sourceIds": [
+        "src_d4depth_prosecco_doc",
+        "src_d4depth_prosecco_rive"
+      ],
+      "dimensions": [
+        "environment and hazards",
+        "vineyard/fruit and harvest evidence",
+        "process, blending and finishing",
+        "product identity and label-record limits",
+        "sensory style and quality evidence",
+        "usable yield, labour, stock and cost",
+        "route, customer brief and market demand"
+      ],
+      "practiceModes": [
+        "case_criteria",
+        "short_answer",
+        "authored_choice",
+        "four independent flashcard roles"
+      ],
+      "numericInputsStatus": "Original supplied context only; no numerical claim about actual wine market, product law, sensory trial or producer economics."
+    },
+    {
+      "id": "asti_aroma",
+      "unit": "D4",
+      "subjectId": "n_d456_case_asti_aroma",
+      "itemIds": [
+        "ki_d456_asti_aroma_action",
+        "ki_d456_asti_aroma_reason",
+        "ki_d456_asti_aroma_tradeoff",
+        "ki_d456_asti_aroma_limitation"
+      ],
+      "rowIds": [
+        "d4.italian_products",
+        "d4.production_choices"
+      ],
+      "prerequisiteItemIds": [
+        "ki_d4depth_asti_moscato"
+      ],
+      "sourceIds": [
+        "src_d4depth_asti_moscato",
+        "src_spark_australian_methods"
+      ],
+      "dimensions": [
+        "environment and hazards",
+        "vineyard/fruit and harvest evidence",
+        "process, blending and finishing",
+        "product identity and label-record limits",
+        "sensory style and quality evidence",
+        "usable yield, labour, stock and cost",
+        "route, customer brief and market demand"
+      ],
+      "practiceModes": [
+        "case_criteria",
+        "short_answer",
+        "authored_choice",
+        "four independent flashcard roles"
+      ],
+      "numericInputsStatus": "Original supplied context only; no numerical claim about actual wine market, product law, sensory trial or producer economics."
+    },
+    {
+      "id": "italian_bottle",
+      "unit": "D4",
+      "subjectId": "n_d456_case_italian_bottle",
+      "itemIds": [
+        "ki_d456_italian_bottle_action",
+        "ki_d456_italian_bottle_reason",
+        "ki_d456_italian_bottle_tradeoff",
+        "ki_d456_italian_bottle_limitation"
+      ],
+      "rowIds": [
+        "d4.italian_products",
+        "d4.commercial_choices"
+      ],
+      "prerequisiteItemIds": [
+        "ki_d4depth_franciacorta_method",
+        "ki_d4d5_trento_riserva"
+      ],
+      "sourceIds": [
+        "src_d4depth_franciacorta_rules",
+        "src_d4d5_trento"
+      ],
+      "dimensions": [
+        "environment and hazards",
+        "vineyard/fruit and harvest evidence",
+        "process, blending and finishing",
+        "product identity and label-record limits",
+        "sensory style and quality evidence",
+        "usable yield, labour, stock and cost",
+        "route, customer brief and market demand"
+      ],
+      "practiceModes": [
+        "case_criteria",
+        "short_answer",
+        "authored_choice",
+        "four independent flashcard roles"
+      ],
+      "numericInputsStatus": "Original supplied context only; no numerical claim about actual wine market, product law, sensory trial or producer economics."
+    },
+    {
+      "id": "lambrusco_pairing",
+      "unit": "D4",
+      "subjectId": "n_d456_case_lambrusco_pairing",
+      "itemIds": [
+        "ki_d456_lambrusco_pairing_action",
+        "ki_d456_lambrusco_pairing_reason",
+        "ki_d456_lambrusco_pairing_tradeoff",
+        "ki_d456_lambrusco_pairing_limitation"
+      ],
+      "rowIds": [
+        "d4.italian_products"
+      ],
+      "prerequisiteItemIds": [
+        "ki_d4d5_sorbara_dry",
+        "ki_d4d5_grasparossa_body"
+      ],
+      "sourceIds": [
+        "src_d4d5_lambrusco"
+      ],
+      "dimensions": [
+        "environment and hazards",
+        "vineyard/fruit and harvest evidence",
+        "process, blending and finishing",
+        "product identity and label-record limits",
+        "sensory style and quality evidence",
+        "usable yield, labour, stock and cost",
+        "route, customer brief and market demand"
+      ],
+      "practiceModes": [
+        "case_criteria",
+        "short_answer",
+        "authored_choice",
+        "four independent flashcard roles"
+      ],
+      "numericInputsStatus": "Original supplied context only; no numerical claim about actual wine market, product law, sensory trial or producer economics."
+    },
+    {
+      "id": "cava_water",
+      "unit": "D4",
+      "subjectId": "n_d456_case_cava_water",
+      "itemIds": [
+        "ki_d456_cava_water_action",
+        "ki_d456_cava_water_reason",
+        "ki_d456_cava_water_tradeoff",
+        "ki_d456_cava_water_limitation"
+      ],
+      "rowIds": [
+        "d4.cava_products",
+        "d4.production_choices",
+        "d4.commercial_choices"
+      ],
+      "prerequisiteItemIds": [
+        "ki_d4depth_cava_grapes",
+        "ki_d4depth_cava_organic"
+      ],
+      "sourceIds": [
+        "src_d4depth_cava_organic",
+        "src_d4depth_cava_categories"
+      ],
+      "dimensions": [
+        "environment and hazards",
+        "vineyard/fruit and harvest evidence",
+        "process, blending and finishing",
+        "product identity and label-record limits",
+        "sensory style and quality evidence",
+        "usable yield, labour, stock and cost",
+        "route, customer brief and market demand"
+      ],
+      "practiceModes": [
+        "case_criteria",
+        "short_answer",
+        "authored_choice",
+        "four independent flashcard roles"
+      ],
+      "numericInputsStatus": "Original supplied context only; no numerical claim about actual wine market, product law, sensory trial or producer economics."
+    },
+    {
+      "id": "british_vintage",
+      "unit": "D4",
+      "subjectId": "n_d456_case_british_vintage",
+      "itemIds": [
+        "ki_d456_british_vintage_action",
+        "ki_d456_british_vintage_reason",
+        "ki_d456_british_vintage_tradeoff",
+        "ki_d456_british_vintage_limitation"
+      ],
+      "rowIds": [
+        "d4.british_products",
+        "d4.commercial_choices"
+      ],
+      "prerequisiteItemIds": [
+        "ki_d4depth_britain_frost"
+      ],
+      "sourceIds": [
+        "src_d4depth_british_frost",
+        "src_d4depth_british_style"
+      ],
+      "dimensions": [
+        "environment and hazards",
+        "vineyard/fruit and harvest evidence",
+        "process, blending and finishing",
+        "product identity and label-record limits",
+        "sensory style and quality evidence",
+        "usable yield, labour, stock and cost",
+        "route, customer brief and market demand"
+      ],
+      "practiceModes": [
+        "case_criteria",
+        "short_answer",
+        "authored_choice",
+        "four independent flashcard roles"
+      ],
+      "numericInputsStatus": "Original supplied context only; no numerical claim about actual wine market, product law, sensory trial or producer economics."
+    },
+    {
+      "id": "us_site_method",
+      "unit": "D4",
+      "subjectId": "n_d456_case_us_site_method",
+      "itemIds": [
+        "ki_d456_us_site_method_action",
+        "ki_d456_us_site_method_reason",
+        "ki_d456_us_site_method_tradeoff",
+        "ki_d456_us_site_method_limitation"
+      ],
+      "rowIds": [
+        "d4.american_products"
+      ],
+      "prerequisiteItemIds": [
+        "ki_d4nw_us_california",
+        "ki_d4nw_us_oregon",
+        "ki_d4nw_us_washington"
+      ],
+      "sourceIds": [
+        "src_d4nw_us_california",
+        "src_d4nw_us_oregon",
+        "src_d4nw_us_washington_spark"
+      ],
+      "dimensions": [
+        "environment and hazards",
+        "vineyard/fruit and harvest evidence",
+        "process, blending and finishing",
+        "product identity and label-record limits",
+        "sensory style and quality evidence",
+        "usable yield, labour, stock and cost",
+        "route, customer brief and market demand"
+      ],
+      "practiceModes": [
+        "case_criteria",
+        "short_answer",
+        "authored_choice",
+        "four independent flashcard roles"
+      ],
+      "numericInputsStatus": "Original supplied context only; no numerical claim about actual wine market, product law, sensory trial or producer economics."
+    },
+    {
+      "id": "chile_method",
+      "unit": "D4",
+      "subjectId": "n_d456_case_chile_method",
+      "itemIds": [
+        "ki_d456_chile_method_action",
+        "ki_d456_chile_method_reason",
+        "ki_d456_chile_method_tradeoff",
+        "ki_d456_chile_method_limitation"
+      ],
+      "rowIds": [
+        "d4.american_products",
+        "d4.production_choices"
+      ],
+      "prerequisiteItemIds": [
+        "ki_d4nw_chile_coast_method"
+      ],
+      "sourceIds": [
+        "src_d4nw_chile_spark",
+        "src_spark_australian_methods"
+      ],
+      "dimensions": [
+        "environment and hazards",
+        "vineyard/fruit and harvest evidence",
+        "process, blending and finishing",
+        "product identity and label-record limits",
+        "sensory style and quality evidence",
+        "usable yield, labour, stock and cost",
+        "route, customer brief and market demand"
+      ],
+      "practiceModes": [
+        "case_criteria",
+        "short_answer",
+        "authored_choice",
+        "four independent flashcard roles"
+      ],
+      "numericInputsStatus": "Original supplied context only; no numerical claim about actual wine market, product law, sensory trial or producer economics."
+    },
+    {
+      "id": "argentina_capacity",
+      "unit": "D4",
+      "subjectId": "n_d456_case_argentina_capacity",
+      "itemIds": [
+        "ki_d456_argentina_capacity_action",
+        "ki_d456_argentina_capacity_reason",
+        "ki_d456_argentina_capacity_tradeoff",
+        "ki_d456_argentina_capacity_limitation"
+      ],
+      "rowIds": [
+        "d4.american_products",
+        "d4.commercial_choices"
+      ],
+      "prerequisiteItemIds": [
+        "ki_d4nw_argentina_market",
+        "ki_d4nw_argentina_terms"
+      ],
+      "sourceIds": [
+        "src_d4nw_argentina_report",
+        "src_d4nw_argentina_digest"
+      ],
+      "dimensions": [
+        "environment and hazards",
+        "vineyard/fruit and harvest evidence",
+        "process, blending and finishing",
+        "product identity and label-record limits",
+        "sensory style and quality evidence",
+        "usable yield, labour, stock and cost",
+        "route, customer brief and market demand"
+      ],
+      "practiceModes": [
+        "case_criteria",
+        "short_answer",
+        "authored_choice",
+        "four independent flashcard roles"
+      ],
+      "numericInputsStatus": "Original supplied context only; no numerical claim about actual wine market, product law, sensory trial or producer economics."
+    },
+    {
+      "id": "australia_portfolio",
+      "unit": "D4",
+      "subjectId": "n_d456_case_australia_portfolio",
+      "itemIds": [
+        "ki_d456_australia_portfolio_action",
+        "ki_d456_australia_portfolio_reason",
+        "ki_d456_australia_portfolio_tradeoff",
+        "ki_d456_australia_portfolio_limitation"
+      ],
+      "rowIds": [
+        "d4.australian_products",
+        "d4.production_choices",
+        "d4.commercial_choices"
+      ],
+      "prerequisiteItemIds": [
+        "ki_d4nw_au_south_australia",
+        "ki_d4nw_au_victoria",
+        "ki_d4nw_au_tasmania",
+        "ki_d4nw_au_sea_label",
+        "ki_d4depth_au_shiraz",
+        "ki_d4c_method_cost"
+      ],
+      "sourceIds": [
+        "src_spark_australian_methods",
+        "src_d4nw_au_victoria",
+        "src_d4nw_au_multi_gi"
+      ],
+      "dimensions": [
+        "environment and hazards",
+        "vineyard/fruit and harvest evidence",
+        "process, blending and finishing",
+        "product identity and label-record limits",
+        "sensory style and quality evidence",
+        "usable yield, labour, stock and cost",
+        "route, customer brief and market demand"
+      ],
+      "practiceModes": [
+        "case_criteria",
+        "short_answer",
+        "authored_choice",
+        "four independent flashcard roles"
+      ],
+      "numericInputsStatus": "Original supplied context only; no numerical claim about actual wine market, product law, sensory trial or producer economics."
+    },
+    {
+      "id": "nz_harvest_blend",
+      "unit": "D4",
+      "subjectId": "n_d456_case_nz_harvest_blend",
+      "itemIds": [
+        "ki_d456_nz_harvest_blend_action",
+        "ki_d456_nz_harvest_blend_reason",
+        "ki_d456_nz_harvest_blend_tradeoff",
+        "ki_d456_nz_harvest_blend_limitation"
+      ],
+      "rowIds": [
+        "d4.new_zealand_products"
+      ],
+      "prerequisiteItemIds": [
+        "ki_d4nw_nz_regions",
+        "ki_d4nw_nz_method",
+        "ki_d4depth_nz_aromatic"
+      ],
+      "sourceIds": [
+        "src_wset_sf_nz_spark"
+      ],
+      "dimensions": [
+        "environment and hazards",
+        "vineyard/fruit and harvest evidence",
+        "process, blending and finishing",
+        "product identity and label-record limits",
+        "sensory style and quality evidence",
+        "usable yield, labour, stock and cost",
+        "route, customer brief and market demand"
+      ],
+      "practiceModes": [
+        "case_criteria",
+        "short_answer",
+        "authored_choice",
+        "four independent flashcard roles"
+      ],
+      "numericInputsStatus": "Original supplied context only; no numerical claim about actual wine market, product law, sensory trial or producer economics."
+    },
+    {
+      "id": "cap_classique_route",
+      "unit": "D4",
+      "subjectId": "n_d456_case_cap_classique_route",
+      "itemIds": [
+        "ki_d456_cap_classique_route_action",
+        "ki_d456_cap_classique_route_reason",
+        "ki_d456_cap_classique_route_tradeoff",
+        "ki_d456_cap_classique_route_limitation"
+      ],
+      "rowIds": [
+        "d4.south_african_products",
+        "d4.commercial_choices"
+      ],
+      "prerequisiteItemIds": [
+        "ki_d4nw_za_association",
+        "ki_d4nw_za_variation",
+        "ki_d4depth_za_chenin"
+      ],
+      "sourceIds": [
+        "src_d4nw_za_cap"
+      ],
+      "dimensions": [
+        "environment and hazards",
+        "vineyard/fruit and harvest evidence",
+        "process, blending and finishing",
+        "product identity and label-record limits",
+        "sensory style and quality evidence",
+        "usable yield, labour, stock and cost",
+        "route, customer brief and market demand"
+      ],
+      "practiceModes": [
+        "case_criteria",
+        "short_answer",
+        "authored_choice",
+        "four independent flashcard roles"
+      ],
+      "numericInputsStatus": "Original supplied context only; no numerical claim about actual wine market, product law, sensory trial or producer economics."
+    },
+    {
+      "id": "sherry_cellar",
+      "unit": "D5",
+      "subjectId": "n_d456_case_sherry_cellar",
+      "itemIds": [
+        "ki_d456_sherry_cellar_action",
+        "ki_d456_sherry_cellar_reason",
+        "ki_d456_sherry_cellar_tradeoff",
+        "ki_d456_sherry_cellar_limitation"
+      ],
+      "rowIds": [
+        "d5.sherry_products",
+        "d5.production_commerce"
+      ],
+      "prerequisiteItemIds": [
+        "ki_d5f_sherry_press",
+        "ki_fort_sherry_flor_level",
+        "ki_fort_sherry_refresh",
+        "ki_d4d5_palo_route"
+      ],
+      "sourceIds": [
+        "src_d5_sherry_press",
+        "src_fort_sherry_ageing",
+        "src_fort_sherry_fortification"
+      ],
+      "dimensions": [
+        "environment and hazards",
+        "vineyard/fruit and harvest evidence",
+        "process, blending and finishing",
+        "product identity and label-record limits",
+        "sensory style and quality evidence",
+        "usable yield, labour, stock and cost",
+        "route, customer brief and market demand"
+      ],
+      "practiceModes": [
+        "case_criteria",
+        "short_answer",
+        "authored_choice",
+        "four independent flashcard roles"
+      ],
+      "numericInputsStatus": "Original supplied context only; no numerical claim about actual wine market, product law, sensory trial or producer economics."
+    },
+    {
+      "id": "port_extraction_stock",
+      "unit": "D5",
+      "subjectId": "n_d456_case_port_extraction_stock",
+      "itemIds": [
+        "ki_d456_port_extraction_stock_action",
+        "ki_d456_port_extraction_stock_reason",
+        "ki_d456_port_extraction_stock_tradeoff",
+        "ki_d456_port_extraction_stock_limitation"
+      ],
+      "rowIds": [
+        "d5.port_products",
+        "d5.production_commerce"
+      ],
+      "prerequisiteItemIds": [
+        "ki_fort_port_stop",
+        "ki_d5f_port_gradient",
+        "ki_d4d5_lbv_vintage",
+        "ki_d4d5_colheita_cask",
+        "ki_d5c_style_price"
+      ],
+      "sourceIds": [
+        "src_fort_port_making",
+        "src_d5_ivdp_region",
+        "src_fort_port_categories"
+      ],
+      "dimensions": [
+        "environment and hazards",
+        "vineyard/fruit and harvest evidence",
+        "process, blending and finishing",
+        "product identity and label-record limits",
+        "sensory style and quality evidence",
+        "usable yield, labour, stock and cost",
+        "route, customer brief and market demand"
+      ],
+      "practiceModes": [
+        "case_criteria",
+        "short_answer",
+        "authored_choice",
+        "four independent flashcard roles"
+      ],
+      "numericInputsStatus": "Original supplied context only; no numerical claim about actual wine market, product law, sensory trial or producer economics."
+    },
+    {
+      "id": "madeira_working_capital",
+      "unit": "D5",
+      "subjectId": "n_d456_case_madeira_working_capital",
+      "itemIds": [
+        "ki_d456_madeira_working_capital_action",
+        "ki_d456_madeira_working_capital_reason",
+        "ki_d456_madeira_working_capital_tradeoff",
+        "ki_d456_madeira_working_capital_limitation"
+      ],
+      "rowIds": [
+        "d5.madeira_products",
+        "d5.production_commerce"
+      ],
+      "prerequisiteItemIds": [
+        "ki_d5madeira_poios",
+        "ki_d5madeira_levadas",
+        "ki_fort_madeira_estufagem",
+        "ki_fort_madeira_canteiro",
+        "ki_d5madeira_verdelho",
+        "ki_d5madeira_boal"
+      ],
+      "sourceIds": [
+        "src_fort_madeira_process",
+        "src_d5_madeira_grapes"
+      ],
+      "dimensions": [
+        "environment and hazards",
+        "vineyard/fruit and harvest evidence",
+        "process, blending and finishing",
+        "product identity and label-record limits",
+        "sensory style and quality evidence",
+        "usable yield, labour, stock and cost",
+        "route, customer brief and market demand"
+      ],
+      "practiceModes": [
+        "case_criteria",
+        "short_answer",
+        "authored_choice",
+        "four independent flashcard roles"
+      ],
+      "numericInputsStatus": "Original supplied context only; no numerical claim about actual wine market, product law, sensory trial or producer economics."
+    },
+    {
+      "id": "vdn_style_stock",
+      "unit": "D5",
+      "subjectId": "n_d456_case_vdn_style_stock",
+      "itemIds": [
+        "ki_d456_vdn_style_stock_action",
+        "ki_d456_vdn_style_stock_reason",
+        "ki_d456_vdn_style_stock_tradeoff",
+        "ki_d456_vdn_style_stock_limitation"
+      ],
+      "rowIds": [
+        "d5.french_vdn_products",
+        "d5.production_commerce"
+      ],
+      "prerequisiteItemIds": [
+        "ki_fort_vdn_mutage",
+        "ki_fort_vdn_marc",
+        "ki_fort_vdn_young",
+        "ki_fort_vdn_oxidative",
+        "ki_d5f_vdn_muscat",
+        "ki_d5f_vdn_maury",
+        "ki_d5f_vdn_banyuls_labour"
+      ],
+      "sourceIds": [
+        "src_d5_civr_maury",
+        "src_fort_vdn_process",
+        "src_d5_inao_banyuls"
+      ],
+      "dimensions": [
+        "environment and hazards",
+        "vineyard/fruit and harvest evidence",
+        "process, blending and finishing",
+        "product identity and label-record limits",
+        "sensory style and quality evidence",
+        "usable yield, labour, stock and cost",
+        "route, customer brief and market demand"
+      ],
+      "practiceModes": [
+        "case_criteria",
+        "short_answer",
+        "authored_choice",
+        "four independent flashcard roles"
+      ],
+      "numericInputsStatus": "Original supplied context only; no numerical claim about actual wine market, product law, sensory trial or producer economics."
+    },
+    {
+      "id": "rutherglen_replenishment",
+      "unit": "D5",
+      "subjectId": "n_d456_case_rutherglen_replenishment",
+      "itemIds": [
+        "ki_d456_rutherglen_replenishment_action",
+        "ki_d456_rutherglen_replenishment_reason",
+        "ki_d456_rutherglen_replenishment_tradeoff",
+        "ki_d456_rutherglen_replenishment_limitation"
+      ],
+      "rowIds": [
+        "d5.rutherglen_products",
+        "d5.production_commerce"
+      ],
+      "prerequisiteItemIds": [
+        "ki_fort_ruth_parcels",
+        "ki_fort_ruth_casks",
+        "ki_fort_ruth_classification",
+        "ki_fort_ruth_youthful_blend"
+      ],
+      "sourceIds": [
+        "src_fort_rutherglen_classes",
+        "src_fort_rutherglen_pfeiffer"
+      ],
+      "dimensions": [
+        "environment and hazards",
+        "vineyard/fruit and harvest evidence",
+        "process, blending and finishing",
+        "product identity and label-record limits",
+        "sensory style and quality evidence",
+        "usable yield, labour, stock and cost",
+        "route, customer brief and market demand"
+      ],
+      "practiceModes": [
+        "case_criteria",
+        "short_answer",
+        "authored_choice",
+        "four independent flashcard roles"
+      ],
+      "numericInputsStatus": "Original supplied context only; no numerical claim about actual wine market, product law, sensory trial or producer economics."
+    },
+    {
+      "id": "research_denominators",
+      "unit": "D6",
+      "subjectId": "n_d456_case_research_denominators",
+      "itemIds": [
+        "ki_d456_research_denominators_action",
+        "ki_d456_research_denominators_reason",
+        "ki_d456_research_denominators_tradeoff",
+        "ki_d456_research_denominators_limitation"
+      ],
+      "rowIds": [
+        "d6.source_appraisal"
+      ],
+      "prerequisiteItemIds": [
+        "ki_d6_research_question",
+        "ki_d6_research_provenance",
+        "ki_d6c_denominator"
+      ],
+      "sourceIds": [
+        "src_d6_leeds_evaluate",
+        "src_d6_leeds_read"
+      ],
+      "dimensions": [
+        "bounded inquiry",
+        "source origin/method",
+        "comparison and counterevidence",
+        "traceable original argument and revision"
+      ],
+      "practiceModes": [
+        "case_criteria",
+        "short_answer",
+        "authored_choice",
+        "four independent flashcard roles"
+      ],
+      "numericInputsStatus": "Original supplied context only; no numerical claim about actual wine market, product law, sensory trial or producer economics."
+    },
+    {
+      "id": "research_competing",
+      "unit": "D6",
+      "subjectId": "n_d456_case_research_competing",
+      "itemIds": [
+        "ki_d456_research_competing_action",
+        "ki_d456_research_competing_reason",
+        "ki_d456_research_competing_tradeoff",
+        "ki_d456_research_competing_limitation"
+      ],
+      "rowIds": [
+        "d6.evidence_argument"
+      ],
+      "prerequisiteItemIds": [
+        "ki_d6_research_counter",
+        "ki_d6_research_structure",
+        "ki_d6c_causal",
+        "ki_d6c_synthesis"
+      ],
+      "sourceIds": [
+        "src_d6_leeds_read",
+        "src_d6_leeds_argument"
+      ],
+      "dimensions": [
+        "bounded inquiry",
+        "source origin/method",
+        "comparison and counterevidence",
+        "traceable original argument and revision"
+      ],
+      "practiceModes": [
+        "case_criteria",
+        "short_answer",
+        "authored_choice",
+        "four independent flashcard roles"
+      ],
+      "numericInputsStatus": "Original supplied context only; no numerical claim about actual wine market, product law, sensory trial or producer economics."
+    },
+    {
+      "id": "research_revision",
+      "unit": "D6",
+      "subjectId": "n_d456_case_research_revision",
+      "itemIds": [
+        "ki_d456_research_revision_action",
+        "ki_d456_research_revision_reason",
+        "ki_d456_research_revision_tradeoff",
+        "ki_d456_research_revision_limitation"
+      ],
+      "rowIds": [
+        "d6.written_presentation"
+      ],
+      "prerequisiteItemIds": [
+        "ki_d6_research_brief",
+        "ki_d6_research_reference",
+        "ki_d6c_revision"
+      ],
+      "sourceIds": [
+        "src_d6_leeds_brief",
+        "src_d6_leeds_cite"
+      ],
+      "dimensions": [
+        "bounded inquiry",
+        "source origin/method",
+        "comparison and counterevidence",
+        "traceable original argument and revision"
+      ],
+      "practiceModes": [
+        "case_criteria",
+        "short_answer",
+        "authored_choice",
+        "four independent flashcard roles"
+      ],
+      "numericInputsStatus": "Original supplied context only; no numerical claim about actual wine market, product law, sensory trial or producer economics."
+    }
+  ],
+  "rowChecklist": [
+    {
+      "rowId": "d4.french_products",
+      "newItemIds": [
+        "ki_d456_champagne_stock_action",
+        "ki_d456_champagne_stock_reason",
+        "ki_d456_champagne_stock_tradeoff",
+        "ki_d456_champagne_stock_limitation",
+        "ki_d456_cremant_loire_action",
+        "ki_d456_cremant_loire_reason",
+        "ki_d456_cremant_loire_tradeoff",
+        "ki_d456_cremant_loire_limitation"
+      ],
+      "status": "authored_integration_pending",
+      "localAction": "Register this packet alongside the existing row's sourced item IDs and feature refs; the new packet integrates missing product-specific comparisons and gives independently checked roles and written reflection.",
+      "externalRequirement": "Qualified factual review and pedagogical calibration; automated passing evidence cannot supply these."
+    },
+    {
+      "rowId": "d4.german_products",
+      "newItemIds": [],
+      "status": "root_reconciliation",
+      "localAction": "Root reconciles exact Sekt repairs separately; no competing edits from this author.",
+      "externalRequirement": "Qualified factual review and pedagogical calibration; automated passing evidence cannot supply these."
+    },
+    {
+      "rowId": "d4.italian_products",
+      "newItemIds": [
+        "ki_d456_prosecco_supply_action",
+        "ki_d456_prosecco_supply_reason",
+        "ki_d456_prosecco_supply_tradeoff",
+        "ki_d456_prosecco_supply_limitation",
+        "ki_d456_asti_aroma_action",
+        "ki_d456_asti_aroma_reason",
+        "ki_d456_asti_aroma_tradeoff",
+        "ki_d456_asti_aroma_limitation",
+        "ki_d456_italian_bottle_action",
+        "ki_d456_italian_bottle_reason",
+        "ki_d456_italian_bottle_tradeoff",
+        "ki_d456_italian_bottle_limitation",
+        "ki_d456_lambrusco_pairing_action",
+        "ki_d456_lambrusco_pairing_reason",
+        "ki_d456_lambrusco_pairing_tradeoff",
+        "ki_d456_lambrusco_pairing_limitation"
+      ],
+      "status": "authored_integration_pending",
+      "localAction": "Register this packet alongside the existing row's sourced item IDs and feature refs; the new packet integrates missing product-specific comparisons and gives independently checked roles and written reflection.",
+      "externalRequirement": "Qualified factual review and pedagogical calibration; automated passing evidence cannot supply these."
+    },
+    {
+      "rowId": "d4.cava_products",
+      "newItemIds": [
+        "ki_d456_cava_water_action",
+        "ki_d456_cava_water_reason",
+        "ki_d456_cava_water_tradeoff",
+        "ki_d456_cava_water_limitation"
+      ],
+      "status": "authored_integration_pending",
+      "localAction": "Register this packet alongside the existing row's sourced item IDs and feature refs; the new packet integrates missing product-specific comparisons and gives independently checked roles and written reflection.",
+      "externalRequirement": "Qualified factual review and pedagogical calibration; automated passing evidence cannot supply these."
+    },
+    {
+      "rowId": "d4.british_products",
+      "newItemIds": [
+        "ki_d456_british_vintage_action",
+        "ki_d456_british_vintage_reason",
+        "ki_d456_british_vintage_tradeoff",
+        "ki_d456_british_vintage_limitation"
+      ],
+      "status": "authored_integration_pending",
+      "localAction": "Register this packet alongside the existing row's sourced item IDs and feature refs; the new packet integrates missing product-specific comparisons and gives independently checked roles and written reflection.",
+      "externalRequirement": "Qualified factual review and pedagogical calibration; automated passing evidence cannot supply these."
+    },
+    {
+      "rowId": "d4.american_products",
+      "newItemIds": [
+        "ki_d456_us_site_method_action",
+        "ki_d456_us_site_method_reason",
+        "ki_d456_us_site_method_tradeoff",
+        "ki_d456_us_site_method_limitation",
+        "ki_d456_chile_method_action",
+        "ki_d456_chile_method_reason",
+        "ki_d456_chile_method_tradeoff",
+        "ki_d456_chile_method_limitation",
+        "ki_d456_argentina_capacity_action",
+        "ki_d456_argentina_capacity_reason",
+        "ki_d456_argentina_capacity_tradeoff",
+        "ki_d456_argentina_capacity_limitation"
+      ],
+      "status": "authored_integration_pending",
+      "localAction": "Register this packet alongside the existing row's sourced item IDs and feature refs; the new packet integrates missing product-specific comparisons and gives independently checked roles and written reflection.",
+      "externalRequirement": "Qualified factual review and pedagogical calibration; automated passing evidence cannot supply these."
+    },
+    {
+      "rowId": "d4.south_african_products",
+      "newItemIds": [
+        "ki_d456_cap_classique_route_action",
+        "ki_d456_cap_classique_route_reason",
+        "ki_d456_cap_classique_route_tradeoff",
+        "ki_d456_cap_classique_route_limitation"
+      ],
+      "status": "authored_integration_pending",
+      "localAction": "Register this packet alongside the existing row's sourced item IDs and feature refs; the new packet integrates missing product-specific comparisons and gives independently checked roles and written reflection.",
+      "externalRequirement": "Qualified factual review and pedagogical calibration; automated passing evidence cannot supply these."
+    },
+    {
+      "rowId": "d4.australian_products",
+      "newItemIds": [
+        "ki_d456_australia_portfolio_action",
+        "ki_d456_australia_portfolio_reason",
+        "ki_d456_australia_portfolio_tradeoff",
+        "ki_d456_australia_portfolio_limitation"
+      ],
+      "status": "authored_integration_pending",
+      "localAction": "Register this packet alongside the existing row's sourced item IDs and feature refs; the new packet integrates missing product-specific comparisons and gives independently checked roles and written reflection.",
+      "externalRequirement": "Qualified factual review and pedagogical calibration; automated passing evidence cannot supply these."
+    },
+    {
+      "rowId": "d4.new_zealand_products",
+      "newItemIds": [
+        "ki_d456_nz_harvest_blend_action",
+        "ki_d456_nz_harvest_blend_reason",
+        "ki_d456_nz_harvest_blend_tradeoff",
+        "ki_d456_nz_harvest_blend_limitation"
+      ],
+      "status": "authored_integration_pending",
+      "localAction": "Register this packet alongside the existing row's sourced item IDs and feature refs; the new packet integrates missing product-specific comparisons and gives independently checked roles and written reflection.",
+      "externalRequirement": "Qualified factual review and pedagogical calibration; automated passing evidence cannot supply these."
+    },
+    {
+      "rowId": "d4.production_choices",
+      "newItemIds": [
+        "ki_d456_cremant_loire_action",
+        "ki_d456_cremant_loire_reason",
+        "ki_d456_cremant_loire_tradeoff",
+        "ki_d456_cremant_loire_limitation",
+        "ki_d456_prosecco_supply_action",
+        "ki_d456_prosecco_supply_reason",
+        "ki_d456_prosecco_supply_tradeoff",
+        "ki_d456_prosecco_supply_limitation",
+        "ki_d456_asti_aroma_action",
+        "ki_d456_asti_aroma_reason",
+        "ki_d456_asti_aroma_tradeoff",
+        "ki_d456_asti_aroma_limitation",
+        "ki_d456_cava_water_action",
+        "ki_d456_cava_water_reason",
+        "ki_d456_cava_water_tradeoff",
+        "ki_d456_cava_water_limitation",
+        "ki_d456_chile_method_action",
+        "ki_d456_chile_method_reason",
+        "ki_d456_chile_method_tradeoff",
+        "ki_d456_chile_method_limitation",
+        "ki_d456_australia_portfolio_action",
+        "ki_d456_australia_portfolio_reason",
+        "ki_d456_australia_portfolio_tradeoff",
+        "ki_d456_australia_portfolio_limitation"
+      ],
+      "status": "authored_integration_pending",
+      "localAction": "Register this packet alongside the existing row's sourced item IDs and feature refs; the new packet integrates missing product-specific comparisons and gives independently checked roles and written reflection.",
+      "externalRequirement": "Qualified factual review and pedagogical calibration; automated passing evidence cannot supply these."
+    },
+    {
+      "rowId": "d4.commercial_choices",
+      "newItemIds": [
+        "ki_d456_champagne_stock_action",
+        "ki_d456_champagne_stock_reason",
+        "ki_d456_champagne_stock_tradeoff",
+        "ki_d456_champagne_stock_limitation",
+        "ki_d456_prosecco_supply_action",
+        "ki_d456_prosecco_supply_reason",
+        "ki_d456_prosecco_supply_tradeoff",
+        "ki_d456_prosecco_supply_limitation",
+        "ki_d456_italian_bottle_action",
+        "ki_d456_italian_bottle_reason",
+        "ki_d456_italian_bottle_tradeoff",
+        "ki_d456_italian_bottle_limitation",
+        "ki_d456_cava_water_action",
+        "ki_d456_cava_water_reason",
+        "ki_d456_cava_water_tradeoff",
+        "ki_d456_cava_water_limitation",
+        "ki_d456_british_vintage_action",
+        "ki_d456_british_vintage_reason",
+        "ki_d456_british_vintage_tradeoff",
+        "ki_d456_british_vintage_limitation",
+        "ki_d456_argentina_capacity_action",
+        "ki_d456_argentina_capacity_reason",
+        "ki_d456_argentina_capacity_tradeoff",
+        "ki_d456_argentina_capacity_limitation",
+        "ki_d456_australia_portfolio_action",
+        "ki_d456_australia_portfolio_reason",
+        "ki_d456_australia_portfolio_tradeoff",
+        "ki_d456_australia_portfolio_limitation",
+        "ki_d456_cap_classique_route_action",
+        "ki_d456_cap_classique_route_reason",
+        "ki_d456_cap_classique_route_tradeoff",
+        "ki_d456_cap_classique_route_limitation"
+      ],
+      "status": "authored_integration_pending",
+      "localAction": "Register this packet alongside the existing row's sourced item IDs and feature refs; the new packet integrates missing product-specific comparisons and gives independently checked roles and written reflection.",
+      "externalRequirement": "Qualified factual review and pedagogical calibration; automated passing evidence cannot supply these."
+    },
+    {
+      "rowId": "d4.physical_tasting",
+      "newItemIds": [],
+      "status": "implemented_runtime_external_accuracy_review",
+      "localAction": "Credit existing real three-wine flight description, quality, ageing, style clues, uncertainty, comparison, persistence and self-review; no added simulation can establish real sensory accuracy.",
+      "externalRequirement": "Actual physical tasting with competent feedback."
+    },
+    {
+      "rowId": "d5.sherry_products",
+      "newItemIds": [
+        "ki_d456_sherry_cellar_action",
+        "ki_d456_sherry_cellar_reason",
+        "ki_d456_sherry_cellar_tradeoff",
+        "ki_d456_sherry_cellar_limitation"
+      ],
+      "status": "authored_integration_pending",
+      "localAction": "Register this packet alongside the existing row's sourced item IDs and feature refs; the new packet integrates missing product-specific comparisons and gives independently checked roles and written reflection.",
+      "externalRequirement": "Qualified factual review and pedagogical calibration; automated passing evidence cannot supply these."
+    },
+    {
+      "rowId": "d5.port_products",
+      "newItemIds": [
+        "ki_d456_port_extraction_stock_action",
+        "ki_d456_port_extraction_stock_reason",
+        "ki_d456_port_extraction_stock_tradeoff",
+        "ki_d456_port_extraction_stock_limitation"
+      ],
+      "status": "authored_integration_pending",
+      "localAction": "Register this packet alongside the existing row's sourced item IDs and feature refs; the new packet integrates missing product-specific comparisons and gives independently checked roles and written reflection.",
+      "externalRequirement": "Qualified factual review and pedagogical calibration; automated passing evidence cannot supply these."
+    },
+    {
+      "rowId": "d5.madeira_products",
+      "newItemIds": [
+        "ki_d456_madeira_working_capital_action",
+        "ki_d456_madeira_working_capital_reason",
+        "ki_d456_madeira_working_capital_tradeoff",
+        "ki_d456_madeira_working_capital_limitation"
+      ],
+      "status": "authored_integration_pending",
+      "localAction": "Register this packet alongside the existing row's sourced item IDs and feature refs; the new packet integrates missing product-specific comparisons and gives independently checked roles and written reflection.",
+      "externalRequirement": "Qualified factual review and pedagogical calibration; automated passing evidence cannot supply these."
+    },
+    {
+      "rowId": "d5.french_vdn_products",
+      "newItemIds": [
+        "ki_d456_vdn_style_stock_action",
+        "ki_d456_vdn_style_stock_reason",
+        "ki_d456_vdn_style_stock_tradeoff",
+        "ki_d456_vdn_style_stock_limitation"
+      ],
+      "status": "authored_integration_pending",
+      "localAction": "Register this packet alongside the existing row's sourced item IDs and feature refs; the new packet integrates missing product-specific comparisons and gives independently checked roles and written reflection.",
+      "externalRequirement": "Qualified factual review and pedagogical calibration; automated passing evidence cannot supply these."
+    },
+    {
+      "rowId": "d5.rutherglen_products",
+      "newItemIds": [
+        "ki_d456_rutherglen_replenishment_action",
+        "ki_d456_rutherglen_replenishment_reason",
+        "ki_d456_rutherglen_replenishment_tradeoff",
+        "ki_d456_rutherglen_replenishment_limitation"
+      ],
+      "status": "authored_integration_pending",
+      "localAction": "Register this packet alongside the existing row's sourced item IDs and feature refs; the new packet integrates missing product-specific comparisons and gives independently checked roles and written reflection.",
+      "externalRequirement": "Qualified factual review and pedagogical calibration; automated passing evidence cannot supply these."
+    },
+    {
+      "rowId": "d5.production_commerce",
+      "newItemIds": [
+        "ki_d456_sherry_cellar_action",
+        "ki_d456_sherry_cellar_reason",
+        "ki_d456_sherry_cellar_tradeoff",
+        "ki_d456_sherry_cellar_limitation",
+        "ki_d456_port_extraction_stock_action",
+        "ki_d456_port_extraction_stock_reason",
+        "ki_d456_port_extraction_stock_tradeoff",
+        "ki_d456_port_extraction_stock_limitation",
+        "ki_d456_madeira_working_capital_action",
+        "ki_d456_madeira_working_capital_reason",
+        "ki_d456_madeira_working_capital_tradeoff",
+        "ki_d456_madeira_working_capital_limitation",
+        "ki_d456_vdn_style_stock_action",
+        "ki_d456_vdn_style_stock_reason",
+        "ki_d456_vdn_style_stock_tradeoff",
+        "ki_d456_vdn_style_stock_limitation",
+        "ki_d456_rutherglen_replenishment_action",
+        "ki_d456_rutherglen_replenishment_reason",
+        "ki_d456_rutherglen_replenishment_tradeoff",
+        "ki_d456_rutherglen_replenishment_limitation"
+      ],
+      "status": "authored_integration_pending",
+      "localAction": "Register this packet alongside the existing row's sourced item IDs and feature refs; the new packet integrates missing product-specific comparisons and gives independently checked roles and written reflection.",
+      "externalRequirement": "Qualified factual review and pedagogical calibration; automated passing evidence cannot supply these."
+    },
+    {
+      "rowId": "d5.physical_tasting",
+      "newItemIds": [],
+      "status": "implemented_runtime_external_accuracy_review",
+      "localAction": "Credit existing real three-wine flight description, quality, ageing, style clues, uncertainty, comparison, persistence and self-review; no added simulation can establish real sensory accuracy.",
+      "externalRequirement": "Actual physical tasting with competent feedback."
+    },
+    {
+      "rowId": "d6.source_appraisal",
+      "newItemIds": [
+        "ki_d456_research_denominators_action",
+        "ki_d456_research_denominators_reason",
+        "ki_d456_research_denominators_tradeoff",
+        "ki_d456_research_denominators_limitation"
+      ],
+      "status": "authored_integration_pending",
+      "localAction": "Register this packet alongside the existing row's sourced item IDs and feature refs; the new packet integrates missing product-specific comparisons and gives independently checked roles and written reflection.",
+      "externalRequirement": "Qualified formative feedback on the learner's own real issued brief, sources and independently written work."
+    },
+    {
+      "rowId": "d6.evidence_argument",
+      "newItemIds": [
+        "ki_d456_research_competing_action",
+        "ki_d456_research_competing_reason",
+        "ki_d456_research_competing_tradeoff",
+        "ki_d456_research_competing_limitation"
+      ],
+      "status": "authored_integration_pending",
+      "localAction": "Register this packet alongside the existing row's sourced item IDs and feature refs; the new packet integrates missing product-specific comparisons and gives independently checked roles and written reflection.",
+      "externalRequirement": "Qualified formative feedback on the learner's own real issued brief, sources and independently written work."
+    },
+    {
+      "rowId": "d6.written_presentation",
+      "newItemIds": [
+        "ki_d456_research_revision_action",
+        "ki_d456_research_revision_reason",
+        "ki_d456_research_revision_tradeoff",
+        "ki_d456_research_revision_limitation"
+      ],
+      "status": "authored_integration_pending",
+      "localAction": "Register this packet alongside the existing row's sourced item IDs and feature refs; the new packet integrates missing product-specific comparisons and gives independently checked roles and written reflection.",
+      "externalRequirement": "Qualified formative feedback on the learner's own real issued brief, sources and independently written work."
+    }
+  ],
+  "d6CapabilityChecklist": [
+    {
+      "capability": "Learner-owned brief and bounded question",
+      "existingRuntime": "lib/core/diploma_research/diploma_research.dart; topic/brief/outline/subquestions",
+      "existingContent": [
+        "ki_d6_research_brief",
+        "ki_d6_research_question"
+      ],
+      "newSupport": [
+        "research_denominators",
+        "research_revision"
+      ],
+      "remainingLocalRuntimeGap": null
+    },
+    {
+      "capability": "Source log and appraisal",
+      "existingRuntime": "ResearchSource citation/url/date/scopeMethod/strength/limitation, saved and backed up",
+      "existingContent": [
+        "ki_d6_research_provenance",
+        "ki_d6_research_origin",
+        "ki_d6_research_claim",
+        "ki_d6_research_comparable"
+      ],
+      "newSupport": [
+        "d6c_denominator",
+        "research_denominators"
+      ],
+      "remainingLocalRuntimeGap": null
+    },
+    {
+      "capability": "Evidence-linked own argument",
+      "existingRuntime": "ResearchClaim statement/sourceIds/counterevidence/conclusion; source links persisted",
+      "existingContent": [
+        "ki_d6_research_counter",
+        "ki_d6_research_structure"
+      ],
+      "newSupport": [
+        "d6c_causal",
+        "d6c_synthesis",
+        "research_competing"
+      ],
+      "remainingLocalRuntimeGap": null
+    },
+    {
+      "capability": "Draft, revision, presentation and export",
+      "existingRuntime": "Private free-form draft, approximate word count, brief/sources/claims/references/revision checklist, text export and backup",
+      "existingContent": [
+        "ki_d6_research_reference"
+      ],
+      "newSupport": [
+        "d6c_revision",
+        "research_revision"
+      ],
+      "remainingLocalRuntimeGap": null
+    }
+  ],
+  "externalEvidence": [
+    "New content remains unverified pending qualified factual review.",
+    "D4 and D5 real sensory performance requires actual wines and competent feedback; saved participation is not assessment.",
+    "D6 must be practised against the learner's real issued brief with their own sources and writing. No current official assignment title, model submission, originality judgement or examiner mark is supplied."
+  ],
+  "sourceRefreshFindings": [
+    {
+      "sourceId": "src_d4depth_alsace_process",
+      "status": "read_public_primary",
+      "reliableSection": "Harvest and pressing only; no new numeric rule.",
+      "excludedClaim": "Page's 12–14 months must-settling statement appears erroneous; not adopted."
+    },
+    {
+      "sourceId": "src_d4depth_cava_organic",
+      "status": "read_public_primary",
+      "reliableSection": "Responsible water and certification-record context; actual category requirements remain in existing sourced module.",
+      "excludedClaim": "No chemicals and other oversimplified organic glosses were not adopted."
+    },
+    {
+      "sourceId": "src_d4nw_chile_spark",
+      "status": "read_public_primary",
+      "reliableSection": "Coastal examples and tank versus bottle routes.",
+      "excludedClaim": "Promotional Pet Nat second-fermentation description, saline geology assertion and sweetness thresholds were not adopted."
+    },
+    {
+      "sourceId": "src_d4depth_asti_moscato",
+      "status": "web_fetch_403",
+      "reliableSection": "Existing canonical module retained; new comparison relies on explicit fictional lot observations, no new legal category numbers.",
+      "followUp": "Qualified review should check current official product specification independently."
+    },
+    {
+      "sourceId": "src_fort_rutherglen_classes",
+      "status": "read_public_primary",
+      "reliableSection": "Methods vary and age is only one factor in category.",
+      "excludedClaim": "No producer age-band range is restated as universal law."
+    },
+    {
+      "sourceId": "src_fort_rutherglen_pfeiffer",
+      "status": "web_fetch_error",
+      "reliableSection": "Existing producer citation retained for its youthful blending objective; case's blend and sensory data entirely fictional.",
+      "followUp": "Retain existing identity and reviewer check; do not claim current source page fetched."
+    },
+    {
+      "sourceIds": [
+        "src_spark_australian_methods",
+        "src_spark_pressing",
+        "src_d4depth_champ_houses",
+        "src_wset_sf_nz_spark",
+        "src_fort_port_making",
+        "src_d5_ivdp_region",
+        "src_d5_sherry_press",
+        "src_fort_sherry_ageing",
+        "src_fort_madeira_process",
+        "src_d5_civr_maury",
+        "src_fort_vdn_process",
+        "src_d4nw_za_cap",
+        "src_d4nw_argentina_report",
+        "src_d4d5_trento",
+        "src_d4d5_lambrusco",
+        "src_d6_leeds_brief",
+        "src_d6_leeds_evaluate",
+        "src_d6_leeds_read",
+        "src_d6_leeds_argument",
+        "src_d6_leeds_cite"
+      ],
+      "status": "read_public_primary",
+      "limit": "Only relevant bounded sections used; numerical law, rankings, exact prices and market forecasts were not inferred."
+    }
+  ],
+  "validation": {
+    "jsonParsing": "six files passed",
+    "crossFileSourceAndPrerequisiteNames": "all found in current areas",
+    "runtimeGenerationAndGrading": "root pending",
+    "canonicalRegistration": "root pending",
+    "factualVerification": "not performed"
+  }
+}

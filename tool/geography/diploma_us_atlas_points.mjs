@@ -3,6 +3,7 @@
 import fs from 'node:fs';
 import crypto from 'node:crypto';
 import YAML from 'yaml';
+import { readYaml } from './lib.mjs';
 
 const retrieved = '2026-09-26';
 const commit = '7af5b29d45aee5e6c6ce3889e9b1de19085d7107';
@@ -148,7 +149,7 @@ for (const spec of specs) {
 }
 const all = [newYork, ...specs];
 const oldFiles = fs.readdirSync('assets/curriculum/areas').filter(f => f.endsWith('.yaml') && f !== 'diploma_us_atlas.yaml');
-const oldData = oldFiles.map(f => YAML.parse(fs.readFileSync(`assets/curriculum/areas/${f}`, 'utf8')));
+const oldData = oldFiles.map(f => readYaml(`assets/curriculum/areas/${f}`));
 const existingNodes = oldData.flatMap(d => d.knowledge_nodes ?? []);
 const existingSources = oldData.flatMap(d => d.source_citations ?? []);
 const names = new Map([...existingNodes, ...all.map(s => ({id: `n_geo_${s.id}`, name: s.name}))].map(n => [n.id, n.name]));
@@ -181,7 +182,7 @@ if (process.argv.includes('--author')) {
     ]),
   };
   if (fs.existsSync(curriculumPath)) {
-    const previous = YAML.parse(fs.readFileSync(curriculumPath, 'utf8'));
+    const previous = readYaml(curriculumPath);
     for (const key of ['knowledge_nodes', 'knowledge_items', 'source_citations']) for (const row of previous[key] ?? []) {
       if (!dataset[key].some(candidate => candidate.id === row.id)) throw Error(`Would remove authored ${row.id}`);
     }

@@ -2,6 +2,7 @@
 import fs from 'node:fs';
 import crypto from 'node:crypto';
 import YAML from 'yaml';
+import { readYaml } from './lib.mjs';
 const date='2026-09-26';
 const sha=x=>crypto.createHash('sha256').update(x).digest('hex');
 // id, display name, country, coordinate entity title, primary fact citation, locator.
@@ -47,7 +48,7 @@ const features=rows.map(([id,name,country,title])=>{
   return {type:'Feature',properties:{node:`n_geo_${id}`,node_id:`n_geo_${id}`,name,parent_node_id:`n_geo_${country}`,country_node_id:`n_geo_${country}`,point_role:qualified?'qualified_locality_reference_point':'gazetteer_reference_point',point_place_name:entity.labels?.en?.value??title,point_description:entity.descriptions?.en?.value??'',source_url:`https://www.wikidata.org/wiki/${entity.id}`,source_coordinate_url:`https://www.wikidata.org/wiki/Special:EntityData/${entity.id}.json`,wikidata_id:entity.id,wikidata_coordinate_claim:claim.id,source_entity_sha256:sha(JSON.stringify(entity)),coordinate_precision:p.precision,retrieved_on:date,license:'CC0-1.0',label_note:`${qualifier} No boundary or official centroid is derived from this point.`},geometry:{type:'Point',coordinates:[p.longitude,p.latitude]}};
 });
 const existingFiles=fs.readdirSync('assets/curriculum/areas').filter(f=>f.endsWith('.yaml')&&f!=='diploma_regions.yaml');
-const existing=existingFiles.map(f=>YAML.parse(fs.readFileSync(`assets/curriculum/areas/${f}`,'utf8')));
+const existing=existingFiles.map(f=>readYaml(`assets/curriculum/areas/${f}`));
 const existingIds=new Set(existing.flatMap(d=>(d.knowledge_nodes??[]).map(n=>n.id)));
 const existingSources=new Set(existing.flatMap(d=>(d.source_citations??[]).map(s=>s.id)));
 for(const [id,,country,,source] of rows){if(existingIds.has(`n_geo_${id}`))throw Error(`Duplicate node ${id}`);if(!existingIds.has(`n_geo_${country}`))throw Error(`Missing country ${country}`);if(!existingSources.has(source)&&!sources.some(s=>s.id===source))throw Error(`Missing citation ${source}`);}

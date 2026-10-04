@@ -1,0 +1,432 @@
+{
+  "question_templates": [
+    {
+      "id": "qt_d12depth_d2_choices",
+      "relation_type": "PRINCIPLE_EXPLANATION",
+      "direction": "forward",
+      "mode": "authored_choice",
+      "variant": "d12depth_d2_choices",
+      "prompt_template": "{subject.name}",
+      "parameters": {
+        "item_choices": {
+          "ki_d12depth_market_balance": {
+            "prompt": "A fictional market opens with 500 hL, produces 100 hL and releases 120 hL domestically with no other flows. What closing stock follows?",
+            "options": [
+              "480 hL under the supplied complete flow assumptions",
+              "20 hL because opening stock does not count",
+              "600 hL because releases cannot change stock",
+              "120 hL because releases and stock are the same measure"
+            ],
+            "correctIndex": 0,
+            "explanation": "500 + 100 - 120 = 480 hL. Production, stock and consumption/sales are different quantities; imports, exports, losses and timing would change a real balance.",
+            "sourceCitationId": "src_d2_oiv_world_2025"
+          },
+          "ki_d12depth_market_drivers": {
+            "prompt": "What comparison avoids deriving a fixed price from a small harvest?",
+            "options": [
+              "Every production fall guarantees a price rise of known size",
+              "Define the market and compare supply, demand, stocks and responsiveness",
+              "Global output proves one brand's local demand",
+              "Warehouse shipments prove final consumption"
+            ],
+            "correctIndex": 1,
+            "explanation": "Harvest affects supply, while purchasing can shift with income, preferences and policy. Concurrent changes and inventory matter; the direction and size of price movement depend on their relative effects and the defined market.",
+            "sourceCitationId": "src_d2_fed_supply_demand"
+          },
+          "ki_d12depth_cost_capacity": {
+            "prompt": "Fictional net price EUR10 and variable cost EUR6 fund EUR12,000 annual fixed cost. What whole-bottle break-even follows within the stated constant-cost range?",
+            "options": [
+              "1,200 bottles from dividing only by selling price",
+              "2,000 bottles from dividing fixed cost by variable cost",
+              "3,000 bottles at EUR4 contribution each",
+              "3,000 bottles proves enough cash before every bill"
+            ],
+            "correctIndex": 2,
+            "explanation": "Contribution is 10 - 6 = EUR4; 12,000 / 4 = 3,000 bottles. This requires the stated fixed/variable classification and capacity range; depreciation, finance and payment timing need separate treatment.",
+            "sourceCitationId": "src_biz_victoria_pricing"
+          },
+          "ki_d12depth_cost_statements": {
+            "prompt": "Why is positive contribution not proof of profit or solvency?",
+            "options": [
+              "Every unit with positive contribution creates immediate net profit",
+              "All capital payments are identical to current-period expenses",
+              "An unpaid invoice is already cash in the bank",
+              "Other expenses and payment timing still affect results and cash"
+            ],
+            "correctIndex": 3,
+            "explanation": "Contribution covers fixed costs before profit; gross profit uses cost of sales, while cash flow records receipts and payments. Establishment investment, stock maturation and financing can strain cash even when a unit contribution is positive.",
+            "sourceCitationId": "src_biz_sec_statements"
+          },
+          "ki_d12depth_landed_recoverable": {
+            "prompt": "A fictional import pays EUR1,000 wine, EUR200 freight and EUR100 duty, plus EUR260 tax explicitly stipulated fully recoverable later. What distinction follows?",
+            "options": [
+              "EUR1,300 supplied net cost versus EUR1,560 initial cash outflow",
+              "EUR1,000 is the complete initial cash requirement",
+              "Tax recovery means no initial funding is ever needed",
+              "The fictional recovery premise proves every importer is eligible"
+            ],
+            "correctIndex": 0,
+            "explanation": "The case's stated recoverable tax is a later receivable, not permanent cost under its premises. Cash must initially cover 1,000 + 200 + 100 + 260 = EUR1,560; actual recoverability requires the relevant legal and business evidence.",
+            "sourceCitationId": "src_d2_ita_landed_cost"
+          },
+          "ki_d12depth_landed_floor": {
+            "prompt": "Which mechanism distinguishes Scotland's minimum unit price from a duty?",
+            "options": [
+              "It is a worldwide customs rate on every wine import",
+              "A legal retail-price floor tied to alcohol content, rather than a tax charge",
+              "It fixes the final market price of every wine",
+              "It guarantees a specified producer margin"
+            ],
+            "correctIndex": 1,
+            "explanation": "SSI 2024/128 substituted 65 pence per unit from 30 September 2024. This Scotland example illustrates a retail floor, not a universal UK rate or a duty paid to government. Recheck applicability before a real offer.",
+            "sourceCitationId": "src_d12depth_scotland_order"
+          },
+          "ki_d12depth_fx_instrument": {
+            "prompt": "What distinguishes a purchased currency option from a forward?",
+            "options": [
+              "Every purchased option obliges exercise at expiry",
+              "Every forward guarantees that the wine buyer pays",
+              "An option buys a right without an exchange obligation; a forward commits its agreed exchange",
+              "A home-currency invoice removes all buyer payment risk"
+            ],
+            "correctIndex": 2,
+            "explanation": "ITA describes a paid option as flexible protection and a forward as a committed amount/date at an agreed rate. Compare premium, spread, timing and cancellation exposure; neither pays an invoice when the buyer defaults.",
+            "sourceCitationId": "src_d12depth_trade_finance"
+          },
+          "ki_d12depth_fx_matching": {
+            "prompt": "How can a foreign-currency account or matched currency costs affect exposure?",
+            "options": [
+              "Holding a currency freezes its exchange value forever",
+              "Any US-dollar invoice removes all parties' exposure",
+              "An account guarantees that receivables arrive on time",
+              "Matched receipts can fund same-currency costs, while any unmatched balance retains risk"
+            ],
+            "correctIndex": 3,
+            "explanation": "Holding foreign currency can postpone conversion, and matched future receipts/payments can reduce a net exposure. It does not eliminate the value risk on unmatched amounts or secure customer payment; fees and timing matter.",
+            "sourceCitationId": "src_d12depth_trade_finance"
+          },
+          "ki_d12depth_cash_peak": {
+            "prompt": "Fictional opening cash EUR5,000 pays EUR6,000 on day10 and EUR3,000 on day20 before EUR8,000 arrives day30. What minimum extra funding avoids a negative balance?",
+            "options": [
+              "EUR4,000 before day20, ignoring all other flows",
+              "Zero because ending cash is positive",
+              "EUR1,000 because only the first payment matters",
+              "EUR8,000 because revenue equals the funding need"
+            ],
+            "correctIndex": 0,
+            "explanation": "Cash becomes -1,000 then -4,000 before the receipt lifts it to 4,000. Peak funding is EUR4,000, not merely the elapsed 20-day gap or final cash balance.",
+            "sourceCitationId": "src_biz_au_cashflow"
+          },
+          "ki_d12depth_cash_stock": {
+            "prompt": "What does increasing wine maturation inventory change before sale?",
+            "options": [
+              "All inventory is equivalent to bank cash today",
+              "Cash remains tied to production and storage until receipts arrive",
+              "Longer maturation always improves both cash and profit",
+              "A positive sales forecast pays every bill on its due date"
+            ],
+            "correctIndex": 1,
+            "explanation": "Stock can support future sales and style, but paying for grapes, labour and storage precedes many receipts. Forecast timing, ownership, debt and slow-moving lots; a balance-sheet asset is not immediately available cash.",
+            "sourceCitationId": "src_biz_sec_statements"
+          },
+          "ki_d12depth_models_ownership": {
+            "prompt": "How can grower, merchant and virtual producer proposals be compared without ranking labels?",
+            "options": [
+              "Every merchant owns all its supplying vineyards",
+              "Every outsourced brand owns its processing plant",
+              "Specify who owns fruit/assets and controls production, brand and selling",
+              "Every grower necessarily bottles and sells finished wine"
+            ],
+            "correctIndex": 2,
+            "explanation": "A grower can sell fruit; a grower-producer undertakes further production; a merchant sources material; an outsourced brand may contract services. Compare actual ownership, sourcing obligations, capacity and control rather than assume a label determines cost or quality.",
+            "sourceCitationId": "src_biz_models_psu_business"
+          },
+          "ki_d12depth_models_group": {
+            "prompt": "What should a cooperative or multi-business group comparison specify?",
+            "options": [
+              "Shared assets guarantee every member agrees",
+              "Group scale guarantees each brand earns a profit",
+              "A cooperative name proves identical sensory quality in every lot",
+              "Governance, pooling, capital, decision rights and business-unit performance"
+            ],
+            "correctIndex": 3,
+            "explanation": "Cooperative member ownership/pooling and a group's shared assets can affect sourcing and scale, but actual governance and unit economics matter. Shared capacity does not guarantee low cost, member consensus or uniform wine quality.",
+            "sourceCitationId": "src_biz_models_usda_ownership"
+          },
+          "ki_d12depth_channels_duties": {
+            "prompt": "Why is appointing a broker different from proving full importer/distributor service?",
+            "options": [
+              "Sales representation and import, stock, compliance or distribution duties need explicit allocation",
+              "Every broker necessarily buys the producer's inventory",
+              "Every service importer actively sells the brand",
+              "A commission quote settles every channel role"
+            ],
+            "correctIndex": 0,
+            "explanation": "Wine Australia's examples distinguish broker representation, service importers and full-service arrangements. A retainer or commission is not proof of inventory purchase, importing, warehousing or account follow-up; compare written duties and reporting.",
+            "sourceCitationId": "src_biz_routes_wine_australia_paths"
+          },
+          "ki_d12depth_channels_evidence": {
+            "prompt": "What should a channel review request beyond the initial shipment?",
+            "options": [
+              "A large warehouse receipt proves all bottles reached consumers",
+              "Downstream sales, stock, reorder, payment and agreed activity evidence",
+              "Exclusivity guarantees every account will reorder",
+              "Channel stock is automatically cash received by the winery"
+            ],
+            "correctIndex": 1,
+            "explanation": "Placement shows product entered a channel; depletion and reorders help examine downstream demand. Allocate support, exclusivity and performance expectations explicitly; a large opening shipment does not guarantee repeat sales or timely payment.",
+            "sourceCitationId": "src_biz_routes_wine_australia_partner"
+          },
+          "ki_d12depth_outlets_fit": {
+            "prompt": "What connects retail, hospitality, travel and investment-channel comparisons?",
+            "options": [
+              "All outlet types require identical formats and services",
+              "Investment-oriented storage proves guaranteed appreciation",
+              "Match the buyer's task and offer to service, stock, fulfilment and full costs",
+              "Higher advertised retail price guarantees producer profit"
+            ],
+            "correctIndex": 2,
+            "explanation": "Different outlet purposes require different offer and service plans. Supermarket, discounter, convenience, specialist, online/hybrid and travel proposals should be evaluated using actual terms; investment-oriented wine adds provenance/storage questions and no assured return.",
+            "sourceCitationId": "src_d2_au_five_ps"
+          },
+          "ki_d12depth_outlets_return": {
+            "prompt": "Fictional DTC receipt EUR20 has EUR8 product cost, EUR4 fulfilment and EUR6 acquisition/service; wholesale receipt EUR10 has EUR8 product cost and EUR1 support. Which supplied contribution is higher?",
+            "options": [
+              "DTC EUR12 because fulfilment and acquisition do not count",
+              "Wholesale EUR10 because receipt equals contribution",
+              "DTC is universally most profitable at all acquisition costs",
+              "DTC EUR2 versus wholesale EUR1, before fixed and omitted costs"
+            ],
+            "correctIndex": 3,
+            "explanation": "DTC = 20 - 8 - 4 - 6 = EUR2; wholesale = 10 - 8 - 1 = EUR1. At EUR8 DTC acquisition/service instead, DTC contribution falls to zero; headline receipt is not net return.",
+            "sourceCitationId": "src_biz_victoria_pricing"
+          },
+          "ki_d12depth_marketing_position": {
+            "prompt": "What should a wine positioning statement join?",
+            "options": [
+              "A defined intended buyer, benefit and evidence of difference from competing offers",
+              "Only the producer's favourite label colour",
+              "A claim that every consumer wants the same style",
+              "Existing club preferences as proof of all restaurant demand"
+            ],
+            "correctIndex": 0,
+            "explanation": "Positioning directs product/brand, price, channels, people and promotion toward a buyer's needs. Test the proposed distinction against target-market and competitor evidence; an attractive label or current-club survey is not proof of a new segment's demand.",
+            "sourceCitationId": "src_d2_au_marketing_plan"
+          },
+          "ki_d12depth_marketing_plan": {
+            "prompt": "What turns a broad awareness idea into a reviewable launch plan?",
+            "options": [
+              "An unlimited promotion budget with no outcome",
+              "A measurable time-bound goal, budget, activities, owners and review baseline",
+              "A high impression count as proof of profit",
+              "A strategy without stock, staff or timing"
+            ],
+            "correctIndex": 1,
+            "explanation": "Define the intended audience and outcome, choose coordinated activities and assign people/capacity, cost and timing. Review results against a baseline; reach, enquiries and purchases are different measures.",
+            "sourceCitationId": "src_d2_au_marketing_plan"
+          },
+          "ki_d12depth_campaign_net": {
+            "prompt": "Fictional campaign A delivers 100 incremental orders at EUR8 contribution before campaign cost of EUR600. What modeled net contribution remains?",
+            "options": [
+              "EUR800 with campaign cost ignored",
+              "EUR600 because cost equals return",
+              "EUR200, before all omitted costs",
+              "100 impressions prove EUR200 profit"
+            ],
+            "correctIndex": 2,
+            "explanation": "100 x 8 - 600 = EUR200. This depends on genuinely incremental orders and the supplied contribution basis; reach, total orders or gross sales alone cannot establish the campaign's added return.",
+            "sourceCitationId": "src_biz_victoria_pricing"
+          },
+          "ki_d12depth_campaign_discount": {
+            "prompt": "A discount reduces contribution from EUR4 to EUR2 per bottle with unchanged fixed costs. What volume replaces the old contribution from 1,000 bottles?",
+            "options": [
+              "500 bottles because contribution halved",
+              "1,000 bottles because receipts alone matter",
+              "2,000 bottles guarantees all additional costs stay unchanged",
+              "2,000 bottles before additional support or capacity effects"
+            ],
+            "correctIndex": 3,
+            "explanation": "Original contribution is 1,000 x 4 = EUR4,000; at EUR2 per bottle it takes 2,000 bottles. This volume must be feasible and incremental; a higher shipment is not automatically a more successful campaign.",
+            "sourceCitationId": "src_biz_victoria_pricing"
+          },
+          "ki_d12depth_fx_prefund": {
+            "prompt": "A fictional EUR1,000 supplier payment can be prefunded today for home-currency850. What does this accomplish under the supplied quote?",
+            "options": [
+              "It obtains the stated euro amount now but uses cash early; an account holding does not create profit or protect against supplier failure",
+              "It guarantees a currency profit whatever later rates do",
+              "A euro account guarantees the supplier will deliver",
+              "It supplies EUR1,000 without using any current cash"
+            ],
+            "correctIndex": 0,
+            "explanation": "Under the fictional terms, buying EUR1,000 now requires850 home currency and removes the need to purchase that euro amount later. Holding USD, EUR or another currency postpones some conversions, while mismatched amounts/dates still need assessment. Account costs, idle-cash costs and supplier performance are separate uncertainties.",
+            "sourceCitationId": "src_d12depth_trade_finance"
+          }
+        }
+      }
+    },
+    {
+      "id": "qt_d12depth_d2_criteria",
+      "relation_type": "CASE_ACTION",
+      "direction": "forward",
+      "mode": "case_criteria",
+      "variant": "d12depth_d2_criteria",
+      "prompt_template": "{subject.name}",
+      "parameters": {
+        "scope_node_ids": [
+          "n_d12depth_case_market",
+          "n_d12depth_case_cost",
+          "n_d12depth_case_landed",
+          "n_d12depth_case_fx",
+          "n_d12depth_case_cash",
+          "n_d12depth_case_models",
+          "n_d12depth_case_channels",
+          "n_d12depth_case_outlets",
+          "n_d12depth_case_marketing",
+          "n_d12depth_case_campaign"
+        ],
+        "scenario_prompts": {
+          "n_d12depth_case_market": "Fictional wine market: opening stock 500 hL, new output 100 hL, domestic releases 120 hL; assume no trade or loss. Retail buyers report weaker purchasing power and altered preferences, but the size of demand change and inventories elsewhere are unknown. A supplier predicts a fixed 20% price rise from the smaller harvest. Compare stock and price evidence. All numbers and business proposals are original hypothetical inputs. Explain a conditional action, causal evidence, a trade-off and the remaining limitations. Self-review supports study; it does not certify real-world permission or professional competence.",
+          "n_d12depth_case_cost": "Fictional winery sells at EUR10 per bottle with EUR6 variable cost and EUR12,000 fixed annual cost within capacity up to 4,000 bottles. It plans 3,500 bottles and a EUR20,000 equipment purchase; half customer payments arrive next period. A delayed lot incurs EUR0.50 extra variable storage per bottle. Compare base contribution, cost sensitivity, profit assumptions and funding. All numbers and business proposals are original hypothetical inputs. Explain a conditional action, causal evidence, a trade-off and the remaining limitations. Self-review supports study; it does not certify real-world permission or professional competence.",
+          "n_d12depth_case_landed": "Fictional exporter compares one commissioned Scotland quote and another market with unknown current duty, trade restrictions, label and support eligibility. For the import budget, wine EUR1,000, freight EUR200, duty EUR100 and fully later-recoverable tax EUR260 are explicitly stipulated. A colleague treats a retail floor, customs duty and a conditional grant as interchangeable guaranteed producer income. Explain cost, funding and distinct legal mechanisms without deciding eligibility. All numbers and business proposals are original hypothetical inputs. Explain a conditional action, causal evidence, a trade-off and the remaining limitations. Self-review supports study; it does not certify real-world permission or professional competence.",
+          "n_d12depth_case_fx": "Fictional exporter expects EUR1,000. A committed forward pays home-currency 850, an option floors conversion at 850 with premium 20, and spot conversion could be 800 or 900. Customer payment may be late. The winery also owes EUR400 on the expected receipt date. Quotes ignore all other fees. Compare matching, downside and upside outcomes without recommending speculation. All numbers and business proposals are original hypothetical inputs. Explain a conditional action, causal evidence, a trade-off and the remaining limitations. Self-review supports study; it does not certify real-world permission or professional competence.",
+          "n_d12depth_case_cash": "Fictional cellar starts with EUR5,000, pays EUR6,000 on day10 and EUR3,000 on day20, and expects EUR8,000 on day30. An extra EUR1,000 recoverable-tax payment is due day15 and recovery is day45. No other flows exist. Buyer payment may slip to day50. Calculate peak funding and discuss a stock-release or finance response without treating recoverable tax as permanent cost. All numbers and business proposals are original hypothetical inputs. Explain a conditional action, causal evidence, a trade-off and the remaining limitations. Self-review supports study; it does not certify real-world permission or professional competence.",
+          "n_d12depth_case_models": "Fictional grower can sell fruit immediately; a grower-producer can invest EUR80,000 in equipment; a merchant can buy bulk wine; a virtual brand can commission a custom facility for EUR3/bottle excluding marketing. A cooperative pools processing and marketing with member decisions; a larger group proposes shared purchasing but separate brand budgets. Compare capital, sourcing, control and commercial duties for these models. All numbers and business proposals are original hypothetical inputs. Explain a conditional action, causal evidence, a trade-off and the remaining limitations. Self-review supports study; it does not certify real-world permission or professional competence.",
+          "n_d12depth_case_channels": "Fictional options: full-service partner pays EUR8/bottle on 500 bottles after60days; broker charges EUR400 plus EUR1 per sold bottle while a separately paid service importer handles stock; a JV pools promotion at shared cost; a direct-seller order offers EUR7 prepaid but requires a clearing route. Full costs and buyer demand are incomplete. A 500-bottle shipment has only 100 documented downstream sales. Compare roles, timing and evidence. All numbers and business proposals are original hypothetical inputs. Explain a conditional action, causal evidence, a trade-off and the remaining limitations. Self-review supports study; it does not certify real-world permission or professional competence.",
+          "n_d12depth_case_outlets": "Fictional winery compares DTC receipt EUR20, wine cost EUR8, fulfilment EUR4 and acquisition/service EUR6 per bottle with wholesale receipt EUR10, wine cost EUR8 and service EUR1. It also tests EUR8 DTC acquisition/service. Cellar-door/events need staff time; clubs need retention and records; online/hybrid needs fulfilment. Specialist bars and fine-dining accounts request training, while convenience and casual outlets propose quick-repeat formats. Travel and investment buyers request different stock/provenance conditions. No route has validated demand. Compare two feasible pilots and a full-cost sensitivity. All numbers and business proposals are original hypothetical inputs. Explain a conditional action, causal evidence, a trade-off and the remaining limitations. Self-review supports study; it does not certify real-world permission or professional competence.",
+          "n_d12depth_case_marketing": "Fictional wine brand targets restaurant buyers as a business segment, based only on existing club gift-carton responses. A EUR2,000 budget could fund target-buyer tastings, sales training, sample formats or broad advertising. Competitor prices are dated; current staffing covers only ten accounts a week. Set a target, positioning and coordinated plan without assuming every restaurant shares club preferences. All numbers and business proposals are original hypothetical inputs. Explain a conditional action, causal evidence, a trade-off and the remaining limitations. Self-review supports study; it does not certify real-world permission or professional competence.",
+          "n_d12depth_case_campaign": "Fictional A adds100 orders with EUR8 contribution each and EUR600 promotion cost; B adds80 with EUR10 each and EUR300 promotion cost. Counts are stated as incremental against a matched baseline, and costs include fulfillment/service except later returns. A has more impressions; repeat and returns data are pending. Compare net contribution, discount sensitivity and a review decision. All numbers and business proposals are original hypothetical inputs. Explain a conditional action, causal evidence, a trade-off and the remaining limitations. Self-review supports study; it does not certify real-world permission or professional competence."
+        },
+        "distractors": {
+          "n_d12depth_case_market": [
+            {
+              "summary": "Promise a 20% price rise solely from lower output",
+              "explanation": "The relative demand and inventory effects are not supplied."
+            },
+            {
+              "summary": "Record 120 hL releases as the closing stock",
+              "explanation": "Flows and inventory are distinct quantities."
+            }
+          ],
+          "n_d12depth_case_cost": [
+            {
+              "summary": "Pay EUR20,000 immediately from the EUR2,000 modeled surplus",
+              "explanation": "The amount and receipt timing do not supply that funding."
+            },
+            {
+              "summary": "Keep EUR2,000 surplus after adding EUR0.50 per bottle storage",
+              "explanation": "3,500 x EUR0.50 consumes EUR1,750."
+            }
+          ],
+          "n_d12depth_case_landed": [
+            {
+              "summary": "Use the Scottish floor as a guaranteed grant to the exporter",
+              "explanation": "A retail floor is neither a subsidy entitlement nor producer payment."
+            },
+            {
+              "summary": "Fund only EUR1,300 on payment day because EUR260 is recoverable later",
+              "explanation": "Initial outflow still includes the tax under the supplied premise."
+            }
+          ],
+          "n_d12depth_case_fx": [
+            {
+              "summary": "Count a forward as guaranteeing receipt from a defaulting buyer",
+              "explanation": "It deals with exchange, not buyer performance."
+            },
+            {
+              "summary": "Report option proceeds of 900 at high spot while omitting the 20 premium",
+              "explanation": "The supplied premium reduces that illustrated net amount to 880."
+            }
+          ],
+          "n_d12depth_case_cash": [
+            {
+              "summary": "Use day45 tax recovery to pay the bill due day15 without funding",
+              "explanation": "A future recovery is not cash on day15."
+            },
+            {
+              "summary": "Borrow only EUR4,000 after ignoring the extra EUR1,000 payment",
+              "explanation": "Including that stipulated payment makes the trough -EUR5,000."
+            }
+          ],
+          "n_d12depth_case_models": [
+            {
+              "summary": "Treat EUR3 custom processing as complete production, marketing and distribution cost",
+              "explanation": "Those other duties and costs are explicitly excluded or unknown."
+            },
+            {
+              "summary": "Rank every group-owned wine above every cooperative by ownership label",
+              "explanation": "Ownership structure does not demonstrate sensory quality."
+            }
+          ],
+          "n_d12depth_case_channels": [
+            {
+              "summary": "Credit 500 consumer sales from the 500-bottle shipment",
+              "explanation": "The case documents only 100 downstream sales."
+            },
+            {
+              "summary": "Treat a broker retainer as purchase of all stock and every import service",
+              "explanation": "The supplied broker and service-importer roles are distinct."
+            }
+          ],
+          "n_d12depth_case_outlets": [
+            {
+              "summary": "Choose every DTC route because the EUR20 receipt proves universal profit superiority",
+              "explanation": "The costs and their sensitivity change the comparison."
+            },
+            {
+              "summary": "Promise appreciation to the investment buyer from a provenance request",
+              "explanation": "No future price or return is established."
+            }
+          ],
+          "n_d12depth_case_marketing": [
+            {
+              "summary": "Scale gift-carton advertising to all restaurants because clubs liked it",
+              "explanation": "The sampled audience has different tasks from intended buyers."
+            },
+            {
+              "summary": "Promise fifty new serviced accounts weekly with ten-account staffing capacity",
+              "explanation": "The plan exceeds its supplied capacity."
+            }
+          ],
+          "n_d12depth_case_campaign": [
+            {
+              "summary": "Choose A solely because it has more impressions",
+              "explanation": "Exposure is not the supplied net contribution outcome."
+            },
+            {
+              "summary": "Call EUR800 each the final campaign profit",
+              "explanation": "Campaign cost and later returns remain relevant."
+            }
+          ]
+        }
+      }
+    },
+    {
+      "id": "qt_d12depth_d2_written",
+      "relation_type": "CASE_ACTION",
+      "direction": "forward",
+      "mode": "short_answer",
+      "variant": "d12depth_d2_written",
+      "prompt_template": "{subject.name}",
+      "parameters": {
+        "scope_node_ids": [
+          "n_d12depth_case_market",
+          "n_d12depth_case_cost",
+          "n_d12depth_case_landed",
+          "n_d12depth_case_fx",
+          "n_d12depth_case_cash",
+          "n_d12depth_case_models",
+          "n_d12depth_case_channels",
+          "n_d12depth_case_outlets",
+          "n_d12depth_case_marketing",
+          "n_d12depth_case_campaign"
+        ],
+        "key_points": {
+          "CASE_ACTION": "Conditional decision and supplied calculation",
+          "CASE_REASON": "Causal explanation using relevant evidence",
+          "CASE_TRADEOFF": "Style, resources and operational trade-off",
+          "CASE_LIMITATION": "Missing evidence and scope of the conclusion"
+        }
+      }
+    }
+  ]
+}

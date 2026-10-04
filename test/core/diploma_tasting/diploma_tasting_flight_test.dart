@@ -194,7 +194,17 @@ void main() {
     'finish requires three physical wines and an explicit later review',
     () async {
       final flight = await repository.start('D4');
-      await expectLater(repository.finish(flight.id), throwsStateError);
+      await expectLater(
+        repository.finish(flight.id),
+        throwsA(
+          isA<StateError>().having(
+            (error) => error.message,
+            'completion message',
+            'Complete three physical wines, their observations and evidence, '
+                'the comparison, and your self-review before recording this flight.',
+          ),
+        ),
+      );
       for (var index = 0; index < 3; index++) {
         await repository.acknowledgePhysical(flight.id, index, true);
         await repository.choose(flight.id, index, 'sweetness', {'dry'});
@@ -408,7 +418,7 @@ void main() {
             .map((unit) => unit.unitId),
         ['D4', 'D5'],
       );
-      expect(bank.version, '1.1.0');
+      expect(bank.version, '1.2.0');
       expect(bank.unit('D3').wineKind, 'still');
       expect(bank.unit('D4').wineKind, 'sparkling');
       expect(bank.unit('D5').wineKind, 'fortified');

@@ -3,9 +3,11 @@ import 'dart:io';
 import 'dart:math';
 
 import 'package:flutter_test/flutter_test.dart';
+import 'package:crypto/crypto.dart';
 import 'package:fsrs/fsrs.dart' as fsrs;
 import 'package:sommelier/core/curriculum/curriculum_dataset.dart';
 import 'package:sommelier/core/curriculum/curriculum_ingestion.dart';
+import 'package:sommelier/core/curriculum/knowledge_graph.dart';
 import 'package:sommelier/core/curriculum/name_normalizer.dart';
 import 'package:sommelier/core/database/app_database.dart';
 import 'package:sommelier/core/progress/wset_progress.dart';
@@ -14,15 +16,42 @@ import 'package:sommelier/core/questions/exercise_presenter.dart';
 import 'package:sommelier/core/questions/formats/short_answer/short_answer_format.dart';
 import 'package:sommelier/core/questions/formats/typed/typed_format.dart';
 import 'package:sommelier/core/study/review_service.dart';
+import 'package:sommelier/core/study/study_planner.dart';
 
 import '../../support/curriculum_fixture.dart';
 import '../../support/fixture.dart';
 import '../../support/study_fixture.dart';
 
+// Historical membership comes from the hash-pinned complete .73 release,
+// not from the current dataset being tested. Supersession keeps old mappings
+// for learner history; only the explicitly named successor pair is added.
+CurriculumDataset _frozen073MappingBaseline() {
+  final bytes = File(
+    'test/fixtures/curriculum/diploma_release_0_24_73_complete_frozen.json.gz',
+  ).readAsBytesSync();
+  expect(
+    sha256.convert(bytes).toString(),
+    '15a944ed92394c94d4ec67b9fb83388bf3b8718e15e3c3da007af5666e211cdf',
+  );
+  final historical = CurriculumDataset.parse(utf8.decode(gzip.decode(bytes)));
+  expect(historical.version, '0.24.73');
+  return historical;
+}
+
 void main() {
   late AppDatabase db;
   late CurriculumDataset dataset;
-  final time = TestClock(DateTime.utc(2026, 10, 1, 9));
+  late TestClock time;
+  late CurriculumDataset historical;
+  late Set<String> currentItemIds;
+  const retiredSaliceIds = {
+    'ki_reg_isi_salice_context',
+    'ki_reg_isi_salice_styles',
+  };
+  const successorSaliceIds = {
+    'ki_reg_isi_salice_context_2026',
+    'ki_reg_isi_salice_styles_2026',
+  };
   const relations = {
     'PRINCIPLE_EXPLANATION',
     'CASE_ACTION',
@@ -62,12 +91,24 @@ void main() {
 
   setUpAll(() async {
     dataset = bundledDataset();
+    historical = _frozen073MappingBaseline();
+    expect(historical.knowledgeItems, hasLength(4957));
+    time = TestClock(dataset.publishedAt.toUtc());
     db = openTestDatabase();
     await CurriculumIngester(
       db,
       clock: time.clock,
       assets: (path) async => File(path).readAsBytesSync(),
     ).ingest(dataset);
+    currentItemIds = {
+      for (final item in await KnowledgeGraph(
+        db,
+        clock: time.clock,
+      ).currentItems())
+        item.id,
+    };
+    expect(currentItemIds.intersection(retiredSaliceIds), isEmpty);
+    expect(currentItemIds.intersection(successorSaliceIds), successorSaliceIds);
   });
   tearDownAll(() => db.close());
 
@@ -176,7 +217,7 @@ void main() {
     );
     expect(
       diploma.units.singleWhere((u) => u.scope.id == 'D2').counts.available,
-      139,
+      233,
     );
     expect(diploma.appLevelComplete, isFalse);
     expect(
@@ -279,157 +320,204 @@ void main() {
     );
   });
 
-  test(
-    'product, fault and regional terms are cited, mapped and answerable',
-    () async {
-      final presenter = ExercisePresenter(db, clock: time.clock);
-      final templatesById = {
-        for (final template in dataset.questionTemplates) template.id: template,
-      };
-      final typedTemplatesByItem = <String, List<String>>{};
-      for (final question in await db.select(db.questions).get()) {
-        final template = templatesById[question.questionTemplateId]!;
-        if (template.mode == 'typed' && template.direction == 'forward') {
-          typedTemplatesByItem
-              .putIfAbsent(question.knowledgeItemId, () => [])
-              .add(template.id);
-        }
+  test('product, fault and regional terms are cited, mapped and answerable', () async {
+    final presenter = ExercisePresenter(db, clock: time.clock);
+    final templatesById = {
+      for (final template in dataset.questionTemplates) template.id: template,
+    };
+    final typedTemplatesByItem = <String, List<String>>{};
+    for (final question in await db.select(db.questions).get()) {
+      final template = templatesById[question.questionTemplateId]!;
+      if (template.mode == 'typed' && template.direction == 'forward') {
+        typedTemplatesByItem
+            .putIfAbsent(question.knowledgeItemId, () => [])
+            .add(template.id);
       }
-      for (final prefix in [
-        'ki_spark_',
-        'ki_fort_',
-        'ki_fault_',
-        'ki_reg_fr_',
-        'ki_reg_am_',
-        'ki_reg_sh_',
-        'ki_reg_inc_',
-        'ki_reg_isi_',
-        'ki_reg_ib_',
-        'ki_reg_fe_',
-        'ki_reg_fm_',
-        'ki_reg_fs_',
-        'ki_reg_de_',
-        'ki_reg_ah_',
-        'ki_reg_gr_',
-        'ki_reg_na_',
-        'ki_reg_sa_',
-        'ki_reg_oa_',
-        'ki_reg_cn_',
-      ]) {
-        final items = dataset.knowledgeItems.where(
-          (i) => i.id.startsWith(prefix),
+    }
+    for (final prefix in [
+      'ki_spark_',
+      'ki_fort_',
+      'ki_fault_',
+      'ki_reg_fr_',
+      'ki_reg_am_',
+      'ki_reg_sh_',
+      'ki_reg_inc_',
+      'ki_reg_isi_',
+      'ki_reg_ib_',
+      'ki_reg_fe_',
+      'ki_reg_fm_',
+      'ki_reg_fs_',
+      'ki_reg_de_',
+      'ki_reg_ah_',
+      'ki_reg_gr_',
+      'ki_reg_na_',
+      'ki_reg_sa_',
+      'ki_reg_oa_',
+      'ki_reg_cn_',
+    ]) {
+      final inventoryItems = dataset.knowledgeItems
+          .where((item) => item.id.startsWith(prefix))
+          .toList();
+      final historicalIds = historical.knowledgeItems
+          .where((item) => item.id.startsWith(prefix))
+          .map((item) => item.id)
+          .toSet();
+      final addedIds = prefix == 'ki_reg_isi_'
+          ? successorSaliceIds
+          : <String>{};
+      expect(
+        inventoryItems.map((item) => item.id).toSet(),
+        {...historicalIds, ...addedIds},
+        reason:
+            'Exact historical inventory plus only declared successors: $prefix',
+      );
+      for (final retired in inventoryItems.where(
+        (item) => retiredSaliceIds.contains(item.id),
+      )) {
+        expect(retired.verificationStatus, 'unverified');
+        expect(retired.mcqDisabled, isTrue);
+        expect(
+          dataset.knowledgeItemCitations.where(
+            (c) => c.knowledgeItemId == retired.id,
+          ),
+          isNotEmpty,
+          reason: retired.id,
         );
         expect(
-          items.length,
-          {
-            'ki_spark_': 58,
-            'ki_fort_': 57,
-            'ki_fault_': 58,
-            'ki_reg_fr_': 44,
-            'ki_reg_am_': 44,
-            'ki_reg_sh_': 44,
-            'ki_reg_inc_': 44,
-            'ki_reg_isi_': 44,
-            'ki_reg_ib_': 44,
-            'ki_reg_fe_': 44,
-            'ki_reg_fm_': 44,
-            'ki_reg_fs_': 44,
-            'ki_reg_de_': 44,
-            'ki_reg_ah_': 44,
-            'ki_reg_gr_': 44,
-            'ki_reg_na_': 44,
-            'ki_reg_sa_': 44,
-            'ki_reg_oa_': 44,
-            'ki_reg_cn_': 44,
-          }[prefix],
-          reason: prefix,
+          dataset.certificationKnowledgeMappings.where(
+            (m) => m.knowledgeItemId == retired.id,
+          ),
+          isNotEmpty,
         );
-        for (final item in items) {
-          expect(item.verificationStatus, 'unverified');
-          expect(item.mcqDisabled, isTrue);
+        expect(typedTemplatesByItem[retired.id] ?? <String>[], isEmpty);
+        await expectLater(
+          presenter.present(
+            retired.id,
+            'qt_wset_principle_point_typed',
+            seed: 1,
+          ),
+          throwsStateError,
+        );
+      }
+      final items = inventoryItems
+          .where((item) => currentItemIds.contains(item.id))
+          .toList();
+      expect(
+        items.map((item) => item.id).toSet(),
+        {...historicalIds.difference(retiredSaliceIds), ...addedIds},
+        reason:
+            'Current practice replaces rather than duplicates retired points',
+      );
+      expect(
+        items.length,
+        {
+          'ki_spark_': 58,
+          'ki_fort_': 57,
+          'ki_fault_': 58,
+          'ki_reg_fr_': 44,
+          'ki_reg_am_': 44,
+          'ki_reg_sh_': 44,
+          'ki_reg_inc_': 44,
+          'ki_reg_isi_': 44,
+          'ki_reg_ib_': 44,
+          'ki_reg_fe_': 44,
+          'ki_reg_fm_': 44,
+          'ki_reg_fs_': 44,
+          'ki_reg_de_': 44,
+          'ki_reg_ah_': 44,
+          'ki_reg_gr_': 44,
+          'ki_reg_na_': 44,
+          'ki_reg_sa_': 44,
+          'ki_reg_oa_': 44,
+          'ki_reg_cn_': 44,
+        }[prefix],
+        reason: prefix,
+      );
+      for (final item in items) {
+        expect(item.verificationStatus, 'unverified');
+        expect(item.mcqDisabled, isTrue);
+        expect(
+          dataset.knowledgeItemCitations.where(
+            (c) => c.knowledgeItemId == item.id,
+          ),
+          isNotEmpty,
+          reason: item.id,
+        );
+        expect(
+          dataset.certificationKnowledgeMappings.where(
+            (m) => m.knowledgeItemId == item.id,
+          ),
+          isNotEmpty,
+        );
+        final servedTemplates = typedTemplatesByItem[item.id] ?? [];
+        expect(servedTemplates, hasLength(1), reason: item.id);
+        final template = templatesById[servedTemplates.single]!;
+        final exercise = await presenter.present(
+          item.id,
+          template.id,
+          seed: 1,
+        ) as TypedQuestion;
+        final aliases = dataset.nodeAlternativeNames.where(
+          (a) => a.knowledgeNodeId == item.objectId,
+        );
+        expect(aliases, isNotEmpty, reason: item.id);
+        final cue = TypedFormat.itemCuesOf(template)?[item.id];
+        final responsiveAnswers = cue?.acceptedAnswers
+            .map(
+              (answer) =>
+                  TypedFormat.core(normalizeName(answer), exercise.typeWords),
+            )
+            .toSet();
+        if (cue != null) {
+          expect(exercise.prompt, cue.prompt, reason: item.id);
           expect(
-            dataset.knowledgeItemCitations.where(
-              (c) => c.knowledgeItemId == item.id,
-            ),
-            isNotEmpty,
+            exercise.accepted.keys.toSet(),
+            responsiveAnswers,
             reason: item.id,
           );
-          expect(
-            dataset.certificationKnowledgeMappings.where(
-              (m) => m.knowledgeItemId == item.id,
-            ),
-            isNotEmpty,
-          );
-          final servedTemplates = typedTemplatesByItem[item.id] ?? [];
-          expect(servedTemplates, hasLength(1), reason: item.id);
-          final template = templatesById[servedTemplates.single]!;
-          final exercise = await presenter.present(
-            item.id,
-            template.id,
-            seed: 1,
-          ) as TypedQuestion;
-          final aliases = dataset.nodeAlternativeNames.where(
-            (a) => a.knowledgeNodeId == item.objectId,
-          );
-          expect(aliases, isNotEmpty, reason: item.id);
-          final cue = TypedFormat.itemCuesOf(template)?[item.id];
-          final responsiveAnswers = cue?.acceptedAnswers
-              .map(
-                (answer) =>
-                    TypedFormat.core(normalizeName(answer), exercise.typeWords),
-              )
-              .toSet();
-          if (cue != null) {
-            expect(exercise.prompt, cue.prompt, reason: item.id);
+          for (final answer in cue.acceptedAnswers) {
             expect(
-              exercise.accepted.keys.toSet(),
-              responsiveAnswers,
-              reason: item.id,
-            );
-            for (final answer in cue.acceptedAnswers) {
-              expect(
-                const TypedFormat().grade(exercise, answer).single.rating,
-                fsrs.Rating.good,
-                reason: '${item.id}: authored response $answer',
-              );
-            }
-            final canonical = dataset.knowledgeNodes
-                .singleWhere((node) => node.id == item.objectId)
-                .name;
-            expect(exercise.canonicalAnswer, canonical, reason: item.id);
-            expect(
-              const TypedFormat().grade(exercise, canonical).single.rating,
-              responsiveAnswers!.contains(
-                    TypedFormat.core(
-                      normalizeName(canonical),
-                      exercise.typeWords,
-                    ),
-                  )
-                  ? fsrs.Rating.good
-                  : fsrs.Rating.again,
-              reason: '${item.id}: canonical title must answer the actual cue',
+              const TypedFormat().grade(exercise, answer).single.rating,
+              fsrs.Rating.good,
+              reason: '${item.id}: authored response $answer',
             );
           }
-          for (final alias in aliases) {
-            expect(
-              const TypedFormat().grade(exercise, alias.name).single.rating,
-              cue == null ||
-                      responsiveAnswers!.contains(
-                        TypedFormat.core(alias.nameNorm, exercise.typeWords),
-                      )
-                  ? fsrs.Rating.good
-                  : fsrs.Rating.again,
-              reason: '${item.id}: ${alias.name}',
-            );
-          }
+          final canonical = dataset.knowledgeNodes
+              .singleWhere((node) => node.id == item.objectId)
+              .name;
+          expect(exercise.canonicalAnswer, canonical, reason: item.id);
           expect(
-            const TypedFormat().grade(exercise, '').single.rating,
-            fsrs.Rating.again,
+            const TypedFormat().grade(exercise, canonical).single.rating,
+            responsiveAnswers!.contains(
+                  TypedFormat.core(
+                    normalizeName(canonical),
+                    exercise.typeWords,
+                  ),
+                )
+                ? fsrs.Rating.good
+                : fsrs.Rating.again,
+            reason: '${item.id}: canonical title must answer the actual cue',
           );
         }
+        for (final alias in aliases) {
+          expect(
+            const TypedFormat().grade(exercise, alias.name).single.rating,
+            cue == null ||
+                    responsiveAnswers!.contains(
+                      TypedFormat.core(alias.nameNorm, exercise.typeWords),
+                    )
+                ? fsrs.Rating.good
+                : fsrs.Rating.again,
+            reason: '${item.id}: ${alias.name}',
+          );
+        }
+        expect(
+          const TypedFormat().grade(exercise, '').single.rating,
+          fsrs.Rating.again,
+        );
       }
-    },
-  );
+    }
+  });
 
   test('all product, fault and regional cases preserve conditions and independent rubric grades', () async {
     final templates = dataset.questionTemplates.where(
@@ -560,12 +648,23 @@ void main() {
       132,
       844,
       3444,
-      4234,
+      4682,
     ]);
     final diploma = snapshot.levels.last;
     final unitIds = {
       for (final unit in scope.levels.last.units) unit.id: unit.itemIds.toSet(),
     };
+    // Independently declared product cohorts; body IDs have no role suffix.
+    const bodyIds = {
+      'D4': {'ki_d45body_champagne', 'ki_d45body_cava', 'ki_d45body_cap'},
+      'D5': {
+        'ki_d45body_sherry',
+        'ki_d45body_ivdp',
+        'ki_d45body_ivbam',
+        'ki_d45body_muscat',
+      },
+    };
+    const explicitUnitSizes = {'D4': 239, 'D5': 161};
     for (final entry in {
       'D4': [
         'ki_spark_',
@@ -581,6 +680,22 @@ void main() {
         'ki_d4d5_case_italian_',
         'ki_d45taste_sparkling_',
         'ki_d4sekt_',
+        'ki_d4c_',
+        'ki_d456_champagne_stock_',
+        'ki_d456_cremant_loire_',
+        'ki_d456_prosecco_supply_',
+        'ki_d456_asti_aroma_',
+        'ki_d456_italian_bottle_',
+        'ki_d456_lambrusco_pairing_',
+        'ki_d456_cava_water_',
+        'ki_d456_british_vintage_',
+        'ki_d456_us_site_method_',
+        'ki_d456_chile_method_',
+        'ki_d456_argentina_capacity_',
+        'ki_d456_australia_portfolio_',
+        'ki_d456_nz_harvest_blend_',
+        'ki_d456_cap_classique_route_',
+        'ki_d45body_sparkling_roles_',
       ],
       'D5': [
         'ki_fort_',
@@ -594,12 +709,25 @@ void main() {
         'ki_d4d5_case_port_',
         'ki_d45taste_sherry_',
         'ki_d45taste_port_',
+        'ki_d5c_',
+        'ki_d456_sherry_cellar_',
+        'ki_d456_port_extraction_stock_',
+        'ki_d456_madeira_working_capital_',
+        'ki_d456_vdn_style_stock_',
+        'ki_d456_rutherglen_replenishment_',
+        'ki_d45body_fortified_roles_',
+        'ki_d45body_muscat_classification_',
       ],
     }.entries) {
       final ids = dataset.knowledgeItems
-          .where((i) => entry.value.any(i.id.startsWith))
+          .where(
+            (i) =>
+                entry.value.any(i.id.startsWith) ||
+                bodyIds[entry.key]!.contains(i.id),
+          )
           .map((i) => i.id)
           .toSet();
+      expect(ids, hasLength(explicitUnitSizes[entry.key]!));
       expect(unitIds[entry.key], ids);
       final unit = diploma.units.singleWhere((u) => u.scope.id == entry.key);
       expect(unit.counts.available, greaterThan(ids.length));
@@ -607,7 +735,7 @@ void main() {
     }
     expect(
       diploma.units.singleWhere((u) => u.scope.id == 'D2').counts.available,
-      139,
+      233,
     );
     expect(
       diploma.units.singleWhere((u) => u.scope.id == 'D3').scope.domains,
@@ -631,12 +759,33 @@ void main() {
   test(
     'regional comparison pools keep both cited points within one comparison',
     () async {
-      final items = dataset.knowledgeItems
+      final inventory = dataset.knowledgeItems
           .where(
-            (i) =>
-                regionalItem(i.id) && i.relationType == 'PRINCIPLE_EXPLANATION',
+            (item) =>
+                regionalItem(item.id) &&
+                item.relationType == 'PRINCIPLE_EXPLANATION',
           )
           .toList();
+      final historicalIds = historical.knowledgeItems
+          .where(
+            (item) =>
+                regionalItem(item.id) &&
+                item.relationType == 'PRINCIPLE_EXPLANATION',
+          )
+          .map((item) => item.id)
+          .toSet();
+      expect(historicalIds, hasLength(448));
+      expect(inventory.map((item) => item.id).toSet(), {
+        ...historicalIds,
+        ...successorSaliceIds,
+      });
+      final items = inventory
+          .where((item) => currentItemIds.contains(item.id))
+          .toList();
+      expect(items.map((item) => item.id).toSet(), {
+        ...historicalIds.difference(retiredSaliceIds),
+        ...successorSaliceIds,
+      });
       expect(items, hasLength(448));
       final bySubject = <String, List<KnowledgeItem>>{};
       for (final item in items) {
@@ -648,6 +797,14 @@ void main() {
       );
       final pools = await db.select(db.exercisePools).get();
       final poolItems = await db.select(db.exercisePoolItems).get();
+      expect(
+        poolItems
+            .map((item) => item.knowledgeItemId)
+            .toSet()
+            .intersection(retiredSaliceIds),
+        isEmpty,
+        reason: 'Retired comparison points cannot remain in current pools',
+      );
       final presenter = ExercisePresenter(db, clock: time.clock);
       final reviews = ReviewService(
         db,
@@ -716,11 +873,29 @@ void main() {
   );
 
   test('all regional analysis facts route to D3 across domains without completing a level', () async {
-    final ids = dataset.knowledgeItems
-        .where((i) => regionalItem(i.id))
-        .map((i) => i.id)
+    final inventoryIds = dataset.knowledgeItems
+        .where((item) => regionalItem(item.id))
+        .map((item) => item.id)
         .toSet();
+    final historicalIds = historical.knowledgeItems
+        .where((item) => regionalItem(item.id))
+        .map((item) => item.id)
+        .toSet();
+    expect(historicalIds, hasLength(720));
+    expect(inventoryIds, {...historicalIds, ...successorSaliceIds});
+    final ids = inventoryIds.intersection(currentItemIds);
+    expect(ids, {
+      ...historicalIds.difference(retiredSaliceIds),
+      ...successorSaliceIds,
+    });
     expect(ids, hasLength(720));
+    final regionalCards = await StudyPlanner(
+      db,
+      clock: time.clock,
+    ).cards('WSET_L4');
+    final cardIds = regionalCards.map((card) => card.itemId).toSet();
+    expect(cardIds.intersection(retiredSaliceIds), isEmpty);
+    expect(cardIds.intersection(successorSaliceIds), successorSaliceIds);
     const frenchIds = <String>{
       'ki_d3fr_case_pinot_climat_action',
       'ki_d3fr_case_pinot_climat_reason',
@@ -778,15 +953,86 @@ void main() {
           .toSet(),
       frenchIds,
     );
+    // Keep the old two-point regional pools separate from new bounded cases.
+    const newD3CohortSizes = {
+      'ki_d3labels_': 28,
+      'ki_d3pacific_': 9,
+      'ki_d3close_': 62,
+      'ki_d3law_': 24,
+    };
+    final newD3Ids = <String>{};
+    for (final cohort in newD3CohortSizes.entries) {
+      final cohortIds = dataset.knowledgeItems
+          .where((item) => item.id.startsWith(cohort.key))
+          .map((item) => item.id)
+          .toSet();
+      expect(cohortIds, hasLength(cohort.value), reason: cohort.key);
+      expect(newD3Ids.intersection(cohortIds), isEmpty, reason: cohort.key);
+      newD3Ids.addAll(cohortIds);
+    }
+    expect(newD3Ids, hasLength(123));
+    for (final olderCohort in [ids, frenchIds, tejoSetubalIds]) {
+      expect(newD3Ids.intersection(olderCohort), isEmpty);
+    }
+    final newD3Items = dataset.knowledgeItems
+        .where((item) => newD3Ids.contains(item.id))
+        .toList();
+    expect(
+      newD3Items.where((item) => item.domainId == 'geography'),
+      hasLength(64),
+    );
+    expect(
+      newD3Items.where((item) => item.domainId == 'business'),
+      hasLength(59),
+    );
+    // Label release exercises use authored depth 2. The other modules
+    // distinguish their depth-2 principles from depth-3 four-role cases.
+    final newD3DepthCounts = {2: 0, 3: 0};
+    for (final item in newD3Items) {
+      final mappings = dataset.certificationKnowledgeMappings
+          .where((mapping) => mapping.knowledgeItemId == item.id)
+          .toList();
+      expect(mappings, hasLength(1), reason: item.id);
+      expect(mappings.single.certificationId, 'WSET_L4', reason: item.id);
+      expect(mappings.single.importance, 'core', reason: item.id);
+      expect(item.verificationStatus, 'unverified', reason: item.id);
+      expect(
+        item.relationType,
+        isIn({
+          'PRINCIPLE_EXPLANATION',
+          'CASE_ACTION',
+          'CASE_REASON',
+          'CASE_TRADEOFF',
+          'CASE_LIMITATION',
+        }),
+        reason: item.id,
+      );
+      final expectedDepth =
+          item.id.startsWith('ki_d3labels_') ||
+              item.relationType == 'PRINCIPLE_EXPLANATION'
+          ? 2
+          : 3;
+      expect(mappings.single.minimumDepth, expectedDepth, reason: item.id);
+      newD3DepthCounts.update(
+        mappings.single.minimumDepth,
+        (count) => count + 1,
+      );
+    }
+    expect(newD3DepthCounts, {2: 47, 3: 76});
     final scope = WsetScope.fromJson(
       File('assets/progress/wset_scope.json').readAsStringSync(),
     );
     expect(
       scope.levels.last.units.singleWhere((u) => u.id == 'D3').itemIds.toSet(),
-      {...ids, ...frenchIds, ...tejoSetubalIds},
+      {...ids, ...frenchIds, ...tejoSetubalIds, ...newD3Ids},
     );
     for (final unit in scope.levels.last.units.where((u) => u.id != 'D3')) {
       expect(unit.itemIds.toSet().intersection(ids), isEmpty, reason: unit.id);
+      expect(
+        unit.itemIds.toSet().intersection(newD3Ids),
+        isEmpty,
+        reason: unit.id,
+      );
       expect(
         unit.itemIds.toSet().intersection(frenchIds),
         isEmpty,

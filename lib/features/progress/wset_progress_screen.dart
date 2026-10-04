@@ -14,6 +14,7 @@ import '../../core/progress/wset_progress.dart';
 import '../../core/study/study_providers.dart';
 import '../practice/study_session_controller.dart';
 import '../diploma_tasting/diploma_tasting_flight_screen.dart';
+import '../diploma_tasting/d3_tasting_paper_screen.dart';
 import '../diploma_written/diploma_written_screen.dart';
 import '../diploma_research/diploma_research_screen.dart';
 import '../rehearsal/rehearsal_screen.dart';
@@ -479,6 +480,43 @@ class _LevelSectionState extends ConsumerState<_LevelSection> {
                             ),
                           ],
                           if (level.scope.certificationId == 'WSET_L4' &&
+                              unit.scope.id == 'D3')
+                            D3TimedPracticeAffordance(
+                              onOpen: _starting || !level.selectable
+                                  ? null
+                                  : () =>
+                                        _practice(const D3TastingPaperScreen()),
+                            ),
+                          if (level.scope.certificationId == 'WSET_L4' &&
+                              unit.scope.id == 'D3') ...[
+                            const SizedBox(height: 8),
+                            Text(
+                              _namedPhysicalParticipationLabel(
+                                physicalEvidence!,
+                              ),
+                              key: const ValueKey(
+                                'wset_unit_named_physical_D3',
+                              ),
+                            ),
+                            for (var session = 1; session <= 2; session++)
+                              TextButton(
+                                key: ValueKey(
+                                  'wset_unit_physical_open_D3_$session',
+                                ),
+                                onPressed: _starting || !level.selectable
+                                    ? null
+                                    : () => _practice(
+                                        DiplomaTastingFlightScreen(
+                                          unitId: 'D3_$session',
+                                        ),
+                                      ),
+                                child: Text(
+                                  'Open D3 six-wine session $session · '
+                                  '${_namedPhysicalSessionStatus(physicalEvidence, 'D3_$session')}',
+                                ),
+                              ),
+                          ],
+                          if (level.scope.certificationId == 'WSET_L4' &&
                               unit.scope.id == 'D6') ...[
                             const SizedBox(height: 8),
                             Text(
@@ -613,4 +651,25 @@ String _physicalParticipationLabel(
   AsyncError() =>
     'Saved tasting participation could not be read. Reopen progress to retry.',
   _ => 'Reading saved tasting participation…',
+};
+
+String _namedPhysicalParticipationLabel(
+  AsyncValue<DiplomaTastingEvidence> evidence,
+) => switch (evidence) {
+  AsyncData(:final value) =>
+    'Six-wine named sessions recorded: ${value.d3Sessions.length} of 2. '
+        'These are self-reviewed participation, not a tasting score or exam pass. '
+        'Three-wine practices and timed papers count separately.',
+  AsyncError() => 'Saved six-wine session participation could not be read. Reopen progress to retry.',
+  _ => 'Reading saved six-wine session participation…',
+};
+
+String _namedPhysicalSessionStatus(
+  AsyncValue<DiplomaTastingEvidence> evidence,
+  String sessionId,
+) => switch (evidence) {
+  AsyncData(:final value) =>
+    value.d3Sessions.contains(sessionId) ? 'recorded' : 'not yet recorded',
+  AsyncError() => 'record status unavailable',
+  _ => 'reading record status',
 };

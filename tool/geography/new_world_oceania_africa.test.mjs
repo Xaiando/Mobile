@@ -2,12 +2,12 @@ import test from 'node:test';
 import assert from 'node:assert/strict';
 import fs from 'node:fs';
 import crypto from 'node:crypto';
-import YAML from 'yaml';
+import { readYaml } from './lib.mjs';
 const root=new URL('../../',import.meta.url);
 const read=p=>fs.readFileSync(new URL(p,root));
 const json=p=>JSON.parse(read(p));
 const sha=x=>crypto.createHash('sha256').update(x).digest('hex');
-const dataset=YAML.parse(read('assets/curriculum/areas/new_world_oceania_africa.yaml').toString());
+const dataset=readYaml(new URL('assets/curriculum/areas/new_world_oceania_africa.yaml',root));
 const inventory=json('tool/geography/new_world_oceania_africa_inventory.json');
 const snapshots=Object.values(inventory.authored.snapshots).map(s=>({s,bytes:read(s.path),data:json(s.path)}));
 const points=snapshots.flatMap(x=>x.data.features);
@@ -44,7 +44,7 @@ test('every authored place has a primary-cited map item and both inherited track
     assert.equal(cites.length,1);assert(['src_atlas_au_gis','src_atlas_za_wo_2026'].includes(cites[0].source_citation_id));
     for(const track of ['WSET_L3','CMS_CERTIFIED'])assert(dataset.certification_knowledge_mappings.some(m=>m.knowledge_item_id===item.id&&m.certification_id===track&&m.minimum_depth>=1), `${item.id} retains location exercise depth on ${track}`);
   }
-  const docs=fs.readdirSync(new URL('assets/curriculum/areas/',root)).filter(f=>f.endsWith('.yaml')).map(f=>YAML.parse(read(`assets/curriculum/areas/${f}`).toString()));
+  const docs=fs.readdirSync(new URL('assets/curriculum/areas/',root)).filter(f=>f.endsWith('.yaml')).map(f=>readYaml(new URL(`assets/curriculum/areas/${f}`,root)));
   const all=docs.flatMap(d=>d.knowledge_nodes??[]);const ids=new Set(all.map(n=>n.id));
   const parents=new Map(docs.flatMap(d=>d.knowledge_relations??[]).filter(r=>r.relation_type==='LOCATED_IN').map(r=>[r.subject_id,r.object_id]));
   const country=id=>{const seen=new Set();while(parents.has(id)&&parents.get(id)!=='n_geo_world'&&!seen.has(id)){seen.add(id);id=parents.get(id);}return id;};

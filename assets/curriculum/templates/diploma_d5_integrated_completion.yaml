@@ -1,0 +1,199 @@
+{
+  "question_templates": [
+    {
+      "id": "qt_d5c_integrated_criteria",
+      "relation_type": "CASE_ACTION",
+      "direction": "forward",
+      "prompt_template": "{subject.name}",
+      "mode": "case_criteria",
+      "variant": "d5c_integrated_criteria",
+      "parameters": {
+        "scope_node_ids": [
+          "n_d456_case_sherry_cellar",
+          "n_d456_case_port_extraction_stock",
+          "n_d456_case_madeira_working_capital",
+          "n_d456_case_vdn_style_stock",
+          "n_d456_case_rutherglen_replenishment"
+        ],
+        "scenario_prompts": {
+          "n_d456_case_sherry_cellar": "Original fictional Jerez/Manzanilla production and sales exercise. Grower logs document heat, water status and grape health. Separate first and later press fractions are classified by trial; the lighter candidate is assigned to a flor-directed plan and the more structured candidate to an oxidative plan. A Sanlúcar bodega's supplied temperature and humidity records differ from another cellar. A mature solera withdrawal proposal exceeds the producer's replenishment budget. The buyer requests dry wines but a draft lists Oloroso, Amontillado and Palo Cortado as automatically sweet because they are dark. Naturally sweet PX and a blended Cream are separate offers. All observations, volumes, budgets and offers are fictional, not legal standards. Evaluate production, stock and customer fit.",
+          "n_d456_case_port_extraction_stock": "Original fictional Port production and portfolio exercise. Two Douro parcels have different rainfall, water-status, access and harvest-ripeness logs. A short pre-fortification fermentation requires extraction choices suited to its fruit. A robotic-treading pilot and a hand-treading pilot have comparable panel outcomes but different quoted labour and equipment costs. Youthful ruby, longer wood-held tawny, LBV, Vintage and Colheita release proposals have different actual storage, bottling and cash schedules. A white lot was fermented longer for a drier slot. All trial outcomes, costs and timings are invented; no declaration or category approval is supplied. A buyer ranks all dated wines as equivalent and assumes hand work always tastes better. Design a conditional allocation.",
+          "n_d456_case_madeira_working_capital": "Original fictional Madeira site-to-release exercise. Fragmented steep parcels supply measured crew-hours, water-delivery and grape-health records. A Tinta Negra lot has a tested medium-sweet brief; separately documented Sercial, Verdelho, Boal and Malvasia lots support different actual sweetness slots. An estufagem trial needs controlled heating and a finishing/stability review. A canteiro proposal uses wood and a longer producer-planned holding period. Neither programme has complete category approval. A supplier says canteiro must always be more profitable and that every bottle bearing a grape name has the same sweetness. A prepaid tourist-retail pilot and a later export order compete for limited cash. All observations, schedules and offers are invented. Evaluate a conditional plan.",
+          "n_d456_case_vdn_style_stock": "Original fictional VDN comparison. Muscat de Rivesaltes and Muscat de Frontignan supplier lots have aromatic-fruit trials; Grenache-led Maury, Banyuls and Rivesaltes lots have different skin-contact, fortification and oxygen/wood records. A steep Banyuls parcel's log records more harvest labour than an accessible parcel that season. Youthful protected-from-oxygen A fits a fresh-fruit dessert brief; oxidative B fits a developed dried-fruit brief. These observations, comparisons, staffing and offers are invented, not appellation-wide norms. A buyer proposes giving every VDN the same price and using any Maury bottle as a dry still wine. An older release needs extra stock finance. Evaluate production and route choices.",
+          "n_d456_case_rutherglen_replenishment": "Original fictional Rutherglen Muscat exercise. Brown Muscat parcels supply actual heat, water-status, late-ripeness and bunch-health logs. Fermentation/fortification records and separate cask stocks are available. Bench trial A adds a measured younger parcel to a mature component and fits the requested freshness/concentration balance; B maximises the old component and is too heavy for that brief. The old stock is limited and the producer has no funded replacement plan. A merchant wants a large discount; cellar-door guests have only sampled small pours. Proposed classification tier and reference-age records are incomplete. All observations, ratios, stock and offers are invented rather than a producer recipe. Plan a conditional blend and sales release."
+        },
+        "distractors": {
+          "n_d456_case_sherry_cellar": [
+            {
+              "summary": "List all dark dry Sherry as sweet and substitute it for PX.",
+              "explanation": "Darkness and oxidative development do not establish residual sweetness."
+            },
+            {
+              "summary": "Empty the oldest solera stock for immediate cash without a refresh plan.",
+              "explanation": "This disregards supplied replenishment constraints and the continuity of future releases."
+            }
+          ],
+          "n_d456_case_port_extraction_stock": [
+            {
+              "summary": "Choose hand treading automatically because labour proves better flavour.",
+              "explanation": "The supplied trial outcomes are comparable and real costs differ."
+            },
+            {
+              "summary": "Treat Vintage and Colheita as identical because the harvest year matches.",
+              "explanation": "Distinct maturation routes and actual condition must be evaluated."
+            }
+          ],
+          "n_d456_case_madeira_working_capital": [
+            {
+              "summary": "Promise the canteiro programme a higher profit before costing holding or losses.",
+              "explanation": "Style and time do not establish realised sales or net return."
+            },
+            {
+              "summary": "Assign an identical sweetness to every grape-labelled lot without tasting or records.",
+              "explanation": "General associations cannot replace the supplied lot-specific evidence."
+            }
+          ],
+          "n_d456_case_vdn_style_stock": [
+            {
+              "summary": "Use the supplied sweet Maury lot as a dry wine because every Maury is dry.",
+              "explanation": "The packet explicitly identifies sweet fortified evidence and product identity needs checking."
+            },
+            {
+              "summary": "Charge every VDN one price because its production costs must be identical.",
+              "explanation": "The supplied labour, holding and style plans differ."
+            }
+          ],
+          "n_d456_case_rutherglen_replenishment": [
+            {
+              "summary": "Release B because the oldest component necessarily makes the best blended wine.",
+              "explanation": "The supplied bench trial does not fit the brief and spends limited stock."
+            },
+            {
+              "summary": "Allocate all scarce old stock to the largest discounted order without replenishment.",
+              "explanation": "Volume ignores lost future blending options and uncosted sales contribution."
+            }
+          ]
+        }
+      }
+    },
+    {
+      "id": "qt_d5c_integrated_written",
+      "relation_type": "CASE_ACTION",
+      "direction": "forward",
+      "prompt_template": "{subject.name}",
+      "mode": "short_answer",
+      "variant": "d5c_integrated_written",
+      "parameters": {
+        "scope_node_ids": [
+          "n_d456_case_sherry_cellar",
+          "n_d456_case_port_extraction_stock",
+          "n_d456_case_madeira_working_capital",
+          "n_d456_case_vdn_style_stock",
+          "n_d456_case_rutherglen_replenishment"
+        ],
+        "key_points": {
+          "CASE_ACTION": "Conditional decision",
+          "CASE_REASON": "Evidence and causal reasoning",
+          "CASE_TRADEOFF": "Alternative and resource comparison",
+          "CASE_LIMITATION": "Uncertainty and required checks"
+        }
+      }
+    },
+    {
+      "id": "qt_d5c_integrated_action_choice",
+      "relation_type": "CASE_ACTION",
+      "direction": "forward",
+      "prompt_template": "{subject.name}",
+      "mode": "authored_choice",
+      "variant": "d5c_integrated_action_choice",
+      "parameters": {
+        "item_choices": {
+          "ki_d456_sherry_cellar_action": {
+            "prompt": "Original fictional Jerez/Manzanilla production and sales exercise. Grower logs document heat, water status and grape health. Separate first and later press fractions are classified by trial; the lighter candidate is assigned to a flor-directed plan and the more structured candidate to an oxidative plan. A Sanlúcar bodega's supplied temperature and humidity records differ from another cellar. A mature solera withdrawal proposal exceeds the producer's replenishment budget. The buyer requests dry wines but a draft lists Oloroso, Amontillado and Palo Cortado as automatically sweet because they are dark. Naturally sweet PX and a blended Cream are separate offers. All observations, volumes, budgets and offers are fictional, not legal standards. Evaluate production, stock and customer fit. Which initial decision is best supported?",
+            "options": [
+              "Retain trial-based dry and sweet routes separately and limit withdrawals to a documented replenishment and cash plan.",
+              "List all dark dry Sherry as sweet and substitute it for PX.",
+              "Empty the oldest solera stock for immediate cash without a refresh plan.",
+              "Declare the supplied conclusion externally verified and release the entire stock or assignment without further checks."
+            ],
+            "correctIndex": 0,
+            "explanation": "Press-fraction, flor and oxidative records help explain different styles; colour alone cannot establish sweetness. Verify sensory and sugar evidence, cellar health, category approval, actual withdrawal/refresh capacity and costed sales before commitment.",
+            "sourceCitationId": "src_d5_sherry_press"
+          },
+          "ki_d456_port_extraction_stock_action": {
+            "prompt": "Original fictional Port production and portfolio exercise. Two Douro parcels have different rainfall, water-status, access and harvest-ripeness logs. A short pre-fortification fermentation requires extraction choices suited to its fruit. A robotic-treading pilot and a hand-treading pilot have comparable panel outcomes but different quoted labour and equipment costs. Youthful ruby, longer wood-held tawny, LBV, Vintage and Colheita release proposals have different actual storage, bottling and cash schedules. A white lot was fermented longer for a drier slot. All trial outcomes, costs and timings are invented; no declaration or category approval is supplied. A buyer ranks all dated wines as equivalent and assumes hand work always tastes better. Design a conditional allocation. Which initial decision is best supported?",
+            "options": [
+              "Select the tested extraction route using actual costs and allocate distinct release styles only after category and cash checks.",
+              "Choose hand treading automatically because labour proves better flavour.",
+              "Treat Vintage and Colheita as identical because the harvest year matches.",
+              "Declare the supplied conclusion externally verified and release the entire stock or assignment without further checks."
+            ],
+            "correctIndex": 0,
+            "explanation": "The short extraction window, actual parcel fruit and comparable pilots matter; the shared harvest year does not make wood and bottle routes equivalent. Confirm spirit and fermentation records, authentic approvals, usable yield, storage and repeat panel/market evidence; no method guarantees superiority.",
+            "sourceCitationId": "src_fort_port_making"
+          },
+          "ki_d456_madeira_working_capital_action": {
+            "prompt": "Original fictional Madeira site-to-release exercise. Fragmented steep parcels supply measured crew-hours, water-delivery and grape-health records. A Tinta Negra lot has a tested medium-sweet brief; separately documented Sercial, Verdelho, Boal and Malvasia lots support different actual sweetness slots. An estufagem trial needs controlled heating and a finishing/stability review. A canteiro proposal uses wood and a longer producer-planned holding period. Neither programme has complete category approval. A supplier says canteiro must always be more profitable and that every bottle bearing a grape name has the same sweetness. A prepaid tourist-retail pilot and a later export order compete for limited cash. All observations, schedules and offers are invented. Evaluate a conditional plan. Which initial decision is best supported?",
+            "options": [
+              "Budget actual parcel labour and water, trial the specified sweetness slots, and release only funded, compliant finished lots.",
+              "Promise the canteiro programme a higher profit before costing holding or losses.",
+              "Assign an identical sweetness to every grape-labelled lot without tasting or records.",
+              "Declare the supplied conclusion externally verified and release the entire stock or assignment without further checks."
+            ],
+            "correctIndex": 0,
+            "explanation": "Documented fruit and fortification/heat/wood choices explain candidate differences; the tasting and records establish each actual bottle's fit. Check cultivar/category provenance, actual sugar and sensory results, stability, approved release timing and total realised costs before any profit claim.",
+            "sourceCitationId": "src_fort_madeira_process"
+          },
+          "ki_d456_vdn_style_stock_action": {
+            "prompt": "Original fictional VDN comparison. Muscat de Rivesaltes and Muscat de Frontignan supplier lots have aromatic-fruit trials; Grenache-led Maury, Banyuls and Rivesaltes lots have different skin-contact, fortification and oxygen/wood records. A steep Banyuls parcel's log records more harvest labour than an accessible parcel that season. Youthful protected-from-oxygen A fits a fresh-fruit dessert brief; oxidative B fits a developed dried-fruit brief. These observations, comparisons, staffing and offers are invented, not appellation-wide norms. A buyer proposes giving every VDN the same price and using any Maury bottle as a dry still wine. An older release needs extra stock finance. Evaluate production and route choices. Which initial decision is best supported?",
+            "options": [
+              "Keep fresh and developed style slots separate, authenticate the sweet/fortified product records, and price actual costs and demand.",
+              "Use the supplied sweet Maury lot as a dry wine because every Maury is dry.",
+              "Charge every VDN one price because its production costs must be identical.",
+              "Declare the supplied conclusion externally verified and release the entire stock or assignment without further checks."
+            ],
+            "correctIndex": 0,
+            "explanation": "Fortification, skin contact and recorded oxygen exposure help explain the supplied wines; a name alone does not settle sweet versus dry product identity. Verify actual product approvals, grape/fortification records, sensory and sugar evidence, stock finance and buyer uptake; no universal price follows from VDN.",
+            "sourceCitationId": "src_d5_civr_maury"
+          },
+          "ki_d456_rutherglen_replenishment_action": {
+            "prompt": "Original fictional Rutherglen Muscat exercise. Brown Muscat parcels supply actual heat, water-status, late-ripeness and bunch-health logs. Fermentation/fortification records and separate cask stocks are available. Bench trial A adds a measured younger parcel to a mature component and fits the requested freshness/concentration balance; B maximises the old component and is too heavy for that brief. The old stock is limited and the producer has no funded replacement plan. A merchant wants a large discount; cellar-door guests have only sampled small pours. Proposed classification tier and reference-age records are incomplete. All observations, ratios, stock and offers are invented rather than a producer recipe. Plan a conditional blend and sales release. Which initial decision is best supported?",
+            "options": [
+              "Pilot A with authenticated category and replenishment records and scale sales to funded stocks.",
+              "Release B because the oldest component necessarily makes the best blended wine.",
+              "Allocate all scarce old stock to the largest discounted order without replenishment.",
+              "Declare the supplied conclusion externally verified and release the entire stock or assignment without further checks."
+            ],
+            "correctIndex": 0,
+            "explanation": "Actual bench evidence supports this balance; the age or concentration of one component cannot prove the blended wine's quality. Check repeat blend/stability results, tier approval, spirit and stock records, full costs and actual repeat buying before expansion.",
+            "sourceCitationId": "src_fort_rutherglen_classes"
+          }
+        }
+      }
+    },
+    {
+      "id": "qt_d5c_principle_choice",
+      "relation_type": "PRINCIPLE_EXPLANATION",
+      "direction": "forward",
+      "prompt_template": "{subject.name}",
+      "mode": "authored_choice",
+      "variant": "d5c_principle_choice",
+      "parameters": {
+        "item_choices": {
+          "ki_d5c_style_price": {
+            "prompt": "Does a longer fortified maturation record establish a profitable selling price?",
+            "options": [
+              "Maturation describes stock commitment; profitability also needs yield, costs and realised sales.",
+              "Older stock guarantees a higher net profit.",
+              "A category fixes every producer's selling price.",
+              "Unsold bottles are equivalent to cash collected."
+            ],
+            "correctIndex": 0,
+            "explanation": "Oxidative maturation and long-held blends supply different styles, while a price decision still needs usable volume, handling and storage costs and actual sale timing. Age or category alone cannot calculate margin.",
+            "sourceCitationId": "src_biz_victoria_pricing"
+          }
+        }
+      }
+    }
+  ]
+}

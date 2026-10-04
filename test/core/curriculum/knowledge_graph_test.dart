@@ -1,3 +1,8 @@
+import 'package:crypto/crypto.dart';
+
+import 'dart:io';
+import 'dart:convert';
+
 import 'package:clock/clock.dart';
 import 'package:drift/drift.dart' show driftRuntimeOptions;
 import 'package:flutter_test/flutter_test.dart';
@@ -9,17 +14,61 @@ import 'package:sommelier/core/database/curriculum_writes.dart';
 import '../../support/curriculum_fixture.dart';
 import '../../support/fixture.dart';
 
+const _retiredSaliceIds = <String>{
+  'ki_reg_isi_salice_context',
+  'ki_reg_isi_salice_styles',
+};
+const _saliceSuccessors = <String, String>{
+  'ki_reg_isi_salice_context': 'ki_reg_isi_salice_context_2026',
+  'ki_reg_isi_salice_styles': 'ki_reg_isi_salice_styles_2026',
+};
+
+Map<String, dynamic> _frozen073Release() {
+  final bytes = File(
+    'test/fixtures/curriculum/diploma_release_0_24_73_complete_frozen.json.gz',
+  ).readAsBytesSync();
+  expect(
+    sha256.convert(bytes).toString(),
+    '15a944ed92394c94d4ec67b9fb83388bf3b8718e15e3c3da007af5666e211cdf',
+  );
+  final frozen =
+      jsonDecode(utf8.decode(gzip.decode(bytes))) as Map<String, dynamic>;
+  expect(frozen['dataset_version'], '0.24.73');
+  return frozen;
+}
+
 void main() {
+  late Map<String, dynamic> historical;
+  late Set<String> historicalIds;
+  late Set<String> activeIds;
+  setUpAll(() {
+    // matcher0.12.20 expects a live test zone, including for hash checks.
+    historical = _frozen073Release();
+    historicalIds = {
+      for (final row in (historical['knowledge_items'] as List))
+        (row as Map<String, dynamic>)['id'] as String,
+    };
+    expect(historicalIds, hasLength(4957));
+    activeIds = {
+      ...historicalIds.difference(_retiredSaliceIds),
+      ..._saliceSuccessors.values,
+    };
+  });
+
   // One test opens a second database on purpose.
   driftRuntimeOptions.dontWarnAboutMultipleDatabases = true;
 
   late AppDatabase db;
   late KnowledgeGraph graph;
+  late DateTime publishedAt;
 
   setUp(() async {
     db = openTestDatabase();
-    await CurriculumIngester(db).ensureCurrent(bundledDataset());
-    graph = KnowledgeGraph(db, clock: Clock.fixed(DateTime.utc(2026, 10, 1)));
+    final dataset = bundledDataset();
+    publishedAt = dataset.publishedAt.toUtc();
+    final releaseClock = Clock.fixed(publishedAt);
+    await CurriculumIngester(db, clock: releaseClock).ensureCurrent(dataset);
+    graph = KnowledgeGraph(db, clock: releaseClock);
   });
   tearDown(() => db.close());
 
@@ -158,7 +207,69 @@ void main() {
 
   test('current items exclude ended and superseded facts (FS-13)', () async {
     final all = await db.select(db.knowledgeItems).get();
-    expect(await graph.currentItems(), hasLength(all.length));
+    expect(all.map((item) => item.id).toSet(), {
+      ...historicalIds,
+      ..._saliceSuccessors.values,
+    });
+    final before = (await graph.currentItems()).map((item) => item.id).toSet();
+    expect(before, activeIds);
+    expect(before, hasLength(all.length - _retiredSaliceIds.length));
+    expect(before.intersection(_retiredSaliceIds), isEmpty);
+    expect(before, containsAll(_saliceSuccessors.values));
+    // Supersession applies independently of the successor's future validity.
+    const previouslyFutureLawIds = {
+      'ki_d3law_jura_cellar_calendar',
+      'ki_d3law_jura_veil_duration',
+      'ki_d3law_jura_consumer_release',
+      'ki_d3law_jura_clavelin_reserved',
+      'ki_d3law_tokaj_applicability',
+      'ki_d3law_tokaj_aszu_sugar',
+      'ki_d3law_tokaj_optional_puttonyos',
+      'ki_d3law_tokaj_consumer_release',
+      'ki_d3law_china_standard_status',
+      'ki_d3law_china_gi_requirements',
+      'ki_d3law_china_special_mark',
+      'ki_d3law_china_claim_scope',
+      'ki_d3law_case_jura_release_inventory_action',
+      'ki_d3law_case_jura_release_inventory_reason',
+      'ki_d3law_case_jura_release_inventory_tradeoff',
+      'ki_d3law_case_jura_release_inventory_limitation',
+      'ki_d3law_case_tokaj_label_release_action',
+      'ki_d3law_case_tokaj_label_release_reason',
+      'ki_d3law_case_tokaj_label_release_tradeoff',
+      'ki_d3law_case_tokaj_label_release_limitation',
+      'ki_d3law_case_china_gi_dossier_action',
+      'ki_d3law_case_china_gi_dossier_reason',
+      'ki_d3law_case_china_gi_dossier_tradeoff',
+      'ki_d3law_case_china_gi_dossier_limitation',
+    };
+    final historicalLawItems = (historical['knowledge_items'] as List)
+        .cast<Map<String, dynamic>>()
+        .where((item) => (item['id'] as String).startsWith('ki_d3law_'));
+    expect(
+      historicalLawItems.map((item) => item['id']).toSet(),
+      previouslyFutureLawIds,
+    );
+    final historicalRelations = (historical['knowledge_relations'] as List)
+        .cast<Map<String, dynamic>>();
+    for (final item in historicalLawItems) {
+      final relation = historicalRelations.singleWhere(
+        (relation) =>
+            relation['subject_id'] == item['subject_id'] &&
+            relation['relation_type'] == item['relation_type'] &&
+            relation['object_id'] == item['object_id'],
+      );
+      expect(relation['valid_from'], '2026-10-03');
+    }
+    expect(
+      (await graph.currentItems(on: '2026-10-02'))
+          .map((item) => item.id)
+          .toSet(),
+      historicalIds.difference({
+        ..._retiredSaliceIds,
+        ...previouslyFutureLawIds,
+      }),
+    );
     await db.writeCurriculum(() async {
       await db.customStatement(
         "UPDATE knowledge_relations SET valid_until = '2026-06-01' "
@@ -170,7 +281,14 @@ void main() {
       );
     });
     final current = [for (final i in await graph.currentItems()) i.id];
-    expect(current, hasLength(all.length - 2));
+    expect(
+      current.toSet(),
+      activeIds.difference({
+        'ki_barolo_min_ageing',
+        'ki_crozes_hermitage_grape',
+      }),
+    );
+    expect(current, hasLength(activeIds.length - 2));
     expect(current, isNot(contains('ki_barolo_min_ageing')));
     expect(current, isNot(contains('ki_crozes_hermitage_grape')));
     expect([
@@ -200,9 +318,17 @@ void main() {
   });
 
   group('§S.4 version expiry and staleness', () {
-    test('nothing has expired in the bundled release', () async {
-      expect(await graph.expiredItems(), isEmpty);
-    });
+    test(
+      'only retained Salice history is expired in the bundled release',
+      () async {
+        final expired = await graph.expiredItems();
+        expect(expired.map((item) => item.itemId).toSet(), _retiredSaliceIds);
+        for (final item in expired) {
+          expect(item.validUntil, '2026-10-03');
+          expect(item.supersededByItemId, _saliceSuccessors[item.itemId]);
+        }
+      },
+    );
 
     test('an ended relation or a superseded item is flagged', () async {
       await db.writeCurriculum(() async {
@@ -218,10 +344,30 @@ void main() {
       final expired = await graph.expiredItems();
       expect(
         [for (final e in expired) e.itemId],
-        ['ki_barolo_min_ageing', 'ki_crozes_hermitage_grape'],
+        [
+          'ki_barolo_min_ageing',
+          'ki_crozes_hermitage_grape',
+          ...(_retiredSaliceIds.toList()..sort()),
+        ],
       );
-      expect(expired.first.validUntil, '2026-06-01');
-      expect(expired.last.supersededByItemId, 'ki_cornas_grape');
+      expect(
+        expired
+            .singleWhere((item) => item.itemId == 'ki_barolo_min_ageing')
+            .validUntil,
+        '2026-06-01',
+      );
+      expect(
+        expired
+            .singleWhere((item) => item.itemId == 'ki_crozes_hermitage_grape')
+            .supersededByItemId,
+        'ki_cornas_grape',
+      );
+      for (final item in expired.where(
+        (item) => _retiredSaliceIds.contains(item.itemId),
+      )) {
+        expect(item.validUntil, '2026-10-03');
+        expect(item.supersededByItemId, _saliceSuccessors[item.itemId]);
+      }
     });
 
     test('items not re-verified for 24 months are stale (P-1)', () async {
@@ -229,9 +375,69 @@ void main() {
       final items = await db.select(db.knowledgeItems).get();
       final twoYearsLater = KnowledgeGraph(
         db,
-        clock: Clock.fixed(DateTime.utc(2028, 10, 2)),
+        clock: Clock.fixed(
+          DateTime.utc(
+            publishedAt.year + 2,
+            publishedAt.month,
+            publishedAt.day,
+            publishedAt.hour,
+            publishedAt.minute,
+            publishedAt.second,
+            publishedAt.millisecond,
+            publishedAt.microsecond,
+          ),
+        ),
       );
-      expect(await twoYearsLater.staleItems(), hasLength(items.length));
+      const laterCuratedIds = {
+        'ki_reg_isi_salice_context_2026',
+        'ki_reg_isi_salice_styles_2026',
+        'ki_wset_origin_stellenbosch_merlot',
+      };
+      expect(
+        items
+            .where((item) => item.lastVerifiedAt.isAfter(publishedAt))
+            .map((item) => item.id)
+            .toSet(),
+        laterCuratedIds,
+      );
+      final allIds = items.map((item) => item.id).toSet();
+      expect(
+        (await twoYearsLater.staleItems()).map((item) => item.id).toSet(),
+        allIds.difference(laterCuratedIds),
+        reason: 'Publication precedes three later curation instants.',
+      );
+      final latest = items
+          .map((item) => item.lastVerifiedAt)
+          .reduce((a, b) => a.isAfter(b) ? a : b);
+      final latestIds = items
+          .where((item) => item.lastVerifiedAt == latest)
+          .map((item) => item.id)
+          .toSet();
+      expect(latestIds, {'ki_wset_origin_stellenbosch_merlot'});
+      final boundary = DateTime.utc(
+        latest.year + 2,
+        latest.month,
+        latest.day,
+        latest.hour,
+        latest.minute,
+        latest.second,
+        latest.millisecond,
+      );
+      for (final offset in [-1, 0, 1]) {
+        final atBoundary = KnowledgeGraph(
+          db,
+          clock: Clock.fixed(boundary.add(Duration(milliseconds: offset))),
+        );
+        final stale = await atBoundary.staleItems();
+        expect(
+          stale.map((item) => item.id).toSet(),
+          offset <= 0 ? allIds.difference(latestIds) : allIds,
+          reason: 'Strict stale cutoff before/at/after the latest instant.',
+        );
+        if (offset == 1) {
+          expect(stale, hasLength(items.length));
+        }
+      }
     });
   });
 

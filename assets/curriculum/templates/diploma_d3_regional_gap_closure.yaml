@@ -1,0 +1,269 @@
+{
+  "question_templates": [
+    {
+      "id": "qt_d3close_case_criteria_15",
+      "relation_type": "CASE_ACTION",
+      "direction": "forward",
+      "mode": "case_criteria",
+      "variant": "d3close_case_criteria_15",
+      "prompt_template": "{subject.name}",
+      "parameters": {
+        "scope_node_ids": [
+          "n_d3close_case_bordeaux_dry",
+          "n_d3close_case_bordeaux_sweet",
+          "n_d3close_case_beaujolais_release",
+          "n_d3close_case_alsace_balance",
+          "n_d3close_case_loire_chenin",
+          "n_d3close_case_finger_lakes",
+          "n_d3close_case_long_island",
+          "n_d3close_case_bc_comparison",
+          "n_d3close_case_salta_torrontes",
+          "n_d3close_case_san_juan",
+          "n_d3close_case_patagonia",
+          "n_d3close_case_tejo_red",
+          "n_d3close_case_setubal_white_rose",
+          "n_d3close_case_lisboa_route",
+          "n_d3close_case_olifants_chenin"
+        ],
+        "scenario_prompts": {
+          "n_d3close_case_bordeaux_dry": "A fictional Bordeaux cellar seeks a dry white for a specialist shop launch in six weeks. Two sound same-vintage Sauvignon Blanc/Sémillon batches are available. A steel-fermented 70:30 trial has the supplied panel's preferred citrus freshness; a 40:60 barrel-fermented trial has more breadth and wood influence. They differ in fruit, proportions and fermentation, so vessel is not isolated. A is stable and ready in week four; B still needs an estimated ten weeks and storage. The shop proposes 600 bottles at €8 net with payment 30 days after delivery. A restaurant proposes 120 prepaid bottles but needs winery delivery and tastings. Complete batch costs, liquidity, staffing and protected-origin records are absent. All proportions, observations, readiness and trade terms are invented. Evaluate product fit, evidence for quality and price, and a conditional route; do not assume a regional dry-white recipe or a wood premium.",
+          "n_d3close_case_bordeaux_sweet": "A fictional Bordeaux grower compares a sweet-white project with a sound dry-white alternative. The supplied Sémillon inspections show suitably concentrated berries in parcel H, but damaging rot in wet parcel J. Three selective passes in H are forecast to yield 450 litres after sorting; an earlier sound-fruit dry route is forecast to yield 900 litres. The same €5,400 combined vineyard and harvest cost is assigned to either project solely for this exercise, excluding cellar, packaging, transport, selling, tax and finance. The sweet-wine buyer requests a sample and suggests €15 per bottle, without an order. A dry-white buyer offers a written 300-bottle prepaid pilot at €8 net. Fruit condition, yields, costs and offers are fictional. Compare costs per litre, sound-fruit selection, sweet-acid balance, remaining wine work and evidence for choosing a market route; no legal label entitlement is supplied.",
+          "n_d3close_case_beaujolais_release": "A fictional Beaujolais grower has two Gamay lots with the same harvested volume. Lot F used earlier pressing and steel maturation; lot S used longer contact and older barrels. A supplied coded tasting finds F fruit-led and supple, S more structured but still drying. The samples are not a controlled comparison because fruit composition also differed. F has passed the supplied release checks; S needs another five months and €2,400 storage/handling. A local restaurant asks for 240 prepaid bottles of F and winery delivery. An export enquiry asks for 1,200 bottles of S with exclusivity, but supplies no accounts, credit references or signed price. All observations, costs and terms are invented. Compare extraction/maturation, style, quality evidence, cash and channel readiness without equating Gamay with one early-release category.",
+          "n_d3close_case_alsace_balance": "An invented Alsace retailer has two distinct requests: a dry aromatic aperitif and a richer wine to trial beside a supplied fruit dessert. Bottle D is Muscat with measured residual sugar 3 g/L and a dry impression in the supplied tasting. Bottle H is late-harvest Pinot Gris with measured 80 g/L and a supplied rich, fresh, balanced impression. These numbers describe these fictional bottles, not legal labelling thresholds. H costs €15 landed against €8 for D. A buyer claims D is sweeter because it smells of grapes and H must be a better bargain because late harvesting is expensive. Dessert sweetness, serving conditions, current label records, full selling costs and willingness to pay are unconfirmed. Recommend two conditional trial placements and separate sensory observation, production identity, quality, cost and price.",
+          "n_d3close_case_loire_chenin": "A fictional Loire buyer needs one fresh dry still white and one richer still white for a specialist tasting. Three supplied Chenin samples are available: a dry Vouvray with fresh acidity, an off-dry Vouvray with noticeable sweetness and acidity, and a concentrated Layon-style lot with a longer sweet finish. Those descriptions are invented observations; they do not establish origin approval. The dry sample is ready in four weeks, the off-dry one in six, and the concentrated lot requires stability checks before any date is promised. A shop wants a 150-bottle prepaid mixed trial; a distributor asks for 900 bottles after 60 days and no consumer-sales plan. The producer has a packaging bill due in 21 days and unknown spare cash. Compare grape and style, selection and stability, evidence for quality and price, and route feasibility without assuming all ripe Chenin is sweet or that all Vouvray is still.",
+          "n_d3close_case_finger_lakes": "A fictional Finger Lakes producer has Riesling from a lakeside slope and an exposed inland parcel. Supplied logs show later lakeside budburst, but a damaging frost still affects one part of that block. Fruit for the dry trial is sound; a later-pick trial retains more sugar, has fresh acidity in the supplied tasting and needs more stability work. The dry route is ready in five weeks; the sweeter route in nine. The brief is a dry, fresh restaurant white for week six. A restaurant offers a prepaid 180-bottle pilot with weekly delivery; a specialist shop proposes 600 bottles of the sweeter wine, payment 45 days after shipment. The bottling bill is due in 28 days; liquidity and service capacity are unknown. All plots, observations, timings and trade terms are invented. Compare local seasonal evidence, sweetness/style, quality evidence, costs and routes; do not infer complete frost protection or residual sugar from the AVA.",
+          "n_d3close_case_long_island": "A fictional Long Island cellar compares Merlot and Cabernet Franc for a fruit-focused red release. Merlot budded earlier and suffered spring frost in a supplied low parcel; its surviving fruit is now sound and measured ripe before forecast rain. A supplied Cabernet Franc shaded block shows herbal fruit and needs additional monitoring. A trial of gentler Merlot extraction and older oak fits the panel's moderate-tannin brief; a later-pick Cabernet Franc trial is not yet available. A restaurant asks for 240 Merlot bottles paid before delivery with producer tastings. A partner proposes 1,000 mixed-red bottles on 60-day payment but supplies no credit references. Cash, full costs, estate staff and origin records are unknown. All observations and terms are invented. Evaluate a conditional picking/cellar/sales plan; neither rain forecast nor grape identity alone decides harvest, quality or price.",
+          "n_d3close_case_bc_comparison": "An invented British Columbia buyer compares two same-vintage Cabernet Sauvignon lots: one from a wind-exposed Similkameen block and one from a lakeshore Okanagan block. Supplier logs describe different water availability, maturity and canopy work. Lot S is darker and more drying in a coded tasting; lot O is fresher and closer to a restaurant's moderate-tannin brief. S used longer maceration and newer barrels; O used gentler extraction and older vessels, so soil or wind is not isolated. S costs C$13 landed, O C$10. The restaurant offers a prepaid 180-bottle O trial; a distributor asks for 900 S bottles with 75-day payment and no account-sales forecast. Complete costs, liquidity, actual bottle stability and legal origin records are missing. All inputs and offers are fictional. Compare site, cellar, quality evidence, price and workable sales routes without treating darker colour, wind or cost as a rank.",
+          "n_d3close_case_salta_torrontes": "A fictional Salta grower plans a fragrant dry Torrontés for a specialist retailer. Supplied high-radiation parcel records show sunburn in an exposed fruit zone and sound fruit under a moderated canopy, but soil and water availability also differ. Representative samples from the sound lot meet the brief's fresh aroma and acid target; a later-pick exposed lot gives less usable fruit after sorting. The neutral-vessel sound-fruit route is estimated ready in five weeks; a later-pick/wood route in ten. The launch is week six. A retailer wants a 300-bottle prepaid pilot; an exporter promises 2,000 bottles on consignment and gives no customer-sales evidence. All plots, measurements, dates and offers are invented. Compare maturity, shade and water observations, aromatic style, sorting/cellaring costs and the credibility of each route; no growing regime or premium is prescribed for every high-altitude vineyard.",
+          "n_d3close_case_san_juan": "A fictional San Juan producer compares Pedernal Malbec plots on opposite exposures. The supplied east-exposed parcel is ready earlier, while the west-exposed parcel still needs representative maturity checks. Their water logs and crop loads differ, so this is not a controlled exposure trial. A pilot from the ready parcel uses gentle cap work and old wood and fits a fresh moderate-tannin brief; a later-pick/new-wood route has no finished sample. A retailer proposes 400 bottles for delivery in eight weeks with 45-day payment; an event buyer proposes 150 prepaid bottles requiring winery staffing. A €3,000 cellar bill is due in 21 days. All observations, volumes and costs are invented. Compare site/harvest, proposed cellar choices, missing quality evidence, full price and cash/service commitments; do not infer one harvest date or a limestone premium from a valley name.",
+          "n_d3close_case_patagonia": "A fictional Argentine buyer compares Río Negro Pinot Noir and a colder southern Patagonian Pinot Noir lot. The Río Negro supplier records wind, limited water and a measured ripe crop; the southern supplier records frost loss and later maturity. Their crop load, extraction and vessels differ. A repeated supplied panel prefers the Río Negro lot for a fresh red release in six weeks; the southern lot is still being evaluated and estimated ready in twelve. The Río Negro offer is 300 bottles prepaid; the southern offer is 900 bottles at a higher buying price and 60-day payment, with no repeat demand data. All observations, dates and offers are invented. Compare vineyard monitoring, actual wine evidence, quality, cost and inventory commitments without assuming every Patagonian parcel is equally cold or that coolness removes water stress.",
+          "n_d3close_case_tejo_red": "A fictional Tejo cellar has Castelão and Trincadeira lots with separate ripeness and disease logs. A Castelão-led trial with gentle cap work and older wood meets the supplied fresh moderate-tannin brief; a later-pick blend with stronger extraction is more drying and needs longer holding. Different fruit and methods prevent a controlled extraction conclusion. A merchant proposes buying 1,500 bottles after 75 days with exclusive territory; a local shop proposes 240 prepaid bottles with producer training and delivery. The first trial is estimated ready in six weeks, the second in twelve; the target launch is week eight. Prices, costs, cash, capacity and origin records are missing. All trial results, dates and offers are invented. Evaluate a conditional blend/release and partner plan, using actual wine fit and legal/lot evidence rather than assuming a grape name establishes one Tejo product.",
+          "n_d3close_case_setubal_white_rose": "An invented Península de Setúbal producer needs a fresh still-wine pair for a summer restaurant list. The white trial uses Arinto/Fernão Pires; the rosé trial uses Castelão with short pre-fermentation contact. Supplied tasting finds both fresh and fruit-led, with the rosé slightly fuller; these are fictional observations rather than required regional recipes. The white and rosé parcels have different ripeness and water logs, and their pressing/fermentation records differ. Both need final stability and origin/category documentation. A restaurant requests a prepaid 120-bottle mixed pilot with weekly delivery; an exporter asks for 900 rosé bottles with payment after 60 days and no demand forecast. All volumes, terms and observations are invented. Compare grapes, parcel and processing evidence, actual quality, full price and channel feasibility; a nearby fortified-wine reputation cannot identify either still product.",
+          "n_d3close_case_lisboa_route": "A fictional Lisboa winery compares coastal and sheltered inland red lots after a wet harvest. The coastal lot loses 20% of its supplied gross volume during sorting; sound fruit gives a fresh moderate-tannin trial. The inland lot loses 5% and gives a riper fuller trial, with different grapes and cap work. These percentages are invented. A 70:30 trial blend fits a casual restaurant's supplied brief, but it is not a controlled climate comparison. Ready date is week five. A restaurant requests 180 prepaid bottles with producer delivery; a specialist distributor requests 1,200 bottles after 60 days and an exclusivity clause. Sorting, bottling, marketing, logistics, liquidity and label records are missing. Compare the regional context, saleable yield, blend/quality evidence, full contribution and channel risks without assigning one style or universal price to Lisboa.",
+          "n_d3close_case_olifants_chenin": "A fictional Olifants River co-operative compares two Chenin Blanc parcels for an affordable fresh dry white. The coastal parcel's supplied log shows cooler ripening; the inland riverbank parcel has greater vigour and a different irrigation record. Both have sound measured fruit. Trial C from the coast, earlier harvest and steel is fresher in the panel; trial R from inland, later harvest and wood is fuller. Parcel, picking and vessel all differ, so no single cause is isolated. C is ready in four weeks and R in nine; a supermarket launch is week six. A retailer proposes 2,400 C bottles at R45 net, payment after 75 days, with promotional support funded by the co-operative. A cellar-door pilot of 180 bottles would prepay but needs estate staffing. All data and offers are invented. Compare site, canopy/water and style evidence, costs per saleable bottle, achievable price and a cash-backed route."
+        },
+        "distractors": {
+          "n_d3close_case_bordeaux_dry": [
+            {
+              "summary": "Choose B for the six-week launch because barrel fermentation always makes a higher-quality and higher-priced Bordeaux white.",
+              "explanation": "B is estimated ready only in week ten; the brief and supplied observations do not establish a barrel premium."
+            },
+            {
+              "summary": "Treat the shop's promised payment as cash on hand today and ignore the winery delivery work for the prepaid trial.",
+              "explanation": "A later receipt cannot settle an earlier obligation without other cash or finance; prepayment still leaves staff and delivery costs."
+            }
+          ],
+          "n_d3close_case_bordeaux_sweet": [
+            {
+              "summary": "Include the damaging rot from J because every form of Botrytis improves a sweet Bordeaux wine.",
+              "explanation": "The case distinguishes suitable concentration from damaged fruit; selective sound-fruit evidence is required."
+            },
+            {
+              "summary": "Declare the sweet route more profitable because its suggested price is higher and ignore the halved usable volume.",
+              "explanation": "A suggested price is not an order or contribution calculation; lower volume increases the supplied cost per litre and more costs are excluded."
+            }
+          ],
+          "n_d3close_case_beaujolais_release": [
+            {
+              "summary": "Release S immediately because a more structured wine must be better and every Beaujolais is ready early.",
+              "explanation": "S still has the supplied drying character and extra holding need; Beaujolais style and readiness are variable."
+            },
+            {
+              "summary": "Sign exclusive export access because the larger enquiry proves final consumer sales and requires no further partner checks.",
+              "explanation": "Enquiry volume is not an order or sell-through; exclusivity, credit and channel evidence need review."
+            }
+          ],
+          "n_d3close_case_alsace_balance": [
+            {
+              "summary": "Put D with the dessert solely because grape fragrance proves it contains more sugar than H.",
+              "explanation": "The supplied analysis and dry palate contradict the perfume shortcut; the real dessert still needs a trial."
+            },
+            {
+              "summary": "Recommend H as inherently higher quality and profitable because late harvest and the higher buying price prove premium demand.",
+              "explanation": "Production cost and buying price do not establish quality, consumer value or a profitable selling price."
+            }
+          ],
+          "n_d3close_case_loire_chenin": [
+            {
+              "summary": "Fill the dry slot with any Vouvray because an origin name guarantees one sweetness and still-wine method.",
+              "explanation": "The regulator identifies several styles; actual bottling and category evidence determine the offer."
+            },
+            {
+              "summary": "Promise the concentrated lot's delivery now and fund the 21-day packaging bill solely from the distributor's 60-day payment.",
+              "explanation": "Release stability and the date are not established, and the promised later receipt does not cover the earlier bill."
+            }
+          ],
+          "n_d3close_case_finger_lakes": [
+            {
+              "summary": "Choose the sweeter nine-week route for the dry week-six brief because all Finger Lakes Riesling is sweet.",
+              "explanation": "The region supports several sweetness styles and the specified lot misses both the brief and date."
+            },
+            {
+              "summary": "Stop frost monitoring at the lakeside block because lake moderation guarantees protection and assign a premium without tasting.",
+              "explanation": "The scenario records damage; site moderation does not eliminate risk or establish sensory quality and demand."
+            }
+          ],
+          "n_d3close_case_long_island": [
+            {
+              "summary": "Delay the measured ripe Merlot until Cabernet Franc is ready because every red grape must share one picking date.",
+              "explanation": "The supplied fruit condition and different variety/site development call for separate monitoring; a shared date is unsupported."
+            },
+            {
+              "summary": "Reject Cabernet Franc as automatically poor quality and accept the unreferenced partner because the larger number guarantees profit.",
+              "explanation": "Vegetal expression needs context and quality assessment; a volume proposal and missing credit evidence do not establish margin or receipt."
+            }
+          ],
+          "n_d3close_case_bc_comparison": [
+            {
+              "summary": "Choose S solely because darker colour, more new wood and a higher cost guarantee superior British Columbia wine.",
+              "explanation": "The actual brief favours O and several variables differ; sensory quality and attainable price require evidence."
+            },
+            {
+              "summary": "Treat persistent Similkameen wind as proof that no disease, water or canopy monitoring is required.",
+              "explanation": "The source gives a growing influence, not immunity or adequate water for every parcel."
+            }
+          ],
+          "n_d3close_case_salta_torrontes": [
+            {
+              "summary": "Retain the later lot for week six because high altitude and new wood guarantee better Torrontés and a premium.",
+              "explanation": "That route is not ready until week ten and added cost/altitude do not establish quality or demand."
+            },
+            {
+              "summary": "Treat the consignment shipment as an immediate paid sale and equate aromatic intensity with residual sweetness.",
+              "explanation": "Consignment receipts depend on later sales; fragrance is distinct from measured residual sugar."
+            }
+          ],
+          "n_d3close_case_san_juan": [
+            {
+              "summary": "Pick both parcels together because one Pedernal altitude fixes maturity and acidity for every slope.",
+              "explanation": "Opposing exposure and actual logs establish local differences; water and crop load also vary."
+            },
+            {
+              "summary": "Approve the unsampled later/new-wood route as higher quality and count the retailer's future receipt as current bill-paying cash.",
+              "explanation": "No finished sample proves the route's quality and a later receipt needs other cash or finance to cover the earlier obligation."
+            }
+          ],
+          "n_d3close_case_patagonia": [
+            {
+              "summary": "Ignore the Río Negro water records because every cool Patagonian vineyard has enough water.",
+              "explanation": "Cool conditions do not negate aridity, wind or the supplied water observations."
+            },
+            {
+              "summary": "Recommend the unsampled twelve-week lot for week six because colder vineyards and higher prices guarantee superior Pinot Noir.",
+              "explanation": "The required sample and readiness are absent; coolness, cost and latitude do not prove quality or demand."
+            }
+          ],
+          "n_d3close_case_tejo_red": [
+            {
+              "summary": "Ship the later blend for week eight because longer contact guarantees superior Tejo red quality.",
+              "explanation": "The stated twelve-week readiness misses the launch and longer extraction does not establish balance."
+            },
+            {
+              "summary": "Accept the merchant's exclusivity without account or credit evidence because larger volume guarantees downstream sales.",
+              "explanation": "An offer is not sell-through or receipt; commercial fit, territory and payment risks need review."
+            }
+          ],
+          "n_d3close_case_setubal_white_rose": [
+            {
+              "summary": "Label both still wines with a nearby famous fortified-wine name because geographic proximity proves identical product eligibility.",
+              "explanation": "Still and fortified categories and their records must be distinguished; no protected claim has been established for these invented lots."
+            },
+            {
+              "summary": "Commit all rosé to the exporter because order size makes its 60-day receipt available immediately and proves customer demand.",
+              "explanation": "A later proposed receipt is not current cash and placement does not establish sell-through."
+            }
+          ],
+          "n_d3close_case_lisboa_route": [
+            {
+              "summary": "Use rejected coastal fruit to recover the supplied lost volume because every Lisboa blend must include all harvested fruit.",
+              "explanation": "Rejected fruit is not sound saleable material in this scenario, and no recipe or rule establishes the assertion."
+            },
+            {
+              "summary": "Accept exclusivity and a premium immediately because lower usable yield automatically makes a wine better and consumers will pay more.",
+              "explanation": "Yield loss raises cost pressure without proving quality, demand or the partner's suitability."
+            }
+          ],
+          "n_d3close_case_olifants_chenin": [
+            {
+              "summary": "Choose R for week six because wood and fuller texture always justify a profitable premium, irrespective of the affordable brief.",
+              "explanation": "R is estimated ready only in week nine and no quality or willingness-to-pay hierarchy is established."
+            },
+            {
+              "summary": "Treat the retailer's future receipt as current cash and assume coastal climate eliminates all water and canopy decisions.",
+              "explanation": "The proposed delay needs funding, and site influence cannot replace actual water or vigour monitoring."
+            }
+          ]
+        }
+      }
+    },
+    {
+      "id": "qt_d3close_case_written_15",
+      "relation_type": "CASE_ACTION",
+      "direction": "forward",
+      "mode": "short_answer",
+      "variant": "d3close_case_written_15",
+      "prompt_template": "{subject.name}",
+      "parameters": {
+        "scope_node_ids": [
+          "n_d3close_case_bordeaux_dry",
+          "n_d3close_case_bordeaux_sweet",
+          "n_d3close_case_beaujolais_release",
+          "n_d3close_case_alsace_balance",
+          "n_d3close_case_loire_chenin",
+          "n_d3close_case_finger_lakes",
+          "n_d3close_case_long_island",
+          "n_d3close_case_bc_comparison",
+          "n_d3close_case_salta_torrontes",
+          "n_d3close_case_san_juan",
+          "n_d3close_case_patagonia",
+          "n_d3close_case_tejo_red",
+          "n_d3close_case_setubal_white_rose",
+          "n_d3close_case_lisboa_route",
+          "n_d3close_case_olifants_chenin"
+        ],
+        "key_points": {
+          "CASE_ACTION": "Conditional production, release and route decision",
+          "CASE_REASON": "Regional mechanism and supplied wine evidence",
+          "CASE_TRADEOFF": "Style, cost, cash and fulfilment comparison",
+          "CASE_LIMITATION": "Origin records, quality calibration and missing market evidence"
+        }
+      }
+    },
+    {
+      "id": "qt_d3close_olifants_choices_2",
+      "relation_type": "PRINCIPLE_EXPLANATION",
+      "direction": "forward",
+      "mode": "authored_choice",
+      "variant": "d3close_olifants_choices_2",
+      "prompt_template": "{subject.name}",
+      "parameters": {
+        "item_choices": {
+          "ki_d3close_olifants_site": {
+            "prompt": "Two Olifants River parcels differ in ocean distance and measured maturity. Which comparison is justified?",
+            "options": [
+              "Use parcel, season and cellar evidence alongside the coastal/inland contrast.",
+              "Treat all parcels as having the same temperature because they share a region.",
+              "Give every coastal wine a higher quality grade without tasting.",
+              "Ignore wine production because ocean distance fixes every aroma."
+            ],
+            "correctIndex": 0,
+            "explanation": "The regional route identifies a proximity influence; actual site, seasonal and production evidence qualify the finished-wine comparison.",
+            "sourceCitationId": "src_d3close_olifants_terroir"
+          },
+          "ki_d3close_olifants_water": {
+            "prompt": "A riverbank Olifants River parcel has greater measured vigour. What should be checked before changing its canopy or water plan?",
+            "options": [
+              "Assume nearby dam infrastructure guarantees unlimited water.",
+              "Measure seasonal water availability, soil moisture and canopy response.",
+              "Assume fertile alluvium directly creates mineral flavour.",
+              "Apply the same irrigation dose to every vineyard without monitoring."
+            ],
+            "correctIndex": 1,
+            "explanation": "Water-holding context and regional infrastructure do not establish current access, plant status or the appropriate regime for one parcel.",
+            "sourceCitationId": "src_d3close_olifants_terroir"
+          }
+        }
+      }
+    }
+  ]
+}

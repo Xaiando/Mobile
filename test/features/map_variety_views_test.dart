@@ -68,7 +68,11 @@ void main() {
     ],
   );
 
-  MapExercise map(String format, {Set<String>? correct}) => MapExercise(
+  MapExercise map(
+    String format, {
+    Set<String>? correct,
+    bool selectAll = false,
+  }) => MapExercise(
     formatId: format,
     primaryItemId: 'ki_north_location',
     questionTemplateId: 'qt_test',
@@ -82,6 +86,7 @@ void main() {
     mode: MapMode.outline,
     names: names,
     correct: correct,
+    selectAll: selectAll,
   );
 
   final pair = MapPairExercise(
@@ -259,6 +264,43 @@ void main() {
         answer.selections.values.map((a) => a.fromList),
         everyElement(isTrue),
       );
+    },
+  );
+
+  testWidgets(
+    'grape set keeps revisable taps until learners check all locations',
+    (tester) async {
+      final exercise = map(
+        'map_grape',
+        correct: {'n_fx_north', 'n_fx_village'},
+        selectAll: true,
+      );
+      final controller = await pump(tester, turn(exercise));
+      expect(find.text('0 selected'), findsOneWidget);
+      expect(
+        tester
+            .widget<FilledButton>(
+              find.widgetWithText(FilledButton, 'Check locations'),
+            )
+            .onPressed,
+        isNull,
+      );
+      await tester.tapAt(point(tester, const LonLat(3.2, 48.2)));
+      await tester.pumpAndSettle();
+      expect(find.text('1 selected'), findsOneWidget);
+      expect(controller.submitted, isNull);
+      await tester.tapAt(point(tester, const LonLat(5.2, 46.6)));
+      await tester.pumpAndSettle();
+      expect(find.text('2 selected'), findsOneWidget);
+      await tester.ensureVisible(find.text('Check locations'));
+      await tester.tap(find.text('Check locations'));
+      await tester.pumpAndSettle();
+      final answer = controller.submitted as MapMultiLocateAnswer;
+      expect(answer.selections.map((s) => s.nodeId).toSet(), {
+        'n_fx_north',
+        'n_fx_village',
+      });
+      expect(answer.selections.every((s) => s.position != null), isTrue);
     },
   );
 

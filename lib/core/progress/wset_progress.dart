@@ -75,6 +75,7 @@ class WsetUnitProgress {
     required this.scope,
     required this.counts,
     this.physicalFlights = 0,
+    this.physicalSessions = const {},
     this.writtenPractices = 0,
     this.researchDraftSaved = false,
   });
@@ -83,6 +84,9 @@ class WsetUnitProgress {
 
   /// Saved three-actual-wine practice, not a tasting grade or unit pass.
   final int physicalFlights;
+
+  /// Distinct named six-wine D3 participation, separate from legacy flights.
+  final Set<String> physicalSessions;
 
   /// Reviewed prose participation for supported units, never an examiner mark or pass.
   final int writtenPractices;
@@ -580,6 +584,10 @@ class WsetProgressRepository {
                 physicalFlights: level.certificationId == 'WSET_L4'
                     ? diplomaTasting.forUnit(unit.id)
                     : 0,
+                physicalSessions:
+                    level.certificationId == 'WSET_L4' && unit.id == 'D3'
+                    ? diplomaTasting.d3Sessions
+                    : const {},
                 writtenPractices: level.certificationId == 'WSET_L4'
                     ? diplomaWritten.forUnit(unit.id)
                     : 0,

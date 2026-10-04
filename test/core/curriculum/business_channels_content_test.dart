@@ -1,6 +1,8 @@
+import 'dart:convert';
 import 'dart:io';
 
 import 'package:flutter_test/flutter_test.dart';
+import 'package:crypto/crypto.dart';
 import 'package:fsrs/fsrs.dart' as fsrs;
 import 'package:sommelier/core/curriculum/curriculum_dataset.dart';
 import 'package:sommelier/core/curriculum/curriculum_ingestion.dart';
@@ -23,6 +25,46 @@ bool _businessItem(String id) =>
 
 bool _businessTemplate(String id) =>
     id.startsWith('qt_biz_models_') || id.startsWith('qt_biz_routes_');
+
+// Historical membership comes from the hash-pinned complete .73 release,
+// not from the current dataset being tested. Supersession keeps old mappings
+// for learner history; only the explicitly named successor pair is added.
+CurriculumDataset _frozen073MappingBaseline() {
+  final bytes = File(
+    'test/fixtures/curriculum/diploma_release_0_24_73_complete_frozen.json.gz',
+  ).readAsBytesSync();
+  expect(
+    sha256.convert(bytes).toString(),
+    '15a944ed92394c94d4ec67b9fb83388bf3b8718e15e3c3da007af5666e211cdf',
+  );
+  final historical = CurriculumDataset.parse(utf8.decode(gzip.decode(bytes)));
+  expect(historical.version, '0.24.73');
+  return historical;
+}
+
+Set<String> _historicalMappingIds(
+  CurriculumDataset historical,
+  String certificationId,
+) {
+  final certifications = {
+    for (final certification in historical.certifications)
+      certification.id: certification,
+  };
+  final chain = <String>{};
+  String? cursor = certificationId;
+  while (cursor != null) {
+    expect(
+      chain.add(cursor),
+      isTrue,
+      reason: 'Historical track chain is acyclic',
+    );
+    cursor = certifications[cursor]!.includesCertificationId;
+  }
+  return historical.certificationKnowledgeMappings
+      .where((mapping) => chain.contains(mapping.certificationId))
+      .map((mapping) => mapping.knowledgeItemId)
+      .toSet();
+}
 
 void main() {
   final dataset = bundledDataset();
@@ -293,7 +335,7 @@ void main() {
       // One real-bundle ingestion and one generated recall review per new fact.
       // These fixtures deliberately require both new areas in the manifest.
       expect(businessIds, hasLength(32));
-      time = TestClock(DateTime.utc(2026, 10, 1, 9));
+      time = TestClock(dataset.publishedAt.toUtc());
       db = openTestDatabase();
       await CurriculumIngester(
         db,
@@ -498,15 +540,73 @@ void main() {
     });
 
     test('32 actual recalls affect only D2 and preserve lower tracks and incomplete levels', () async {
+      final historical = _frozen073MappingBaseline();
       for (final entry in {
         'WSET_L1': 132,
         'WSET_L2': 844,
         'WSET_L3': 3444,
         'CMS_CERTIFIED': 2926,
-        'WSET_L4': 4234,
+        'WSET_L4': 4682,
       }.entries) {
         final mappings = await planner.effectiveMappings(entry.key);
-        expect(mappings, hasLength(entry.value), reason: entry.key);
+        final historicalIds = _historicalMappingIds(historical, entry.key);
+        expect(historicalIds, hasLength(entry.value), reason: entry.key);
+        const retiredSaliceIds = {
+          'ki_reg_isi_salice_context',
+          'ki_reg_isi_salice_styles',
+        };
+        const successorSaliceIds = {
+          'ki_reg_isi_salice_context_2026',
+          'ki_reg_isi_salice_styles_2026',
+        };
+        final ownsSalice = const {
+          'WSET_L3',
+          'CMS_CERTIFIED',
+          'WSET_L4',
+        }.contains(entry.key);
+        final addedIds = ownsSalice ? successorSaliceIds : <String>{};
+        final actualIds = mappings.keys.toSet();
+        expect(actualIds, {
+          ...historicalIds,
+          ...addedIds,
+        }, reason: 'Exact .73 membership plus only the two Salice successors');
+        expect(
+          actualIds.difference(addedIds),
+          historicalIds,
+          reason: entry.key,
+        );
+        expect(
+          mappings,
+          hasLength(entry.value + addedIds.length),
+          reason: entry.key,
+        );
+        expect(
+          actualIds.intersection({...retiredSaliceIds, ...successorSaliceIds}),
+          ownsSalice ? {...retiredSaliceIds, ...successorSaliceIds} : isEmpty,
+        );
+        final saliceMappedIds = ownsSalice
+            ? {...retiredSaliceIds, ...successorSaliceIds}
+            : <String>{};
+        for (final id in saliceMappedIds) {
+          final effective = mappings[id]!;
+          expect(effective.importance, 'core');
+          expect(effective.minimumDepth, entry.key == 'WSET_L4' ? 3 : 2);
+          expect(effective.certificationId, entry.key);
+          if (retiredSaliceIds.contains(id)) {
+            final historicalMapping = historical.certificationKnowledgeMappings
+                .singleWhere(
+                  (mapping) =>
+                      mapping.knowledgeItemId == id &&
+                      mapping.certificationId == entry.key,
+                );
+            expect(effective.importance, historicalMapping.importance);
+            expect(effective.minimumDepth, historicalMapping.minimumDepth);
+            expect(
+              effective.certificationId,
+              historicalMapping.certificationId,
+            );
+          }
+        }
         expect(
           mappings.keys.toSet().intersection(businessIds),
           entry.key == 'WSET_L4' ? businessIds : isEmpty,
@@ -532,7 +632,7 @@ void main() {
       expect(diploma.scope.curriculumComplete, isFalse);
       final d2 = diploma.units.singleWhere((unit) => unit.scope.id == 'D2');
       expect(d2.counts.studied, 32);
-      expect(d2.counts.available, 139);
+      expect(d2.counts.available, 233);
       expect(d2.scope.gap, isNotEmpty);
       for (final unit in diploma.units.where((unit) => unit.scope.id != 'D2')) {
         expect(unit.counts.studied, 0, reason: unit.scope.id);
@@ -544,13 +644,13 @@ void main() {
             .singleWhere((unit) => unit.scope.id == 'D3')
             .scope
             .itemIds,
-        hasLength(750),
+        hasLength(873),
       );
       expect(snapshot.levels.map((level) => level.counts.mapped).toList(), [
         132,
         844,
         3444,
-        4234,
+        4682,
       ]);
       expect(
         snapshot.levels.take(3).map((level) => level.counts.studied),

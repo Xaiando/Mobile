@@ -308,8 +308,8 @@ void main() {
       final winemaking = audit.domains.singleWhere(
         (domain) => domain.id == 'winemaking',
       );
-      expect(winemaking.counts[CoverageMetric.core], 750);
-      expect(winemaking.counts[CoverageMetric.coreUsefulPractice], 750);
+      expect(winemaking.counts[CoverageMetric.core], 849);
+      expect(winemaking.counts[CoverageMetric.coreUsefulPractice], 849);
       final remaining = audit.items.where(
         (row) =>
             row.item.domainId == 'winemaking' &&

@@ -1,0 +1,271 @@
+{
+  "schemaVersion": 1,
+  "reviewId": "diploma.named-industry-body-role-closure",
+  "curatedAt": "2026-10-02T23:10:43.000Z",
+  "scopeSource": "https://www.wsetglobal.com/media/17609/wset_l4wines_specification_en_august-2025.pdf",
+  "scopePages": [
+    15,
+    17
+  ],
+  "scopeUse": "Inventory only; original limited questions and self-review criteria, not WSET marking or copied teaching prose.",
+  "newKnowledgeItems": 19,
+  "originalPrinciples": 7,
+  "originalFourRoleCases": 3,
+  "newTemplates": 8,
+  "newSourceCitations": 8,
+  "reusedSourceCitations": [
+    "src_d4nw_za_cap",
+    "src_wset_sf_muscat_brochure"
+  ],
+  "verificationStatus": "unverified",
+  "qualifiedFactualReview": false,
+  "registrationAndRuntimeValidation": "root pending",
+  "principles": [
+    {
+      "unit": "D4",
+      "itemId": "ki_d45body_champagne",
+      "subjectId": "n_d45body_champagne",
+      "sources": [
+        {
+          "sourceId": "src_d45body_champagne",
+          "locator": "Conducting the industry as one; economic balance and reserve; technical innovation; protection and promotion"
+        }
+      ]
+    },
+    {
+      "unit": "D4",
+      "itemId": "ki_d45body_cava",
+      "subjectId": "n_d45body_cava",
+      "sources": [
+        {
+          "sourceId": "src_d45body_cava",
+          "locator": "El Consejo Regulador, el garante de la calidad: delegated control and certification; promotion and defence"
+        }
+      ]
+    },
+    {
+      "unit": "D4",
+      "itemId": "ki_d45body_cap",
+      "subjectId": "n_d45body_cap",
+      "sources": [
+        {
+          "sourceId": "src_d4nw_za_cap",
+          "locator": "Delicate Balance: promotion, common interests, member technical criteria and base-wine assessment; no universal legal power inferred"
+        }
+      ]
+    },
+    {
+      "unit": "D5",
+      "itemId": "ki_d45body_sherry",
+      "subjectId": "n_d45body_sherry",
+      "sources": [
+        {
+          "sourceId": "src_d45body_sherry",
+          "locator": "Las Funciones del Consejo; La Garantia de Origen; La Divulgacion del Jerez y su Cultura"
+        }
+      ]
+    },
+    {
+      "unit": "D5",
+      "itemId": "ki_d45body_ivdp",
+      "subjectId": "n_d45body_ivdp",
+      "sources": [
+        {
+          "sourceId": "src_d45body_ivdp",
+          "locator": "Missao and formal functions under the institutional account: Porto and Douro DOP; production and commerce oversight"
+        }
+      ]
+    },
+    {
+      "unit": "D5",
+      "itemId": "ki_d45body_ivbam",
+      "subjectId": "n_d45body_ivbam",
+      "sources": [
+        {
+          "sourceId": "src_d45body_ivbam_control",
+          "locator": "DSCC introductory remit and first three responsibilities: certification, control and quality"
+        },
+        {
+          "sourceId": "src_d45body_ivbam_promotion",
+          "locator": "Atribuicoes: vitivinicultural control and regional quality-wine promotion"
+        }
+      ]
+    },
+    {
+      "unit": "D5",
+      "itemId": "ki_d45body_muscat",
+      "subjectId": "n_d45body_muscat",
+      "sources": [
+        {
+          "sourceId": "src_d45body_muscat_history",
+          "locator": "Producer history: Network classification-development entry; historical attribution only"
+        },
+        {
+          "sourceId": "src_d45body_muscat_code",
+          "locator": "Page 2: voluntary Rutherglen scheme and understandable style descriptors; legacy provenance only"
+        },
+        {
+          "sourceId": "src_wset_sf_muscat_brochure",
+          "locator": "Printed pp6-7: four style classes, richness/complexity progression and classification mark"
+        }
+      ]
+    }
+  ],
+  "cases": [
+    {
+      "unit": "D4",
+      "subjectId": "n_d45body_case_sparkling_roles",
+      "itemIds": [
+        "ki_d45body_sparkling_roles_action",
+        "ki_d45body_sparkling_roles_reason",
+        "ki_d45body_sparkling_roles_tradeoff",
+        "ki_d45body_sparkling_roles_limitation"
+      ],
+      "prerequisiteIds": [
+        "ki_d45body_champagne",
+        "ki_d45body_cava",
+        "ki_d45body_cap"
+      ],
+      "sources": [
+        "src_d45body_champagne",
+        "src_d45body_cava",
+        "src_d4nw_za_cap"
+      ],
+      "expectedEvidence": "Use Comite Champagne for shared industry/technical enquiries; obtain the relevant Cava certification dossier, and request the Cap Classique supplier's actual lot and compliance evidence separately from CCPA membership.",
+      "expectationKind": "Document and institution-role judgement; no numerical answer or invented legal power."
+    },
+    {
+      "unit": "D5",
+      "subjectId": "n_d45body_case_fortified_roles",
+      "itemIds": [
+        "ki_d45body_fortified_roles_action",
+        "ki_d45body_fortified_roles_reason",
+        "ki_d45body_fortified_roles_tradeoff",
+        "ki_d45body_fortified_roles_limitation"
+      ],
+      "prerequisiteIds": [
+        "ki_d45body_ivdp",
+        "ki_d45body_sherry",
+        "ki_d45body_ivbam"
+      ],
+      "sources": [
+        "src_d45body_ivdp",
+        "src_d45body_sherry",
+        "src_d45body_ivbam_control",
+        "src_d45body_ivbam_promotion"
+      ],
+      "expectedEvidence": "Seek the appropriate IVDP evidence for Port, Sherry Council product-control evidence for Sherry and IVBAM DO Madeira dossier evidence, rather than treating origin notes, seminar attendance or a lab sheet as complete approval.",
+      "expectationKind": "Document and institution-role judgement; no numerical answer or invented legal power."
+    },
+    {
+      "unit": "D5",
+      "subjectId": "n_d45body_case_muscat_classification",
+      "itemIds": [
+        "ki_d45body_muscat_classification_action",
+        "ki_d45body_muscat_classification_reason",
+        "ki_d45body_muscat_classification_tradeoff",
+        "ki_d45body_muscat_classification_limitation"
+      ],
+      "prerequisiteIds": [
+        "ki_d45body_muscat",
+        "ki_wset_sf_rutherglen_tiers"
+      ],
+      "sources": [
+        "src_d45body_muscat_history",
+        "src_d45body_muscat_code",
+        "src_wset_sf_muscat_brochure"
+      ],
+      "expectedEvidence": "Use the producer classification framework for style education, but obtain the actual blend and classification evidence and current label review before repeating the proposed Grand and vintage claims.",
+      "expectationKind": "Document and institution-role judgement; no numerical answer or invented legal power."
+    }
+  ],
+  "unitItemIds": {
+    "D4": [
+      "ki_d45body_champagne",
+      "ki_d45body_cava",
+      "ki_d45body_cap",
+      "ki_d45body_sparkling_roles_action",
+      "ki_d45body_sparkling_roles_reason",
+      "ki_d45body_sparkling_roles_tradeoff",
+      "ki_d45body_sparkling_roles_limitation"
+    ],
+    "D5": [
+      "ki_d45body_sherry",
+      "ki_d45body_ivdp",
+      "ki_d45body_ivbam",
+      "ki_d45body_muscat",
+      "ki_d45body_fortified_roles_action",
+      "ki_d45body_fortified_roles_reason",
+      "ki_d45body_fortified_roles_tradeoff",
+      "ki_d45body_fortified_roles_limitation",
+      "ki_d45body_muscat_classification_action",
+      "ki_d45body_muscat_classification_reason",
+      "ki_d45body_muscat_classification_tradeoff",
+      "ki_d45body_muscat_classification_limitation"
+    ]
+  },
+  "matrixRowRouting": {
+    "D4": [
+      "d4.commercial_choices"
+    ],
+    "D5": [
+      "d5.production_commerce"
+    ]
+  },
+  "exactSourceReadLimits": [
+    {
+      "sourceId": "src_d45body_muscat_history",
+      "status": "public primary indexed page text read; direct web open fetch failed",
+      "use": "Historical attribution of Network classification-development work; no current membership, officer or rule claim."
+    },
+    {
+      "sourceId": "src_d45body_muscat_code",
+      "status": "legacy primary trade code read",
+      "use": "Page 2 voluntary classification provenance only; no old treaty forecast, market-success claim or numerical law adopted."
+    },
+    {
+      "sourceId": "src_d4nw_za_cap",
+      "status": "primary association page read",
+      "use": "Documented promotional and technical/member work. No unsupported claim of universal mandatory membership, every legal power, all serious producers, twelve-month rule or guaranteed quality."
+    }
+  ],
+  "preservation": "New unique files only; no existing, Git, CI, runtime or Android edits by this agent.",
+  "externalLimits": [
+    "Qualified factual review remains required.",
+    "Current release, destination label compliance and product quality require actual documentation and wine evidence."
+  ],
+  "unitTemplateIds": {
+    "D4": [
+      "qt_d45body_d4_criteria",
+      "qt_d45body_d4_written",
+      "qt_d45body_d4_action_choice",
+      "qt_d45body_d4_principle_choice"
+    ],
+    "D5": [
+      "qt_d45body_d5_criteria",
+      "qt_d45body_d5_written",
+      "qt_d45body_d5_action_choice",
+      "qt_d45body_d5_principle_choice"
+    ]
+  },
+  "objectiveSubjectRouting": {
+    "D4": {
+      "commercialChoices": [
+        "n_d45body_champagne",
+        "n_d45body_cava",
+        "n_d45body_cap",
+        "n_d45body_case_sparkling_roles"
+      ]
+    },
+    "D5": {
+      "productionCommerce": [
+        "n_d45body_sherry",
+        "n_d45body_ivdp",
+        "n_d45body_ivbam",
+        "n_d45body_muscat",
+        "n_d45body_case_fortified_roles",
+        "n_d45body_case_muscat_classification"
+      ]
+    }
+  }
+}

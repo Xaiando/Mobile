@@ -29,6 +29,121 @@ String _canonicalFileSha256(String path) {
   return sha256.convert(utf8.encode(text)).toString();
 }
 
+void _expectTastingBankNamedSessionsPreservePredecessor() {
+  const predecessorPath = 'test/fixtures/diploma_tasting_bank_1_1_0.json';
+  // The original whole-file pin now protects an immutable historical fixture.
+  expect(
+    _canonicalFileSha256(predecessorPath),
+    '799cda7635d4a7acc0397af9d590fca9214496d0f835ce30743a4bf1ee6caf31',
+  );
+  final predecessor = jsonDecode(
+    File(predecessorPath).readAsStringSync(),
+  ) as Map<String, dynamic>;
+  final current = jsonDecode(
+    File('assets/study/diploma_tasting_flights.json').readAsStringSync(),
+  ) as Map<String, dynamic>;
+  expect(predecessor['version'], '1.1.0');
+  expect(current['version'], '1.2.0');
+  expect(current.keys.toSet(), {...predecessor.keys, 'namedSessions'});
+  expect(predecessor.containsKey('namedSessions'), isFalse);
+  // Preserve the entire old schema/content, allowing only the reviewed version
+  // bump and additive named sessions. Legacy unit prompts cannot be rewritten.
+  final projection = <String, dynamic>{...current}
+    ..remove('namedSessions')
+    ..['version'] = predecessor['version'];
+  expect(projection, predecessor);
+  expect(current['units'], predecessor['units']);
+  final sessions = (current['namedSessions'] as List)
+      .cast<Map<String, dynamic>>();
+  expect(sessions, hasLength(2));
+  expect(sessions.map((session) => session['sessionId']).toList(), [
+    'D3_1',
+    'D3_2',
+  ]);
+  expect(sessions.every((session) => session['unitId'] == 'D3'), isTrue);
+}
+
+void _expectWrittenBankAppendsPreservePredecessor() {
+  const predecessorPath = 'test/fixtures/diploma_written_bank_1_3_0.json';
+  // Preserve the exact historical file represented by the old whole-bank pin.
+  expect(
+    _canonicalFileSha256(predecessorPath),
+    '6728c245f73a8947ca6187578b69d884b3f8811e68682265fe275c024d3a67f2',
+  );
+  final predecessor = jsonDecode(
+    File(predecessorPath).readAsStringSync(),
+  ) as Map<String, dynamic>;
+  final current = jsonDecode(
+    File('assets/study/diploma_written_practice.json').readAsStringSync(),
+  ) as Map<String, dynamic>;
+  expect(predecessor['version'], '1.3.0');
+  expect(current['version'], '1.4.0');
+  expect(current.keys.toSet(), predecessor.keys.toSet());
+  expect(
+    sha256.convert(utf8.encode(jsonEncode(predecessor))).toString(),
+    'ebc2bcf64c98dbca429b043c60fbfd5fc6a56cf7897fbf348cd4b9c3ceaad7b8',
+  );
+  final oldVariants = predecessor['variants'] as List;
+  final variants = current['variants'] as List;
+  expect(oldVariants, hasLength(6));
+  expect(variants, hasLength(oldVariants.length + 1));
+  // Compare the entire prior document, not sampled IDs or just prompt text.
+  // Only its reviewed version bump and one appended pack may differ.
+  final projection = <String, dynamic>{
+    ...current,
+    'version': predecessor['version'],
+    'variants': variants.take(oldVariants.length).toList(),
+  };
+  expect(projection, predecessor);
+  expect(current['units'], predecessor['units']);
+  expect(
+    sha256.convert(utf8.encode(jsonEncode(current['units']))).toString(),
+    '35e6024f49ffe6e9c4a8cba837ca7a641b865a83ecabf3d9707391ffbfcf801d',
+  );
+  final appended = variants.last as Map<String, dynamic>;
+  expect(appended.keys.toSet(), {
+    'unitId',
+    'title',
+    'durationSeconds',
+    'questions',
+  });
+  expect(appended['unitId'], 'D3');
+  expect(appended['title'], 'Regional law and commercial release');
+  expect(appended['durationSeconds'], 3600);
+  final questions = (appended['questions'] as List)
+      .cast<Map<String, dynamic>>();
+  expect(questions.map((question) => question['id']).toList(), [
+    'd3_law_jura_release_value',
+    'd3_law_tokaj_current_release',
+    'd3_law_china_standard_origin',
+  ]);
+  expect(
+    questions.every((question) => (question['criteria'] as List).length == 4),
+    isTrue,
+  );
+  expect(
+    questions.every(
+      (question) =>
+          (question['prompt'] as String).isNotEmpty &&
+          (question['prompt'] as String).length <= 1000,
+    ),
+    isTrue,
+  );
+  final previousIds = {
+    for (final pack in [...(predecessor['units'] as List), ...oldVariants])
+      for (final question
+          in (pack as Map<String, dynamic>)['questions'] as List)
+        (question as Map<String, dynamic>)['id'],
+  };
+  expect(
+    questions
+        .map((question) => question['id'])
+        .toSet()
+        .intersection(previousIds),
+    isEmpty,
+  );
+}
+
 // Registration and actual D3 delivery are required. Finite recall does not
 // replace the original four-role regional cases or confer qualification.
 void main() {
@@ -475,14 +590,8 @@ void main() {
       ),
       isEmpty,
     );
-    for (final entry in {
-      'assets/study/diploma_written_practice.json':
-          '25bf2cac634ca23c42d6015aa84b60e35ba97bc063f836a84c9a23e68360fbb0',
-      'assets/study/diploma_tasting_flights.json':
-          '799cda7635d4a7acc0397af9d590fca9214496d0f835ce30743a4bf1ee6caf31',
-    }.entries) {
-      expect(_canonicalFileSha256(entry.key), entry.value, reason: entry.key);
-    }
+    _expectTastingBankNamedSessionsPreservePredecessor();
+    _expectWrittenBankAppendsPreservePredecessor();
   });
 
   test(

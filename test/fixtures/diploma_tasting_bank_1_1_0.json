@@ -1,0 +1,49 @@
+{
+  "schemaVersion": 1,
+  "version": "1.1.0",
+  "gridId": "tg_structured",
+  "units": [
+    {
+      "unitId": "D4",
+      "title": "Sparkling wines",
+      "wineKind": "sparkling",
+      "evidencePrompts": [
+        {"id": "description", "prompt": "Describe what you actually saw, smelled and tasted. Include the mousse or bubbles and the wine's structure."},
+        {"id": "quality", "prompt": "Justify your quality judgement with specific balance, intensity, complexity and finish evidence."},
+        {"id": "ageing", "prompt": "Explain your drinking-window and ageing judgement from the wine in the glass. What might develop, and what might limit it?"},
+        {"id": "style_clues", "prompt": "Which observed clues may support a sparkling style or production method? Separate what you sensed from any production inference."},
+        {"id": "uncertainty", "prompt": "Which conclusion is least secure? Name an observation or alternative explanation that could change it."}
+      ],
+      "comparisonPrompt": "Compare all three sparkling wines using observed mousse, aromas, structure, quality and ageing potential. Explain the evidence behind the differences.",
+      "selfReviewPrompt": "Review your three conclusions: which observations support them, and which observations or alternative explanations weaken them?"
+    },
+    {
+      "unitId": "D5",
+      "title": "Fortified wines",
+      "wineKind": "fortified",
+      "evidencePrompts": [
+        {"id": "description", "prompt": "Describe what you actually saw, smelled and tasted, including sweetness, alcohol, structure and flavour development."},
+        {"id": "quality", "prompt": "Justify your quality judgement with specific balance, intensity, complexity and finish evidence."},
+        {"id": "ageing", "prompt": "Explain your drinking-window and ageing judgement from the wine in the glass. What might develop, and what might limit it?"},
+        {"id": "style_clues", "prompt": "Which observed clues may support a fortification or maturation style? Separate sensory evidence from a production inference."},
+        {"id": "uncertainty", "prompt": "Which conclusion is least secure? Name an observation or alternative explanation that could change it."}
+      ],
+      "comparisonPrompt": "Compare all three fortified wines using observed sweetness, alcohol, maturation clues, structure, quality and ageing potential. Explain the evidence behind the differences.",
+      "selfReviewPrompt": "Review your three conclusions: which observations support them, and which observations or alternative explanations weaken them?"
+    },
+    {
+      "unitId": "D3",
+      "title": "Still wines of the world",
+      "wineKind": "still",
+      "evidencePrompts": [
+        {"id": "description", "prompt": "Record the appearance, aromas, flavours and structure you observed in this still wine. Distinguish your observations from any information supplied about the bottle."},
+        {"id": "quality", "prompt": "Explain your quality conclusion using the wine's balance, flavour intensity, complexity and finish. Which specific observations strengthen or weaken that conclusion?"},
+        {"id": "ageing", "prompt": "Describe when you would drink this wine and whether further ageing might improve it. Support your judgement with observed fruit, structure and development, and acknowledge what the glass cannot establish."},
+        {"id": "style_clues", "prompt": "Explain which observed clues could support a grape, growing environment or winemaking hypothesis. Separate sensory evidence from supplied identity, and consider a plausible alternative."},
+        {"id": "uncertainty", "prompt": "Identify the least secure part of your conclusion. Explain an alternative interpretation or further information that could change your reasoning; tasting alone cannot authenticate an origin or label."}
+      ],
+      "comparisonPrompt": "Compare the three actual still wines using their observed aromas, flavours, structure, quality and potential development. Explain the evidence behind their differences and any tentative commonality; identify where supplied bottle information influenced your interpretation.",
+      "selfReviewPrompt": "Reconsider the evidence for each wine and your three-wine comparison. Identify a specific weak inference, a plausible alternative and what you would check or practise next. Your review records reasoning, not an independently assessed tasting result."
+    }
+  ]
+}

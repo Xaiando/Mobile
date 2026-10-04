@@ -1,0 +1,253 @@
+{
+  "question_templates": [
+    {
+      "id": "qt_d2market_choice_11",
+      "relation_type": "PRINCIPLE_EXPLANATION",
+      "direction": "forward",
+      "mode": "authored_choice",
+      "variant": "d2market_choice_11",
+      "prompt_template": "{subject.name}",
+      "parameters": {
+        "item_choices": {
+          "ki_d2market_us_tiers": {
+            "prompt": "In the Texas regulator's model, which roles describe movement from production to the consumer?",
+            "options": [
+              "Manufacture, wholesale distribution and consumer retail",
+              "Customs assessment, vineyard inspection and restaurant booking",
+              "Grower, critic and auction bidder",
+              "Import tax, VAT and income tax"
+            ],
+            "correctIndex": 0,
+            "explanation": "Texas's regulator uses manufacturer, distributor or wholesaler, and retailer roles to explain its three-tier model. This illustrates one state; it does not require three separate businesses in every US transaction.",
+            "sourceCitationId": "src_d2_market_tabc_tiers"
+          },
+          "ki_d2market_us_variation": {
+            "prompt": "A wine partner offers the same route in every US state. What does TTB's guidance require the producer to investigate?",
+            "options": [
+              "Only the wine's grape variety",
+              "The relevant state and local requirements alongside federal rules",
+              "Only the partner's federal permit number",
+              "Only the producer's home-country trade licence"
+            ],
+            "correctIndex": 1,
+            "explanation": "TTB describes state regulation of production, sale and distribution and warns that requirements differ. Investigate the destination's authorities rather than treating one state's route as a national permission.",
+            "sourceCitationId": "src_d2_market_ttb_states"
+          },
+          "ki_d2market_us_federal": {
+            "prompt": "Which inference is justified when an importer presents a federal basic permit?",
+            "options": [
+              "Every US restaurant can now buy direct from the overseas producer",
+              "Every state must accept all the importer's proposed channels",
+              "It addresses a federal role; destination requirements still need checking",
+              "Retail authority and wholesale authority are identical"
+            ],
+            "correctIndex": 2,
+            "explanation": "27 USC 203 distinguishes federal importing and wholesale businesses. TTB guidance separately directs businesses to state and local authorities. A federal permit alone does not establish permission for every proposed sales channel.",
+            "sourceCitationId": "src_d2_market_ttb_business"
+          },
+          "ki_d2market_ew_authority": {
+            "prompt": "For an ordinary wine shop's premises-licence application in England and Wales, which authority is the relevant starting point?",
+            "options": [
+              "The US federal importer-permit authority",
+              "Systembolaget's retail buying team",
+              "The vineyard's appellation inspection body",
+              "The relevant local licensing authority"
+            ],
+            "correctIndex": 3,
+            "explanation": "Section 17 places a premises-licence application with the relevant licensing authority. Home Office guidance usually identifies the local council. This lesson covers England and Wales, not Scotland or Northern Ireland.",
+            "sourceCitationId": "src_d2_market_ew_licensing"
+          },
+          "ki_d2market_ew_scope": {
+            "prompt": "A proposed England and Wales shop will offer takeaway bottles and on-site drinking. Which distinction belongs in its operating schedule?",
+            "options": [
+              "Consumption on the premises, off the premises, or both",
+              "Red varieties versus white varieties only",
+              "Producer price versus restaurant mark-up only",
+              "Still wine versus sparkling wine only"
+            ],
+            "correctIndex": 0,
+            "explanation": "Section 17(4)(f) distinguishes on-premises and off-premises consumption. Proposed activities must be checked against actual authorisation and conditions; a commercial plan does not establish permission.",
+            "sourceCitationId": "src_d2_market_ew_guidance_2026"
+          },
+          "ki_d2market_ew_personal": {
+            "prompt": "An ordinary premises-licensed England and Wales shop plans authorised staff sales. Which statement matches the cited framework?",
+            "options": [
+              "Every seller must hold a separate personal licence",
+              "Personal-licence holders can authorise sales by other staff",
+              "The manager's personal licence establishes every premises activity",
+              "A personal licence is a national wine-import permit"
+            ],
+            "correctIndex": 1,
+            "explanation": "Sections 19 and 111 distinguish personal authorisation from premises licensing. Home Office guidance does not require every authorised seller to hold a personal licence. Exceptions and the actual premises conditions must still be checked.",
+            "sourceCitationId": "src_d2_market_ew_licensing"
+          },
+          "ki_d2market_se_retail": {
+            "prompt": "Which operator anchors Sweden's ordinary state-owned wine retail model?",
+            "options": [
+              "Texas Alcoholic Beverage Commission",
+              "The Home Office",
+              "Systembolaget",
+              "A privately appointed national wine wholesaler"
+            ],
+            "correctIndex": 2,
+            "explanation": "Systembolaget is the state-owned retail operator. The Alcohol Act's retail provisions are distinct from serving and restricted farm sales, so the model should not be described as every kind of alcohol sale.",
+            "sourceCitationId": "src_d2_market_systembolaget_supplier"
+          },
+          "ki_d2market_se_mission": {
+            "prompt": "Which mission does Systembolaget state when explaining its retail monopoly?",
+            "options": [
+              "Guaranteeing a listing for every overseas producer",
+              "Maximising every supplier's sales volume",
+              "Ensuring that every listed wine has equal demand",
+              "Responsible sales to limit alcohol harm"
+            ],
+            "correctIndex": 3,
+            "explanation": "The operator describes a public-health mission rather than maximising sales. That statement does not establish a particular wine's consumer demand, listing, profitability or health effect.",
+            "sourceCitationId": "src_d2_market_systembolaget_supplier"
+          },
+          "ki_d2market_se_supplier": {
+            "prompt": "According to Systembolaget, how can an overseas producer approach its supplier route?",
+            "options": [
+              "Work through an approved Swedish supplier or establish one",
+              "Treat a federal US permit as Swedish supplier approval",
+              "Ship any wine direct to every consumer without checks",
+              "Treat a restaurant serving licence as a guaranteed national listing"
+            ],
+            "correctIndex": 0,
+            "explanation": "Systembolaget describes buying through Swedish importers or beverage suppliers approved by tax authorities. A producer can partner with such a supplier or establish one; neither route guarantees approval or listing.",
+            "sourceCitationId": "src_d2_market_systembolaget_supplier"
+          },
+          "ki_d2market_se_serving": {
+            "prompt": "Which distinction matters when comparing Swedish restaurant accounts with ordinary take-home wine retail?",
+            "options": [
+              "Systembolaget's buying team grants every restaurant serving licence",
+              "Municipal serving permissions are distinct from the retail operator's role",
+              "Every serving business has automatic unrestricted take-home retail rights",
+              "A producer's export licence replaces Swedish venue permissions"
+            ],
+            "correctIndex": 1,
+            "explanation": "Chapter 8 addresses municipal serving permissions, with exceptions. The Public Health Agency describes serving supervision separately from Systembolaget's retail model. A supplier's retail relationship does not prove a venue's serving permission.",
+            "sourceCitationId": "src_d2_market_sweden_serving"
+          },
+          "ki_d2market_se_farm": {
+            "prompt": "A colleague says Sweden's 2025 farm-sales change permits unrestricted retail by any producer. Which interpretation is supported?",
+            "options": [
+              "All wine retail is now unrestricted",
+              "Every imported wine qualifies for farm sales",
+              "A restricted, permitted, visit-linked route exists",
+              "Restaurant serving licences automatically permit farm sales"
+            ],
+            "correctIndex": 2,
+            "explanation": "Chapter 5a requires a farm-sales permit and a paid visit with an educational component. Eligibility and other conditions apply; this is not general unrestricted retail. The operator and Parliament describe the route's introduction in 2025.",
+            "sourceCitationId": "src_d2market_sweden_act"
+          }
+        }
+      }
+    },
+    {
+      "id": "qt_d2market_typed_3",
+      "relation_type": "PRINCIPLE_EXPLANATION",
+      "direction": "forward",
+      "mode": "typed",
+      "variant": "d2market_typed_3",
+      "prompt_template": "{subject.name}",
+      "parameters": {
+        "item_cues": {
+          "ki_d2market_us_tiers": {
+            "prompt": "Which three-tier label does Texas's regulator give the businesses that sell alcohol to consumers?",
+            "acceptedAnswers": [
+              "retailer",
+              "retailers"
+            ]
+          },
+          "ki_d2market_ew_personal": {
+            "prompt": "In the ordinary England and Wales premises-licence framework, what individual licence permits its holder to make or authorise sales?",
+            "acceptedAnswers": [
+              "personal licence",
+              "personal license"
+            ]
+          },
+          "ki_d2market_se_retail": {
+            "prompt": "Name Sweden's state-owned ordinary wine retail operator.",
+            "acceptedAnswers": [
+              "Systembolaget"
+            ]
+          }
+        }
+      }
+    },
+    {
+      "id": "qt_d2market_criteria_3",
+      "relation_type": "CASE_ACTION",
+      "direction": "forward",
+      "mode": "case_criteria",
+      "variant": "d2market_criteria_3",
+      "prompt_template": "{subject.name}",
+      "parameters": {
+        "scope_node_ids": [
+          "n_d2market_case_us_entry",
+          "n_d2market_case_ew_retail",
+          "n_d2market_case_sweden_access"
+        ],
+        "scenario_prompts": {
+          "n_d2market_case_us_entry": "Hypothetical overseas winery: a partner proposes importing wine into the US, wholesaling in Texas and selling to restaurant retailers. It offers an 800-bottle launch paid 60 days after delivery. A second offer is a 200-bottle prepaid Texas pilot with producer-funded tastings and follow-up. A supplier bill is due in 30 days, but available cash, full costs and account demand are unknown. The first partner claims its federal permit makes the same route available in every state. All volumes, dates and offers are fictional. Compare the roles, recommend a conditional launch, explain the evidence, weigh a trade-off and identify what could change the decision. No actual transaction permission is supplied.",
+          "n_d2market_case_ew_retail": "Hypothetical independent wine shop in England and Wales: its manager holds a personal licence. The shop proposes takeaway bottles and a small paid on-site tasting area, but nobody has checked premises authorisation, conditions or the operating schedule. Bottles for each activity come from the same sound stock. A tasting proposal adds quoted staff and seating costs; its demand and incremental revenue are unknown. A bottle-only proposal has fewer supplied operating tasks but no profit estimate. All commercial inputs are fictional. Recommend a conditional operating model, explain the licensing-role distinction, weigh the customer and resource trade-off, and identify missing evidence. Do not infer permission from the manager's licence alone.",
+          "n_d2market_case_sweden_access": "Hypothetical overseas producer considering Sweden: one proposal uses a Swedish supplier to seek Systembolaget access; another targets restaurant accounts with producer tastings and follow-up. No listing, buyer demand, commercial prices, costs, supplier approval or venue permissions have been supplied. A colleague proposes direct unrestricted consumer sales because farm sales were introduced in 2025. The producer has no Swedish production or visit arrangements in this case. All business proposals are fictional. Recommend a conditional route investigation, explain the retail, supplier and serving distinction, weigh the trade-off in access and workload, and identify what still needs checking. Do not decide individual eligibility from the news."
+        },
+        "distractors": {
+          "n_d2market_case_us_entry": [
+            {
+              "summary": "Accept nationwide access because the federal permit settles every destination's retail rules.",
+              "explanation": "Federal permitting does not establish all state or local channel permissions."
+            },
+            {
+              "summary": "Spend the 60-day receipt on the bill due in 30 days without checking cash.",
+              "explanation": "The later assumed receipt cannot itself pay the earlier bill; other liquidity has not been supplied."
+            }
+          ],
+          "n_d2market_case_ew_retail": [
+            {
+              "summary": "Open both activities because the manager's personal licence covers all premises uses.",
+              "explanation": "An individual's licence does not itself establish the premises' authorised activities or conditions."
+            },
+            {
+              "summary": "Choose tastings because adding customer engagement proves higher net profit.",
+              "explanation": "Demand and incremental revenue are missing; additional costs alone do not establish profit."
+            }
+          ],
+          "n_d2market_case_sweden_access": [
+            {
+              "summary": "Use unrestricted direct retail because the farm-sales change abolished every restriction.",
+              "explanation": "The change provides a restricted permit and visit framework, not blanket permission."
+            },
+            {
+              "summary": "Treat the supplier's relationship with Systembolaget as proof that every restaurant may serve the wine.",
+              "explanation": "The operator's supplier model does not establish the restaurant's serving permissions."
+            }
+          ]
+        }
+      }
+    },
+    {
+      "id": "qt_d2market_written_3",
+      "relation_type": "CASE_ACTION",
+      "direction": "forward",
+      "mode": "short_answer",
+      "variant": "d2market_written_3",
+      "prompt_template": "{subject.name}",
+      "parameters": {
+        "scope_node_ids": [
+          "n_d2market_case_us_entry",
+          "n_d2market_case_ew_retail",
+          "n_d2market_case_sweden_access"
+        ],
+        "key_points": {
+          "CASE_ACTION": "Conditional route decision",
+          "CASE_REASON": "Regulated roles and evidence",
+          "CASE_TRADEOFF": "Access, workload and cash trade-off",
+          "CASE_LIMITATION": "Permissions and commercial evidence still needed"
+        }
+      }
+    }
+  ]
+}

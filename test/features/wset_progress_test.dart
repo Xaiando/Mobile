@@ -584,6 +584,22 @@ void main() {
           find.byKey(ValueKey('wset_unit_physical_open_$unit')),
           findsOneWidget,
         );
+        if (unit == 'D3') {
+          expect(
+            find.byKey(const ValueKey('wset_unit_named_physical_D3')),
+            findsOneWidget,
+          );
+          expect(
+            find.textContaining('Six-wine named sessions recorded: 0 of 2'),
+            findsOneWidget,
+          );
+          for (var session = 1; session <= 2; session++) {
+            expect(
+              find.byKey(ValueKey('wset_unit_physical_open_D3_$session')),
+              findsOneWidget,
+            );
+          }
+        }
         expect(find.byKey(ValueKey('wset_unit_written_$unit')), findsOneWidget);
         expect(
           find.byKey(ValueKey('wset_unit_written_open_$unit')),

@@ -6,6 +6,7 @@ import 'package:flutter_test/flutter_test.dart';
 import 'package:image/image.dart' as image;
 import 'package:image_picker/image_picker.dart';
 import 'package:sommelier/core/journal/journal_photo_store.dart';
+import 'package:sommelier/core/journal/label_proposal.dart';
 import 'package:sommelier/features/cellar/journal_scan_section.dart';
 
 class _QueuedPicker extends ImagePicker {
@@ -86,6 +87,11 @@ Future<void> _showScan(
   required ImagePicker picker,
   required Future<String> Function(String) recognizeText,
   required void Function(PhotoKind, Uint8List) onPicked,
+  ValueChanged<String>? onProducer,
+  ValueChanged<String>? onCuvee,
+  ValueChanged<String>? onAppellation,
+  ValueChanged<String>? onGrapes,
+  Set<LabelField> occupiedFields = const {},
 }) async {
   await tester.pumpWidget(
     MaterialApp(
@@ -98,6 +104,11 @@ Future<void> _showScan(
             onVintage: (_) {},
             onNonVintage: () {},
             onAbv: (_) {},
+            onProducer: onProducer,
+            onCuvee: onCuvee,
+            onAppellation: onAppellation,
+            onGrapes: onGrapes,
+            occupiedFields: occupiedFields,
           ),
         ),
       ),
@@ -355,6 +366,204 @@ void main() {
         'Manual Estate 2019 13.5%',
       );
       expect(tester.takeException(), isNull);
+    },
+  );
+  _scanTestWidgets('full-label suggestions require a separate tap per field', (
+    tester,
+  ) async {
+    final accepted = <String>[];
+    await _showScan(
+      tester,
+      picker: _QueuedPicker([_label('label-a.png')]),
+      recognizeText: (_) async =>
+          'Domaine des Roches\nCuvée Les Pierres\nChablis AOC\n'
+          'Grapes: Chardonnay\n2020\n13.5%',
+      onPicked: (_, _) {},
+      onProducer: (value) => accepted.add('producer:$value'),
+      onCuvee: (value) => accepted.add('cuvee:$value'),
+      onAppellation: (value) => accepted.add('place:$value'),
+      onGrapes: (value) => accepted.add('grapes:$value'),
+    );
+    await _chooseLabel(tester);
+    expect(accepted, isEmpty);
+    for (final label in [
+      'Use producer Domaine des Roches',
+      'Use cuvée Les Pierres',
+      'Use region Chablis',
+      'Use grapes Chardonnay',
+    ]) {
+      await tester.ensureVisible(find.text(label));
+      await tester.tap(find.text(label));
+      await tester.pump();
+    }
+    expect(accepted, [
+      'producer:Domaine des Roches',
+      'cuvee:Les Pierres',
+      'place:Chablis',
+      'grapes:Chardonnay',
+    ]);
+  });
+
+  _scanTestWidgets('occupied fields disable matching scan suggestions', (
+    tester,
+  ) async {
+    final accepted = <String>[];
+    await _showScan(
+      tester,
+      picker: _QueuedPicker([_label('label-a.png')]),
+      recognizeText: (_) async =>
+          'Producer: Scanned Estate\nCuvée Réserve\nRegion: Barolo\n'
+          'Grapes: Nebbiolo\n2020\n13.5%',
+      onPicked: (_, _) {},
+      onProducer: accepted.add,
+      onCuvee: accepted.add,
+      onAppellation: accepted.add,
+      onGrapes: accepted.add,
+      occupiedFields: const {
+        LabelField.producer,
+        LabelField.appellation,
+        LabelField.vintage,
+        LabelField.abv,
+      },
+    );
+    await _chooseLabel(tester);
+    for (final label in [
+      'Use producer Scanned Estate',
+      'Use region Barolo',
+      'Use vintage 2020',
+      'Use 13.5% alcohol',
+    ]) {
+      final chip = find.ancestor(
+        of: find.text(label),
+        matching: find.byType(ActionChip),
+      );
+      expect(tester.widget<ActionChip>(chip).onPressed, isNull);
+    }
+    final cuvee = find.text('Use cuvée Réserve');
+    await tester.ensureVisible(cuvee);
+    await tester.tap(cuvee);
+    expect(accepted, ['Réserve']);
+  });
+
+  _scanTestWidgets(
+    'new proposal callbacks reject later occupancy and a saving editor',
+    (tester) async {
+      var enabled = true;
+      var occupied = <LabelField>{};
+      late StateSetter update;
+      final accepted = <String>[];
+      await tester.pumpWidget(
+        MaterialApp(
+          home: Scaffold(
+            body: SingleChildScrollView(
+              child: StatefulBuilder(
+                builder: (context, setState) {
+                  update = setState;
+                  return JournalScanSection(
+                    enabled: enabled,
+                    occupiedFields: occupied,
+                    onPicked: (_, _) {},
+                    onVintage: (value) => accepted.add('vintage:$value'),
+                    onNonVintage: () => accepted.add('NV'),
+                    onAbv: (value) => accepted.add('abv:$value'),
+                    onProducer: (value) => accepted.add('producer:$value'),
+                    onCuvee: (value) => accepted.add('cuvee:$value'),
+                    onAppellation: (value) => accepted.add('place:$value'),
+                    onGrapes: (value) => accepted.add('grapes:$value'),
+                  );
+                },
+              ),
+            ),
+          ),
+        ),
+      );
+      await tester.enterText(
+        _rawField,
+        'Producer: Scanned Estate\nCuvée Réserve\nRegion: Barolo\nGrapes: Nebbiolo\n2020\n13.5%',
+      );
+      await tester.pump();
+      const labels = [
+        'Use producer Scanned Estate',
+        'Use cuvée Réserve',
+        'Use region Barolo',
+        'Use grapes Nebbiolo',
+        'Use vintage 2020',
+        'Use 13.5% alcohol',
+      ];
+      final callbacks = [
+        for (final label in labels)
+          tester
+              .widget<ActionChip>(find.widgetWithText(ActionChip, label))
+              .onPressed!,
+      ];
+      update(() => occupied = LabelField.values.toSet());
+      await tester.pump();
+      for (final callback in callbacks) {
+        callback();
+      }
+      expect(accepted, isEmpty);
+      for (final label in labels) {
+        expect(
+          tester
+              .widget<ActionChip>(find.widgetWithText(ActionChip, label))
+              .onPressed,
+          isNull,
+        );
+      }
+      update(() {
+        occupied = {};
+        enabled = false;
+      });
+      await tester.pump();
+      for (final callback in callbacks) {
+        callback();
+      }
+      expect(accepted, isEmpty);
+      update(() {
+        enabled = true;
+      });
+      await tester.pump();
+      await tester.ensureVisible(find.text(labels.first));
+      await tester.tap(find.text(labels.first));
+      expect(accepted, ['producer:Scanned Estate']);
+    },
+  );
+  _scanTestWidgets(
+    'a replacement photo clears untouched old producer clues when OCR fails',
+    (tester) async {
+      final accepted = <String>[];
+      await _showScan(
+        tester,
+        picker: _QueuedPicker([_label('name-a.png'), _label('name-b.png')]),
+        recognizeText: (path) async {
+          if (path == 'name-a.png') {
+            return 'Producer: Old Estate\nCuvée Réserve\nRegion: Barolo\nGrapes: Nebbiolo';
+          }
+          throw StateError('OCR unavailable');
+        },
+        onPicked: (_, _) {},
+        onProducer: accepted.add,
+        onCuvee: accepted.add,
+        onAppellation: accepted.add,
+        onGrapes: accepted.add,
+      );
+      await _chooseLabel(tester);
+      expect(find.text('Use producer Old Estate'), findsOneWidget);
+      expect(find.text('Use cuvée Réserve'), findsOneWidget);
+      expect(find.text('Use region Barolo'), findsOneWidget);
+      expect(find.text('Use grapes Nebbiolo'), findsOneWidget);
+      expect(accepted, isEmpty);
+      await _chooseLabel(tester);
+      expect(tester.widget<TextField>(_rawField).controller!.text, isEmpty);
+      for (final label in [
+        'Use producer Old Estate',
+        'Use cuvée Réserve',
+        'Use region Barolo',
+        'Use grapes Nebbiolo',
+      ]) {
+        expect(find.text(label), findsNothing);
+      }
+      expect(accepted, isEmpty);
     },
   );
 }

@@ -1,0 +1,448 @@
+{
+  "question_templates": [
+    {
+      "id": "qt_d4c_integrated_criteria",
+      "relation_type": "CASE_ACTION",
+      "direction": "forward",
+      "prompt_template": "{subject.name}",
+      "mode": "case_criteria",
+      "variant": "d4c_integrated_criteria",
+      "parameters": {
+        "scope_node_ids": [
+          "n_d456_case_champagne_stock",
+          "n_d456_case_cremant_loire",
+          "n_d456_case_prosecco_supply",
+          "n_d456_case_asti_aroma",
+          "n_d456_case_italian_bottle",
+          "n_d456_case_lambrusco_pairing",
+          "n_d456_case_cava_water",
+          "n_d456_case_british_vintage",
+          "n_d456_case_us_site_method",
+          "n_d456_case_chile_method",
+          "n_d456_case_argentina_capacity",
+          "n_d456_case_australia_portfolio",
+          "n_d456_case_nz_harvest_blend",
+          "n_d456_case_cap_classique_route"
+        ],
+        "scenario_prompts": {
+          "n_d456_case_champagne_stock": "Original fictional Champagne planning exercise. Grower fruit contracted from two sites arrives after different ripening rates; the early-picked lot has higher measured acidity. A house's brief is a consistent, fresh non-vintage blend, not a single-vintage claim. Separate first and later press fractions have coded trial notes; a reserve blend meets the brief better than this year's unblended lot. Its usable yield is 8% lower and storage space is limited. A merchant offers payment after 60 days; cellar-door orders are prepaid but require producer delivery. These figures, findings and offers are invented. No complete costing, credit check or certification evidence is supplied. Recommend a conditional vineyard/press/blend and sales plan, explaining sensory evidence, cost and uncertainty.",
+          "n_d456_case_cremant_loire": "Original fictional comparison of Crémant d'Alsace, Crémant de Bourgogne, Crémant de Loire, Saumur and Vouvray. Supplier dossiers identify the actual grape blends, whole-bunch handling, parcel harvest dates, acidity, malolactic choices, reserve use and bottle-fermentation records. A fresh aperitif brief and a fuller food-pairing brief are separate. A coded tasting favours an Alsace lot for the first and a Chenin-led Vouvray lot for the second; Bourgogne, Loire and Saumur alternatives cost less but their samples have not arrived. All supplier findings, price rankings and preferences are fictional, not regional rankings. Two suppliers require larger minimum orders and later delivery. Design a comparison and conditional purchase decision without assuming that appellation establishes taste or margin.",
+          "n_d456_case_prosecco_supply": "Original fictional Prosecco comparison. An accessible plain-site Glera lot has mechanised-harvest access and quick cellar transport; a named hillside supplier quotes more hand labour. Trial tank-fermented A fits a fresh-fruit launch in six weeks, while the hillside B proposal needs ten weeks and has no sample. The supplier proposes a Rive statement but has supplied no supporting records. A retailer requests a large discounted promotion with payment after 45 days; a specialist offers a small prepaid pilot. All site records, timings, offers and trial results are fictional. Neither actual permitted yields nor grape percentages are stated. Recommend a conditional production and market plan.",
+          "n_d456_case_asti_aroma": "Original fictional aromatic sparkling exercise, not an authentic Asti or Moscato d'Asti tasting. A supplier describes chilled aromatic Muscat must with fermentation stopped to preserve sweetness; the confirmed sample is sweet, aromatic and low in alcohol. Another supplier's traditional-method dry blend has more developed lees notes. A buyer asks for a sweet aromatic aperitif, while a restaurant asks for a dry savoury pairing. Must-storage cost, filtration/stability records and package pressure are missing. An advertising draft treats Asti and Moscato d'Asti as identical pressure and alcohol categories. All observations, requests and missing-record assumptions are fictional. Evaluate the two separate briefs and the unsupported category claim.",
+          "n_d456_case_italian_bottle": "Original fictional Franciacorta and Trentodoc comparison. A Franciacorta supplier's parcel record shows moderate harvest acidity, while the Trentino mountain parcel records cooler nights and higher acidity that season. Both dossiers describe bottle fermentation; MLF use, base-wine oak and reserve proportions differ. The supplied panel finds one rounder and the other sharper, but fruit source and cellar methods also differ. The buyer wants freshness with some developed complexity at a fixed landed budget. One quoted older release ties up twice the buyer's stock budget and arrives too late for the first launch. All observations, times and amounts are hypothetical, not appellation-wide claims.",
+          "n_d456_case_lambrusco_pairing": "Original fictional Lambrusco comparison. Sorbara, Salamino and Grasparossa supplier records identify grape, plain or foothill source, harvest date, extraction and residual sweetness; the buyer cannot use 'Lambrusco' as a sweetness test. Coded A is pale, dry and fresh; B is darker, more tannic and dry; C is sweeter. The supplied panel prefers A for a light lunch and B for a richer dish. A cellar proposal increases maceration for A without a new trial, while a promotion proposes C for all guests because it has the lowest unit price. All observations, site details and offers are invented and do not establish universal styles.",
+          "n_d456_case_cava_water": "Original fictional Cava vineyard and release exercise. A grower dossier records a dry season, water stress in Xarel-lo and variable disease pressure in a second parcel. Supplier A has complete organic certification and traceability records; supplier B only supplies a marketing claim. A preliminary base blend meets the acidity and structure brief, but the producer plans a longer-held category and cash is insufficient for the quoted storage bill. A merchant asks for a low-price early launch; a specialist offers a small later allocation. All agronomic records, costs, sample findings and offers are fictional. Current category compliance is to be independently checked; no new numeric ageing rule is supplied.",
+          "n_d456_case_british_vintage": "Original fictional England and Wales harvest/stock planning exercise. Two Chardonnay/Pinot Noir growers supply weather, budburst and frost logs for their actual parcels; the English parcel lost 25% of expected fruit and the Welsh parcel did not. The planned sparkling blend needs sound acidic fruit; base-wine trials are promising but wet harvest weather is forecast. Emergency fruit offers differ in ripeness and traceability. A launch promise assumes last year's volume and a uniform British vintage. All loss, forecasts, offers and findings are invented. Propose a contingent harvest and release plan, accounting for quality checks, vineyard protection costs and customer communication.",
+          "n_d456_case_us_site_method": "Original fictional California, Oregon and Washington comparison. Three Chardonnay/Pinot Noir base dossiers provide actual coastal cooling, Willamette seasonal rain and eastern Washington irrigation logs, respectively. Harvest acidity differs; trials also differ in MLF, oak and lees holding. A coded panel prefers California A for a fresh aperitif and Oregon B for a developed style; Washington C has no final sample. These are invented site-specific findings, not statewide rankings. A custom processor can bottle small lots for a fee; an estate facility has available equipment but insufficient storage for the full holding plan. Orders differ in price and payment delay. Compare the production and business options without inferring fermentation method from state origin.",
+          "n_d456_case_chile_method": "Original fictional Chilean sparkling plan. A coastal Casablanca Chardonnay parcel's supplied log records slow ripening and sound acidic fruit; an inland lot's log shows riper fruit and less acidity. A tank trial gives the requested fresh-fruit profile and readiness in eight weeks. A bottle-fermented trial is intended for later lees development and cannot meet the same launch. The two lots also use different yeast and MLF choices, so this is not a controlled method trial. Export demand is a tentative enquiry with no deposit; domestic restaurant demand is confirmed for a smaller quantity. All findings, timings and demand are invented. Evaluate a contingent production allocation.",
+          "n_d456_case_argentina_capacity": "Original fictional Argentine producer exercise. Mendoza Chardonnay/Pinot Noir parcels supply harvest sugar/acidity and irrigation records; another parcel offers later riper fruit for a different blend. A tested fresh tank-fermented blend is ready for a domestic launch. A larger bottle-fermented proposal needs additional storage and unresolved cash financing. A distributor cites the INV's 2023 dispatch report as proof of current demand for this producer's premium export lot. The report is historical; no current orders, prices or source-origin records are supplied. All parcel findings, production schedules and commercial offers are fictional. Compare the allocation and the claim, distinguishing measured past dispatch from current lot eligibility and demand.",
+          "n_d456_case_australia_portfolio": "Original fictional Australian portfolio exercise. Supplier dossiers compare Adelaide Hills Chardonnay/Pinot Noir, a Victorian lot, a Tasmanian lot and a multi-region South Eastern Australia blend, with actual site, harvest, acidity and frost records. A separate Shiraz offer supplies ripe red-fruit and tannin notes. One documented transfer-method lot underwent bottle fermentation followed by bulk clarification; another underwent tank secondary fermentation. The coded panel fits the fresh white brief with A and a red-food slot with Shiraz. The longer-held Tasmanian proposal requires more capital than available. All supplied results, budgets and orders are invented. Choose a contingent portfolio and explain method, costs and quality limits.",
+          "n_d456_case_nz_harvest_blend": "Original fictional New Zealand comparison. Marlborough, Hawke's Bay and Central Otago Chardonnay/Pinot Noir supplier dossiers provide their own season, water, crop and harvest records. Trial A is crisp and fruit-led; B is broader; C retains acidity but has less available volume after a supplied frost event. Different MLF, lees and dosage choices accompany the different sites. A separate aromatic-variety tank sample fits a short-term fresh-fruit slot. A buyer wants a consistent non-vintage style, a modest launch quantity and affordable stock holding. All findings, hazards, schedules and prices are hypothetical rather than universal regional descriptions. Evaluate source and blend choices.",
+          "n_d456_case_cap_classique_route": "Original fictional Cap Classique buying and production exercise. Two Cape growers supply different Chardonnay/Pinot Noir and Chenin Blanc parcel records, with harvest acidity, water stress and bunch-health observations. Documented bottle-fermented A has the preferred balance in a coded panel; a longer-held B has no sample and costs more to hold. A's supplier is an association member. A restaurant programme requests training and small frequent deliveries; a supermarket proposes a large promotion with a discount and delayed payment. All parcel findings, preferences and offers are invented. Compare a conditional allocation and marketing plan without taking membership as certification of this wine's excellence."
+        },
+        "distractors": {
+          "n_d456_case_champagne_stock": [
+            {
+              "summary": "Blend every fraction and remove reserve storage because higher yield proves better value.",
+              "explanation": "The supplied sensory trial favours selected fractions and reserves, while actual net value is not established."
+            },
+            {
+              "summary": "Treat the merchant's 60-day promise as cash available before shipment.",
+              "explanation": "A future receivable cannot fund an earlier bill without financing."
+            }
+          ],
+          "n_d456_case_cremant_loire": [
+            {
+              "summary": "Choose the cheapest unseen Saumur and describe it as identical to all five products.",
+              "explanation": "Price without tasting or process evidence cannot establish equivalent brief fit."
+            },
+            {
+              "summary": "Assign Alsace the highest quality grade because it fitted the aperitif brief.",
+              "explanation": "Guest fit in a supplied trial does not rank a whole region or establish absolute quality."
+            }
+          ],
+          "n_d456_case_prosecco_supply": [
+            {
+              "summary": "Reserve B for launch because hillside origin guarantees readiness and quality.",
+              "explanation": "B's supplied ten-week schedule misses the brief and its sample is unavailable."
+            },
+            {
+              "summary": "Use Rive on A because both offers are Prosecco.",
+              "explanation": "Specific label eligibility requires evidence for that lot, not a broad category assumption."
+            }
+          ],
+          "n_d456_case_asti_aroma": [
+            {
+              "summary": "Use the sweet sample for the dry pairing because all sparkling wines taste dry.",
+              "explanation": "The supplied sweetness observation contradicts that brief."
+            },
+            {
+              "summary": "Describe Asti and Moscato d'Asti as identical because both use Muscat.",
+              "explanation": "Shared grape identity does not establish identical category or pressure records."
+            }
+          ],
+          "n_d456_case_italian_bottle": [
+            {
+              "summary": "Order the late older release because more lees time necessarily means the best value.",
+              "explanation": "It misses the supplied launch and lacks evidence of superior fit or net value."
+            },
+            {
+              "summary": "Attribute every sensory difference to altitude.",
+              "explanation": "Fruit, MLF, oak and reserve use also differ in the packet."
+            }
+          ],
+          "n_d456_case_lambrusco_pairing": [
+            {
+              "summary": "Choose C for both dry briefs because it is the cheapest.",
+              "explanation": "Its supplied sweetness conflicts with the requested dry slots."
+            },
+            {
+              "summary": "Increase A's maceration and guarantee its current delicate profile will remain.",
+              "explanation": "A production change requires a new trial and cannot guarantee the previous result."
+            }
+          ],
+          "n_d456_case_cava_water": [
+            {
+              "summary": "Treat B's green marketing as equivalent to certified traceability.",
+              "explanation": "No supporting certification records are supplied."
+            },
+            {
+              "summary": "Sell the longer-held proposed category immediately to pay for storage.",
+              "explanation": "A financing gap cannot establish category eligibility or release readiness."
+            }
+          ],
+          "n_d456_case_british_vintage": [
+            {
+              "summary": "Promise last year's quantity because all British vineyards have the same vintage.",
+              "explanation": "The supplied parcel outcomes differ and expected available volume has fallen."
+            },
+            {
+              "summary": "Buy the ripest emergency lot without testing because sugar guarantees sparkling suitability.",
+              "explanation": "Ripeness alone cannot establish acid balance, health or suitability for this base-wine brief."
+            }
+          ],
+          "n_d456_case_us_site_method": [
+            {
+              "summary": "Select Washington C as identical to California A because both are US sparkling.",
+              "explanation": "No final C sample is supplied, and origin cannot establish method or style."
+            },
+            {
+              "summary": "Use the estate for all lots because owning equipment eliminates storage cost.",
+              "explanation": "The packet explicitly supplies insufficient holding capacity."
+            }
+          ],
+          "n_d456_case_chile_method": [
+            {
+              "summary": "Ship the bottle-fermented lot at eight weeks because every method shares one release schedule.",
+              "explanation": "Its supplied readiness differs and no compliance or stability evidence supports that shipment."
+            },
+            {
+              "summary": "Scale the entire export enquiry as a paid order.",
+              "explanation": "An enquiry without commitment or deposit is not confirmed demand."
+            }
+          ],
+          "n_d456_case_argentina_capacity": [
+            {
+              "summary": "Use the 2023 dispatch share as this year's premium export order forecast.",
+              "explanation": "The time, market and producer-specific demand differ."
+            },
+            {
+              "summary": "Infer legal sparkling category from Mendoza origin alone.",
+              "explanation": "The relevant category requires product evidence, not a province name."
+            }
+          ],
+          "n_d456_case_australia_portfolio": [
+            {
+              "summary": "Call the transfer lot tank fermented solely because it was later clarified in bulk.",
+              "explanation": "Clarification vessel and fermentation vessel are different stages."
+            },
+            {
+              "summary": "Fund all Tasmanian stock because its origin guarantees a profitable premium.",
+              "explanation": "The supplied capital is insufficient and no realised sales prove profitability."
+            }
+          ],
+          "n_d456_case_nz_harvest_blend": [
+            {
+              "summary": "Declare every New Zealand sparkling bottle traditional method and Chardonnay/Pinot Noir.",
+              "explanation": "Predominant routes are not an exhaustive restriction; the packet supplies another documented candidate."
+            },
+            {
+              "summary": "Infer Central Otago's whole vintage quality from C's fictional frost loss.",
+              "explanation": "One parcel's supplied loss is neither a regional crop estimate nor a quality verdict."
+            }
+          ],
+          "n_d456_case_cap_classique_route": [
+            {
+              "summary": "Choose unseen B because more age and association membership guarantee superior quality.",
+              "explanation": "Neither missing sensory evidence nor membership establishes that comparison."
+            },
+            {
+              "summary": "Accept the largest promotion without costing its discount or delivery burden.",
+              "explanation": "Volume alone cannot establish contribution or affordable cash timing."
+            }
+          ]
+        }
+      }
+    },
+    {
+      "id": "qt_d4c_integrated_written",
+      "relation_type": "CASE_ACTION",
+      "direction": "forward",
+      "prompt_template": "{subject.name}",
+      "mode": "short_answer",
+      "variant": "d4c_integrated_written",
+      "parameters": {
+        "scope_node_ids": [
+          "n_d456_case_champagne_stock",
+          "n_d456_case_cremant_loire",
+          "n_d456_case_prosecco_supply",
+          "n_d456_case_asti_aroma",
+          "n_d456_case_italian_bottle",
+          "n_d456_case_lambrusco_pairing",
+          "n_d456_case_cava_water",
+          "n_d456_case_british_vintage",
+          "n_d456_case_us_site_method",
+          "n_d456_case_chile_method",
+          "n_d456_case_argentina_capacity",
+          "n_d456_case_australia_portfolio",
+          "n_d456_case_nz_harvest_blend",
+          "n_d456_case_cap_classique_route"
+        ],
+        "key_points": {
+          "CASE_ACTION": "Conditional decision",
+          "CASE_REASON": "Evidence and causal reasoning",
+          "CASE_TRADEOFF": "Alternative and resource comparison",
+          "CASE_LIMITATION": "Uncertainty and required checks"
+        }
+      }
+    },
+    {
+      "id": "qt_d4c_integrated_action_choice",
+      "relation_type": "CASE_ACTION",
+      "direction": "forward",
+      "prompt_template": "{subject.name}",
+      "mode": "authored_choice",
+      "variant": "d4c_integrated_action_choice",
+      "parameters": {
+        "item_choices": {
+          "ki_d456_champagne_stock_action": {
+            "prompt": "Original fictional Champagne planning exercise. Grower fruit contracted from two sites arrives after different ripening rates; the early-picked lot has higher measured acidity. A house's brief is a consistent, fresh non-vintage blend, not a single-vintage claim. Separate first and later press fractions have coded trial notes; a reserve blend meets the brief better than this year's unblended lot. Its usable yield is 8% lower and storage space is limited. A merchant offers payment after 60 days; cellar-door orders are prepaid but require producer delivery. These figures, findings and offers are invented. No complete costing, credit check or certification evidence is supplied. Recommend a conditional vineyard/press/blend and sales plan, explaining sensory evidence, cost and uncertainty. Which initial decision is best supported?",
+            "options": [
+              "Pilot the tested reserve blend with selected press fractions and verify a funded release plan.",
+              "Blend every fraction and remove reserve storage because higher yield proves better value.",
+              "Treat the merchant's 60-day promise as cash available before shipment.",
+              "Declare the supplied conclusion externally verified and release the entire stock or assignment without further checks."
+            ],
+            "correctIndex": 0,
+            "explanation": "Different parcel ripeness and fraction records make lot selection relevant; the coded trial supports this blend's fit. Check repeat sensory and stability results, full costs, cash timing, buyer credit and approval; house reputation cannot guarantee profitability.",
+            "sourceCitationId": "src_d4depth_champ_houses"
+          },
+          "ki_d456_cremant_loire_action": {
+            "prompt": "Original fictional comparison of Crémant d'Alsace, Crémant de Bourgogne, Crémant de Loire, Saumur and Vouvray. Supplier dossiers identify the actual grape blends, whole-bunch handling, parcel harvest dates, acidity, malolactic choices, reserve use and bottle-fermentation records. A fresh aperitif brief and a fuller food-pairing brief are separate. A coded tasting favours an Alsace lot for the first and a Chenin-led Vouvray lot for the second; Bourgogne, Loire and Saumur alternatives cost less but their samples have not arrived. All supplier findings, price rankings and preferences are fictional, not regional rankings. Two suppliers require larger minimum orders and later delivery. Design a comparison and conditional purchase decision without assuming that appellation establishes taste or margin. Which initial decision is best supported?",
+            "options": [
+              "Retain the two trial fits provisionally and taste the other named products against each brief before ordering.",
+              "Choose the cheapest unseen Saumur and describe it as identical to all five products.",
+              "Assign Alsace the highest quality grade because it fitted the aperitif brief.",
+              "Declare the supplied conclusion externally verified and release the entire stock or assignment without further checks."
+            ],
+            "correctIndex": 0,
+            "explanation": "Compare supplied grape, harvest, acidity and cellar records to the actual observations rather than substitute a generic French sparkling profile. Verify dossiers, samples, usable order volumes, label approval and landed costs; one trial does not rank whole appellations.",
+            "sourceCitationId": "src_d4depth_alsace_process"
+          },
+          "ki_d456_prosecco_supply_action": {
+            "prompt": "Original fictional Prosecco comparison. An accessible plain-site Glera lot has mechanised-harvest access and quick cellar transport; a named hillside supplier quotes more hand labour. Trial tank-fermented A fits a fresh-fruit launch in six weeks, while the hillside B proposal needs ten weeks and has no sample. The supplier proposes a Rive statement but has supplied no supporting records. A retailer requests a large discounted promotion with payment after 45 days; a specialist offers a small prepaid pilot. All site records, timings, offers and trial results are fictional. Neither actual permitted yields nor grape percentages are stated. Recommend a conditional production and market plan. Which initial decision is best supported?",
+            "options": [
+              "Pilot documented A for the six-week brief while seeking B's sample and designation evidence.",
+              "Reserve B for launch because hillside origin guarantees readiness and quality.",
+              "Use Rive on A because both offers are Prosecco.",
+              "Declare the supplied conclusion externally verified and release the entire stock or assignment without further checks."
+            ],
+            "correctIndex": 0,
+            "explanation": "A's supplied readiness and fruit-fit evidence are relevant; hillside source or proposed Rive wording cannot replace those findings. Check protected-name records, total production and delivery costs, stock financing, actual demand and repeat sample quality.",
+            "sourceCitationId": "src_d4depth_prosecco_doc"
+          },
+          "ki_d456_asti_aroma_action": {
+            "prompt": "Original fictional aromatic sparkling exercise, not an authentic Asti or Moscato d'Asti tasting. A supplier describes chilled aromatic Muscat must with fermentation stopped to preserve sweetness; the confirmed sample is sweet, aromatic and low in alcohol. Another supplier's traditional-method dry blend has more developed lees notes. A buyer asks for a sweet aromatic aperitif, while a restaurant asks for a dry savoury pairing. Must-storage cost, filtration/stability records and package pressure are missing. An advertising draft treats Asti and Moscato d'Asti as identical pressure and alcohol categories. All observations, requests and missing-record assumptions are fictional. Evaluate the two separate briefs and the unsupported category claim. Which initial decision is best supported?",
+            "options": [
+              "Provisionally trial the aromatic sweet sample for the sweet brief and assess the dry sample separately.",
+              "Use the sweet sample for the dry pairing because all sparkling wines taste dry.",
+              "Describe Asti and Moscato d'Asti as identical because both use Muscat.",
+              "Declare the supplied conclusion externally verified and release the entire stock or assignment without further checks."
+            ],
+            "correctIndex": 0,
+            "explanation": "Stopped fermentation preserves a different sugar/aroma balance from a completed dry base followed by bottle fermentation. Authenticate product category and package pressure, stability, costs and serving condition; the draft cannot establish identical category specifications.",
+            "sourceCitationId": "src_d4depth_asti_moscato"
+          },
+          "ki_d456_italian_bottle_action": {
+            "prompt": "Original fictional Franciacorta and Trentodoc comparison. A Franciacorta supplier's parcel record shows moderate harvest acidity, while the Trentino mountain parcel records cooler nights and higher acidity that season. Both dossiers describe bottle fermentation; MLF use, base-wine oak and reserve proportions differ. The supplied panel finds one rounder and the other sharper, but fruit source and cellar methods also differ. The buyer wants freshness with some developed complexity at a fixed landed budget. One quoted older release ties up twice the buyer's stock budget and arrives too late for the first launch. All observations, times and amounts are hypothetical, not appellation-wide claims. Which initial decision is best supported?",
+            "options": [
+              "Compare coded samples against the budget and launch brief, provisionally retaining the on-time fit.",
+              "Order the late older release because more lees time necessarily means the best value.",
+              "Attribute every sensory difference to altitude.",
+              "Declare the supplied conclusion externally verified and release the entire stock or assignment without further checks."
+            ],
+            "correctIndex": 0,
+            "explanation": "Site records and cellar choices both plausibly contribute, so the comparison cannot isolate altitude or MLF as the sole cause. Check actual category approval, landed quotes, readiness and repeat panel evidence; more lees time is not a quality guarantee.",
+            "sourceCitationId": "src_d4depth_franciacorta_rules"
+          },
+          "ki_d456_lambrusco_pairing_action": {
+            "prompt": "Original fictional Lambrusco comparison. Sorbara, Salamino and Grasparossa supplier records identify grape, plain or foothill source, harvest date, extraction and residual sweetness; the buyer cannot use 'Lambrusco' as a sweetness test. Coded A is pale, dry and fresh; B is darker, more tannic and dry; C is sweeter. The supplied panel prefers A for a light lunch and B for a richer dish. A cellar proposal increases maceration for A without a new trial, while a promotion proposes C for all guests because it has the lowest unit price. All observations, site details and offers are invented and do not establish universal styles. Which initial decision is best supported?",
+            "options": [
+              "Keep A and B as conditional dish-specific choices and trial any extraction change before scaling it.",
+              "Choose C for both dry briefs because it is the cheapest.",
+              "Increase A's maceration and guarantee its current delicate profile will remain.",
+              "Declare the supplied conclusion externally verified and release the entire stock or assignment without further checks."
+            ],
+            "correctIndex": 0,
+            "explanation": "The supplied colour, tannin and sweetness findings distinguish actual bottles; category and grape help frame but do not replace the evidence. Check repeat trials, demand, residual-sugar and label records, wastage and full landed costs before setting quantities.",
+            "sourceCitationId": "src_d4d5_lambrusco"
+          },
+          "ki_d456_cava_water_action": {
+            "prompt": "Original fictional Cava vineyard and release exercise. A grower dossier records a dry season, water stress in Xarel-lo and variable disease pressure in a second parcel. Supplier A has complete organic certification and traceability records; supplier B only supplies a marketing claim. A preliminary base blend meets the acidity and structure brief, but the producer plans a longer-held category and cash is insufficient for the quoted storage bill. A merchant asks for a low-price early launch; a specialist offers a small later allocation. All agronomic records, costs, sample findings and offers are fictional. Current category compliance is to be independently checked; no new numeric ageing rule is supplied. Which initial decision is best supported?",
+            "options": [
+              "Review parcel water and disease evidence, verify the category records, and scale a funded release to the tested blend.",
+              "Treat B's green marketing as equivalent to certified traceability.",
+              "Sell the longer-held proposed category immediately to pay for storage.",
+              "Declare the supplied conclusion externally verified and release the entire stock or assignment without further checks."
+            ],
+            "correctIndex": 0,
+            "explanation": "Healthy suitable fruit, documented provenance and actual base-wine balance matter alongside any proposed category. Obtain actual current eligibility, vineyard treatment and certification records, total costs and buyer demand; a sustainability slogan proves neither compliance nor quality.",
+            "sourceCitationId": "src_d4depth_cava_organic"
+          },
+          "ki_d456_british_vintage_action": {
+            "prompt": "Original fictional England and Wales harvest/stock planning exercise. Two Chardonnay/Pinot Noir growers supply weather, budburst and frost logs for their actual parcels; the English parcel lost 25% of expected fruit and the Welsh parcel did not. The planned sparkling blend needs sound acidic fruit; base-wine trials are promising but wet harvest weather is forecast. Emergency fruit offers differ in ripeness and traceability. A launch promise assumes last year's volume and a uniform British vintage. All loss, forecasts, offers and findings are invented. Propose a contingent harvest and release plan, accounting for quality checks, vineyard protection costs and customer communication. Which initial decision is best supported?",
+            "options": [
+              "Reforecast volume from actual parcel evidence, assess sound replacement fruit and communicate a conditional allocation.",
+              "Promise last year's quantity because all British vineyards have the same vintage.",
+              "Buy the ripest emergency lot without testing because sugar guarantees sparkling suitability.",
+              "Declare the supplied conclusion externally verified and release the entire stock or assignment without further checks."
+            ],
+            "correctIndex": 0,
+            "explanation": "The supplied frost and harvest records affect available fruit and brief suitability; country names cannot establish one shared vintage outcome. Confirm forecast, fruit health, acidity, origin and approval records, financing and demand; the packet cannot prove either national crop size or final wine quality.",
+            "sourceCitationId": "src_d4depth_british_frost"
+          },
+          "ki_d456_us_site_method_action": {
+            "prompt": "Original fictional California, Oregon and Washington comparison. Three Chardonnay/Pinot Noir base dossiers provide actual coastal cooling, Willamette seasonal rain and eastern Washington irrigation logs, respectively. Harvest acidity differs; trials also differ in MLF, oak and lees holding. A coded panel prefers California A for a fresh aperitif and Oregon B for a developed style; Washington C has no final sample. These are invented site-specific findings, not statewide rankings. A custom processor can bottle small lots for a fee; an estate facility has available equipment but insufficient storage for the full holding plan. Orders differ in price and payment delay. Compare the production and business options without inferring fermentation method from state origin. Which initial decision is best supported?",
+            "options": [
+              "Make separate provisional style allocations and cost small-lot processing versus the estate's actual storage constraint.",
+              "Select Washington C as identical to California A because both are US sparkling.",
+              "Use the estate for all lots because owning equipment eliminates storage cost.",
+              "Declare the supplied conclusion externally verified and release the entire stock or assignment without further checks."
+            ],
+            "correctIndex": 0,
+            "explanation": "Actual site and harvest records help interpret bases, while multiple cellar differences prevent attribution to state or climate alone. Request C's sample, repeat trials, authentic method and label records, complete quotes and cash forecasts before committing volume.",
+            "sourceCitationId": "src_d4nw_us_california"
+          },
+          "ki_d456_chile_method_action": {
+            "prompt": "Original fictional Chilean sparkling plan. A coastal Casablanca Chardonnay parcel's supplied log records slow ripening and sound acidic fruit; an inland lot's log shows riper fruit and less acidity. A tank trial gives the requested fresh-fruit profile and readiness in eight weeks. A bottle-fermented trial is intended for later lees development and cannot meet the same launch. The two lots also use different yeast and MLF choices, so this is not a controlled method trial. Export demand is a tentative enquiry with no deposit; domestic restaurant demand is confirmed for a smaller quantity. All findings, timings and demand are invented. Evaluate a contingent production allocation. Which initial decision is best supported?",
+            "options": [
+              "Use a funded small tank-trial allocation for the confirmed fresh-fruit brief and keep the later bottle lot conditional.",
+              "Ship the bottle-fermented lot at eight weeks because every method shares one release schedule.",
+              "Scale the entire export enquiry as a paid order.",
+              "Declare the supplied conclusion externally verified and release the entire stock or assignment without further checks."
+            ],
+            "correctIndex": 0,
+            "explanation": "The supplied parcel and sensory evidence supports the immediate trial; different cellar choices prevent a sole-method causal conclusion. Check full costs, stability and transport, actual label eligibility, credit and repeat demand; a coastal source alone guarantees neither acidity nor quality.",
+            "sourceCitationId": "src_d4nw_chile_spark"
+          },
+          "ki_d456_argentina_capacity_action": {
+            "prompt": "Original fictional Argentine producer exercise. Mendoza Chardonnay/Pinot Noir parcels supply harvest sugar/acidity and irrigation records; another parcel offers later riper fruit for a different blend. A tested fresh tank-fermented blend is ready for a domestic launch. A larger bottle-fermented proposal needs additional storage and unresolved cash financing. A distributor cites the INV's 2023 dispatch report as proof of current demand for this producer's premium export lot. The report is historical; no current orders, prices or source-origin records are supplied. All parcel findings, production schedules and commercial offers are fictional. Compare the allocation and the claim, distinguishing measured past dispatch from current lot eligibility and demand. Which initial decision is best supported?",
+            "options": [
+              "Prioritise a costed confirmed domestic pilot while testing export interest and financing the later lot before expansion.",
+              "Use the 2023 dispatch share as this year's premium export order forecast.",
+              "Infer legal sparkling category from Mendoza origin alone.",
+              "Declare the supplied conclusion externally verified and release the entire stock or assignment without further checks."
+            ],
+            "correctIndex": 0,
+            "explanation": "Historical dispatch context cannot measure today's orders for this product; actual fruit and trial records support the immediate blend. Obtain dated current orders, payment and currency terms, full costs, authenticated origin/method/pressure records and category approval.",
+            "sourceCitationId": "src_d4nw_argentina_report"
+          },
+          "ki_d456_australia_portfolio_action": {
+            "prompt": "Original fictional Australian portfolio exercise. Supplier dossiers compare Adelaide Hills Chardonnay/Pinot Noir, a Victorian lot, a Tasmanian lot and a multi-region South Eastern Australia blend, with actual site, harvest, acidity and frost records. A separate Shiraz offer supplies ripe red-fruit and tannin notes. One documented transfer-method lot underwent bottle fermentation followed by bulk clarification; another underwent tank secondary fermentation. The coded panel fits the fresh white brief with A and a red-food slot with Shiraz. The longer-held Tasmanian proposal requires more capital than available. All supplied results, budgets and orders are invented. Choose a contingent portfolio and explain method, costs and quality limits. Which initial decision is best supported?",
+            "options": [
+              "Retain the demonstrated white and red brief fits provisionally and phase quantities to verified cash and storage.",
+              "Call the transfer lot tank fermented solely because it was later clarified in bulk.",
+              "Fund all Tasmanian stock because its origin guarantees a profitable premium.",
+              "Declare the supplied conclusion externally verified and release the entire stock or assignment without further checks."
+            ],
+            "correctIndex": 0,
+            "explanation": "The documented fermentation and later clarification stages distinguish methods; actual tasting distinguishes this Shiraz food slot. Authenticate GI and method claims, costs, acidity/stability and sample repeatability; Tasmania, transfer or Shiraz alone cannot rank quality.",
+            "sourceCitationId": "src_spark_australian_methods"
+          },
+          "ki_d456_nz_harvest_blend_action": {
+            "prompt": "Original fictional New Zealand comparison. Marlborough, Hawke's Bay and Central Otago Chardonnay/Pinot Noir supplier dossiers provide their own season, water, crop and harvest records. Trial A is crisp and fruit-led; B is broader; C retains acidity but has less available volume after a supplied frost event. Different MLF, lees and dosage choices accompany the different sites. A separate aromatic-variety tank sample fits a short-term fresh-fruit slot. A buyer wants a consistent non-vintage style, a modest launch quantity and affordable stock holding. All findings, hazards, schedules and prices are hypothetical rather than universal regional descriptions. Evaluate source and blend choices. Which initial decision is best supported?",
+            "options": [
+              "Trial a consistent, documented multi-lot blend for the specified slot, comparing the aromatic sample separately.",
+              "Declare every New Zealand sparkling bottle traditional method and Chardonnay/Pinot Noir.",
+              "Infer Central Otago's whole vintage quality from C's fictional frost loss.",
+              "Declare the supplied conclusion externally verified and release the entire stock or assignment without further checks."
+            ],
+            "correctIndex": 0,
+            "explanation": "Actual harvest and cellar evidence explains candidate differences; the design cannot isolate region, vintage or dosage as the sole cause. Check sensory repeatability, available volume, origin/method records, stability, costs and actual demand before committing.",
+            "sourceCitationId": "src_wset_sf_nz_spark"
+          },
+          "ki_d456_cap_classique_route_action": {
+            "prompt": "Original fictional Cap Classique buying and production exercise. Two Cape growers supply different Chardonnay/Pinot Noir and Chenin Blanc parcel records, with harvest acidity, water stress and bunch-health observations. Documented bottle-fermented A has the preferred balance in a coded panel; a longer-held B has no sample and costs more to hold. A's supplier is an association member. A restaurant programme requests training and small frequent deliveries; a supermarket proposes a large promotion with a discount and delayed payment. All parcel findings, preferences and offers are invented. Compare a conditional allocation and marketing plan without taking membership as certification of this wine's excellence. Which initial decision is best supported?",
+            "options": [
+              "Pilot A with traceable production evidence and a costed route that meets the delivery and cash constraints.",
+              "Choose unseen B because more age and association membership guarantee superior quality.",
+              "Accept the largest promotion without costing its discount or delivery burden.",
+              "Declare the supplied conclusion externally verified and release the entire stock or assignment without further checks."
+            ],
+            "correctIndex": 0,
+            "explanation": "The actual panel and parcel records support A; association promotion of bottle-fermented wine does not grade the individual bottle. Check samples, method and category records, total costs, supplier reliability, financing and repeat orders before expansion.",
+            "sourceCitationId": "src_d4nw_za_cap"
+          }
+        }
+      }
+    },
+    {
+      "id": "qt_d4c_principle_choice",
+      "relation_type": "PRINCIPLE_EXPLANATION",
+      "direction": "forward",
+      "prompt_template": "{subject.name}",
+      "mode": "authored_choice",
+      "variant": "d4c_principle_choice",
+      "parameters": {
+        "item_choices": {
+          "ki_d4c_press_fraction": {
+            "prompt": "What does a sparkling press-fraction trial need before choosing yield over delicacy?",
+            "options": [
+              "Compare fractions by sensory and analytical suitability, then price usable yield and separation.",
+              "All fractions have identical composition.",
+              "More juice necessarily means a more delicate base.",
+              "Origin eliminates the need for fraction assessment."
+            ],
+            "correctIndex": 0,
+            "explanation": "Separating juice fractions makes composition and flavour testable. A higher recovered volume cannot establish suitability for a delicate base; retain trial evidence and the cost of the usable fraction.",
+            "sourceCitationId": "src_spark_pressing"
+          },
+          "ki_d4c_method_cost": {
+            "prompt": "Why must a transfer-method offer identify both fermentation and clarification stages?",
+            "options": [
+              "Bottle fermentation and bulk clarification are different process stages.",
+              "Any tank use proves tank secondary fermentation.",
+              "Transfer means adding gas to still wine only.",
+              "The vessel used for clarification alone identifies fermentation method."
+            ],
+            "correctIndex": 0,
+            "explanation": "Transfer-method production can ferment in bottle before transferring wine for bulk clarification and pressure bottling. Do not describe this as tank secondary fermentation merely because a tank appears later in the process.",
+            "sourceCitationId": "src_spark_australian_methods"
+          },
+          "ki_d4c_ancestral_release": {
+            "prompt": "What extra evidence is needed before releasing an ancestral-method wine with fermentable sugar?",
+            "options": [
+              "Establish fermentation, pressure and stability before promising a settled finished style.",
+              "Residual sugar proves finished stability.",
+              "Every ancestral wine must be disgorged.",
+              "Cloudiness alone establishes unsafe production."
+            ],
+            "correctIndex": 0,
+            "explanation": "Ancestral production retains carbon dioxide from a fermentation completed in bottle. Its fermentation status and packaging controls must be established; the method name alone cannot prove a predictable pressure, clarity or stability.",
+            "sourceCitationId": "src_spark_ancestral"
+          }
+        }
+      }
+    }
+  ]
+}

@@ -1,0 +1,123 @@
+{
+  "question_templates": [
+    {
+      "id": "qt_d3pacific_principles_5",
+      "relation_type": "PRINCIPLE_EXPLANATION",
+      "direction": "forward",
+      "mode": "authored_choice",
+      "variant": "d3pacific_principles_5",
+      "prompt_template": "{subject.name}",
+      "parameters": {
+        "item_choices": {
+          "ki_d3pacific_ca_origin": {
+            "prompt": "For ordinary unfortified grape wine claiming California origin, why is the federal state-origin floor insufficient?",
+            "options": [
+              "For a California or California-subdivision appellation, 17 CCR 17015(a)(1) requires all wine volume from fermented juice of California-grown fruit in the ordinary unfortified case. Its limited residue-wine-spirit exception is separate; this is not 100% from a single California AVA or one grape variety.",
+              "A California cellar address permits ordinary wine made with Oregon fruit to claim California origin.",
+              "The rule requires 100% from any single named California AVA, regardless of its separate AVA gate.",
+              "Every California appellation requires a single grape variety at 100%."
+            ],
+            "correctIndex": 0,
+            "explanation": "Statewide fruit source, AVA source and grape identity are separate conditions.",
+            "sourceCitationId": "src_d3pacific_ca_origin"
+          },
+          "ki_d3pacific_ca_finishing": {
+            "prompt": "What California production condition accompanies its appellation claim?",
+            "options": [
+              "California fruit allows fully producing and finishing the wine anywhere.",
+              "17 CCR 17015(a)(2)-(3) also requires wine claiming California or its geographical subdivision to be fully produced and finished in California and satisfy the other applicable regulations. California fruit alone does not establish an approved label or a sensory quality level.",
+              "The production address alone proves the grapes' California origin.",
+              "Meeting a California appellation condition guarantees premium quality and price."
+            ],
+            "correctIndex": 1,
+            "explanation": "Fruit provenance and production/finishing are distinct from quality and complete compliance.",
+            "sourceCitationId": "src_d3pacific_ca_origin"
+          },
+          "ki_d3pacific_or_origin": {
+            "prompt": "What origin conditions apply to an ordinary label claiming an AVA wholly within Oregon?",
+            "options": [
+              "An AVA wholly within Oregon needs only the federal 85% origin portion.",
+              "Every Oregon-associated cross-border AVA necessarily uses the same 95% condition.",
+              "Within OAR 845-010-0910's scope, 845-010-0920(2) requires all grapes to be grown in Oregon and at least 95% within the claimed Oregon county or AVA wholly in Oregon; an Oregon state claim requires Oregon grapes. Cross-border AVAs have separate paragraph(3) conditions, so 95% is not a blanket rule for every associated AVA.",
+              "A producer's Oregon address replaces grape-origin records."
+            ],
+            "correctIndex": 2,
+            "explanation": "The ordinary wholly Oregon claim needs both statewide provenance and the stricter claimed-area portion.",
+            "sourceCitationId": "src_d3pacific_or_origin"
+          },
+          "ki_d3pacific_or_variety": {
+            "prompt": "For wine subject to Oregon's grape-wine rules, how do Pinot Noir and Cabernet Sauvignon single-variety designations differ?",
+            "options": [
+              "Every Oregon variety follows 75%, because that is the ordinary federal rule.",
+              "Both Pinot Noir and Cabernet Sauvignon necessarily require 90% in this Oregon rule.",
+              "Passing a grape percentage establishes every origin and vintage condition.",
+              "Within OAR 845-010-0910's scope, 845-010-0915 ordinarily requires at least 90% of wine volume from the named grape. Pinot Noir follows that condition; Cabernet Sauvignon is one of paragraph(2)'s listed exceptions permitting 75%. Origin and all other label conditions remain separate, and the exception list may be revised."
+            ],
+            "correctIndex": 3,
+            "explanation": "The named variety determines whether the ordinary 90% or a listed 75% exception applies.",
+            "sourceCitationId": "src_d3pacific_or_variety"
+          },
+          "ki_d3pacific_wa_origin": {
+            "prompt": "What state fruit-source condition applies to an ordinary current unfortified wine labelled with Washington origin?",
+            "options": [
+              "For a Washington appellation claimed or implied, RCW 66.28.110(2)(a) requires at least 95% Washington-grown grapes, subject to paragraph(3)'s possible suspension for affected areas. Paragraph(5) excludes wines with added wine spirits, brandy or alcohol; the 2009 Act applies to wine from grapes harvested after 31 December 2009. AVA composition conditions remain separate; this does not impose 95% from every Washington AVA.",
+              "Every Washington AVA must provide 95% of the wine, even without a Washington claim.",
+              "An ordinary Washington state label always permits only 75% Washington grapes under the federal floor.",
+              "A Washington origin claim proves the wine's sensory quality and customer demand."
+            ],
+            "correctIndex": 0,
+            "explanation": "The state-source gate is distinct from an AVA gate and retains statutory scope and possible suspension.",
+            "sourceCitationId": "src_d3pacific_wa_origin"
+          }
+        }
+      }
+    },
+    {
+      "id": "qt_d3pacific_case_criteria_1",
+      "relation_type": "CASE_ACTION",
+      "direction": "forward",
+      "mode": "case_criteria",
+      "variant": "d3pacific_case_criteria_1",
+      "prompt_template": "{subject.name}",
+      "parameters": {
+        "scope_node_ids": [
+          "n_d3pacific_case_release_compare"
+        ],
+        "scenario_prompts": {
+          "n_d3pacific_case_release_compare": "A fictional buyer compares three ordinary Vitis vinifera still wines, made exclusively from grapes harvested in 2025, for a prepaid 100-bottle pilot. No wine has added spirits, brandy or alcohol, no vintage date is claimed, and for this exercise no Washington suspension applies. A proposes California Chardonnay: 97% of wine volume is from California fruit and 3% from Oregon fruit, all Chardonnay, fully produced and finished in California; quote $10/bottle. B proposes Willamette Valley Pinot Noir: 94% of grapes from that wholly Oregon AVA and 6% from elsewhere in Oregon, with 88% of wine volume from Pinot Noir and 12% Chardonnay, fully produced and finished in Oregon; quote $11/bottle. C proposes Washington Chardonnay with no AVA: 96% Washington-grown grapes and 4% Oregon-grown grapes, all Chardonnay, fully produced and finished in Washington; quote $13/bottle. Records, quantities and quotes are invented. The buyer will consider C after complete label/record review and a repeat sample, then prepay; fresh fruit and moderate body are desired but no taste results or demand are supplied. A/B presentation changes need fresh review and buyer agreement and have unknown reprint costs/delay. Explain the separate gates, propose a conditional response, compare cash/cost tradeoffs and state the limits. Quoted costs omit delivery and all other expenses."
+        },
+        "distractors": {
+          "n_d3pacific_case_release_compare": [
+            {
+              "summary": "Dispatch A and B as labelled because their proportions exceed ordinary federal origin/variety thresholds.",
+              "explanation": "The identified state gates are not met by A or B. Oregon grape-source percentages cannot establish the separate federal wine-volume AVA gate; Pinot Noir wine composition also misses Oregon's 90% condition."
+            },
+            {
+              "summary": "Buy C immediately and guarantee the higher price means better quality and profit.",
+              "explanation": "One state composition gate does not prove label approval, sensory fit, complete profit or buyer acceptance."
+            }
+          ]
+        }
+      }
+    },
+    {
+      "id": "qt_d3pacific_case_written_1",
+      "relation_type": "CASE_ACTION",
+      "direction": "forward",
+      "mode": "short_answer",
+      "variant": "d3pacific_case_written_1",
+      "prompt_template": "{subject.name}",
+      "parameters": {
+        "scope_node_ids": [
+          "n_d3pacific_case_release_compare"
+        ],
+        "key_points": {
+          "CASE_ACTION": "Conditional records, label and buyer decision",
+          "CASE_REASON": "Separate state origin/variety gates",
+          "CASE_TRADEOFF": "Supplied quotation, inventory and cash consequences",
+          "CASE_LIMITATION": "Whole-label, sensory and market evidence"
+        }
+      }
+    }
+  ]
+}

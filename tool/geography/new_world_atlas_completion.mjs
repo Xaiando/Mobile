@@ -4,6 +4,7 @@
 import fs from 'node:fs';
 import crypto from 'node:crypto';
 import YAML from 'yaml';
+import { readYaml } from './lib.mjs';
 
 const retrieved = '2026-09-26';
 const commit = '7af5b29d45aee5e6c6ce3889e9b1de19085d7107';
@@ -321,7 +322,7 @@ for(const s of specs.filter(s=>!s.ava)) {
 }
 if(missing) throw Error(`${missing} unsourced markers; resolve before authoring`);
 const oldFiles=fs.readdirSync('assets/curriculum/areas').filter(f=>f.endsWith('.yaml')&&f!=='new_world_atlas_completion.yaml');
-const existing=oldFiles.flatMap(f=>YAML.parse(fs.readFileSync(`assets/curriculum/areas/${f}`,'utf8')).knowledge_nodes??[]);
+const existing=oldFiles.flatMap(f=>readYaml(`assets/curriculum/areas/${f}`).knowledge_nodes??[]);
 const existingIds=new Set(existing.map(n=>n.id));
 for(const s of specs) if(existingIds.has(`n_geo_${s.id}`))throw Error(`Existing node: ${s.id}`);
 const names=Object.fromEntries([...existing.map(n=>[n.id,n.name]),...specs.map(s=>[`n_geo_${s.id}`,s.name])]);

@@ -1,0 +1,513 @@
+{
+  "schemaVersion": 1,
+  "status": "approved_bounded_source_fit_and_static_parser_constraints",
+  "qualifiedVerification": false,
+  "canonicalEdits": false,
+  "reviewDate": "2026-10-03",
+  "files": [
+    {
+      "path": "build/diploma-law-written-pack-candidate-073.json",
+      "sha256": "55cf61ba499088b3e861dc4ed0c05b80f04641f5e0a59697816953c76da94b1d"
+    },
+    {
+      "path": "build/diploma-law-written-pack-shortened-073.json",
+      "sha256": "dd97a3993787232d6fd631be4359b73d6bbb32c04a051f2a0c2a60b00c41c5dc"
+    },
+    {
+      "path": "assets/study/diploma_written_practice.json",
+      "sha256": "7c78d7d7355e86610d1fcab2554a9ef7ea815be14c5f487b4278d4fe307b45a0"
+    },
+    {
+      "path": "lib/core/diploma_written/diploma_written.dart",
+      "sha256": "65faf00454d68ec5293a7673d2f971ad52ed75a1cd0a1b805ac2390c220b0863"
+    }
+  ],
+  "wordingChanges": [
+    {
+      "id": "d3_law_jura_release_value",
+      "oldLength": 1029,
+      "newLength": 990,
+      "oldPrompt": "All lot records, prices and offers here are fictional. A producer plans 2026-harvest Côtes du Jura vin jaune. Apply the adopted 2022 rules: maturation in oak without topping up through 15 December of the sixth year after harvest, including at least 60 months under veil; consumer marketing from 1 January of the seventh year. The approximately 62-cl clavelin format is reserved to appellation wines designated vin jaune. Records show veil maturation, but not its duration. A buyer proposes consumer sale in December 2032. The producer forecasts EUR40 per 62-cl bottle; another white is quoted at EUR45 per 75-cl bottle. Compare release eligibility, likely style and quality evidence, and price per litre. For a fictional future order, both routes quote EUR40 each for 100 clavelins: the merchant pays 20% in advance and the remaining 80% on delivery; the direct route pays 100% on delivery. Explain the cash implications and missing evidence before recommending a route. These selected rules do not establish complete compliance.",
+      "newPrompt": "All records, prices and offers are fictional. A producer plans 2026-harvest Côtes du Jura vin jaune. Apply the adopted 2022 rules: maturation in oak without topping up through 15 December of the sixth year after harvest, including at least 60 months under veil; consumer marketing from 1 January of the seventh year. The roughly 62-cl clavelin format is reserved to appellation wines designated vin jaune. Records show veil maturation, but not its duration. A buyer proposes consumer sale in December 2032. The forecast is EUR40 per 62-cl bottle; another white costs EUR45 per 75-cl bottle. Compare release eligibility, likely style and quality evidence, and price per litre. For a future order, both routes quote EUR40 each for 100 clavelins: the merchant pays 20% in advance and the remaining 80% on delivery; the direct route pays 100% on delivery. Explain the cash implications and missing evidence before recommending a route. These selected rules do not establish complete compliance."
+    }
+  ],
+  "unchanged": "All3questionIDs, packunit/title/duration and all12criteria unchanged; Tokaj andChinaquestion objects unchanged. AuthoringReview is research metadata absent from standalone runtimepack, not a parser field.",
+  "semanticReview": "Jura compression preserves explicitly fictional premises,2026harvest, adopted2022CôtesduJura scope,15December sixthyear oak without topping,>=60veil months,1Januaryseventhyear consumer gate,62cl reservedformat direction, unknownveil duration, proposedDecember2032sale,EUR40/62cl vsEUR45/75cl comparison,100xEUR40 for bothroutes,merchant20%advance80%delivery,direct100%delivery and incompletecompliance limitation. Prices remain hypothetical quoted comparison, not full landed costs.",
+  "parserReview": {
+    "method": "Read unchanged Dart parser and independently checked exact constraints using UTF-16code-unit lengths; prospective currentbank substitutes only shortenedwholepack. This is static review, not execution of Dart tests.",
+    "questions": 36,
+    "presetsAndVariants": 12,
+    "boundsPass": true,
+    "allQuestionRecords": [
+      {
+        "id": "d1_environment",
+        "unitId": "D1",
+        "title": "Wine production",
+        "titleLength": 15,
+        "promptLength": 260,
+        "criterionLengths": {
+          "site": 118,
+          "vine": 97,
+          "wine": 99,
+          "limits": 77
+        }
+      },
+      {
+        "id": "d1_vineyard",
+        "unitId": "D1",
+        "title": "Wine production",
+        "titleLength": 15,
+        "promptLength": 223,
+        "criterionLengths": {
+          "target": 72,
+          "options": 83,
+          "tradeoffs": 87,
+          "limits": 79
+        }
+      },
+      {
+        "id": "d1_winery",
+        "unitId": "D1",
+        "title": "Wine production",
+        "titleLength": 15,
+        "promptLength": 244,
+        "criterionLengths": {
+          "fruit": 96,
+          "process": 83,
+          "economics": 75,
+          "control": 86
+        }
+      },
+      {
+        "id": "d2_price",
+        "unitId": "D2",
+        "title": "Wine business",
+        "titleLength": 13,
+        "promptLength": 258,
+        "criterionLengths": {
+          "drivers": 89,
+          "currency": 83,
+          "responses": 78,
+          "assumptions": 79
+        }
+      },
+      {
+        "id": "d2_route",
+        "unitId": "D2",
+        "title": "Wine business",
+        "titleLength": 13,
+        "promptLength": 265,
+        "criterionLengths": {
+          "models": 89,
+          "channels": 87,
+          "market": 85,
+          "decision": 86
+        }
+      },
+      {
+        "id": "d2_marketing",
+        "unitId": "D2",
+        "title": "Wine business",
+        "titleLength": 13,
+        "promptLength": 250,
+        "criterionLengths": {
+          "audience": 79,
+          "mix": 102,
+          "constraints": 75,
+          "evaluation": 96
+        }
+      },
+      {
+        "id": "d4_champagne_house",
+        "unitId": "D4",
+        "title": "Sparkling wines",
+        "titleLength": 15,
+        "promptLength": 344,
+        "criterionLengths": {
+          "blend": 142,
+          "production": 105,
+          "stock": 125,
+          "limits": 97
+        }
+      },
+      {
+        "id": "d4_italian_products",
+        "unitId": "D4",
+        "title": "Sparkling wines",
+        "titleLength": 15,
+        "promptLength": 392,
+        "criterionLengths": {
+          "categories": 151,
+          "styles": 133,
+          "economics": 137,
+          "decision": 138
+        }
+      },
+      {
+        "id": "d4_australian_supply",
+        "unitId": "D4",
+        "title": "Sparkling wines",
+        "titleLength": 15,
+        "promptLength": 412,
+        "criterionLengths": {
+          "origin": 166,
+          "methods": 158,
+          "tradeoffs": 149,
+          "checks": 126
+        }
+      },
+      {
+        "id": "d5_port_releases",
+        "unitId": "D5",
+        "title": "Fortified wines",
+        "titleLength": 15,
+        "promptLength": 372,
+        "criterionLengths": {
+          "maturation": 110,
+          "style": 152,
+          "business": 138,
+          "limits": 138
+        }
+      },
+      {
+        "id": "d5_sherry_stocks",
+        "unitId": "D5",
+        "title": "Fortified wines",
+        "titleLength": 15,
+        "promptLength": 417,
+        "criterionLengths": {
+          "styles": 152,
+          "certification": 117,
+          "stocks": 168,
+          "decision": 118
+        }
+      },
+      {
+        "id": "d5_madeira_methods",
+        "unitId": "D5",
+        "title": "Fortified wines",
+        "titleLength": 15,
+        "promptLength": 423,
+        "criterionLengths": {
+          "grapes_site": 144,
+          "process": 142,
+          "commercial": 161,
+          "evidence": 170
+        }
+      },
+      {
+        "id": "d3_bairrada_rain",
+        "unitId": "D3",
+        "title": "Regional wine analysis",
+        "titleLength": 22,
+        "promptLength": 511,
+        "criterionLengths": {
+          "decision": 149,
+          "mechanism": 183,
+          "tradeoffs": 148,
+          "limits": 124
+        }
+      },
+      {
+        "id": "d3_ribeira_offer",
+        "unitId": "D3",
+        "title": "Regional wine analysis",
+        "titleLength": 22,
+        "promptLength": 537,
+        "criterionLengths": {
+          "terrain": 167,
+          "sensory": 147,
+          "commercial": 160,
+          "decision": 119
+        }
+      },
+      {
+        "id": "d3_otago_frost",
+        "unitId": "D3",
+        "title": "Regional wine analysis",
+        "titleLength": 22,
+        "promptLength": 582,
+        "criterionLengths": {
+          "site": 187,
+          "mechanism": 179,
+          "tradeoffs": 154,
+          "limits": 161
+        }
+      },
+      {
+        "id": "d1_candidate_establishment_canopy",
+        "unitId": "D1",
+        "title": "Establishment, quality and packaging decisions",
+        "titleLength": 46,
+        "promptLength": 909,
+        "criterionLengths": {
+          "evidence": 139,
+          "material": 162,
+          "canopy": 142,
+          "resources": 129
+        }
+      },
+      {
+        "id": "d1_candidate_intake_quality",
+        "unitId": "D1",
+        "title": "Establishment, quality and packaging decisions",
+        "titleLength": 46,
+        "promptLength": 877,
+        "criterionLengths": {
+          "diagnosis": 152,
+          "processing": 159,
+          "control": 176,
+          "tradeoffs": 150
+        }
+      },
+      {
+        "id": "d1_candidate_package_route",
+        "unitId": "D1",
+        "title": "Establishment, quality and packaging decisions",
+        "titleLength": 46,
+        "promptLength": 797,
+        "criterionLengths": {
+          "cost": 136,
+          "compatibility": 164,
+          "shelf_life": 167,
+          "decision": 161
+        }
+      },
+      {
+        "id": "d2_candidate_price_evidence",
+        "unitId": "D2",
+        "title": "Pricing evidence, cash timelines and campaign returns",
+        "titleLength": 53,
+        "promptLength": 855,
+        "criterionLengths": {
+          "arithmetic": 165,
+          "market": 168,
+          "decision": 161,
+          "limits": 171
+        }
+      },
+      {
+        "id": "d2_candidate_channel_cash",
+        "unitId": "D2",
+        "title": "Pricing evidence, cash timelines and campaign returns",
+        "titleLength": 53,
+        "promptLength": 838,
+        "criterionLengths": {
+          "timeline": 156,
+          "economics": 163,
+          "roles": 167,
+          "risk": 153
+        }
+      },
+      {
+        "id": "d2_candidate_campaign_evidence",
+        "unitId": "D2",
+        "title": "Pricing evidence, cash timelines and campaign returns",
+        "titleLength": 53,
+        "promptLength": 895,
+        "criterionLengths": {
+          "measures": 181,
+          "audience": 132,
+          "plan": 159,
+          "inference": 175
+        }
+      },
+      {
+        "id": "d3_candidate_burgundy_lots",
+        "unitId": "D3",
+        "title": "France: evidence, cellar choices and routes",
+        "titleLength": 43,
+        "promptLength": 909,
+        "criterionLengths": {
+          "evidence": 158,
+          "cellar": 149,
+          "tradeoffs": 133,
+          "decision": 158
+        }
+      },
+      {
+        "id": "d3_candidate_bordeaux_route",
+        "unitId": "D3",
+        "title": "France: evidence, cellar choices and routes",
+        "titleLength": 43,
+        "promptLength": 902,
+        "criterionLengths": {
+          "fruit": 164,
+          "mechanism": 132,
+          "commercial": 165,
+          "limits": 138
+        }
+      },
+      {
+        "id": "d3_candidate_loire_rhone",
+        "unitId": "D3",
+        "title": "France: evidence, cellar choices and routes",
+        "titleLength": 43,
+        "promptLength": 904,
+        "criterionLengths": {
+          "vineyard": 151,
+          "cellar": 155,
+          "sensory": 141,
+          "route": 157
+        }
+      },
+      {
+        "id": "d3_candidate_new_york_sites",
+        "unitId": "D3",
+        "title": "New York and New World: comparative evidence and routes",
+        "titleLength": 55,
+        "promptLength": 892,
+        "criterionLengths": {
+          "action": 137,
+          "reason": 156,
+          "tradeoff": 153,
+          "limitation": 136
+        }
+      },
+      {
+        "id": "d3_candidate_riesling_compare",
+        "unitId": "D3",
+        "title": "New York and New World: comparative evidence and routes",
+        "titleLength": 55,
+        "promptLength": 912,
+        "criterionLengths": {
+          "comparison": 119,
+          "mechanism": 141,
+          "route": 141,
+          "limits": 153
+        }
+      },
+      {
+        "id": "d3_candidate_new_world_routes",
+        "unitId": "D3",
+        "title": "New York and New World: comparative evidence and routes",
+        "titleLength": 55,
+        "promptLength": 881,
+        "criterionLengths": {
+          "style": 154,
+          "cost": 137,
+          "commercial": 151,
+          "decision": 156
+        }
+      },
+      {
+        "id": "d4_candidate_british_range",
+        "unitId": "D4",
+        "title": "Regional sparkling wine decisions",
+        "titleLength": 33,
+        "promptLength": 599,
+        "criterionLengths": {
+          "site_fruit": 138,
+          "production_style": 101,
+          "commercial_fit": 114,
+          "evidence_limits": 124
+        }
+      },
+      {
+        "id": "d4_candidate_american_routes",
+        "unitId": "D4",
+        "title": "Regional sparkling wine decisions",
+        "titleLength": 33,
+        "promptLength": 586,
+        "criterionLengths": {
+          "regional_assumptions": 134,
+          "method_effects": 122,
+          "market_choice": 108,
+          "supplier_checks": 112
+        }
+      },
+      {
+        "id": "d4_candidate_south_african_scale",
+        "unitId": "D4",
+        "title": "Regional sparkling wine decisions",
+        "titleLength": 33,
+        "promptLength": 603,
+        "criterionLengths": {
+          "product_design": 104,
+          "scale_controls": 117,
+          "capital_positioning": 117,
+          "conditional_plan": 116
+        }
+      },
+      {
+        "id": "d5_candidate_french_vdn",
+        "unitId": "D5",
+        "title": "Fortified styles and stock decisions",
+        "titleLength": 36,
+        "promptLength": 610,
+        "criterionLengths": {
+          "origin_fruit": 122,
+          "process_style": 128,
+          "range_value": 100,
+          "claim_checks": 131
+        }
+      },
+      {
+        "id": "d5_candidate_rutherglen_blend",
+        "unitId": "D5",
+        "title": "Fortified styles and stock decisions",
+        "titleLength": 36,
+        "promptLength": 608,
+        "criterionLengths": {
+          "base_wine": 121,
+          "blend_quality": 114,
+          "stock_replenishment": 123,
+          "category_evidence": 131
+        }
+      },
+      {
+        "id": "d5_candidate_fortified_working_capital",
+        "unitId": "D5",
+        "title": "Fortified styles and stock decisions",
+        "titleLength": 36,
+        "promptLength": 576,
+        "criterionLengths": {
+          "styles_customers": 124,
+          "cash_cycle": 125,
+          "stock_risks": 100,
+          "buying_plan": 119
+        }
+      },
+      {
+        "id": "d3_law_jura_release_value",
+        "unitId": "D3",
+        "title": "Regional law and commercial release",
+        "titleLength": 35,
+        "promptLength": 990,
+        "criterionLengths": {
+          "release": 260,
+          "identity_style": 280,
+          "unit_price": 239,
+          "route_cash": 257
+        }
+      },
+      {
+        "id": "d3_law_tokaj_current_release",
+        "unitId": "D3",
+        "title": "Regional law and commercial release",
+        "titleLength": 35,
+        "promptLength": 957,
+        "criterionLengths": {
+          "current_label": 264,
+          "release_wood": 233,
+          "style_quality": 257,
+          "commercial": 266
+        }
+      },
+      {
+        "id": "d3_law_china_standard_origin",
+        "unitId": "D3",
+        "title": "Regional law and commercial release",
+        "titleLength": 35,
+        "promptLength": 998,
+        "criterionLengths": {
+          "standard_scope": 263,
+          "origin_permission": 274,
+          "style_evidence": 247,
+          "routes_cash": 284
+        }
+      }
+    ]
+  },
+  "remaining": "Qualified factual/learner review remains; root must promote samehashpack and run unchanged canonical tests."
+}

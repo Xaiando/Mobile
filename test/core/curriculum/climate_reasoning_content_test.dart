@@ -1,7 +1,9 @@
+import 'dart:convert';
 import 'dart:io';
 
 import 'package:drift/drift.dart' hide isNotNull, isNull;
 import 'package:flutter_test/flutter_test.dart';
+import 'package:crypto/crypto.dart';
 import 'package:fsrs/fsrs.dart' as fsrs;
 import 'package:sommelier/core/curriculum/curriculum_dataset.dart';
 import 'package:sommelier/core/curriculum/curriculum_ingestion.dart';
@@ -15,6 +17,46 @@ import 'package:sommelier/core/study/study_planner.dart';
 import '../../support/curriculum_fixture.dart';
 import '../../support/fixture.dart';
 import '../../support/study_fixture.dart';
+
+// Historical membership comes from the hash-pinned complete .73 release,
+// not from the current dataset being tested. Supersession keeps old mappings
+// for learner history; only the explicitly named successor pair is added.
+CurriculumDataset _frozen073MappingBaseline() {
+  final bytes = File(
+    'test/fixtures/curriculum/diploma_release_0_24_73_complete_frozen.json.gz',
+  ).readAsBytesSync();
+  expect(
+    sha256.convert(bytes).toString(),
+    '15a944ed92394c94d4ec67b9fb83388bf3b8718e15e3c3da007af5666e211cdf',
+  );
+  final historical = CurriculumDataset.parse(utf8.decode(gzip.decode(bytes)));
+  expect(historical.version, '0.24.73');
+  return historical;
+}
+
+Set<String> _historicalMappingIds(
+  CurriculumDataset historical,
+  String certificationId,
+) {
+  final certifications = {
+    for (final certification in historical.certifications)
+      certification.id: certification,
+  };
+  final chain = <String>{};
+  String? cursor = certificationId;
+  while (cursor != null) {
+    expect(
+      chain.add(cursor),
+      isTrue,
+      reason: 'Historical track chain is acyclic',
+    );
+    cursor = certifications[cursor]!.includesCertificationId;
+  }
+  return historical.certificationKnowledgeMappings
+      .where((mapping) => chain.contains(mapping.certificationId))
+      .map((mapping) => mapping.knowledgeItemId)
+      .toSet();
+}
 
 void main() {
   final dataset = bundledDataset();
@@ -304,8 +346,9 @@ void main() {
   );
 
   test('real reviews route all new climate facts only to D1 without lower-track growth', () async {
+    final historical = _frozen073MappingBaseline();
     final db = openTestDatabase();
-    final time = TestClock(DateTime.utc(2026, 10, 1, 9));
+    final time = TestClock(dataset.publishedAt.toUtc());
     try {
       await CurriculumIngester(
         db,
@@ -320,7 +363,64 @@ void main() {
         'CMS_CERTIFIED': 2926,
       }.entries) {
         final mappings = await planner.effectiveMappings(entry.key);
-        expect(mappings, hasLength(entry.value), reason: entry.key);
+        final historicalIds = _historicalMappingIds(historical, entry.key);
+        expect(historicalIds, hasLength(entry.value), reason: entry.key);
+        const retiredSaliceIds = {
+          'ki_reg_isi_salice_context',
+          'ki_reg_isi_salice_styles',
+        };
+        const successorSaliceIds = {
+          'ki_reg_isi_salice_context_2026',
+          'ki_reg_isi_salice_styles_2026',
+        };
+        final ownsSalice = const {
+          'WSET_L3',
+          'CMS_CERTIFIED',
+          'WSET_L4',
+        }.contains(entry.key);
+        final addedIds = ownsSalice ? successorSaliceIds : <String>{};
+        final actualIds = mappings.keys.toSet();
+        expect(actualIds, {
+          ...historicalIds,
+          ...addedIds,
+        }, reason: 'Exact .73 membership plus only the two Salice successors');
+        expect(
+          actualIds.difference(addedIds),
+          historicalIds,
+          reason: entry.key,
+        );
+        expect(
+          mappings,
+          hasLength(entry.value + addedIds.length),
+          reason: entry.key,
+        );
+        expect(
+          actualIds.intersection({...retiredSaliceIds, ...successorSaliceIds}),
+          ownsSalice ? {...retiredSaliceIds, ...successorSaliceIds} : isEmpty,
+        );
+        final saliceMappedIds = ownsSalice
+            ? {...retiredSaliceIds, ...successorSaliceIds}
+            : <String>{};
+        for (final id in saliceMappedIds) {
+          final effective = mappings[id]!;
+          expect(effective.importance, 'core');
+          expect(effective.minimumDepth, entry.key == 'WSET_L4' ? 3 : 2);
+          expect(effective.certificationId, entry.key);
+          if (retiredSaliceIds.contains(id)) {
+            final historicalMapping = historical.certificationKnowledgeMappings
+                .singleWhere(
+                  (mapping) =>
+                      mapping.knowledgeItemId == id &&
+                      mapping.certificationId == entry.key,
+                );
+            expect(effective.importance, historicalMapping.importance);
+            expect(effective.minimumDepth, historicalMapping.minimumDepth);
+            expect(
+              effective.certificationId,
+              historicalMapping.certificationId,
+            );
+          }
+        }
         expect(mappings.keys.toSet().intersection(climateIds), isEmpty);
       }
       final reviews = ReviewService(
@@ -377,7 +477,7 @@ void main() {
         132,
         844,
         3444,
-        4234,
+        4682,
       ]);
       expect(
         snapshot.levels.every(
