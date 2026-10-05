@@ -7,10 +7,12 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 import '../../core/backup/backup_providers.dart';
 import '../../core/backup/user_data_backup.dart';
+import '../../core/audio/audio_notes_providers.dart';
 import '../../core/feedback/feedback_providers.dart';
 import '../../core/time/time_providers.dart';
 import '../../core/time/utc_clock.dart';
 import '../practice/study_session_controller.dart';
+import 'review_export_button.dart';
 
 /// Saves and opens backup files through the platform's own dialogs.
 abstract interface class BackupFiles {
@@ -127,7 +129,7 @@ class _YourDataSectionState extends ConsumerState<YourDataSection> {
       title: 'Export a private backup?',
       body:
           'The file includes your study progress, journal, label and glass '
-          'photos, tastings, flags and settings. It is unencrypted JSON: '
+          'photos, tastings, saved audio recordings, flags and settings. It is unencrypted JSON: '
           'anyone with the file can read it. Save it somewhere private. '
           'An interrupted scan is not included until you save it to the journal.',
       action: 'Choose a location',
@@ -144,12 +146,16 @@ class _YourDataSectionState extends ConsumerState<YourDataSection> {
   }
 
   Future<void> _import() async {
+    if (ref.read(unsavedAudioProvider).values.any((guard) => guard())) {
+      _say('Save or discard the active recording before importing a backup.');
+      return;
+    }
     final go = await _confirm(
       title: 'Import a backup?',
       body:
           'Importing replaces all your data on this device with the '
           "backup's: your progress, journal, label and glass photos, "
-          'tastings, flags and settings. An interrupted scan on this device '
+          'tastings, saved audio recordings, flags and settings. An interrupted scan on this device '
           'remains available until you save or dismiss it.',
       action: 'Choose a file',
     );
@@ -194,10 +200,14 @@ class _YourDataSectionState extends ConsumerState<YourDataSection> {
   }
 
   Future<void> _erase() async {
+    if (ref.read(unsavedAudioProvider).values.any((guard) => guard())) {
+      _say('Save or discard the active recording before erasing data.');
+      return;
+    }
     final go = await _confirm(
       title: 'Erase all your data?',
       body:
-          'Your progress, journal, label and glass photos (including '
+          'Your progress, audio recordings, journal, label and glass photos (including '
           'interrupted scans), tastings, flags and settings are deleted '
           'from this device, and the app starts '
           'again as new. Export your data first to keep a copy.',
@@ -215,12 +225,13 @@ class _YourDataSectionState extends ConsumerState<YourDataSection> {
     final flags = ref.watch(flagsProvider).value?.length ?? 0;
     return Column(
       children: [
+        const ReviewExportButton(),
         ListTile(
           leading: const Icon(Icons.upload_file_outlined),
           title: const Text('Export your data'),
           subtitle: const Text(
             'An unencrypted file with your progress, journal photos, '
-            'tastings, flags and settings.',
+            'tastings, audio recordings, flags and settings.',
           ),
           enabled: !_busy,
           onTap: _export,

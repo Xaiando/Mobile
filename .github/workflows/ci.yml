@@ -184,10 +184,17 @@ jobs:
         run: node tool/web_smoke/run.mjs build/web_smoke
       - name: Run the release app UI smoke test in headless Chromium
         run: node tool/web_smoke/app_ui.mjs build/web build/app_ui_smoke
+      - name: Run Study explorer UI checks in headless Chromium
+        run: node tool/web_smoke/study_explorer_ui.mjs build/web build/study_explorer_ui
+      - name: Run audio notes and review export UI checks in headless Chromium
+        run: node tool/web_smoke/audio_notes_ui.mjs build/web build/audio_notes_ui
       - name: Preserve failed app UI screenshots and diagnostics
         if: failure()
         uses: actions/upload-artifact@v5
         with:
           name: web-app-ui-smoke-failure
-          path: build/app_ui_smoke
+          path: |
+            build/app_ui_smoke
+            build/study_explorer_ui
+            build/audio_notes_ui
           if-no-files-found: ignore

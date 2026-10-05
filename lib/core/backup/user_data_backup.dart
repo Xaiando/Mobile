@@ -4,6 +4,7 @@ import 'package:clock/clock.dart';
 import 'package:drift/drift.dart';
 
 import '../curriculum/curriculum_catalog.dart';
+import '../audio/tasting_audio.dart';
 import '../database/app_database.dart';
 import '../database/user_data_rewrites.dart';
 import '../journal/journal_photo_store.dart';
@@ -49,17 +50,20 @@ class UserDataBackup {
     this.maxPhotoBytes = maxBackupPhotoBytes,
     Future<void> Function()? clearRecoveredScans,
     Future<void> Function()? discardLostPickerData,
+    Future<void> Function()? clearTemporaryAudio,
   }) : assert(maxFileBytes > 0),
        assert(maxRows > 0),
        assert(maxPhotoBytes > 0),
        _clock = clock ?? const Clock(),
        _clearRecoveredScans = clearRecoveredScans ?? clearRecoveredScanStaging,
-       _discardLostPickerData = discardLostPickerData ?? _noOp;
+       _discardLostPickerData = discardLostPickerData ?? _noOp,
+       _clearTemporaryAudio = clearTemporaryAudio ?? _noOp;
 
   final AppDatabase db;
   final Clock _clock;
   final Future<void> Function() _clearRecoveredScans;
   final Future<void> Function() _discardLostPickerData;
+  final Future<void> Function() _clearTemporaryAudio;
   final int maxFileBytes;
   final int maxRows;
   final int maxPhotoBytes;
@@ -360,6 +364,32 @@ class UserDataBackup {
     if (expectedTables.any((table) => !data.containsKey(table))) {
       throw _notABackup;
     }
+    // Validate the attachment namespace before the replacing transaction.
+    if (rowsOf['user_settings']!.any(
+      (row) =>
+          row['name'] is String &&
+          ((row['name']! as String).startsWith(TastingAudioStore.metaPrefix) ||
+              (row['name']! as String).startsWith(
+                TastingAudioStore.dataPrefix,
+              )),
+    )) {
+      try {
+        TastingAudioStore.validateBackup(
+          {
+            for (final row in rowsOf['user_settings']!)
+              row['name']! as String: row['value']! as String,
+          },
+          {
+            for (final row in rowsOf['tasting_sessions']!)
+              if (row['id'] is String) row['id']! as String,
+          },
+        );
+      } catch (_) {
+        throw const BackupException(
+          'This backup contains damaged or missing audio recordings. Nothing was imported.',
+        );
+      }
+    }
     // Import must not erase a pending device-local cleanup marker. If an
     // earlier Erase All could not remove staged photos, finish that request
     // before the imported settings replace the marker.
@@ -402,9 +432,10 @@ class UserDataBackup {
       // pre-erase picker result from reappearing after a process restart.
       await _discardLostPickerData();
       await _clearRecoveredScans();
+      await _clearTemporaryAudio();
     } catch (_) {
       throw const BackupException(
-        'Saved data was erased, but an interrupted photo could not be '
+        'Saved data was erased, but an interrupted photo or recording could not be '
         'removed. Try Erase All again. If the app cannot reopen or the '
         'warning persists, clear this app\'s storage in Android settings '
         'to remove the remaining local files.',

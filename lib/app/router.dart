@@ -9,9 +9,11 @@ import '../features/home/home_screen.dart';
 import '../features/practice/practice_screen.dart';
 import '../features/practice/map_practice_screen.dart';
 import '../features/study/study_screen.dart';
+import '../features/study/study_explorer_screen.dart';
 import '../features/tasting/new_tasting_screen.dart';
 import '../features/tasting/tasting_screen.dart';
 import '../features/tasting/tasting_session_screen.dart';
+import '../core/audio/audio_notes_providers.dart';
 import '../features/tasting_guidance/guided_tasting_screen.dart';
 import '../features/rehearsal/rehearsal_screen.dart';
 import '../features/cms_rehearsal/cms_rehearsal_screen.dart';
@@ -80,6 +82,28 @@ const appDestinations = <AppDestination>[
 
 /// The pages inside a tab, which keep the tab's navigation bar.
 final _tabPages = <String, List<RouteBase>>{
+  '/study': [
+    GoRoute(
+      path: 'explore',
+      builder: (context, state) => const StudyExplorerScreen(),
+      routes: [
+        GoRoute(
+          path: ':category',
+          builder: (context, state) =>
+              StudyExplorerScreen(category: state.pathParameters['category']),
+          routes: [
+            GoRoute(
+              path: ':topic',
+              builder: (context, state) => StudyTopicScreen(
+                category: state.pathParameters['category']!,
+                topicId: state.pathParameters['topic']!,
+              ),
+            ),
+          ],
+        ),
+      ],
+    ),
+  ],
   '/practice': [
     GoRoute(
       path: 'maps',
@@ -102,6 +126,21 @@ final _tabPages = <String, List<RouteBase>>{
     GoRoute(
       path: 'guided',
       builder: (context, state) => const GuidedTastingScreen(),
+      onExit: (context, state) {
+        final guards = ProviderScope.containerOf(
+          context,
+          listen: false,
+        ).read(unsavedAudioProvider);
+        if (guards.values.any((guard) => guard())) {
+          ScaffoldMessenger.of(context).showSnackBar(
+            const SnackBar(
+              content: Text('Save or discard the recording before leaving.'),
+            ),
+          );
+          return false;
+        }
+        return true;
+      },
     ),
     GoRoute(
       path: 'new',
@@ -112,6 +151,23 @@ final _tabPages = <String, List<RouteBase>>{
       path: ':id',
       builder: (context, state) =>
           TastingSessionScreen(id: state.pathParameters['id']!),
+      onExit: (context, state) {
+        final guards = ProviderScope.containerOf(
+          context,
+          listen: false,
+        ).read(unsavedAudioProvider);
+        if (guards[state.pathParameters['id']]?.call() ?? false) {
+          ScaffoldMessenger.of(context).showSnackBar(
+            const SnackBar(
+              content: Text(
+                'Save, download or discard the recording before leaving.',
+              ),
+            ),
+          );
+          return false;
+        }
+        return true;
+      },
     ),
   ],
   '/cellar': [

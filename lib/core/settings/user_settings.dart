@@ -45,10 +45,28 @@ class LearnerSettings {
 
   /// The settings as they change.
   Stream<SettingsSnapshot> watch() =>
-      db.select(db.userSettings).watch().map(_snapshot);
+      (db.select(db.userSettings)..where(
+            (s) => s.name.isIn([
+              _appearance,
+              _temperatureUnit,
+              _ageConfirmedAt,
+              _onboardedAt,
+            ]),
+          ))
+          .watch()
+          .map(_snapshot);
 
-  Future<SettingsSnapshot> current() async =>
-      _snapshot(await db.select(db.userSettings).get());
+  Future<SettingsSnapshot> current() async => _snapshot(
+    await (db.select(db.userSettings)..where(
+          (s) => s.name.isIn([
+            _appearance,
+            _temperatureUnit,
+            _ageConfirmedAt,
+            _onboardedAt,
+          ]),
+        ))
+        .get(),
+  );
 
   static SettingsSnapshot _snapshot(List<UserSetting> rows) {
     final values = {for (final row in rows) row.name: row.value};

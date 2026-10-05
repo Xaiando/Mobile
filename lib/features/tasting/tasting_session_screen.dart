@@ -5,6 +5,7 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
 
 import '../../core/database/app_database.dart';
+import '../../core/audio/audio_notes_providers.dart';
 import '../../core/journal/journal_providers.dart';
 import '../cellar/journal_photo_strip.dart';
 import '../../core/tasting/tasting_practice.dart';
@@ -12,6 +13,8 @@ import '../../core/tasting/tasting_providers.dart';
 import '../cellar/cellar_screen.dart';
 import 'new_tasting_screen.dart';
 import 'tasting_screen.dart';
+import 'audio_notes_panel.dart';
+import '../settings/review_export_button.dart';
 
 /// One tasting (backlog T2): a step for each section of its grid, then the
 /// notes and the wine. Each answer is saved as it is chosen, so the learner
@@ -81,6 +84,18 @@ class _SessionViewState extends ConsumerState<_SessionView> {
   bool _savingNotes = false;
   bool _notesChanged = false;
 
+  bool _guardAudio() {
+    if (!(ref.read(unsavedAudioProvider)[session.id]?.call() ?? false)) {
+      return false;
+    }
+    ScaffoldMessenger.of(context).showSnackBar(
+      const SnackBar(
+        content: Text('Save, download or discard the recording first.'),
+      ),
+    );
+    return true;
+  }
+
   TastingSession get session => widget.session;
   GridLayout get grid => widget.grid;
 
@@ -131,6 +146,7 @@ class _SessionViewState extends ConsumerState<_SessionView> {
   /// Opens step [to]. The steps above the lower of the two stay still while
   /// one closes and the other opens, so the view settles on that one.
   void _go(int to) {
+    if (_guardAudio()) return;
     final from = _step ?? 0;
     setState(() => _step = to);
     final anchor = _titleKeys[min(from, to)].currentContext;
@@ -152,6 +168,7 @@ class _SessionViewState extends ConsumerState<_SessionView> {
   ];
 
   Future<void> _finish() async {
+    if (_guardAudio()) return;
     setState(() => _finishing = true);
     await _saveNotes();
     final missing = await _practice.complete(session.id);
@@ -174,11 +191,14 @@ class _SessionViewState extends ConsumerState<_SessionView> {
   }
 
   Future<void> _delete() async {
+    if (_guardAudio()) return;
     final confirmed = await showDialog<bool>(
       context: context,
       builder: (context) => AlertDialog(
         title: const Text('Delete this tasting?'),
-        content: const Text('Its answers and notes are deleted too.'),
+        content: const Text(
+          'Its answers, notes and audio recordings are deleted too.',
+        ),
         actions: [
           TextButton(
             onPressed: () => Navigator.pop(context, false),
@@ -204,11 +224,14 @@ class _SessionViewState extends ConsumerState<_SessionView> {
       appBar: AppBar(
         title: Text(grid.grid.displayName),
         actions: [
+          ReviewExportButton(tastingId: session.id, compact: true),
           if (finished)
             IconButton(
               tooltip: 'Change answers',
               icon: const Icon(Icons.edit_outlined),
-              onPressed: () => setState(() => _editing = true),
+              onPressed: () {
+                if (!_guardAudio()) setState(() => _editing = true);
+              },
             ),
           IconButton(
             tooltip: 'Delete',
@@ -251,7 +274,9 @@ class _SessionViewState extends ConsumerState<_SessionView> {
     return Stepper(
       controller: _scroll,
       currentStep: step,
-      onStepTapped: (index) => setState(() => _step = index),
+      onStepTapped: (index) {
+        if (!_guardAudio()) setState(() => _step = index);
+      },
       onStepContinue: () => _go(step + 1),
       onStepCancel: () => _go(step - 1),
       controlsBuilder: (context, details) => Padding(
@@ -302,6 +327,7 @@ class _SessionViewState extends ConsumerState<_SessionView> {
                 onChanged: (_) => _saveNotes(),
               ),
               const SizedBox(height: 16),
+              AudioNotesPanel(sessionId: session.id),
               // A blind tasting of a wine chosen beforehand keeps its secret.
               if (session.isBlind && wineId != null)
                 const Text('The wine is revealed when you finish.')
@@ -514,6 +540,7 @@ class _Summary extends ConsumerWidget {
           ),
           Text(notes, style: theme.textTheme.bodyLarge),
         ],
+        AudioNotesPanel(sessionId: session.id),
       ],
     );
   }

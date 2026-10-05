@@ -5,6 +5,8 @@ import '../../core/tasting/tasting_practice.dart';
 import '../../core/tasting_guidance/guided_tasting.dart';
 import '../../core/tasting_guidance/guided_tasting_providers.dart';
 import '../../core/study/study_providers.dart';
+import '../../core/audio/audio_notes_providers.dart';
+import '../tasting/audio_notes_panel.dart';
 
 class GuidedTastingScreen extends ConsumerStatefulWidget {
   const GuidedTastingScreen({super.key, this.initialLevel});
@@ -104,6 +106,11 @@ class _GuidedTastingScreenState extends ConsumerState<GuidedTastingScreen> {
   }
 
   Future<void> _action(Future<GuidedTastingRecord?> Function() action) async {
+    if (_record != null &&
+        (ref.read(unsavedAudioProvider)[_record!.sessionId]?.call() ?? false)) {
+      setState(() => _error = 'Save or discard the recording first.');
+      return;
+    }
     if (_busy) return;
     setState(() {
       _busy = true;
@@ -267,6 +274,10 @@ class _GuidedTastingScreenState extends ConsumerState<GuidedTastingScreen> {
                   Text(
                     'Explain your evidence',
                     style: Theme.of(context).textTheme.titleLarge,
+                  ),
+                  AudioNotesPanel(
+                    key: ValueKey('guided-audio-${record.sessionId}'),
+                    sessionId: record.sessionId,
                   ),
                   for (final prompt in record.level.evidencePrompts) ...[
                     const SizedBox(height: 12),
