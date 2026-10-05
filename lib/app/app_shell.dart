@@ -3,6 +3,7 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
 
 import '../core/database/storage_durability.dart';
+import '../core/audio/audio_notes_providers.dart';
 import 'router.dart';
 import 'startup.dart';
 
@@ -38,10 +39,22 @@ class AppShell extends ConsumerWidget {
       _ => null,
     };
 
-    void select(int index) => navigationShell.goBranch(
-      index,
-      initialLocation: index == navigationShell.currentIndex,
-    );
+    void select(int index) {
+      if (ref.read(unsavedAudioProvider).values.any((guard) => guard())) {
+        ScaffoldMessenger.of(context).showSnackBar(
+          const SnackBar(
+            content: Text(
+              'Save, download or discard the recording before changing sections.',
+            ),
+          ),
+        );
+        return;
+      }
+      navigationShell.goBranch(
+        index,
+        initialLocation: index == navigationShell.currentIndex,
+      );
+    }
 
     // A window as wide as a tablet in landscape, or a PC, gets a rail at
     // its side, and the modules a readable width; a phone gets the bar.

@@ -5,6 +5,7 @@ import 'package:drift/drift.dart';
 
 import '../database/app_database.dart';
 import '../database/uuid.dart';
+import '../audio/tasting_audio.dart';
 import '../time/utc_clock.dart';
 
 /// One attribute of a tasting grid, with the values it offers in order.
@@ -309,6 +310,8 @@ class TastingPractice {
   }
 
   /// Deletes session [id] and its answers.
-  Future<void> delete(String id) =>
-      (db.delete(db.tastingSessions)..where((s) => s.id.equals(id))).go();
+  Future<void> delete(String id) => db.transaction(() async {
+    await TastingAudioStore(db, clock: _clock).deleteSession(id);
+    await (db.delete(db.tastingSessions)..where((s) => s.id.equals(id))).go();
+  });
 }

@@ -1,6 +1,8 @@
 import 'dart:async';
 
 import 'package:clock/clock.dart';
+import 'package:drift/drift.dart'
+    show StringExpressionOperators, BooleanExpressionOperators;
 import 'package:fsrs/fsrs.dart' as fsrs;
 
 import '../curriculum/knowledge_graph.dart';
@@ -320,7 +322,9 @@ class WsetProgressRepository {
         row.id: row.name,
     };
     final settings = {
-      for (final row in await db.select(db.userSettings).get())
+      for (final row in await (db.select(
+        db.userSettings,
+      )..where((s) => s.name.like('tasting_audio_data_v1_%').not())).get())
         row.name: row.value,
     };
     // These awaited reads can overlap a saved practice. Use a cutoff after
