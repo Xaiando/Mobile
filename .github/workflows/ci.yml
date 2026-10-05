@@ -105,8 +105,17 @@ jobs:
           flutter-version: ${{ steps.flutter.outputs.version }}
           channel: stable
           cache: true
-      - name: The app starts, installs the curriculum, studies a card and starts a tasting
-        run: flutter test integration_test -d windows --dart-define=SOMMELIER_DATABASE=integration
+      - name: Run all native integration tests in separate app launches
+        shell: pwsh
+        run: |
+          # The pinned desktop runner closes its log stream after one app launch.
+          # Run every discovered integration file in a fresh Flutter invocation.
+          $tests = @(Get-ChildItem -LiteralPath integration_test -Filter '*_test.dart' -File -Recurse | Sort-Object FullName)
+          if ($tests.Count -eq 0) { throw 'No native integration tests found.' }
+          foreach ($test in $tests) {
+            flutter test $test.FullName -d windows --dart-define=SOMMELIER_DATABASE=integration
+            if ($LASTEXITCODE -ne 0) { exit $LASTEXITCODE }
+          }
       - run: flutter build windows --release
       - name: Bundle the Visual C++ runtime next to the app
         shell: pwsh
