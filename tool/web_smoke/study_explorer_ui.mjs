@@ -498,34 +498,79 @@ try {
   }
   await stage('05-quiz-and-history', async () => {
     await openTopic('wines', 'wines-n_geo_chablis', 'Chablis');
+    // Exclude controls from the preceding Facts route while Flutter animates
+    // the new route. Vertical position alone can accept its outgoing fact cards.
+    const excluded = new Set(['Back','Study','Home','Practice','Tasting','Cellar',
+      'Facts','Flashcards','Maps','Questions','Settings','Check answer',
+      'Fact and sources','Next','Start again']);
+    const previousLabels = new Set((await page.getByRole('button').allInnerTexts())
+      .map(label => label.trim()).filter(label => label && !excluded.has(label)));
     await tap('Questions');
     const question = text('Explore only · no review or completion credit'); await question.waitFor();
-    // Whether a typed or multiple-choice question was drawn is real exercise output.
-    const excluded = new Set(['Back','Study','Home','Practice','Tasting','Cellar',
-      'Facts','Flashcards','Maps','Questions','Settings']);
     async function options() {
       const buttons = page.getByRole('button');
       const matches = [];
       for (let i = 0; i < await buttons.count(); i++) {
         const button = buttons.nth(i);
         const label = (await button.innerText()).trim();
-        const box = await button.boundingBox();
-        if (label && !excluded.has(label) && label !== 'Check answer' && box &&
-          box.y > 130 && box.y < viewport.height - 75) matches.push(button);
+        if (label && !excluded.has(label) && !previousLabels.has(label) &&
+          await button.isEnabled() && await onScreen(button)) matches.push(button);
       }
       return matches;
     }
-    await until(async () => await named('Check answer').count() ||
-      (await options()).length >= 2, 'Quiz did not finish loading.', startupTimeout);
-    if (await named('Check answer').count()) {
-      await replaceText(page.getByRole('textbox', { name: 'Your answer' }), 'zz_wrong_answer_7926');
-      await tap('Check answer');
-    } else {
-      const choices = await options(); assert(choices.length >= 2, 'No quiz choices.');
-      await choices[0].click();
+    async function answerQuestion() {
+      let mode;
+      let choices;
+      const input = page.getByRole('textbox', { name: 'Your answer' });
+      await until(async () => {
+        // A Next click can return before the previous answer disappears.
+        if (await text(/^(Correct|Review the answer|Close — check the answer)$/).count() ||
+            await text(/^Answer: /).count()) return false;
+        if (await named('Check answer').count() && await input.count() &&
+            await named('Check answer').isEnabled() && await input.isEnabled() &&
+            await onScreen(named('Check answer')) && await onScreen(input)) {
+          mode = 'typed'; return true;
+        }
+        choices = await options();
+        if (choices.length >= 2) { mode = 'multiple-choice'; return true; }
+        return false;
+      }, 'Quiz did not finish loading.', startupTimeout);
+      // Use the mode observed by readiness, rather than a second independent
+      // count that can choose a different branch during a route transition.
+      if (mode === 'typed') {
+        await replaceText(input, 'zz_wrong_answer_7926');
+        await tap('Check answer');
+      } else {
+        assert(choices.length >= 2, 'No quiz choices.');
+        await choices[0].click();
+      }
+      await visible(/Correct|Review the answer|Close — check the answer/);
+      await visible('Fact and sources');
+      const answer = text(/^Answer: /);
+      await answer.first().waitFor({ state: 'visible', timeout: actionTimeout });
+      result.assertions.quizModes ??= [];
+      const feedback = await text(/^(Correct|Review the answer|Close — check the answer)$/).first().innerText();
+      result.assertions.quizModes.push({ mode, at: new Date().toISOString(),
+        drillPosition: await text(/^\d+ of \d+$/).first().innerText(),
+        feedback, answer: await answer.first().innerText() });
+      const screenshot = path.join(output, 'quiz-' + mode + '.png');
+      if (!fs.existsSync(screenshot)) {
+        await reveal(named('Fact and sources'));
+        await page.screenshot({ path: screenshot });
+      }
+      return mode;
     }
-    await visible(/Correct|Review the answer|Close — check the answer/);
-    await visible('Fact and sources');
+    const countText = await text(/^\d+ of \d+$/).first().innerText();
+    const total = Number(countText.split(' of ')[1]);
+    assert(Number.isInteger(total) && total > 0, 'Missing quiz exercise count.');
+    const modes = new Set();
+    for (let i = 0; i < total; i++) {
+      modes.add(await answerQuestion());
+      if (modes.has('typed') && modes.has('multiple-choice')) break;
+      if (i + 1 < total) await tap('Next');
+    }
+    assert(modes.has('typed') && modes.has('multiple-choice'),
+      'Both typed and multiple-choice quiz paths must produce feedback and sources.');
     await openTopic('history', 'history-early-evidence', 'Earliest evidence and Areni-1');
     await visible(/6000–4000 BCE/);
     await openTopic('history', 'history-napoleon-i', 'Napoleon I and the blockade');
