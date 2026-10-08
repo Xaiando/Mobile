@@ -1035,8 +1035,7 @@ knowledge_items:
     relation_type: PRINCIPLE_EXPLANATION
     object_id: n_wset_found_point_familiar_chianti
     domain_id: geography
-    assertion_text: Chianti is a Tuscan red wine centred on Sangiovese; accompanying varieties and maturation
-      produce different expressions.
+    assertion_text: "Traditional red Chianti is a Tuscan wine centred on Sangiovese; accompanying varieties and maturation produce different expressions. The Chianti appellation also permits Chianti Rosé under its own production rules."
     verification_status: unverified
     mcq_disabled: true
     last_verified_at: 2026-09-27T12:00:00.000Z
@@ -1851,6 +1850,70 @@ source_citations:
     document_identifier: Public primary reference; accessed 27 September 2026
     url: https://wine.wsu.edu/viticulture-enology-extension-news-spring-2013/
     accessed_on: 2026-09-27
+  - id: src_takeover_found_service_umn
+    kind: reference_work
+    title: Pruning grapevines handout
+    publisher: University of Minnesota
+    url: https://enology.umn.edu/sites/enology.umn.edu/files/2024-03/pruning_grapevines_hand_out.pdf
+    document_identifier: "Pruning and training: permanent framework, orientation, light exposure and vineyard operations"
+    accessed_on: 2026-10-08
+  - id: src_takeover_found_service_awrireserve
+    kind: reference_work
+    title: Grapevine carbohydrate reserves and crop balance
+    publisher: Australian Wine Research Institute
+    url: https://www.awri.com.au/wp-content/uploads/2019/05/s2086.pdf
+    document_identifier: Carbohydrate accumulation and allocation; crop relative to canopy ripening capacity
+    accessed_on: 2026-10-08
+  - id: src_takeover_found_service_awrisun
+    kind: reference_work
+    title: Effects of hot and dry conditions
+    publisher: Australian Wine Research Institute
+    url: https://www.awri.com.au/wp-content/uploads/2018/04/s1691.pdf
+    document_identifier: "Effects of hot and dry conditions: canopy protection and excessive bunch exposure"
+    accessed_on: 2026-10-08
+  - id: src_takeover_found_service_purdue
+    kind: reference_work
+    title: Grape Varieties for Indiana, HO-221-W
+    publisher: Purdue University Extension
+    url: https://ag.purdue.edu/department/hla/extension/extension-publications-library/ext-pubs/ho-221-w.html
+    document_identifier: Climate suitability, cultivar cold hardiness, ripening time and disease resistance
+    accessed_on: 2026-10-08
+  - id: src_takeover_found_service_rain
+    kind: reference_work
+    title: Rainfall close to harvest
+    publisher: Australian Wine Research Institute
+    url: https://www.awri.com.au/s1700/
+    document_identifier: "Rainfall close to harvest: bunch rot, canopy airflow and harvest risk"
+    accessed_on: 2026-10-08
+  - id: src_takeover_found_service_missouri
+    kind: reference_work
+    title: Growing grapes in Missouri
+    publisher: University of Missouri Extension
+    url: https://extension.missouri.edu/media/wysiwyg/Extensiondata/Pub/pdf/winegrape/wg2000.pdf
+    document_identifier: Site selection and cold-air drainage; rootstocks and canopy management
+    accessed_on: 2026-10-08
+  - id: src_takeover_found_service_cornell
+    kind: reference_work
+    title: Year of planting weed management
+    publisher: Cornell Cooperative Extension
+    url: https://cce.cornell.edu/finger-lakes-grape-program/year-of-planting-weed-management
+    document_identifier: "Year of planting weed management: young-vine competition for water and nutrients"
+    accessed_on: 2026-10-08
+  - id: src_takeover_found_service_vt
+    kind: reference_work
+    title: Vineyard floor management
+    publisher: Virginia Cooperative Extension
+    url: https://www.pubs.ext.vt.edu/content/pubs_ext_vt_edu/en/SPES/SPES-209/SPES-209.html
+    document_identifier: "Vineyard floor management: competition, erosion and site tradeoffs"
+    accessed_on: 2026-10-08
+  - id: src_takeover_found_service_vtcrop
+    kind: reference_work
+    title: Viticulture notes, September–October 2000
+    publisher: Virginia Tech
+    url: https://enology.fst.vt.edu/VC/septoct00.html
+    document_identifier: "Viticulture notes, September–October 2000: crop, maturity and yield-quality interactions"
+    accessed_on: 2026-10-08
+
 knowledge_item_citations:
   - knowledge_item_id: ki_wset_found_grape_parts
     source_citation_id: src_wset_found_uga_fermentation
@@ -2098,3 +2161,61 @@ knowledge_item_citations:
   - knowledge_item_id: ki_wset_found_pulp_composition
     source_citation_id: src_wset_found_wsu_berry_water
     locator: "Water Economy in Grape Berries: water in berry fresh weight, sugars and acids"
+  - knowledge_item_id: ki_wset_found_familiar_chianti
+    source_citation_id: src_eac_chianti
+    locator: "5 June 2026 modification, G.U. 12 June 2026, 26A02927: Annex A Articles 1.1(c) and 2.1–2.2; decree Article 2.3. Traditional red and permitted Rosé are distinct scopes."
+
+  - knowledge_item_id: ki_wset_found_familiar_white_zinfandel
+    source_citation_id: src_takeover_service_wset_light_red
+    locator: "Printed page 17: White Zinfandel rosé and medium sweetness"
+  - knowledge_item_id: ki_wset_found_grape_parts
+    source_citation_id: src_takeover_service_wset_light_red
+    locator: "Grape anatomy: skin and fleshy, juice-containing pulp"
+  - knowledge_item_id: ki_wset_found_training
+    source_citation_id: src_takeover_found_service_umn
+    locator: "Pruning handout: framework, orientation, light exposure and operations"
+  - knowledge_item_id: ki_wset_found_noble_rot
+    source_citation_id: src_wset_close_l2_session
+    locator: "Printed page 25: noble rot, berry skin, water loss, concentration and harmful conditions"
+  - knowledge_item_id: ki_wset_found_vine_canopy
+    source_citation_id: src_takeover_found_service_awrireserve
+    locator: Carbohydrate accumulation and allocation; crop relative to canopy ripening capacity
+  - knowledge_item_id: ki_wset_found_vine_canopy
+    source_citation_id: src_takeover_found_service_awrisun
+    locator: "Effects of hot and dry conditions: canopy protection and excessive bunch exposure"
+  - knowledge_item_id: ki_wset_found_late_harvest_risk
+    source_citation_id: src_wset_close_l2_session
+    locator: "Printed pages 24–25: late harvest and noble rot; berry skin, evaporation and concentration"
+  - knowledge_item_id: ki_wset_found_late_harvest_risk
+    source_citation_id: src_takeover_found_service_purdue
+    locator: Climate suitability, cultivar cold hardiness, ripening time and disease resistance
+  - knowledge_item_id: ki_wset_found_late_harvest_risk
+    source_citation_id: src_takeover_found_service_rain
+    locator: "Rainfall close to harvest: bunch rot, canopy airflow and harvest risk"
+  - knowledge_item_id: ki_wset_found_site_climate
+    source_citation_id: src_takeover_found_service_purdue
+    locator: Climate suitability, cultivar cold hardiness, ripening time and disease resistance
+  - knowledge_item_id: ki_wset_found_site_climate
+    source_citation_id: src_takeover_found_service_missouri
+    locator: Site selection and cold-air drainage; rootstocks and canopy management
+  - knowledge_item_id: ki_wset_found_slope_air
+    source_citation_id: src_takeover_found_service_missouri
+    locator: Site selection and cold-air drainage; rootstocks and canopy management
+  - knowledge_item_id: ki_wset_found_weeds
+    source_citation_id: src_takeover_found_service_cornell
+    locator: "Year of planting weed management: young-vine competition for water and nutrients"
+  - knowledge_item_id: ki_wset_found_weeds
+    source_citation_id: src_takeover_found_service_vt
+    locator: "Vineyard floor management: competition, erosion and site tradeoffs"
+  - knowledge_item_id: ki_wset_found_canopy_disease
+    source_citation_id: src_takeover_found_service_missouri
+    locator: Site selection and cold-air drainage; rootstocks and canopy management
+  - knowledge_item_id: ki_wset_found_canopy_disease
+    source_citation_id: src_takeover_found_service_rain
+    locator: "Rainfall close to harvest: bunch rot, canopy airflow and harvest risk"
+  - knowledge_item_id: ki_wset_found_crop_load
+    source_citation_id: src_takeover_found_service_awrireserve
+    locator: Carbohydrate accumulation and allocation; crop relative to canopy ripening capacity
+  - knowledge_item_id: ki_wset_found_crop_load
+    source_citation_id: src_takeover_found_service_vtcrop
+    locator: "Viticulture notes, September–October 2000: crop, maturity and yield-quality interactions"

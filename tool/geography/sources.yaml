@@ -425,21 +425,21 @@ sources:
     url: https://www.wikidata.org/w/api.php?action=wbgetentities&ids=Q3645230|Q18504312&props=claims&format=json
     file: soave_uga_wikidata_points.geojson
     snapshot: soave_uga_wikidata_points.geojson
-    version: 2026-09-27 curated snapshot
-    retrieved: 2026-09-27
-    sha256: 84318aa93919b7b7457199cafe5286170bce2dc2d88984a39428a3cb9e4f6e18
+    version: 2026-10-08 curated snapshot
+    retrieved: 2026-10-08
+    sha256: 3663c70b7275df539968188b807634bd555206e64baa031ca4591ed9624c07ec
     license: CC0 1.0
-    attribution: Location markers from Wikidata (CC0), retrieved 27 September 2026. Points indicate settlements in
-      Soave municipalities, not additional geographical unit boundaries.
+    attribution: Castelcerino settlement reference from Wikidata (CC0), originally retrieved 27 September 2026.
+      Brognoligo Q3645230 was removed after independent physical-locality reconciliation. Points are not UGA boundaries.
   - id: src_soave_uga_geonames_markers
     title: Soave additional geographical unit locality and summit markers
     publisher: GeoNames
     url: https://download.geonames.org/export/dump/IT.zip
     file: soave_uga_geonames_points.geojson
     snapshot: soave_uga_geonames_points.geojson
-    version: 2026-09-27 curated snapshot
-    retrieved: 2026-09-27
-    sha256: 75268a41d8728dbc7aad7c69d632567673c3826465d9d37a83f8f6971f020221
+    version: 2026-10-08 curated snapshot
+    retrieved: 2026-10-08
+    sha256: 194c8ebd33341964ee1b8baf87677377577f21f099a832c296425e925d83ec7e
     license: CC BY 4.0
     attribution: Contains GeoNames geographical data (CC BY 4.0, https://creativecommons.org/licenses/by/4.0/),
       retrieved 27 September 2026. Selected WGS84 locality and summit coordinates are reference markers, not

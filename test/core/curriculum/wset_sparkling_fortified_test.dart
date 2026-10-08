@@ -78,26 +78,38 @@ void main() {
     },
   );
 
-  test(
-    'fortified methods explain named styles without universal legal claims',
-    () {
-      expect(facts['ki_wset_sf_port_autovinifier'], contains('pressure'));
-      expect(
-        facts['ki_wset_sf_port_mechanical'],
-        contains('rather than assuming'),
-      );
-      expect(facts['ki_wset_sf_port_vintage_lbv'], contains('Vintage'));
-      expect(
-        facts['ki_wset_sf_sherry_current_route'],
-        contains('wine and liqueur-wine'),
-      );
-      expect(facts['ki_wset_sf_sherry_pale_cream'], contains('rectified'));
-      expect(facts['ki_wset_sf_sherry_medium'], contains('sweetened'));
-      expect(facts['ki_wset_sf_sherry_cream_style'], contains('blend'));
-      expect(facts['ki_wset_sf_beaumes_fresh'], contains('youthful'));
-      expect(facts['ki_wset_sf_rutherglen_evolution'], contains('evaporation'));
-    },
-  );
+  test('fortified methods explain named styles without universal legal claims', () {
+    expect(
+      facts['ki_wset_sf_port_autovinifier'],
+      'An autovinifier uses naturally occurring fermentation carbon dioxide '
+      'to pump juice over the skins. This self-propelled extraction route '
+      'reduces dependence on manual treading during Port’s short fermentation; '
+      'performance still depends on fermentation activity and process control.',
+    );
+    expect(
+      dataset.knowledgeItemCitations
+          .where(
+            (citation) =>
+                citation.knowledgeItemId == 'ki_wset_sf_port_autovinifier',
+          )
+          .map((citation) => citation.sourceCitationId),
+      contains('src_takeover_b_symington_autovinifier'),
+    );
+    expect(
+      facts['ki_wset_sf_port_mechanical'],
+      contains('rather than assuming'),
+    );
+    expect(facts['ki_wset_sf_port_vintage_lbv'], contains('Vintage'));
+    expect(
+      facts['ki_wset_sf_sherry_current_route'],
+      contains('wine and liqueur-wine'),
+    );
+    expect(facts['ki_wset_sf_sherry_pale_cream'], contains('rectified'));
+    expect(facts['ki_wset_sf_sherry_medium'], contains('sweetened'));
+    expect(facts['ki_wset_sf_sherry_cream_style'], contains('blend'));
+    expect(facts['ki_wset_sf_beaumes_fresh'], contains('youthful'));
+    expect(facts['ki_wset_sf_rutherglen_evolution'], contains('evaporation'));
+  });
 
   test('regional price reasoning names the conditional process and costs', () {
     for (final id in [

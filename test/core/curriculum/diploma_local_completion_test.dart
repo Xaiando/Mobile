@@ -16,6 +16,7 @@ import 'package:sommelier/core/study/review_service.dart';
 
 import '../../support/curriculum_fixture.dart';
 import '../../support/fixture.dart';
+import '../../support/historical_map_assets.dart';
 
 // Explicit historical URL variants from immutable fixture bytes.
 // These are source-address replacements, never permission to change source IDs,
@@ -38,6 +39,9 @@ const historicalSourceUrlReplacements = <String, Map<String, String>>{
   'src_d45body_muscat_history': {
     'https://www.campbellswines.com.au/our-heritage/':
         'https://www.campbellswines.com.au/pages/our-heritage',
+  },
+  'src_d4d5_saumur_law': {
+    'https://www.legifrance.gouv.fr/jorf/id/JORFTEXT000021148190': 'https://info.agriculture.gouv.fr/boagri/document_administratif-8acb7143-49ca-4e68-a032-d947fa576460/telechargement',
   },
   'src_d4depth_au_shiraz': {
     'https://www.wineaustralia.com/getmedia/9f0dac38-afa6-42d6-91b0-e7f674ea9db8/AWD_SparklingWines_FacilitatorGuide.pdf?ext=.pdf': 'https://www.australianwine.com/getcontentasset/ada40174-a274-4df5-a0bc-5e08021b5126/2a6464f5-7547-4f96-aacf-a0c3da1718f8/awd_sparkling_guide.pdf',
@@ -399,7 +403,11 @@ void main() {
             clock: Clock.fixed(dataset.publishedAt),
             assets: (path) async => File(path).readAsBytesSync(),
           );
-          await ingester.ingest(old);
+          await CurriculumIngester(
+            db,
+            clock: Clock.fixed(dataset.publishedAt),
+            assets: (path) => historicalMapAsset(old, path),
+          ).ingest(old);
           final q = await QuestionPresenter(db).present(
             'ki_d4sekt_vdp_classification',
             'qt_d4sekt_principle_typed_6',
@@ -462,7 +470,7 @@ void main() {
             expect(sources, contains(source.id), reason: source.id);
             expect(sources[source.id]!.url, expectedUrl, reason: source.id);
           }
-          expect(relocatedSources, predecessor.key == '0.24.68' ? 25 : 26);
+          expect(relocatedSources, predecessor.key == '0.24.68' ? 26 : 27);
           expect(sources, contains('src_d4sekt_awri_sparkling'));
           final installed = {
             for (final row in await db.select(db.knowledgeItems).get())

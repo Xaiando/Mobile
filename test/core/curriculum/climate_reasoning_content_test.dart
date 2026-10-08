@@ -325,6 +325,8 @@ void main() {
         'src_climate_ripen_botrytis_germination': 'https://analesliteraturachilena.letras.uc.cl/index.php/ijanr/article/view/37143',
         'src_climate_ripen_botrytis_infection':
             'https://apsjournals.apsnet.org/doi/10.1094/PHYTO-10-14-0264-R',
+        'src_climate_ripen_botrytis_germination_pdf': 'https://www.revistadisena.uc.cl/index.php/ijanr/article/download/37143/28933',
+        'src_climate_ripen_botrytis_infection_inrae_pdf': 'https://sante-agroecologie-vignoble.bordeaux-aquitaine.hub.inrae.fr/media/publications/acl/2015-acl/2015-acl-ciliberti-phytopath2',
       };
       final used = dataset.knowledgeItemCitations.where(
         (citation) => climateIds.contains(citation.knowledgeItemId),

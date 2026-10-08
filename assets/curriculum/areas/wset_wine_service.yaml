@@ -665,7 +665,7 @@ knowledge_items:
     relation_type: PRINCIPLE_EXPLANATION
     object_id: n_wset_srv_point_light_red_temperature
     domain_id: service
-    assertion_text: Light reds can be served slightly chilled, around 10–13°C, rather than at a warm room temperature.
+    assertion_text: "Light reds can be served slightly chilled, around 13°C, rather than at a warm room temperature."
     verification_status: unverified
     mcq_disabled: true
     last_verified_at: 2026-09-27T00:00:00.000Z
@@ -1935,6 +1935,21 @@ source_citations:
     document_identifier: 4 January 2023; corrected 17 September 2026; ethanol-related risk, not country-specific limits
     url: https://www.who.int/europe/news/item/04-01-2023-no-level-of-alcohol-consumption-is-safe-for-our-health
     accessed_on: 2026-09-27
+  - id: src_takeover_service_wset_light_red
+    kind: reference_work
+    title: An introduction to wine, WSET Level 1 workbook, Issue 1.2, June 2021
+    publisher: Wine & Spirit Education Trust
+    url: https://www.finevintageltd.com/wp-content/uploads/2022/03/WSET_L1Wines_Workbook_EN_Jun2021_Issue1.2_Ltp.pdf
+    document_identifier: Grape anatomy; familiar wine styles on printed page 17 and recommended service temperatures on printed page 21; personal preference retained
+    accessed_on: 2026-10-08
+  - id: src_takeover_found_service_christies
+    kind: reference_work
+    title: Wine provenance and why it matters
+    publisher: Christie’s
+    url: https://www.christies.com/en/stories/wine-provenance-and-why-it-matters-dab164a165a24519ae14eab89ea5f585
+    document_identifier: Storage history, seepage, ullage, capsule and bottle condition
+    accessed_on: 2026-10-08
+
 knowledge_item_citations:
   - knowledge_item_id: ki_wset_srv_storage_cool
     source_citation_id: src_wset_srv_temperature
@@ -2191,3 +2206,16 @@ knowledge_item_citations:
   - knowledge_item_id: ki_wset_srv_case_older_red_limitation
     source_citation_id: src_wset_srv_decant
     locator: Source mechanism; original application to this supplied scenario, not an exclusive correct wine
+
+  - knowledge_item_id: ki_wset_srv_light_white_temperature
+    source_citation_id: src_takeover_service_wset_light_red
+    locator: "Printed page 21: light- and medium-bodied white and rosé, 7–10°C; personal-preference caveat"
+  - knowledge_item_id: ki_wset_srv_sweet_temperature
+    source_citation_id: src_takeover_service_wset_light_red
+    locator: "Printed page 21: sweet wines, 6–8°C; personal-preference caveat"
+  - knowledge_item_id: ki_wset_srv_storage_provenance
+    source_citation_id: src_takeover_found_service_christies
+    locator: Storage history, seepage, ullage, capsule and bottle condition
+  - knowledge_item_id: ki_wset_srv_light_red_temperature
+    source_citation_id: src_takeover_service_wset_light_red
+    locator: "Printed page 21: light-bodied red, Beaujolais example, lightly chilled at 13°C; personal-preference caveat"

@@ -24,7 +24,7 @@ knowledge_items:
     relation_type: LOCATED_IN
     object_id: n_geo_soave
     domain_id: geography
-    assertion_text: "Brognoligo is one of the 33 additional geographical units that may be named on a Soave, Soave Classico or Soave Colli Scaligeri label. The marker is the Brognoligo settlement in Monteforte d'Alpone. It is not the Costalunga unit, and it is not a boundary."
+    assertion_text: "Brognoligo is one of the 33 additional geographical units that may be named on a Soave, Soave Classico or Soave Colli Scaligeri label. The marker uses the GeoNames Brognoligo-Costalunga combined locality in Monteforte d'Alpone as a reference. It is not a standalone Brognoligo village centre, the Costalunga additional geographical unit, or a legal boundary."
     verification_status: unverified
     last_verified_at: "2026-09-27T23:20:00.000Z"
   - id: ki_soave_uga_castelcerino_location
@@ -91,6 +91,7 @@ certification_knowledge_mappings:
   - { certification_id: CMS_CERTIFIED, knowledge_item_id: ki_soave_uga_ronca_monte_calvarina_location, importance: secondary, minimum_depth: 2 }
 
 source_citations:
+  - { id: src_soave_brognoligo_geonames_8948888, kind: reference_work, title: "GeoNames Brognoligo-Costalunga locality reference", url: "https://www.geonames.org/8948888", publisher: "GeoNames", accessed_on: "2026-10-08" }
   - id: src_soave_ugas
     kind: legislation
     title: "Soave PDO, additional geographical units"
@@ -101,7 +102,8 @@ source_citations:
     accessed_on: "2026-09-27"
 
 knowledge_item_citations:
-  - { knowledge_item_id: ki_soave_uga_brognoligo_location, source_citation_id: src_soave_ugas, locator: "Additional geographical mention 1, Brognoligo. Settlement reference Q3645230 in Monteforte d'Alpone." }
+  - { knowledge_item_id: ki_soave_uga_brognoligo_location, source_citation_id: src_soave_brognoligo_geonames_8948888, locator: "GeoNames IT row 8948888; combined locality Brognoligo-Costalunga, Monteforte d'Alpone (023050); latitude 45.44869, longitude 11.29379. CC BY 4.0. Reference point, not either UGA boundary." }
+  - { knowledge_item_id: ki_soave_uga_brognoligo_location, source_citation_id: src_soave_ugas, locator: "Additional geographical mention 1, Brognoligo. Original Q3645230 settlement-reference attribution is historical and superseded; current combined-locality reference is GeoNames 8948888." }
   - { knowledge_item_id: ki_soave_uga_castelcerino_location, source_citation_id: src_soave_ugas, locator: "Additional geographical mention 7, Castelcerino. Settlement reference Q18504312 in Soave." }
   - { knowledge_item_id: ki_soave_uga_colombara_location, source_citation_id: src_soave_ugas, locator: "Additional geographical mention 9, Colombara. GeoNames 8962832 in San Giovanni Ilarione." }
   - { knowledge_item_id: ki_soave_uga_duello_location, source_citation_id: src_soave_ugas, locator: "Additional geographical mention 16, Duello. GeoNames 8956774 in Roncà." }

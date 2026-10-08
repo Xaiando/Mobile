@@ -1709,7 +1709,7 @@ layers:
     quantization: 100000
   - id: ml_soave_uga_wikidata_markers
     asset: soave_uga_wikidata_markers.topo.json
-    display_name: Soave settlement reference markers
+    display_name: Soave locality reference markers
     geometry: point
     zoom:
       - 4
@@ -1717,8 +1717,13 @@ layers:
     parent: ml_world_countries
     sources:
       - src_soave_uga_wikidata_markers
+      - src_soave_uga_geonames_markers
     gazetteer:
       source: src_soave_uga_wikidata_markers
+      supplements:
+        - source: src_soave_uga_geonames_markers
+          include_nodes:
+            - n_geo_soave_uga_brognoligo
     simplify: 100%
     quantization: 100000
   - id: ml_soave_uga_geonames_markers
@@ -1733,6 +1738,8 @@ layers:
       - src_soave_uga_geonames_markers
     gazetteer:
       source: src_soave_uga_geonames_markers
+      exclude_nodes:
+        - n_geo_soave_uga_brognoligo
     simplify: 100%
     quantization: 100000
   - id: ml_alto_adige_uga_geonames_markers

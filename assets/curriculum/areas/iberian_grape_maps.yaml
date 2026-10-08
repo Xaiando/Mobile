@@ -1627,7 +1627,7 @@ knowledge_items:
     relation_type: PERMITS_GRAPE
     object_id: n_grape_trepat
     domain_id: geography
-    assertion_text: Trepat is permitted only for rosé wines for Cava.
+    assertion_text: Cava permits Trepat under its current authorised grape-variety list.
     verification_status: unverified
     last_verified_at: 2026-09-26T17:29:14.000Z
   - id: ki_es_map_jerez_palomino
@@ -3260,6 +3260,27 @@ certification_knowledge_mappings:
     importance: tertiary
     minimum_depth: 2
 source_citations:
+  - id: src_takeover_b_cava_current
+    kind: reference_work
+    title: DOP Cava current council-linked product specification
+    publisher: Consejo Regulador DOP Cava
+    jurisdiction: ES
+    url: https://www.cava.wine/documents/615/Pliego_de-CondicionesDOPCAVA.pdf
+    accessed_on: 2026-10-08
+  - id: src_takeover_b_picapoll_evega
+    kind: reference_work
+    title: Picapoll Negro genetic resource and morphological record
+    publisher: Estacion de Viticultura e Enoloxia de Galicia, Xunta de Galicia
+    jurisdiction: ES
+    url: https://evega.xunta.gal/es/recursos-geneticos-de-la-vid/vid/picapoll-negro
+    accessed_on: 2026-10-08
+  - id: src_takeover_b_picapoll_bages
+    kind: reference_work
+    title: DO Pla de Bages grape varieties
+    publisher: Consejo Regulador DO Pla de Bages
+    jurisdiction: ES
+    url: https://dopladebages.com/es/variedades/
+    accessed_on: 2026-10-08
   - id: src_es_iberian_rioja_grapes
     kind: regulator_register
     title: "Rioja: authorised grape varieties"
@@ -3723,6 +3744,15 @@ source_citations:
     url: https://www.vivc.de/index.php?r=passport%2Fview&id=23051
     accessed_on: 2026-09-26
 knowledge_item_citations:
+  - knowledge_item_id: ki_es_map_cava_trepat
+    source_citation_id: src_takeover_b_cava_current
+    locator: Article 6, PDF p. 9; Trepat among authorized black grapes for base wine and Cava
+  - knowledge_item_id: ki_es_berry_picapoll_tinto
+    source_citation_id: src_takeover_b_picapoll_evega
+    locator: Descricion morfoloxica; berry explicitly azul negra, web L319
+  - knowledge_item_id: ki_es_berry_picapoll_tinto
+    source_citation_id: src_takeover_b_picapoll_bages
+    locator: Picapoll tinto, web L86–90; accompanying cultivar identity picapoll_negre
   - knowledge_item_id: ki_es_map_rioja_tempranillo
     source_citation_id: src_es_iberian_rioja_grapes
     locator: "Variedades de uva: all 5 red and 9 white varieties"
@@ -4096,7 +4126,7 @@ knowledge_item_citations:
       of 9 varieties (5 white, 4 red)"
   - knowledge_item_id: ki_es_map_cava_trepat
     source_citation_id: src_es_iberian_cava_trepat
-    locator: "Características del Cava, Variedades: Trepat (solo para rosados)"
+    locator: "Historical 16 April 2021 article; rose-only summary is not used to establish a current restriction"
   - knowledge_item_id: ki_es_map_jerez_palomino
     source_citation_id: src_es_iberian_jerez_spec
     locator: "§F, printed p. 7: all seven legal variety entries, treating Listán

@@ -8,12 +8,12 @@ import fs from 'node:fs';
 import os from 'node:os';
 import path from 'node:path';
 import YAML from 'yaml';
+import { expectedLayerNodeIds } from './build.mjs';
 import {
   assetsDir,
   budgets,
   cacheState,
   layerAttribution,
-  downloadPath,
   loadConfig,
   readCurriculum,
   repoDir,
@@ -102,12 +102,7 @@ for (const name of fs.readdirSync(assetsDir)) {
 const curriculum = readCurriculum();
 const expectedNodes = new Set();
 for (const spec of config.layers) {
-  const nodes = spec.appellation_areas
-    ? Object.keys(spec.appellation_areas)
-    : spec.gazetteer
-      ? JSON.parse(fs.readFileSync(downloadPath(config.sources.get(spec.gazetteer.source)), 'utf8'))
-        .features.map((feature) => feature.properties.node)
-      : Object.values(spec.natural_earth.nodes ?? {});
+  const nodes = await expectedLayerNodeIds(config, spec);
   for (const node of nodes) expectedNodes.add(`${spec.id} ${node}`);
 }
 for (const g of geometries) {

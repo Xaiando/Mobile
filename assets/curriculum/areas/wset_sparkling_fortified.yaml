@@ -1136,7 +1136,7 @@ knowledge_items:
     relation_type: PRINCIPLE_EXPLANATION
     object_id: n_wset_sf_point_port_autovinifier
     domain_id: winemaking
-    assertion_text: An autovinifier uses pressure from fermentation gas to drive liquid through its recirculation system and over the skins. It supports extraction during Port’s short fermentation without the same manual treading requirement; performance still depends on fermentation activity and process control.
+    assertion_text: An autovinifier uses naturally occurring fermentation carbon dioxide to pump juice over the skins. This self-propelled extraction route reduces dependence on manual treading during Port’s short fermentation; performance still depends on fermentation activity and process control.
     verification_status: unverified
     mcq_disabled: true
     last_verified_at: 2026-09-27T18:00:00.000Z
@@ -1966,6 +1966,13 @@ certification_knowledge_mappings:
     importance: core
     minimum_depth: 2
 source_citations:
+  - id: src_takeover_b_symington_autovinifier
+    kind: reference_work
+    title: CO2 reduction, Autovinification
+    publisher: Symington Family Estates
+    jurisdiction: PT
+    url: https://www.symington.com/sustainability/6-co2-reduction
+    accessed_on: 2026-10-08
   - id: src_wset_sf_champagne_soil
     kind: reference_work
     title: Champagne subsoil and varieties
@@ -2295,6 +2302,9 @@ source_citations:
     document_identifier: "AVWA: Origin; About the Variety; Climate & Terroir. Regional Chardonnay still/sparkling use and maritime cooling only."
     accessed_on: "2026-10-03"
 knowledge_item_citations:
+  - knowledge_item_id: ki_wset_sf_port_autovinifier
+    source_citation_id: src_takeover_b_symington_autovinifier
+    locator: Autovinification; self-propelled natural CO2 pumps juice over skins, web L33–37
   - knowledge_item_id: ki_wset_sf_champagne_climate
     source_citation_id: src_fr_atlas_champagne_areas
     locator: Relevant regional grapes, production, identity or conditional application

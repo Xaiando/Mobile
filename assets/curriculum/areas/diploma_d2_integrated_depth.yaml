@@ -38,12 +38,12 @@
     {
       "id": "n_d12depth_case_market_tradeoff_point",
       "node_type": "learning_point",
-      "name": "Holding stock may retain future sales opportunity but commits cash and storage resources in a weaker market"
+      "name": "Holding stock uses storage; its cash effect depends on paid costs, payment terms and sales timing"
     },
     {
       "id": "n_d12depth_case_market_limitation_point",
       "node_type": "learning_point",
-      "name": "Domestic releases are not necessarily final consumption; omitted flows and relative elasticities prevent the 20% prediction"
+      "name": "The case assumes no trade or loss; releases do not establish final consumption or a fixed 20% price change"
     },
     {
       "id": "n_d12depth_cost_capacity",
@@ -78,12 +78,12 @@
     {
       "id": "n_d12depth_case_cost_reason_point",
       "node_type": "learning_point",
-      "name": "3,500 x EUR4 - EUR12,000 = EUR2,000; EUR0.50 extra cost reduces that to EUR250 under the supplied range"
+      "name": "EUR2,000 before extra costs; EUR250 only if all 3,500 bottles incur the storage charge"
     },
     {
       "id": "n_d12depth_case_cost_tradeoff_point",
       "node_type": "learning_point",
-      "name": "Owning equipment and maturing stock may support production but require capital and financing; delay sharply reduces the contribution buffer"
+      "name": "Delay costs EUR0.50 per affected bottle; funding and affected quantity determine the buffer"
     },
     {
       "id": "n_d12depth_case_cost_limitation_point",
@@ -398,7 +398,7 @@
     {
       "id": "n_d12depth_case_marketing_tradeoff_point",
       "node_type": "learning_point",
-      "name": "Focused research/training uses budget and initially limits reach but improves evidence and fulfilment fit"
+      "name": "Research and training may trade initial reach for better evidence and fit; measure both outcomes"
     },
     {
       "id": "n_d12depth_case_marketing_limitation_point",
@@ -423,7 +423,7 @@
     {
       "id": "n_d12depth_campaign_discount_point",
       "node_type": "learning_point",
-      "name": "2,000 bottles before additional support or capacity effects"
+      "name": "2,000 total bottles, 1,000 above the old volume, before additional costs or capacity effects"
     },
     {
       "id": "n_d12depth_case_campaign",
@@ -443,7 +443,7 @@
     {
       "id": "n_d12depth_case_campaign_tradeoff_point",
       "node_type": "learning_point",
-      "name": "A reaches more people while B's supplied economics are stronger; repeat, returns and future acquisition can change the decision"
+      "name": "More impressions do not establish more distinct people; compare net contribution and later costs"
     },
     {
       "id": "n_d12depth_case_campaign_limitation_point",
@@ -880,7 +880,7 @@
       "relation_type": "CASE_TRADEOFF",
       "object_id": "n_d12depth_case_market_tradeoff_point",
       "domain_id": "business",
-      "assertion_text": "Holding stock may retain future sales opportunity but commits cash and storage resources in a weaker market. This is a conditional response to the supplied premises, not a universal prescription.",
+      "assertion_text": "Holding stock may preserve a future sales opportunity, while using storage capacity and potentially tying up funds or financing. The cash effect depends on paid production costs, supplier payment terms and when stock sells; those details are not supplied. This is a conditional response to fictional premises.",
       "verification_status": "unverified",
       "last_verified_at": "2026-10-02T23:14:50.000Z",
       "mcq_disabled": true
@@ -891,7 +891,7 @@
       "relation_type": "CASE_LIMITATION",
       "object_id": "n_d12depth_case_market_limitation_point",
       "domain_id": "business",
-      "assertion_text": "Domestic releases are not necessarily final consumption; omitted flows and relative elasticities prevent the 20% prediction. This is a conditional response to the supplied premises, not a universal prescription.",
+      "assertion_text": "The fictional closing-stock balance expressly assumes no trade or loss. Domestic releases do not necessarily equal final consumption, and the demand-shift magnitude, inventories elsewhere and price responsiveness are unknown, so the fixed 20% price prediction is unsupported. A real balance would also require actual trade, losses and other flows. This is a conditional response to fictional premises.",
       "verification_status": "unverified",
       "last_verified_at": "2026-10-02T23:14:50.000Z",
       "mcq_disabled": true
@@ -935,7 +935,7 @@
       "relation_type": "CASE_REASON",
       "object_id": "n_d12depth_case_cost_reason_point",
       "domain_id": "business",
-      "assertion_text": "3,500 x EUR4 - EUR12,000 = EUR2,000; EUR0.50 extra cost reduces that to EUR250 under the supplied range. This is a conditional response to the supplied premises, not a universal prescription.",
+      "assertion_text": "3,500 × EUR4 − EUR12,000 = EUR2,000 before omitted costs. If all 3,500 bottles incur the EUR0.50 extra storage charge, the remainder becomes EUR250. For q delayed bottles it is EUR2,000 − EUR0.50q; the scenario must state q to give a single result. This is a conditional response to fictional premises.",
       "verification_status": "unverified",
       "last_verified_at": "2026-10-02T23:14:50.000Z",
       "mcq_disabled": true
@@ -946,7 +946,7 @@
       "relation_type": "CASE_TRADEOFF",
       "object_id": "n_d12depth_case_cost_tradeoff_point",
       "domain_id": "business",
-      "assertion_text": "Owning equipment and maturing stock may support production but require capital and financing; delay sharply reduces the contribution buffer. This is a conditional response to the supplied premises, not a universal prescription.",
+      "assertion_text": "Equipment and stock maturation can support production but require capital and funding. Delay reduces the contribution buffer by EUR0.50 per affected bottle; if all 3,500 bottles are delayed, the reduction is EUR1,750. The size of the trade-off depends on the affected quantity. This is a conditional response to fictional premises.",
       "verification_status": "unverified",
       "last_verified_at": "2026-10-02T23:14:50.000Z",
       "mcq_disabled": true
@@ -1298,7 +1298,7 @@
       "relation_type": "PRINCIPLE_EXPLANATION",
       "object_id": "n_d12depth_outlets_fit_point",
       "domain_id": "business",
-      "assertion_text": "Different outlet purposes require different offer and service plans. Supermarket, discounter, convenience, specialist, online/hybrid and travel proposals should be evaluated using actual terms; investment-oriented wine adds provenance/storage questions and no assured return.",
+      "assertion_text": "Different outlet purposes require different offer and service plans. Evaluate supermarket, discounter, convenience, specialist, online/hybrid and travel proposals using buyer needs, capacity and actual terms. In the supplied fictional case, travel and investment buyers request stock/provenance conditions; investigate those specified conditions without promising a return. Those requests are case premises, not a general rule about investment wine.",
       "verification_status": "unverified",
       "last_verified_at": "2026-10-02T23:14:50.000Z",
       "mcq_disabled": true
@@ -1408,7 +1408,7 @@
       "relation_type": "CASE_TRADEOFF",
       "object_id": "n_d12depth_case_marketing_tradeoff_point",
       "domain_id": "business",
-      "assertion_text": "Focused research/training uses budget and initially limits reach but improves evidence and fulfilment fit. This is a conditional response to the supplied premises, not a universal prescription.",
+      "assertion_text": "Focused research and training use budget and may trade initial reach for better target evidence and fulfilment fit. Neither reduced reach nor improved fit is established by the supplied case; measure those outcomes rather than assume them. This is a conditional response to fictional premises.",
       "verification_status": "unverified",
       "last_verified_at": "2026-10-02T23:14:50.000Z",
       "mcq_disabled": true
@@ -1441,7 +1441,7 @@
       "relation_type": "PRINCIPLE_EXPLANATION",
       "object_id": "n_d12depth_campaign_discount_point",
       "domain_id": "business",
-      "assertion_text": "Original contribution is 1,000 x 4 = EUR4,000; at EUR2 per bottle it takes 2,000 bottles. This volume must be feasible and incremental; a higher shipment is not automatically a more successful campaign.",
+      "assertion_text": "Original total contribution is 1,000 × EUR4 = EUR4,000. At EUR2 per bottle, matching it requires 2,000 total bottles, an increase of 1,000 over the old volume, within feasible capacity. A larger shipment alone does not establish campaign success or incremental profit.",
       "verification_status": "unverified",
       "last_verified_at": "2026-10-02T23:14:50.000Z",
       "mcq_disabled": true
@@ -1474,7 +1474,7 @@
       "relation_type": "CASE_TRADEOFF",
       "object_id": "n_d12depth_case_campaign_tradeoff_point",
       "domain_id": "business",
-      "assertion_text": "A reaches more people while B's supplied economics are stronger; repeat, returns and future acquisition can change the decision. This is a conditional response to the supplied premises, not a universal prescription.",
+      "assertion_text": "A has more impressions, while B has higher modeled net contribution under the supplied assumptions. Impressions do not establish that A reached more distinct people. Repeat purchases, returns and future acquisition costs can change the comparison. This is a conditional response to fictional premises.",
       "verification_status": "unverified",
       "last_verified_at": "2026-10-02T23:14:50.000Z",
       "mcq_disabled": true

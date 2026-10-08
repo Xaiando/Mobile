@@ -41,7 +41,30 @@ void main() {
       text['ki_wset_sseq_lineup'],
       contains('shortcut rather than a rule'),
     );
-    expect(text['ki_wset_sseq_lineup'], contains('fragile mature bottle'));
+    const reviewedLineup =
+        'When serving several wines, a useful starting order moves from lighter, '
+        'less intense examples towards fuller, more powerful ones. Consider '
+        'aroma intensity, flavour and texture with the menu. Colour is a '
+        'shortcut rather than a rule; a fuller white can follow a lighter red, '
+        'and the planned food may justify a different order.';
+    expect(text['ki_wset_sseq_lineup'], reviewedLineup);
+    expect(
+      text['ki_wset_sseq_lineup'],
+      isNot(contains('fragile mature bottle')),
+    );
+    final orderCitations = dataset.knowledgeItemCitations.where(
+      (citation) => citation.knowledgeItemId == 'ki_wset_sseq_lineup',
+    );
+    expect(
+      orderCitations.map((citation) => citation.sourceCitationId).toSet(),
+      {'src_wset_sseq_bordeaux'},
+    );
+    expect(
+      dataset.sourceCitations
+          .singleWhere((source) => source.id == 'src_wset_sseq_bordeaux')
+          .url,
+      'https://www.bordeaux.com/en/wine-tasting-basics/serve/',
+    );
     expect(text['ki_wset_sseq_table'], contains('wine and vintage'));
     expect(text['ki_wset_sseq_table'], contains('before pouring the full'));
     expect(text['ki_wset_sseq_table'], contains('replace faulty wine'));

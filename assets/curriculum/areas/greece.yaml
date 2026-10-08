@@ -264,6 +264,18 @@ relation_set_assertions:
     locator: "Section 6, p. 6: Roditis; complete wine-grape list"
 
 source_citations:
+  - id: src_takeover_b_geo_cb3ee140bbc2
+    kind: reference_work
+    title: Peloponnesus – Southern Greece
+    publisher: Greek National Tourism Organisation
+    url: https://archivecollections.visitgreece.gr/entities/multimedia/1ef06a91-4e04-4bab-8f5e-fe3823a001eb
+    accessed_on: 2026-10-08
+  - id: src_takeover_b_geo_402979950f55
+    kind: reference_work
+    title: Wine tourism in Northern Greece
+    publisher: Wines of Greece
+    url: https://winesofgreece.org/routes/wine-tourism-in-northern-greece/
+    accessed_on: 2026-10-08
   - id: src_gr_slopes_of_meliton_spec
     kind: regulator_register
     title: "Slopes of Meliton PDO technical file"
@@ -357,12 +369,25 @@ source_citations:
     accessed_on: "2026-09-26"
 
 knowledge_item_citations:
+  - knowledge_item_id: ki_peloponnese_location
+    source_citation_id: src_takeover_b_geo_cb3ee140bbc2
+    locator: Collection title and geographical scope
+  - knowledge_item_id: ki_macedonia_location
+    source_citation_id: src_takeover_b_geo_402979950f55
+    locator: Northern Greece regional overview and Wine Roads of Central Macedonia
+  - knowledge_item_id: ki_halkidiki_location
+    source_citation_id: src_takeover_b_geo_402979950f55
+    locator: Northern Greece regional overview and Wine Roads of Central Macedonia
+  - knowledge_item_id: ki_sithonia_location
+    source_citation_id: src_gr_halkidiki_geography
+    locator: "Opening regional description; Sithonia peninsula and Mount Meliton slopes"
+  - knowledge_item_id: ki_achaea_location
+    source_citation_id: src_gr_achaea_geography
+    locator: "Opening regional description; Achaea vineyards in the northern Peloponnese"
   - { knowledge_item_id: ki_halkidiki_location, source_citation_id: src_gr_slopes_of_meliton_spec, locator: "Section 5: Neos Marmaras, Sithonia, Halkidiki; section 7: Macedonia and Halkidiki" }
   - { knowledge_item_id: ki_halkidiki_location, source_citation_id: src_gr_halkidiki_geography, locator: "Halkidiki region and Mount Meliton in Sithonia" }
   - { knowledge_item_id: ki_sithonia_location, source_citation_id: src_gr_slopes_of_meliton_spec, locator: "Section 5: delimited area around Neos Marmaras on Sithonia" }
-  - { knowledge_item_id: ki_sithonia_location, source_citation_id: src_gr_halkidiki_geography, locator: "Sithonia peninsula and Mount Meliton slopes" }
   - { knowledge_item_id: ki_slopes_of_meliton_location, source_citation_id: src_gr_slopes_of_meliton_spec, locator: "Section 5: delimited area includes Neos Marmaras in Sithonia, Halkidiki" }
-  - { knowledge_item_id: ki_achaea_location, source_citation_id: src_gr_achaea_geography, locator: "Achaea vineyards in the northern Peloponnese" }
   - { knowledge_item_id: ki_patra_location, source_citation_id: src_gr_patra_spec, locator: "Section 5: specified semi-mountainous Achaea communities, including Patras, Aigio and Akrata" }
   - { knowledge_item_id: ki_slopes_of_meliton_assyrtiko, source_citation_id: src_gr_slopes_of_meliton_spec, locator: "Sections 2 and 6: dry white and dry red PDO wines; Assyrtiko in the wine-grape list" }
   - { knowledge_item_id: ki_patra_roditis, source_citation_id: src_gr_patra_spec, locator: "Sections 2 and 6: dry, medium-dry and medium-sweet white PDO wines; Roditis in the wine-grape list" }

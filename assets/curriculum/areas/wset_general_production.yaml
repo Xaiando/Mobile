@@ -694,7 +694,7 @@ knowledge_items:
     relation_type: PRINCIPLE_EXPLANATION
     object_id: n_wset_prod_point_cross_hybrid
     domain_id: viticulture
-    assertion_text: A crossing combines parent varieties by sexual reproduction; in common wine-study terminology, an intraspecific crossing uses parents of the same species, while an interspecific hybrid combines different vine species.
+    assertion_text: "Crossing uses pollen from one parent to fertilise another and produce seeds. Intraspecific crosses use parents of the same vine species; interspecific crosses combine different vine species."
     verification_status: unverified
     mcq_disabled: true
     last_verified_at: 2026-09-27T17:00:00.000Z
@@ -757,7 +757,7 @@ knowledge_items:
     relation_type: PRINCIPLE_EXPLANATION
     object_id: n_wset_prod_point_site_fog
     domain_id: viticulture
-    assertion_text: Fog can reduce incoming sunlight and daytime heat and delay ripening while increasing humidity. Its effects depend on persistence, timing and whether the fruit zone subsequently dries.
+    assertion_text: "Fog can reduce sunlight and daytime heating and alter ripening time. Fog occurs in humid conditions and can wet vine surfaces; its effects depend on when it forms and dissipates and how long surfaces remain wet."
     verification_status: unverified
     mcq_disabled: true
     last_verified_at: 2026-09-27T17:00:00.000Z
@@ -1162,7 +1162,7 @@ knowledge_items:
     relation_type: PRINCIPLE_EXPLANATION
     object_id: n_wset_prod_point_glass_pet_bib
     domain_id: winemaking
-    assertion_text: Glass, PET plastic and bag-in-box differ in weight, breakage risk, barrier properties and dispensing. Package design, filling oxygen and storage affect shelf life; an inexpensive format need not imply poor initial wine.
+    assertion_text: "Glass, PET plastic and bag-in-box differ in weight, breakage resistance, oxygen barriers and dispensing. Filling oxygen, package design and storage affect shelf life; choose a format suited to the wine and its intended time to consumption."
     verification_status: unverified
     mcq_disabled: true
     last_verified_at: 2026-09-27T17:00:00.000Z
@@ -1243,7 +1243,7 @@ knowledge_items:
     relation_type: PRINCIPLE_EXPLANATION
     object_id: n_wset_prod_point_dry_on_off_vine
     domain_id: viticulture
-    assertion_text: Drying reduces berry water, concentrating the remaining juice. Grapes may shrivel on the vine or be dried after harvest; airflow and sorting limit damaging mould, and reduced juice volume can increase production cost.
+    assertion_text: "Drying removes water from grapes and increases sugar concentration. Grapes can dry on the vine or after harvest; suitable airflow, dry conditions and exclusion of damaged or diseased fruit help limit mould."
     verification_status: unverified
     mcq_disabled: true
     last_verified_at: 2026-09-27T17:00:00.000Z
@@ -2172,6 +2172,57 @@ source_citations:
     url: https://www.oiv.int/node/3451
     document_identifier: "Sound vitivinicultural practices to minimise ochratoxin A: drying wine grapes"
     accessed_on: 2026-09-27
+  - id: src_takeover_cross_hybrid_1
+    kind: reference_work
+    title: Grape breeding and intraspecific crosses
+    publisher: Frontiers in Plant Science
+    url: https://www.frontiersin.org/journals/plant-science/articles/10.3389/fpls.2022.940540/full
+    document_identifier: Reader lines 391–414, 583
+    accessed_on: 2026-10-08
+  - id: src_takeover_cross_hybrid_2
+    kind: reference_work
+    title: Grape interspecific hybridization
+    publisher: Cornell University, Northern Grapes News
+    url: https://ecommons.cornell.edu/server/api/core/bitstreams/4ea35848-3338-4150-8fd3-a19ba5f7bc0e/content
+    document_identifier: Northern Grapes News, Vol 1 Issue 2 May18 2012, physical
+      page2, Grape interspecific hybridization; local PDF and extracted txt
+    accessed_on: 2026-10-08
+  - id: src_takeover_dry_on_off_vine_1
+    kind: reference_work
+    title: "OIV522-2016: prevention of ochratoxin A in dried grapes"
+    publisher: International Organisation of Vine and Wine
+    url: https://www.oiv.int/node/3208
+    document_identifier: OIV resolution522-2016, sections5.1,5.3.1–5.3.3 and5.4;
+      reader lines109,122,160–167
+    accessed_on: 2026-10-08
+  - id: src_takeover_dry_on_off_vine_2
+    kind: reference_work
+    title: Control of sugar content of harvested grapes
+    publisher: International Organisation of Vine and Wine
+    url: https://www.oiv.int/standards/international-code-of-oenological-practices/part-ii-oenological-treatments-and-practices/grapes/control-of-the-sugar-content-of-the-harvested-grapes
+    document_identifier: II.1.10, reader lines7–24
+    accessed_on: 2026-10-08
+  - id: src_takeover_glass_pet_bib_2
+    kind: reference_work
+    title: Wine Packaging Guidelines, August2022
+    publisher: Australian Grape and Wine
+    url: https://www.agw.org.au/wp-content/uploads/2022/09/Packaging-Guidelines_Final-August-2022.pdf
+    document_identifier: Packaging Guidelines August2022, physical page37, reader lines1367–1405
+    accessed_on: 2026-10-08
+  - id: src_takeover_site_fog_1
+    kind: reference_work
+    title: Establishment of Coombsville viticultural area
+    publisher: US Alcohol and Tobacco Tax and Trade Bureau
+    url: https://public-inspection.federalregister.gov/2011-32018.pdf?1323784047=
+    document_identifier: TTB2011 Coombsville rule, physical pages18–19, reader lines446–473
+    accessed_on: 2026-10-08
+  - id: src_takeover_site_fog_3
+    kind: reference_work
+    title: How Fog Forms
+    publisher: US National Weather Service
+    url: https://www.weather.gov/lmk/fog_tutorial
+    document_identifier: NWS How Fog Forms, reader lines156–165,182–184
+    accessed_on: 2026-10-08
 knowledge_item_citations:
   - knowledge_item_id: ki_wset_prod_red_press_timing
     source_citation_id: src_wset_prod_red_maceration
@@ -2397,7 +2448,7 @@ knowledge_item_citations:
     locator: Blending and mixing or preparation of the cuvee
   - knowledge_item_id: ki_wset_prod_blend_consistency
     source_citation_id: src_wset_prod_consistency
-    locator: "Grenache consumer guide: blending and consistency"
+    locator: "Grenache Educator guide: blending and consistency, physical p.28"
   - knowledge_item_id: ki_wset_prod_blend_consistency
     source_citation_id: src_wset_prod_blend
     locator: Blending and mixing or preparation of the cuvee
@@ -2512,3 +2563,32 @@ knowledge_item_citations:
   - knowledge_item_id: ki_wset_prod_dormancy_budburst
     source_citation_id: src_vit_frost_ncsu
     locator: Relevant production mechanism and scope-qualified application
+  - knowledge_item_id: ki_wset_prod_cross_hybrid
+    source_citation_id: src_takeover_cross_hybrid_1
+    locator: Reader lines 391–414, 583
+  - knowledge_item_id: ki_wset_prod_cross_hybrid
+    source_citation_id: src_takeover_cross_hybrid_2
+    locator: Northern Grapes News, Vol 1 Issue 2 May18 2012, physical page2, Grape
+      interspecific hybridization; local PDF and extracted txt
+  - knowledge_item_id: ki_wset_prod_dry_on_off_vine
+    source_citation_id: src_takeover_dry_on_off_vine_1
+    locator: OIV resolution522-2016, sections5.1,5.3.1–5.3.3 and5.4; reader
+      lines109,122,160–167
+  - knowledge_item_id: ki_wset_prod_dry_on_off_vine
+    source_citation_id: src_takeover_dry_on_off_vine_2
+    locator: II.1.10, reader lines7–24
+  - knowledge_item_id: ki_wset_prod_glass_pet_bib
+    source_citation_id: src_d1vp_awri_pack
+    locator: AWRI2023 alternative packaging article, reader lines53–63,166–205,215–289
+  - knowledge_item_id: ki_wset_prod_glass_pet_bib
+    source_citation_id: src_takeover_glass_pet_bib_2
+    locator: Packaging Guidelines August2022, physical page37, reader lines1367–1405
+  - knowledge_item_id: ki_wset_prod_site_fog
+    source_citation_id: src_takeover_site_fog_1
+    locator: TTB2011 Coombsville rule, physical pages18–19, reader lines446–473
+  - knowledge_item_id: ki_wset_prod_site_fog
+    source_citation_id: src_vit_powdery
+    locator: UC IPM grape powdery mildew, reader lines58–67
+  - knowledge_item_id: ki_wset_prod_site_fog
+    source_citation_id: src_takeover_site_fog_3
+    locator: NWS How Fog Forms, reader lines156–165,182–184

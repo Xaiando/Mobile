@@ -23,7 +23,7 @@ knowledge_nodes:
   - { id: n_hcourse_names_age, node_type: learning_point, name: "Cognac Napoleon is six years" }
   - { id: n_hcourse_sparkling, node_type: production_principle, name: "What records the sparkling method, and what does not?" }
   - { id: n_hcourse_sparkling_paper, node_type: learning_point, name: "Merrett's 1662 paper" }
-  - { id: n_hcourse_sparkling_myth, node_type: learning_point, name: "Perignon is not that paper's inventor" }
+  - { id: n_hcourse_sparkling_myth, node_type: learning_point, name: "Sparkling history: Merrett’s 1662 paper precedes Pérignon’s cellar appointment" }
   - { id: n_hcourse_phylloxera, node_type: production_principle, name: "What does the opened phylloxera page support?" }
   - { id: n_hcourse_phylloxera_root, node_type: learning_point, name: "Rootstocks, not a cure-all spray" }
   - { id: n_hcourse_phylloxera_limit, node_type: learning_point, name: "No European year from that page" }
@@ -64,7 +64,7 @@ knowledge_nodes:
 
   - { id: n_hcourse_doc, node_type: production_principle, name: "What did the opened 1963 article define?" }
   - { id: n_hcourse_doc_name, node_type: learning_point, name: "A geographic name tied to vines and environment" }
-  - { id: n_hcourse_doc_unread, node_type: learning_point, name: "This view stopped before any later article" }
+  - { id: n_hcourse_doc_unread, node_type: learning_point, name: "Article 1 and the separate historical compilation have different scopes" }
   - { id: n_hcourse_case_doc, node_type: production_case, name: "A guest says 1963 invented the letters DOC" }
   - { id: n_hcourse_case_doc_action, node_type: learning_point, name: "Quote article 1 and stop" }
   - { id: n_hcourse_case_doc_reason, node_type: learning_point, name: "The loaded text does not use those abbreviations" }
@@ -199,7 +199,7 @@ knowledge_items:
     relation_type: PRINCIPLE_EXPLANATION
     object_id: n_hcourse_rome_not_law
     domain_id: service
-    assertion_text: "Neither Pliny's ranking nor Columella's husbandry fixes a production area, a grape list, a yield, or a minimum strength. Those controls appear in the later French appellation rules and in the EU definition of wine, not in these Roman books."
+    assertion_text: "The inspected passages describe Pliny’s wine ranking and Columella’s vineyard husbandry. They do not establish the modern controlled-appellation conditions. The French wine code in force on 25 November 1967 lists production area, grapes, yield per hectare, minimum alcoholic strength and cultivation and vinification methods. The EU wine product-category definition concerns fermentation and specified product characteristics; it should be distinguished from appellation specifications. This comparison is limited to the inspected passages and the explicitly dated legal texts."
     verification_status: unverified
     last_verified_at: "2026-09-27T23:59:00.000Z"
     mcq_disabled: true
@@ -280,7 +280,7 @@ knowledge_items:
     relation_type: PRINCIPLE_EXPLANATION
     object_id: n_hcourse_sparkling_myth
     domain_id: service
-    assertion_text: "Pérignon became cellar master at Hautvillers after Merrett's paper. The Royal College of Physicians account says his task included preventing bubbles. That account does not make him the inventor of the method in the 1662 paper, and the stars slogan is not in that paper."
+    assertion_text: "According to the Royal College of Physicians account, Pérignon became cellar master at Hautvillers about six years after Merrett’s 1662 paper, with a task that included preventing bubbles. That role does not make him the inventor of the process Merrett described. The stars slogan is absent from the excerpt quoted by the college; this excerpt does not establish whether it appears anywhere in the complete paper."
     verification_status: unverified
     last_verified_at: "2026-09-27T23:59:00.000Z"
     mcq_disabled: true
@@ -370,7 +370,7 @@ knowledge_items:
     relation_type: CASE_TRADEOFF
     object_id: n_hcourse_case_oldest_tradeoff
     domain_id: service
-    assertion_text: "A shorter reply is easier for the guest, but collapsing the two papers teaches the misconception the question was meant to correct."
+    assertion_text: "A brief reply may be useful, but keep the earlier Georgian residue evidence distinct from the later Areni production installation so the answer preserves their different dates and evidence types."
     verification_status: unverified
     last_verified_at: "2026-09-27T23:59:00.000Z"
     mcq_disabled: true
@@ -406,7 +406,7 @@ knowledge_items:
     relation_type: CASE_TRADEOFF
     object_id: n_hcourse_case_napoleon_tradeoff
     domain_id: service
-    assertion_text: "Stopping to split the name slows service, but a single answer will be wrong for at least two of the three uses."
+    assertion_text: "Clarifying which meaning the guest intends may take an extra exchange, but conflating the blockade, ranking and age mention can answer the wrong question."
     verification_status: unverified
     last_verified_at: "2026-09-27T23:59:00.000Z"
     mcq_disabled: true
@@ -552,7 +552,7 @@ knowledge_items:
     relation_type: PRINCIPLE_EXPLANATION
     object_id: n_hcourse_doc_unread
     domain_id: service
-    assertion_text: "The Normattiva original-text view stopped at Article 1, and the full-act export failed. A separate compilation prints Articles 2 and 3 and leaves Article 4 blank. The three names are taught from that compilation, not from the Article 1 view. Neither Article 1 nor the printed Article 2 uses the abbreviations DOC or DOCG."
+    assertion_text: "The Normattiva Article 1 response provides navigation to later articles. A separate historical compilation prints Articles 2 and 3 and leaves Article 4 blank. Article 2 supplies the three full historical names; neither Article 1 nor the printed Article 2 body uses DOC or DOCG. Keep the two sources and their article coverage distinct."
     verification_status: unverified
     last_verified_at: "2026-09-27T23:59:00.000Z"
     mcq_disabled: true
@@ -607,7 +607,7 @@ knowledge_items:
     relation_type: PRINCIPLE_EXPLANATION
     object_id: n_hcourse_doc_semplice
     domain_id: service
-    assertion_text: "Article 3 of that compilation says the semplice name designates wines from the traditional grape varieties of the corresponding production zones, vinified according to the local, fair, and constant uses of those zones. If no ministerial delimitation has been made, the zone is the whole municipal district to which the geographic name refers. Article 4, which the compilation's contents list as the recognition article, is blank. A footnote says Article 4 was abrogated by DPR 20 April 1994, n. 348. Do not invent the missing recognition procedure."
+    assertion_text: "Article 3 of the compilation covers traditional grape varieties and local, fair and constant vinification uses. Without ministerial delimitation, the zone consists of the entire districts of municipalities falling within the territory indicated by the geographical name or qualification. Article 4 is blank, and footnote 2 reports its repeal by Article 5 of DPR 20 April 1994, n. 348; the contents entry is simply Art. 4. The missing recognition procedure is not supplied."
     verification_status: unverified
     last_verified_at: "2026-09-27T23:59:00.000Z"
     mcq_disabled: true
@@ -643,7 +643,7 @@ knowledge_items:
     relation_type: CASE_TRADEOFF
     object_id: n_hcourse_case_repeal_tradeoff
     domain_id: service
-    assertion_text: "Article 3 of the opened compilation says semplice covers the traditional grape varieties of the corresponding zones, vinified according to their local, fair, and constant uses. Without a ministerial delimitation, the zone is the whole municipal district named. This historical definition does not itself decide the classification of a bottle today."
+    assertion_text: "Article 3 of the opened compilation covers traditional grape varieties of the corresponding zones, vinified according to local, fair and constant uses. Without ministerial delimitation, the zone comprises the whole municipal district of each municipality falling within the territory indicated by the geographical name or qualification. This historical rule does not itself determine a bottle’s classification today."
     verification_status: unverified
     last_verified_at: "2026-09-27T23:59:00.000Z"
     mcq_disabled: true
@@ -896,7 +896,7 @@ source_citations:
     title: "DPR 12 July 1963, n. 930, original-text view"
     publisher: "Normattiva"
     jurisdiction: IT
-    document_identifier: "Article 1 only. Gazzetta n. 188 of 15 July 1963. Full-act export failed. Text shown as in force 30 July 1963 to 10 May 2010."
+    document_identifier: "Article 1 response with navigation to later articles. Gazzetta n. 188 of 15 July 1963. Text shown as in force 30 July 1963 to 10 May 2010; the separate historical compilation supplies Articles 2 and 3."
     url: "https://www.normattiva.it/atto/caricaDettaglioAtto?atto.dataPubblicazioneGazzetta=1963-07-15&atto.codiceRedazionale=063U0930&tipoDettaglio=originario"
     accessed_on: "2026-09-27"
 
@@ -977,7 +977,7 @@ knowledge_item_citations:
   - { knowledge_item_id: ki_hcourse_case_phylloxera_limit, source_citation_id: src_hcourse_inrae_phylloxera, locator: "Agronomic impact: 1863 to 1893, French vineyard, and the uncounted disappearance clause." }
   - { knowledge_item_id: ki_hcourse_phylloxera_year, source_citation_id: src_hist_ucipm_phylloxera, locator: "The California page still does not date Europe." }
   - { knowledge_item_id: ki_hcourse_doc_name, source_citation_id: src_hcourse_dpr_930, locator: "Article 1 as printed. Later articles were not on the loaded view." }
-  - { knowledge_item_id: ki_hcourse_doc_unread, source_citation_id: src_hcourse_dpr_930, locator: "Article 1 as printed. Later articles were not on the loaded view." }
+  - { knowledge_item_id: ki_hcourse_doc_unread, source_citation_id: src_hcourse_dpr_930, locator: "Article 1 response and navigation to later articles; this citation covers Article 1." }
   - { knowledge_item_id: ki_hcourse_case_doc_action, source_citation_id: src_hcourse_dpr_930, locator: "Article 1 as printed. Later articles were not on the loaded view." }
   - { knowledge_item_id: ki_hcourse_case_doc_reason, source_citation_id: src_hcourse_dpr_930, locator: "Article 1 as printed. Later articles were not on the loaded view." }
   - { knowledge_item_id: ki_hcourse_case_doc_tradeoff, source_citation_id: src_hcourse_dpr_930, locator: "Article 1 as printed. Later articles were not on the loaded view." }
@@ -1005,3 +1005,12 @@ knowledge_item_citations:
   - { knowledge_item_id: ki_hcourse_case_letters_limit, source_citation_id: src_hcourse_l238_art28, locator: "DOP classified into DOCG and DOC. IGP includes IGT. Abbreviations may stand alone or with DOP or IGP." }
   - { knowledge_item_id: ki_hcourse_doc_now, source_citation_id: src_hcourse_l238_art26, locator: "Definitions are those in article 93 of Regulation (EU) No 1308/2013. Note quotes the exclusive-grape and 85 percent rules." }
   - { knowledge_item_id: ki_hcourse_doc_2010, source_citation_id: src_hcourse_l238_art28, locator: "Later classification of DOP into DOC and DOCG." }
+  - knowledge_item_id: ki_hcourse_doc_unread
+    source_citation_id: src_hcourse_dpr_930_compilation
+    locator: "Historical compilation: Articles 2 and 3, Article 4 blank and its repeal footnote; this is separate from the Normattiva Article 1 response."
+  - knowledge_item_id: ki_hcourse_rome_not_law
+    source_citation_id: "src_eu_reg_1308_2013"
+    locator: Annex VII Part II category 1, wine definition in the explicitly dated 18 March 2026 consolidation; distinct from controlled-appellation specifications.
+  - knowledge_item_id: ki_hcourse_rome_not_law
+    source_citation_id: src_hist_pliny_falernian
+    locator: "Natural History book 14, LCL 370 pp.228–229: inspected Falernian ranking passage only; no absence claim about the entire book."

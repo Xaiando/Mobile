@@ -161,6 +161,17 @@ export function loadConfig() {
         (!l.sources?.includes(l.gazetteer.source) || l.geometry !== 'point')) {
       problems.push(`${where}: gazetteer needs a listed source and point geometry`);
     }
+    if (l?.gazetteer?.supplements !== undefined) {
+      if (!Array.isArray(l.gazetteer.supplements)) {
+        problems.push(`${where}: gazetteer supplements must be a list`);
+      } else {
+        for (const input of l.gazetteer.supplements) {
+          if (!l.sources?.includes(input?.source)) {
+            problems.push(`${where}: gazetteer supplement needs a listed source`);
+          }
+        }
+      }
+    }
     if (l?.appellation_areas !== undefined) {
       for (const [node, area] of Object.entries(l.appellation_areas ?? {})) {
         if (!Array.isArray(area?.aoc) || area.aoc.length === 0 || !area.aoc.every(Number.isInteger)) {

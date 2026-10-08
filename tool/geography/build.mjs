@@ -146,29 +146,78 @@ export async function buildNaturalEarth(config, layer) {
   return { ...built, communes: new Map() };
 }
 
+/** Expected node identities use the same fully validated selection as generation. */
+export async function expectedLayerNodeIds(config, spec) {
+  if (spec.appellation_areas) return Object.keys(spec.appellation_areas);
+  if (spec.gazetteer) return (await buildGazetteer(config, spec)).table.map((row) => row.node);
+  return Object.values(spec.natural_earth.nodes ?? {});
+}
+
 /** Sourced gazetteer markers are points, never invented appellation borders. */
 export async function buildGazetteer(config, layer) {
-  const source = config.sources.get(layer.gazetteer.source);
-  const data = JSON.parse(fs.readFileSync(downloadPath(source), 'utf8'));
-  if (data.type !== 'FeatureCollection' || !Array.isArray(data.features)) {
-    throw new Error(`${source.id}: expected a GeoJSON FeatureCollection`);
+  const recipe = layer.gazetteer;
+  if (recipe.supplements !== undefined && !Array.isArray(recipe.supplements)) {
+    throw new Error(`${layer.id}: gazetteer supplements must be a list`);
   }
-  const seen = new Set();
-  for (const f of data.features) {
-    const node = f.properties?.node;
-    const c = f.geometry?.coordinates;
-    if (typeof node !== 'string' || seen.has(node) ||
-        f.geometry?.type !== 'Point' || !Array.isArray(c) || c.length !== 2 ||
-        !c.every(Number.isFinite) || Math.abs(c[0]) > 180 || Math.abs(c[1]) > 85 ||
-        typeof f.properties?.source_url !== 'string' ||
-        !f.properties.source_url.startsWith('https://')) {
-      throw new Error(`${source.id}: invalid or duplicate sourced marker ${node}`);
+  const inputs = [
+    { source: recipe.source, include_nodes: recipe.include_nodes, exclude_nodes: recipe.exclude_nodes },
+    ...(recipe.supplements ?? []),
+  ];
+  const selected = [];
+  const selectedNodes = new Set();
+  for (const input of inputs) {
+    const source = config.sources.get(input?.source);
+    if (!source || (layer.sources && !layer.sources.includes(input.source)) ||
+        (input !== inputs[0] && !layer.sources?.includes(input.source))) {
+      throw new Error(`${layer.id}: gazetteer source ${input?.source} must be known and listed`);
     }
-    seen.add(node);
+    const data = JSON.parse(fs.readFileSync(downloadPath(source), 'utf8'));
+    if (data.type !== 'FeatureCollection' || !Array.isArray(data.features)) {
+      throw new Error(`${source.id}: expected a GeoJSON FeatureCollection`);
+    }
+    // Validate the full pinned source before filtering. Selection must not hide
+    // invalid coordinates, missing provenance or duplicate source identities.
+    const sourceNodes = new Set();
+    for (const f of data.features) {
+      const node = f.properties?.node;
+      const c = f.geometry?.coordinates;
+      if (typeof node !== 'string' || sourceNodes.has(node) ||
+          f.geometry?.type !== 'Point' || !Array.isArray(c) || c.length !== 2 ||
+          !c.every(Number.isFinite) || Math.abs(c[0]) > 180 || Math.abs(c[1]) > 85 ||
+          typeof f.properties?.source_url !== 'string' ||
+          !f.properties.source_url.startsWith('https://')) {
+        throw new Error(`${source.id}: invalid or duplicate sourced marker ${node}`);
+      }
+      sourceNodes.add(node);
+    }
+    for (const key of ['include_nodes', 'exclude_nodes']) {
+      const nodes = input[key];
+      if (nodes !== undefined && (!Array.isArray(nodes) ||
+          !nodes.every((node) => typeof node === 'string') ||
+          new Set(nodes).size !== nodes.length)) {
+        throw new Error(`${source.id}: ${key} must be a list of unique node IDs`);
+      }
+      for (const node of nodes ?? []) {
+        if (!sourceNodes.has(node)) {
+          throw new Error(`${source.id}: unknown ${key} node ${node}`);
+        }
+      }
+    }
+    const include = input.include_nodes === undefined ? null : new Set(input.include_nodes);
+    const exclude = new Set(input.exclude_nodes ?? []);
+    for (const f of data.features) {
+      const node = f.properties.node;
+      if ((include && !include.has(node)) || exclude.has(node)) continue;
+      if (selectedNodes.has(node)) {
+        throw new Error(`${layer.id}: duplicate selected sourced marker ${node}`);
+      }
+      selectedNodes.add(node);
+      selected.push(f);
+    }
   }
-  // Point coordinates have no polygon interior; preserve the source point
-  // exactly in the manifest rather than asking mapshaper for an inner point.
-  const features = data.features.map((f) => ({
+  // Preserve each exact source point; a layer ID is a stable compatibility key,
+  // while its listed sources and displayed attribution describe current data.
+  const features = selected.map((f) => ({
     type: 'Point', id: f.properties.node,
     properties: { node: f.properties.node, name: f.properties.name }, coordinates: f.geometry.coordinates,
   })).sort((a, b) => a.id.localeCompare(b.id));
@@ -184,6 +233,7 @@ export async function buildGazetteer(config, layer) {
     })), communes: new Map(),
   };
 }
+
 
 /** INAO's geographical areas: appellation ID to the INSEE codes of its communes. */
 function readInaoAreas(config) {

@@ -33,9 +33,7 @@ question_templates:
         - DAP removes glucose while leaving fructose for the yeast
         - DAP replaces the need to monitor temperature and fermentation rate throughout the ferment
         correctIndex: 1
-        explanation: >-
-          AWRI distinguishes the nitrogen supplied by DAP from vitamins and other
-          nutrients needed for robust fermentation; the dose follows the must's needs.
+        explanation: "Oregon State Extension distinguishes the nitrogen supplied by DAP from vitamins and other nutrients needed for robust fermentation; the dose follows the must's needs."
         sourceCitationId: src_win_yan
       ki_win_filter_ratings:
         prompt: >-
@@ -75,9 +73,7 @@ question_templates:
         - Fructose has already become malic acid through MLF
         - Fructose can be removed only by potassium bitartrate cooling
         correctIndex: 0
-        explanation: >-
-          AWRI identifies glucose and fructose as the principal grape sugars used in
-          alcoholic fermentation. Residual fructose does not guarantee a healthy yeast finish.
+        explanation: "UC Davis identifies glucose and fructose as the principal grape sugars used in alcoholic fermentation. Residual fructose does not guarantee a healthy yeast finish."
         sourceCitationId: src_win_fermentation
       ki_win_laccase:
         prompt: >-
@@ -103,9 +99,7 @@ question_templates:
         - Yeast may take up nutrients poorly under late ethanol stress
         - Nutrients can function only before grape crushing starts
         correctIndex: 2
-        explanation: >-
-          AWRI notes that uptake and benefit from nitrogen additions decline late
-          in fermentation as ethanol and stress rise; diagnose the cause rather than assume rescue.
+        explanation: "Oregon State Extension notes that uptake and benefit from nitrogen additions decline late in fermentation as ethanol and stress rise; diagnose the cause rather than assume rescue."
         sourceCitationId: src_win_yan
       ki_win_lees_stirring:
         prompt: >-
@@ -159,9 +153,7 @@ question_templates:
         - It supports synthesis of membrane components for ethanol tolerance
         - It guarantees protection against all spoilage organisms
         correctIndex: 2
-        explanation: >-
-          AWRI explains that managed oxygen during active fermentation can help
-          yeast form sterols and unsaturated fatty acids for healthy membranes.
+        explanation: "UC Davis explains that managed oxygen during active fermentation can help yeast form sterols and unsaturated fatty acids for healthy membranes."
         sourceCitationId: src_win_oxygen
       ki_win_oxygen_stage:
         prompt: >-
@@ -173,9 +165,7 @@ question_templates:
         - Finished wine cannot brown or support microbial growth
         - Reassess by stage, wine condition and intended maturation style
         correctIndex: 3
-        explanation: >-
-          AWRI distinguishes useful oxygen during fermentation or chosen
-          maturation from unwanted oxidation and microbial growth later.
+        explanation: "UC Davis distinguishes useful oxygen during fermentation or chosen maturation from unwanted oxidation and microbial growth later."
         sourceCitationId: src_win_oxygen
       ki_win_packaging_hygiene:
         prompt: >-
@@ -285,9 +275,7 @@ question_templates:
         - To extract more seed tannin from the pressed juice
         - To help retain delicate aroma while keeping yeast active
         correctIndex: 3
-        explanation: >-
-          AWRI links cooler fermentation with retaining delicate white-wine
-          aroma, provided the yeast can still ferment reliably.
+        explanation: "Penn State Extension links cooler fermentation with retaining delicate white-wine aroma, provided the yeast can still ferment reliably."
         sourceCitationId: src_win_white_temperature
       ki_win_yan_measure:
         prompt: >-
@@ -299,9 +287,7 @@ question_templates:
         - Wait until both fermentations stop before checking nitrogen
         - Set the same dose solely from the grape variety name
         correctIndex: 0
-        explanation: >-
-          AWRI recommends YAN measurement because musts and yeast strains
-          differ; a uniform nutrient dose can under- or over-supply a ferment.
+        explanation: "Oregon State Extension recommends YAN measurement because musts and yeast strains differ; a uniform nutrient dose can under- or over-supply a ferment."
         sourceCitationId: src_win_yan
       ki_win_yan_risk:
         prompt: >-
@@ -313,9 +299,7 @@ question_templates:
         - Nitrogen will automatically rise as alcohol accumulates
         - Low YAN guarantees lower acidity but no fermentation risk
         correctIndex: 1
-        explanation: >-
-          AWRI identifies inadequate YAN as a fermentation-completion risk,
-          especially where a high-sugar must places a heavy demand on yeast.
+        explanation: "Oregon State Extension identifies inadequate YAN as a fermentation-completion risk, especially where a high-sugar must places a heavy demand on yeast."
         sourceCitationId: src_win_yan
       ki_win_yeast_health:
         prompt: >-
@@ -327,9 +311,7 @@ question_templates:
         - Check yeast health and conditions, not inoculation alone
         - A slow ferment proves malolactic bacteria consumed the glucose
         correctIndex: 2
-        explanation: >-
-          AWRI stresses that sufficient, metabolically healthy yeast and
-          suitable conditions are needed to consume fermentable grape sugars.
+        explanation: "UC Davis stresses that sufficient, metabolically healthy yeast and suitable conditions are needed to consume fermentable grape sugars."
         sourceCitationId: src_win_fermentation
       ki_wset_prod_adjustment_trials:
         prompt: >-
@@ -341,10 +323,8 @@ question_templates:
         - Judge acidity by colour, without measuring or tasting
         - Run separate pH, acidity and sensory bench trials
         correctIndex: 3
-        explanation: >-
-          AWRI describes buffering and acid composition as reasons equal additions
-          can yield different responses; trials also precede final stability assessment.
-        sourceCitationId: src_wset_prod_acid
+        explanation: "AWRI's deacidification guidance recommends bench samples evaluated for pH, titratable acidity and taste; its acid factsheet separately discusses differing acid responses and stability."
+        sourceCitationId: "src_wset_prod_deacid"
       ki_wset_prod_arrest_chill:
         prompt: >-
           A ferment is chilled while fermentable grape sugar remains. What
@@ -372,7 +352,7 @@ question_templates:
         explanation: >-
           AWRI notes that visually clear wine can still contain viable microbes;
           appropriate filtration and hygienic packaging must be evaluated.
-        sourceCitationId: src_win_packaging
+        sourceCitationId: "src_wset_prod_filter"
       ki_wset_prod_closure_performance:
         prompt: >-
           A buyer wants one closure specified for every wine in a portfolio.
@@ -439,10 +419,8 @@ question_templates:
         - Wood flavour may develop, but vessel oxygen effects can differ
         - Barrel geometry alone determines wine sweetness
         correctIndex: 2
-        explanation: >-
-          Oak pieces can supply wood compounds, but Iowa State's technical
-          account and OIV vessel guidance distinguish extraction from barrel maturation.
-        sourceCitationId: src_win_oak
+        explanation: "OIV describes oak pieces as transferring wood constituents to wine. That extraction does not establish that the pieces reproduce a barrel's geometry or oxygen exchange."
+        sourceCitationId: "src_wset_prod_oak_alternatives"
       ki_wset_prod_package_oxygen:
         prompt: >-
           Two bag-in-box suppliers quote different barrier specifications for
@@ -498,7 +476,7 @@ question_templates:
         explanation: >-
           AWRI warns that sweetening after filtration can reintroduce a
           fermentable substrate and organisms; yeast control and line hygiene matter.
-        sourceCitationId: src_win_packaging
+        sourceCitationId: "src_wset_prod_filter"
       ki_wset_prod_vessel_temperature:
         prompt: >-
           A cellar moves a red ferment from steel to an insulated concrete
@@ -509,10 +487,8 @@ question_templates:
         - Only its oak aroma, since heat production stops in concrete
         - Surface area, insulation and available cooling versus generated heat
         correctIndex: 3
-        explanation: >-
-          AWRI describes fermentation heat and cooling capacity as determinants
-          of temperature control; vessel geometry and material alter heat removal.
-        sourceCitationId: src_win_temperature
+        explanation: "AWRI's vessel heat-transfer model treats geometry, material, insulation and cooling as separate contributors to heat removal; fermentation also generates heat."
+        sourceCitationId: "src_wset_prod_vessels"
       ki_wset_prod_whole_bunch_crushed:
         prompt: >-
           A red ferment combines intact bunches with crushed fruit. What should
@@ -521,7 +497,7 @@ question_templates:
         - That whole bunch inclusion proves every berry underwent full carbonic maceration
         - That stems can influence texture when intact bunches are included
         - That yeast can ferment juice released from crushed fruit
-        - That the intact-berry share depends only on the label and never on vat management
+        - "That handling and vat management can affect how much fruit remains intact"
         correctIndex: 0
         explanation: >-
           AWRI describes carbonic conditions as requiring intact fruit in a
