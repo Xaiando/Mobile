@@ -143,7 +143,7 @@ knowledge_nodes:
     name: What does an AVA origin require under federal US wine labelling rules?
   - id: n_wset_nw_point_usa_ava_origin
     node_type: learning_point
-    name: AVA labelling has an 85 percent grape-origin requirement
+    name: "At least 85% of the wine must derive from grapes grown in the named AVA"
   - id: n_wset_nw_principle_ontario_icewine_selection
     node_type: production_principle
     name: Why is Ontario Icewine different from simply making a wine with residual sugar?
@@ -1080,8 +1080,7 @@ knowledge_items:
     relation_type: PRINCIPLE_EXPLANATION
     object_id: n_wset_nw_point_usa_ava_origin
     domain_id: geography
-    assertion_text: At least 85% of the grapes must come from the named AVA, and the wine must be fully finished
-      within the state or states containing it, subject to the regulation’s exceptions.
+    assertion_text: "For an approved American viticultural area (AVA) appellation, at least 85% of the wine must be derived from grapes grown within that AVA. The wine must be fully finished in the state, or one of the states, containing it, subject to the regulation’s cellar-treatment and blending exceptions. Other applicable label and state requirements remain separate."
     verification_status: unverified
     mcq_disabled: true
     last_verified_at: 2026-09-27T12:00:00.000Z

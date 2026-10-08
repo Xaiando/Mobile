@@ -45,8 +45,22 @@ void _expectSourceRepairsPreserveHistoricalTeaching() {
         .readAsStringSync(),
   ) as Map<String, dynamic>;
   expect(after.keys.toSet(), before.keys.toSet());
+  const reviewedAssertions = <String, String>{
+    'ki_d4sekt_origin_hierarchy': 'DWI guidance distinguishes Deutscher Sekt, made in Germany entirely from German base wines, from a generic Sekt label, which alone does not establish German grape origin. Sekt b.A. restricts grape origin to one of the 13 specified German Anbaugebiete. Under section 19 of the German Wine Act, Sekt b.A. must receive an Amtliche Prüfungsnummer (A.P.-Nr.) after official analytical and sensory examination.',
+    'ki_d4sekt_dosage_style': 'Under Regulation (EU) 2019/33 Annex III Part A, sparkling-wine sweetness categories include Brut Nature (<3 g/L, with no sugar added after secondary fermentation), Extra Brut (0–6 g/L), Brut (<12 g/L), Extra Trocken (12–17 g/L) and Trocken (17–32 g/L). Article 47(3) allows a difference of no more than 3 g/L from the label, without prejudice to the Annex III conditions of use. Dosage shapes sweetness and perceived balance; assess it with acidity and sensory evidence. A sweetness category does not itself establish quality or freedom from faults.',
+  };
   for (final section in before.keys) {
-    if (section != 'source_citations' &&
+    if (section == 'knowledge_items') {
+      final expected = [
+        for (final row in before[section] as List)
+          {
+            ...row as Map<String, dynamic>,
+            if (reviewedAssertions.containsKey(row['id']))
+              'assertion_text': reviewedAssertions[row['id']],
+          },
+      ];
+      expect(after[section], expected, reason: section);
+    } else if (section != 'source_citations' &&
         section != 'knowledge_item_citations') {
       expect(after[section], before[section], reason: section);
     }
@@ -59,6 +73,10 @@ void _expectSourceRepairsPreserveHistoricalTeaching() {
   expect(newSources.keys, containsAll(oldSources.keys));
   expect(newSources.keys.toSet().difference(oldSources.keys.toSet()), {
     'src_d4sekt_weing_quality_review',
+    'src_d4sekt_winev21',
+    'src_d4sekt_eu201933consolidated',
+    'src_d4sekt_awri_leescontact',
+    'src_d4sekt_sektverband',
   });
   const relocatedSources = {
     'src_d4sekt_dwi_regulations',
@@ -80,6 +98,11 @@ void _expectSourceRepairsPreserveHistoricalTeaching() {
     'ki_d4sekt_origin_hierarchy|src_d4sekt_weing_quality_review',
     'ki_d4sekt_case_winzersekt_allocation_action|src_d4sekt_weing_quality_review',
     'ki_d4sekt_case_winzersekt_allocation_limitation|src_d4sekt_weing_quality_review',
+    'ki_d4sekt_origin_hierarchy|src_d4sekt_sektverband',
+    'ki_d4sekt_autolysis_vs_fruit|src_d4sekt_awri_leescontact',
+    'ki_d4sekt_dosage_style|src_d4sekt_winev21',
+    'ki_d4sekt_dosage_style|src_d4sekt_eu201933consolidated',
+    'ki_d4sekt_dosage_style|src_d4sekt_sektverband',
   });
 }
 
@@ -157,6 +180,11 @@ void main() {
     'src_d4sekt_press_fraction_trial': 'https://ives-openscience.eu/4623/',
     'src_d4sekt_awri_laccase': 'https://www.awri.com.au/information_services/ebulletin/2011/04/07/botrytis-and-laccase-winemaking-strategies/',
     'src_d4sekt_eu_reg_2019_33': 'https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=CELEX%3A32019R0033',
+    'src_d4sekt_winev21':
+        'https://www.gesetze-im-internet.de/weinv_1995/__21.html',
+    'src_d4sekt_eu201933consolidated': 'https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=CELEX:02019R0033-20250118',
+    'src_d4sekt_awri_leescontact': 'https://www.awri.com.au/industry_support/winemaking_resources/winemaking-practices/winemaking-treatment-lees-contact/',
+    'src_d4sekt_sektverband': 'https://www.deutscher-sektverband.de/lets-talk-about-sekt/wissenswertes',
   };
   const expectedRecall = {
     'ki_d4sekt_origin_hierarchy': {'A.P.-Nr.', 'Amtliche Prüfungsnummer'},
@@ -230,6 +258,7 @@ void main() {
         'ki_d4sekt_origin_hierarchy': {
           'src_d4sekt_dwi_regulations',
           'src_d4sekt_weing_quality_review',
+          'src_d4sekt_sektverband',
         },
         'ki_d4sekt_winzersekt_standards': {'src_wset_sf_winzersekt'},
         'ki_d4sekt_vdp_classification': {'src_d4sekt_vdp_statut'},
@@ -245,8 +274,14 @@ void main() {
           'src_d4sekt_awri_sparkling',
           'src_d4sekt_sawyer_2022',
           'src_d4sekt_awri_process_project',
+          'src_d4sekt_awri_leescontact',
         },
-        'ki_d4sekt_dosage_style': {'src_d4sekt_eu_reg_2019_33'},
+        'ki_d4sekt_dosage_style': {
+          'src_d4sekt_eu_reg_2019_33',
+          'src_d4sekt_winev21',
+          'src_d4sekt_eu201933consolidated',
+          'src_d4sekt_sektverband',
+        },
       };
       for (final item in cohort) {
         final principle = principleIds.contains(item.id);
@@ -600,13 +635,18 @@ void main() {
     final dosageItem = dataset.knowledgeItems.singleWhere(
       (row) => row.id == 'ki_d4sekt_dosage_style',
     );
+    expect(dosageItem.assertionText, contains('Brut (<12 g/L)'));
+    expect(dosageItem.assertionText, contains('Trocken (17–32 g/L)'));
+    expect(
+      dosageItem.assertionText,
+      contains('with no sugar added after secondary fermentation'),
+    );
     expect(
       dosageItem.assertionText,
       contains(
-        'Brut (<12 g/L, with Article 47(3) providing a 3 g/L analytical tolerance)',
+        'Article 47(3) allows a difference of no more than 3 g/L from the label, without prejudice to the Annex III conditions of use',
       ),
     );
-    expect(dosageItem.assertionText, contains('Trocken (17–32 g/L)'));
 
     // A6: Base wine selection separates proteases and laccase with distinct authoritative citations
     final baseWineItem = dataset.knowledgeItems.singleWhere(
@@ -667,6 +707,7 @@ void main() {
       'src_d4sekt_awri_sparkling',
       'src_d4sekt_sawyer_2022',
       'src_d4sekt_awri_process_project',
+      'src_d4sekt_awri_leescontact',
     });
 
     // 2. Source-grounded expectations tied to presented/graded exercises

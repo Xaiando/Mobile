@@ -38,6 +38,9 @@ const historicalSourceUrlReplacements = <String, Map<String, String>>{
   'src_d1target_oiv_nolo': {
     'https://oiv.int/press/12-months-12-resolutions-dealcoholisation-wines': 'https://www.oiv.int/press/12-months-12-resolutions-dealcoholisation-wines',
   },
+  'src_d4d5_saumur_law': {
+    'https://www.legifrance.gouv.fr/jorf/id/JORFTEXT000021148190': 'https://info.agriculture.gouv.fr/boagri/document_administratif-8acb7143-49ca-4e68-a032-d947fa576460/telechargement',
+  },
   'src_d4depth_au_shiraz': {
     'https://www.wineaustralia.com/getmedia/9f0dac38-afa6-42d6-91b0-e7f674ea9db8/AWD_SparklingWines_FacilitatorGuide.pdf?ext=.pdf': 'https://www.australianwine.com/getcontentasset/ada40174-a274-4df5-a0bc-5e08021b5126/2a6464f5-7547-4f96-aacf-a0c3da1718f8/awd_sparkling_guide.pdf',
   },
@@ -384,8 +387,8 @@ ORDER BY t.mode, q.knowledge_item_id, q.question_template_id
           22: 32,
           23: 28,
           25: 23,
-          49: 26,
-          52: 26,
+          49: 27,
+          52: 27,
         };
         expect(relocatedSources, expectedRelocations[snapshot.pr]);
         for (final id in ['src_wset_prod_climate', 'src_bev_uk_cider_2010']) {

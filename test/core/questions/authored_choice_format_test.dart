@@ -156,6 +156,103 @@ Map<String, dynamic> _frozen073Release() {
   return frozen;
 }
 
+// Exact publicly reviewed replacements; immutable historical cues stay unchanged.
+const _reviewedPublicChoiceReplacements = <String, Map<String, Object>>{
+  'ki_win_dap_scope': {
+    'explanation': "Oregon State Extension distinguishes the nitrogen supplied by DAP from vitamins and other nutrients needed for robust fermentation; the dose follows the must's needs.",
+  },
+  'ki_win_grape_sugars': {
+    'explanation': 'UC Davis identifies glucose and fructose as the principal grape sugars used in alcoholic fermentation. Residual fructose does not guarantee a healthy yeast finish.',
+  },
+  'ki_win_late_nutrients': {
+    'explanation': 'Oregon State Extension notes that uptake and benefit from nitrogen additions decline late in fermentation as ethanol and stress rise; diagnose the cause rather than assume rescue.',
+  },
+  'ki_win_oxygen_active': {
+    'explanation': 'UC Davis explains that managed oxygen during active fermentation can help yeast form sterols and unsaturated fatty acids for healthy membranes.',
+  },
+  'ki_win_oxygen_stage': {
+    'explanation': 'UC Davis distinguishes useful oxygen during fermentation or chosen maturation from unwanted oxidation and microbial growth later.',
+  },
+  'ki_win_white_cooling': {
+    'explanation': 'Penn State Extension links cooler fermentation with retaining delicate white-wine aroma, provided the yeast can still ferment reliably.',
+  },
+  'ki_win_yan_measure': {
+    'explanation': 'Oregon State Extension recommends YAN measurement because musts and yeast strains differ; a uniform nutrient dose can under- or over-supply a ferment.',
+  },
+  'ki_win_yan_risk': {
+    'explanation': 'Oregon State Extension identifies inadequate YAN as a fermentation-completion risk, especially where a high-sugar must places a heavy demand on yeast.',
+  },
+  'ki_win_yeast_health': {
+    'explanation': 'UC Davis stresses that sufficient, metabolically healthy yeast and suitable conditions are needed to consume fermentable grape sugars.',
+  },
+  'ki_wset_prod_adjustment_trials': {
+    'explanation': "AWRI's deacidification guidance recommends bench samples evaluated for pH, titratable acidity and taste; its acid factsheet separately discusses differing acid responses and stability.",
+    'sourceCitationId': 'src_wset_prod_deacid',
+  },
+  'ki_wset_prod_clarity_stability': {
+    'sourceCitationId': 'src_wset_prod_filter',
+  },
+  'ki_wset_prod_oak_alternatives': {
+    'explanation': "OIV describes oak pieces as transferring wood constituents to wine. That extraction does not establish that the pieces reproduce a barrel's geometry or oxygen exchange.",
+    'sourceCitationId': 'src_wset_prod_oak_alternatives',
+  },
+  'ki_wset_prod_sweet_stability': {'sourceCitationId': 'src_wset_prod_filter'},
+  'ki_wset_prod_vessel_temperature': {
+    'explanation': "AWRI's vessel heat-transfer model treats geometry, material, insulation and cooling as separate contributors to heat removal; fermentation also generates heat.",
+    'sourceCitationId': 'src_wset_prod_vessels',
+  },
+  'ki_wset_prod_whole_bunch_crushed': {
+    'options': [
+      'That whole bunch inclusion proves every berry underwent full carbonic maceration',
+      'That stems can influence texture when intact bunches are included',
+      'That yeast can ferment juice released from crushed fruit',
+      'That handling and vat management can affect how much fruit remains intact',
+    ],
+  },
+  'ki_fort_sherry_refresh': {
+    'explanation': 'In his Sherry Wines article, César Saldaña explains that younger wine brings nutrients to flor; prolonged depletion can lead to decline.',
+  },
+  'ki_fault_chemical_oxidation': {
+    'explanation': 'AWRI describes hydrogen peroxide from phenolic oxidation as a route to ethanol oxidation and acetaldehyde; this is distinct from enzymatic must browning.',
+    'sourceCitationId': 'src_fault_faults_overview',
+  },
+  'ki_fort_madeira_concentration': {
+    'explanation': 'The University of Madeira heritage reference describes volume loss during warm cask ageing; loss of liquid can concentrate constituents left behind, requiring cellar management.',
+  },
+  'ki_fort_sherry_acetaldehyde': {
+    'explanation': 'In his Sherry Wines article, César Saldaña explains that flor metabolism forms acetaldehyde, which contributes to the pungent aroma of biologically aged wine.',
+  },
+  'ki_fort_sherry_flor_ethanol': {
+    'explanation': 'In his Sherry Wines article, César Saldaña describes flor using ethanol and oxygen to form acetaldehyde; that process differs from yeast sugar fermentation.',
+  },
+  'ki_fort_sherry_glycerol': {
+    'explanation': 'In his Sherry Wines article, César Saldaña notes that flor consumes glycerol among other wine components, helping explain the leaner impression of biological ageing.',
+  },
+};
+const _reviewedPublicChoiceTemplateIds = <String, String>{
+  'ki_win_dap_scope': 'qt_wset_winemaking_l3_depth_37',
+  'ki_win_grape_sugars': 'qt_wset_winemaking_l3_depth_37',
+  'ki_win_late_nutrients': 'qt_wset_winemaking_l3_depth_37',
+  'ki_win_oxygen_active': 'qt_wset_winemaking_l3_depth_37',
+  'ki_win_oxygen_stage': 'qt_wset_winemaking_l3_depth_37',
+  'ki_win_white_cooling': 'qt_wset_winemaking_l3_depth_37',
+  'ki_win_yan_measure': 'qt_wset_winemaking_l3_depth_37',
+  'ki_win_yan_risk': 'qt_wset_winemaking_l3_depth_37',
+  'ki_win_yeast_health': 'qt_wset_winemaking_l3_depth_37',
+  'ki_wset_prod_adjustment_trials': 'qt_wset_winemaking_l3_depth_37',
+  'ki_wset_prod_clarity_stability': 'qt_wset_winemaking_l3_depth_37',
+  'ki_wset_prod_oak_alternatives': 'qt_wset_winemaking_l3_depth_37',
+  'ki_wset_prod_sweet_stability': 'qt_wset_winemaking_l3_depth_37',
+  'ki_wset_prod_vessel_temperature': 'qt_wset_winemaking_l3_depth_37',
+  'ki_wset_prod_whole_bunch_crushed': 'qt_wset_winemaking_l3_depth_37',
+  'ki_fort_sherry_refresh': 'qt_wset_l3_winemaking_gap_40',
+  'ki_fault_chemical_oxidation': 'qt_wset_l3_winemaking_principle_closure_40',
+  'ki_fort_madeira_concentration': 'qt_wset_l3_winemaking_principle_closure_40',
+  'ki_fort_sherry_acetaldehyde': 'qt_wset_l3_winemaking_principle_closure_40',
+  'ki_fort_sherry_flor_ethanol': 'qt_wset_l3_winemaking_principle_closure_40',
+  'ki_fort_sherry_glycerol': 'qt_wset_l3_winemaking_principle_closure_40',
+};
+
 void main() {
   test('daily practice has a view for authored choices', () {
     final container = ProviderContainer();
@@ -454,6 +551,7 @@ void main() {
         var unchangedNonSalice = 0;
         var preservedSalice = 0;
         var reviewedMeerlust = 0;
+        final reviewedPublicChoices = <String>{};
         for (final oldTemplate in historicalTemplates) {
           final currentTemplate = templates.singleWhere(
             (template) => template.id == oldTemplate['id'],
@@ -489,6 +587,20 @@ void main() {
               )..where((row) => row.id.equals(entry.key))).getSingle();
               expect(item.revision, 2);
               reviewedMeerlust++;
+            } else if (_reviewedPublicChoiceReplacements.containsKey(
+              entry.key,
+            )) {
+              expect(
+                oldTemplate['id'],
+                _reviewedPublicChoiceTemplateIds[entry.key],
+                reason: 'Exact reviewed template binding for ${entry.key}',
+              );
+              final oldCue = entry.value as Map<String, dynamic>;
+              expect(currentChoices[entry.key], {
+                ...oldCue,
+                ..._reviewedPublicChoiceReplacements[entry.key]!,
+              }, reason: 'Exact reviewed replacement for ${entry.key}');
+              reviewedPublicChoices.add(entry.key);
             } else {
               expect(
                 currentChoices[entry.key],
@@ -503,9 +615,14 @@ void main() {
             }
           }
         }
-        expect(unchangedNonSalice, 1721);
+        expect(unchangedNonSalice, 1700);
         expect(preservedSalice, 2);
         expect(reviewedMeerlust, 1);
+        expect(reviewedPublicChoices, hasLength(21));
+        expect(
+          reviewedPublicChoices,
+          _reviewedPublicChoiceReplacements.keys.toSet(),
+        );
         final levelOneIds = {
           for (final template in templates)
             if (template.id.startsWith('qt_wset_l1_'))

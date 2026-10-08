@@ -160,7 +160,7 @@ knowledge_items:
     relation_type: HAS_SOIL
     object_id: n_soil_galestro
     domain_id: viticulture
-    assertion_text: "The Chianti Classico hills are built largely of galestro, a friable clay schist, alternating with alberese limestone."
+    assertion_text: "Chianti Classico has varied geology, including clay-rich layered rocks called galestro, as well as alberese and fine calcareous sandstone. The mix varies across the area; these names do not describe one uniform soil."
     last_verified_at: "2026-09-24T12:00:00.000Z"
   - id: ki_chianti_classico_climate
     subject_id: n_geo_chianti_classico
@@ -300,6 +300,12 @@ certification_knowledge_mappings:
     minimum_depth: 1
 
 source_citations:
+  - id: src_takeover_b_geo_2929affb140e
+    kind: reference_work
+    title: "Cabina di regia Nord Ovest: bando per la filiera dell’industria energetica"
+    publisher: Regione Piemonte
+    url: https://www.regione.piemonte.it/web/pinforma/notizie/cabina-regia-nord-ovest-bando-per-filiera-dellindustria-energetica
+    accessed_on: 2026-10-08
   - id: src_masaf_disciplinare_barolo
     kind: legislation
     title: "Disciplinare di produzione dei vini a denominazione di origine controllata e garantita «Barolo»"
@@ -334,6 +340,9 @@ source_citations:
     accessed_on: "2026-09-26"
 
 knowledge_item_citations:
+  - knowledge_item_id: ki_atlas_piedmont_location
+    source_citation_id: src_takeover_b_geo_2929affb140e
+    locator: "North West interregional cooperation: Piemonte, Liguria and Valle d’Aosta"
   - { knowledge_item_id: ki_barolo_location, source_citation_id: src_masaf_disciplinare_barolo, locator: "Art. 10 (legame con l'ambiente geografico)" }
   - { knowledge_item_id: ki_barolo_grape, source_citation_id: src_masaf_disciplinare_barolo, locator: "Art. 2" }
   - { knowledge_item_id: ki_barolo_soil, source_citation_id: src_masaf_disciplinare_barolo, locator: "Art. 10 (legame con l'ambiente geografico)" }

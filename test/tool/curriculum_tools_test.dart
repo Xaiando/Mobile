@@ -68,13 +68,35 @@ void main() {
 
     test('names the file and line of a broken row', () async {
       final france = File(pathOf('areas/france.yaml'));
-      // The first block row naming Burgundy, whatever the line endings of
-      // the checkout.
+      // Break only the intended knowledge item, independently of row order.
+      final source = france.readAsStringSync();
+      final blocks = RegExp(
+        r'^  - id: ki_chablis_location\r*\n[\s\S]*?(?=^  - id:)',
+        multiLine: true,
+      ).allMatches(source).toList();
+      expect(blocks, hasLength(1));
+      final block = blocks.single;
+      final original = block.group(0)!;
+      for (final field in const [
+        'subject_id: n_geo_chablis',
+        'relation_type: LOCATED_IN',
+        'object_id: n_geo_burgundy',
+      ]) {
+        expect(
+          RegExp(
+            r'^    ' + RegExp.escape(field) + r'\r*$',
+            multiLine: true,
+          ).allMatches(original),
+          hasLength(1),
+          reason: 'Exact original Chablis knowledge-item field: $field',
+        );
+      }
+      final broken = original.replaceFirst(
+        '    object_id: n_geo_burgundy',
+        '    object_id: n_geo_nowhere',
+      );
       france.writeAsStringSync(
-        france.readAsStringSync().replaceFirst(
-          RegExp(r'object_id: n_geo_burgundy(?=\r?\n)'),
-          'object_id: n_geo_nowhere',
-        ),
+        source.replaceRange(block.start, block.end, broken),
       );
       final (code, out) = await run(lint, []);
       expect(code, exitFailed);

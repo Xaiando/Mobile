@@ -10,7 +10,7 @@ The list that may appear on Soave, Soave Classico and Soave Colli Scaligeri labe
 
 | Legal unit | Reference | Parent municipality | Why it was accepted |
 |---|---|---|---|
-| Brognoligo | Wikidata Q3645230, CC0 | Monteforte d'Alpone | The item is Brognoligo alone |
+| Brognoligo | GeoNames 8948888, CC BY 4.0 | Monteforte d'Alpone | Combined Brognoligo-Costalunga locality reference; not a standalone village centre, the Costalunga UGA, or a legal boundary |
 | Castelcerino | Wikidata Q18504312, CC0; same point as GeoNames 3179731 | Soave | Settlement and Wikidata agree |
 | Colombara | GeoNames 8962832, CC BY 4.0 | San Giovanni Ilarione | Only Colombara inside a Soave municipality |
 | Duello | GeoNames 8956774, CC BY 4.0 | Roncà | Roncà is in the Soave production area |
@@ -21,16 +21,18 @@ GeoNames Italy dump retrieved 27 September 2026 from <https://download.geonames.
 
 ## Map layers
 
-The geography checker accepts one open licence per source. These six points therefore use two layers, not one mixed-licence layer:
+Each source retains its own open licence and attribution. The six served points retain their historical layer identities so existing datasets can upgrade; a legacy layer ID does not describe current provenance:
 
-- `ml_soave_uga_wikidata_markers` — Brognoligo and Castelcerino, Wikidata CC0.
-- `ml_soave_uga_geonames_markers` — Colombara, Duello, Fittà and the Monte Calvarina summit, GeoNames CC BY 4.0.
+- `ml_soave_uga_wikidata_markers` — Castelcerino from Wikidata (CC0) and the corrected Brognoligo-Costalunga reference from GeoNames (CC BY 4.0), two served points with both sources attributed.
+- `ml_soave_uga_geonames_markers` — Colombara, Duello, Fittà and the Monte Calvarina summit (four served points), GeoNames CC BY 4.0.
 
-Coordinates were checked again on 27 September 2026. Wikidata P625 claims `Q3645230$AD7DF2FA-08E9-4503-B695-678670F85A9D` and `Q18504312$7251A6E5-600F-4317-8CF4-73866056F23C` still match the markers. The four GeoNames rows still sit in Soave (023081), San Giovanni Ilarione (023070) or Roncà (023063).
+The pinned source snapshots remain one Wikidata point and five GeoNames points. Gazetteer selection serves Brognoligo exactly once, in its historical layer with the corrected GeoNames coordinate; it is excluded from the second layer. No wrong-coordinate alias or legal boundary is retained.
+
+Coordinates were checked again on 8 October 2026. Castelcerino retains Wikidata P625 claim `Q18504312$7251A6E5-600F-4317-8CF4-73866056F23C`. The former Brognoligo claim `Q3645230$AD7DF2FA-08E9-4503-B695-678670F85A9D` was copied faithfully but failed independent physical-locality reconciliation; it is preserved only as historical evidence. Brognoligo now uses openly licensed GeoNames 8948888, the combined Brognoligo-Costalunga locality [11.29379, 45.44869], not a standalone Brognoligo village centre or either UGA boundary. The five GeoNames rows sit in Monteforte d'Alpone (023050), Soave (023081), San Giovanni Ilarione (023070) or Roncà (023063). The regional government commune table confirms those codes.
 
 ## Rejected this pass
 
-- **Costalunga.** GeoNames 8948888 is named Brognoligo-Costalunga. One point cannot be both units.
+- **Costalunga.** No separate Costalunga UGA marker is claimed. GeoNames 8948888 is used only as an explicitly combined-locality reference for the Brognoligo node; it does not establish either legal unit boundary.
 - **Costeggiola.** The populated place is in Negrar di Valpolicella.
 - **Campagnola.** Hits are in Zevio, Verona and Costermano, not in a Soave municipality.
 - **Ca' del Vento.** The populated place is in Roverè Veronese.

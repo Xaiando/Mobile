@@ -16,8 +16,8 @@ question_templates:
         - Malic acid later released during bacterial fermentation
         - Glycerol produced during primary fermentation
         correctIndex: 1
-        explanation: Iowa State describes hydrogen peroxide from phenolic oxidation as a route to ethanol oxidation and acetaldehyde; this is distinct from enzymatic must browning.
-        sourceCitationId: src_fault_oxidation_dangers
+        explanation: "AWRI describes hydrogen peroxide from phenolic oxidation as a route to ethanol oxidation and acetaldehyde; this is distinct from enzymatic must browning."
+        sourceCitationId: "src_fault_faults_overview"
       ki_fault_mercaptans:
         prompt: A cellar note calls a volatile sulfur compound a mercaptan. Which chemical family does that name identify?
         options:
@@ -36,7 +36,7 @@ question_templates:
         - The remaining wine automatically becomes less intense
         - The wine regains volume through later oxidation
         correctIndex: 0
-        explanation: The Madeira wine institute describes volume loss during warm cask ageing; loss of liquid can concentrate constituents left behind, requiring cellar management.
+        explanation: "The University of Madeira heritage reference describes volume loss during warm cask ageing; loss of liquid can concentrate constituents left behind, requiring cellar management."
         sourceCitationId: src_fort_madeira_practices
       ki_fort_madeira_locations:
         prompt: A canteiro-aged Madeira is losing volume rapidly in a warm warehouse. Which cellar move addresses the cited loss mechanism?
@@ -176,7 +176,7 @@ question_templates:
         - Anthocyanins from red skins
         - Acetaldehyde formed by flor
         correctIndex: 3
-        explanation: The Sherry Consejo explains that flor metabolism forms acetaldehyde, which contributes to the pungent aroma of biologically aged wine.
+        explanation: "In his Sherry Wines article, César Saldaña explains that flor metabolism forms acetaldehyde, which contributes to the pungent aroma of biologically aged wine."
         sourceCitationId: src_fort_sherry_flor1
       ki_fort_sherry_amontillado:
         prompt: A Sherry begins ageing under flor and later continues without that veil. Which style follows this sequence?
@@ -206,7 +206,7 @@ question_templates:
         - Methanol added during fortification
         - Lactic acid from malolactic conversion
         correctIndex: 0
-        explanation: The Sherry Consejo describes flor using ethanol and oxygen to form acetaldehyde; that process differs from yeast sugar fermentation.
+        explanation: "In his Sherry Wines article, César Saldaña describes flor using ethanol and oxygen to form acetaldehyde; that process differs from yeast sugar fermentation."
         sourceCitationId: src_fort_sherry_flor1
       ki_fort_sherry_glycerol:
         prompt: A biologically aged Sherry tastes comparatively lean. Which flor activity can contribute to that texture?
@@ -216,7 +216,7 @@ question_templates:
         - Flor precipitates all grape tannins as tartrate
         - Flor converts alcohol directly into grape sugar
         correctIndex: 1
-        explanation: The Sherry Consejo notes that flor consumes glycerol among other wine components, helping explain the leaner impression of biological ageing.
+        explanation: "In his Sherry Wines article, César Saldaña notes that flor consumes glycerol among other wine components, helping explain the leaner impression of biological ageing."
         sourceCitationId: src_fort_sherry_flor1
       ki_fort_sherry_px:
         prompt: A Pedro Ximenez Sherry maker wants concentrated sugar before pressing. Which grape treatment is used in the cited route?

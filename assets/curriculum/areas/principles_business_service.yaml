@@ -903,9 +903,7 @@ knowledge_items:
     relation_type: PRINCIPLE_EXPLANATION
     object_id: n_biz_inventory_cash_point
     domain_id: business
-    assertion_text: Wine purchased but not yet sold uses cash that is unavailable for other payments.
-      Aligning stock purchases with expected demand can reduce this tie-up, subject to delivery
-      times and availability.
+    assertion_text: "Cash already paid for wine that remains unsold is tied up in inventory. Stock bought on supplier credit instead creates a future payment commitment; forecast its due date alongside expected sales receipts. Align purchases with expected demand, delivery times and availability to manage that commitment."
     verification_status: unverified
     last_verified_at: 2026-09-26T22:42:39.000Z
     mcq_disabled: true

@@ -373,20 +373,24 @@ void main() {
     test('items not re-verified for 24 months are stale (P-1)', () async {
       expect(await graph.staleItems(), isEmpty);
       final items = await db.select(db.knowledgeItems).get();
+      // The immutable prior publication distinguishes later curation instants.
+      // A new release date must not erase that boundary or change item dates.
+      final historicalPublishedAt = DateTime.parse(
+        historical['published_at'] as String,
+      ).toUtc();
+      DateTime twoYearsAfter(DateTime at) => DateTime.utc(
+        at.year + 2,
+        at.month,
+        at.day,
+        at.hour,
+        at.minute,
+        at.second,
+        at.millisecond,
+        at.microsecond,
+      );
       final twoYearsLater = KnowledgeGraph(
         db,
-        clock: Clock.fixed(
-          DateTime.utc(
-            publishedAt.year + 2,
-            publishedAt.month,
-            publishedAt.day,
-            publishedAt.hour,
-            publishedAt.minute,
-            publishedAt.second,
-            publishedAt.millisecond,
-            publishedAt.microsecond,
-          ),
-        ),
+        clock: Clock.fixed(twoYearsAfter(historicalPublishedAt)),
       );
       const laterCuratedIds = {
         'ki_reg_isi_salice_context_2026',
@@ -395,16 +399,67 @@ void main() {
       };
       expect(
         items
-            .where((item) => item.lastVerifiedAt.isAfter(publishedAt))
+            .where((item) => item.lastVerifiedAt.isAfter(historicalPublishedAt))
             .map((item) => item.id)
             .toSet(),
         laterCuratedIds,
+      );
+      expect(
+        {
+          for (final item in items)
+            if (laterCuratedIds.contains(item.id))
+              item.id: item.lastVerifiedAt.toUtc(),
+        },
+        {
+          'ki_reg_isi_salice_context_2026': DateTime.utc(
+            2026,
+            10,
+            3,
+            15,
+            26,
+            2,
+            473,
+          ),
+          'ki_reg_isi_salice_styles_2026': DateTime.utc(
+            2026,
+            10,
+            3,
+            15,
+            26,
+            2,
+            473,
+          ),
+          'ki_wset_origin_stellenbosch_merlot': DateTime.utc(
+            2026,
+            10,
+            3,
+            16,
+            15,
+          ),
+        },
+        reason: 'Preserved curation dates are independent of publication.',
       );
       final allIds = items.map((item) => item.id).toSet();
       expect(
         (await twoYearsLater.staleItems()).map((item) => item.id).toSet(),
         allIds.difference(laterCuratedIds),
-        reason: 'Publication precedes three later curation instants.',
+        reason: 'The historical publication precedes three curation instants.',
+      );
+      expect(
+        items.where((item) => item.lastVerifiedAt.isAfter(publishedAt)),
+        isEmpty,
+        reason: 'This release follows all preserved curation timestamps.',
+      );
+      final twoYearsAfterRelease = KnowledgeGraph(
+        db,
+        clock: Clock.fixed(twoYearsAfter(publishedAt)),
+      );
+      expect(
+        (await twoYearsAfterRelease.staleItems())
+            .map((item) => item.id)
+            .toSet(),
+        allIds,
+        reason: 'Every item is stale two years after this later publication.',
       );
       final latest = items
           .map((item) => item.lastVerifiedAt)

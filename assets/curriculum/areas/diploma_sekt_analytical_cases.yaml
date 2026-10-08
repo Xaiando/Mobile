@@ -204,7 +204,7 @@
       "relation_type": "PRINCIPLE_EXPLANATION",
       "object_id": "n_d4sekt_point_origin_hierarchy",
       "domain_id": "winemaking",
-      "assertion_text": "Under German wine regulations and DWI specifications, generic Sekt permits base wine sourced from any EU country with second fermentation in Germany. Deutscher Sekt requires 100% German-harvested base wine. Deutscher Sekt b.A. restricts grape origin to one of the 13 specified Anbaugebiete and must pass official testing to receive an Amtliche Prüfungsnummer (A.P.-Nr.). A generic Sekt label does not establish German grape origin.",
+      "assertion_text": "DWI guidance distinguishes Deutscher Sekt, made in Germany entirely from German base wines, from a generic Sekt label, which alone does not establish German grape origin. Sekt b.A. restricts grape origin to one of the 13 specified German Anbaugebiete. Under section 19 of the German Wine Act, Sekt b.A. must receive an Amtliche Prüfungsnummer (A.P.-Nr.) after official analytical and sensory examination.",
       "verification_status": "unverified",
       "mcq_disabled": true,
       "last_verified_at": "2026-10-01T02:34:06.539Z"
@@ -259,7 +259,7 @@
       "relation_type": "PRINCIPLE_EXPLANATION",
       "object_id": "n_d4sekt_point_dosage_style",
       "domain_id": "winemaking",
-      "assertion_text": "Under EU and German sparkling wine regulations (Regulation (EU) 2019/33 Annex III Part A), nominal sweetness categories based on finished residual sugar range from Brut Nature (<3 g/L without added sugar) and Extra Brut (0–6 g/L) to Brut (<12 g/L, with Article 47(3) providing a 3 g/L analytical tolerance), Extra Trocken (12–17 g/L) and Trocken (17–32 g/L). High natural cool-climate German acidity often requires judicious liqueur d'expédition dosage to achieve harmonious sensory balance; however, dosage cannot conceal oxidation, premature autolytic decay, or harsh phenolic press fractions.",
+      "assertion_text": "Under Regulation (EU) 2019/33 Annex III Part A, sparkling-wine sweetness categories include Brut Nature (<3 g/L, with no sugar added after secondary fermentation), Extra Brut (0–6 g/L), Brut (<12 g/L), Extra Trocken (12–17 g/L) and Trocken (17–32 g/L). Article 47(3) allows a difference of no more than 3 g/L from the label, without prejudice to the Annex III conditions of use. Dosage shapes sweetness and perceived balance; assess it with acidity and sensory evidence. A sweetness category does not itself establish quality or freedom from faults.",
       "verification_status": "unverified",
       "mcq_disabled": true,
       "last_verified_at": "2026-10-01T02:34:06.539Z"
@@ -464,6 +464,43 @@
       "document_identifier": "Weingesetz section 19(1) and (3): Sekt b.A. designation requires an allocated official examination number; organoleptic/analytical examination and number on containers. Section 19(2) is a distinct rule for other varietally labelled domestic sparkling wines.",
       "accessed_on": "2026-10-03"
     }
+  ,
+    {
+      "id": "src_d4sekt_sektverband",
+      "kind": "reference_work",
+      "title": "Wissenswertes: Sekt b.A. and dosage",
+      "publisher": "Verband Deutscher Sektkellereien",
+      "url": "https://www.deutscher-sektverband.de/lets-talk-about-sekt/wissenswertes",
+      "document_identifier": "Primary body read8October2026; see retained Sekt browser evidence",
+      "accessed_on": "2026-10-08"
+    },
+    {
+      "id": "src_d4sekt_eu201933consolidated",
+      "kind": "reference_work",
+      "title": "Commission Delegated Regulation(EU)2019/33 consolidated18January2025",
+      "publisher": "European Union",
+      "url": "https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=CELEX:02019R0033-20250118",
+      "document_identifier": "Primary body read8October2026; see retained Sekt browser evidence",
+      "accessed_on": "2026-10-08"
+    },
+    {
+      "id": "src_d4sekt_winev21",
+      "kind": "reference_work",
+      "title": "Weinverordnung section21: quality examination",
+      "publisher": "Federal Ministry of Justice and Federal Office of Justice",
+      "url": "https://www.gesetze-im-internet.de/weinv_1995/__21.html",
+      "document_identifier": "Primary body read8October2026; see retained Sekt browser evidence",
+      "accessed_on": "2026-10-08"
+    },
+    {
+      "id": "src_d4sekt_awri_leescontact",
+      "kind": "reference_work",
+      "title": "Winemaking treatment – Lees contact",
+      "publisher": "Australian Wine Research Institute",
+      "url": "https://www.awri.com.au/industry_support/winemaking_resources/winemaking-practices/winemaking-treatment-lees-contact/",
+      "document_identifier": "Primary body read8October2026; see retained Sekt browser evidence",
+      "accessed_on": "2026-10-08"
+    }
   ],
   "knowledge_item_citations": [
     {
@@ -600,6 +637,32 @@
       "knowledge_item_id": "ki_d4sekt_case_winzersekt_allocation_limitation",
       "source_citation_id": "src_d4sekt_weing_quality_review",
       "locator": "Weingesetz section 19(1) and (3): official examination number and examination/compliance conditions remain required evidence; no assurance from a fictional sensory panel alone."
+    }
+  ,
+    {
+      "knowledge_item_id": "ki_d4sekt_origin_hierarchy",
+      "source_citation_id": "src_d4sekt_sektverband",
+      "locator": "SektbA: grapes from one of13 German regions; region and AP on label."
+    },
+    {
+      "knowledge_item_id": "ki_d4sekt_dosage_style",
+      "source_citation_id": "src_d4sekt_eu201933consolidated",
+      "locator": "Article47(3) qualified label difference; AnnexIII PartA exact sweetness conditions, including no sugar after secondary fermentation for BrutNature."
+    },
+    {
+      "knowledge_item_id": "ki_d4sekt_dosage_style",
+      "source_citation_id": "src_d4sekt_sektverband",
+      "locator": "Dosage and Grundwein sections: sweetness/style and base-wine acidity."
+    },
+    {
+      "knowledge_item_id": "ki_d4sekt_dosage_style",
+      "source_citation_id": "src_d4sekt_winev21",
+      "locator": "Section21(1): freedom from appearance, smell and taste faults is a distinct AP condition."
+    },
+    {
+      "knowledge_item_id": "ki_d4sekt_autolysis_vs_fruit",
+      "source_citation_id": "src_d4sekt_awri_leescontact",
+      "locator": "Background and practical considerations: release/autolysis, sensory effects and tank lees handling; white-wine scope, no universal sparkling-method ranking."
     }
   ],
   "certification_knowledge_mappings": [

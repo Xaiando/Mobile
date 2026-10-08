@@ -1079,7 +1079,7 @@ knowledge_items:
     relation_type: PRINCIPLE_EXPLANATION
     object_id: n_wset_eu_point_cote_rotie_style
     domain_id: winemaking
-    assertion_text: Côte-Rôtie makes Syrah-based reds and can include Viognier, often co-fermented, to influence aroma and texture. Viognier is optional; a Côte-Rôtie does not have to contain it or follow one fixed blend percentage.
+    assertion_text: "Côte-Rôtie makes Syrah-based reds and can include Viognier co-fermented with Syrah to influence aroma and texture. Viognier is optional; a Côte-Rôtie does not have to contain it or follow one fixed blend percentage."
     verification_status: unverified
     mcq_disabled: true
     last_verified_at: 2026-09-27T15:00:00.000Z
@@ -1160,7 +1160,7 @@ knowledge_items:
     relation_type: PRINCIPLE_EXPLANATION
     object_id: n_wset_eu_point_delle_venezie_style
     domain_id: geography
-    assertion_text: A common Delle Venezie Pinot Grigio style is fresh and fruit-led, with pear, apple or citrus and restrained oak. Production choices and different permitted wine categories mean that the name alone does not prove every bottle is a light still dry white.
+    assertion_text: "A common Delle Venezie Pinot Grigio style is fresh and fruit-led, with pear or apple. Production choices and different permitted wine categories mean that the name alone does not prove every bottle is a light still dry white."
     verification_status: unverified
     mcq_disabled: true
     last_verified_at: 2026-09-27T15:00:00.000Z
@@ -3439,6 +3439,70 @@ source_citations:
     url: https://www.vin-cascastel.com/en/designations/
     document_identifier: Primary public reference checked 27 September 2026; original educational synthesis; no promotional quality rankings or production statistics used
     accessed_on: 2026-09-27
+  - id: src_takeover_eu_wset_eu_montagny_chardonnay_2
+    kind: reference_work
+    title: "Montagny Premier Cru: white wine technical sheet"
+    publisher: "La Burgondie"
+    url: https://www.laburgondie.com/wp-content/uploads/2023/05/La_Burgondie_fiche_Montagny_1er_Cru_blanc_fr.pdf
+    document_identifier: Actual PDF page 1 dry Chardonnay; inox/oak structure
+    accessed_on: 2026-10-08
+  - id: src_takeover_eu_wset_eu_montagny_chardonnay_3
+    kind: reference_work
+    title: "Montagny Premier Cru Les Coères: wine technical sheet"
+    publisher: "Domaine Feuillat-Juillot"
+    url: https://www.feuillat-juillot.com/wp-content/uploads/2021/09/feuillat-juillot-fiches-vins_FR_LESCOERES-1.pdf
+    document_identifier: Actual PDF fine lees and oak, white fruit
+    accessed_on: 2026-10-08
+  - id: src_takeover_eu_wset_eu_montagny_chardonnay_4
+    kind: reference_work
+    title: "Montagny Premier Cru: production and tasting profile"
+    publisher: "Ropiteau Frères"
+    url: https://www.ropiteau.com/fr/nos-vins.r-81/montagny-premier-cru.v-1247.html
+    document_identifier: Actual body fine lees/oak, freshness and white fruit
+    accessed_on: 2026-10-08
+  - id: src_takeover_eu_wset_eu_montagny_chardonnay_5
+    kind: reference_work
+    title: "Lees contact: sensory research and technical guidance"
+    publisher: "Bureau Interprofessionnel des Vins de Bourgogne (BIVB)"
+    url: https://extranet.bivb.com/technique-et-qualite/publications-techniques/plaquettes-techniques/gallery_files/site/2992/48177/78071.pdf
+    document_identifier: PDF page 16 actual body, lees research mechanisms
+    accessed_on: 2026-10-08
+  - id: src_takeover_eu_wset_eu_cote_rotie_style_1
+    kind: reference_work
+    title: "Guigal Côte-Rôtie Brune et Blonde 2018: technical sheet"
+    publisher: "Vintus / E. Guigal"
+    url: https://vintus.com/wp-content/uploads/2022/02/Guigal-Cote-Rotie-Brune-et-Blond-18-Tech-JS.pdf
+    document_identifier: Actual PDF lines 12-14 and 22, co-fermentation and blend
+    accessed_on: 2026-10-08
+  - id: src_takeover_eu_wset_eu_cote_rotie_style_2
+    kind: reference_work
+    title: "Northern Rhône appellations and wine blends"
+    publisher: "Domaine Yves Cuilleron"
+    url: https://www.cuilleron.com/en/appellations
+    document_identifier: Actual body lines 62-74, 100% Syrah and varying Viognier proportions
+    accessed_on: 2026-10-08
+  - id: src_takeover_eu_wset_eu_cote_rotie_style_3
+    kind: reference_work
+    title: "Côte-Rôtie vineyard and grape varieties"
+    publisher: "E. Guigal"
+    url: https://www.guigal.com/vignoble/cote-rotie/
+    document_identifier: Actual body line 129, Viognier and greater subtlety
+    accessed_on: 2026-10-08
+  - id: src_takeover_eu_wset_eu_cote_rotie_style_4
+    kind: legislation
+    title: "Côte-Rôtie appellation production specification, July 2024"
+    publisher: "French Ministry of Agriculture"
+    url: https://info.agriculture.gouv.fr/boagri/document_administratif-dceb7462-aee6-4db6-a6f7-a7d5cb91349e/telechargement
+    document_identifier: Indexed official 2024 passage only, parent
+      takeover-web-v97.json; live PDF retrieval failed
+    accessed_on: 2026-10-08
+  - id: src_takeover_eu_wset_eu_delle_venezie_style_1
+    kind: reference_work
+    title: "Delle Venezie: production specification and wine categories"
+    publisher: "Consorzio DOC Delle Venezie"
+    url: https://dellevenezie.it/wp-content/uploads/2022/02/delle-Venezie_22.pdf
+    document_identifier: P8 (physical page9), reader365–369; categories P3–4
+    accessed_on: 2026-10-08
 knowledge_item_citations:
   - knowledge_item_id: ki_wset_eu_greece_pdo_origin
     source_citation_id: src_reg_gr_assyrtiko
@@ -3839,3 +3903,31 @@ knowledge_item_citations:
   - knowledge_item_id: ki_wset_eu_minervois_corbieres_colours
     source_citation_id: src_wset_eu_corbieres
     locator: Minervois and Corbières also make rosés and whites
+  - knowledge_item_id: ki_wset_eu_montagny_chardonnay
+    source_citation_id: src_takeover_eu_wset_eu_montagny_chardonnay_2
+    locator: Actual PDF page 1 dry Chardonnay; inox/oak structure
+  - knowledge_item_id: ki_wset_eu_montagny_chardonnay
+    source_citation_id: src_takeover_eu_wset_eu_montagny_chardonnay_3
+    locator: Actual PDF fine lees and oak, white fruit
+  - knowledge_item_id: ki_wset_eu_montagny_chardonnay
+    source_citation_id: src_takeover_eu_wset_eu_montagny_chardonnay_4
+    locator: Actual body fine lees/oak, freshness and white fruit
+  - knowledge_item_id: ki_wset_eu_montagny_chardonnay
+    source_citation_id: src_takeover_eu_wset_eu_montagny_chardonnay_5
+    locator: PDF page 16 actual body, lees research mechanisms
+  - knowledge_item_id: ki_wset_eu_cote_rotie_style
+    source_citation_id: src_takeover_eu_wset_eu_cote_rotie_style_1
+    locator: Actual PDF lines 12-14 and 22, co-fermentation and blend
+  - knowledge_item_id: ki_wset_eu_cote_rotie_style
+    source_citation_id: src_takeover_eu_wset_eu_cote_rotie_style_2
+    locator: Actual body lines 62-74, 100% Syrah and varying Viognier proportions
+  - knowledge_item_id: ki_wset_eu_cote_rotie_style
+    source_citation_id: src_takeover_eu_wset_eu_cote_rotie_style_3
+    locator: Actual body line 129, Viognier and greater subtlety
+  - knowledge_item_id: ki_wset_eu_cote_rotie_style
+    source_citation_id: src_takeover_eu_wset_eu_cote_rotie_style_4
+    locator: Indexed official 2024 passage only, parent takeover-web-v97.json; live
+      PDF retrieval failed
+  - knowledge_item_id: ki_wset_eu_delle_venezie_style
+    source_citation_id: src_takeover_eu_wset_eu_delle_venezie_style_1
+    locator: P8 (physical page9), reader365–369; categories P3–4

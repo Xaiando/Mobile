@@ -22,6 +22,7 @@ import 'package:sommelier/core/study/study_planner.dart';
 
 import '../../support/curriculum_fixture.dart';
 import '../../support/fixture.dart';
+import '../../support/historical_map_assets.dart';
 import '../../../tool/curriculum/diploma_market_candidate.dart';
 
 const lowerTracks = [
@@ -527,7 +528,11 @@ void main() {
         clock: Clock.fixed(candidate.publishedAt),
         assets: (path) async => File(path).readAsBytesSync(),
       );
-      await ingester.ingest(predecessor);
+      await CurriculumIngester(
+        db,
+        clock: Clock.fixed(candidate.publishedAt),
+        assets: (path) => historicalMapAsset(predecessor, path),
+      ).ingest(predecessor);
       const id = 'ki_biz_routes_partner_fit';
       final template = (await db.select(db.questions).get()).firstWhere(
         (row) =>
