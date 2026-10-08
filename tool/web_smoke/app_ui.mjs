@@ -107,10 +107,32 @@ async function onScreen(locator) {
   // evaluateAll() takes a non-waiting snapshot of the currently matched nodes.
   return locator.first().evaluateAll((elements, size) => {
     const box = elements[0]?.getBoundingClientRect();
+    // Audit-only synchronous observation; original predicate/actions remain unchanged.
+    if (size.diagnosticStage === '08-paired-timer-reload-and-wines') {
+      const describe = element => {
+        const rect = element.getBoundingClientRect(), ancestors = [];
+        for (let parent = element.parentElement; parent; parent = parent.parentElement) {
+          const style = getComputedStyle(parent), r = parent.getBoundingClientRect();
+          ancestors.push({ tag: parent.tagName, id: parent.id, rect: r.toJSON(), inlineStyle: parent.getAttribute('style'), transform: style.transform,
+            display: style.display, visibility: style.visibility, overflow: style.overflow, scrollTop: parent.scrollTop });
+        }
+        const ownStyle = getComputedStyle(element);
+        return { id: element.id, role: element.getAttribute('role'), label: element.getAttribute('aria-label'),
+          inlineStyle: element.getAttribute('style'), computed: { transform: ownStyle.transform, display: ownStyle.display, visibility: ownStyle.visibility, overflow: ownStyle.overflow },
+          rect: rect.toJSON(), ancestors };
+      };
+      (globalThis.__stage08Diagnostic ??= []).push({ at: new Date().toISOString(), performanceNow: performance.now(),
+        location: location.href, viewport: { innerWidth, innerHeight, scrollX, scrollY },
+        matchedFirst: elements[0] ? describe(elements[0]) : null,
+        allWhite: [...document.querySelectorAll('[aria-label="White"]')].map(describe),
+        originalPredicate: !!box && box.width > 0 && box.height > 0 &&
+          box.x + box.width / 2 >= 0 && box.x + box.width / 2 < size.width &&
+          box.y + box.height / 2 >= 0 && box.y + box.height / 2 < size.height - 8 });
+    }
     return !!box && box.width > 0 && box.height > 0 &&
       box.x + box.width / 2 >= 0 && box.x + box.width / 2 < size.width &&
       box.y + box.height / 2 >= 0 && box.y + box.height / 2 < size.height - 8;
-  }, viewport);
+  }, { ...viewport, diagnosticStage: stageName });
 }
 async function reveal(locator, { direction = 1, steps = 70 } = {}) {
   // Flutter ListViews scroll on the canvas. DOM scrollIntoView alone cannot
@@ -141,6 +163,9 @@ async function until(condition, message, timeout = actionTimeout) {
   while (Date.now() < deadline) {
     if (await condition()) return;
     await page.waitForTimeout(75);
+  }
+  if (stageName === '08-paired-timer-reload-and-wines') {
+    (result.stage08PredicateFailures ??= []).push({ at: new Date().toISOString(), message });
   }
   throw new Error(message);
 }
@@ -667,8 +692,22 @@ try {
     await tap('Wine 2');
     await visible(/^Wine 2 · saved original grid /);
     const white = page.getByRole('checkbox', { name: 'White', exact: true });
+    await page.evaluate(() => { (globalThis.__stage08Diagnostic ??= []).push({ phase: 'before-top', at: new Date().toISOString() }); });
     await top();
+    await page.evaluate(() => { (globalThis.__stage08Diagnostic ??= []).push({ phase: 'after-top', at: new Date().toISOString() }); });
     await until(() => onScreen(white), 'Wine 2 colour control did not become visible.', actionTimeout);
+    const initialVisibilityDiagnostic = await page.evaluate(() => globalThis.__stage08Diagnostic ?? []);
+    fs.writeFileSync(path.join(output, 'stage08-initial-visibility-diagnostic.json'), JSON.stringify(initialVisibilityDiagnostic, null, 2) + '\n');
+    const matchedWhiteObservations = initialVisibilityDiagnostic.filter(row => row.matchedFirst?.label === 'White');
+    result.stage08VisibilitySummary = {
+      capturedAt: new Date().toISOString(), observationCount: initialVisibilityDiagnostic.length,
+      matchedWhiteObservationCount: matchedWhiteObservations.length, maximumSummaryRows: 12,
+      matchedWhiteRows: matchedWhiteObservations.slice(-12).map(row => ({
+        at: row.at, role: row.matchedFirst.role, id: row.matchedFirst.id, rect: row.matchedFirst.rect,
+        predicate: row.originalPredicate, whiteMatchCount: row.allWhite.length, viewport: row.viewport,
+      })),
+      boundary: 'Rows describe observations whose first matched element was labelled White; absent matches and other locators are not identified as White polls. Full observations remain in diagnostic JSON.',
+    };
     // Changing wine preserves the lazy form scroll offset. Search toward
     // its colour controls so a retained lower offset cannot hide White.
     await tap('White', { direction: -1 });
@@ -2497,17 +2536,30 @@ try {
   assertNoBrowserErrors();
   result.ok = true;
 } catch (error) {
+  result.failureCaughtAt = new Date().toISOString();
   result.failedStage = stageName;
   result.error = error.stack ?? String(error);
   if (page && !page.isClosed()) {
+    result.failureCaptureTimes = { inputStartedAt: new Date().toISOString() };
     result.failureInputState = await inputState().catch(() => null);
+    result.failureCaptureTimes.inputCompletedAt = new Date().toISOString();
+    result.failureCaptureTimes.screenshotStartedAt = new Date().toISOString();
     await screenshot('failure').catch(() => {});
+    result.failureCaptureTimes.screenshotCompletedAt = new Date().toISOString();
+    result.failureCaptureTimes.htmlStartedAt = new Date().toISOString();
     await page.content().then(html => fs.promises.writeFile(
       path.join(output, 'failure.html'), html)).catch(() => {});
+    result.failureCaptureTimes.htmlCompletedAt = new Date().toISOString();
+    result.failureCaptureTimes.accessibilityStartedAt = new Date().toISOString();
     await page.locator('body').ariaSnapshot().then(snapshot => fs.promises.writeFile(
       path.join(output, 'failure-accessibility.txt'), snapshot)).catch(() => {});
+    result.failureCaptureTimes.accessibilityCompletedAt = new Date().toISOString();
   }
 } finally {
+  if (page) {
+    const diagnostic = await page.evaluate(() => globalThis.__stage08Diagnostic ?? []).catch(error => ({ captureError: String(error) }));
+    fs.writeFileSync(path.join(output, 'stage08-visibility-diagnostic.json'), JSON.stringify(diagnostic, null, 2) + '\n');
+  }
   // Close only the server and browser owned by this run. No port/process kill.
   const teardownFailures = [];
   try {
