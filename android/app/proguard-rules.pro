@@ -7,3 +7,14 @@
 -dontwarn com.google.mlkit.vision.text.devanagari.**
 -dontwarn com.google.mlkit.vision.text.japanese.**
 -dontwarn com.google.mlkit.vision.text.korean.**
+
+# R8's full mode, the default since Android Gradle plugin 8, no longer keeps
+# the default constructor of a class that a rule keeps without naming one. ML
+# Kit creates its component registrars by reflection: ComponentDiscovery calls
+# getDeclaredConstructor() on each class the manifest names. With the
+# constructors gone, every registrar fails to start, and text recognition then
+# throws a NullPointerException in release builds only. Debug builds are not
+# shrunk, so only tool/android/ocr_smoke.sh on a release build shows it.
+-keep class * implements com.google.firebase.components.ComponentRegistrar {
+    <init>();
+}

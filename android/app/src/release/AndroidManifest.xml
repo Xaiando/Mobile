@@ -1,0 +1,21 @@
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools">
+    <!-- The app works offline and has no network code, but
+         google_mlkit_text_recognition's libraries merge INTERNET into every
+         build. Google documents that ML Kit sends usage and performance
+         metrics (device model, OS version, package name, latency) to Google
+         over HTTPS, even for the bundled, on-device text recognition
+         (https://developers.google.com/ml-kit/android-data-disclosure).
+         Removing the permission makes Android enforce the README's "Everything
+         runs offline" and the legal review's "no telemetry" (L-11): the
+         metrics cannot leave the phone. Recognition itself runs on the
+         device and does not need the network.
+
+         ACCESS_NETWORK_STATE stays: it only reports whether a network exists
+         and cannot send data, and the ML Kit transport code reads it.
+
+         Debug and profile builds keep INTERNET (their own manifests add it
+         for the Flutter tool). tool/android/verify_apk.py fails a release APK
+         that holds it. -->
+    <uses-permission android:name="android.permission.INTERNET" tools:node="remove" />
+</manifest>

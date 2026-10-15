@@ -40,6 +40,8 @@ Everything runs offline. Your progress is stored on the device: on Windows in `%
 
 **Android updates** install over the previous version and keep your progress only if every APK carries the same signature. APKs from `main` are signed with the repository's private release key, once it exists. Create it once, on a PC with a JDK and the GitHub CLI signed in: `powershell -ExecutionPolicy Bypass -File tool\android\make_release_key.ps1`. It stores the key as the repository's Actions secrets and keeps a copy in `%USERPROFILE%\.sommelier`; back that folder up. Until then, and on pull requests, APKs are signed with a throwaway debug key: they install fresh, but cannot update one another.
 
+The Android release build declares no network permission, and CI checks that. To try it on a phone, with a checklist and a helper that installs it over USB, see [docs/android-acceptance.md](docs/android-acceptance.md).
+
 ### Building the installable apps yourself
 
 - **Windows** needs Visual Studio's *Desktop development with C++* tools, and Windows *Developer Mode* (Settings → System → For developers), because Flutter links its plugins with symbolic links. Then run `flutter build windows --release`. The installer needs [Inno Setup 6](https://jrsoftware.org/isinfo.php): `iscc /DAppVersion=<version> windows\installer\sommelier.iss`.
