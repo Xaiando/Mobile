@@ -10,7 +10,7 @@ expert review; it checks that the software behaves.
 
 | Question | Checked by | Status |
 |---|---|---|
-| The APK builds, targets API 36, has no network permission, is signed, and its 64-bit native libraries are 16 KB aligned | `tool/android/verify_apk.py`, run by the *Android runtime* workflow on every build | automatic |
+| The APK builds, targets API 36, has no network permission, asks for no permission except the microphone, is signed, and its 64-bit native libraries are 16 KB aligned | `tool/android/verify_apk.py`, run by the *Android runtime* workflow on every build | automatic |
 | The app starts on Android 16, installs the curriculum, shows onboarding, survives a second launch and does not crash or ANR | `tool/android/emulator_smoke.sh` on an emulator, in the same workflow | automatic |
 | The same on a kernel with 16 KB memory pages (the Play Store's next requirement) | the workflow's second emulator image | automatic |
 | A learner can pick a track, study a card, taste and rehearse (the whole `integration_test/app_test.dart` flow) | the same emulator session | automatic |
@@ -312,7 +312,7 @@ Mark each row pass, fail or a note. "Expected" is what should happen.
 
 | # | Do | Expected |
 |---|---|---|
-| F1 | Settings > Apps > Sommelier > Permissions | None requested, none granted |
+| F1 | Settings > Apps > Sommelier > Permissions, before you have recorded an audio note | Nothing is allowed. Microphone is the only permission the app can ask for, and it asks at the first recording (rows J1 and J2) |
 | F2 | Settings > Connections > Data usage, after some use | Sommelier's mobile and Wi-Fi data usage is 0 B: the app holds no network permission |
 | F3 | Airplane mode on; use the app, scan a label | Everything works |
 
@@ -350,6 +350,37 @@ a foldable" above). These rows are what only the phone can show.
 | I8 | With the app open on the inner screen, close the phone, then open it again. Try each setting of Settings > Display > *Continue apps on cover screen*: *Always*, *Swipe up to continue app* and *Never* | The app is where you left it, on the same screen with the same typed text, on whichever screen that setting sends it to |
 | I9 | On the inner screen, bring up the taskbar (Settings > Display > Taskbar), and look at the top right where the camera sits under the display | The bottom navigation and buttons are not hidden behind the taskbar or the gesture bar; nothing is unreadable or out of reach at the top right |
 | I10 | *Scan label* once with the phone unfolded, and once folded | Samsung's camera opens on the screen you are using, and the photo comes back to the same wine editor |
+
+### J. Audio notes (tasting notes)
+
+Tasting notes can carry audio recordings. The emulators check that the
+recording and playback plugins load in a release build and that the microphone
+is requested but not granted at install; they cannot record, because they
+have no microphone you can speak into. Recordings are stored inside the
+database, so they count towards the 25 MB that Android's cloud backup allows
+(see "Decisions that are yours").
+
+| # | Do | Expected |
+|---|---|---|
+| J1 | Tasting > New tasting, then open the Audio notes panel. Enter a title and tap *Record* | Samsung asks once for the microphone (*While using the app*, *Only this time*, *Don't allow*). Allow it: recording starts and the timer runs |
+| J2 | Remove the permission (Settings > Apps > Sommelier > Permissions > Microphone > *Don't allow*), then tap *Record* again | The app says the microphone is off and how to turn it on; nothing is recorded; no crash |
+| J3 | Record about 20 seconds, *Pause*, *Resume*, then *Stop and save* | The note is saved with about the right length, plays back with sound, and *Stop* stops it |
+| J4 | Start a recording, press Home (or take a call, or open another app) for a minute, then come back | The recording is saved or clearly stopped, with a message; no crash, and nothing is lost silently |
+| J5 | Fold or unfold the phone while recording | The recording carries on or stops with a message; no crash |
+| J6 | Settings > Your data > Export, then Import the file | The audio notes come back and play |
+| J7 | Settings > Your data > *Download test results for review*; open the ZIP with *My Files* | `report.html`, `report.json` and the CSV files are in it |
+
+### K. Study explorer
+
+The Study tab's *Explore* action opens the grapes, wine history and the WSET
+Level 1 and 2 regions and wines, with facts, flashcards, maps and questions
+for each topic.
+
+| # | Do | Expected |
+|---|---|---|
+| K1 | Study > *Explore* | Four categories: 30 core grapes, wine history, WSET Levels 1 and 2 regions, and wines and styles. Each topic has Facts, Flashcards, Maps and Questions |
+| K2 | On Home choose *WSET Level 1*, then Study > Explore > regions | Level 1 and 2 regions are listed, not only Level 3 material |
+| K3 | Open a region, then its Maps tab; pinch and pan | The map draws and moves smoothly; a tap near the screen edge does not trigger the back gesture |
 
 ## Updating
 
