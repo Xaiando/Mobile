@@ -94,14 +94,18 @@ if (( install )); then
 fi
 adbq shell dumpsys package "$package" > "$out/package.txt"
 # What the system itself reports for the installed app: no runtime permission
-# may be requested or granted. The camera runs through the system camera app,
-# the gallery through the system photo picker and files through the system
-# dialogs, so nothing here needs one.
-runtime_permissions=$(awk '
+# may be granted at install or on launch. The camera runs through the system
+# camera app, the gallery through the system photo picker and files through the
+# system dialogs. The one runtime permission the app may ask for is the
+# microphone, at the first audio note; until the learner allows it, the system
+# lists it as requested and not granted.
+runtime_lines=$(awk '
   /^ *runtime permissions:/ { in_runtime = 1; next }
   in_runtime && /^ *[A-Za-z0-9_.]+: granted=/ { sub(/^ */, ""); print; next }
   in_runtime { in_runtime = 0 }
 ' "$out/package.txt")
+runtime_permissions=$(echo "$runtime_lines" | grep 'granted=true')
+runtime_requested=$(echo "$runtime_lines" | grep 'granted=false' | sed 's/:.*//' | tr '\n' ' ')
 
 # Every check starts a Java process on the device to read the screen, which on
 # a small emulator is heavy enough to slow the very start being timed. So the
@@ -228,7 +232,10 @@ fi
 if [[ -n $runtime_permissions ]]; then
   fail "the system lists runtime permissions for the app: $(echo "$runtime_permissions" | tr '\n' ' ')"
 else
-  note "- the system lists no runtime permission for the app"
+  note "- the system lists no granted runtime permission for the app"
+fi
+if [[ -n $runtime_requested ]]; then
+  note "- requested but not granted: $runtime_requested"
 fi
 denied=$(grep -c -E 'EACCES|missing INTERNET permission|Permission denied.*(socket|INTERNET)' "$out/logcat.txt")
 note "- network attempts the system refused (expected without INTERNET): $denied"

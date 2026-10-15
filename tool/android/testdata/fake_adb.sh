@@ -28,8 +28,8 @@ case "$1" in
       # FAKE_OCR_AFTER_MS: the check app prints its line some time after it starts.
       if (( $(now) - started < ${FAKE_OCR_AFTER_MS:-0} )); then exit 0; fi
       case ${FAKE_OCR:-none} in
-        ok) echo '10-02 12:00:05.000  1234  1234 I flutter : OCR_CHECK {"text":"CHATEAU EXEMPLE | GRAND VIN 2019 | ALC. 14.5% VOL.","vintage":2019,"abv":14.5,"warnings":[],"plugins":{"image_picker":"ok","file_picker":"ok"},"ms":812}' ;;
-        plugin_error) echo '10-02 12:00:05.000  1234  1234 I flutter : OCR_CHECK {"text":"CHATEAU EXEMPLE | GRAND VIN 2019 | ALC. 14.5% VOL.","vintage":2019,"abv":14.5,"warnings":[],"plugins":{"image_picker":"error: MissingPluginException(No implementation found)","file_picker":"ok"},"ms":812}' ;;
+        ok) echo '10-02 12:00:05.000  1234  1234 I flutter : OCR_CHECK {"text":"CHATEAU EXEMPLE | GRAND VIN 2019 | ALC. 14.5% VOL.","vintage":2019,"abv":14.5,"warnings":[],"plugins":{"image_picker":"ok","file_picker":"ok","record":"ok","audioplayers":"ok"},"ms":812}' ;;
+        plugin_error) echo '10-02 12:00:05.000  1234  1234 I flutter : OCR_CHECK {"text":"CHATEAU EXEMPLE | GRAND VIN 2019 | ALC. 14.5% VOL.","vintage":2019,"abv":14.5,"warnings":[],"plugins":{"image_picker":"error: MissingPluginException(No implementation found)","file_picker":"ok","record":"ok","audioplayers":"ok"},"ms":812}' ;;
         wrong) echo '10-02 12:00:05.000  1234  1234 I flutter : OCR_CHECK {"text":"CHATEAU","vintage":null,"abv":null,"warnings":["no_text"],"ms":900}' ;;
         error) echo '10-02 12:00:05.000  1234  1234 I flutter : OCR_CHECK {"error":"PlatformException(MlKitException)","ms":50}' ;;
       esac
@@ -93,6 +93,10 @@ case "$1" in
             echo "      runtime permissions:"
             if [[ ${FAKE_RUNTIME_PERMISSION:-0} == 1 ]]; then
               echo "        android.permission.CAMERA: granted=true, flags=[ USER_SET]"
+            fi
+            # The microphone is asked for at the first recording, never at install.
+            if [[ ${FAKE_MIC_REQUESTED:-0} == 1 ]]; then
+              echo "        android.permission.RECORD_AUDIO: granted=false, flags=[ USER_SENSITIVE_WHEN_GRANTED]"
             fi ;;
           SurfaceFlinger)
             # One display, or FAKE_DISPLAYS of them, as on a foldable.

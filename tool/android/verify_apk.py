@@ -40,6 +40,9 @@ ANDROID_NS = 'http://schemas.android.com/apk/res/android'
 # whether a network exists: it cannot send anything.
 ALLOWED_PERMISSIONS = {
     'android.permission.ACCESS_NETWORK_STATE',
+    # Tasting notes record audio. The system asks the learner at the first
+    # recording; the smoke check shows it is not granted before that.
+    'android.permission.RECORD_AUDIO',
     f'{PACKAGE}.DYNAMIC_RECEIVER_NOT_EXPORTED_PERMISSION',
 }
 # Debug and profile builds also need INTERNET for the Flutter tool.

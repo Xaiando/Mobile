@@ -3,7 +3,8 @@
 //
 // It draws a wine label, reads it back with the function the cellar uses
 // (recognizeLabelText: ML Kit's bundled Latin model), parses the text as a
-// label proposal, and calls the other plugins that have Android code with a
+// label proposal, and calls the other plugins that have Android code (the
+// pickers, and the audio recorder and player of the tasting notes) with a
 // request that needs no screen. It prints one OCR_CHECK line, as JSON, to
 // logcat. tool/android/ocr_smoke.sh builds on that line. CI builds this app
 // in release mode, where R8 shrinks the code and debug builds do not, to show
@@ -19,7 +20,9 @@ import 'dart:ui' as ui;
 import 'package:file_picker/file_picker.dart';
 import 'package:flutter/widgets.dart';
 import 'package:image_picker/image_picker.dart';
+import 'package:audioplayers/audioplayers.dart';
 import 'package:path_provider/path_provider.dart';
+import 'package:record/record.dart';
 import 'package:sommelier/core/journal/label_proposal.dart';
 import 'package:sommelier/features/cellar/label_ocr.dart';
 
@@ -95,6 +98,17 @@ Future<void> main() async {
   result['plugins'] = {
     'image_picker': await _answers(() => ImagePicker().retrieveLostData()),
     'file_picker': await _answers(FilePicker.clearTemporaryFiles),
+    // The tasting notes' audio: asking whether an encoder exists and
+    // setting a volume need no microphone permission and no sound.
+    'record': await _answers(
+      () => AudioRecorder().isEncoderSupported(AudioEncoder.aacLc),
+    ),
+    'audioplayers': await _answers(() async {
+      final player = AudioPlayer();
+      await player.setVolume(0.5);
+      await player.dispose();
+      return null;
+    }),
   };
   result['ms'] = timer.elapsedMilliseconds;
   debugPrint('OCR_CHECK ${jsonEncode(result)}');
