@@ -238,7 +238,7 @@ if [[ -n $runtime_requested ]]; then
   note "- requested but not granted: $runtime_requested"
 fi
 denied=$(grep -c -E 'EACCES|missing INTERNET permission|Permission denied.*(socket|INTERNET)' "$out/logcat.txt")
-note "- network attempts the system refused (expected without INTERNET): $denied"
+note "- network attempts the system refused: $denied"
 note ""
 
 if [[ -f $out/meminfo.txt ]]; then

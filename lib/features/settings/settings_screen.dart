@@ -7,6 +7,8 @@ import '../../core/database/app_database.dart';
 import '../../core/settings/settings_providers.dart';
 import '../../core/settings/user_settings.dart';
 import '../../core/study/study_providers.dart';
+import '../../core/label_ai/label_ai_providers.dart';
+import 'label_ai_settings.dart';
 import 'your_data.dart';
 
 /// Settings (backlog R1): session sizes, appearance, units, and About.
@@ -87,6 +89,10 @@ class SettingsScreen extends ConsumerWidget {
                   learner.setTemperatureUnit(selection.single),
             ),
           ),
+          if (ref.watch(labelAiGatewayProvider).isAvailable) ...[
+            heading('Label reading'),
+            const LabelAiSettingsSection(),
+          ],
           heading('Your data'),
           const YourDataSection(),
           heading('About'),

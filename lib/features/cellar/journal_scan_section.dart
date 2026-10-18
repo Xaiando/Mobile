@@ -6,6 +6,9 @@ import '../../core/journal/journal_photo_store.dart';
 import '../../core/journal/journal_matcher.dart';
 import '../../core/journal/label_proposal.dart';
 import '../../core/journal/journal_scan_recovery.dart';
+import '../../core/label_ai/label_ai_client.dart';
+import '../../core/label_ai/label_ai_gateway.dart';
+import '../../core/label_ai/label_ai_result.dart';
 import '../../core/journal/recovered_scan_storage.dart';
 import 'label_ocr.dart';
 import 'picker_temp_cleanup.dart';
@@ -32,6 +35,7 @@ class JournalScanSection extends StatefulWidget {
     this.onBusyChanged,
     this.picker,
     this.recognizeText,
+    this.labelAi,
   });
 
   /// The owning editor freezes input while saving its captured draft.
@@ -58,6 +62,10 @@ class JournalScanSection extends StatefulWidget {
   final ImagePicker? picker;
   final Future<String> Function(String path)? recognizeText;
 
+  /// The optional online reader. Null, or unavailable on this platform,
+  /// and the section offers only the phone's own reading.
+  final LabelAiGateway? labelAi;
+
   @override
   State<JournalScanSection> createState() => _JournalScanSectionState();
 }
@@ -72,6 +80,13 @@ class _JournalScanSectionState extends State<JournalScanSection>
   bool _busy = false;
   String? _message;
   List<RecoveredScanFile> _recovered = const [];
+
+  /// The photos of this label, front first. They are read together, and
+  /// only the first is saved to the journal; the rest are dropped when the
+  /// scan is replaced or the editor closes.
+  final List<Uint8List> _shots = [];
+  LabelProposal? _onlineProposal;
+  bool _onlineBusy = false;
 
   @override
   bool get wantKeepAlive => true;
@@ -120,6 +135,7 @@ class _JournalScanSectionState extends State<JournalScanSection>
 
   @override
   void dispose() {
+    _shots.clear();
     _raw.dispose();
     super.dispose();
   }
@@ -226,6 +242,10 @@ class _JournalScanSectionState extends State<JournalScanSection>
     setState(() {
       if (_rawFromOcr) _raw.clear();
       _rawFromOcr = false;
+      _shots
+        ..clear()
+        ..add(sanitized);
+      _onlineProposal = null;
     });
     if (!_mobileOcr && widget.recognizeText == null) return;
     final editRevision = _manualEditRevision;
@@ -256,6 +276,164 @@ class _JournalScanSectionState extends State<JournalScanSection>
                     'label text below if useful.',
         );
       }
+    }
+  }
+
+  /// Adds another photo (the back label, a neck label) to this scan. The phone
+  /// reads it too, so the offline reading covers every photo.
+  Future<void> _addPhoto(ImageSource source) async {
+    if (_busy ||
+        !widget.enabled ||
+        _shots.isEmpty ||
+        _shots.length >= LabelAiClient.maxPhotos) {
+      return;
+    }
+    _setBusy(true);
+    setState(() => _message = null);
+    try {
+      if (!_picker.supportsImageSource(source)) {
+        throw const PhotoStoreException(
+          'Camera capture is unavailable on this device. Choose a photo.',
+        );
+      }
+      final androidPicker =
+          !kIsWeb && defaultTargetPlatform == TargetPlatform.android;
+      final file = await _picker.pickImage(
+        source: source,
+        maxWidth: androidPicker ? null : 3000,
+        maxHeight: androidPicker ? null : 3000,
+        imageQuality: androidPicker ? 100 : 90,
+      );
+      if (file != null) {
+        await (_mobileOcr
+            ? withPickedTemporaryPhoto(file.path, () => _readExtraPhoto(file))
+            : _readExtraPhoto(file));
+      }
+    } on PhotoStoreException catch (error) {
+      if (mounted) setState(() => _message = error.message);
+    } catch (_) {
+      if (mounted) {
+        setState(
+          () => _message =
+              'Photo could not be added. Check photo permissions and try '
+              'again.',
+        );
+      }
+    } finally {
+      _setBusy(false);
+    }
+  }
+
+  Future<void> _readExtraPhoto(XFile file) async {
+    if (!mounted || !widget.enabled) return;
+    if (await file.length() > JournalPhotoStore.maxImportBytes) {
+      throw const PhotoStoreException('Choose a photo smaller than 24 MB.');
+    }
+    final sanitized = JournalPhotoStore.sanitize(await file.readAsBytes());
+    if (!mounted || !widget.enabled) return;
+    setState(() {
+      _shots.add(sanitized);
+      _onlineProposal = null;
+      _message = 'Photo ${_shots.length} added to this scan.';
+    });
+    if (!_mobileOcr && widget.recognizeText == null) return;
+    final editRevision = _manualEditRevision;
+    try {
+      final recognized = (await (widget.recognizeText ?? recognizeLabelText)(
+        file.path,
+      )).trim();
+      if (!mounted || !widget.enabled || recognized.isEmpty) return;
+      if (_manualEditRevision != editRevision) return;
+      final current = _raw.text.trim();
+      if (current.isNotEmpty && !_rawFromOcr) return;
+      setState(() {
+        _raw.text = current.isEmpty ? recognized : '$current\n$recognized';
+        _rawFromOcr = true;
+      });
+    } catch (_) {
+      // The photo is still part of the scan and goes to the online reader.
+    }
+  }
+
+  /// Sends this scan's photos to the online reader, once the learner has set
+  /// it up and agreed, and offers what it finds as clues like any others.
+  Future<void> _readOnline() async {
+    final gateway = widget.labelAi;
+    if (gateway == null ||
+        _busy ||
+        _onlineBusy ||
+        !widget.enabled ||
+        _shots.isEmpty) {
+      return;
+    }
+    final settings = await gateway.status();
+    if (!mounted) return;
+    if (!settings.enabled) {
+      setState(
+        () => _message =
+            'Switch on the online reader and add your API key in Settings, '
+            'under Label reading.',
+      );
+      return;
+    }
+    if (!settings.consented) {
+      final agreed =
+          await showDialog<bool>(
+            context: context,
+            builder: (context) => AlertDialog(
+              title: const Text('Send these photos?'),
+              content: const Text(
+                'The photos of this label are sent over the internet to '
+                'Anthropic\u2019s service, using your API key, so that it can '
+                'read them. Your Anthropic account is billed for each '
+                'reading, and Anthropic\u2019s terms apply to what you send. '
+                'This app does not keep the extra photos.',
+              ),
+              actions: [
+                TextButton(
+                  onPressed: () => Navigator.of(context).pop(false),
+                  child: const Text('Cancel'),
+                ),
+                FilledButton(
+                  onPressed: () => Navigator.of(context).pop(true),
+                  child: const Text('Send'),
+                ),
+              ],
+            ),
+          ) ??
+          false;
+      if (!agreed || !mounted) return;
+      await gateway.giveConsent();
+    }
+    setState(() {
+      _onlineBusy = true;
+      _message = 'Reading the label online\u2026';
+    });
+    widget.onBusyChanged?.call(true);
+    try {
+      final result = await gateway.read(List.of(_shots));
+      if (!mounted) return;
+      setState(() {
+        _onlineProposal = result.isEmpty ? null : result.toProposal();
+        _message = result.isEmpty
+            ? 'The online reader found no label details. The phone\u2019s '
+                  'own reading is below.'
+            : 'The online reader suggested these clues. Use only the ones '
+                  'you confirm.';
+      });
+    } on LabelAiException catch (error) {
+      if (mounted) setState(() => _message = error.message);
+    } catch (_) {
+      if (mounted) {
+        setState(
+          () => _message =
+              'The online reading failed. The phone\u2019s own reading is '
+              'below.',
+        );
+      }
+    } finally {
+      if (mounted) setState(() => _onlineBusy = false);
+      widget.onBusyChanged?.call(false);
     }
   }
 
@@ -308,10 +486,14 @@ class _JournalScanSectionState extends State<JournalScanSection>
   Widget build(BuildContext context) {
     super.build(context);
     final theme = Theme.of(context);
-    final proposal = LabelProposal.fromRecognizedText(
+    final offlineProposal = LabelProposal.fromRecognizedText(
       _raw.text,
       matcher: widget.matcher,
     );
+    final proposal = _onlineProposal == null
+        ? offlineProposal
+        : mergeProposals(_onlineProposal!, offlineProposal);
+    final onlineOffered = widget.labelAi?.isAvailable ?? false;
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
@@ -364,7 +546,61 @@ class _JournalScanSectionState extends State<JournalScanSection>
               ),
           ],
         ),
-        if (_busy) const LinearProgressIndicator(),
+        if (_shots.isNotEmpty) ...[
+          const SizedBox(height: 8),
+          Wrap(
+            spacing: 8,
+            runSpacing: 4,
+            crossAxisAlignment: WrapCrossAlignment.center,
+            children: [
+              for (var i = 0; i < _shots.length; i++)
+                Chip(
+                  avatar: ClipOval(
+                    child: Image.memory(
+                      _shots[i],
+                      width: 24,
+                      height: 24,
+                      fit: BoxFit.cover,
+                      gaplessPlayback: true,
+                    ),
+                  ),
+                  label: Text(
+                    i == 0
+                        ? 'Front'
+                        : i == 1
+                        ? 'Back'
+                        : 'Photo ${i + 1}',
+                  ),
+                  onDeleted: i == 0 || _busy || _onlineBusy
+                      ? null
+                      : () => setState(() {
+                          _shots.removeAt(i);
+                          _onlineProposal = null;
+                        }),
+                ),
+              if (_picker.supportsImageSource(ImageSource.camera) &&
+                  _shots.length < LabelAiClient.maxPhotos)
+                OutlinedButton.icon(
+                  onPressed: _busy || _onlineBusy || !widget.enabled
+                      ? null
+                      : () => _addPhoto(ImageSource.camera),
+                  icon: const Icon(Icons.add_a_photo_outlined),
+                  label: Text(
+                    _shots.length == 1 ? 'Add back label' : 'Add another photo',
+                  ),
+                ),
+              if (onlineOffered)
+                FilledButton.icon(
+                  onPressed: _busy || _onlineBusy || !widget.enabled
+                      ? null
+                      : _readOnline,
+                  icon: const Icon(Icons.auto_awesome_outlined),
+                  label: const Text('Read with online AI'),
+                ),
+            ],
+          ),
+        ],
+        if (_busy || _onlineBusy) const LinearProgressIndicator(),
         if (_recovered.isNotEmpty) ...[
           const SizedBox(height: 8),
           const Text(
@@ -424,7 +660,7 @@ class _JournalScanSectionState extends State<JournalScanSection>
           ),
         ),
         const SizedBox(height: 8),
-        if (_raw.text.trim().isNotEmpty) ...[
+        if (_raw.text.trim().isNotEmpty || _onlineProposal != null) ...[
           Wrap(
             spacing: 8,
             runSpacing: 4,
@@ -483,7 +719,7 @@ class _JournalScanSectionState extends State<JournalScanSection>
               'scan suggestion.',
               style: theme.textTheme.bodySmall,
             ),
-          if (proposal.warnings.isNotEmpty)
+          if (proposal.warnings.any((warning) => warning != 'online_ai'))
             Text(
               'Ambiguous or unsupported label text was not filled in. '
               'Check years, percentages and names yourself.',

@@ -24,6 +24,7 @@ import 'package:audioplayers/audioplayers.dart';
 import 'package:path_provider/path_provider.dart';
 import 'package:record/record.dart';
 import 'package:sommelier/core/journal/label_proposal.dart';
+import 'package:sommelier/core/label_ai/label_ai_providers.dart';
 import 'package:sommelier/features/cellar/label_ocr.dart';
 
 const _label = 'CHATEAU EXEMPLE\nGRAND VIN 2019\nALC. 14.5% VOL.';
@@ -103,6 +104,18 @@ Future<void> main() async {
     'record': await _answers(
       () => AudioRecorder().isEncoderSupported(AudioEncoder.aacLc),
     ),
+    // The learner's API key is kept by Android's Keystore through
+    // SecretVault.kt: a value must come back, and be gone once deleted.
+    'secret_vault': await _answers(() async {
+      const store = AndroidSecretStore();
+      await store.write('smoke_check', 'value-1');
+      final back = await store.read('smoke_check');
+      await store.delete('smoke_check');
+      if (back != 'value-1' || await store.read('smoke_check') != null) {
+        throw StateError('the stored value did not come back');
+      }
+      return null;
+    }),
     'audioplayers': await _answers(() async {
       final player = AudioPlayer();
       await player.setVolume(0.5);

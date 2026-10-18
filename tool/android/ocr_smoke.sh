@@ -82,7 +82,7 @@ else
   fi
   [[ $json == *'"vintage":2019'* ]] || { note "- **FAIL** the vintage 2019 was not found"; status=1; }
   [[ $json == *'"abv":14.5'* ]] || { note "- **FAIL** the alcohol level 14.5 % was not found"; status=1; }
-  for plugin in image_picker file_picker record audioplayers; do
+  for plugin in image_picker file_picker record audioplayers secret_vault; do
     [[ $json == *"\"$plugin\":\"ok\""* ]] || { note "- **FAIL** the $plugin plugin did not answer"; status=1; }
   done
 fi

@@ -6,6 +6,7 @@ import 'package:go_router/go_router.dart';
 
 import '../../app/startup.dart';
 import '../../core/database/app_database.dart';
+import '../../core/label_ai/label_ai_providers.dart';
 import '../../core/journal/journal_matcher.dart';
 import '../../core/journal/journal_photo_store.dart';
 import '../../core/journal/label_proposal.dart';
@@ -465,6 +466,7 @@ class _JournalEditorState extends ConsumerState<JournalEditor> {
       const Divider(height: 24),
       JournalScanSection(
         enabled: !_saving,
+        labelAi: ref.read(labelAiGatewayProvider),
         matcher: matcher,
         occupiedFields: {
           if (_producer.text.trim().isNotEmpty) LabelField.producer,

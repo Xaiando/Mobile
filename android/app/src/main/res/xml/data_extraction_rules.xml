@@ -2,8 +2,10 @@
 <data-extraction-rules>
     <cloud-backup>
         <exclude domain="file" path="recovered_scans_v1/" />
+        <exclude domain="sharedpref" path="secret_vault.xml" />
     </cloud-backup>
     <device-transfer>
         <exclude domain="file" path="recovered_scans_v1/" />
+        <exclude domain="sharedpref" path="secret_vault.xml" />
     </device-transfer>
 </data-extraction-rules>

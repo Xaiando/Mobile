@@ -38,7 +38,7 @@ run_case success 0 \
   "first launch: window drawn after 1234 ms" "the app used 14.7 s of CPU and held at most 340 MB in memory" "second launch:" \
   "no crash, ANR or native-library failure in logcat" "ML Kit started its components" \
   "the system lists no granted runtime permission for the app" \
-  "network attempts the system refused (expected without INTERNET): 1" \
+  "network attempts the system refused: 1" \
   "TOTAL PSS" "**Result: passed**" -- FAKE_READY_AFTER_MS=1500 --
 [[ -s $work/out-success/first-launch.png ]] || { echo "FAIL success: no screenshot"; failures=$((failures + 1)); }
 

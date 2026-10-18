@@ -6,8 +6,9 @@ learner's PC, in CI and on a build machine alike. It reads the binary
 manifest, the native libraries and the signing block, and fails if:
 
 * the manifest asks for a permission outside the allow-list. The app works
-  offline (README), so a release APK must not hold INTERNET; ML Kit's
-  libraries merge it in unless the release manifest removes it;
+  offline except for the optional online label reader (docs/label-ai.md),
+  which is why INTERNET is on the list; a build that must stay offline can
+  say so with --forbid-permission android.permission.INTERNET;
 * the app targets an API level below the minimum, is debuggable, allows
   cleartext traffic, or lacks the backup rules that keep recovered scans out
   of backups;
@@ -43,6 +44,9 @@ ALLOWED_PERMISSIONS = {
     # Tasting notes record audio. The system asks the learner at the first
     # recording; the smoke check shows it is not granted before that.
     'android.permission.RECORD_AUDIO',
+    # Only the online label reader uses the network, and only when the
+    # learner asks for a reading (docs/label-ai.md).
+    'android.permission.INTERNET',
     f'{PACKAGE}.DYNAMIC_RECEIVER_NOT_EXPORTED_PERMISSION',
 }
 # Debug and profile builds also need INTERNET for the Flutter tool.
@@ -189,7 +193,8 @@ class Result:
 
 
 def check_manifest(manifest: Element, result: Result, *, debug: bool,
-                   required: tuple[str, ...] = ()) -> None:
+                   required: tuple[str, ...] = (),
+                   forbidden: tuple[str, ...] = ()) -> None:
     permissions = sorted(
         str(node.android('name')) for node in manifest.find_all('uses-permission'))
     permissions += sorted(
@@ -214,11 +219,10 @@ def check_manifest(manifest: Element, result: Result, *, debug: bool,
             result.problems.append(f'permission {name} is required but missing')
     for name in permissions:
         if name not in allowed:
-            hint = ''
-            if name == 'android.permission.INTERNET':
-                hint = (' (ML Kit merges it in; src/release/AndroidManifest.xml '
-                        'removes it for release builds)')
-            result.problems.append(f'permission {name} is not allowed{hint}')
+            result.problems.append(f'permission {name} is not allowed')
+    for name in forbidden:
+        if name in permissions:
+            result.problems.append(f'permission {name} is forbidden')
 
     if sdk is None or sdk.android('targetSdkVersion') is None:
         result.problems.append('no targetSdkVersion in the manifest')
@@ -352,7 +356,8 @@ def check_signing(apk: bytes, archive: zipfile.ZipFile, result: Result) -> None:
 
 
 def verify(path: str, *, debug: bool = False,
-           required: tuple[str, ...] = ()) -> Result:
+           required: tuple[str, ...] = (),
+           forbidden: tuple[str, ...] = ()) -> Result:
     try:
         with open(path, 'rb') as handle:
             apk = handle.read()
@@ -365,7 +370,7 @@ def verify(path: str, *, debug: bool = False,
     result.facts['bytes'] = len(apk)
     result.facts['sha256'] = hashlib.sha256(apk).hexdigest().upper()
     check_manifest(parse_manifest(manifest_bytes), result, debug=debug,
-                   required=required)
+                   required=required, forbidden=forbidden)
     check_native_libraries(apk, archive, result)
     check_signing(apk, archive, result)
     return result
@@ -380,11 +385,15 @@ def main(argv: list[str] | None = None) -> int:
                         metavar='NAME',
                         help='fail unless the manifest holds this permission '
                              '(a debug APK needs android.permission.INTERNET)')
+    parser.add_argument('--forbid-permission', action='append', default=[],
+                        metavar='NAME',
+                        help='fail if the manifest holds this permission')
     parser.add_argument('--json', action='store_true', help='print the result as JSON')
     options = parser.parse_args(argv)
     try:
         result = verify(options.apk, debug=options.debug,
-                        required=tuple(options.require_permission))
+                        required=tuple(options.require_permission),
+                        forbidden=tuple(options.forbid_permission))
     except ApkError as error:
         print(f'error: {error}', file=sys.stderr)
         return 2

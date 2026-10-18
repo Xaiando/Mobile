@@ -1,5 +1,8 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android">
     <uses-permission android:name="android.permission.RECORD_AUDIO" />
+    <!-- Only the online label reader uses the network, and only when the
+         learner asks for a reading (docs/label-ai.md). -->
+    <uses-permission android:name="android.permission.INTERNET" />
     <application
         android:label="Sommelier"
         android:name="${applicationName}"

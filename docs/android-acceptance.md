@@ -10,7 +10,7 @@ expert review; it checks that the software behaves.
 
 | Question | Checked by | Status |
 |---|---|---|
-| The APK builds, targets API 36, has no network permission, asks for no permission except the microphone, is signed, and its 64-bit native libraries are 16 KB aligned | `tool/android/verify_apk.py`, run by the *Android runtime* workflow on every build | automatic |
+| The APK builds, targets API 36, asks for no permission except the microphone and the network (for the optional online label reader), is signed, and its 64-bit native libraries are 16 KB aligned | `tool/android/verify_apk.py`, run by the *Android runtime* workflow on every build | automatic |
 | The app starts on Android 16, installs the curriculum, shows onboarding, survives a second launch and does not crash or ANR | `tool/android/emulator_smoke.sh` on an emulator, in the same workflow | automatic |
 | The same on a kernel with 16 KB memory pages (the Play Store's next requirement) | the workflow's second emulator image | automatic |
 | A learner can pick a track, study a card, taste and rehearse (the whole `integration_test/app_test.dart` flow) | the same emulator session | automatic |
@@ -19,6 +19,8 @@ expert review; it checks that the software behaves.
 | What folding does to a running app: the window changes size under a half-filled wine editor, and the typed text and the screen must survive | the tour's resize walk (`screen_tour.sh --resize-walk`), in the same workflow | automatic |
 | The app comes back from what Android does to it: a first launch killed part-way through, Home and back, a rotation, the window taking each of the Fold's sizes, a critical memory trim, a kill while in the background, Back on the first screen (which must leave the app), and an update installed over it | `tool/android/resilience.sh` on an emulator, in the *Android emulator acceptance* workflow (by hand, or when the script changes) | automatic |
 | A backup restores the journal: a wine and its photo are exported through Settings, Your data, lost, and imported back, and a file that is not a backup changes nothing. The file dialog itself is replaced by memory here | `tool/android_tour/roundtrip.dart` on an emulator, in the same workflow | automatic |
+| The key vault that holds the online reader's API key stores, returns and deletes a value in a release build | the release check app (`tool/android_smoke`), in the *Text recognition and plugins in a release build* job | automatic |
+| How well the online reader and the photos of a front and a back label read real bottles | **only the phone**, with an API key | you, with section L of the list |
 | Camera capture, gallery picking, OCR on a real label, the system file dialogs, gestures, speed on real hardware, heat, battery | **only the phone** | you, with the list below |
 | The hinge and the half-folded (Flex) posture, Samsung's cover-screen continuity, split screen and pop-up view, the taskbar, the camera under the inner display | **only the Z Fold 6** | you, with section I of the list |
 | Anything about the wine facts | a qualified reviewer | never automatic (D3) |
@@ -313,7 +315,7 @@ Mark each row pass, fail or a note. "Expected" is what should happen.
 | # | Do | Expected |
 |---|---|---|
 | F1 | Settings > Apps > Sommelier > Permissions, before you have recorded an audio note | Nothing is allowed. Microphone is the only permission the app can ask for, and it asks at the first recording (rows J1 and J2) |
-| F2 | Settings > Connections > Data usage, after some use | Sommelier's mobile and Wi-Fi data usage is 0 B: the app holds no network permission |
+| F2 | Settings > Connections > Data usage, after some use without the online reader | Sommelier's mobile and Wi-Fi data usage is 0 B. It grows only by the size of the photos when you tap *Read with online AI* |
 | F3 | Airplane mode on; use the app, scan a label | Everything works |
 
 ### G. Your data
@@ -381,6 +383,23 @@ for each topic.
 | K1 | Study > *Explore* | Four categories: 30 core grapes, wine history, WSET Levels 1 and 2 regions, and wines and styles. Each topic has Facts, Flashcards, Maps and Questions |
 | K2 | On Home choose *WSET Level 1*, then Study > Explore > regions | Level 1 and 2 regions are listed, not only Level 3 material |
 | K3 | Open a region, then its Maps tab; pinch and pan | The map draws and moves smoothly; a tap near the screen edge does not trigger the back gesture |
+
+### L. Online label reader and several photos
+
+The emulators cannot call the service (CI has no key), so these rows are the
+only test of how well it reads. Use an Anthropic API key of your own; each
+reading is billed to that account.
+
+| # | Do | Expected |
+|---|---|---|
+| L1 | Settings > Label reading: paste your API key and *Save key* | The field goes away and *Read labels with online AI* is on. A key with a space in it, or a very short one, is refused with a message |
+| L2 | Cellar > add a wine > *Scan label*, photograph the front, then *Add back label* and photograph the back | A *Front* chip and a *Back* chip appear. The text box holds what the phone read from both photos, and vintage and alcohol chips appear if they are printed |
+| L3 | Tap *Read with online AI* (the first time) | A notice asks *Send these photos?*; *Cancel* sends nothing. After *Send*, the clues (producer, cuvée, region, grapes, vintage, alcohol) appear within about 20 seconds and nothing is filled in until you tap one |
+| L4 | Try five different labels, front only and front with back. Compare with what the Vivino app finds for the same bottles | Note, for each, how many fields are right and how many are missing or wrong, and whether the back photo helped |
+| L5 | Turn on airplane mode and tap *Read with online AI* | A message says there is no internet connection and the phone's own clues stay |
+| L6 | Edit the saved key to something wrong, then tap *Read with online AI* | A message says the service did not accept the key |
+| L7 | Settings > Your data > Export, open the file in a text app and search for `sk-ant` | No match: the key is not in the export |
+| L8 | Settings > Label reading > *Remove key*, then tap *Read with online AI* on a scan | The button says to add a key in Settings |
 
 ## Updating
 

@@ -2,7 +2,8 @@ name: Android runtime
 
 # ci.yml only compiles the Android app. Nothing else starts it on Android.
 # This workflow does, on Android 16 emulators, and holds the built APKs to the
-# app's Android contract (tool/android/verify_apk.py): no network permission,
+# app's Android contract (tool/android/verify_apk.py): no permission except the
+# microphone and the network that the optional online label reader uses,
 # API 35+, 16 KB-aligned native libraries, signed.
 #
 # It runs on pull requests that change Android files, the dependencies (a new

@@ -19,7 +19,8 @@ import verify_apk  # noqa: E402
 
 TESTDATA = Path(__file__).parent / 'testdata'
 # The compiled manifest of the CI release APK built from commit 154a2a5,
-# before the release manifest removed INTERNET.
+# when the release manifest still removed INTERNET (it now holds it, for the
+# online label reader).
 REAL_MANIFEST = (TESTDATA / 'AndroidManifest-0.4.0-154a2a5.bin').read_bytes()
 
 
@@ -94,12 +95,18 @@ class ManifestTest(unittest.TestCase):
         ])
         self.assertEqual(result.facts['extractNativeLibs'], False)
 
-    def test_a_release_build_may_not_hold_internet(self):
+    def test_a_release_build_may_hold_internet_for_the_online_reader(self):
         result = verify_apk.Result()
         verify_apk.check_manifest(self.manifest, result, debug=False)
-        self.assertEqual(len(result.problems), 1, result.problems)
-        self.assertIn('android.permission.INTERNET is not allowed', result.problems[0])
-        self.assertIn('src/release/AndroidManifest.xml', result.problems[0])
+        self.assertEqual(result.problems, [])
+
+    def test_a_build_that_must_stay_offline_can_forbid_it(self):
+        result = verify_apk.Result()
+        verify_apk.check_manifest(
+            self.manifest, result, debug=False,
+            forbidden=('android.permission.INTERNET',))
+        self.assertEqual(result.problems, [
+            'permission android.permission.INTERNET is forbidden'])
 
     def test_a_debug_build_may(self):
         result = verify_apk.Result()
@@ -210,6 +217,9 @@ class CommandLineTest(unittest.TestCase):
             path = Path(folder) / 'app.apk'
             make_apk(path, libs={'lib/arm64-v8a/libgood.so': elf64(0x4000)})
             code, text = self.run_main(path)
+            self.assertEqual(code, 0)
+            code, text = self.run_main(
+                path, '--forbid-permission', 'android.permission.INTERNET')
             self.assertEqual(code, 1)
             self.assertIn('FAIL permission android.permission.INTERNET', text)
             code, text = self.run_main(path, '--debug')
