@@ -1,6 +1,7 @@
 import 'package:fsrs/fsrs.dart' as fsrs;
 
 import '../database/app_database.dart';
+import '../database/read_cache.dart';
 import 'exercise.dart';
 
 /// The skills a question format trains (question-system §3).
@@ -73,7 +74,12 @@ class PresentationContext {
 /// What a format generates from, inside the ingestion transaction: its
 /// pools, or which items it can ask.
 class GeneratorContext {
-  const GeneratorContext(this.db, {required this.today, required this.items});
+  GeneratorContext(
+    this.db, {
+    required this.today,
+    required this.items,
+    ReadCache? reads,
+  }) : reads = reads ?? ReadCache();
 
   final AppDatabase db;
 
@@ -82,6 +88,12 @@ class GeneratorContext {
 
   /// The items in force, the only ones a pool may hold (FS-13).
   final List<KnowledgeItem> items;
+
+  /// What this generation pass has read. The curriculum does not change
+  /// during it, so a format that frames or searches the same node as another
+  /// reads it from here instead of querying again (a [ReadCache] belongs to
+  /// one pass).
+  final ReadCache reads;
 }
 
 /// A question format, plugged in (question-system §9): how its questions

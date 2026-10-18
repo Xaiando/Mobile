@@ -5,6 +5,7 @@ import 'package:drift/drift.dart';
 
 import '../curriculum/knowledge_graph.dart';
 import '../database/app_database.dart';
+import '../database/read_cache.dart';
 
 /// A rectangle of longitudes and latitudes.
 final class GeoBox {
@@ -101,11 +102,16 @@ final class MapFrame {
 /// feature, bounding box and label point (geography §3). Containment follows
 /// the `LOCATED_IN` relations in force (GEO-6).
 class GeometryRepository {
-  GeometryRepository(this.db, {Clock? clock})
-    : _graph = KnowledgeGraph(db, clock: clock);
+  /// With a [cache], what is drawn where is read once each, for a pass that
+  /// does not change the geometry (question generation, which frames every
+  /// location item). Questions presented to a learner use none.
+  GeometryRepository(this.db, {Clock? clock, ReadCache? cache})
+    : _graph = KnowledgeGraph(db, clock: clock, cache: cache),
+      _cache = cache;
 
   final AppDatabase db;
   final KnowledgeGraph _graph;
+  final ReadCache? _cache;
 
   /// The frame's margin, as a share of the framing area's size on each side.
   static const frameMargin = 0.1;
@@ -145,25 +151,44 @@ class GeometryRepository {
   }
 
   /// [nodeId] in each layer that draws it, the coarsest layer first.
-  Future<List<MappedNode>> geometriesOf(String nodeId) =>
-      _mapped('g.knowledge_node_id = ?1', [Variable(nodeId)]);
+  Future<List<MappedNode>> geometriesOf(String nodeId) => _remembered((
+    'geometries',
+    nodeId,
+  ), () => _mapped('g.knowledge_node_id = ?1', [Variable(nodeId)]));
+
+  /// [read], once per [key] when there is a cache. A cached list cannot be
+  /// changed by whoever receives it.
+  Future<List<MappedNode>> _remembered(
+    Object key,
+    Future<List<MappedNode>> Function() read,
+  ) {
+    final cache = _cache;
+    if (cache == null) return read();
+    return cache.of(
+      key,
+      () async => List<MappedNode>.unmodifiable(await read()),
+    );
+  }
 
   /// The nodes of [nodeType] whose label point lies in [box], by name, each
   /// once: a node drawn in several layers counts in its coarsest.
   Future<List<MappedNode>> candidatesIn(
     GeoBox box, {
     required String nodeType,
-  }) async => _once(
-    await _mapped(
-      'n.node_type = ?1 AND g.label_lon BETWEEN ?2 AND ?3 '
-      'AND g.label_lat BETWEEN ?4 AND ?5',
-      [
-        Variable(nodeType),
-        Variable(box.minLon),
-        Variable(box.maxLon),
-        Variable(box.minLat),
-        Variable(box.maxLat),
-      ],
+  }) => _remembered(
+    ('candidates', nodeType, box.minLon, box.minLat, box.maxLon, box.maxLat),
+    () async => _once(
+      await _mapped(
+        'n.node_type = ?1 AND g.label_lon BETWEEN ?2 AND ?3 '
+        'AND g.label_lat BETWEEN ?4 AND ?5',
+        [
+          Variable(nodeType),
+          Variable(box.minLon),
+          Variable(box.maxLon),
+          Variable(box.minLat),
+          Variable(box.maxLat),
+        ],
+      ),
     ),
   );
 

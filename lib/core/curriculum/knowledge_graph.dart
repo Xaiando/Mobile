@@ -2,6 +2,7 @@ import 'package:clock/clock.dart';
 import 'package:drift/drift.dart';
 
 import '../database/app_database.dart';
+import '../database/read_cache.dart';
 import '../time/utc_clock.dart';
 
 /// A node reached by a traversal, [depth] steps from where it started.
@@ -82,10 +83,15 @@ class ExpiredItem {
 /// Only relations current on the date given (by default the device's local
 /// date) are followed: `valid_from <= date < valid_until` (audit V-2).
 class KnowledgeGraph {
-  KnowledgeGraph(this.db, {Clock? clock}) : _clock = clock ?? const Clock();
+  /// With a [cache], the places that contain or are contained in a node are
+  /// read once each, for a pass that does not change the relations (question
+  /// generation).
+  KnowledgeGraph(this.db, {Clock? clock, this._cache})
+    : _clock = clock ?? const Clock();
 
   final AppDatabase db;
   final Clock _clock;
+  final ReadCache? _cache;
 
   /// Deep enough for any containment chain; bounds the recursion even if a
   /// cycle slipped past the validator.
@@ -108,6 +114,21 @@ class KnowledgeGraph {
       _containment(nodeId, upward: false, on: on);
 
   Future<List<GraphNode>> _containment(
+    String nodeId, {
+    required bool upward,
+    String? on,
+  }) {
+    final cache = _cache;
+    if (cache == null) return _readContainment(nodeId, upward: upward, on: on);
+    return cache.of(
+      ('containment', upward, nodeId, on),
+      () async => List<GraphNode>.unmodifiable(
+        await _readContainment(nodeId, upward: upward, on: on),
+      ),
+    );
+  }
+
+  Future<List<GraphNode>> _readContainment(
     String nodeId, {
     required bool upward,
     String? on,
