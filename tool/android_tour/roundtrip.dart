@@ -119,7 +119,12 @@ Future<List<String>> roundTripYourData(
     router.go('/settings');
     await settle(tester);
     final row = find.text(title);
-    await tester.scrollUntilVisible(row, 300);
+    await tester.scrollUntilVisible(
+      row,
+      300,
+      // The key field in Label reading holds a Scrollable of its own.
+      scrollable: find.byType(Scrollable).first,
+    );
     await tester.ensureVisible(row);
     await tester.pump();
     await tester.tap(row);

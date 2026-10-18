@@ -267,7 +267,12 @@ class _Walk {
     await step('settings', () async {
       await go('/settings', 'settings');
       await capture('settings');
-      await tester.scrollUntilVisible(find.text('Erase all data'), 300);
+      await tester.scrollUntilVisible(
+        find.text('Erase all data'),
+        300,
+        // The key field in Label reading holds a Scrollable of its own.
+        scrollable: find.byType(Scrollable).first,
+      );
       await settle(tester);
       await capture('settings-data');
     });
